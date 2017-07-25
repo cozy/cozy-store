@@ -1,12 +1,11 @@
+[![Travis build status shield](https://img.shields.io/travis/cozy/<SLUG_GH>/master.svg)](https://travis-ci.org/cozy/<SLUG_GH>)
+[![NPM release version shield](https://img.shields.io/npm/v/<SLUG_NPM>.svg)](https://www.npmjs.com/package/<SLUG_NPM>)
+[![Github Release version shield](https://img.shields.io/github/tag/cozy/<SLUG_GH>.svg)](https://github.com/cozy/<SLUG_GH>/releases)
+[![NPM Licence shield](https://img.shields.io/npm/l/<SLUG_NPM>.svg)](https://github.com/cozy/<SLUG_GH>/blob/master/LICENSE)
 
-[![Travis build status shield](https://img.shields.io/travis/cozy/cozy-store.svg?branch=master)](https://travis-ci.org/cozy/cozy-store)
-[![NPM release version shield](https://img.shields.io/npm/v/cozy-store.svg)](https://www.npmjs.com/package/cozy-store)
-[![Github Release version shield](https://img.shields.io/github/tag/cozy/cozy-store.svg)](https://github.com/cozy/cozy-store/releases)
-[![NPM Licence shield](https://img.shields.io/npm/l/cozy-store.svg)](https://github.com/cozy/cozy-store/blob/master/LICENSE)
 
-
-[Cozy] Settings
-===============
+[Cozy] <APP_NAME>
+=======================
 
 
 What's Cozy?
@@ -17,10 +16,10 @@ What's Cozy?
 [Cozy] is a platform that brings all your web services in the same private space.  With it, your webapps and your devices can share data easily, providing you with a new experience. You can install Cozy on your own hardware where no one's tracking you.
 
 
-What's Store?
-----------------
+What's Cozy <APP_NAME>?
+-----------------------
 
-Cozy Store is the marketplace application that allow you to manage your apps in your Cozy.
+<APP_SHORT_DESCRIPTION>
 
 
 Hack
@@ -30,26 +29,19 @@ _:pushpin: Note:_ we recommend to use [Yarn] instead of NPM for package manageme
 
 ### Install and run in dev mode
 
-Hacking the Store app requires you to [setup a dev environment][setup].
+Hacking the Cozy <APP_NAME> app requires you to [setup a dev environment][setup].
 
 You can then clone the app repository and install dependencies:
 
 ```sh
-$ git clone https://github.com/cozy/cozy-store.git
-$ cd cozy-store
+$ git clone https://github.com/cozy/<SLUG_GH>.git
+$ cd <SLUG_GH>
 $ yarn install
 ```
 
 :pushpin: If you use a node environment wrapper like [nvm] or [ndenv], don't forget to set your local node version before doing a `yarn install`.
 
-Cozy's apps use a standard set of _npm scripts_ to run common tasks. You can so start you development workflow with:
-
-```sh
-$ cd cozy-store
-$ yarn run watch:server
-```
-
-and point your browser to http://localhost:8090.
+Cozy's apps use a standard set of _npm scripts_ to run common tasks, like watch, lint, test, build…
 
 
 ### Run it inside the VM
@@ -58,21 +50,21 @@ You can easily view your current running app, you can use the [cozy-stack docker
 
 ```sh
 # in a terminal, run your app in watch mode
-$ cd cozy-store
+$ cd <SLUG_GH>
 $ yarn watch:browser
 ```
 
 ```sh
 # in another terminal, run the docker container
-$ docker run --rm -it -p 8080:8080 -v "$(pwd)/build":/data/cozy-app/store cozy/cozy-app-dev
+$ docker run --rm -it -p 8080:8080 -v "$(pwd)/build":/data/cozy-app/<SLUG_GH> cozy/cozy-app-dev
 or
 $ yarn stack:docker
 ```
 
-your app is available at http://store.cozy.tools:8080.
+your app is available at http://<SLUG_GH>.cozy.tools:8080.
 
 
-#### Note about Cozy-ui
+### Living on the edge
 
 [Cozy-ui] is our frontend stack library that provides common styles and components accross the whole Cozy's apps. You can use it for you own application to follow the official Cozy's guidelines and styles. If you need to develop / hack cozy-ui, it's sometimes more useful to develop on it through another app. You can do it by cloning cozy-ui locally and link it to yarn local index:
 
@@ -86,7 +78,7 @@ yarn link
 then go back to your app project and replace the distributed cozy-ui module with the linked one:
 
 ```sh
-cd cozy-store
+cd cozy-drive
 yarn link cozy-ui
 ```
 
@@ -100,7 +92,7 @@ You can now run the watch task and your project will hot-reload each times a coz
 Tests are run by [mocha] under the hood, and written using [chai] and [sinon]. You can easily run the tests suite with:
 
 ```sh
-$ cd cozy-store
+$ cd <SLUG_GH>
 $ yarn test
 ```
 
@@ -121,7 +113,7 @@ Whenever your app needs to use a given `doctype`, you should:
 
 ### Open a Pull-Request
 
-If you want to work on Settings and submit code modifications, feel free to open pull-requests! See the [contributing guide][contribute] for more information about how to properly open pull-requests.
+If you want to work on Cozy <APP_NAME> and submit code modifications, feel free to open pull-requests! See the [contributing guide][contribute] for more information about how to properly open pull-requests.
 
 
 Community
@@ -133,12 +125,12 @@ Localization and translations are handled by [Transifex][tx], which is used by a
 
 As a _translator_, you can login to [Transifex][tx-signin] (using your Github account) and claim an access to the [app repository][tx-app]. Locales are pulled when app is build before publishing.
 
-As a _developer_, you must [configure the transifex client][tx-client], and claim an access as _maintainer_ is the [app repository][tx-app]. Then please **only update** the source locale file (usually `en.json` in client and/or server parts), and push it to Transifex repository using the `tx push -s` command.
+As a _developer_, you must [configure the transifex client][tx-client], and claim an access as _maintainer_ to the [app repository][tx-app]. Then please **only update** the source locale file (usually `en.json` in client and/or server parts), and push it to Transifex repository using the `tx push -s` command.
 
 
 ### Maintainer
 
-The lead maintainer for Cozy Store is @CPatchane, send him/her a :beers: to say hello!
+The lead maintainer for Cozy <APP_NAME> is [<APP_MAINTAINER>](https://github.com/<APP_MAINTAINER>), send him/her a :beers: to say hello!
 
 
 ### Get in touch
@@ -154,7 +146,7 @@ You can reach the Cozy Community by:
 License
 -------
 
-Cozy Settings is developed by Cozy Cloud and distributed under the [AGPL v3 license][agpl-3.0].
+Cozy <APP_NAME> is developed by Cozy Cloud and distributed under the [AGPL v3 license][agpl-3.0].
 
 
 
@@ -173,7 +165,7 @@ Cozy Settings is developed by Cozy Cloud and distributed under the [AGPL v3 lice
 [contribute]: CONTRIBUTING.md
 [tx]: https://www.transifex.com/cozy/
 [tx-signin]: https://www.transifex.com/signin/
-[tx-app]: https://www.transifex.com/cozy/cozy-settings/dashboard/
+[tx-app]: https://www.transifex.com/cozy/<SLUG_TX>/dashboard/
 [tx-client]: http://docs.transifex.com/client/
 [freenode]: http://webchat.freenode.net/?randomnick=1&channels=%23cozycloud&uio=d4
 [forum]: https://forum.cozy.io/
