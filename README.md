@@ -5,7 +5,7 @@
 [![NPM Licence shield](https://img.shields.io/npm/l/cozy-store.svg)](https://github.com/cozy/cozy-store/blob/master/LICENSE)
 
 
-[Cozy] Settings
+[Cozy] Store
 ===============
 
 
