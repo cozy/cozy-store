@@ -3,17 +3,17 @@
 const webpack = require('webpack')
 
 module.exports = {
-  devtool: 'cheap-source-map',
+  devtool: '#source-map',
   externals: ['cozy'],
   module: {
-    loaders: [{
+    rules: [{
       test: require.resolve('cozy-bar/dist/cozy-bar.js'),
-      loader: 'imports?css=./cozy-bar.css'
+      loader: 'imports-loader?css=./cozy-bar.css'
     }]
   },
   plugins: [
     new webpack.DefinePlugin({
-      __SERVER__: JSON.stringify('http://app.cozy.local:8080'),
+      __DEVELOPMENT__: true,
       __STACK_ASSETS__: false
     }),
     new webpack.ProvidePlugin({

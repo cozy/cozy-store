@@ -12,11 +12,11 @@ const SRC_DIR = path.resolve(__dirname, '../src')
 
 module.exports = {
   output: {
-    filename: 'app.js'
+    filename: '[name].js'
   },
   resolve: {
     modules: ['node_modules', 'src'],
-    extensions: ['', '.js', '.json', '.css'],
+    extensions: ['.js', '.json', '.css'],
     alias: {
       styles: path.resolve(SRC_DIR, './styles/'),
       components: path.resolve(SRC_DIR, './components/'),
@@ -24,14 +24,16 @@ module.exports = {
     }
   },
   module: {
-    preLoaders: [
+    rules: [
       {
+        enforce: 'pre', // was preLoaders property in webpack v1
         test: /\.jsx?$/,
+        loader: 'standard-loader',
         exclude: /node_modules/,
-        loader: 'standard-loader'
-      }
-    ],
-    loaders: [
+        options: {
+          parser: 'babel-eslint'
+        }
+      },
       {
         test: /\.js$/,
         exclude: /(node_modules|cozy-(bar|client-js))/,
@@ -39,33 +41,42 @@ module.exports = {
       },
       {
         test: /\.json$/,
-        loader: 'json'
+        loader: 'json-loader'
       },
       {
         test: /\.css$/,
-        loader: extractor.extract('style', [
-          'css-loader?importLoaders=1',
-          'postcss-loader'
-        ])
+        loader: extractor.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: true,
+                importLoaders: 1
+              }
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                sourceMap: true,
+                plugins: function () {
+                  return [ require('autoprefixer')({ browsers: ['last 2 versions'] }) ]
+                }
+              }
+            }
+          ]
+        })
       }
     ],
     noParse: [
       /localforage\/dist/
     ]
   },
-  standard: {
-    parser: 'babel-eslint'
-  },
-  postcss: () => {
-    return [
-      require('autoprefixer')(['last 2 versions'])
-    ]
-  },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../src/index.ejs'),
       title: pkg.name,
-      inject: 'head',
+      inject: false,
       minify: {
         collapseWhitespace: true
       }

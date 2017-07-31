@@ -12,7 +12,7 @@ module.exports = {
     function () {
       this.plugin('done', (stats) => {
         fs.writeFileSync(
-          path.join(targetConfig.output.path, 'assets.json'),
+          path.join(targetConfig.output.path, '../build/assets.json'),
           `{"hash":"${stats.hash}"}`
         )
       })
