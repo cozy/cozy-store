@@ -1,0 +1,13 @@
+.sto-cat-myapps {
+	background: url('../assets/icons/icon-cozy.svg') no-repeat 1.5em center/1em;
+}
+
+.sto-cat-myapps.active {
+	background-image: url('../assets/icons/icon-cozy-active.svg');
+}
+
+@media (max-width: 63.9375rem) {
+  .sto-cat-myapps {
+  	background-position: center -.75em
+  }
+}

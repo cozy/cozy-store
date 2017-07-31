@@ -1,0 +1,17 @@
+import React from 'react'
+import { translate } from 'cozy-ui/react/I18n'
+import { NavLink } from 'react-router-dom'
+
+export const Nav = ({ t }) => (
+  <nav>
+    <ul className='coz-nav'>
+      <li className='coz-nav-item'>
+        <NavLink to='/myapps' className='sto-cat-myapps coz-nav-link' activeClassName='active'>
+          { t('Nav.myapps') }
+        </NavLink>
+      </li>
+    </ul>
+  </nav>
+)
+
+export default translate()(Nav)

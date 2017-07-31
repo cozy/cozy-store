@@ -1,11 +1,15 @@
-import styles from '../styles/app'
 
 import React from 'react'
-import { translate } from '../lib/I18n'
-import classNames from 'classnames'
 
-const App = ({ t }) => (
-  <h1 className={classNames(styles['title'])}>{ t('App.welcome') }</h1>
+import Sidebar from './Sidebar'
+import AppRoutes from './AppRoutes'
+
+const App = () => (
+  <div className='sto-wrapper coz-sticky'>
+    <Sidebar />
+    <main className='sto-content'>
+      <AppRoutes />
+    </main>
+  </div>
 )
-
-export default translate()(App)
+export default App
