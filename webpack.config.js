@@ -12,6 +12,7 @@ const common = merge(
   require('./config/webpack.config.vendors'),
   require('./config/webpack.config.manifest'),
   require(`./config/webpack.target.${target}`),
+  require('./config/webpack.config.piwik'),
   hotReload ? require('./config/webpack.config.hot-reload') : undefined
 )
 

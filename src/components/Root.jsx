@@ -1,16 +1,16 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { I18n } from 'cozy-ui/react/I18n'
-import { HashRouter } from 'react-router-dom'
+import PiwikHashRouter from '../lib/PiwikHashRouter'
 
 import App from './App'
 
 const Root = ({ context, lang, store }) => {
   return <I18n lang={lang} dictRequire={(lang) => require(`../locales/${lang}`)}>
     <Provider store={store}>
-      <HashRouter>
+      <PiwikHashRouter>
         <App />
-      </HashRouter>
+      </PiwikHashRouter>
     </Provider>
   </I18n>
 }
