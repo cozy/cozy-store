@@ -78,7 +78,7 @@ async function getIcon (url) {
 }
 
 const NOT_REMOVABLE_APPS = ['drive', 'collect']
-const NOT_DISPLAYED_APPS = ['settings', 'store']
+const NOT_DISPLAYED_APPS = ['settings', 'store', 'onboarding']
 export function fetchApps (cozyUrl, token) {
   return (dispatch, getState) => {
     dispatch({type: FETCH_MY_APPS})
