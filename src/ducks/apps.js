@@ -77,7 +77,8 @@ async function getIcon (url) {
   }
 }
 
-const PLATFORM_APPS = ['settings', 'drive', 'collect']
+const NOT_REMOVABLE_APPS = ['drive', 'collect']
+const NOT_DISPLAYED_APPS = ['settings', 'store']
 export function fetchApps (cozyUrl, token) {
   return (dispatch, getState) => {
     dispatch({type: FETCH_MY_APPS})
@@ -97,11 +98,12 @@ export function fetchApps (cozyUrl, token) {
           return Object.assign({}, app.attributes, {
             _id: app.id,
             icon: iconData,
-            removable: !PLATFORM_APPS.includes(app.attributes.slug)
+            uninstallable: !NOT_REMOVABLE_APPS.includes(app.attributes.slug)
           })
         })
       }))
       .then(myApps => {
+        myApps = myApps.filter(app => !NOT_DISPLAYED_APPS.includes(app.slug))
         dispatch({type: FETCH_MY_APPS_SUCCESS, myApps})
         return myApps
       })
