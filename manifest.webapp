@@ -1,7 +1,8 @@
 {
-  "name": "cozy-store",
-  "slug": "cozy-store",
-  "icon": "icon.svg",
+  "name": "store",
+  "slug": "app",
+  "icon": "icon-store.svg",
+  "editor": "Cozy",
   "description": "The apps store for Cozy V3",
   "category": "cozy",
   "version": "3.0.0",
@@ -22,8 +23,15 @@
   },
   "permissions": {
     "apps": {
-      "description": "Required by the cozy-bar to display the icons of the apps",
+      "description": "Required to manage applications",
       "type": "io.cozy.apps",
+      "verbs": [
+        "GET"
+      ]
+    },
+    "settings": {
+      "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
+      "type": "io.cozy.settings",
       "verbs": ["GET"]
     }
   }
