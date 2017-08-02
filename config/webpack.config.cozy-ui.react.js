@@ -1,19 +1,13 @@
 'use strict'
 
-const webpack = require('webpack')
-
 const { extractor } = require('./webpack.vars')
-const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
 
 module.exports = {
-  resolve: {
-    extensions: ['.styl']
-  },
   module: {
     rules: [
       {
         test: /\.styl$/,
-        exclude: /(node_modules)/,
+        include: /(cozy-ui\/react)/,
         loader: extractor.extract({
           fallback: 'style-loader',
           use: [
@@ -21,7 +15,9 @@ module.exports = {
               loader: 'css-loader',
               options: {
                 sourceMap: true,
-                importLoaders: 1
+                importLoaders: 1,
+                modules: true,
+                localIdentName: '[local]--[hash:base64:5]'
               }
             },
             {
@@ -38,15 +34,5 @@ module.exports = {
         })
       }
     ]
-  },
-  plugins: [
-    new SpriteLoaderPlugin(),
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        stylus: {
-          use: [ require('cozy-ui/stylus')() ]
-        }
-      }
-    })
-  ]
+  }
 }
