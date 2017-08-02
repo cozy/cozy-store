@@ -7,7 +7,7 @@ export const Nav = ({ t }) => (
     <ul className='coz-nav'>
       <li className='coz-nav-item'>
         <NavLink to='/myapps' className='sto-cat-myapps coz-nav-link' activeClassName='active'>
-          { t('Nav.myapps') }
+          { t('nav.myapps') }
         </NavLink>
       </li>
     </ul>

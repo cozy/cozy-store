@@ -1,9 +1,9 @@
 .sto-cat-myapps {
-	background: url('../assets/icons/icon-cozy.svg') no-repeat 1.5em center/1em;
+	background: var(--icon-cozy) no-repeat 1.5em center/1em;
 }
 
 .sto-cat-myapps.active {
-	background-image: url('../assets/icons/icon-cozy-active.svg');
+	background-image: var(--icon-cozy-active);
 }
 
 @media (max-width: 63.9375rem) {

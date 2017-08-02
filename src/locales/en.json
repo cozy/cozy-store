@@ -1,5 +1,15 @@
 {
-  "Nav": {
+  "myapps": {
+    "title": "My Applications"
+  },
+  "nav": {
     "myapps": "My Applications"
+  },
+  "soon": {
+    "title": "Coming soon",
+    "description": "The Store application is not fully available yet, we are still working on it. For more information, please contact us at contact@cozycloud.cc."
+  },
+  "loading": {
+    "appsFetching": "Loading..."
   }
 }

@@ -1,0 +1,45 @@
+.sto-empty {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	flex: 1 0 auto;
+	align-self: center;
+	padding: 1em 0;
+	text-align: center;
+}
+
+.sto-empty:before {
+	content: '';
+	display: block;
+	margin: 0 auto;
+	width: 10rem;
+	height: 8.75rem;
+}
+
+.sto-empty h2 {
+	margin: 2em auto 0;
+	line-height: 1.3;
+	color: var(--charcoal-grey);
+	letter-spacing: -0.2px;
+}
+
+.sto-empty p {
+	margin-top: em(5px);
+	color: var(--cool-grey);
+	line-height: 1.5;
+}
+
+@media (max-width: 63.9375rem) {
+	.sto-empty:before {
+		width: 5rem;
+		height: 4.375rem;
+	}
+
+	.sto-empty h2 {
+		margin: 2em 1.5em 0;
+	}
+
+	.sto-empty p {
+		margin: .5em 1.5em 0;
+	}
+}
