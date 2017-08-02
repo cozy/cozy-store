@@ -48,8 +48,9 @@ export const myAppsReducers = combineReducers({
 })
 
 // Since apps ressource is not available from cozy-client-js
-const STACK_DOMAIN = '//' + document.querySelector('[role=application]').dataset.cozyDomain
-const STACK_TOKEN = document.querySelector('[role=application]').dataset.cozyToken
+const APP_NODE = document.querySelector('[role=application]')
+const STACK_DOMAIN = APP_NODE ? '//' + APP_NODE.dataset.cozyDomain : ''
+const STACK_TOKEN = APP_NODE ? APP_NODE.dataset.cozyToken : ''
 
 // the option credentials:include tells fetch to include the cookies in the
 // request even for cross-origin requests

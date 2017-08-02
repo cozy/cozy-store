@@ -1,1 +1,15 @@
-exports[`test Hello world 1`] = `null`;
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component only should be mounted correctly 1`] = `
+<div
+  className="sto-wrapper coz-sticky"
+>
+  <Sidebar />
+  <main
+    className="sto-content"
+    onClick={[Function]}
+  >
+    <AppRoutes />
+  </main>
+</div>
+`;

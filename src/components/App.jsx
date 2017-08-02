@@ -7,7 +7,7 @@ import AppRoutes from './AppRoutes'
 import { translate } from 'cozy-ui/react/helpers/i18n'
 import Modal from 'cozy-ui/react/Modal'
 
-class App extends Component {
+export class App extends Component {
   constructor (props) {
     super(props)
     this.state = {

@@ -17,7 +17,7 @@
     "prewatch:browser": "npm run clean:browser",
     "lint": "npm-run-all --parallel 'lint:*'",
     "lint:js": "standard --parser babel-eslint 'src/**/*.js' 'src/**/*.jsx'",
-    "lint:styles": "stylint src/styles --config ./.stylintrc",
+    "lint:styles": "stylint src/styles/index.styl --config ./.stylintrc",
     "stack:docker": "docker run --rm -it -p 8080:8080 -v \"$(pwd)/build\":/data/cozy-app/app cozy/cozy-app-dev",
     "test": "node --harmony_proxies node_modules/.bin/jest",
     "watch": "npm run watch:browser",
