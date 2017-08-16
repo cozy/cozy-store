@@ -8,6 +8,8 @@
 [Cozy] Store
 ===============
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/cozy/cozy-store.svg)](https://greenkeeper.io/)
+
 
 What's Cozy?
 ------------
