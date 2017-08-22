@@ -5,7 +5,9 @@
 @import './palette.styl'
 @import './nav.css'
 @import './empty.css'
+@import './smallAppItemsList.css'
 @import './myApplications.css'
+@import './Discover.css'
 
 .sto-wrapper
     @extend $app-2panes-sticky
@@ -16,6 +18,10 @@
     top-padded(15px)
     @media (max-width: (768/basefont)rem)
         top-padded(10px)
+
+.sto-soon
+    filter  grayscale(100%)
+    opacity .5
 
 [role=application]
     // need this due to no css-modules usage in this app
