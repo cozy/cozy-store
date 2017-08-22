@@ -1,8 +1,13 @@
 {
+  "discover": {
+    "title": "Discover",
+    "get_started": "Get started with Cozy"
+  },
   "myapps": {
     "title": "My Applications"
   },
   "nav": {
+    "discover": "Discover",
     "myapps": "My Applications"
   },
   "soon": {

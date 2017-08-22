@@ -1,3 +1,11 @@
+.sto-cat-discover {
+	background: var(--icon-compass) no-repeat 1.5em center/1em;
+}
+
+.sto-cat-discover.active {
+	background-image: var(--icon-compass-active);
+}
+
 .sto-cat-myapps {
 	background: var(--icon-cozy) no-repeat 1.5em center/1em;
 }
