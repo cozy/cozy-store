@@ -15,7 +15,7 @@ class MyApplications extends Component {
     const { t, myApps, isFetching, error } = this.props
     return (
       <div className='sto-myapps'>
-        <h2 className='sto-content-title'>{t('myapps.title')}</h2>
+        <h2 className='sto-myapps-title'>{t('myapps.title')}</h2>
         <div className='sto-myapps-list'>
           {!isFetching && myApps && !!myApps.length &&
             myApps.map(a => {
