@@ -22,7 +22,10 @@
       "title": "Uninstall this application",
       "description": "This application is bound to be removed from your Cozy %{cozyName}. Are you sure to __remove this application definitively__?",
       "cancel": "Cancel",
-      "uninstall": "Uninstall"
+      "uninstall": "Uninstall",
+      "alerts": {
+        "success": "The application has correctly been uninstalled."
+      }
     }
   }
 }

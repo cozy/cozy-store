@@ -90,6 +90,15 @@ export function fetchApps () {
 export function uninstallApp (slug) {
   return (dispatch, getState) => {
     return cozy.client.fetchJSON('DELETE', `/apps/${slug}`)
+    .then(() => {
+      return dispatch({
+        type: 'SEND_LOG_SUCCESS',
+        alert: {
+          message: 'app_modal.uninstall.alerts.success',
+          level: 'success'
+        }
+      })
+    })
     .catch(e => {
       dispatch({type: FETCH_MY_APPS_FAILURE, error: e})
       throw new UnavailableStackException()
