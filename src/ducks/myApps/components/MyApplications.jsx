@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom'
 import { translate } from 'cozy-ui/react/I18n'
 import Spinner from 'cozy-ui/react/Spinner'
 
-import SmallAppItem from './SmallAppItem'
+import SmallAppItem from '../../components/SmallAppItem'
 import ApplicationModal from './ApplicationModal'
 
 class MyApplications extends Component {

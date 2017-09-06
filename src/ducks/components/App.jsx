@@ -4,8 +4,8 @@ import React, { Component } from 'react'
 import Sidebar from './Sidebar'
 import { Route, Switch, Redirect } from 'react-router-dom'
 
-import MyApplications from '../containers/MyApplications'
-import Discover from '../components/Discover'
+import MyApplications from '../myApps/Container'
+import Discover from './Discover'
 import { translate } from 'cozy-ui/react/helpers/i18n'
 import Modal from 'cozy-ui/react/Modal'
 

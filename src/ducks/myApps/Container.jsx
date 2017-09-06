@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
 
-import { fetchApps, uninstallApp } from '../ducks/myApps'
+import { fetchApps, uninstallApp } from './index'
 
-import MyApplications from '../components/MyApplications'
+import MyApplications from './components/MyApplications'
 
 const mapStateToProps = (state, ownProps) => ({
   myApps: state.myApps.list,

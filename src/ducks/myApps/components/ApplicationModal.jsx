@@ -5,7 +5,7 @@ import React, { Component } from 'react'
 import { translate } from 'cozy-ui/react/I18n'
 import Modal, { ModalContent } from 'cozy-ui/react/Modal'
 
-import ReactMarkdownWrapper from './ReactMarkdownWrapper'
+import ReactMarkdownWrapper from '../../components/ReactMarkdownWrapper'
 
 class ApplicationModal extends Component {
   uninstallApp (appSlug) {

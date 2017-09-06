@@ -10,28 +10,28 @@ const DEMO_APPS = [
     name: 'Bank',
     developer: {name: 'Cozy'},
     editor: 'Cozy',
-    icon: require('../assets/temp_apps/icon-bank.svg')
+    icon: require('../../assets/temp_apps/icon-bank.svg')
   },
   {
     slug: 'sante',
     name: 'Santé',
     developer: {name: 'MAIF Ltd'},
     editor: '',
-    icon: require('../assets/temp_apps/icon-sante.svg')
+    icon: require('../../assets/temp_apps/icon-sante.svg')
   },
   {
     slug: 'mon_logis',
     name: 'Mon Logis',
     developer: {name: 'HoodBrains'},
     editor: '',
-    icon: require('../assets/temp_apps/icon-mon_logis.svg')
+    icon: require('../../assets/temp_apps/icon-mon_logis.svg')
   },
   {
     slug: 'calendar',
     name: 'Calendar',
     developer: {name: 'Cozy'},
     editor: 'Cozy',
-    icon: require('../assets/temp_apps/icon-calendar.svg')
+    icon: require('../../assets/temp_apps/icon-calendar.svg')
   }
 ]
 

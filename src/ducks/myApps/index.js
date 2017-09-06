@@ -5,7 +5,7 @@ import { combineReducers } from 'redux'
 
 import {
   UnavailableStackException
-} from '../lib/exceptions'
+} from '../../lib/exceptions'
 
 const FETCH_MY_APPS = 'FETCH_MY_APPS'
 const FETCH_MY_APPS_SUCCESS = 'FETCH_MY_APPS_SUCCESS'
