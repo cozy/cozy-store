@@ -1,7 +1,7 @@
 import React from 'react'
 
-const SmallAppItem = ({ slug, developer, editor, icon, name, version }) => (
-  <div className='sto-small-app-item'>
+const SmallAppItem = ({ slug, developer, editor, icon, name, version, onClick }) => (
+  <div className='sto-small-app-item' onClick={onClick} >
     <img src={icon} alt={`${slug}-icon`} width='64' height='64' className='sto-small-app-item-icon' />
     <div className='sto-small-app-item-desc'>
       <h4 className='sto-small-app-item-title'>

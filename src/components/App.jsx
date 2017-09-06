@@ -2,8 +2,10 @@
 import React, { Component } from 'react'
 
 import Sidebar from './Sidebar'
-import AppRoutes from './AppRoutes'
+import { Route, Switch, Redirect } from 'react-router-dom'
 
+import MyApplications from '../containers/MyApplications'
+import Discover from '../components/Discover'
 import { translate } from 'cozy-ui/react/helpers/i18n'
 import Modal from 'cozy-ui/react/Modal'
 
@@ -33,8 +35,12 @@ export class App extends Component {
           description={t('soon.description')}
           secondaryAction={this.toggleModal}
         />}
-        <main className='sto-content' onClick={this.toggleModal}>
-          <AppRoutes />
+        <main className='sto-content'>
+          <Switch>
+            <Route path='/discover' component={Discover} />
+            <Route path='/myapps' component={MyApplications} />
+            <Redirect exact from='/' to='/myapps' />
+          </Switch>
         </main>
       </div>
     )

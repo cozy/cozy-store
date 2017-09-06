@@ -1,3 +1,7 @@
 .sto-myapps-title {
   padding-left: 1.5em;
 }
+
+.sto-myapps-modal-content {
+  max-width: 25em;
+}
