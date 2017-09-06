@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import { fetchApps } from '../ducks/apps'
+import { fetchApps, uninstallApp } from '../ducks/myApps'
 
 import MyApplications from '../components/MyApplications'
 
@@ -11,9 +11,8 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  fetchApps: () => {
-    dispatch(fetchApps())
-  }
+  fetchApps: () => dispatch(fetchApps()),
+  uninstallApp: (appSlug) => dispatch(uninstallApp(appSlug))
 })
 
 export default connect(
