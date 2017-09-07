@@ -35,7 +35,7 @@ const DEMO_APPS = [
   }
 ]
 
-class Discover extends Component {
+export class Discover extends Component {
   render () {
     const { t } = this.props
     return (
