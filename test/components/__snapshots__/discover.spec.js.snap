@@ -3,6 +3,7 @@
 exports[`Discover component should be rendered correctly 1`] = `
 <div
   className="sto-discover sto-soon"
+  onClick={undefined}
 >
   <h2
     className="sto-discover-title"

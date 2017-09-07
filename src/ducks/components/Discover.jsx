@@ -37,9 +37,9 @@ const DEMO_APPS = [
 
 export class Discover extends Component {
   render () {
-    const { t } = this.props
+    const { t, toggleSoon } = this.props
     return (
-      <div className='sto-discover sto-soon'>
+      <div className='sto-discover sto-soon' onClick={toggleSoon}>
         <h2 className='sto-discover-title'>{t('discover.title')}</h2>
         <div className='sto-discover-get-started'>
           <h3 className='sto-discover-get-started-title'>

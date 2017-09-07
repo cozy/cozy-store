@@ -16,10 +16,10 @@ export class App extends Component {
     this.state = {
       soonModal: false
     }
-    this.toggleModal = this.toggleModal.bind(this)
+    this.toggleSoon = this.toggleSoon.bind(this)
   }
 
-  toggleModal () {
+  toggleSoon () {
     this.setState({
       soonModal: !this.state.soonModal
     })
@@ -35,11 +35,11 @@ export class App extends Component {
         {soonModal && <Modal
           title={t('soon.title')}
           description={t('soon.description')}
-          secondaryAction={this.toggleModal}
+          secondaryAction={this.toggleSoon}
         />}
         <main className='sto-content'>
           <Switch>
-            <Route path='/discover' component={Discover} />
+            <Route path='/discover' component={() => <Discover toggleSoon={this.toggleSoon} />} />
             <Route path='/myapps' component={MyApplications} />
             <Redirect exact from='/' to='/myapps' />
           </Switch>
