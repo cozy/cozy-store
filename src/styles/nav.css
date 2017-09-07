@@ -16,6 +16,7 @@
 
 @media (max-width: 63.9375rem) {
   .coz-nav-link {
-  	background-position: center -.75em
+  	background-position: top;
+	  background-size: 16px;
   }
 }

@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SmallAppItem component should be rendered correctly using a format 1`] = `
+<div
+  className="sto-small-app-item"
+  onClick={[Function]}
+>
+  <img
+    alt="test-icon"
+    className="sto-small-app-item-icon"
+    height="64"
+    src="<svg></svg>"
+    width="64"
+  />
+  <div
+    className="sto-small-app-item-desc"
+  >
+    <h4
+      className="sto-small-app-item-title"
+    >
+      cozy 
+      Test
+    </h4>
+    <p
+      className="sto-small-app-item-detail"
+    >
+      Cozy Cloud Inc.
+    </p>
+    <p
+      className="sto-small-app-item-detail"
+    >
+      Version 3.0.3
+    </p>
+  </div>
+</div>
+`;
+
+exports[`SmallAppItem component should be rendered correctly using another format 1`] = `
+<div
+  className="sto-small-app-item"
+  onClick={[Function]}
+>
+  <img
+    alt="test2-icon"
+    className="sto-small-app-item-icon"
+    height="64"
+    src="<svg></svg>"
+    width="64"
+  />
+  <div
+    className="sto-small-app-item-desc"
+  >
+    <h4
+      className="sto-small-app-item-title"
+    >
+      
+      Test2
+    </h4>
+    <p
+      className="sto-small-app-item-detail"
+    >
+      Naming me
+    </p>
+    <p
+      className="sto-small-app-item-detail"
+    >
+      Version 3.0.3
+    </p>
+  </div>
+</div>
+`;

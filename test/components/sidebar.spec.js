@@ -5,12 +5,12 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import { App } from '../src/ducks/components/App'
+import Sidebar from '../../src/ducks/components/Sidebar'
 
-describe('App component only', () => {
-  it('should be mounted correctly', () => {
+describe('Sidebar component', () => {
+  it('should be rendered correctly', () => {
     const component = shallow(
-      <App />
+      <Sidebar />
     ).node
     expect(component).toMatchSnapshot()
   })

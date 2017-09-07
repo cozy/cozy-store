@@ -1,14 +1,20 @@
 import React, { Component } from 'react'
 
+import { Route } from 'react-router-dom'
 import { translate } from 'cozy-ui/react/I18n'
 import Spinner from 'cozy-ui/react/Spinner'
 
-import SmallAppItem from './SmallAppItem'
+import SmallAppItem from '../../components/SmallAppItem'
+import ApplicationModal from './ApplicationModal'
 
 class MyApplications extends Component {
   constructor (props) {
     super(props)
     props.fetchApps()
+  }
+
+  onAppClick (appSlug) {
+    this.props.history.push(`/myapps/${appSlug}/manage`)
   }
 
   render () {
@@ -26,6 +32,7 @@ class MyApplications extends Component {
                 icon={a.icon}
                 name={a.name}
                 version={a.version}
+                onClick={() => this.onAppClick(a.slug)}
               />
             })
           }
@@ -40,6 +47,15 @@ class MyApplications extends Component {
             middle='true'
           />
         }
+
+        <Route path='/myapps/:appSlug/manage' render={({ match }) => {
+          if (myApps.length) {
+            return <ApplicationModal {...this.props} match={match} />
+          } else {
+            this.props.history.push('/myapps')
+          }
+        }
+        } />
       </div>
     )
   }

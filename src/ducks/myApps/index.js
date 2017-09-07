@@ -1,11 +1,12 @@
 /* eslint-env browser */
+/* global cozy */
 
 import { combineReducers } from 'redux'
 
 import {
   UnavailableStackException,
-  UnauthorizedStackException
-} from '../lib/exceptions'
+  NotUninstallableAppException
+} from '../../lib/exceptions'
 
 const FETCH_MY_APPS = 'FETCH_MY_APPS'
 const FETCH_MY_APPS_SUCCESS = 'FETCH_MY_APPS_SUCCESS'
@@ -47,52 +48,24 @@ export const myAppsReducers = combineReducers({
   isFetching
 })
 
-// Since apps ressource is not available from cozy-client-js
-const APP_NODE = document.querySelector('[role=application]')
-const STACK_DOMAIN = APP_NODE ? '//' + APP_NODE.dataset.cozyDomain : ''
-const STACK_TOKEN = APP_NODE ? APP_NODE.dataset.cozyToken : ''
-
-// the option credentials:include tells fetch to include the cookies in the
-// request even for cross-origin requests
-function fetchOptions () {
-  return {
-    credentials: 'include',
-    headers: {
-      Authorization: `Bearer ${STACK_TOKEN}`
-    }
-  }
-}
-
 async function getIcon (url) {
-  const res = await fetch(`${STACK_DOMAIN}${url}`, fetchOptions())
-  // res.text if SVG, otherwise res.blob  (mainly for safari support)
-  const resClone = res.clone() // res must be cloned to be used twice
-  const blob = await res.blob()
-  const text = await resClone.text()
+  const icon = await cozy.client.fetchJSON('GET', url)
 
   try {
-    return 'data:image/svg+xml;base64,' + btoa(text)
+    return 'data:image/svg+xml;base64,' + btoa(icon)
   } catch (e) { // eslint-disable-line
-    return URL.createObjectURL(blob)
+    return URL.createObjectURL(icon)
   }
 }
 
 const NOT_REMOVABLE_APPS = ['drive', 'collect']
 const NOT_DISPLAYED_APPS = ['settings', 'store', 'onboarding']
-export function fetchApps (cozyUrl, token) {
+export function fetchApps () {
   return (dispatch, getState) => {
     dispatch({type: FETCH_MY_APPS})
-    return fetch(`${STACK_DOMAIN}/apps/`, fetchOptions())
-    .then(res => {
-      if (res.status === 401) {
-        dispatch({type: FETCH_MY_APPS_FAILURE, error: new UnauthorizedStackException()})
-        throw new UnauthorizedStackException()
-      }
-      return res.json()
-    })
-    .then(json => {
-      const data = json.data
-      Promise.all(data.map(app => {
+    return cozy.client.fetchJSON('GET', '/apps/')
+    .then(apps => {
+      Promise.all(apps.map(app => {
         return getIcon(app.links.icon)
         .then(iconData => {
           return Object.assign({}, app.attributes, {
@@ -106,6 +79,28 @@ export function fetchApps (cozyUrl, token) {
         myApps = myApps.filter(app => !NOT_DISPLAYED_APPS.includes(app.slug))
         dispatch({type: FETCH_MY_APPS_SUCCESS, myApps})
         return myApps
+      })
+    })
+    .catch(e => {
+      dispatch({type: FETCH_MY_APPS_FAILURE, error: e})
+      throw new UnavailableStackException()
+    })
+  }
+}
+
+export function uninstallApp (slug) {
+  return (dispatch, getState) => {
+    if (NOT_REMOVABLE_APPS.includes(slug) || NOT_DISPLAYED_APPS.includes(slug)) {
+      return Promise.reject(new NotUninstallableAppException())
+    }
+    return cozy.client.fetchJSON('DELETE', `/apps/${slug}`)
+    .then(() => {
+      return dispatch({
+        type: 'SEND_LOG_SUCCESS',
+        alert: {
+          message: 'app_modal.uninstall.message.success',
+          level: 'success'
+        }
       })
     })
     .catch(e => {

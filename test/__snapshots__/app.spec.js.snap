@@ -4,12 +4,27 @@ exports[`App component only should be mounted correctly 1`] = `
 <div
   className="sto-wrapper coz-sticky"
 >
+  <_translate />
   <Sidebar />
   <main
     className="sto-content"
-    onClick={[Function]}
   >
-    <AppRoutes />
+    <Switch>
+      <Route
+        component={[Function]}
+        path="/discover"
+      />
+      <Route
+        component={[Function]}
+        path="/myapps"
+      />
+      <Redirect
+        exact={true}
+        from="/"
+        push={false}
+        to="/myapps"
+      />
+    </Switch>
   </main>
 </div>
 `;

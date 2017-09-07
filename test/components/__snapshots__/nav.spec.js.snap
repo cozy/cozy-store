@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav component should be rendered correctly 1`] = `
+<nav>
+  <ul
+    className="coz-nav"
+  >
+    <li
+      className="coz-nav-item"
+    >
+      <NavLink
+        activeClassName="active"
+        className="sto-cat-discover coz-nav-link"
+        to="/discover"
+      >
+        Discover
+      </NavLink>
+    </li>
+    <li
+      className="coz-nav-item"
+    >
+      <NavLink
+        activeClassName="active"
+        className="sto-cat-myapps coz-nav-link"
+        to="/myapps"
+      >
+        My Applications
+      </NavLink>
+    </li>
+  </ul>
+</nav>
+`;

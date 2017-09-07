@@ -48,6 +48,16 @@ class UnavailableStackException extends Error {
   }
 }
 
+class NotUninstallableAppException extends Error {
+  constructor (message) {
+    super()
+
+    this.name = 'NotUninstallableAppException'
+    this.message = message || 'This application cannot be uninstalled.'
+    this.stack = (new Error()).stack
+  }
+}
+
 class UnauthorizedStackException extends Error {
   constructor (message) {
     super()
@@ -84,5 +94,6 @@ export {
   UnavailableStackException,
   UnavailableSettingsException,
   UnauthorizedStackException,
+  NotUninstallableAppException,
   errorStatuses
 }

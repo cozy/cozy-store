@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Discover component should be rendered correctly 1`] = `
+<div
+  className="sto-discover sto-soon"
+  onClick={undefined}
+>
+  <h2
+    className="sto-discover-title"
+  >
+    Discover
+  </h2>
+  <div
+    className="sto-discover-get-started"
+  >
+    <h3
+      className="sto-discover-get-started-title"
+    >
+      Get started with Cozy
+    </h3>
+    <div
+      className="sto-discover-get-started-list"
+    >
+      <SmallAppItem
+        developer={
+          Object {
+            "name": "Cozy",
+          }
+        }
+        editor="Cozy"
+        icon="test-file-stub"
+        name="Bank"
+        slug="bank"
+        version={undefined}
+      />
+      <SmallAppItem
+        developer={
+          Object {
+            "name": "MAIF Ltd",
+          }
+        }
+        editor=""
+        icon="test-file-stub"
+        name="Santé"
+        slug="sante"
+        version={undefined}
+      />
+      <SmallAppItem
+        developer={
+          Object {
+            "name": "HoodBrains",
+          }
+        }
+        editor=""
+        icon="test-file-stub"
+        name="Mon Logis"
+        slug="mon_logis"
+        version={undefined}
+      />
+      <SmallAppItem
+        developer={
+          Object {
+            "name": "Cozy",
+          }
+        }
+        editor="Cozy"
+        icon="test-file-stub"
+        name="Calendar"
+        slug="calendar"
+        version={undefined}
+      />
+    </div>
+  </div>
+</div>
+`;

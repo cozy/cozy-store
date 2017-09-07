@@ -10,36 +10,36 @@ const DEMO_APPS = [
     name: 'Bank',
     developer: {name: 'Cozy'},
     editor: 'Cozy',
-    icon: require('../assets/temp_apps/icon-bank.svg')
+    icon: require('../../assets/temp_apps/icon-bank.svg')
   },
   {
     slug: 'sante',
     name: 'Santé',
     developer: {name: 'MAIF Ltd'},
     editor: '',
-    icon: require('../assets/temp_apps/icon-sante.svg')
+    icon: require('../../assets/temp_apps/icon-sante.svg')
   },
   {
     slug: 'mon_logis',
     name: 'Mon Logis',
     developer: {name: 'HoodBrains'},
     editor: '',
-    icon: require('../assets/temp_apps/icon-mon_logis.svg')
+    icon: require('../../assets/temp_apps/icon-mon_logis.svg')
   },
   {
     slug: 'calendar',
     name: 'Calendar',
     developer: {name: 'Cozy'},
     editor: 'Cozy',
-    icon: require('../assets/temp_apps/icon-calendar.svg')
+    icon: require('../../assets/temp_apps/icon-calendar.svg')
   }
 ]
 
-class Discover extends Component {
+export class Discover extends Component {
   render () {
-    const { t } = this.props
+    const { t, toggleSoon } = this.props
     return (
-      <div className='sto-discover sto-soon'>
+      <div className='sto-discover sto-soon' onClick={toggleSoon}>
         <h2 className='sto-discover-title'>{t('discover.title')}</h2>
         <div className='sto-discover-get-started'>
           <h3 className='sto-discover-get-started-title'>

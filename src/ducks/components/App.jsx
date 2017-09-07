@@ -2,10 +2,13 @@
 import React, { Component } from 'react'
 
 import Sidebar from './Sidebar'
-import AppRoutes from './AppRoutes'
+import { Route, Switch, Redirect } from 'react-router-dom'
 
+import MyApplications from '../myApps/Container'
+import Discover from './Discover'
 import { translate } from 'cozy-ui/react/helpers/i18n'
 import Modal from 'cozy-ui/react/Modal'
+import { Alerter } from 'cozy-ui/react/Alerter'
 
 export class App extends Component {
   constructor (props) {
@@ -13,10 +16,10 @@ export class App extends Component {
     this.state = {
       soonModal: false
     }
-    this.toggleModal = this.toggleModal.bind(this)
+    this.toggleSoon = this.toggleSoon.bind(this)
   }
 
-  toggleModal () {
+  toggleSoon () {
     this.setState({
       soonModal: !this.state.soonModal
     })
@@ -27,14 +30,19 @@ export class App extends Component {
     const { soonModal } = this.state
     return (
       <div className='sto-wrapper coz-sticky'>
+        <Alerter />
         <Sidebar />
         {soonModal && <Modal
           title={t('soon.title')}
           description={t('soon.description')}
-          secondaryAction={this.toggleModal}
+          secondaryAction={this.toggleSoon}
         />}
-        <main className='sto-content' onClick={this.toggleModal}>
-          <AppRoutes />
+        <main className='sto-content'>
+          <Switch>
+            <Route path='/discover' component={() => <Discover toggleSoon={this.toggleSoon} />} />
+            <Route path='/myapps' component={MyApplications} />
+            <Redirect exact from='/' to='/myapps' />
+          </Switch>
         </main>
       </div>
     )
