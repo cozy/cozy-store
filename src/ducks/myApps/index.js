@@ -4,7 +4,8 @@
 import { combineReducers } from 'redux'
 
 import {
-  UnavailableStackException
+  UnavailableStackException,
+  NotUninstallableAppException
 } from '../../lib/exceptions'
 
 const FETCH_MY_APPS = 'FETCH_MY_APPS'
@@ -89,6 +90,9 @@ export function fetchApps () {
 
 export function uninstallApp (slug) {
   return (dispatch, getState) => {
+    if (NOT_REMOVABLE_APPS.includes(slug) || NOT_DISPLAYED_APPS.includes(slug)) {
+      return Promise.reject(new NotUninstallableAppException())
+    }
     return cozy.client.fetchJSON('DELETE', `/apps/${slug}`)
     .then(() => {
       return dispatch({
