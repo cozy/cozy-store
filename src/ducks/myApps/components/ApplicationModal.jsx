@@ -20,8 +20,9 @@ class ApplicationModal extends Component {
     }
   }
 
-  uninstallApp (appSlug) {
+  uninstallApp () {
     this.setState({ error: null })
+    const { appSlug } = this.props.match && this.props.match.params
     this.props.uninstallApp(appSlug)
     .then(() => {
       this.gotoParent()
@@ -39,12 +40,11 @@ class ApplicationModal extends Component {
     const { t } = this.props
     const { error } = this.state
     // params from route
-    const { appSlug } = this.props.match && this.props.match.params
     return (
       <div className='sto-myapps-modal--uninstall'>
         <Modal
           title={t('app_modal.uninstall.title')}
-          primaryAction={() => this.uninstallApp(appSlug)}
+          primaryAction={() => this.uninstallApp()}
           primaryText={t('app_modal.uninstall.uninstall')}
           primaryType='danger'
           secondaryAction={() => this.gotoParent()}
