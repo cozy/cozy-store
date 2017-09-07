@@ -10,6 +10,11 @@ import ReactMarkdownWrapper from '../../components/ReactMarkdownWrapper'
 class ApplicationModal extends Component {
   constructor (props) {
     super(props)
+    const { appSlug } = props.match && props.match.params
+    // if the application doesn't exist, return to parent
+    if (!appSlug || !props.myApps.find(a => a.slug === appSlug)) {
+      this.props.history.push(`/myapps`)
+    }
     this.state = {
       error: null
     }
