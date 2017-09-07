@@ -94,7 +94,7 @@ export function uninstallApp (slug) {
       return dispatch({
         type: 'SEND_LOG_SUCCESS',
         alert: {
-          message: 'app_modal.uninstall.alerts.success',
+          message: 'app_modal.uninstall.message.success',
           level: 'success'
         }
       })

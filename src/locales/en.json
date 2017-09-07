@@ -23,8 +23,9 @@
       "description": "This application is bound to be removed from your Cozy %{cozyName}. Are you sure to __remove this application definitively__?",
       "cancel": "Cancel",
       "uninstall": "Uninstall",
-      "alerts": {
-        "success": "The application has correctly been uninstalled."
+      "message": {
+        "success": "The application has correctly been uninstalled.",
+        "error": "Something went wrong when uninstalling this application. Reason: %{message}"
       }
     }
   }
