@@ -65,6 +65,7 @@ export function fetchApps () {
     dispatch({type: FETCH_MY_APPS})
     return cozy.client.fetchJSON('GET', '/apps/')
     .then(apps => {
+      apps = apps.filter(app => !NOT_DISPLAYED_APPS.includes(app.attributes.slug))
       Promise.all(apps.map(app => {
         return getIcon(app.links.icon)
         .then(iconData => {
@@ -76,7 +77,6 @@ export function fetchApps () {
         })
       }))
       .then(myApps => {
-        myApps = myApps.filter(app => !NOT_DISPLAYED_APPS.includes(app.slug))
         dispatch({type: FETCH_MY_APPS_SUCCESS, myApps})
         return myApps
       })
