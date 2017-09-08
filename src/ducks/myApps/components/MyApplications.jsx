@@ -49,13 +49,11 @@ class MyApplications extends Component {
         }
 
         <Route path='/myapps/:appSlug/manage' render={({ match }) => {
+          if (isFetching) return
           if (myApps.length) {
             return <ApplicationModal {...this.props} match={match} />
-          } else {
-            this.props.history.push('/myapps')
           }
-        }
-        } />
+        }} />
       </div>
     )
   }
