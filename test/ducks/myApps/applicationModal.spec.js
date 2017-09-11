@@ -8,6 +8,8 @@ import { shallow } from 'enzyme'
 import { tMock } from '../../jestLib/I18n'
 import { ApplicationModal } from '../../../src/ducks/myApps/components/ApplicationModal'
 
+import mockMyApps from './_mockMyApps'
+
 /* SinonJS is used here to stub Promise in order to be synchronous.
 In this way, (p)React will call setState synchronously. It will allow
 to assert the component state juste after */
@@ -23,18 +25,7 @@ const getMockProps = (slug) => ({
       appSlug: slug || 'collect'
     }
   },
-  myApps: [{
-    slug: 'drive',
-    uninstallable: false
-  },
-  {
-    slug: 'photos',
-    uninstallable: true
-  },
-  {
-    slug: 'collect',
-    uninstallable: false
-  }],
+  myApps: mockMyApps,
   uninstallApp: jest.fn((appSlug) => {
     if (['drive', 'collect'].includes(appSlug)) return sinon.stub().returnsPromise().rejects(mockError)()
     return sinon.stub().returnsPromise().resolves({})()

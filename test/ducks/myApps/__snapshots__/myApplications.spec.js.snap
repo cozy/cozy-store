@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MyApplications component should be rendered correctly if apps uninstalled 1`] = `
+<div
+  className="sto-myapps"
+>
+  <h2
+    className="sto-myapps-title"
+  >
+    My Applications
+  </h2>
+  <div
+    className="sto-myapps-list"
+  >
+    <SmallAppItem
+      developer={
+        Object {
+          "name": "Cozy",
+        }
+      }
+      editor="cozy"
+      icon="<svg></svg>"
+      name="Drive"
+      onClick={[Function]}
+      slug="drive"
+      version="3.0.0-beta89bnhj3993"
+    />
+    <SmallAppItem
+      developer={
+        Object {
+          "name": "Cozy",
+        }
+      }
+      editor="cozy"
+      icon="<svg></svg>"
+      name="Photos"
+      onClick={[Function]}
+      slug="photos"
+      version="3.0.0"
+    />
+    <SmallAppItem
+      developer={
+        Object {
+          "name": "Cozy",
+        }
+      }
+      editor="cozy"
+      icon="<svg></svg>"
+      name="Collect"
+      onClick={[Function]}
+      slug="collect"
+      version="3.0.0"
+    />
+    <SmallAppItem
+      developer={
+        Object {
+          "name": "mock",
+        }
+      }
+      editor=""
+      icon="<svg></svg>"
+      name="Tasky"
+      onClick={[Function]}
+      slug="tasky"
+      version="1.0.0"
+    />
+  </div>
+  <Route
+    path="/myapps/:appSlug/manage"
+    render={[Function]}
+  />
+</div>
+`;
+
+exports[`MyApplications component should display error from props correctly 1`] = `
+<div
+  className="sto-myapps"
+>
+  <h2
+    className="sto-myapps-title"
+  >
+    My Applications
+  </h2>
+  <div
+    className="sto-myapps-list"
+  >
+    <p>
+      [Error: This is a test error]
+    </p>
+  </div>
+  <Route
+    path="/myapps/:appSlug/manage"
+    render={[Function]}
+  />
+</div>
+`;
+
+exports[`MyApplications component should render correctly a spinner if apps is fetching 1`] = `
+<div
+  className="sto-myapps"
+>
+  <h2
+    className="sto-myapps-title"
+  >
+    My Applications
+  </h2>
+  <div
+    className="sto-myapps-list"
+  />
+  <_translate
+    loadingType="appsFetching"
+    middle="true"
+    size="xxlarge"
+  />
+  <Route
+    path="/myapps/:appSlug/manage"
+    render={[Function]}
+  />
+</div>
+`;

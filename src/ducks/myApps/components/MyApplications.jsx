@@ -7,7 +7,7 @@ import Spinner from 'cozy-ui/react/Spinner'
 import SmallAppItem from '../../components/SmallAppItem'
 import ApplicationModal from './ApplicationModal'
 
-class MyApplications extends Component {
+export class MyApplications extends Component {
   constructor (props) {
     super(props)
     props.fetchApps()
