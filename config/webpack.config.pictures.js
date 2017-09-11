@@ -1,6 +1,7 @@
 'use strict'
 
 const {production} = require('./webpack.vars')
+const path = require('path')
 
 module.exports = {
   module: {
@@ -10,7 +11,8 @@ module.exports = {
         include: /(sprites|icons)/,
         loader: 'svg-sprite-loader',
         options: {
-          name: '[name]_[hash]'
+          name: '[name]_[hash]',
+          spriteModule: './csp-proof-sprite'
         }
       },
       {

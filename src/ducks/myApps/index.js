@@ -8,18 +8,26 @@ import {
   NotUninstallableAppException
 } from '../../lib/exceptions'
 
-const FETCH_MY_APPS = 'FETCH_MY_APPS'
-const FETCH_MY_APPS_SUCCESS = 'FETCH_MY_APPS_SUCCESS'
-const FETCH_MY_APPS_FAILURE = 'FETCH_MY_APPS_FAILURE'
+const NOT_REMOVABLE_APPS = ['drive', 'collect']
+const NOT_DISPLAYED_APPS = ['settings', 'store', 'onboarding']
+
+const FETCH_APPS = 'FETCH_APPS'
+const FETCH_APPS_SUCCESS = 'FETCH_APPS_SUCCESS'
+const FETCH_APPS_FAILURE = 'FETCH_APPS_FAILURE'
+
+const FETCH_REGISTRY_APPS_SUCCESS = 'FETCH_REGISTRY_APPS_SUCCESS'
 
 const UNINSTALL_APP_SUCCESS = 'UNINSTALL_APP_SUCCESS'
 const UNINSTALL_APP_FAILURE = 'UNINSTALL_APP_FAILURE'
 
 const list = (state = [], action) => {
   switch (action.type) {
-    case FETCH_MY_APPS_SUCCESS:
+    case FETCH_REGISTRY_APPS_SUCCESS:
+      return _consolidateApps(state, action.apps)
+    case FETCH_APPS_SUCCESS:
+      return _consolidateApps(state, action.apps)
     case UNINSTALL_APP_SUCCESS:
-      return action.myApps
+      return action.apps
     default:
       return state
   }
@@ -27,10 +35,10 @@ const list = (state = [], action) => {
 
 const isFetching = (state = false, action) => {
   switch (action.type) {
-    case FETCH_MY_APPS:
+    case FETCH_APPS:
       return true
-    case FETCH_MY_APPS_SUCCESS:
-    case FETCH_MY_APPS_FAILURE:
+    case FETCH_APPS_SUCCESS:
+    case FETCH_APPS_FAILURE:
       return false
     default:
       return state
@@ -39,7 +47,7 @@ const isFetching = (state = false, action) => {
 
 export const error = (state = null, action) => {
   switch (action.type) {
-    case FETCH_MY_APPS_FAILURE:
+    case FETCH_APPS_FAILURE:
     case UNINSTALL_APP_FAILURE:
       return action.error
     default:
@@ -47,49 +55,107 @@ export const error = (state = null, action) => {
   }
 }
 
-export const myAppsReducers = combineReducers({
+export const appsReducers = combineReducers({
   list,
   error,
   isFetching
 })
 
-async function getIcon (url) {
+export function getInstalledApps (state) {
+  return state.apps.list.filter(app => app.installed)
+}
+
+async function _getIcon (url) {
+  if (!url) return ''
   const icon = await cozy.client.fetchJSON('GET', url)
 
   try {
     return 'data:image/svg+xml;base64,' + btoa(icon)
   } catch (e) { // eslint-disable-line
-    return URL.createObjectURL(icon)
+    try {
+      return URL.createObjectURL(icon)
+    } catch (e) {
+      return ''
+    }
   }
 }
 
-const NOT_REMOVABLE_APPS = ['drive', 'collect']
-const NOT_DISPLAYED_APPS = ['settings', 'store', 'onboarding']
+function _consolidateApps (stateApps, newAppsInfos) {
+  const apps = new Map()
+  stateApps.forEach(app => apps.set(app.slug, app))
+  newAppsInfos.forEach(app => {
+    const appFromRegistry = apps.get(app.slug)
+    if (appFromRegistry) {
+      apps.set(app.slug, Object.assign({}, appFromRegistry, app))
+    } else {
+      apps.set(app.slug, app)
+    }
+  })
+  return Array.from(apps.values()).filter(app => app)
+}
+
 export function fetchMyApps () {
   return (dispatch, getState) => {
-    dispatch({type: FETCH_MY_APPS})
+    dispatch({type: FETCH_APPS})
     return cozy.client.fetchJSON('GET', '/apps/')
-    .then(apps => {
-      apps = apps.filter(app => !NOT_DISPLAYED_APPS.includes(app.attributes.slug))
-      Promise.all(apps.map(app => {
-        return getIcon(app.links.icon)
+    .then(myApps => {
+      myApps = myApps.filter(app => !NOT_DISPLAYED_APPS.includes(app.attributes.slug))
+      Promise.all(myApps.map(app => {
+        return _getIcon(app.links.icon)
         .then(iconData => {
           return Object.assign({}, app.attributes, {
             _id: app.id,
             icon: iconData,
+            installed: true,
             uninstallable: !NOT_REMOVABLE_APPS.includes(app.attributes.slug)
           })
         })
       }))
-      .then(myApps => {
-        dispatch({type: FETCH_MY_APPS_SUCCESS, myApps})
-        return myApps
+      .then(apps => {
+        return dispatch({type: FETCH_APPS_SUCCESS, apps})
       })
     })
     .catch(e => {
-      dispatch({type: FETCH_MY_APPS_FAILURE, error: e})
+      dispatch({type: FETCH_APPS_FAILURE, error: e})
       throw new UnavailableStackException()
     })
+  }
+}
+
+export function fetchRegistryApps () {
+  return (dispatch, getState) => {
+    dispatch({type: FETCH_APPS})
+    return cozy.client.fetchJSON('GET', '/registry?filter[type]=webapp')
+    .then(response => {
+      const apps = response.data.filter(app => !NOT_DISPLAYED_APPS.includes(app.name))
+      return Promise.all(apps.map(app => {
+        let appName = app.full_name || app.name
+        return _getIcon(app.logo_url)
+        .then(iconData => {
+          return Object.assign({}, app, {
+            slug: app.name,
+            icon: iconData,
+            name: appName,
+            installed: false,
+            uninstallable: true
+          })
+        })
+      }))
+      .then(apps => {
+        return dispatch({type: FETCH_REGISTRY_APPS_SUCCESS, apps})
+      })
+    })
+    .catch(e => {
+      dispatch({type: FETCH_APPS_FAILURE, error: e})
+      throw new UnavailableStackException()
+    })
+  }
+}
+
+export function fetchApps () {
+  return (dispatch, getState) => {
+    dispatch(fetchRegistryApps())
+    .then(() => dispatch(fetchMyApps()))
   }
 }
 
@@ -101,8 +167,11 @@ export function uninstallApp (slug) {
     return cozy.client.fetchJSON('DELETE', `/apps/${slug}`)
     .then(() => {
       // remove the app from the state apps list
-      const myApps = getState().myApps.list.filter(a => a.slug !== slug)
-      dispatch({type: UNINSTALL_APP_SUCCESS, myApps})
+      const apps = getState().apps.list.map(app => {
+        if (app.slug === slug) app.installed = false
+        return app
+      })
+      dispatch({type: UNINSTALL_APP_SUCCESS, apps})
       return dispatch({
         type: 'SEND_LOG_SUCCESS',
         alert: {

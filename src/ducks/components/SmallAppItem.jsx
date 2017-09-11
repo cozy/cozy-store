@@ -1,10 +1,17 @@
 import React from 'react'
 
-const SmallAppItem = ({ slug, developer, editor, icon, name, version, onClick }) => {
+import iconInstalled from '../../assets/icons/icon-check.svg'
+
+const SmallAppItem = ({ slug, developer, editor, icon, name, version, installed, onClick }) => {
   const appVersion = version && (version.match(/^(.*)-.*$/) ? version.match(/^(.*)-.*$/)[1] : version)
   return (
     <div className='sto-small-app-item' onClick={onClick} >
       <img src={icon} alt={`${slug}-icon`} width='64' height='64' className='sto-small-app-item-icon' />
+      {installed &&
+        <svg className='sto-small-app-item-badge-installed'>
+          <use xlinkHref={`#${iconInstalled.id}`} />
+        </svg>
+      }
       <div className='sto-small-app-item-desc'>
         <h4 className='sto-small-app-item-title'>
           {editor && `${editor} `}{name}

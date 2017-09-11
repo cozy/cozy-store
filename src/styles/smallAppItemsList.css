@@ -32,6 +32,17 @@
   height: 100%;
 }
 
+.sto-small-app-item-badge-installed {
+  position: absolute;
+  bottom: 0;
+  left: 3em;
+  width: 1em;
+  height: 1em;
+  background-color: white;
+  border-radius: 1em;
+  border: 2px solid white;
+}
+
 .sto-small-app-item-desc {
   display: flex;
   flex-direction: column;
