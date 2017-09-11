@@ -12,11 +12,13 @@ const FETCH_MY_APPS = 'FETCH_MY_APPS'
 const FETCH_MY_APPS_SUCCESS = 'FETCH_MY_APPS_SUCCESS'
 const FETCH_MY_APPS_FAILURE = 'FETCH_MY_APPS_FAILURE'
 
+const UNINSTALL_APP_SUCCESS = 'UNINSTALL_APP_SUCCESS'
 const UNINSTALL_APP_FAILURE = 'UNINSTALL_APP_FAILURE'
 
 const list = (state = [], action) => {
   switch (action.type) {
     case FETCH_MY_APPS_SUCCESS:
+    case UNINSTALL_APP_SUCCESS:
       return action.myApps
     default:
       return state
@@ -98,6 +100,9 @@ export function uninstallApp (slug) {
     }
     return cozy.client.fetchJSON('DELETE', `/apps/${slug}`)
     .then(() => {
+      // remove the app from the state apps list
+      const myApps = getState().myApps.list.filter(a => a.slug !== slug)
+      dispatch({type: UNINSTALL_APP_SUCCESS, myApps})
       return dispatch({
         type: 'SEND_LOG_SUCCESS',
         alert: {

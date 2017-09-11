@@ -12,10 +12,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchMyApps: () => dispatch(fetchMyApps()),
-  uninstallApp: (appSlug) => {
-    return dispatch(uninstallApp(appSlug))
-    .then(() => dispatch(fetchMyApps()))
-  }
+  uninstallApp: (appSlug) => dispatch(uninstallApp(appSlug))
 })
 
 export default connect(
