@@ -5,7 +5,7 @@ import { translate } from 'cozy-ui/react/I18n'
 import Spinner from 'cozy-ui/react/Spinner'
 
 import SmallAppItem from '../../components/SmallAppItem'
-import ApplicationModal from './ApplicationModal'
+import UninstallModal from './UninstallModal'
 
 export class MyApplications extends Component {
   constructor (props) {
@@ -51,7 +51,7 @@ export class MyApplications extends Component {
         <Route path='/myapps/:appSlug/manage' render={({ match }) => {
           if (isFetching) return
           if (myApps.length) {
-            return <ApplicationModal {...this.props} match={match} />
+            return <UninstallModal {...this.props} match={match} />
           }
         }} />
       </div>

@@ -7,7 +7,7 @@ import Modal, { ModalContent } from 'cozy-ui/react/Modal'
 
 import ReactMarkdownWrapper from '../../components/ReactMarkdownWrapper'
 
-export class ApplicationModal extends Component {
+export class UninstallModal extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -88,4 +88,4 @@ export class ApplicationModal extends Component {
   }
 }
 
-export default translate()(ApplicationModal)
+export default translate()(UninstallModal)

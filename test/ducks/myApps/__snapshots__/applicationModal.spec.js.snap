@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ApplicationModal component should be rendered correctly if app not uninstallable 1`] = `
+exports[`UninstallModal component should be rendered correctly if app not uninstallable 1`] = `
 <div
   className="sto-myapps-modal--uninstall"
 >
@@ -44,7 +44,7 @@ exports[`ApplicationModal component should be rendered correctly if app not unin
 </div>
 `;
 
-exports[`ApplicationModal component should be rendered correctly if app uninstallable 1`] = `
+exports[`UninstallModal component should be rendered correctly if app uninstallable 1`] = `
 <div
   className="sto-myapps-modal--uninstall"
 >
@@ -88,7 +88,7 @@ exports[`ApplicationModal component should be rendered correctly if app uninstal
 </div>
 `;
 
-exports[`ApplicationModal component should hanlde correctly error in state 1`] = `
+exports[`UninstallModal component should hanlde correctly error in state 1`] = `
 <div
   className="sto-myapps-modal--uninstall"
 >
