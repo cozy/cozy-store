@@ -37,30 +37,48 @@ class ApplicationModal extends Component {
   }
 
   render () {
-    const { t } = this.props
+    const { t, myApps } = this.props
     const { error } = this.state
     // params from route
+    const { appSlug } = this.props.match && this.props.match.params
+    const appInfos = myApps.find(a => a.slug === appSlug)
+    // if app not found
+    if (!appInfos) return this.gotoParent()
     return (
       <div className='sto-myapps-modal--uninstall'>
         <Modal
           title={t('app_modal.uninstall.title')}
-          primaryAction={() => this.uninstallApp()}
-          primaryText={t('app_modal.uninstall.uninstall')}
-          primaryType='danger'
           secondaryAction={() => this.gotoParent()}
-          secondaryText={t('app_modal.uninstall.cancel')}
-          secondaryType='secondary'
         >
           <ModalContent>
             <div className='sto-myapps-modal-content'>
               <ReactMarkdownWrapper
-                source={t('app_modal.uninstall.description', {
-                  cozyName: cozy.client._url.replace(/^\/\//, '')
-                })}
+                source={
+                  appInfos.uninstallable
+                    ? t('app_modal.uninstall.description', { cozyName: cozy.client._url.replace(/^\/\//, '') })
+                    : t('app_modal.uninstall.uninstallable_description')
+                }
               />
               {error &&
                 <p class='coz-error'>{t('app_modal.uninstall.message.error', {message: error.message})}</p>
               }
+              <div className='sto-myapps-modal-controls'>
+                <button
+                  role='button'
+                  className='coz-btn coz-btn--secondary'
+                  onClick={() => this.gotoParent()}
+                >
+                  {t('app_modal.uninstall.cancel')}
+                </button>
+                <button
+                  role='button'
+                  disabled={!appInfos.uninstallable}
+                  className='coz-btn coz-btn--danger coz-btn--delete'
+                  onClick={() => this.uninstallApp()}
+                >
+                  {t('app_modal.uninstall.uninstall')}
+                </button>
+              </div>
             </div>
           </ModalContent>
         </Modal>
