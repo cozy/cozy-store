@@ -15,7 +15,7 @@ import mockMyApps from './_mockMyApps'
 const mockMyApplicationsError = new Error('This is a test error')
 
 const getMockProps = (myApps = mockMyApps, isFetching = false, error = null) => ({
-  fetchApps: jest.fn(),
+  fetchMyApps: jest.fn(),
   myApps,
   isFetching,
   error,

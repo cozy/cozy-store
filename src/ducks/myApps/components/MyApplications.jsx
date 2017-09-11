@@ -10,7 +10,7 @@ import ApplicationModal from './ApplicationModal'
 export class MyApplications extends Component {
   constructor (props) {
     super(props)
-    props.fetchApps()
+    props.fetchMyApps()
   }
 
   onAppClick (appSlug) {

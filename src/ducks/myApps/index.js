@@ -12,6 +12,8 @@ const FETCH_MY_APPS = 'FETCH_MY_APPS'
 const FETCH_MY_APPS_SUCCESS = 'FETCH_MY_APPS_SUCCESS'
 const FETCH_MY_APPS_FAILURE = 'FETCH_MY_APPS_FAILURE'
 
+const UNINSTALL_APP_FAILURE = 'UNINSTALL_APP_FAILURE'
+
 const list = (state = [], action) => {
   switch (action.type) {
     case FETCH_MY_APPS_SUCCESS:
@@ -36,6 +38,7 @@ const isFetching = (state = false, action) => {
 export const error = (state = null, action) => {
   switch (action.type) {
     case FETCH_MY_APPS_FAILURE:
+    case UNINSTALL_APP_FAILURE:
       return action.error
     default:
       return state
@@ -60,7 +63,7 @@ async function getIcon (url) {
 
 const NOT_REMOVABLE_APPS = ['drive', 'collect']
 const NOT_DISPLAYED_APPS = ['settings', 'store', 'onboarding']
-export function fetchApps () {
+export function fetchMyApps () {
   return (dispatch, getState) => {
     dispatch({type: FETCH_MY_APPS})
     return cozy.client.fetchJSON('GET', '/apps/')
@@ -104,7 +107,7 @@ export function uninstallApp (slug) {
       })
     })
     .catch(e => {
-      dispatch({type: FETCH_MY_APPS_FAILURE, error: e})
+      dispatch({type: UNINSTALL_APP_FAILURE, error: e})
       throw new UnavailableStackException()
     })
   }

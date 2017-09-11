@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import { fetchApps, uninstallApp } from './index'
+import { fetchMyApps, uninstallApp } from './index'
 
 import MyApplications from './components/MyApplications'
 
@@ -11,10 +11,10 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  fetchApps: () => dispatch(fetchApps()),
+  fetchMyApps: () => dispatch(fetchMyApps()),
   uninstallApp: (appSlug) => {
     return dispatch(uninstallApp(appSlug))
-    .then(() => dispatch(fetchApps()))
+    .then(() => dispatch(fetchMyApps()))
   }
 })
 
