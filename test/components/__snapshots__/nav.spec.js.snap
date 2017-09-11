@@ -10,6 +10,7 @@ exports[`Nav component should be rendered correctly 1`] = `
     >
       <NavLink
         activeClassName="active"
+        ariaCurrent="true"
         className="sto-cat-discover coz-nav-link"
         to="/discover"
       >
@@ -21,6 +22,7 @@ exports[`Nav component should be rendered correctly 1`] = `
     >
       <NavLink
         activeClassName="active"
+        ariaCurrent="true"
         className="sto-cat-myapps coz-nav-link"
         to="/myapps"
       >

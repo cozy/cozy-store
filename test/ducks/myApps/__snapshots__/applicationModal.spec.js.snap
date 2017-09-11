@@ -5,6 +5,7 @@ exports[`ApplicationModal component should be rendered correctly if app not unin
   className="sto-myapps-modal--uninstall"
 >
   <Modal
+    overflowHidden={false}
     primaryType="secondary"
     secondaryAction={[Function]}
     secondaryType="regular"
@@ -48,6 +49,7 @@ exports[`ApplicationModal component should be rendered correctly if app uninstal
   className="sto-myapps-modal--uninstall"
 >
   <Modal
+    overflowHidden={false}
     primaryType="secondary"
     secondaryAction={[Function]}
     secondaryType="regular"
@@ -91,6 +93,7 @@ exports[`ApplicationModal component should hanlde correctly error in state 1`] =
   className="sto-myapps-modal--uninstall"
 >
   <Modal
+    overflowHidden={false}
     primaryType="secondary"
     secondaryAction={[Function]}
     secondaryType="regular"
