@@ -7,17 +7,15 @@ import Modal, { ModalContent } from 'cozy-ui/react/Modal'
 
 import ReactMarkdownWrapper from '../../components/ReactMarkdownWrapper'
 
-class ApplicationModal extends Component {
+export class ApplicationModal extends Component {
   constructor (props) {
     super(props)
-    const { appSlug } = props.match && props.match.params
-    // if the application doesn't exist, return to parent
-    if (!appSlug || !props.myApps.find(a => a.slug === appSlug)) {
-      this.props.history.push(`/myapps`)
-    }
     this.state = {
       error: null
     }
+
+    this.gotoParent = this.gotoParent.bind(this)
+    this.uninstallApp = this.uninstallApp.bind(this)
   }
 
   uninstallApp () {
@@ -42,13 +40,16 @@ class ApplicationModal extends Component {
     // params from route
     const { appSlug } = this.props.match && this.props.match.params
     const appInfos = myApps.find(a => a.slug === appSlug)
-    // if app not found
-    if (!appInfos) return this.gotoParent()
+    // if app not found, return to parent
+    if (!appInfos) {
+      this.gotoParent()
+      return null
+    }
     return (
       <div className='sto-myapps-modal--uninstall'>
         <Modal
           title={t('app_modal.uninstall.title')}
-          secondaryAction={() => this.gotoParent()}
+          secondaryAction={this.gotoParent}
         >
           <ModalContent>
             <div className='sto-myapps-modal-content'>
@@ -66,7 +67,7 @@ class ApplicationModal extends Component {
                 <button
                   role='button'
                   className='coz-btn coz-btn--secondary'
-                  onClick={() => this.gotoParent()}
+                  onClick={this.gotoParent}
                 >
                   {t('app_modal.uninstall.cancel')}
                 </button>
@@ -74,7 +75,7 @@ class ApplicationModal extends Component {
                   role='button'
                   disabled={!appInfos.uninstallable}
                   className='coz-btn coz-btn--danger coz-btn--delete'
-                  onClick={() => this.uninstallApp()}
+                  onClick={this.uninstallApp}
                 >
                   {t('app_modal.uninstall.uninstall')}
                 </button>
