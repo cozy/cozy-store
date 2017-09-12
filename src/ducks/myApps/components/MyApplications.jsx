@@ -50,8 +50,9 @@ export class MyApplications extends Component {
 
         <Route path='/myapps/:appSlug/manage' render={({ match }) => {
           if (isFetching) return
-          if (myApps.length) {
-            return <UninstallModal {...this.props} match={match} />
+          if (myApps.length && match.params) {
+            const app = myApps.find(app => app.slug === match.params.appSlug)
+            return <UninstallModal uninstallApp={this.props.uninstallApp} parent='/myapps' app={app} match={match} />
           }
         }} />
       </div>
