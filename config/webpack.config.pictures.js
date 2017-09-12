@@ -11,8 +11,7 @@ module.exports = {
         include: /(sprites|icons)/,
         loader: 'svg-sprite-loader',
         options: {
-          name: '[name]_[hash]',
-          spriteModule: './csp-proof-sprite'
+          name: '[name]_[hash]'
         }
       },
       {

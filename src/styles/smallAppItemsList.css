@@ -32,6 +32,12 @@
   height: 100%;
 }
 
+.sto-small-app-item-icon--default {
+  height: 100%;
+  width: 3em;
+  padding: 0 .5em;
+}
+
 .sto-small-app-item-badge-installed {
   position: absolute;
   bottom: 0;
