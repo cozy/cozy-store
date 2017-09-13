@@ -48,6 +48,16 @@ class UnavailableStackException extends Error {
   }
 }
 
+class UnavailableRegistryException extends Error {
+  constructor (message) {
+    super()
+
+    this.name = 'UnavailableRegistry'
+    this.message = message || 'The registry is temporarily unavailable'
+    this.stack = (new Error()).stack
+  }
+}
+
 class NotUninstallableAppException extends Error {
   constructor (message) {
     super()
@@ -92,6 +102,7 @@ export {
   NotFoundException,
   MethodNotAllowedException,
   UnavailableStackException,
+  UnavailableRegistryException,
   UnavailableSettingsException,
   UnauthorizedStackException,
   NotUninstallableAppException,

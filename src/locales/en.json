@@ -28,6 +28,37 @@
         "success": "The application has correctly been uninstalled.",
         "error": "Something went wrong when uninstalling this application. Reason: %{message}"
       }
+    },
+    "install": {
+      "title": "The application %{appName} will not transmit any personal data to any third parties.",
+      "cancel": "Cancel",
+      "install": "Install",
+      "accept_description": "By electing __Install__, you accept that the application %{appName} obtains access to these data, only locally and within your Cozy, and in compliance with the terms of service and the privacy policy.",
+      "permissions": {
+        "nothing": "The application %{appName} doesn't require any data access to work correctly on your Cozy (%{cozyName}).",
+        "description": "In order to improve the value of your Cozy (%{cozyName}), the application %{appName} requires access to the following data:"
+      },
+      "message": {
+        "version_error": "Something went wrong when fetching the application informations. Reason: %{message}"
+      }
+    }
+  },
+
+  "doctypes": {
+    "io": {
+      "cozy": {
+        "accounts": "Accounts",
+        "apps": "List of installed applications",
+        "contacts": "Contacts",
+        "files": "Files",
+        "jobs": "Jobs",
+        "konnectors": "Konnectors",
+        "konnectors.result": "Konnectors results",
+        "permissions": "Permissions",
+        "photos.albums": "Photo albums",
+        "settings": "Settings",
+        "triggers": "Triggers"
+      }
     }
   }
 }

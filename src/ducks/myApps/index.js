@@ -2,6 +2,7 @@
 /* global cozy */
 
 import { combineReducers } from 'redux'
+import { currentAppVersionReducers } from '../currentAppVersion'
 
 import {
   UnavailableStackException,
@@ -58,7 +59,8 @@ export const error = (state = null, action) => {
 export const appsReducers = combineReducers({
   list,
   error,
-  isFetching
+  isFetching,
+  currentAppVersion: currentAppVersionReducers
 })
 
 export function getInstalledApps (state) {
@@ -84,9 +86,9 @@ function _consolidateApps (stateApps, newAppsInfos) {
   const apps = new Map()
   stateApps.forEach(app => apps.set(app.slug, app))
   newAppsInfos.forEach(app => {
-    const appFromRegistry = apps.get(app.slug)
-    if (appFromRegistry) {
-      apps.set(app.slug, Object.assign({}, appFromRegistry, app))
+    const appsFromState = apps.get(app.slug)
+    if (appsFromState) {
+      apps.set(app.slug, Object.assign({}, appsFromState, app))
     } else {
       apps.set(app.slug, app)
     }
@@ -122,14 +124,17 @@ export function fetchMyApps () {
   }
 }
 
-export function fetchRegistryApps () {
+export function fetchRegistryApps (lang = 'en') {
   return (dispatch, getState) => {
     dispatch({type: FETCH_APPS})
     return cozy.client.fetchJSON('GET', '/registry?filter[type]=webapp')
     .then(response => {
-      const apps = response.data.filter(app => !NOT_DISPLAYED_APPS.includes(app.name))
+      const apps = response.data
+      .filter(app => !NOT_DISPLAYED_APPS.includes(app.name))
+      .filter(app => app.versions.dev && app.versions.dev.length) // only apps with versions available
       return Promise.all(apps.map(app => {
-        let appName = app.full_name || app.name
+        const appName = (app.full_name && (app.full_name[lang] || app.full_name.en)) || app.name
+        const appDesc = (app.description && (app.description[lang] || app.description.en)) || ''
         return _getIcon(app.logo_url)
         .then(iconData => {
           return Object.assign({}, app, {
@@ -137,7 +142,9 @@ export function fetchRegistryApps () {
             icon: iconData,
             name: appName,
             installed: false,
-            uninstallable: true
+            description: appDesc,
+            uninstallable: true,
+            isInRegistry: true
           })
         })
       }))
@@ -152,9 +159,9 @@ export function fetchRegistryApps () {
   }
 }
 
-export function fetchApps () {
+export function fetchApps (lang) {
   return (dispatch, getState) => {
-    dispatch(fetchRegistryApps())
+    dispatch(fetchRegistryApps(lang))
     .then(() => dispatch(fetchMyApps()))
   }
 }
