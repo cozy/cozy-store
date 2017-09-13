@@ -4,7 +4,7 @@ import React from 'react'
 import Sidebar from './Sidebar'
 import { Route, Switch, Redirect } from 'react-router-dom'
 
-import { MyApplications, Discover } from '../myApps/Containers'
+import { MyApplications, Discover } from '../apps/Containers'
 import { Alerter } from 'cozy-ui/react/Alerter'
 
 export const App = () => (

@@ -2,7 +2,7 @@
 /* global cozy */
 
 import { combineReducers } from 'redux'
-import { currentAppVersionReducers } from '../currentAppVersion'
+import { currentAppVersionReducers } from './currentAppVersion'
 
 import {
   UnavailableStackException,
