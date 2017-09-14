@@ -21,6 +21,10 @@ const FETCH_REGISTRY_APPS_SUCCESS = 'FETCH_REGISTRY_APPS_SUCCESS'
 const UNINSTALL_APP_SUCCESS = 'UNINSTALL_APP_SUCCESS'
 const UNINSTALL_APP_FAILURE = 'UNINSTALL_APP_FAILURE'
 
+const INSTALL_APP = 'INSTALL_APP'
+const INSTALL_APP_SUCCESS = 'INSTALL_APP_SUCCESS'
+const INSTALL_APP_FAILURE = 'INSTALL_APP_FAILURE'
+
 const list = (state = [], action) => {
   switch (action.type) {
     case FETCH_REGISTRY_APPS_SUCCESS:
@@ -28,6 +32,7 @@ const list = (state = [], action) => {
     case FETCH_APPS_SUCCESS:
       return _consolidateApps(state, action.apps)
     case UNINSTALL_APP_SUCCESS:
+    case INSTALL_APP_SUCCESS:
       return action.apps
     default:
       return state
@@ -40,6 +45,18 @@ const isFetching = (state = false, action) => {
       return true
     case FETCH_APPS_SUCCESS:
     case FETCH_APPS_FAILURE:
+      return false
+    default:
+      return state
+  }
+}
+
+const isInstalling = (state = false, action) => {
+  switch (action.type) {
+    case INSTALL_APP:
+      return true
+    case INSTALL_APP_SUCCESS:
+    case INSTALL_APP_FAILURE:
       return false
     default:
       return state
@@ -60,6 +77,7 @@ export const appsReducers = combineReducers({
   list,
   error,
   isFetching,
+  isInstalling,
   currentAppVersion: currentAppVersionReducers
 })
 
@@ -69,7 +87,12 @@ export function getInstalledApps (state) {
 
 async function _getIcon (url) {
   if (!url) return ''
-  const icon = await cozy.client.fetchJSON('GET', url)
+  let icon
+  try {
+    icon = await cozy.client.fetchJSON('GET', url)
+  } catch (e) {
+    return ''
+  }
 
   try {
     return 'data:image/svg+xml;base64,' + btoa(icon)
@@ -191,5 +214,51 @@ export function uninstallApp (slug) {
       dispatch({type: UNINSTALL_APP_FAILURE, error: e})
       throw new UnavailableStackException()
     })
+  }
+}
+
+export function installApp (slug, source) {
+  return (dispatch, getState) => {
+    dispatch({type: INSTALL_APP})
+    return cozy.client.fetchJSON('POST', `/apps/${slug}?Source=${source}`)
+    .then(appData => {
+      return _getIcon(appData.links.icon)
+      .then(iconData => {
+        return Object.assign({}, appData.attributes, {
+          _id: appData.id,
+          icon: iconData,
+          installed: true,
+          uninstallable: !NOT_REMOVABLE_APPS.includes(appData.attributes.slug)
+        })
+      })
+      .then(app => {
+        // add the installed app to the state apps list
+        const apps = getState().apps.list.map(a => {
+          if (a.slug === slug) {
+            return Object.assign({}, a, app, {installed: true})
+          }
+          return a
+        })
+        dispatch({type: INSTALL_APP_SUCCESS, apps})
+        return dispatch({
+          type: 'SEND_LOG_SUCCESS',
+          alert: {
+            message: 'app_modal.install.message.success',
+            level: 'success'
+          }
+        })
+      })
+    })
+    .catch(e => {
+      dispatch({type: INSTALL_APP_FAILURE, error: e})
+      throw new UnavailableStackException()
+    })
+  }
+}
+
+export function installAppFromRegistry (slug, channel = 'stable') {
+  return (dispatch, getState) => {
+    const source = `registry://${slug}/${channel}`
+    return dispatch(installApp(slug, source))
   }
 }

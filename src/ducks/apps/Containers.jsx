@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import { fetchApps, fetchMyApps, installApp, uninstallApp, getInstalledApps } from './index'
+import { fetchApps, fetchMyApps, uninstallApp, getInstalledApps, installAppFromRegistry } from './index'
 
 import MyApplicationsComponent from './components/MyApplications'
 import DiscoverComponent from './components/Discover'
@@ -9,13 +9,14 @@ const mapStateToProps = (state, ownProps) => ({
   apps: state.apps.list,
   myApps: getInstalledApps(state),
   isFetching: state.apps.isFetching,
+  isInstalling: state.apps.isInstalling,
   error: state.apps.error
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchApps: () => dispatch(fetchApps()),
   fetchMyApps: () => dispatch(fetchMyApps()),
-  installApp: (appSlug, channel) => dispatch(installApp(appSlug, channel)),
+  installApp: (appSlug, channel) => dispatch(installAppFromRegistry(appSlug, channel)),
   uninstallApp: (appSlug) => dispatch(uninstallApp(appSlug))
 })
 

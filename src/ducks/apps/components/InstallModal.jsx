@@ -25,6 +25,9 @@ export class InstallModal extends Component {
     this.setState({ error: null })
     const { app } = this.props
     this.props.installApp(app.slug)
+    .then(() => {
+      this.gotoParent()
+    })
     .catch(error => {
       this.setState({ error })
     })
@@ -46,7 +49,7 @@ export class InstallModal extends Component {
   }
 
   render () {
-    const { t, app, isVersionFetching, currentAppVersion, versionError } = this.props
+    const { t, app, isVersionFetching, currentAppVersion, versionError, isInstalling } = this.props
     const { error } = this.state
     // if app not found, return to parent
     if (!app) {
@@ -69,12 +72,6 @@ export class InstallModal extends Component {
             </header>
             <div className='sto-modal-content'>
               {permissions && <PermissionsList permissions={permissions} appName={app.name} />
-              }
-              {versionError &&
-                <p class='coz-error'>{t('app_modal.install.message.version_error', {message: versionError.message})}</p>
-              }
-              {error &&
-                <p class='coz-error'>{t('app_modal.install.message.install_error', {message: error.message})}</p>
               }
               {isVersionFetching &&
                 <Spinner
@@ -103,13 +100,21 @@ export class InstallModal extends Component {
                     </button>
                     <button
                       role='button'
+                      disabled={isInstalling}
+                      aria-busy={isInstalling}
                       className='coz-btn coz-btn--regular coz-btn--download'
-                      onClick={this.uninstallApp}
+                      onClick={this.installApp}
                     >
                       {t('app_modal.install.install')}
                     </button>
                   </div>
                 </div>
+              }
+              {versionError &&
+                <p class='coz-error'>{t('app_modal.install.message.version_error', {message: versionError.message})}</p>
+              }
+              {error &&
+                <p class='coz-error'>{t('app_modal.install.message.install_error', {message: error.message})}</p>
               }
             </div>
           </ModalContent>

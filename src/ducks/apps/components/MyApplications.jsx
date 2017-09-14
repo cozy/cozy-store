@@ -32,6 +32,7 @@ export class MyApplications extends Component {
                 icon={a.icon}
                 name={a.name}
                 version={a.version}
+                installed={a.installed}
                 onClick={() => this.onAppClick(a.slug)}
               />
             })
