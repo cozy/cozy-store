@@ -156,12 +156,11 @@ export function fetchRegistryApps (lang = 'en') {
       .filter(app => !NOT_DISPLAYED_APPS.includes(app.name))
       .filter(app => app.versions.dev && app.versions.dev.length) // only apps with versions available
       return Promise.all(apps.map(app => {
-        const appName = (app.full_name && (app.full_name[lang] || app.full_name.en)) || app.name
+        const appName = (app.name && (app.name[lang] || app.name.en)) || app.slug
         const appDesc = (app.description && (app.description[lang] || app.description.en)) || ''
         return _getIcon(app.logo_url)
         .then(iconData => {
           return Object.assign({}, app, {
-            slug: app.name,
             icon: iconData,
             name: appName,
             installed: false,
