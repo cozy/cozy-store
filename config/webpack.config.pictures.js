@@ -1,7 +1,6 @@
 'use strict'
 
 const {production} = require('./webpack.vars')
-const path = require('path')
 
 module.exports = {
   module: {
