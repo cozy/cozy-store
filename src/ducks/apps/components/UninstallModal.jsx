@@ -1,6 +1,7 @@
 /* global cozy */
 
 import React, { Component } from 'react'
+import { withRouter } from 'react-router'
 
 import { translate } from 'cozy-ui/react/I18n'
 import Modal, { ModalContent } from 'cozy-ui/react/Modal'
@@ -31,8 +32,8 @@ export class UninstallModal extends Component {
   }
 
   gotoParent () {
-    const { parent } = this.props
-    this.context.router.history.push(parent)
+    const { parent, history } = this.props
+    history.push(parent)
   }
 
   render () {
@@ -86,4 +87,4 @@ export class UninstallModal extends Component {
   }
 }
 
-export default translate()(UninstallModal)
+export default translate()(withRouter(UninstallModal))
