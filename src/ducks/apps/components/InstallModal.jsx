@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 
 import { translate } from 'cozy-ui/react/I18n'
 import Modal, { ModalContent } from 'cozy-ui/react/Modal'
-import Spinner from 'cozy-ui/react/Spinner'
 
 import PermissionsList from './PermissionsList'
 import ReactMarkdownWrapper from '../../components/ReactMarkdownWrapper'
@@ -65,20 +64,13 @@ export class InstallModal extends Component {
         >
           <ModalContent>
             <header className='sto-modal-header'>
-              <div className='sto-modal-header-icon'>
+              <div className='sto-modal-header-icon' aria-busy={isVersionFetching}>
                 <a href='https://cozy.io' target='_blank' title='Cozy Website' class='sto-modal-header-icon-shield' />
               </div>
               <h2>{t('app_modal.install.title', {appName: app.name})}</h2>
             </header>
             <div className='sto-modal-content'>
               {permissions && <PermissionsList permissions={permissions} appName={app.name} />
-              }
-              {isVersionFetching &&
-                <Spinner
-                  size='xxlarge'
-                  loadingType='appsFetching'
-                  middle='true'
-                />
               }
               {!isVersionFetching && !versionError &&
                 <div>

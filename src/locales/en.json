@@ -51,6 +51,7 @@
       "cozy": {
         "accounts": "Accounts",
         "apps": "List of installed applications",
+        "bills": "Bills",
         "contacts": "Contacts",
         "files": "Files",
         "jobs": "Jobs",

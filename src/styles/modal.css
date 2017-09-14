@@ -45,3 +45,18 @@
     background: #FF7F1A url('../assets/icons/icon-shield.svg') center center / 60% no-repeat;
     box-shadow: 0 1px 3px 0 rgba(50, 54, 63, 0.25), 0 6px 18px 0 rgba(50, 54, 63, 0.2);
 }
+
+.sto-modal--install .sto-modal-header-icon[aria-busy="true"]:before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  right: 0;
+  background: none;
+  border-radius: 100%;
+  border: .4em solid var(--science-blue);
+  border-right: .2em solid white;
+  box-sizing: border-box;
+  animation: 1s linear infinite spin;
+}
