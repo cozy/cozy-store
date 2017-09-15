@@ -65,7 +65,7 @@ export class Discover extends Component {
             if (app.installed) {
               return <UninstallModal uninstallApp={this.props.uninstallApp} parent='/discover' error={this.props.actionError} app={app} match={match} />
             } else if (!app.installed) {
-              return <InstallModal installApp={this.props.installApp} currentAppVersion={this.props.currentAppVersion} parent='/discover' error={this.props.actionError} app={app} match={match} />
+              return <InstallModal installApp={this.props.installApp} parent='/discover' error={this.props.actionError} app={app} match={match} />
             }
           }
         }} />
