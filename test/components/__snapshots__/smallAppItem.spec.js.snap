@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SmallAppItem component should be rendered correctly using a format 1`] = `
+exports[`SmallAppItem component should be rendered correctly an app 1`] = `
 <div
   className="sto-small-app-item"
   onClick={[Function]}
@@ -35,7 +35,7 @@ exports[`SmallAppItem component should be rendered correctly using a format 1`] 
 </div>
 `;
 
-exports[`SmallAppItem component should be rendered correctly using another format 1`] = `
+exports[`SmallAppItem component should be rendered correctly an installed app 1`] = `
 <div
   className="sto-small-app-item"
   onClick={[Function]}
@@ -47,6 +47,58 @@ exports[`SmallAppItem component should be rendered correctly using another forma
     src="<svg></svg>"
     width="64"
   />
+  <svg
+    className="sto-small-app-item-badge-installed"
+  >
+    <use
+      xlinkHref="#undefined"
+    />
+  </svg>
+  <div
+    className="sto-small-app-item-desc"
+  >
+    <h4
+      className="sto-small-app-item-title"
+    >
+      
+      Test2
+    </h4>
+    <p
+      className="sto-small-app-item-detail"
+    >
+      Naming me
+    </p>
+    <p
+      className="sto-small-app-item-detail"
+    >
+      Version 3.0.3
+    </p>
+  </div>
+</div>
+`;
+
+exports[`SmallAppItem component should be rendered correctly an installed app 2`] = `
+<div
+  className="sto-small-app-item"
+  onClick={[Function]}
+>
+  <svg
+    className="sto-small-app-item-icon--default blurry"
+    height="64"
+    style="padding: 0 8px"
+    width="48"
+  >
+    <use
+      xlinkHref="#undefined"
+    />
+  </svg>
+  <svg
+    className="sto-small-app-item-badge-installed"
+  >
+    <use
+      xlinkHref="#undefined"
+    />
+  </svg>
   <div
     className="sto-small-app-item-desc"
   >

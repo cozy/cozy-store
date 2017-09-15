@@ -20,6 +20,7 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
       }
       editor="cozy"
       icon="<svg></svg>"
+      installed={undefined}
       name="Drive"
       onClick={[Function]}
       slug="drive"
@@ -33,6 +34,7 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
       }
       editor="cozy"
       icon="<svg></svg>"
+      installed={undefined}
       name="Photos"
       onClick={[Function]}
       slug="photos"
@@ -46,6 +48,7 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
       }
       editor="cozy"
       icon="<svg></svg>"
+      installed={undefined}
       name="Collect"
       onClick={[Function]}
       slug="collect"
@@ -59,6 +62,7 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
       }
       editor=""
       icon="<svg></svg>"
+      installed={undefined}
       name="Tasky"
       onClick={[Function]}
       slug="tasky"

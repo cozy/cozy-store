@@ -10,6 +10,7 @@ const exceptionProperties = [
   'NotFoundException',
   'MethodNotAllowedException',
   'UnavailableStackException',
+  'UnavailableRegistryException',
   'UnavailableSettingsException',
   'UnauthorizedStackException',
   'NotUninstallableAppException'

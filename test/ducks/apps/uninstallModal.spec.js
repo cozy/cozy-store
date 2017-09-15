@@ -6,9 +6,9 @@ import React from 'react'
 import { shallow } from 'enzyme'
 
 import { tMock } from '../../jestLib/I18n'
-import { UninstallModal } from '../../../src/ducks/myApps/components/UninstallModal'
+import { UninstallModal } from '../../../src/ducks/apps/components/UninstallModal'
 
-import mockMyApps from './_mockMyApps'
+import mockApps from './_mockApps'
 
 /* SinonJS is used here to stub Promise in order to be synchronous.
 In this way, (p)React will call setState synchronously. It will allow
@@ -20,12 +20,8 @@ sinonStubPromise(sinon)
 const mockError = new Error('This is a test error')
 
 const getMockProps = (slug) => ({
-  match: {
-    params: {
-      appSlug: slug || 'collect'
-    }
-  },
-  myApps: mockMyApps,
+  app: mockApps.find(a => a.slug === slug),
+  parent: '/myapps',
   uninstallApp: jest.fn((appSlug) => {
     if (['drive', 'collect'].includes(appSlug)) return sinon.stub().returnsPromise().rejects(mockError)()
     return sinon.stub().returnsPromise().resolves({})()
