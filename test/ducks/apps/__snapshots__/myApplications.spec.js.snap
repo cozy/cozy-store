@@ -89,7 +89,7 @@ exports[`MyApplications component should display error from props correctly 1`] 
     className="sto-myapps-list"
   >
     <p>
-      [Error: This is a test error]
+      This is a test error
     </p>
   </div>
   <Route

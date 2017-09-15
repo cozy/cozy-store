@@ -10,7 +10,7 @@ import UninstallModal from './UninstallModal'
 export class MyApplications extends Component {
   constructor (props) {
     super(props)
-    props.fetchMyApps()
+    props.fetchInstalledApps()
   }
 
   onAppClick (appSlug) {
@@ -18,22 +18,22 @@ export class MyApplications extends Component {
   }
 
   render () {
-    const { t, myApps, isFetching, fetchError } = this.props
+    const { t, installedApps, isFetching, fetchError } = this.props
     return (
       <div className='sto-myapps'>
         <h2 className='sto-myapps-title'>{t('myapps.title')}</h2>
         <div className='sto-myapps-list'>
-          {!isFetching && myApps && !!myApps.length &&
-            myApps.map(a => {
+          {!isFetching && installedApps && !!installedApps.length &&
+            installedApps.map(app => {
               return <SmallAppItem
-                slug={a.slug}
-                developer={a.developer}
-                editor={a.editor}
-                icon={a.icon}
-                name={a.name}
-                version={a.version}
-                installed={a.installed}
-                onClick={() => this.onAppClick(a.slug)}
+                slug={app.slug}
+                developer={app.developer}
+                editor={app.editor}
+                icon={app.icon}
+                name={app.name}
+                version={app.version}
+                installed={app.installed}
+                onClick={() => this.onAppClick(app.slug)}
               />
             })
           }
@@ -51,8 +51,8 @@ export class MyApplications extends Component {
 
         <Route path='/myapps/:appSlug/manage' render={({ match }) => {
           if (isFetching) return
-          if (myApps.length && match.params) {
-            const app = myApps.find(app => app.slug === match.params.appSlug)
+          if (installedApps.length && match.params) {
+            const app = installedApps.find(app => app.slug === match.params.appSlug)
             return <UninstallModal uninstallApp={this.props.uninstallApp} parent='/myapps' error={this.props.actionError} app={app} match={match} />
           }
         }} />

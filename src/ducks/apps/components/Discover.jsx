@@ -31,22 +31,22 @@ export class Discover extends Component {
             {t('discover.get_started')}
           </h3>
           <div className='sto-discover-get-started-list'>
-            {!isFetching && apps.map(a => {
+            {!isFetching && apps.map(app => {
               // don't display app installed but not in registry
-              if (!a.isInRegistry) return null
-              let version = a.version
-              if (a.versions && Array.isArray(a.versions.stable)) {
-                version = (a.versions.stable && a.versions.stable[a.versions.stable.length - 1])
+              if (!app.isInRegistry) return null
+              let version = app.version
+              if (app.versions && Array.isArray(app.versions.stable)) {
+                version = (app.versions.stable && app.versions.stable[app.versions.stable.length - 1])
               }
               return <SmallAppItem
-                slug={a.slug}
-                developer={a.developer || ''}
-                editor={a.editor || ''}
-                icon={a.icon}
-                name={a.name}
+                slug={app.slug}
+                developer={app.developer || ''}
+                editor={app.editor || ''}
+                icon={app.icon}
+                name={app.name}
                 version={version}
-                installed={a.installed}
-                onClick={() => this.onAppClick(a.slug)}
+                installed={app.installed}
+                onClick={() => this.onAppClick(app.slug)}
               />
             })}
             {isFetching &&

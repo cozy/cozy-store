@@ -19,7 +19,7 @@ sinonStubPromise(sinon)
 
 const mockError = new Error('This is a test error')
 
-const getMockProps = (slug) => ({
+const getMockProps = (slug, error = null) => ({
   app: mockApps.find(a => a.slug === slug),
   parent: '/myapps',
   uninstallApp: jest.fn((appSlug) => {
@@ -28,7 +28,8 @@ const getMockProps = (slug) => ({
   }),
   history: {
     push: jest.fn()
-  }
+  },
+  error
 })
 
 describe('UninstallModal component', () => {
@@ -66,12 +67,11 @@ describe('UninstallModal component', () => {
     expect(mockProps.history.push.mock.calls[0][0]).toBe('/myapps')
   })
 
-  it('should hanlde correctly error in state', () => {
-    const mockProps = getMockProps('photos')
+  it('should hanlde correctly error from props', () => {
+    const mockProps = getMockProps('photos', mockError)
     const component = shallow(
       <UninstallModal t={tMock} {...mockProps} />
     )
-    component.setState({ error: {message: 'This is a test error'} })
     expect(component.node).toMatchSnapshot()
   })
 
@@ -93,7 +93,6 @@ describe('UninstallModal component', () => {
       <UninstallModal t={tMock} {...mockProps} />
     )
     await component.instance().uninstallApp()
-    expect(component.state('error')).toBe(mockError)
     // uninstallApp from props should be called once
     expect(mockProps.uninstallApp.mock.calls.length).toBe(1)
     expect(mockProps.uninstallApp.mock.calls[0][0]).toBe('drive')

@@ -134,13 +134,13 @@ function _consolidateApps (stateApps, newAppsInfos) {
   return Array.from(apps.values()).filter(app => app)
 }
 
-export function fetchMyApps () {
+export function fetchInstalledApps () {
   return (dispatch, getState) => {
     dispatch({type: FETCH_APPS})
     return cozy.client.fetchJSON('GET', '/apps/')
-    .then(myApps => {
-      myApps = myApps.filter(app => !NOT_DISPLAYED_APPS.includes(app.attributes.slug))
-      Promise.all(myApps.map(app => {
+    .then(installedApps => {
+      installedApps = installedApps.filter(app => !NOT_DISPLAYED_APPS.includes(app.attributes.slug))
+      Promise.all(installedApps.map(app => {
         return _getIcon(app.links.icon)
         .then(iconData => {
           return Object.assign({}, app.attributes, {
@@ -199,7 +199,7 @@ export function fetchRegistryApps (lang = 'en') {
 export function fetchApps (lang) {
   return (dispatch, getState) => {
     dispatch(fetchRegistryApps(lang))
-    .then(() => dispatch(fetchMyApps()))
+    .then(() => dispatch(fetchInstalledApps()))
   }
 }
 
