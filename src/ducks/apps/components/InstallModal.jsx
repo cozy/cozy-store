@@ -10,9 +10,6 @@ import ReactMarkdownWrapper from '../../components/ReactMarkdownWrapper'
 export class InstallModal extends Component {
   constructor (props) {
     super(props)
-    this.state = {
-      error: null
-    }
 
     if (props.app) props.fetchLastAppVersion(props.app.slug)
 
@@ -28,9 +25,7 @@ export class InstallModal extends Component {
     .then(() => {
       this.gotoParent()
     })
-    .catch(error => {
-      this.setState({ error })
-    })
+    .catch()
   }
 
   gotoParent () {
@@ -49,8 +44,7 @@ export class InstallModal extends Component {
   }
 
   render () {
-    const { t, app, isVersionFetching, currentAppVersion, versionError, isInstalling } = this.props
-    const { error } = this.state
+    const { t, app, isVersionFetching, currentAppVersion, versionError, isInstalling, error } = this.props
     // if app not found, return to parent
     if (!app) {
       this.gotoParent()

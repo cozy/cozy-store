@@ -18,7 +18,7 @@ export class MyApplications extends Component {
   }
 
   render () {
-    const { t, myApps, isFetching, error } = this.props
+    const { t, myApps, isFetching, fetchError } = this.props
     return (
       <div className='sto-myapps'>
         <h2 className='sto-myapps-title'>{t('myapps.title')}</h2>
@@ -37,8 +37,8 @@ export class MyApplications extends Component {
               />
             })
           }
-          {error &&
-            <p>{error}</p>
+          {fetchError &&
+            <p>{fetchError.message}</p>
           }
         </div>
         {isFetching &&
@@ -53,7 +53,7 @@ export class MyApplications extends Component {
           if (isFetching) return
           if (myApps.length && match.params) {
             const app = myApps.find(app => app.slug === match.params.appSlug)
-            return <UninstallModal uninstallApp={this.props.uninstallApp} parent='/myapps' app={app} match={match} />
+            return <UninstallModal uninstallApp={this.props.uninstallApp} parent='/myapps' error={this.props.actionError} app={app} match={match} />
           }
         }} />
       </div>

@@ -10,7 +10,8 @@ const mapStateToProps = (state, ownProps) => ({
   myApps: getInstalledApps(state),
   isFetching: state.apps.isFetching,
   isInstalling: state.apps.isInstalling,
-  error: state.apps.error
+  actionError: state.apps.actionError,
+  fetchError: state.apps.fetchError
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

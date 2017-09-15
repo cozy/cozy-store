@@ -5,7 +5,6 @@ import { combineReducers } from 'redux'
 import { currentAppVersionReducers } from './currentAppVersion'
 
 import {
-  UnavailableStackException,
   NotUninstallableAppException
 } from '../../lib/exceptions'
 
@@ -69,9 +68,8 @@ const isInstalling = (state = false, action) => {
   }
 }
 
-export const error = (state = null, action) => {
+export const actionError = (state = null, action) => {
   switch (action.type) {
-    case FETCH_APPS_FAILURE:
     case UNINSTALL_APP_FAILURE:
     case INSTALL_APP_FAILURE:
       return action.error
@@ -80,9 +78,19 @@ export const error = (state = null, action) => {
   }
 }
 
+export const fetchError = (state = null, action) => {
+  switch (action.type) {
+    case FETCH_APPS_FAILURE:
+      return action.error
+    default:
+      return state
+  }
+}
+
 export const appsReducers = combineReducers({
   list,
-  error,
+  actionError,
+  fetchError,
   isFetching,
   isInstalling,
   currentAppVersion: currentAppVersionReducers
@@ -149,7 +157,7 @@ export function fetchMyApps () {
     })
     .catch(e => {
       dispatch({type: FETCH_APPS_FAILURE, error: e})
-      throw new UnavailableStackException()
+      throw e
     })
   }
 }
@@ -183,7 +191,7 @@ export function fetchRegistryApps (lang = 'en') {
     })
     .catch(e => {
       dispatch({type: FETCH_APPS_FAILURE, error: e})
-      throw new UnavailableStackException()
+      throw e
     })
   }
 }
@@ -198,7 +206,9 @@ export function fetchApps (lang) {
 export function uninstallApp (slug) {
   return (dispatch, getState) => {
     if (NOT_REMOVABLE_APPS.includes(slug) || NOT_DISPLAYED_APPS.includes(slug)) {
-      return Promise.reject(new NotUninstallableAppException())
+      const error = new NotUninstallableAppException()
+      dispatch({ type: UNINSTALL_APP_FAILURE, error })
+      throw error
     }
     return cozy.client.fetchJSON('DELETE', `/apps/${slug}`)
     .then(() => {
@@ -218,7 +228,7 @@ export function uninstallApp (slug) {
     })
     .catch(e => {
       dispatch({type: UNINSTALL_APP_FAILURE, error: e})
-      throw new UnavailableStackException()
+      throw e
     })
   }
 }
@@ -258,7 +268,7 @@ export function installApp (slug, source) {
     })
     .catch(e => {
       dispatch({type: INSTALL_APP_FAILURE, error: e})
-      throw new UnavailableStackException()
+      throw e
     })
   }
 }

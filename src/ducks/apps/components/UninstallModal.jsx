@@ -11,9 +11,6 @@ import ReactMarkdownWrapper from '../../components/ReactMarkdownWrapper'
 export class UninstallModal extends Component {
   constructor (props) {
     super(props)
-    this.state = {
-      error: null
-    }
 
     this.gotoParent = this.gotoParent.bind(this)
     this.uninstallApp = this.uninstallApp.bind(this)
@@ -26,9 +23,7 @@ export class UninstallModal extends Component {
     .then(() => {
       this.gotoParent()
     })
-    .catch(error => {
-      this.setState({ error })
-    })
+    .catch()
   }
 
   gotoParent () {
@@ -37,8 +32,7 @@ export class UninstallModal extends Component {
   }
 
   render () {
-    const { t, app } = this.props
-    const { error } = this.state
+    const { t, app, error } = this.props
     // if app not found, return to parent
     if (!app) {
       this.gotoParent()

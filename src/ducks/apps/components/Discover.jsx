@@ -63,9 +63,9 @@ export class Discover extends Component {
           if (apps.length && match.params) {
             const app = apps.find(app => app.slug === match.params.appSlug)
             if (app.installed) {
-              return <UninstallModal uninstallApp={this.props.uninstallApp} parent='/discover' app={app} match={match} />
+              return <UninstallModal uninstallApp={this.props.uninstallApp} parent='/discover' error={this.props.actionError} app={app} match={match} />
             } else if (!app.installed) {
-              return <InstallModal installApp={this.props.installApp} currentAppVersion={this.props.currentAppVersion} parent='/discover' app={app} match={match} />
+              return <InstallModal installApp={this.props.installApp} currentAppVersion={this.props.currentAppVersion} parent='/discover' error={this.props.actionError} app={app} match={match} />
             }
           }
         }} />
