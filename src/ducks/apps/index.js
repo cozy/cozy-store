@@ -9,6 +9,12 @@ import {
   NotUninstallableAppException
 } from '../../lib/exceptions'
 
+const APP_STATE = {
+  READY: 'ready',
+  INSTALLING: 'installing',
+  ERRORED: 'errored'
+}
+
 const NOT_REMOVABLE_APPS = ['drive', 'collect']
 const NOT_DISPLAYED_APPS = ['settings', 'store', 'onboarding']
 
@@ -67,6 +73,7 @@ export const error = (state = null, action) => {
   switch (action.type) {
     case FETCH_APPS_FAILURE:
     case UNINSTALL_APP_FAILURE:
+    case INSTALL_APP_FAILURE:
       return action.error
     default:
       return state
@@ -220,6 +227,7 @@ export function installApp (slug, source) {
   return (dispatch, getState) => {
     dispatch({type: INSTALL_APP})
     return cozy.client.fetchJSON('POST', `/apps/${slug}?Source=${source}`)
+    .then(resp => waitForAppReady(resp))
     .then(appData => {
       return _getIcon(appData.links.icon)
       .then(iconData => {
@@ -260,4 +268,49 @@ export function installAppFromRegistry (slug, channel = 'stable') {
     const source = `registry://${slug}/${channel}`
     return dispatch(installApp(slug, source))
   }
+}
+
+// monitor the status of the app and resolve when the app is ready
+function waitForAppReady (app, timeout = 20 * 1000) {
+  if (app.attributes.state === APP_STATE.READY) return app
+  return new Promise((resolve, reject) => {
+    let idTimeout
+    let idInterval
+
+    idTimeout = setTimeout(() => {
+      clearInterval(idInterval)
+      resolve(app)
+    }, timeout)
+
+    idInterval = setInterval(() => {
+      cozy.client.fetchJSON('GET', `/apps/${app.attributes.slug}`)
+        .then(app => {
+          if (app.attributes.state === APP_STATE.ERRORED) {
+            if (idTimeout) {
+              clearTimeout(idTimeout)
+            }
+
+            clearInterval(idInterval)
+            reject(new Error('Error when installing the application'))
+          }
+
+          if (app.attributes.state === APP_STATE.READY) {
+            if (idTimeout) {
+              clearTimeout(idTimeout)
+            }
+
+            clearInterval(idInterval)
+            resolve(app)
+          }
+        })
+        .catch(error => {
+          if (idTimeout) {
+            clearTimeout(idTimeout)
+          }
+
+          clearInterval(idInterval)
+          reject(error)
+        })
+    }, 1000)
+  })
 }

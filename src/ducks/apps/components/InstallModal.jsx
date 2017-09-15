@@ -83,6 +83,9 @@ export class InstallModal extends Component {
                       }
                     />
                   }
+                  {error &&
+                    <p class='coz-error'>{t('app_modal.install.message.install_error', {message: error.message})}</p>
+                  }
                   <div className='sto-modal-controls'>
                     <button
                       role='button'
@@ -105,9 +108,6 @@ export class InstallModal extends Component {
               }
               {versionError &&
                 <p class='coz-error'>{t('app_modal.install.message.version_error', {message: versionError.message})}</p>
-              }
-              {error &&
-                <p class='coz-error'>{t('app_modal.install.message.install_error', {message: error.message})}</p>
               }
             </div>
           </ModalContent>
