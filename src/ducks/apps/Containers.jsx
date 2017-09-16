@@ -1,12 +1,12 @@
 import { connect } from 'react-redux'
 
-import { fetchApps, fetchInstalledApps, uninstallApp, getInstalledApps, installAppFromRegistry } from './index'
+import { fetchApps, fetchInstalledApps, uninstallApp, getInstalledApps, getRegistryApps, installAppFromRegistry } from './index'
 
 import MyApplicationsComponent from './components/MyApplications'
 import DiscoverComponent from './components/Discover'
 
 const mapStateToProps = (state, ownProps) => ({
-  apps: state.apps.list,
+  apps: getRegistryApps(state),
   installedApps: getInstalledApps(state),
   isFetching: state.apps.isFetching,
   isInstalling: state.apps.isInstalling,

@@ -100,6 +100,11 @@ export function getInstalledApps (state) {
   return state.apps.list.filter(app => app.installed)
 }
 
+export function getRegistryApps (state) {
+  // display only apps with stable versions for now
+  return state.apps.list.filter(app => app.isInRegistry).filter(app => (Array.isArray(app.versions.stable) && !!app.versions.stable))
+}
+
 async function _getIcon (url) {
   if (!url) return ''
   let icon
