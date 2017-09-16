@@ -4,9 +4,12 @@ import React from 'react'
 import { translate } from 'cozy-ui/react/I18n'
 import ReactMarkdownWrapper from '../../components/ReactMarkdownWrapper'
 
-export const PermissionsList = ({ t, permissions, appName }) => (
-  permissions &&
-    permissions.length
+export const PermissionsList = ({ t, permissions, appName }) => {
+  const permissionsArray = Object.values(permissions).map(p => {
+    p.typeDescription = (t(`doctypes.${p.type}`)).replace(/^doctypes\./, '')
+    return p
+  })
+  return (permissionsArray.length
     ? <div>
       <ReactMarkdownWrapper
         source={t('app_modal.install.permissions.description', {
@@ -15,7 +18,7 @@ export const PermissionsList = ({ t, permissions, appName }) => (
         }
       />
       <ul className='sto-perm-list'>
-        { permissions.map(permission => (
+        { permissionsArray.map(permission => (
           <li key={permission.type} className={permission.type}>
             <ReactMarkdownWrapper
               source={`__${permission.typeDescription}__: ${permission.description}`}
@@ -30,6 +33,7 @@ export const PermissionsList = ({ t, permissions, appName }) => (
         appName})
       }
     />
-)
+  )
+}
 
 export default translate()(PermissionsList)

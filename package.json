@@ -30,7 +30,9 @@
     "url": "git+https://github.com/cozy/cozy-store.git"
   },
   "author": "Cozy Cloud <contact@cozycloud.cc> (https://cozy.io/)",
-  "contributors": [],
+  "contributors": [
+    "CPatchane"
+  ],
   "license": "AGPL-3.0",
   "bugs": {
     "url": "https://github.com/cozy/cozy-store/issues"
