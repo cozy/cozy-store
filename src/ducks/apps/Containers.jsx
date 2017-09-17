@@ -1,9 +1,10 @@
 import { connect } from 'react-redux'
 
-import { fetchApps, fetchInstalledApps, uninstallApp, getInstalledApps, getRegistryApps, installAppFromRegistry } from './index'
+import { fetchApps, fetchInstalledApps, uninstallApp, getInstalledApps, getRegistryApps, installAppFromRegistry, installApp } from './index'
 
 import MyApplicationsComponent from './components/MyApplications'
 import DiscoverComponent from './components/Discover'
+import HiddenInstallerViewComponent from './components/HiddenInstallerView'
 
 const mapStateToProps = (state, ownProps) => ({
   apps: getRegistryApps(state),
@@ -18,7 +19,20 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchApps: () => dispatch(fetchApps()),
   fetchInstalledApps: () => dispatch(fetchInstalledApps()),
   installApp: (appSlug, channel) => dispatch(installAppFromRegistry(appSlug, channel)),
-  uninstallApp: (appSlug) => dispatch(uninstallApp(appSlug))
+  uninstallApp: (appSlug) => dispatch(uninstallApp(appSlug)),
+  // for the hidden installer only
+  installUsingInstaller: (appSlug, source, isUpdate) =>
+    dispatch(installApp(appSlug, source, isUpdate))
+    .catch(() => {
+      dispatch({
+        type: 'SEND_LOG_FAILURE',
+        alert: {
+          message: `HiddenInstallerView.${isUpdate ? 'update' : 'install'}_error`,
+          messageData: {slug: appSlug},
+          level: 'error'
+        }
+      })
+    })
 })
 
 export const MyApplications = connect(
@@ -30,3 +44,8 @@ export const Discover = connect(
   mapStateToProps,
   mapDispatchToProps
 )(DiscoverComponent)
+
+export const HiddenInstallerView = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HiddenInstallerViewComponent)

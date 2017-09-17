@@ -8,6 +8,7 @@ exports[`Apps Containers (connected components): Discover should be rendered cor
   fetchError={null}
   fetchInstalledApps={[Function]}
   installApp={[Function]}
+  installUsingInstaller={[Function]}
   installedApps={Array []}
   isFetching={false}
   isInstalling={false}
@@ -51,6 +52,7 @@ exports[`Apps Containers (connected components): MyApplications should be render
   fetchError={null}
   fetchInstalledApps={[Function]}
   installApp={[Function]}
+  installUsingInstaller={[Function]}
   installedApps={Array []}
   isFetching={false}
   isInstalling={false}
