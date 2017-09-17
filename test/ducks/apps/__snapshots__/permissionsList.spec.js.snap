@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MyApplications component should be rendered correctly with permissions 1`] = `
+<div>
+  <Unknown
+    source="In order to improve the value of your Cozy (cozytest.mock.cc), the application Mock requires access to the following data:"
+  />
+  <ul
+    className="sto-perm-list"
+  >
+    <li
+      className="io.cozy.files"
+    >
+      <Unknown
+        source="__Files__: Required for photo access"
+      />
+    </li>
+    <li
+      className="io.cozy.apps"
+    >
+      <Unknown
+        source="__List of installed applications__: Required by the cozy-bar to display the icons of the apps"
+      />
+    </li>
+    <li
+      className="io.cozy.photos.albums"
+    >
+      <Unknown
+        source="__Photo albums__: Required to manage photos albums"
+      />
+    </li>
+    <li
+      className="io.cozy.contacts"
+    >
+      <Unknown
+        source="__Contacts__: Required to to share photos with your contacts"
+      />
+    </li>
+    <li
+      className="io.cozy.settings"
+    >
+      <Unknown
+        source="__Settings__: Required by the cozy-bar to display Claudy and know which applications are coming soon"
+      />
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`MyApplications component should be rendered correctly without permissions 1`] = `
+<Unknown
+  source="The application Mock doesn't require any data access to work correctly on your Cozy (cozytest.mock.cc)."
+/>
+`;

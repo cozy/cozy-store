@@ -14,7 +14,9 @@ import mockApps from './_mockApps'
 
 const mockMyApplicationsError = new Error('This is a test error')
 
-const getMockProps = (installedApps = mockApps, isFetching = false, fetchError = null) => ({
+const mockInstalledApps = mockApps.filter(a => a.installed)
+
+const getMockProps = (installedApps = mockInstalledApps, isFetching = false, fetchError = null) => ({
   fetchInstalledApps: jest.fn(),
   installedApps,
   isFetching,
@@ -52,12 +54,12 @@ describe('MyApplications component', () => {
     const component = shallow(
       <MyApplications t={tMock} {...mockProps} />
     )
-    expect(component.find(SmallAppItem).length).toBe(mockApps.length)
+    expect(component.find(SmallAppItem).length).toBe(mockInstalledApps.length)
     const appItem = component.find(SmallAppItem).at(0).dive() // shallow on more level on first app item
     appItem.simulate('click')
     // history push to app modal URL
     expect(mockProps.history.push.mock.calls.length).toBe(1)
-    expect(mockProps.history.push.mock.calls[0][0]).toBe(`/myapps/${mockApps[0].slug}/manage`)
+    expect(mockProps.history.push.mock.calls[0][0]).toBe(`/myapps/${mockInstalledApps[0].slug}/manage`)
   })
 
   it('should handle correctly application modal with Route', () => {
@@ -77,7 +79,7 @@ describe('MyApplications component', () => {
     )
     const route = component.find(Route)
     expect(route.length).toBe(1)
-    expect(route.props().render({ match: {params: 'photos'} })).toBeUndefined()
+    expect(route.props().render({ match: { params: { appSlug: 'drive' } } })).toBeUndefined()
   })
 
   it('should not return application modal using Route if apps list is empty', () => {
@@ -87,6 +89,6 @@ describe('MyApplications component', () => {
     )
     const route = component.find(Route)
     expect(route.length).toBe(1)
-    expect(route.props().render({ match: {params: 'photos'} })).toBeUndefined()
+    expect(route.props().render({ match: { params: { appSlug: 'drive' } } })).toBeUndefined()
   })
 })

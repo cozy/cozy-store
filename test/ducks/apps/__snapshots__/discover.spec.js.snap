@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Discover component should be rendered correctly with apps 1`] = `
+<div
+  className="sto-discover"
+>
+  <h2
+    className="sto-discover-title"
+  >
+    Discover
+  </h2>
+  <div
+    className="sto-discover-get-started"
+  >
+    <h3
+      className="sto-discover-get-started-title"
+    >
+      Get started with Cozy
+    </h3>
+    <div
+      className="sto-discover-get-started-list"
+    >
+      <SmallAppItem
+        developer={
+          Object {
+            "name": "Cozy",
+          }
+        }
+        editor="cozy"
+        icon="<svg></svg>"
+        installed={undefined}
+        name="Photos"
+        onClick={[Function]}
+        slug="photos"
+        version="3.0.0"
+      />
+      <SmallAppItem
+        developer={
+          Object {
+            "name": "Cozy",
+          }
+        }
+        editor="cozy"
+        icon="<svg></svg>"
+        installed={true}
+        name="Collect"
+        onClick={[Function]}
+        slug="collect"
+        version="3.0.0"
+      />
+      <SmallAppItem
+        developer=""
+        editor=""
+        icon="<svg></svg>"
+        installed={undefined}
+        name="Tasky"
+        onClick={[Function]}
+        slug="tasky"
+        version="1.0.0"
+      />
+    </div>
+  </div>
+  <Route
+    path="/discover/:appSlug/manage"
+    render={[Function]}
+  />
+</div>
+`;
+
+exports[`Discover component should display error from props correctly 1`] = `
+<div
+  className="sto-discover"
+>
+  <h2
+    className="sto-discover-title"
+  >
+    Discover
+  </h2>
+  <div
+    className="sto-discover-get-started"
+  >
+    <h3
+      className="sto-discover-get-started-title"
+    >
+      Get started with Cozy
+    </h3>
+    <div
+      className="sto-discover-get-started-list"
+    />
+  </div>
+  <Route
+    path="/discover/:appSlug/manage"
+    render={[Function]}
+  />
+</div>
+`;
+
+exports[`Discover component should render correctly a spinner if apps is fetching 1`] = `
+<div
+  className="sto-discover"
+>
+  <h2
+    className="sto-discover-title"
+  >
+    Discover
+  </h2>
+  <div
+    className="sto-discover-get-started"
+  >
+    <h3
+      className="sto-discover-get-started-title"
+    >
+      Get started with Cozy
+    </h3>
+    <div
+      className="sto-discover-get-started-list"
+    >
+      <_translate
+        loadingType="appsFetching"
+        middle="true"
+        size="xxlarge"
+      />
+    </div>
+  </div>
+  <Route
+    path="/discover/:appSlug/manage"
+    render={[Function]}
+  />
+</div>
+`;

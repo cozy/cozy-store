@@ -43,6 +43,7 @@ export class Discover extends Component {
                 version={version}
                 installed={app.installed}
                 onClick={() => this.onAppClick(app.slug)}
+                key={app.slug}
               />
             })}
             {isFetching &&

@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Apps Containers (connected components): Discover should be rendered correctly at initial store 1`] = `
+<_translate
+  actionError={null}
+  apps={Array []}
+  fetchApps={[Function]}
+  fetchError={null}
+  fetchInstalledApps={[Function]}
+  installApp={[Function]}
+  installedApps={Array []}
+  isFetching={false}
+  isInstalling={false}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "notify": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": null,
+    }
+  }
+  uninstallApp={[Function]}
+/>
+`;
+
+exports[`Apps Containers (connected components): MyApplications should be rendered correctly at initial store 1`] = `
+<_translate
+  actionError={null}
+  apps={Array []}
+  fetchApps={[Function]}
+  fetchError={null}
+  fetchInstalledApps={[Function]}
+  installApp={[Function]}
+  installedApps={Array []}
+  isFetching={false}
+  isInstalling={false}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "notify": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": null,
+    }
+  }
+  uninstallApp={[Function]}
+/>
+`;
+
+exports[`currentAppVersion Containers (connected components): InstallModal should be rendered correctly at initial store 1`] = `
+<_translate
+  currentAppVersion={null}
+  fetchLastAppVersion={[Function]}
+  isVersionFetching={false}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "notify": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": null,
+    }
+  }
+  versionError={null}
+/>
+`;
