@@ -52,16 +52,37 @@
       "cozy": {
         "accounts": "Accounts",
         "apps": "List of installed applications",
+        "bank.accounts": "Banking accounts",
+        "bank.groups": "Banking groups",
         "bills": "Bills",
         "contacts": "Contacts",
         "files": "Files",
         "jobs": "Jobs",
-        "konnectors": "Konnectors",
-        "konnectors.result": "Konnectors results",
-        "permissions": "Permissions",
+        "konnectors": "Connectors for importing data",
+        "konnectors.result": "Connectors results",
+        "permissions": "Delegating permissions",
         "photos.albums": "Photo albums",
         "settings": "Settings",
-        "triggers": "Triggers"
+        "triggers": "Scheduling jobs"
+      }
+    },
+    "fr": {
+      "maif": {
+        "maifuser": {
+          "contrat": "Contract (Maif)",
+          "home": "Home (Maif)",
+          "family": "Family (Maif)",
+          "paymentterms": "Payment terms (Maif)",
+          "sinistre": "Damage (Maif)",
+          "societaire": "Societary (Maif)"
+        }
+      }
+    },
+    "org": {
+      "fing": {
+        "mesinfos": {
+          "insuranceclaim": "Insurance claims (Maif)"
+        }
       }
     }
   },
