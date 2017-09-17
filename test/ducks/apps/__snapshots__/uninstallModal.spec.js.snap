@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ApplicationModal component should be rendered correctly if app not uninstallable 1`] = `
+exports[`UninstallModal component should be rendered correctly if app not uninstallable 1`] = `
 <div
-  className="sto-myapps-modal--uninstall"
+  className="sto-modal--uninstall"
 >
   <Modal
     overflowHidden={false}
@@ -14,13 +14,13 @@ exports[`ApplicationModal component should be rendered correctly if app not unin
   >
     <ModalContent>
       <div
-        className="sto-myapps-modal-content"
+        className="sto-modal-content"
       >
         <Unknown
           source="This application is a major part of the Cozy platform. In order to keep you a __minimum user experience quality__, it's not possible to uninstall it through the Store application."
         />
         <div
-          className="sto-myapps-modal-controls"
+          className="sto-modal-controls"
         >
           <button
             className="coz-btn coz-btn--secondary"
@@ -44,9 +44,9 @@ exports[`ApplicationModal component should be rendered correctly if app not unin
 </div>
 `;
 
-exports[`ApplicationModal component should be rendered correctly if app uninstallable 1`] = `
+exports[`UninstallModal component should be rendered correctly if app uninstallable 1`] = `
 <div
-  className="sto-myapps-modal--uninstall"
+  className="sto-modal--uninstall"
 >
   <Modal
     overflowHidden={false}
@@ -58,13 +58,13 @@ exports[`ApplicationModal component should be rendered correctly if app uninstal
   >
     <ModalContent>
       <div
-        className="sto-myapps-modal-content"
+        className="sto-modal-content"
       >
         <Unknown
           source="This application is bound to be removed from your Cozy cozytest.mock.cc. Are you sure to __remove this application definitively__?"
         />
         <div
-          className="sto-myapps-modal-controls"
+          className="sto-modal-controls"
         >
           <button
             className="coz-btn coz-btn--secondary"
@@ -88,9 +88,9 @@ exports[`ApplicationModal component should be rendered correctly if app uninstal
 </div>
 `;
 
-exports[`ApplicationModal component should hanlde correctly error in state 1`] = `
+exports[`UninstallModal component should hanlde correctly error from props 1`] = `
 <div
-  className="sto-myapps-modal--uninstall"
+  className="sto-modal--uninstall"
 >
   <Modal
     overflowHidden={false}
@@ -102,7 +102,7 @@ exports[`ApplicationModal component should hanlde correctly error in state 1`] =
   >
     <ModalContent>
       <div
-        className="sto-myapps-modal-content"
+        className="sto-modal-content"
       >
         <Unknown
           source="This application is bound to be removed from your Cozy cozytest.mock.cc. Are you sure to __remove this application definitively__?"
@@ -113,7 +113,7 @@ exports[`ApplicationModal component should hanlde correctly error in state 1`] =
           Something went wrong when uninstalling this application. Reason: This is a test error
         </p>
         <div
-          className="sto-myapps-modal-controls"
+          className="sto-modal-controls"
         >
           <button
             className="coz-btn coz-btn--secondary"

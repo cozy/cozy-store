@@ -28,20 +28,41 @@ const appMock2 = {
   icon: '<svg></svg>',
   name: 'Test2',
   version: '3.0.3-beta7483',
+  installed: true,
+  onClick: jest.fn()
+}
+
+const appMockWithoutIcon = {
+  slug: 'test2',
+  editor: '',
+  developer: {
+    name: 'Naming me'
+  },
+  icon: '',
+  name: 'Test2',
+  version: '3.0.3-beta7483',
+  installed: true,
   onClick: jest.fn()
 }
 
 describe('SmallAppItem component', () => {
-  it('should be rendered correctly using a format', () => {
+  it('should be rendered correctly an app', () => {
     const component = shallow(
       <SmallAppItem {...appMock} />
     ).node
     expect(component).toMatchSnapshot()
   })
 
-  it('should be rendered correctly using another format', () => {
+  it('should be rendered correctly an installed app', () => {
     const component = shallow(
       <SmallAppItem {...appMock2} />
+    ).node
+    expect(component).toMatchSnapshot()
+  })
+
+  it('should be rendered correctly an installed app', () => {
+    const component = shallow(
+      <SmallAppItem {...appMockWithoutIcon} />
     ).node
     expect(component).toMatchSnapshot()
   })

@@ -5,12 +5,12 @@ import { translate } from 'cozy-ui/react/I18n'
 import Spinner from 'cozy-ui/react/Spinner'
 
 import SmallAppItem from '../../components/SmallAppItem'
-import ApplicationModal from './ApplicationModal'
+import UninstallModal from './UninstallModal'
 
 export class MyApplications extends Component {
   constructor (props) {
     super(props)
-    props.fetchApps()
+    props.fetchInstalledApps()
   }
 
   onAppClick (appSlug) {
@@ -18,26 +18,27 @@ export class MyApplications extends Component {
   }
 
   render () {
-    const { t, myApps, isFetching, error } = this.props
+    const { t, installedApps, isFetching, fetchError } = this.props
     return (
       <div className='sto-myapps'>
         <h2 className='sto-myapps-title'>{t('myapps.title')}</h2>
         <div className='sto-myapps-list'>
-          {!isFetching && myApps && !!myApps.length &&
-            myApps.map(a => {
+          {!isFetching && installedApps && !!installedApps.length &&
+            installedApps.map(app => {
               return <SmallAppItem
-                slug={a.slug}
-                developer={a.developer}
-                editor={a.editor}
-                icon={a.icon}
-                name={a.name}
-                version={a.version}
-                onClick={() => this.onAppClick(a.slug)}
+                slug={app.slug}
+                developer={app.developer}
+                editor={app.editor}
+                icon={app.icon}
+                name={app.name}
+                version={app.version}
+                installed={app.installed}
+                onClick={() => this.onAppClick(app.slug)}
               />
             })
           }
-          {error &&
-            <p>{error}</p>
+          {fetchError &&
+            <p>{fetchError.message}</p>
           }
         </div>
         {isFetching &&
@@ -50,8 +51,9 @@ export class MyApplications extends Component {
 
         <Route path='/myapps/:appSlug/manage' render={({ match }) => {
           if (isFetching) return
-          if (myApps.length) {
-            return <ApplicationModal {...this.props} match={match} />
+          if (installedApps.length && match.params) {
+            const app = installedApps.find(app => app.slug === match.params.appSlug)
+            return <UninstallModal uninstallApp={this.props.uninstallApp} parent='/myapps' error={this.props.actionError} app={app} match={match} />
           }
         }} />
       </div>

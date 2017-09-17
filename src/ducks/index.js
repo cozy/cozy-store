@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux'
 
-import { myAppsReducers } from '../ducks/myApps'
+import { appsReducers } from './apps'
+import { currentAppVersionReducers } from './apps/currentAppVersion'
 import alerterReducer from 'cozy-ui/react/Alerter'
 
 const storeApp = combineReducers({
-  myApps: myAppsReducers,
+  apps: appsReducers,
+  currentAppVersion: currentAppVersionReducers,
   alerts: alerterReducer
 })
 

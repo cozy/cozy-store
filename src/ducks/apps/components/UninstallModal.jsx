@@ -1,18 +1,16 @@
 /* global cozy */
 
 import React, { Component } from 'react'
+import { withRouter } from 'react-router'
 
 import { translate } from 'cozy-ui/react/I18n'
 import Modal, { ModalContent } from 'cozy-ui/react/Modal'
 
 import ReactMarkdownWrapper from '../../components/ReactMarkdownWrapper'
 
-export class ApplicationModal extends Component {
+export class UninstallModal extends Component {
   constructor (props) {
     super(props)
-    this.state = {
-      error: null
-    }
 
     this.gotoParent = this.gotoParent.bind(this)
     this.uninstallApp = this.uninstallApp.bind(this)
@@ -20,42 +18,37 @@ export class ApplicationModal extends Component {
 
   uninstallApp () {
     this.setState({ error: null })
-    const { appSlug } = this.props.match && this.props.match.params
-    this.props.uninstallApp(appSlug)
+    const { app } = this.props
+    this.props.uninstallApp(app.slug)
     .then(() => {
       this.gotoParent()
     })
-    .catch(error => {
-      this.setState({ error })
-    })
+    .catch()
   }
 
   gotoParent () {
-    this.props.history.push(`/myapps`)
+    const { parent, history } = this.props
+    history.push(parent)
   }
 
   render () {
-    const { t, myApps } = this.props
-    const { error } = this.state
-    // params from route
-    const { appSlug } = this.props.match && this.props.match.params
-    const appInfos = myApps.find(a => a.slug === appSlug)
+    const { t, app, error } = this.props
     // if app not found, return to parent
-    if (!appInfos) {
+    if (!app) {
       this.gotoParent()
       return null
     }
     return (
-      <div className='sto-myapps-modal--uninstall'>
+      <div className='sto-modal--uninstall'>
         <Modal
           title={t('app_modal.uninstall.title')}
           secondaryAction={this.gotoParent}
         >
           <ModalContent>
-            <div className='sto-myapps-modal-content'>
+            <div className='sto-modal-content'>
               <ReactMarkdownWrapper
                 source={
-                  appInfos.uninstallable
+                  app.uninstallable
                     ? t('app_modal.uninstall.description', { cozyName: cozy.client._url.replace(/^\/\//, '') })
                     : t('app_modal.uninstall.uninstallable_description')
                 }
@@ -63,7 +56,7 @@ export class ApplicationModal extends Component {
               {error &&
                 <p class='coz-error'>{t('app_modal.uninstall.message.error', {message: error.message})}</p>
               }
-              <div className='sto-myapps-modal-controls'>
+              <div className='sto-modal-controls'>
                 <button
                   role='button'
                   className='coz-btn coz-btn--secondary'
@@ -73,7 +66,7 @@ export class ApplicationModal extends Component {
                 </button>
                 <button
                   role='button'
-                  disabled={!appInfos.uninstallable}
+                  disabled={!app.uninstallable}
                   className='coz-btn coz-btn--danger coz-btn--delete'
                   onClick={this.uninstallApp}
                 >
@@ -88,4 +81,4 @@ export class ApplicationModal extends Component {
   }
 }
 
-export default translate()(ApplicationModal)
+export default translate()(withRouter(UninstallModal))

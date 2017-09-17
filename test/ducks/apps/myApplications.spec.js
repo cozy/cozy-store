@@ -8,17 +8,17 @@ import { Route } from 'react-router-dom'
 
 import { tMock } from '../../jestLib/I18n'
 import SmallAppItem from '../../../src/ducks/components/SmallAppItem'
-import { MyApplications } from '../../../src/ducks/myApps/components/MyApplications'
+import { MyApplications } from '../../../src/ducks/apps/components/MyApplications'
 
-import mockMyApps from './_mockMyApps'
+import mockApps from './_mockApps'
 
 const mockMyApplicationsError = new Error('This is a test error')
 
-const getMockProps = (myApps = mockMyApps, isFetching = false, error = null) => ({
-  fetchApps: jest.fn(),
-  myApps,
+const getMockProps = (installedApps = mockApps, isFetching = false, fetchError = null) => ({
+  fetchInstalledApps: jest.fn(),
+  installedApps,
   isFetching,
-  error,
+  fetchError,
   history: { push: jest.fn() }
 })
 
@@ -52,12 +52,12 @@ describe('MyApplications component', () => {
     const component = shallow(
       <MyApplications t={tMock} {...mockProps} />
     )
-    expect(component.find(SmallAppItem).length).toBe(mockMyApps.length)
+    expect(component.find(SmallAppItem).length).toBe(mockApps.length)
     const appItem = component.find(SmallAppItem).at(0).dive() // shallow on more level on first app item
     appItem.simulate('click')
     // history push to app modal URL
     expect(mockProps.history.push.mock.calls.length).toBe(1)
-    expect(mockProps.history.push.mock.calls[0][0]).toBe(`/myapps/${mockMyApps[0].slug}/manage`)
+    expect(mockProps.history.push.mock.calls[0][0]).toBe(`/myapps/${mockApps[0].slug}/manage`)
   })
 
   it('should handle correctly application modal with Route', () => {
