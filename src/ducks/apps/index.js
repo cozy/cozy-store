@@ -238,10 +238,11 @@ export function uninstallApp (slug) {
   }
 }
 
-export function installApp (slug, source) {
+export function installApp (slug, source, isUpdate = false) {
   return (dispatch, getState) => {
     dispatch({type: INSTALL_APP})
-    return cozy.client.fetchJSON('POST', `/apps/${slug}?Source=${source}`)
+    const verb = isUpdate ? 'PUT' : 'POST'
+    return cozy.client.fetchJSON(verb, `/apps/${slug}?Source=${encodeURIComponent(source)}`)
     .then(resp => waitForAppReady(resp))
     .then(appData => {
       return _getIcon(appData.links.icon)
@@ -265,7 +266,7 @@ export function installApp (slug, source) {
         return dispatch({
           type: 'SEND_LOG_SUCCESS',
           alert: {
-            message: 'app_modal.install.message.success',
+            message: `app_modal.install.message.${isUpdate ? 'update' : 'install'}_success`,
             level: 'success'
           }
         })
@@ -281,7 +282,7 @@ export function installApp (slug, source) {
 export function installAppFromRegistry (slug, channel = 'stable') {
   return (dispatch, getState) => {
     const source = `registry://${slug}/${channel}`
-    return dispatch(installApp(slug, source))
+    return dispatch(installApp(slug, source, false))
   }
 }
 
@@ -319,6 +320,7 @@ function waitForAppReady (app, timeout = 20 * 1000) {
           }
         })
         .catch(error => {
+          if (error.status === 404) return // keep waiting
           if (idTimeout) {
             clearTimeout(idTimeout)
           }
