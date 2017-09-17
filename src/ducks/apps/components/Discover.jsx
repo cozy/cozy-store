@@ -46,6 +46,9 @@ export class Discover extends Component {
                 key={app.slug}
               />
             })}
+            {fetchError &&
+              <p className='coz-error'>{fetchError.message}</p>
+            }
             {isFetching &&
               <Spinner
                 size='xxlarge'

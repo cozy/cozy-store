@@ -39,7 +39,7 @@ export class MyApplications extends Component {
             })
           }
           {fetchError &&
-            <p>{fetchError.message}</p>
+            <p className='coz-error'>{fetchError.message}</p>
           }
         </div>
         {isFetching &&

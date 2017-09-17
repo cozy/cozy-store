@@ -86,7 +86,13 @@ exports[`Discover component should display error from props correctly 1`] = `
     </h3>
     <div
       className="sto-discover-get-started-list"
-    />
+    >
+      <p
+        className="coz-error"
+      >
+        This is a test error
+      </p>
+    </div>
   </div>
   <Route
     path="/discover/:appSlug/manage"

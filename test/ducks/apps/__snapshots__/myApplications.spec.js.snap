@@ -60,7 +60,9 @@ exports[`MyApplications component should display error from props correctly 1`] 
   <div
     className="sto-myapps-list"
   >
-    <p>
+    <p
+      className="coz-error"
+    >
       This is a test error
     </p>
   </div>
