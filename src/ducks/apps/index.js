@@ -73,6 +73,9 @@ export const actionError = (state = null, action) => {
     case UNINSTALL_APP_FAILURE:
     case INSTALL_APP_FAILURE:
       return action.error
+    case UNINSTALL_APP_SUCCESS:
+    case INSTALL_APP_SUCCESS:
+      return null
     default:
       return state
   }
@@ -82,6 +85,8 @@ export const fetchError = (state = null, action) => {
   switch (action.type) {
     case FETCH_APPS_FAILURE:
       return action.error
+    case FETCH_APPS_SUCCESS:
+      return null
     default:
       return state
   }
