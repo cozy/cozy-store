@@ -18,7 +18,7 @@ What's Cozy?
 [Cozy] is a platform that brings all your web services in the same private space.  With it, your webapps and your devices can share data easily, providing you with a new experience. You can install Cozy on your own hardware where no one's tracking you.
 
 
-What's Store?
+What's Store? ![Cozy Logo](https://cdn.rawgit.com/cozy/cozy-store/master/vendor/assets/icon-store.svg)
 ----------------
 
 Cozy Store is the marketplace application that allow you to manage your apps in your Cozy.
