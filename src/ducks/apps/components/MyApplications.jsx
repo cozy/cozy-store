@@ -34,11 +34,12 @@ export class MyApplications extends Component {
                 version={app.version}
                 installed={app.installed}
                 onClick={() => this.onAppClick(app.slug)}
+                key={app.slug}
               />
             })
           }
           {fetchError &&
-            <p>{fetchError.message}</p>
+            <p className='coz-error'>{fetchError.message}</p>
           }
         </div>
         {isFetching &&

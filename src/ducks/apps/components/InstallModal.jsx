@@ -15,7 +15,6 @@ export class InstallModal extends Component {
 
     this.gotoParent = this.gotoParent.bind(this)
     this.installApp = this.installApp.bind(this)
-    this.getPermissions = this.getPermissions.bind(this)
   }
 
   installApp () {
@@ -33,16 +32,6 @@ export class InstallModal extends Component {
     history.push(parent)
   }
 
-  getPermissions () {
-    const { currentAppVersion, t } = this.props
-    const manifest = currentAppVersion && currentAppVersion.manifest
-    const permissionsArray = Object.values(manifest.permissions) || []
-    return permissionsArray.map(p => {
-      p.typeDescription = (t(`doctypes.${p.type}`)).replace(/^doctypes\./, '')
-      return p
-    })
-  }
-
   render () {
     const { t, app, isVersionFetching, currentAppVersion, versionError, isInstalling, error } = this.props
     // if app not found, return to parent
@@ -51,7 +40,9 @@ export class InstallModal extends Component {
       return null
     }
     let permissions = null
-    if (currentAppVersion && !isVersionFetching && !versionError) permissions = this.getPermissions()
+    if (currentAppVersion && !isVersionFetching && !versionError) {
+      permissions = (currentAppVersion.manifest && currentAppVersion.manifest.permissions) || {}
+    }
     return (
       <div className='sto-modal--install'>
         <Modal
@@ -62,14 +53,16 @@ export class InstallModal extends Component {
               <div className='sto-modal-header-icon' aria-busy={isVersionFetching}>
                 <a href='https://cozy.io' target='_blank' title='Cozy Website' class='sto-modal-header-icon-shield' />
               </div>
-              <h2>{t('app_modal.install.title', {appName: app.name})}</h2>
+              {!isVersionFetching && !versionError &&
+                <h2>{t('app_modal.install.title', {appName: app.name})}</h2>
+              }
             </header>
             <div className='sto-modal-content'>
               {permissions && <PermissionsList permissions={permissions} appName={app.name} />
               }
               {!isVersionFetching && !versionError &&
                 <div>
-                  {permissions && !!permissions.length &&
+                  {permissions && !!Object.values(permissions).length &&
                     <ReactMarkdownWrapper
                       source={t('app_modal.install.accept_description', {
                         appName: app.name

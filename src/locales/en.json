@@ -39,7 +39,8 @@
         "description": "In order to improve the value of your Cozy (%{cozyName}), the application %{appName} requires access to the following data:"
       },
       "message": {
-        "success": "The application has correctly been installed.",
+        "install_success": "The application has correctly been installed.",
+        "update_success": "The application has correctly been updated.",
         "version_error": "Something went wrong when fetching the application informations. Reason: %{message}",
         "install_error": "Something went wrong when installing the application on your Cozy. Reason: %{message}"
       }
@@ -51,17 +52,51 @@
       "cozy": {
         "accounts": "Accounts",
         "apps": "List of installed applications",
+        "bank.accounts": "Banking accounts",
+        "bank.groups": "Banking groups",
         "bills": "Bills",
         "contacts": "Contacts",
         "files": "Files",
         "jobs": "Jobs",
-        "konnectors": "Konnectors",
-        "konnectors.result": "Konnectors results",
-        "permissions": "Permissions",
+        "konnectors": "Connectors for importing data",
+        "konnectors.result": "Connectors results",
+        "permissions": "Delegating permissions",
         "photos.albums": "Photo albums",
         "settings": "Settings",
-        "triggers": "Triggers"
+        "triggers": "Scheduling jobs"
+      }
+    },
+    "fr": {
+      "maif": {
+        "maifuser": {
+          "contrat": "Contract (Maif)",
+          "home": "Home (Maif)",
+          "family": "Family (Maif)",
+          "paymentterms": "Payment terms (Maif)",
+          "sinistre": "Damage (Maif)",
+          "societaire": "Societary (Maif)"
+        }
+      }
+    },
+    "org": {
+      "fing": {
+        "mesinfos": {
+          "insuranceclaim": "Insurance claims (Maif)"
+        }
       }
     }
+  },
+
+  "HiddenInstallerView": {
+    "title": "Application installation",
+    "install_error": "An error occured while installing %{slug}",
+    "update_error": "An error occured while updating %{slug}",
+    "conflict": "An application with the same slug already exists. Please change it.",
+    "update": "Update",
+    "slug": "Slug",
+    "source": "Source",
+    "source_examples": "#### Source documentation: \n* `registry://`: to install an application from __the instance registries__ \n* `git://` or `git+ssh://`: to install an application from __a git repository__ \n* `http://` or `https://`: to install an application from __an http(s) server (via a tarball)__ \n#### Source examples: \n* `registry://drive/stable`, `registry://drive/beta`, or `registry://drive/dev` \n* `git://github.com/cozy/cozy-collect.git#build` \n* `https://github.com/cozy/cozy-collect/archive/v3.0.3.tar.gz` \n#### [Link to complete cozy-stack docs](https://cozy.github.io/cozy-stack/apps.html#sources)",
+    "source_placeholder": "See examples above",
+    "install": "Install"
   }
 }

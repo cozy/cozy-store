@@ -22,7 +22,7 @@ export class Discover extends Component {
   }
 
   render () {
-    const { t, apps, isFetching } = this.props
+    const { t, apps, isFetching, fetchError } = this.props
     return (
       <div className='sto-discover'>
         <h2 className='sto-discover-title'>{t('discover.title')}</h2>
@@ -32,12 +32,8 @@ export class Discover extends Component {
           </h3>
           <div className='sto-discover-get-started-list'>
             {!isFetching && apps.map(app => {
-              // don't display app installed but not in registry
-              if (!app.isInRegistry) return null
-              let version = app.version
-              if (app.versions && Array.isArray(app.versions.stable)) {
-                version = (app.versions.stable && app.versions.stable[app.versions.stable.length - 1])
-              }
+              const stableVers = app.versions.stable
+              const version = stableVers[stableVers.length - 1]
               return <SmallAppItem
                 slug={app.slug}
                 developer={app.developer || ''}
@@ -47,8 +43,12 @@ export class Discover extends Component {
                 version={version}
                 installed={app.installed}
                 onClick={() => this.onAppClick(app.slug)}
+                key={app.slug}
               />
             })}
+            {fetchError &&
+              <p className='coz-error'>{fetchError.message}</p>
+            }
             {isFetching &&
               <Spinner
                 size='xxlarge'
@@ -59,13 +59,13 @@ export class Discover extends Component {
           </div>
         </div>
         <Route path='/discover/:appSlug/manage' render={({ match }) => {
-          if (isFetching) return
+          if (isFetching || fetchError) return
           if (apps.length && match.params) {
             const app = apps.find(app => app.slug === match.params.appSlug)
-            if (app.installed) {
-              return <UninstallModal uninstallApp={this.props.uninstallApp} parent='/discover' error={this.props.actionError} app={app} match={match} />
-            } else if (!app.installed) {
-              return <InstallModal installApp={this.props.installApp} parent='/discover' error={this.props.actionError} app={app} match={match} />
+            if (app && app.installed) {
+              return <UninstallModal uninstallApp={this.props.uninstallApp} parent='/discover' error={this.props.actionError} app={app} />
+            } else {
+              return <InstallModal installApp={this.props.installApp} parent='/discover' error={this.props.actionError} app={app} />
             }
           }
         }} />
