@@ -47,13 +47,11 @@ exports[`SmallAppItem component should be rendered correctly an installed app 1`
     src="<svg></svg>"
     width="64"
   />
-  <svg
+  <Icon
     className="sto-small-app-item-badge-installed"
-  >
-    <use
-      xlinkHref="#undefined"
-    />
-  </svg>
+    color="#2bba40"
+    icon="check"
+  />
   <div
     className="sto-small-app-item-desc"
   >
@@ -92,13 +90,11 @@ exports[`SmallAppItem component should be rendered correctly an installed app 2`
       xlinkHref="#undefined"
     />
   </svg>
-  <svg
+  <Icon
     className="sto-small-app-item-badge-installed"
-  >
-    <use
-      xlinkHref="#undefined"
-    />
-  </svg>
+    color="#2bba40"
+    icon="check"
+  />
   <div
     className="sto-small-app-item-desc"
   >

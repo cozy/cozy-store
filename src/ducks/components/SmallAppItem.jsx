@@ -1,6 +1,6 @@
 import React from 'react'
 
-import iconInstalled from '../../assets/icons/icon-check.svg'
+import Icon from 'cozy-ui/react/Icon'
 import defaultAppIcon from '../../assets/icons/icon-cube.svg'
 
 const SmallAppItem = ({ slug, developer, editor, icon, name, version, installed, onClick }) => {
@@ -14,9 +14,7 @@ const SmallAppItem = ({ slug, developer, editor, icon, name, version, installed,
       </svg>
       }
       {installed &&
-        <svg className='sto-small-app-item-badge-installed'>
-          <use xlinkHref={`#${iconInstalled.id}`} />
-        </svg>
+        <Icon className='sto-small-app-item-badge-installed' icon='check' color='#2bba40' />
       }
       <div className='sto-small-app-item-desc'>
         <h4 className='sto-small-app-item-title'>
