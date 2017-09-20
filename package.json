@@ -94,7 +94,7 @@
   "dependencies": {
     "cozy-bar": "^4.1.4",
     "cozy-client-js": "^0.3.17",
-    "cozy-ui": "^3.0.0-beta46",
+    "cozy-ui": "^4.0.0-beta",
     "date-fns": "^1.28.5",
     "node-polyglot": "^2.2.2",
     "preact": "^8.2.5",
@@ -111,7 +111,9 @@
       "json",
       "styl"
     ],
-    "setupFiles": ["<rootDir>/test/jestLib/setup.js"],
+    "setupFiles": [
+      "<rootDir>/test/jestLib/setup.js"
+    ],
     "moduleNameMapper": {
       "\\.(png|gif|jpe?g|svg)$": "<rootDir>/test/__mocks__/fileMock.js",
       "styles": "identity-obj-proxy"
