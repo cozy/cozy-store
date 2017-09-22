@@ -12,35 +12,35 @@ exports[`MyApplications component should be rendered correctly with permissions 
       className="io.cozy.files"
     >
       <Unknown
-        source="__Files__: Required for photo access"
+        source="__Files__"
       />
     </li>
     <li
       className="io.cozy.apps"
     >
       <Unknown
-        source="__List of installed applications__: Required by the cozy-bar to display the icons of the apps"
+        source="__List of installed applications__"
       />
     </li>
     <li
       className="io.cozy.photos.albums"
     >
       <Unknown
-        source="__Photo albums__: Required to manage photos albums"
+        source="__Photo albums__"
       />
     </li>
     <li
       className="io.cozy.contacts"
     >
       <Unknown
-        source="__Contacts__: Required to to share photos with your contacts"
+        source="__Contacts__"
       />
     </li>
     <li
       className="io.cozy.settings"
     >
       <Unknown
-        source="__Settings__: Required by the cozy-bar to display Claudy and know which applications are coming soon"
+        source="__Settings__"
       />
     </li>
   </ul>

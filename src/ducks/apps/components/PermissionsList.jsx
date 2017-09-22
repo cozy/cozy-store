@@ -21,7 +21,7 @@ export const PermissionsList = ({ t, permissions, appName }) => {
         { permissionsArray.map(permission => (
           <li key={permission.type} className={permission.type}>
             <ReactMarkdownWrapper
-              source={`__${permission.typeDescription}__: ${permission.description}`}
+              source={`__${permission.typeDescription}__`}
             />
           </li>
         ))}
