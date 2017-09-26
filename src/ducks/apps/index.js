@@ -157,6 +157,7 @@ export function fetchInstalledApps () {
             _id: app.id,
             icon: iconData,
             installed: true,
+            related: app.links.related,
             uninstallable: !NOT_REMOVABLE_APPS.includes(app.attributes.slug)
           })
         })

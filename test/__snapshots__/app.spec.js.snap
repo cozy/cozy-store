@@ -16,11 +16,11 @@ exports[`App component only should be mounted correctly 1`] = `
       />
       <Route
         component={[Function]}
-        path="/myapps"
+        path="/install"
       />
       <Route
         component={[Function]}
-        path="/install"
+        path="/myapps"
       />
       <Redirect
         exact={true}

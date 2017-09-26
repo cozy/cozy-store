@@ -2,9 +2,9 @@ import { connect } from 'react-redux'
 
 import { fetchApps, fetchInstalledApps, uninstallApp, getInstalledApps, getRegistryApps, installAppFromRegistry, installApp } from './index'
 
-import MyApplicationsComponent from './components/MyApplications'
 import DiscoverComponent from './components/Discover'
 import HiddenInstallerViewComponent from './components/HiddenInstallerView'
+import MyApplicationsComponent from './components/MyApplications'
 
 const mapStateToProps = (state, ownProps) => ({
   apps: getRegistryApps(state),
@@ -35,11 +35,6 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     })
 })
 
-export const MyApplications = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MyApplicationsComponent)
-
 export const Discover = connect(
   mapStateToProps,
   mapDispatchToProps
@@ -49,3 +44,8 @@ export const HiddenInstallerView = connect(
   mapStateToProps,
   mapDispatchToProps
 )(HiddenInstallerViewComponent)
+
+export const MyApplications = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MyApplicationsComponent)

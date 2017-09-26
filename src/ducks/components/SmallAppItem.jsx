@@ -6,7 +6,10 @@ import defaultAppIcon from '../../assets/icons/icon-cube.svg'
 const SmallAppItem = ({ slug, developer, editor, icon, name, version, installed, onClick }) => {
   const appVersion = version && (version.match(/^(.*)-.*$/) ? version.match(/^(.*)-.*$/)[1] : version)
   return (
-    <div className='sto-small-app-item' onClick={onClick} >
+    // TODO: Improve a11y
+    // A div onClick isn't accessible, since discovery & myapps have a different comportement when the user
+    // click on a SmallAppItem, it's difficult to make a a11y friendly navigation.
+    <div className='sto-small-app-item' onClick={onClick} tabIndex={0}>
       {icon
         ? <img src={icon} alt={`${slug}-icon`} width='64' height='64' className='sto-small-app-item-icon' />
       : <svg className='sto-small-app-item-icon--default blurry' width='48' height='64' style='padding: 0 8px'>
