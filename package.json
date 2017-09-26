@@ -69,7 +69,7 @@
     "postcss-assets-webpack-plugin": "^1.1.0",
     "postcss-discard-duplicates": "^2.1.0",
     "postcss-loader": "^2.0.6",
-    "react": "^15.6.1",
+    "react": "^16.0.0",
     "react-addons-test-utils": "^15.6.0",
     "react-dom": "^15.6.1",
     "react-markdown": "^2.5.0",
