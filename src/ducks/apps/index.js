@@ -183,7 +183,7 @@ export function fetchRegistryApps (lang = 'en') {
       return Promise.all(apps.map(app => {
         const appName = (app.name && (app.name[lang] || app.name.en)) || app.slug
         const appDesc = (app.description && (app.description[lang] || app.description.en)) || ''
-        return _getIcon(app.logo_url)
+        return _getIcon(`/registry/${app.slug}/icon`)
         .then(iconData => {
           return Object.assign({}, app, {
             icon: iconData,
