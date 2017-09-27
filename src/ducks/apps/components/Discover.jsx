@@ -22,7 +22,7 @@ export class Discover extends Component {
   }
 
   render () {
-    const { t, apps, isFetching, fetchError } = this.props
+    const { t, apps, isFetching, fetchError, isInstalling } = this.props
     return (
       <div className='sto-discover'>
         <h2 className='sto-discover-title'>{t('discover.title')}</h2>
@@ -65,7 +65,7 @@ export class Discover extends Component {
             if (app && app.installed) {
               return <UninstallModal uninstallApp={this.props.uninstallApp} parent='/discover' error={this.props.actionError} app={app} />
             } else {
-              return <InstallModal installApp={this.props.installApp} parent='/discover' error={this.props.actionError} app={app} />
+              return <InstallModal installApp={this.props.installApp} parent='/discover' error={this.props.actionError} app={app} isInstalling={isInstalling} />
             }
           }
         }} />
