@@ -5,7 +5,7 @@ import Icon from 'cozy-ui/react/Icon'
 
 import defaultAppIcon from '../../../assets/icons/icon-cube.svg'
 
-const ApplicationDetails = ({t, app: { description, icon, installed, name, related, slug }, openApp, parent}) => (
+const ApplicationDetails = ({t, app: { description, icon, installed, name, editor, related, slug }, openApp, parent}) => (
   <div className='sto-app'>
     <div className='sto-app-icon'>
       {
@@ -17,7 +17,7 @@ const ApplicationDetails = ({t, app: { description, icon, installed, name, relat
       }
     </div>
     <div className='sto-app-content'>
-      <h2>{name}</h2>
+      <h2>{editor ? `${editor} ${name}` : name}</h2>
       <p>{description}</p>
       <button
         role='button'
