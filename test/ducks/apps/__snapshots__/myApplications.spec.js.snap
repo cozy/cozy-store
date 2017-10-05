@@ -43,7 +43,7 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
       />
     </div>
   </div>
-  <_translate
+  <withRouter(ApplicationRouting)
     installedApps={
       Array [
         Object {
@@ -54,6 +54,7 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
           "icon": "<svg></svg>",
           "installed": true,
           "name": "Drive",
+          "related": "http://drive.cozy.mock/",
           "slug": "drive",
           "uninstallable": false,
           "version": "3.0.0-beta89bnhj3993",
@@ -67,6 +68,7 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
           "installed": true,
           "isInRegistry": true,
           "name": "Collect",
+          "related": "http://collect.cozy.mock/",
           "slug": "collect",
           "uninstallable": false,
           "version": "3.0.0",
@@ -86,6 +88,7 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
     }
     isFetching={false}
     parent="myapps"
+    uninstallApp={[Function]}
   />
 </div>
 `;
@@ -110,10 +113,11 @@ exports[`MyApplications component should display error from props correctly 1`] 
       </p>
     </div>
   </div>
-  <_translate
+  <withRouter(ApplicationRouting)
     installedApps={Array []}
     isFetching={false}
     parent="myapps"
+    uninstallApp={[Function]}
   />
 </div>
 `;
@@ -132,15 +136,70 @@ exports[`MyApplications component should render correctly a spinner if apps is f
       className="sto-myapps-list"
     />
   </div>
-  <_translate
+  <withRouter(ApplicationRouting)
     installedApps={Array []}
     isFetching={true}
     parent="myapps"
+    uninstallApp={[Function]}
   />
   <_translate
     loadingType="appsFetching"
     middle="true"
     size="xxlarge"
+  />
+</div>
+`;
+
+exports[`MyApplications component should render only routing if path not exactly match /myapps 1`] = `
+<div
+  className="sto-myapps"
+>
+  <withRouter(ApplicationRouting)
+    installedApps={
+      Array [
+        Object {
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "editor": "cozy",
+          "icon": "<svg></svg>",
+          "installed": true,
+          "name": "Drive",
+          "related": "http://drive.cozy.mock/",
+          "slug": "drive",
+          "uninstallable": false,
+          "version": "3.0.0-beta89bnhj3993",
+        },
+        Object {
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "editor": "cozy",
+          "icon": "<svg></svg>",
+          "installed": true,
+          "isInRegistry": true,
+          "name": "Collect",
+          "related": "http://collect.cozy.mock/",
+          "slug": "collect",
+          "uninstallable": false,
+          "version": "3.0.0",
+          "versions": Object {
+            "beta": Array [
+              "3.0.0",
+            ],
+            "dev": Array [
+              "3.0.0",
+            ],
+            "stable": Array [
+              "3.0.0",
+            ],
+          },
+        },
+      ]
+    }
+    isFetching={false}
+    parent="myapps"
+    uninstallApp={[Function]}
   />
 </div>
 `;

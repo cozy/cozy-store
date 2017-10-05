@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApplicationDetails component should be rendered correctly provided app 1`] = `
+<div
+  className="sto-app"
+>
+  <div
+    className="sto-app-icon"
+  >
+    <img
+      alt="drive-icon"
+      className="sto-app-item-icon"
+      src="<svg></svg>"
+    />
+  </div>
+  <div
+    className="sto-app-content"
+  >
+    <h2>
+      cozy Drive
+    </h2>
+    <p />
+    <button
+      className="coz-btn coz-btn--regular"
+      onClick={[Function]}
+      role="button"
+    >
+      <Icon
+        height="10px"
+        icon="openwith"
+        width="10px"
+      />
+       
+      Open
+    </button>
+    <Link
+      className="coz-btn coz-btn--danger-outline"
+      replace={false}
+      to="//myapps/drive/manage"
+    >
+      Uninstall this application
+    </Link>
+  </div>
+</div>
+`;
+
+exports[`ApplicationDetails component should be rendered correctly provided app with broken icon and no editor 1`] = `
+<div
+  className="sto-app"
+>
+  <div
+    className="sto-app-icon"
+  >
+    <svg
+      className="sto-app-item-icon--default blurry"
+    >
+      <use
+        xlinkHref="#undefined"
+      />
+    </svg>
+  </div>
+  <div
+    className="sto-app-content"
+  >
+    <h2>
+      Drive
+    </h2>
+    <p />
+    <button
+      className="coz-btn coz-btn--regular"
+      onClick={[Function]}
+      role="button"
+    >
+      <Icon
+        height="10px"
+        icon="openwith"
+        width="10px"
+      />
+       
+      Open
+    </button>
+    <Link
+      className="coz-btn coz-btn--danger-outline"
+      replace={false}
+      to="//myapps/drive/manage"
+    >
+      Uninstall this application
+    </Link>
+  </div>
+</div>
+`;
