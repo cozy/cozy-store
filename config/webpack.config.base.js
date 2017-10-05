@@ -15,7 +15,7 @@ module.exports = {
   resolve: {
     modules: ['node_modules', 'src'],
     extensions: ['.js', '.json', '.css'],
-    symlinks: false
+    symlinks: true
   },
   module: {
     rules: [
@@ -23,7 +23,7 @@ module.exports = {
         enforce: 'pre', // was preLoaders property in webpack v1
         test: /\.jsx?$/,
         loader: 'standard-loader',
-        exclude: /node_modules/,
+        exclude: /(node_modules|cozy-(bar|ui))/,
         options: {
           parser: 'babel-eslint'
         }
