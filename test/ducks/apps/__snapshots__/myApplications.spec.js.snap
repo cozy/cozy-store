@@ -4,46 +4,88 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
 <div
   className="sto-myapps"
 >
-  <h2
-    className="sto-myapps-title"
-  >
-    My Applications
-  </h2>
-  <div
-    className="sto-myapps-list"
-  >
-    <SmallAppItem
-      developer={
-        Object {
-          "name": "Cozy",
+  <div>
+    <h2
+      className="sto-myapps-title"
+    >
+      My Applications
+    </h2>
+    <div
+      className="sto-myapps-list"
+    >
+      <SmallAppItem
+        developer={
+          Object {
+            "name": "Cozy",
+          }
         }
-      }
-      editor="cozy"
-      icon="<svg></svg>"
-      installed={true}
-      name="Drive"
-      onClick={[Function]}
-      slug="drive"
-      version="3.0.0-beta89bnhj3993"
-    />
-    <SmallAppItem
-      developer={
-        Object {
-          "name": "Cozy",
+        editor="cozy"
+        icon="<svg></svg>"
+        installed={true}
+        name="Drive"
+        onClick={[Function]}
+        slug="drive"
+        version="3.0.0-beta89bnhj3993"
+      />
+      <SmallAppItem
+        developer={
+          Object {
+            "name": "Cozy",
+          }
         }
-      }
-      editor="cozy"
-      icon="<svg></svg>"
-      installed={true}
-      name="Collect"
-      onClick={[Function]}
-      slug="collect"
-      version="3.0.0"
-    />
+        editor="cozy"
+        icon="<svg></svg>"
+        installed={true}
+        name="Collect"
+        onClick={[Function]}
+        slug="collect"
+        version="3.0.0"
+      />
+    </div>
   </div>
-  <Route
-    path="/myapps/:appSlug/manage"
-    render={[Function]}
+  <_translate
+    installedApps={
+      Array [
+        Object {
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "editor": "cozy",
+          "icon": "<svg></svg>",
+          "installed": true,
+          "name": "Drive",
+          "slug": "drive",
+          "uninstallable": false,
+          "version": "3.0.0-beta89bnhj3993",
+        },
+        Object {
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "editor": "cozy",
+          "icon": "<svg></svg>",
+          "installed": true,
+          "isInRegistry": true,
+          "name": "Collect",
+          "slug": "collect",
+          "uninstallable": false,
+          "version": "3.0.0",
+          "versions": Object {
+            "beta": Array [
+              "3.0.0",
+            ],
+            "dev": Array [
+              "3.0.0",
+            ],
+            "stable": Array [
+              "3.0.0",
+            ],
+          },
+        },
+      ]
+    }
+    isFetching={false}
+    parent="myapps"
   />
 </div>
 `;
@@ -52,23 +94,26 @@ exports[`MyApplications component should display error from props correctly 1`] 
 <div
   className="sto-myapps"
 >
-  <h2
-    className="sto-myapps-title"
-  >
-    My Applications
-  </h2>
-  <div
-    className="sto-myapps-list"
-  >
-    <p
-      className="coz-error"
+  <div>
+    <h2
+      className="sto-myapps-title"
     >
-      This is a test error
-    </p>
+      My Applications
+    </h2>
+    <div
+      className="sto-myapps-list"
+    >
+      <p
+        className="coz-error"
+      >
+        This is a test error
+      </p>
+    </div>
   </div>
-  <Route
-    path="/myapps/:appSlug/manage"
-    render={[Function]}
+  <_translate
+    installedApps={Array []}
+    isFetching={false}
+    parent="myapps"
   />
 </div>
 `;
@@ -77,22 +122,25 @@ exports[`MyApplications component should render correctly a spinner if apps is f
 <div
   className="sto-myapps"
 >
-  <h2
-    className="sto-myapps-title"
-  >
-    My Applications
-  </h2>
-  <div
-    className="sto-myapps-list"
+  <div>
+    <h2
+      className="sto-myapps-title"
+    >
+      My Applications
+    </h2>
+    <div
+      className="sto-myapps-list"
+    />
+  </div>
+  <_translate
+    installedApps={Array []}
+    isFetching={true}
+    parent="myapps"
   />
   <_translate
     loadingType="appsFetching"
     middle="true"
     size="xxlarge"
-  />
-  <Route
-    path="/myapps/:appSlug/manage"
-    render={[Function]}
   />
 </div>
 `;

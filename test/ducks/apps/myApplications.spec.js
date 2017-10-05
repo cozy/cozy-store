@@ -16,12 +16,13 @@ const mockMyApplicationsError = new Error('This is a test error')
 
 const mockInstalledApps = mockApps.filter(a => a.installed)
 
-const getMockProps = (installedApps = mockInstalledApps, isFetching = false, fetchError = null) => ({
+const getMockProps = (installedApps = mockInstalledApps, isFetching = false, fetchError = null, match = { isExact: true }) => ({
   fetchInstalledApps: jest.fn(),
   installedApps,
   isFetching,
   fetchError,
-  history: { push: jest.fn() }
+  history: { push: jest.fn() },
+  match
 })
 
 describe('MyApplications component', () => {
@@ -59,36 +60,7 @@ describe('MyApplications component', () => {
     appItem.simulate('click')
     // history push to app modal URL
     expect(mockProps.history.push.mock.calls.length).toBe(1)
-    expect(mockProps.history.push.mock.calls[0][0]).toBe(`/myapps/${mockInstalledApps[0].slug}/manage`)
+    expect(mockProps.history.push.mock.calls[0][0]).toBe(`/myapps/${mockInstalledApps[0].slug}`)
   })
 
-  it('should handle correctly application modal with Route', () => {
-    const mockProps = getMockProps()
-    const component = shallow(
-      <MyApplications t={tMock} {...mockProps} />
-    )
-    const route = component.find(Route)
-    expect(route.length).toBe(1)
-    expect(route.props().render({ match: {params: 'photos'} })).toBeDefined()
-  })
-
-  it('should not return application modal using Route if apps is fetching', () => {
-    const mockProps = getMockProps([], true)
-    const component = shallow(
-      <MyApplications t={tMock} {...mockProps} />
-    )
-    const route = component.find(Route)
-    expect(route.length).toBe(1)
-    expect(route.props().render({ match: { params: { appSlug: 'drive' } } })).toBeUndefined()
-  })
-
-  it('should not return application modal using Route if apps list is empty', () => {
-    const mockProps = getMockProps([])
-    const component = shallow(
-      <MyApplications t={tMock} {...mockProps} />
-    )
-    const route = component.find(Route)
-    expect(route.length).toBe(1)
-    expect(route.props().render({ match: { params: { appSlug: 'drive' } } })).toBeUndefined()
-  })
 })

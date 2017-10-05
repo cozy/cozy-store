@@ -17,6 +17,10 @@
   "loading": {
     "appsFetching": "Loading..."
   },
+  "app": {
+    "uninstall": "Uninstall this application",
+    "open": "Open"
+  },
   "app_modal": {
     "uninstall": {
       "title": "Uninstall this application",

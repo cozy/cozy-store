@@ -1,0 +1,22 @@
+.sto-app {
+  display: flex;
+  margin: auto 1.7em;
+}
+
+.sto-app-icon {
+  margin-top: 0.67em;
+  margin-right: 1.7em;
+}
+
+.sto-app-content .coz-btn--regular {
+  margin-left: 0;
+}
+
+.sto-app-item-icon {
+  width: 170px;
+}
+
+.sto-app-item-icon--default {
+  padding: 0 8px;
+  width: 170px;
+}

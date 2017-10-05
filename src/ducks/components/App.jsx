@@ -4,7 +4,7 @@ import React from 'react'
 import Sidebar from './Sidebar'
 import { Route, Switch, Redirect } from 'react-router-dom'
 
-import { MyApplications, Discover, HiddenInstallerView } from '../apps/Containers'
+import { Discover, HiddenInstallerView, MyApplications } from '../apps/Containers'
 import { Alerter } from 'cozy-ui/react/Alerter'
 
 export const App = () => (
@@ -14,8 +14,8 @@ export const App = () => (
     <main className='sto-content'>
       <Switch>
         <Route path='/discover' component={Discover} />
-        <Route path='/myapps' component={MyApplications} />
         <Route path='/install' component={HiddenInstallerView} />
+        <Route path='/myapps' component={MyApplications} />
         <Redirect exact from='/' to='/myapps' />
       </Switch>
     </main>
