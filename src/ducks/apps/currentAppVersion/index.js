@@ -12,7 +12,7 @@ const FETCH_APP_VERSION = 'FETCH_APP_VERSION'
 const FETCH_APP_VERSION_SUCCESS = 'FETCH_APP_VERSION_SUCCESS'
 const FETCH_APP_VERSION_FAILURE = 'FETCH_APP_VERSION_FAILURE'
 
-const version = (state = null, action) => {
+export const version = (state = null, action) => {
   switch (action.type) {
     case FETCH_APP_VERSION_SUCCESS:
       return action.version
@@ -21,7 +21,7 @@ const version = (state = null, action) => {
   }
 }
 
-const isFetching = (state = false, action) => {
+export const isFetching = (state = false, action) => {
   switch (action.type) {
     case FETCH_APP_VERSION:
       return true
@@ -56,8 +56,8 @@ export function fetchLastAppVersion (appSlug, channel = 'stable') {
       return dispatch({type: FETCH_APP_VERSION_SUCCESS, version})
     })
     .catch(error => {
-      if (error.status === 404) throw new NotFoundException()
-      const registryError = new UnavailableRegistryException()
+      let registryError = new UnavailableRegistryException()
+      if (error.status === 404) registryError = new NotFoundException()
       dispatch({type: FETCH_APP_VERSION_FAILURE, error: registryError})
       console.error(error)
     })
