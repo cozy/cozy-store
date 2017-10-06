@@ -6,11 +6,11 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { Route } from 'react-router-dom'
 
-import { tMock } from '../../jestLib/I18n'
-import SmallAppItem from '../../../src/ducks/components/SmallAppItem'
-import { Discover } from '../../../src/ducks/apps/components/Discover'
+import { tMock } from '../../../jestLib/I18n'
+import SmallAppItem from '../../../../src/ducks/components/SmallAppItem'
+import { Discover } from '../../../../src/ducks/apps/components/Discover'
 
-import mockApps from './_mockApps'
+import mockApps from '../_mockApps'
 
 const mockError = new Error('This is a test error')
 

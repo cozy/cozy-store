@@ -5,10 +5,10 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import { tMock } from '../../jestLib/I18n'
-import { ApplicationDetails } from '../../../src/ducks/apps/components/ApplicationDetails'
+import { tMock } from '../../../jestLib/I18n'
+import { ApplicationDetails } from '../../../../src/ducks/apps/components/ApplicationDetails'
 
-import mockApps from './_mockApps'
+import mockApps from '../_mockApps'
 
 describe('ApplicationDetails component', () => {
   it('should be rendered correctly provided app', () => {

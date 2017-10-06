@@ -6,9 +6,9 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { Route } from 'react-router-dom'
 
-import { ApplicationRouting } from '../../../src/ducks/apps/components/ApplicationRouting'
+import { ApplicationRouting } from '../../../../src/ducks/apps/components/ApplicationRouting'
 
-import mockApps from './_mockApps'
+import mockApps from '../_mockApps'
 
 // const mockRegistyApps = mockApps.filter(app => app.isInRegistry).filter(app =>
 // (Array.isArray(app.versions.stable) && !!app.versions.stable.length))

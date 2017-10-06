@@ -5,11 +5,11 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import { tMock } from '../../jestLib/I18n'
-import SmallAppItem from '../../../src/ducks/components/SmallAppItem'
-import { MyApplications } from '../../../src/ducks/apps/components/MyApplications'
+import { tMock } from '../../../jestLib/I18n'
+import SmallAppItem from '../../../../src/ducks/components/SmallAppItem'
+import { MyApplications } from '../../../../src/ducks/apps/components/MyApplications'
 
-import mockApps from './_mockApps'
+import mockApps from '../_mockApps'
 
 const mockMyApplicationsError = new Error('This is a test error')
 

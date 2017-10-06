@@ -5,10 +5,10 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import { tMock } from '../../jestLib/I18n'
-import { UninstallModal } from '../../../src/ducks/apps/components/UninstallModal'
+import { tMock } from '../../../jestLib/I18n'
+import { UninstallModal } from '../../../../src/ducks/apps/components/UninstallModal'
 
-import mockApps from './_mockApps'
+import mockApps from '../_mockApps'
 
 /* SinonJS is used here to stub Promise in order to be synchronous.
 In this way, (p)React will call setState synchronously. It will allow
