@@ -4,13 +4,12 @@
 
 import React from 'react'
 import { shallow } from 'enzyme'
-import { Route } from 'react-router-dom'
 
-import { tMock } from '../../jestLib/I18n'
-import SmallAppItem from '../../../src/ducks/components/SmallAppItem'
-import { MyApplications } from '../../../src/ducks/apps/components/MyApplications'
+import { tMock } from '../../../jestLib/I18n'
+import SmallAppItem from '../../../../src/ducks/components/SmallAppItem'
+import { MyApplications } from '../../../../src/ducks/apps/components/MyApplications'
 
-import mockApps from './_mockApps'
+import mockApps from '../_mockApps'
 
 const mockMyApplicationsError = new Error('This is a test error')
 
@@ -18,6 +17,7 @@ const mockInstalledApps = mockApps.filter(a => a.installed)
 
 const getMockProps = (installedApps = mockInstalledApps, isFetching = false, fetchError = null, match = { isExact: true }) => ({
   fetchInstalledApps: jest.fn(),
+  uninstallApp: jest.fn(),
   installedApps,
   isFetching,
   fetchError,
@@ -63,4 +63,11 @@ describe('MyApplications component', () => {
     expect(mockProps.history.push.mock.calls[0][0]).toBe(`/myapps/${mockInstalledApps[0].slug}`)
   })
 
+  it('should render only routing if path not exactly match /myapps', () => {
+    const mockProps = getMockProps(mockInstalledApps, false, null, { isExact: false })
+    const component = shallow(
+      <MyApplications t={tMock} {...mockProps} />
+    ).node
+    expect(component).toMatchSnapshot()
+  })
 })

@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApplicationRouting component with ApplicationDetails should handle correctly if app found 1`] = `
+<_translate
+  app={
+    Object {
+      "developer": Object {
+        "name": "Cozy",
+      },
+      "editor": "cozy",
+      "icon": "<svg></svg>",
+      "installed": true,
+      "isInRegistry": true,
+      "name": "Collect",
+      "related": "http://collect.cozy.mock/",
+      "slug": "collect",
+      "uninstallable": false,
+      "version": "3.0.0",
+      "versions": Object {
+        "beta": Array [
+          "3.0.0",
+        ],
+        "dev": Array [
+          "3.0.0",
+        ],
+        "stable": Array [
+          "3.0.0",
+        ],
+      },
+    }
+  }
+  parent="myapps"
+/>
+`;
+
+exports[`ApplicationRouting component with UninstallModal should handle correctly if app found 1`] = `
+<_translate
+  app={
+    Object {
+      "developer": Object {
+        "name": "Cozy",
+      },
+      "editor": "cozy",
+      "icon": "<svg></svg>",
+      "installed": true,
+      "isInRegistry": true,
+      "name": "Collect",
+      "related": "http://collect.cozy.mock/",
+      "slug": "collect",
+      "uninstallable": false,
+      "version": "3.0.0",
+      "versions": Object {
+        "beta": Array [
+          "3.0.0",
+        ],
+        "dev": Array [
+          "3.0.0",
+        ],
+        "stable": Array [
+          "3.0.0",
+        ],
+      },
+    }
+  }
+  error={undefined}
+  match={
+    Object {
+      "params": Object {
+        "appSlug": "collect",
+      },
+    }
+  }
+  parent="myapps"
+  uninstallApp={[Function]}
+/>
+`;

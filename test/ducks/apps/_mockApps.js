@@ -6,7 +6,8 @@ export default [{
   name: 'Drive',
   version: '3.0.0-beta89bnhj3993',
   uninstallable: false,
-  installed: true
+  installed: true,
+  related: 'http://drive.cozy.mock/'
 },
 {
   slug: 'photos',
@@ -36,7 +37,8 @@ export default [{
   },
   uninstallable: false,
   installed: true,
-  isInRegistry: true
+  isInRegistry: true,
+  related: 'http://collect.cozy.mock/'
 },
 {
   slug: 'tasky',
