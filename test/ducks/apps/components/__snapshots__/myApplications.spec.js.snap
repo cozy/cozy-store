@@ -47,19 +47,27 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
     installedApps={
       Array [
         Object {
+          "description": Object {
+            "en": "The files manager for Cozy V3",
+          },
           "developer": Object {
             "name": "Cozy",
           },
           "editor": "cozy",
           "icon": "<svg></svg>",
           "installed": true,
-          "name": "Drive",
+          "name": Object {
+            "en": "Drive",
+          },
           "related": "http://drive.cozy.mock/",
           "slug": "drive",
           "uninstallable": false,
           "version": "3.0.0-beta89bnhj3993",
         },
         Object {
+          "description": Object {
+            "en": "The konnectors manager for Cozy V3",
+          },
           "developer": Object {
             "name": "Cozy",
           },
@@ -67,7 +75,9 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
           "icon": "<svg></svg>",
           "installed": true,
           "isInRegistry": true,
-          "name": "Collect",
+          "name": Object {
+            "en": "Collect",
+          },
           "related": "http://collect.cozy.mock/",
           "slug": "collect",
           "uninstallable": false,
@@ -158,19 +168,27 @@ exports[`MyApplications component should render only routing if path not exactly
     installedApps={
       Array [
         Object {
+          "description": Object {
+            "en": "The files manager for Cozy V3",
+          },
           "developer": Object {
             "name": "Cozy",
           },
           "editor": "cozy",
           "icon": "<svg></svg>",
           "installed": true,
-          "name": "Drive",
+          "name": Object {
+            "en": "Drive",
+          },
           "related": "http://drive.cozy.mock/",
           "slug": "drive",
           "uninstallable": false,
           "version": "3.0.0-beta89bnhj3993",
         },
         Object {
+          "description": Object {
+            "en": "The konnectors manager for Cozy V3",
+          },
           "developer": Object {
             "name": "Cozy",
           },
@@ -178,7 +196,9 @@ exports[`MyApplications component should render only routing if path not exactly
           "icon": "<svg></svg>",
           "installed": true,
           "isInRegistry": true,
-          "name": "Collect",
+          "name": Object {
+            "en": "Collect",
+          },
           "related": "http://collect.cozy.mock/",
           "slug": "collect",
           "uninstallable": false,

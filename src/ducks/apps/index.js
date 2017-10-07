@@ -149,11 +149,18 @@ export function fetchInstalledApps () {
     .then(installedApps => {
       installedApps = installedApps.filter(app => !config.notDisplayedApps.includes(app.attributes.slug))
       Promise.all(installedApps.map(app => {
+        // FIXME waiting name and description is locales object everywhere
+        const appDesc = typeof app.attributes.description === 'string'
+          ? { en: app.attributes.description } : app.attributes.description
+        const appName = typeof app.attributes.name === 'string'
+          ? { en: app.attributes.name } : app.attributes.name
         return _getIcon(app.links.icon)
         .then(iconData => {
           return Object.assign({}, app.attributes, {
             _id: app.id,
             icon: iconData,
+            name: appName,
+            description: appDesc,
             installed: true,
             related: app.links.related,
             uninstallable: !config.notRemovableApps.includes(app.attributes.slug)
@@ -171,7 +178,7 @@ export function fetchInstalledApps () {
   }
 }
 
-export function fetchRegistryApps (lang = 'en') {
+export function fetchRegistryApps () {
   return (dispatch, getState) => {
     dispatch({type: FETCH_APPS})
     return cozy.client.fetchJSON('GET', '/registry?filter[type]=webapp')
@@ -180,15 +187,11 @@ export function fetchRegistryApps (lang = 'en') {
       .filter(app => !config.notDisplayedApps.includes(app.name))
       .filter(app => app.versions.dev && app.versions.dev.length) // only apps with versions available
       return Promise.all(apps.map(app => {
-        const appName = (app.name && (app.name[lang] || app.name.en)) || app.slug
-        const appDesc = (app.description && (app.description[lang] || app.description.en)) || ''
         return _getIcon(`/registry/${app.slug}/icon`)
         .then(iconData => {
           return Object.assign({}, app, {
             icon: iconData,
-            name: appName,
             installed: false,
-            description: appDesc,
             uninstallable: true,
             isInRegistry: true
           })
@@ -205,9 +208,9 @@ export function fetchRegistryApps (lang = 'en') {
   }
 }
 
-export function fetchApps (lang) {
+export function fetchApps () {
   return (dispatch, getState) => {
-    dispatch(fetchRegistryApps(lang))
+    dispatch(fetchRegistryApps())
     .then(() => dispatch(fetchInstalledApps()))
   }
 }

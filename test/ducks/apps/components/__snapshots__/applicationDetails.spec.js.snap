@@ -19,7 +19,9 @@ exports[`ApplicationDetails component should be rendered correctly provided app 
     <h2>
       cozy Drive
     </h2>
-    <p />
+    <p>
+      The files manager for Cozy V3
+    </p>
     <button
       className="coz-btn coz-btn--regular"
       onClick={[Function]}
@@ -65,7 +67,9 @@ exports[`ApplicationDetails component should be rendered correctly provided app 
     <h2>
       Drive
     </h2>
-    <p />
+    <p>
+      The files manager for Cozy V3
+    </p>
     <button
       className="coz-btn coz-btn--regular"
       onClick={[Function]}

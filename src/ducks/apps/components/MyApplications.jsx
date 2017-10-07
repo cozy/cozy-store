@@ -17,7 +17,7 @@ export class MyApplications extends Component {
   }
 
   render () {
-    const { t, installedApps, isFetching, fetchError } = this.props
+    const { t, lang, installedApps, isFetching, fetchError } = this.props
     return (
       <div className='sto-myapps'>
         {
@@ -32,7 +32,7 @@ export class MyApplications extends Component {
                     developer={app.developer}
                     editor={app.editor}
                     icon={app.icon}
-                    name={app.name}
+                    name={app.name && (app.name[lang] || app.name.en)}
                     version={app.version}
                     installed={app.installed}
                     onClick={() => this.onAppClick(app.slug)}

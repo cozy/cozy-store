@@ -1,9 +1,14 @@
 export default [{
   slug: 'drive',
   developer: { name: 'Cozy' },
+  description: {
+    en: 'The files manager for Cozy V3'
+  },
   editor: 'cozy',
   icon: '<svg></svg>',
-  name: 'Drive',
+  name: {
+    en: 'Drive'
+  },
   version: '3.0.0-beta89bnhj3993',
   uninstallable: false,
   installed: true,
@@ -12,9 +17,14 @@ export default [{
 {
   slug: 'photos',
   developer: { name: 'Cozy' },
+  description: {
+    en: 'The photos manager for Cozy V3'
+  },
   editor: 'cozy',
   icon: '<svg></svg>',
-  name: 'Photos',
+  name: {
+    en: 'Photos'
+  },
   versions: {
     stable: ['3.0.0'],
     beta: ['3.0.0'],
@@ -26,9 +36,14 @@ export default [{
 {
   slug: 'collect',
   developer: { name: 'Cozy' },
+  description: {
+    en: 'The konnectors manager for Cozy V3'
+  },
   editor: 'cozy',
   icon: '<svg></svg>',
-  name: 'Collect',
+  name: {
+    en: 'Collect'
+  },
   version: '3.0.0',
   versions: {
     stable: ['3.0.0'],
@@ -43,8 +58,13 @@ export default [{
 {
   slug: 'tasky',
   editor: '',
+  description: {
+    en: 'The tasks manager for Cozy V3'
+  },
   icon: '<svg></svg>',
-  name: 'Tasky',
+  name: {
+    en: 'Tasky'
+  },
   versions: {
     stable: ['1.0.0'],
     beta: ['1.0.0'],
@@ -56,8 +76,13 @@ export default [{
 {
   slug: 'devonly',
   editor: '',
+  description: {
+    en: 'Put a description here'
+  },
   icon: '<svg></svg>',
-  name: 'Devon Ly',
+  name: {
+    en: 'Devon Ly'
+  },
   versions: {
     stable: [],
     beta: [],
