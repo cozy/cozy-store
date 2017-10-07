@@ -31,12 +31,12 @@ const INSTALL_APP_FAILURE = 'INSTALL_APP_FAILURE'
 export const list = (state = [], action) => {
   switch (action.type) {
     case FETCH_REGISTRY_APPS_SUCCESS:
-      return _consolidateApps(state, action.apps)
+      return _sortAlphabetically(_consolidateApps(state, action.apps), 'slug')
     case FETCH_APPS_SUCCESS:
-      return _consolidateApps(state, action.apps)
+      return _sortAlphabetically(_consolidateApps(state, action.apps), 'slug')
     case UNINSTALL_APP_SUCCESS:
     case INSTALL_APP_SUCCESS:
-      return action.apps
+      return _sortAlphabetically(action.apps, 'slug')
     default:
       return state
   }
@@ -106,6 +106,10 @@ export function getInstalledApps (state) {
 export function getRegistryApps (state) {
   // display only apps with stable versions for now
   return state.apps.list.filter(app => app.isInRegistry).filter(app => (Array.isArray(app.versions.stable) && !!app.versions.stable))
+}
+
+function _sortAlphabetically (array, property) {
+  return array.sort((a, b) => a[property] > b[property])
 }
 
 async function _getIcon (url) {

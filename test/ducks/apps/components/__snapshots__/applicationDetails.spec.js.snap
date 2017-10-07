@@ -8,7 +8,7 @@ exports[`ApplicationDetails component should be rendered correctly provided app 
     className="sto-app-icon"
   >
     <img
-      alt="drive-icon"
+      alt="collect-icon"
       className="sto-app-item-icon"
       src="<svg></svg>"
     />
@@ -17,10 +17,10 @@ exports[`ApplicationDetails component should be rendered correctly provided app 
     className="sto-app-content"
   >
     <h2>
-      cozy Drive
+      cozy Collect
     </h2>
     <p>
-      The files manager for Cozy V3
+      The konnectors manager for Cozy V3
     </p>
     <button
       className="coz-btn coz-btn--regular"
@@ -38,7 +38,7 @@ exports[`ApplicationDetails component should be rendered correctly provided app 
     <Link
       className="coz-btn coz-btn--danger-outline"
       replace={false}
-      to="//myapps/drive/manage"
+      to="//myapps/collect/manage"
     >
       Uninstall this application
     </Link>
@@ -65,10 +65,10 @@ exports[`ApplicationDetails component should be rendered correctly provided app 
     className="sto-app-content"
   >
     <h2>
-      Drive
+      Collect
     </h2>
     <p>
-      The files manager for Cozy V3
+      The konnectors manager for Cozy V3
     </p>
     <button
       className="coz-btn coz-btn--regular"
@@ -86,7 +86,7 @@ exports[`ApplicationDetails component should be rendered correctly provided app 
     <Link
       className="coz-btn coz-btn--danger-outline"
       replace={false}
-      to="//myapps/drive/manage"
+      to="//myapps/collect/manage"
     >
       Uninstall this application
     </Link>

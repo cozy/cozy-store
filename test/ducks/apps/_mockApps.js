@@ -1,4 +1,45 @@
+// ALPHABETICALLY SORTED
 export default [{
+  slug: 'collect',
+  developer: { name: 'Cozy' },
+  description: {
+    en: 'The konnectors manager for Cozy V3'
+  },
+  editor: 'cozy',
+  icon: '<svg></svg>',
+  name: {
+    en: 'Collect'
+  },
+  version: '3.0.0',
+  versions: {
+    stable: ['3.0.0'],
+    beta: ['3.0.0'],
+    dev: ['3.0.0']
+  },
+  uninstallable: false,
+  installed: true,
+  isInRegistry: true,
+  related: 'http://collect.cozy.mock/'
+},
+{
+  slug: 'devonly',
+  editor: '',
+  description: {
+    en: 'Put a description here'
+  },
+  icon: '<svg></svg>',
+  name: {
+    en: 'Devon Ly'
+  },
+  versions: {
+    stable: [],
+    beta: [],
+    dev: ['1.0.0-betaojdkehy989ekhflldh']
+  },
+  uninstallable: true,
+  isInRegistry: true
+},
+{
   slug: 'drive',
   developer: { name: 'Cozy' },
   description: {
@@ -34,28 +75,6 @@ export default [{
   isInRegistry: true
 },
 {
-  slug: 'collect',
-  developer: { name: 'Cozy' },
-  description: {
-    en: 'The konnectors manager for Cozy V3'
-  },
-  editor: 'cozy',
-  icon: '<svg></svg>',
-  name: {
-    en: 'Collect'
-  },
-  version: '3.0.0',
-  versions: {
-    stable: ['3.0.0'],
-    beta: ['3.0.0'],
-    dev: ['3.0.0']
-  },
-  uninstallable: false,
-  installed: true,
-  isInRegistry: true,
-  related: 'http://collect.cozy.mock/'
-},
-{
   slug: 'tasky',
   editor: '',
   description: {
@@ -69,24 +88,6 @@ export default [{
     stable: ['1.0.0'],
     beta: ['1.0.0'],
     dev: ['1.0.0']
-  },
-  uninstallable: true,
-  isInRegistry: true
-},
-{
-  slug: 'devonly',
-  editor: '',
-  description: {
-    en: 'Put a description here'
-  },
-  icon: '<svg></svg>',
-  name: {
-    en: 'Devon Ly'
-  },
-  versions: {
-    stable: [],
-    beta: [],
-    dev: ['1.0.0-betaojdkehy989ekhflldh']
   },
   uninstallable: true,
   isInRegistry: true

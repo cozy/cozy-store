@@ -28,10 +28,10 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
         }
         editor="cozy"
         icon="<svg></svg>"
-        installed={undefined}
-        name="Photos"
+        installed={true}
+        name="Collect"
         onClick={[Function]}
-        slug="photos"
+        slug="collect"
         version="3.0.0"
       />
       <SmallAppItem
@@ -42,10 +42,10 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
         }
         editor="cozy"
         icon="<svg></svg>"
-        installed={true}
-        name="Collect"
+        installed={undefined}
+        name="Photos"
         onClick={[Function]}
-        slug="collect"
+        slug="photos"
         version="3.0.0"
       />
       <SmallAppItem
