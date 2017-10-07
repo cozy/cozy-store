@@ -28,7 +28,7 @@ const INSTALL_APP = 'INSTALL_APP'
 const INSTALL_APP_SUCCESS = 'INSTALL_APP_SUCCESS'
 const INSTALL_APP_FAILURE = 'INSTALL_APP_FAILURE'
 
-const list = (state = [], action) => {
+export const list = (state = [], action) => {
   switch (action.type) {
     case FETCH_REGISTRY_APPS_SUCCESS:
       return _consolidateApps(state, action.apps)
@@ -42,7 +42,7 @@ const list = (state = [], action) => {
   }
 }
 
-const isFetching = (state = false, action) => {
+export const isFetching = (state = false, action) => {
   switch (action.type) {
     case FETCH_APPS:
       return true
@@ -54,7 +54,7 @@ const isFetching = (state = false, action) => {
   }
 }
 
-const isInstalling = (state = false, action) => {
+export const isInstalling = (state = false, action) => {
   switch (action.type) {
     case INSTALL_APP:
       return true
@@ -132,9 +132,9 @@ function _consolidateApps (stateApps, newAppsInfos) {
   const apps = new Map()
   stateApps.forEach(app => apps.set(app.slug, app))
   newAppsInfos.forEach(app => {
-    const appsFromState = apps.get(app.slug)
-    if (appsFromState) {
-      apps.set(app.slug, Object.assign({}, appsFromState, app))
+    const appFromState = apps.get(app.slug)
+    if (appFromState) {
+      apps.set(app.slug, Object.assign({}, appFromState, app))
     } else {
       apps.set(app.slug, app)
     }
