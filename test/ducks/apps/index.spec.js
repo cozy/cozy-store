@@ -11,7 +11,9 @@ import {
   isFetching,
   isInstalling,
   actionError,
-  fetchError
+  fetchError,
+  getInstalledApps,
+  getRegistryApps
 } from '../../../src/ducks/apps'
 import mockApps from './_mockApps'
 
@@ -82,9 +84,9 @@ describe('Apps ducks reducers', () => {
     expect(list([], installAppSuccessAction)).toEqual(mockApps)
     expect(list([], uninstallAppSuccessAction)).toEqual(mockApps)
     expect(list([], uninstallAppErrorAction)).toEqual([])
-    // with apps already in state
-    // expect(list([{ slug: 'collect', description: 'should be updated' }], fetchAppsSuccessAction)).toEqual(mockApps)
-    // expect(list([{ slug: 'collect', description: 'should be updated' }], fetchRegistryAppsSuccessAction)).toEqual(mockApps)
+    // with apps already in state, collect is installed and isInRegistry
+    expect(list([{ slug: 'collect', description: 'should be updated' }], fetchAppsSuccessAction)).toEqual(mockApps)
+    expect(list([{ slug: 'collect', description: 'should be updated' }], fetchRegistryAppsSuccessAction)).toEqual(mockRegistryApps)
   })
 
   it('isFetching', () => {
@@ -134,5 +136,15 @@ describe('Apps ducks reducers', () => {
     expect(fetchError(null, installAppSuccessAction)).toBe(null)
     expect(fetchError(null, uninstallAppSuccessAction)).toBe(null)
     expect(fetchError(null, uninstallAppErrorAction)).toBe(null)
+  })
+})
+
+describe('Apps ducks selectors', () => {
+  const state = { apps: { list: mockApps } }
+  it('getInstalledApps', () => {
+    expect(getInstalledApps(state)).toEqual(mockInstalledApps)
+  })
+  it('getRegistryApps', () => {
+    expect(getRegistryApps(state)).toEqual(mockRegistryApps)
   })
 })
