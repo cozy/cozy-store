@@ -22,7 +22,7 @@ export class Discover extends Component {
   }
 
   render () {
-    const { t, apps, isFetching, fetchError, isInstalling } = this.props
+    const { t, lang, apps, isFetching, fetchError, isInstalling } = this.props
     return (
       <div className='sto-discover'>
         <h2 className='sto-discover-title'>{t('discover.title')}</h2>
@@ -34,12 +34,13 @@ export class Discover extends Component {
             {!isFetching && apps.map(app => {
               const stableVers = app.versions.stable
               const version = stableVers[stableVers.length - 1]
+              const appName = app.name && (app.name[lang] || app.name.en)
               return <SmallAppItem
                 slug={app.slug}
                 developer={app.developer || ''}
                 editor={app.editor || ''}
                 icon={app.icon}
-                name={app.name}
+                name={appName}
                 version={version}
                 installed={app.installed}
                 onClick={() => this.onAppClick(app.slug)}

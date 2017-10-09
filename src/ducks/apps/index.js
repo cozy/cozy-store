@@ -3,6 +3,7 @@
 
 import { combineReducers } from 'redux'
 import { currentAppVersionReducers } from './currentAppVersion'
+import config from 'config/apps'
 
 import {
   NotUninstallableAppException
@@ -13,9 +14,6 @@ const APP_STATE = {
   INSTALLING: 'installing',
   ERRORED: 'errored'
 }
-
-const NOT_REMOVABLE_APPS = ['drive', 'collect']
-const NOT_DISPLAYED_APPS = ['settings', 'store', 'onboarding']
 
 const FETCH_APPS = 'FETCH_APPS'
 const FETCH_APPS_SUCCESS = 'FETCH_APPS_SUCCESS'
@@ -30,21 +28,21 @@ const INSTALL_APP = 'INSTALL_APP'
 const INSTALL_APP_SUCCESS = 'INSTALL_APP_SUCCESS'
 const INSTALL_APP_FAILURE = 'INSTALL_APP_FAILURE'
 
-const list = (state = [], action) => {
+export const list = (state = [], action) => {
   switch (action.type) {
     case FETCH_REGISTRY_APPS_SUCCESS:
-      return _consolidateApps(state, action.apps)
+      return _sortAlphabetically(_consolidateApps(state, action.apps), 'slug')
     case FETCH_APPS_SUCCESS:
-      return _consolidateApps(state, action.apps)
+      return _sortAlphabetically(_consolidateApps(state, action.apps), 'slug')
     case UNINSTALL_APP_SUCCESS:
     case INSTALL_APP_SUCCESS:
-      return action.apps
+      return _sortAlphabetically(action.apps, 'slug')
     default:
       return state
   }
 }
 
-const isFetching = (state = false, action) => {
+export const isFetching = (state = false, action) => {
   switch (action.type) {
     case FETCH_APPS:
       return true
@@ -56,7 +54,7 @@ const isFetching = (state = false, action) => {
   }
 }
 
-const isInstalling = (state = false, action) => {
+export const isInstalling = (state = false, action) => {
   switch (action.type) {
     case INSTALL_APP:
       return true
@@ -110,6 +108,10 @@ export function getRegistryApps (state) {
   return state.apps.list.filter(app => app.isInRegistry).filter(app => (Array.isArray(app.versions.stable) && !!app.versions.stable))
 }
 
+function _sortAlphabetically (array, property) {
+  return array.sort((a, b) => a[property] > b[property])
+}
+
 async function _getIcon (url) {
   if (!url) return ''
   let icon
@@ -134,9 +136,9 @@ function _consolidateApps (stateApps, newAppsInfos) {
   const apps = new Map()
   stateApps.forEach(app => apps.set(app.slug, app))
   newAppsInfos.forEach(app => {
-    const appsFromState = apps.get(app.slug)
-    if (appsFromState) {
-      apps.set(app.slug, Object.assign({}, appsFromState, app))
+    const appFromState = apps.get(app.slug)
+    if (appFromState) {
+      apps.set(app.slug, Object.assign({}, appFromState, app))
     } else {
       apps.set(app.slug, app)
     }
@@ -149,16 +151,23 @@ export function fetchInstalledApps () {
     dispatch({type: FETCH_APPS})
     return cozy.client.fetchJSON('GET', '/apps/')
     .then(installedApps => {
-      installedApps = installedApps.filter(app => !NOT_DISPLAYED_APPS.includes(app.attributes.slug))
+      installedApps = installedApps.filter(app => !config.notDisplayedApps.includes(app.attributes.slug))
       Promise.all(installedApps.map(app => {
+        // FIXME waiting name and description is locales object everywhere
+        const appDesc = typeof app.attributes.description === 'string'
+          ? { en: app.attributes.description } : app.attributes.description
+        const appName = typeof app.attributes.name === 'string'
+          ? { en: app.attributes.name } : app.attributes.name
         return _getIcon(app.links.icon)
         .then(iconData => {
           return Object.assign({}, app.attributes, {
             _id: app.id,
             icon: iconData,
+            name: appName,
+            description: appDesc,
             installed: true,
             related: app.links.related,
-            uninstallable: !NOT_REMOVABLE_APPS.includes(app.attributes.slug)
+            uninstallable: !config.notRemovableApps.includes(app.attributes.slug)
           })
         })
       }))
@@ -173,24 +182,20 @@ export function fetchInstalledApps () {
   }
 }
 
-export function fetchRegistryApps (lang = 'en') {
+export function fetchRegistryApps () {
   return (dispatch, getState) => {
     dispatch({type: FETCH_APPS})
     return cozy.client.fetchJSON('GET', '/registry?filter[type]=webapp')
     .then(response => {
       const apps = response.data
-      .filter(app => !NOT_DISPLAYED_APPS.includes(app.name))
+      .filter(app => !config.notDisplayedApps.includes(app.name))
       .filter(app => app.versions.dev && app.versions.dev.length) // only apps with versions available
       return Promise.all(apps.map(app => {
-        const appName = (app.name && (app.name[lang] || app.name.en)) || app.slug
-        const appDesc = (app.description && (app.description[lang] || app.description.en)) || ''
         return _getIcon(`/registry/${app.slug}/icon`)
         .then(iconData => {
           return Object.assign({}, app, {
             icon: iconData,
-            name: appName,
             installed: false,
-            description: appDesc,
             uninstallable: true,
             isInRegistry: true
           })
@@ -207,16 +212,16 @@ export function fetchRegistryApps (lang = 'en') {
   }
 }
 
-export function fetchApps (lang) {
+export function fetchApps () {
   return (dispatch, getState) => {
-    dispatch(fetchRegistryApps(lang))
+    dispatch(fetchRegistryApps())
     .then(() => dispatch(fetchInstalledApps()))
   }
 }
 
 export function uninstallApp (slug) {
   return (dispatch, getState) => {
-    if (NOT_REMOVABLE_APPS.includes(slug) || NOT_DISPLAYED_APPS.includes(slug)) {
+    if (config.notRemovableApps.includes(slug) || config.notDisplayedApps.includes(slug)) {
       const error = new NotUninstallableAppException()
       dispatch({ type: UNINSTALL_APP_FAILURE, error })
       throw error
@@ -257,7 +262,7 @@ export function installApp (slug, source, isUpdate = false) {
           _id: appData.id,
           icon: iconData,
           installed: true,
-          uninstallable: !NOT_REMOVABLE_APPS.includes(appData.attributes.slug)
+          uninstallable: !config.notRemovableApps.includes(appData.attributes.slug)
         })
       })
       .then(app => {

@@ -4,6 +4,9 @@ exports[`ApplicationRouting component with ApplicationDetails should handle corr
 <_translate
   app={
     Object {
+      "description": Object {
+        "en": "The konnectors manager for Cozy V3",
+      },
       "developer": Object {
         "name": "Cozy",
       },
@@ -11,7 +14,9 @@ exports[`ApplicationRouting component with ApplicationDetails should handle corr
       "icon": "<svg></svg>",
       "installed": true,
       "isInRegistry": true,
-      "name": "Collect",
+      "name": Object {
+        "en": "Collect",
+      },
       "related": "http://collect.cozy.mock/",
       "slug": "collect",
       "uninstallable": false,
@@ -37,6 +42,9 @@ exports[`ApplicationRouting component with UninstallModal should handle correctl
 <_translate
   app={
     Object {
+      "description": Object {
+        "en": "The konnectors manager for Cozy V3",
+      },
       "developer": Object {
         "name": "Cozy",
       },
@@ -44,7 +52,9 @@ exports[`ApplicationRouting component with UninstallModal should handle correctl
       "icon": "<svg></svg>",
       "installed": true,
       "isInRegistry": true,
-      "name": "Collect",
+      "name": Object {
+        "en": "Collect",
+      },
       "related": "http://collect.cozy.mock/",
       "slug": "collect",
       "uninstallable": false,

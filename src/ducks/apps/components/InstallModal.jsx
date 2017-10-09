@@ -33,7 +33,7 @@ export class InstallModal extends Component {
   }
 
   render () {
-    const { t, app, isVersionFetching, currentAppVersion, versionError, isInstalling, error } = this.props
+    const { t, lang, app, isVersionFetching, currentAppVersion, versionError, isInstalling, error } = this.props
     // if app not found, return to parent
     if (!app) {
       this.gotoParent()
@@ -43,6 +43,7 @@ export class InstallModal extends Component {
     if (currentAppVersion && !isVersionFetching && !versionError) {
       permissions = (currentAppVersion.manifest && currentAppVersion.manifest.permissions) || {}
     }
+    const appName = app.name && (app.name[lang] || app.name.en)
     return (
       <div className='sto-modal--install'>
         <Modal
@@ -54,18 +55,18 @@ export class InstallModal extends Component {
                 <a href='https://cozy.io' target='_blank' title='Cozy Website' class='sto-modal-header-icon-shield' />
               </div>
               {!isVersionFetching && !versionError &&
-                <h2>{t('app_modal.install.title', {appName: app.name})}</h2>
+                <h2>{t('app_modal.install.title', {appName})}</h2>
               }
             </header>
             <div className='sto-modal-content'>
-              {permissions && <PermissionsList permissions={permissions} appName={app.name} />
+              {permissions && <PermissionsList permissions={permissions} appName={appName} />
               }
               {!isVersionFetching && !versionError &&
                 <div>
                   {permissions && !!Object.values(permissions).length &&
                     <ReactMarkdownWrapper
                       source={t('app_modal.install.accept_description', {
-                        appName: app.name
+                        appName
                       })
                       }
                     />

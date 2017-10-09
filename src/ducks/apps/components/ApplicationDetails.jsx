@@ -6,8 +6,10 @@ import { translate } from 'cozy-ui/react/I18n'
 
 import defaultAppIcon from '../../../assets/icons/icon-cube.svg'
 
-export const ApplicationDetails = ({t, app: { description, icon, installed, name, editor, related, slug }, parent}) => {
+export const ApplicationDetails = ({t, lang, app: { description, icon, installed, name, editor, related, slug }, parent}) => {
   const openApp = (related) => { window.location.assign(related) }
+  const appDesc = description && (description[lang] || description.en)
+  const appName = name && (name[lang] || name.en)
   return (
     <div className='sto-app'>
       <div className='sto-app-icon'>
@@ -20,8 +22,8 @@ export const ApplicationDetails = ({t, app: { description, icon, installed, name
         }
       </div>
       <div className='sto-app-content'>
-        <h2>{editor ? `${editor} ${name}` : name}</h2>
-        <p>{description}</p>
+        <h2>{editor ? `${editor} ${appName}` : appName}</h2>
+        <p>{appDesc}</p>
         <button
           role='button'
           onClick={() => openApp(related)}

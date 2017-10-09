@@ -22,10 +22,10 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
         editor="cozy"
         icon="<svg></svg>"
         installed={true}
-        name="Drive"
+        name="Collect"
         onClick={[Function]}
-        slug="drive"
-        version="3.0.0-beta89bnhj3993"
+        slug="collect"
+        version="3.0.0"
       />
       <SmallAppItem
         developer={
@@ -36,10 +36,10 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
         editor="cozy"
         icon="<svg></svg>"
         installed={true}
-        name="Collect"
+        name="Drive"
         onClick={[Function]}
-        slug="collect"
-        version="3.0.0"
+        slug="drive"
+        version="3.0.0-beta89bnhj3993"
       />
     </div>
   </div>
@@ -47,19 +47,9 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
     installedApps={
       Array [
         Object {
-          "developer": Object {
-            "name": "Cozy",
+          "description": Object {
+            "en": "The konnectors manager for Cozy V3",
           },
-          "editor": "cozy",
-          "icon": "<svg></svg>",
-          "installed": true,
-          "name": "Drive",
-          "related": "http://drive.cozy.mock/",
-          "slug": "drive",
-          "uninstallable": false,
-          "version": "3.0.0-beta89bnhj3993",
-        },
-        Object {
           "developer": Object {
             "name": "Cozy",
           },
@@ -67,7 +57,9 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
           "icon": "<svg></svg>",
           "installed": true,
           "isInRegistry": true,
-          "name": "Collect",
+          "name": Object {
+            "en": "Collect",
+          },
           "related": "http://collect.cozy.mock/",
           "slug": "collect",
           "uninstallable": false,
@@ -83,6 +75,24 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
               "3.0.0",
             ],
           },
+        },
+        Object {
+          "description": Object {
+            "en": "The files manager for Cozy V3",
+          },
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "editor": "cozy",
+          "icon": "<svg></svg>",
+          "installed": true,
+          "name": Object {
+            "en": "Drive",
+          },
+          "related": "http://drive.cozy.mock/",
+          "slug": "drive",
+          "uninstallable": false,
+          "version": "3.0.0-beta89bnhj3993",
         },
       ]
     }
@@ -158,19 +168,9 @@ exports[`MyApplications component should render only routing if path not exactly
     installedApps={
       Array [
         Object {
-          "developer": Object {
-            "name": "Cozy",
+          "description": Object {
+            "en": "The konnectors manager for Cozy V3",
           },
-          "editor": "cozy",
-          "icon": "<svg></svg>",
-          "installed": true,
-          "name": "Drive",
-          "related": "http://drive.cozy.mock/",
-          "slug": "drive",
-          "uninstallable": false,
-          "version": "3.0.0-beta89bnhj3993",
-        },
-        Object {
           "developer": Object {
             "name": "Cozy",
           },
@@ -178,7 +178,9 @@ exports[`MyApplications component should render only routing if path not exactly
           "icon": "<svg></svg>",
           "installed": true,
           "isInRegistry": true,
-          "name": "Collect",
+          "name": Object {
+            "en": "Collect",
+          },
           "related": "http://collect.cozy.mock/",
           "slug": "collect",
           "uninstallable": false,
@@ -194,6 +196,24 @@ exports[`MyApplications component should render only routing if path not exactly
               "3.0.0",
             ],
           },
+        },
+        Object {
+          "description": Object {
+            "en": "The files manager for Cozy V3",
+          },
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "editor": "cozy",
+          "icon": "<svg></svg>",
+          "installed": true,
+          "name": Object {
+            "en": "Drive",
+          },
+          "related": "http://drive.cozy.mock/",
+          "slug": "drive",
+          "uninstallable": false,
+          "version": "3.0.0-beta89bnhj3993",
         },
       ]
     }
