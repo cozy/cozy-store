@@ -4,6 +4,7 @@ exports[`SmallAppItem component should be rendered correctly an app 1`] = `
 <div
   className="sto-small-app-item"
   onClick={[Function]}
+  onKeyDown={[Function]}
   tabIndex={0}
 >
   <img
@@ -40,6 +41,7 @@ exports[`SmallAppItem component should be rendered correctly an installed app 1`
 <div
   className="sto-small-app-item"
   onClick={[Function]}
+  onKeyDown={[Function]}
   tabIndex={0}
 >
   <img
@@ -81,6 +83,7 @@ exports[`SmallAppItem component should be rendered correctly an installed app 2`
 <div
   className="sto-small-app-item"
   onClick={[Function]}
+  onKeyDown={[Function]}
   tabIndex={0}
 >
   <svg

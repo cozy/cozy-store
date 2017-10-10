@@ -57,7 +57,7 @@ describe('ApplicationRouting component with ApplicationDetails', () => {
   })
 
   it('should not return anything if apps list is empty', () => {
-    const mockProps = getMockProps('myapps', [])
+    const mockProps = getMockProps('myapps', [], [])
     const component = shallow(
       <ApplicationRouting {...mockProps} />
     )
@@ -85,8 +85,8 @@ describe('ApplicationRouting component with ApplicationDetails', () => {
   })
 })
 
-describe('ApplicationRouting component with UninstallModal', () => {
-  it('should handle correctly if app found', () => {
+describe('ApplicationRouting component with Modal', () => {
+  it('should handle correctly if installed app found', () => {
     const mockProps = getMockProps('myapps')
     const component = shallow(
       <ApplicationRouting {...mockProps} />
@@ -96,6 +96,21 @@ describe('ApplicationRouting component with UninstallModal', () => {
     const routeToDetails = routes.nodes[1]
     // collect in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'collect' } } }
+    const resultComponent = routeToDetails.props.render(routeProps)
+    expect(resultComponent).toBeDefined()
+    expect(resultComponent).toMatchSnapshot()
+  })
+
+  it('should handle correctly if uninstalled app found', () => {
+    const mockProps = getMockProps('myapps')
+    const component = shallow(
+      <ApplicationRouting {...mockProps} />
+    )
+    const routes = component.find(Route)
+    expect(routes.length).toBe(2)
+    const routeToDetails = routes.nodes[1]
+    // photos in mockApps is not installed and isInRegistry
+    const routeProps = { match: { params: { appSlug: 'photos' } } }
     const resultComponent = routeToDetails.props.render(routeProps)
     expect(resultComponent).toBeDefined()
     expect(resultComponent).toMatchSnapshot()
@@ -119,7 +134,7 @@ describe('ApplicationRouting component with UninstallModal', () => {
   })
 
   it('should not return anything if apps list is empty', () => {
-    const mockProps = getMockProps('myapps', [])
+    const mockProps = getMockProps('myapps', [], [])
     const component = shallow(
       <ApplicationRouting {...mockProps} />
     )
