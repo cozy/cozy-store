@@ -22,26 +22,28 @@ exports[`ApplicationDetails component should be rendered correctly provided app 
     <p>
       The konnectors manager for Cozy V3
     </p>
-    <button
-      className="coz-btn coz-btn--regular"
-      onClick={[Function]}
-      role="button"
-    >
-      <Icon
-        height="10px"
-        icon="openwith"
-        width="10px"
-      />
-       
-      Open
-    </button>
-    <Link
-      className="coz-btn coz-btn--danger-outline"
-      replace={false}
-      to="//myapps/collect/manage"
-    >
-      Uninstall this application
-    </Link>
+    <div>
+      <button
+        className="coz-btn coz-btn--regular"
+        onClick={[Function]}
+        role="button"
+      >
+        <Icon
+          height="10px"
+          icon="openwith"
+          width="10px"
+        />
+         
+        Open
+      </button>
+      <Link
+        className="coz-btn coz-btn--danger-outline"
+        replace={false}
+        to="//myapps/collect/manage"
+      >
+        Uninstall this application
+      </Link>
+    </div>
   </div>
 </div>
 `;
@@ -70,26 +72,28 @@ exports[`ApplicationDetails component should be rendered correctly provided app 
     <p>
       The konnectors manager for Cozy V3
     </p>
-    <button
-      className="coz-btn coz-btn--regular"
-      onClick={[Function]}
-      role="button"
-    >
-      <Icon
-        height="10px"
-        icon="openwith"
-        width="10px"
-      />
-       
-      Open
-    </button>
-    <Link
-      className="coz-btn coz-btn--danger-outline"
-      replace={false}
-      to="//myapps/collect/manage"
-    >
-      Uninstall this application
-    </Link>
+    <div>
+      <button
+        className="coz-btn coz-btn--regular"
+        onClick={[Function]}
+        role="button"
+      >
+        <Icon
+          height="10px"
+          icon="openwith"
+          width="10px"
+        />
+         
+        Open
+      </button>
+      <Link
+        className="coz-btn coz-btn--danger-outline"
+        replace={false}
+        to="//myapps/collect/manage"
+      >
+        Uninstall this application
+      </Link>
+    </div>
   </div>
 </div>
 `;

@@ -18,8 +18,9 @@
     "appsFetching": "Loading..."
   },
   "app": {
-    "uninstall": "Uninstall this application",
-    "open": "Open"
+    "install": "Install on my Cozy",
+    "open": "Open",
+    "uninstall": "Uninstall this application"
   },
   "app_modal": {
     "uninstall": {

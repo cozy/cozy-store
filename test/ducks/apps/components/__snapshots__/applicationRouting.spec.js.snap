@@ -38,7 +38,7 @@ exports[`ApplicationRouting component with ApplicationDetails should handle corr
 />
 `;
 
-exports[`ApplicationRouting component with UninstallModal should handle correctly if app found 1`] = `
+exports[`ApplicationRouting component with Modal should handle correctly if installed app found 1`] = `
 <_translate
   app={
     Object {
@@ -73,14 +73,45 @@ exports[`ApplicationRouting component with UninstallModal should handle correctl
     }
   }
   error={undefined}
-  match={
+  parent="/myapps"
+  uninstallApp={[Function]}
+/>
+`;
+
+exports[`ApplicationRouting component with Modal should handle correctly if uninstalled app found 1`] = `
+<Connect(_translate)
+  app={
     Object {
-      "params": Object {
-        "appSlug": "collect",
+      "description": Object {
+        "en": "The photos manager for Cozy V3",
+      },
+      "developer": Object {
+        "name": "Cozy",
+      },
+      "editor": "cozy",
+      "icon": "<svg></svg>",
+      "isInRegistry": true,
+      "name": Object {
+        "en": "Photos",
+      },
+      "slug": "photos",
+      "uninstallable": true,
+      "versions": Object {
+        "beta": Array [
+          "3.0.0",
+        ],
+        "dev": Array [
+          "3.0.0",
+        ],
+        "stable": Array [
+          "3.0.0",
+        ],
       },
     }
   }
-  parent="myapps"
-  uninstallApp={[Function]}
+  error={undefined}
+  installApp={undefined}
+  isInstalling={undefined}
+  parent="/myapps"
 />
 `;

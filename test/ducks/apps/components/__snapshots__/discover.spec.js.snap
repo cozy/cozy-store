@@ -4,65 +4,154 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
 <div
   className="sto-discover"
 >
-  <h2
-    className="sto-discover-title"
-  >
-    Discover
-  </h2>
-  <div
-    className="sto-discover-get-started"
-  >
-    <h3
-      className="sto-discover-get-started-title"
+  <div>
+    <h2
+      className="sto-discover-title"
     >
-      Get started with Cozy
-    </h3>
+      Discover
+    </h2>
     <div
-      className="sto-discover-get-started-list"
+      className="sto-discover-get-started"
     >
-      <SmallAppItem
-        developer={
-          Object {
-            "name": "Cozy",
+      <h3
+        className="sto-discover-get-started-title"
+      >
+        Get started with Cozy
+      </h3>
+      <div
+        className="sto-discover-get-started-list"
+      >
+        <SmallAppItem
+          developer={
+            Object {
+              "name": "Cozy",
+            }
           }
-        }
-        editor="cozy"
-        icon="<svg></svg>"
-        installed={true}
-        name="Collect"
-        onClick={[Function]}
-        slug="collect"
-        version="3.0.0"
-      />
-      <SmallAppItem
-        developer={
-          Object {
-            "name": "Cozy",
+          editor="cozy"
+          icon="<svg></svg>"
+          installed={true}
+          name="Collect"
+          onClick={[Function]}
+          slug="collect"
+          version="3.0.0"
+        />
+        <SmallAppItem
+          developer={
+            Object {
+              "name": "Cozy",
+            }
           }
-        }
-        editor="cozy"
-        icon="<svg></svg>"
-        installed={undefined}
-        name="Photos"
-        onClick={[Function]}
-        slug="photos"
-        version="3.0.0"
-      />
-      <SmallAppItem
-        developer=""
-        editor=""
-        icon="<svg></svg>"
-        installed={undefined}
-        name="Tasky"
-        onClick={[Function]}
-        slug="tasky"
-        version="1.0.0"
-      />
+          editor="cozy"
+          icon="<svg></svg>"
+          installed={undefined}
+          name="Photos"
+          onClick={[Function]}
+          slug="photos"
+          version="3.0.0"
+        />
+        <SmallAppItem
+          developer=""
+          editor=""
+          icon="<svg></svg>"
+          installed={undefined}
+          name="Tasky"
+          onClick={[Function]}
+          slug="tasky"
+          version="1.0.0"
+        />
+      </div>
     </div>
   </div>
-  <Route
-    path="/discover/:appSlug/manage"
-    render={[Function]}
+  <withRouter(ApplicationRouting)
+    apps={
+      Array [
+        Object {
+          "description": Object {
+            "en": "The konnectors manager for Cozy V3",
+          },
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "editor": "cozy",
+          "icon": "<svg></svg>",
+          "installed": true,
+          "isInRegistry": true,
+          "name": Object {
+            "en": "Collect",
+          },
+          "related": "http://collect.cozy.mock/",
+          "slug": "collect",
+          "uninstallable": false,
+          "version": "3.0.0",
+          "versions": Object {
+            "beta": Array [
+              "3.0.0",
+            ],
+            "dev": Array [
+              "3.0.0",
+            ],
+            "stable": Array [
+              "3.0.0",
+            ],
+          },
+        },
+        Object {
+          "description": Object {
+            "en": "The photos manager for Cozy V3",
+          },
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "editor": "cozy",
+          "icon": "<svg></svg>",
+          "isInRegistry": true,
+          "name": Object {
+            "en": "Photos",
+          },
+          "slug": "photos",
+          "uninstallable": true,
+          "versions": Object {
+            "beta": Array [
+              "3.0.0",
+            ],
+            "dev": Array [
+              "3.0.0",
+            ],
+            "stable": Array [
+              "3.0.0",
+            ],
+          },
+        },
+        Object {
+          "description": Object {
+            "en": "The tasks manager for Cozy V3",
+          },
+          "editor": "",
+          "icon": "<svg></svg>",
+          "isInRegistry": true,
+          "name": Object {
+            "en": "Tasky",
+          },
+          "slug": "tasky",
+          "uninstallable": true,
+          "versions": Object {
+            "beta": Array [
+              "1.0.0",
+            ],
+            "dev": Array [
+              "1.0.0",
+            ],
+            "stable": Array [
+              "1.0.0",
+            ],
+          },
+        },
+      ]
+    }
+    isFetching={false}
+    isInstalling={undefined}
+    parent="discover"
+    uninstallApp={undefined}
   />
 </div>
 `;
@@ -71,32 +160,37 @@ exports[`Discover component should display error from props correctly 1`] = `
 <div
   className="sto-discover"
 >
-  <h2
-    className="sto-discover-title"
-  >
-    Discover
-  </h2>
-  <div
-    className="sto-discover-get-started"
-  >
-    <h3
-      className="sto-discover-get-started-title"
+  <div>
+    <h2
+      className="sto-discover-title"
     >
-      Get started with Cozy
-    </h3>
+      Discover
+    </h2>
     <div
-      className="sto-discover-get-started-list"
+      className="sto-discover-get-started"
     >
-      <p
-        className="coz-error"
+      <h3
+        className="sto-discover-get-started-title"
       >
-        This is a test error
-      </p>
+        Get started with Cozy
+      </h3>
+      <div
+        className="sto-discover-get-started-list"
+      >
+        <p
+          className="coz-error"
+        >
+          This is a test error
+        </p>
+      </div>
     </div>
   </div>
-  <Route
-    path="/discover/:appSlug/manage"
-    render={[Function]}
+  <withRouter(ApplicationRouting)
+    apps={Array []}
+    isFetching={false}
+    isInstalling={undefined}
+    parent="discover"
+    uninstallApp={undefined}
   />
 </div>
 `;
@@ -105,32 +199,36 @@ exports[`Discover component should render correctly a spinner if apps is fetchin
 <div
   className="sto-discover"
 >
-  <h2
-    className="sto-discover-title"
-  >
-    Discover
-  </h2>
-  <div
-    className="sto-discover-get-started"
-  >
-    <h3
-      className="sto-discover-get-started-title"
+  <div>
+    <h2
+      className="sto-discover-title"
     >
-      Get started with Cozy
-    </h3>
+      Discover
+    </h2>
     <div
-      className="sto-discover-get-started-list"
+      className="sto-discover-get-started"
     >
-      <_translate
-        loadingType="appsFetching"
-        middle="true"
-        size="xxlarge"
+      <h3
+        className="sto-discover-get-started-title"
+      >
+        Get started with Cozy
+      </h3>
+      <div
+        className="sto-discover-get-started-list"
       />
     </div>
   </div>
-  <Route
-    path="/discover/:appSlug/manage"
-    render={[Function]}
+  <withRouter(ApplicationRouting)
+    apps={Array []}
+    isFetching={true}
+    isInstalling={undefined}
+    parent="discover"
+    uninstallApp={undefined}
+  />
+  <_translate
+    loadingType="appsFetching"
+    middle="true"
+    size="xxlarge"
   />
 </div>
 `;
