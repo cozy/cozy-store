@@ -51,6 +51,7 @@ export class MyApplications extends Component {
         <ApplicationRouting
           installedApps={installedApps}
           isFetching={isFetching}
+          installApp={this.props.installApp}
           uninstallApp={this.props.uninstallApp}
           parent='myapps'
         />

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import Icon from 'cozy-ui/react/Icon'
 import { translate } from 'cozy-ui/react/I18n'
 
+import cozySmileWhiteIcon from '../../../assets/icons/icon-cozy-smile-white.svg'
 import defaultAppIcon from '../../../assets/icons/icon-cube.svg'
 
 export const ApplicationDetails = ({t, lang, app: { description, icon, installed, name, editor, related, slug }, parent}) => {
@@ -24,23 +25,39 @@ export const ApplicationDetails = ({t, lang, app: { description, icon, installed
       <div className='sto-app-content'>
         <h2>{editor ? `${editor} ${appName}` : appName}</h2>
         <p>{appDesc}</p>
-        <button
-          role='button'
-          onClick={() => openApp(related)}
-          className='coz-btn coz-btn--regular'
-        >
-          <Icon
-            icon='openwith'
-            width='10px'
-            height='10px'
-          /> {t('app.open')}
-        </button>
-        <Link
-          to={`/${parent}/${slug}/manage`}
-          className='coz-btn coz-btn--danger-outline'
-        >
-          {t('app.uninstall')}
-        </Link>
+        {
+          installed
+          ? <div>
+            <button
+              role='button'
+              onClick={() => openApp(related)}
+              className='coz-btn coz-btn--regular'
+            >
+              <Icon
+                icon='openwith'
+                width='10px'
+                height='10px'
+              /> {t('app.open')}
+            </button>
+            <Link
+              to={`/${parent}/${slug}/manage`}
+              className='coz-btn coz-btn--danger-outline'
+            >
+              {t('app.uninstall')}
+            </Link>
+          </div>
+          : <Link
+            to={`/${parent}/${slug}/manage`}
+            className='coz-btn coz-btn--regular'
+          >
+            <Icon
+              icon={cozySmileWhiteIcon}
+              width='15px'
+              height='15px'
+              className='sto-app-icon--button'
+            /> {t('app.install')}
+          </Link>
+        }
       </div>
     </div>
   )
