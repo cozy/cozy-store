@@ -61,6 +61,7 @@ export class Discover extends Component {
           apps={apps}
           isFetching={isFetching}
           isInstalling={isInstalling}
+          installApp={this.props.installApp}
           uninstallApp={this.props.uninstallApp}
           parent='discover'
         />

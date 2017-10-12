@@ -110,7 +110,7 @@ exports[`ApplicationRouting component with Modal should handle correctly if unin
     }
   }
   error={undefined}
-  installApp={undefined}
+  installApp={[Function]}
   isInstalling={undefined}
   parent="/myapps"
 />

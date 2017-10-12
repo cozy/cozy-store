@@ -20,7 +20,8 @@ const getMockProps = (parent, installedApps = mockInstalledApps, apps = mockApps
   isFetching,
   parent,
   history: { push: jest.fn() },
-  uninstallApp: jest.fn()
+  uninstallApp: jest.fn(),
+  installApp: jest.fn()
 })
 
 describe('ApplicationRouting component with ApplicationDetails', () => {
