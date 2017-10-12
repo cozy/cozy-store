@@ -44,6 +44,7 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
     </div>
   </div>
   <withRouter(ApplicationRouting)
+    installApp={undefined}
     installedApps={
       Array [
         Object {
@@ -124,6 +125,7 @@ exports[`MyApplications component should display error from props correctly 1`] 
     </div>
   </div>
   <withRouter(ApplicationRouting)
+    installApp={undefined}
     installedApps={Array []}
     isFetching={false}
     parent="myapps"
@@ -147,6 +149,7 @@ exports[`MyApplications component should render correctly a spinner if apps is f
     />
   </div>
   <withRouter(ApplicationRouting)
+    installApp={undefined}
     installedApps={Array []}
     isFetching={true}
     parent="myapps"
@@ -165,6 +168,7 @@ exports[`MyApplications component should render only routing if path not exactly
   className="sto-myapps"
 >
   <withRouter(ApplicationRouting)
+    installApp={undefined}
     installedApps={
       Array [
         Object {
