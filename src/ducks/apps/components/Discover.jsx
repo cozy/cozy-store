@@ -6,6 +6,7 @@ import Spinner from 'cozy-ui/react/Spinner'
 import SmallAppItem from '../../components/SmallAppItem'
 
 import ApplicationRouting from './ApplicationRouting'
+import { getLocalizedAppProperty } from '../index'
 
 export class Discover extends Component {
   constructor (props, context) {
@@ -35,7 +36,7 @@ export class Discover extends Component {
                 {!isFetching && apps.map(app => {
                   const stableVers = app.versions.stable
                   const version = stableVers[stableVers.length - 1]
-                  const appName = app.name && (app.name[lang] || app.name.en)
+                  const appName = getLocalizedAppProperty(app, 'name', lang)
                   return <SmallAppItem
                     slug={app.slug}
                     developer={app.developer || ''}

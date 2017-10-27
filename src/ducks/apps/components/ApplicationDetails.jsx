@@ -4,13 +4,17 @@ import { Link } from 'react-router-dom'
 import Icon from 'cozy-ui/react/Icon'
 import { translate } from 'cozy-ui/react/I18n'
 
+import { getLocalizedAppProperty } from '../index'
 import cozySmileWhiteIcon from '../../../assets/icons/icon-cozy-smile-white.svg'
 import defaultAppIcon from '../../../assets/icons/icon-cube.svg'
 
-export const ApplicationDetails = ({t, lang, app: { description, icon, installed, name, editor, related, slug }, parent}) => {
+export const ApplicationDetails = ({t, lang, app, parent}) => {
+  const { icon, installed, editor, related, slug } = app
   const openApp = (related) => { window.location.assign(related) }
-  const appDesc = description && (description[lang] || description.en)
-  const appName = name && (name[lang] || name.en)
+  const appName = getLocalizedAppProperty(app, 'name', lang)
+  const appShortDesc = getLocalizedAppProperty(app, 'short_description', lang)
+  const appLongDesc = getLocalizedAppProperty(app, 'long_description', lang)
+  const appChanges = getLocalizedAppProperty(app, 'changes', lang)
   return (
     <div className='sto-app'>
       <div className='sto-app-icon'>
@@ -24,7 +28,7 @@ export const ApplicationDetails = ({t, lang, app: { description, icon, installed
       </div>
       <div className='sto-app-content'>
         <h2>{editor ? `${editor} ${appName}` : appName}</h2>
-        <p>{appDesc}</p>
+        <p>{appShortDesc}</p>
         {
           installed
           ? <div>

@@ -108,6 +108,13 @@ export function getRegistryApps (state) {
   return state.apps.list.filter(app => app.isInRegistry).filter(app => (Array.isArray(app.versions.stable) && !!app.versions.stable))
 }
 
+export function getLocalizedAppProperty (app, property, lang) {
+  if (app.locales && app.locales[lang] && app.locales[lang][property]) {
+    return app.locales[lang][property]
+  }
+  return app[property]
+}
+
 function _sortAlphabetically (array, property) {
   return array.sort((a, b) => a[property] > b[property])
 }
