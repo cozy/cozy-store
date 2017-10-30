@@ -73,3 +73,7 @@
 .sto-app-descriptions {
   width: 60%;
 }
+
+.sto-app-descriptions .md-title {
+  color: var(--slate-grey)
+}
