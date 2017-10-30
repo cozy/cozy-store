@@ -198,14 +198,15 @@ export function fetchRegistryApps () {
       .filter(app => !config.notDisplayedApps.includes(app.name))
       .filter(app => app.versions.dev && app.versions.dev.length) // only apps with versions available
       return Promise.all(apps.map(app => {
-        return _getIcon(`/registry/${app.slug}/icon`)
-        .then(iconData => {
-          return Object.assign({}, app, {
-            icon: iconData,
-            installed: false,
-            uninstallable: true,
-            isInRegistry: true
-          })
+        const screensLinks = app.screenshots && app.screenshots.map(name => {
+          return `${cozy.client._url}/registry/${app.slug}/screenshots/${name}`
+        })
+        return Object.assign({}, app, {
+          icon: `${cozy.client._url}/registry/${app.slug}/icon`,
+          screenshots: screensLinks,
+          installed: false,
+          uninstallable: true,
+          isInRegistry: true
         })
       }))
       .then(apps => {
