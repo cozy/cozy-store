@@ -96,6 +96,7 @@
     "cozy-client-js": "^0.3.17",
     "cozy-ui": "^4.0.0-beta",
     "date-fns": "^1.28.5",
+    "emoji-js": "^3.2.2",
     "node-polyglot": "^2.2.2",
     "preact": "^8.2.5",
     "preact-compat": "^3.17.0",
