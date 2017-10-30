@@ -17,11 +17,11 @@ export const ApplicationDetails = ({t, lang, app, parent}) => {
   const appChanges = getLocalizedAppProperty(app, 'changes', lang)
   return (
     <div className='sto-app'>
-      <div className='sto-app-icon'>
+      <div className='sto-app-icon-wrapper'>
         {
           icon
-          ? <img className='sto-app-item-icon' src={icon} alt={`${slug}-icon`} />
-          : <svg className='sto-app-item-icon--default blurry'>
+          ? <img className='sto-app-icon' src={icon} alt={`${slug}-icon`} />
+          : <svg className='sto-app-icon--default blurry'>
             <use xlinkHref={`#${defaultAppIcon.id}`} />
           </svg>
         }
@@ -56,8 +56,8 @@ export const ApplicationDetails = ({t, lang, app, parent}) => {
           >
             <Icon
               icon={cozySmileWhiteIcon}
-              width='15px'
-              height='15px'
+              width='16px'
+              height='16px'
               className='sto-app-icon--button'
             /> {t('app.install')}
           </Link>

@@ -3,8 +3,8 @@
   margin: auto 1.7em;
 }
 
-.sto-app-icon {
-  margin-top: 0.67em;
+.sto-app-icon-wrapper {
+  margin-top: 0.7em;
   margin-right: 1.7em;
 }
 
@@ -12,17 +12,18 @@
   margin-left: 0;
 }
 
-.sto-app-item-icon {
-  width: 170px;
+.sto-app-icon {
+  width: 8rem;
 }
 
-.sto-app-item-icon--default {
-  padding: 0 8px;
-  width: 170px;
+.sto-app-icon--default {
+  padding: 0 .5rem;
+  width: 8rem;
 }
 
 .sto-app-icon--button {
   position: relative;
-  top: 2px;
-  margin-top: -5px;
+  top: .15rem;
+  margin-top: -.4rem;
+  margin-right: .3rem;
 }
