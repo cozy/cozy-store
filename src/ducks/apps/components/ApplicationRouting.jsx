@@ -3,7 +3,7 @@ import { Route, withRouter } from 'react-router-dom'
 
 import { InstallModal } from '../currentAppVersion/Containers'
 
-import ApplicationDetails from './ApplicationDetails'
+import ApplicationPage from './ApplicationPage'
 import UninstallModal from './UninstallModal'
 
 export class ApplicationRouting extends Component {
@@ -17,7 +17,7 @@ export class ApplicationRouting extends Component {
           if (appsArray.length && match.params) {
             const app = appsArray.find(app => app.slug === match.params.appSlug)
             if (!app) return history.push(`/${parent}`)
-            return <ApplicationDetails app={app} parent={parent} />
+            return <ApplicationPage app={app} parent={parent} />
           }
         }} />
         <Route path={`/${parent}/:appSlug/manage`} render={({ match }) => {

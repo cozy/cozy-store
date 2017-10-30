@@ -1,14 +1,24 @@
 .sto-app {
-  display: flex;
   margin: auto 1.7em;
 }
 
-.sto-app-icon-wrapper {
+/*********************/
+/**      HEADER     **/
+/*********************/
+
+.sto-app-header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding-bottom: 1rem;
+}
+
+.sto-app-header-icon {
   margin-top: 0.7em;
   margin-right: 1.7em;
 }
 
-.sto-app-content .coz-btn--regular {
+.sto-app-header-content .coz-btn--regular {
   margin-left: 0;
 }
 
@@ -26,4 +36,40 @@
   top: .15rem;
   margin-top: -.4rem;
   margin-right: .3rem;
+}
+
+/********************/
+/**   IMAGES  **/
+/********************/
+
+.sto-app-images {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: .5rem 0;
+  padding: 1rem 0;
+}
+
+.sto-app-image {
+  max-width: 20%;
+  margin-right: .5rem;
+  border-radius: .2rem;
+}
+
+.sto-app-screenshot:last-child {
+  margin-right: 0;
+}
+
+/********************/
+/**     DETAILS    **/
+/********************/
+
+.sto-app-details {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.sto-app-descriptions {
+  width: 60%;
 }
