@@ -24,7 +24,13 @@ export const ApplicationPage = ({t, lang, app, parent}) => {
         appLink={related}
       />
       <Gallery slug={slug} images={app.screenshots} />
-      <Details description={appLongDesc} changes={appChanges} />
+      <Details
+        description={appLongDesc}
+        changes={appChanges}
+        category={app.category}
+        langs={app.langs}
+        developer={app.developer}
+      />
     </div>
   )
 }

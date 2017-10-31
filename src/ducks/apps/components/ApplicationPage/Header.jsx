@@ -33,13 +33,13 @@ export const Header = ({t, icon, slug, editor, name, description, installed, app
                 icon='openwith'
                 width='10px'
                 height='10px'
-              /> {t('app.open')}
+              /> {t('app_page.open')}
             </button>
             <Link
               to={`/${parent}/${slug}/manage`}
               className='coz-btn coz-btn--danger-outline'
             >
-              {t('app.uninstall')}
+              {t('app_page.uninstall')}
             </Link>
           </div>
           : <Link
@@ -51,7 +51,7 @@ export const Header = ({t, icon, slug, editor, name, description, installed, app
               width='16px'
               height='16px'
               className='sto-app-icon--button'
-            /> {t('app.install')}
+            /> {t('app_page.install')}
           </Link>
         }
       </div>
