@@ -69,10 +69,11 @@
   justify-content: space-around;
 }
 
-.sto-app-image {
+.sto-app-big-image {
   max-width: calc(100% / 2 - 2rem);
   border-radius: .2rem;
   box-shadow: 0px 0px 20px -10px var(--charcoal-grey);
+  cursor: pointer;
 }
 
 .sto-app-small-image {
@@ -80,10 +81,20 @@
   border-radius: .2rem;
   margin-bottom: 1rem;
   box-shadow: 0px 0px 20px -10px var(--charcoal-grey);
+  cursor: pointer;
+}
+
+.sto-app-small-image:hover,
+.sto-app-big-image:hover {
+  box-shadow: 0px 0px 50px -20px var(--charcoal-grey);
 }
 
 .sto-app-small-image:last-child {
   margin-bottom: 0;
+}
+
+.sto-app-image-preview {
+  max-width: 100%;
 }
 
 
