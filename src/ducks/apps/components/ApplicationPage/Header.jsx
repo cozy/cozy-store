@@ -7,7 +7,7 @@ import { translate } from 'cozy-ui/react/I18n'
 import cozySmileWhiteIcon from 'assets/icons/icon-cozy-smile-white.svg'
 import defaultAppIcon from 'assets/icons/icon-cube.svg'
 
-export const Header = ({t, icon, slug, editor, name, description, installed, appLink}) => {
+export const Header = ({t, icon, slug, editor, name, description, installed, installedAppLink, parent}) => {
   const openApp = (link) => { window.location.assign(link) }
   return (
     <div className='sto-app-header'>
@@ -26,7 +26,7 @@ export const Header = ({t, icon, slug, editor, name, description, installed, app
           ? <div>
             <button
               role='button'
-              onClick={() => openApp(appLink)}
+              onClick={() => openApp(installedAppLink)}
               className='coz-btn coz-btn--regular'
             >
               <Icon

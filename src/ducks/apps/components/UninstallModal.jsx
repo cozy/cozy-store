@@ -27,8 +27,8 @@ export class UninstallModal extends Component {
   }
 
   gotoParent () {
-    const { parent, history } = this.props
-    history.push(parent)
+    const { app, parent, history } = this.props
+    history.push(`${parent}/${app.slug}`)
   }
 
   render () {

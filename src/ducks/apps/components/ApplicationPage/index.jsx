@@ -33,7 +33,9 @@ export const ApplicationPage = ({t, lang, app, parent}) => {
         name={appName}
         description={appShortDesc}
         installed={installed}
-        appLink={related}
+        installedAppLink={related}
+        parent={parent}
+        slug={slug}
       />
       <Gallery slug={slug} images={app.screenshots} />
       <Details

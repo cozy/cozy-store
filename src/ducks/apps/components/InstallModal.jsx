@@ -7,6 +7,8 @@ import Modal, { ModalContent } from 'cozy-ui/react/Modal'
 import PermissionsList from './PermissionsList'
 import ReactMarkdownWrapper from '../../components/ReactMarkdownWrapper'
 
+import { getLocalizedAppProperty } from 'ducks/apps'
+
 export class InstallModal extends Component {
   constructor (props) {
     super(props)
@@ -28,8 +30,8 @@ export class InstallModal extends Component {
   }
 
   gotoParent () {
-    const { parent, history } = this.props
-    history.push(parent)
+    const { app, parent, history } = this.props
+    history.push(`${parent}/${app.slug}`)
   }
 
   render () {
@@ -43,7 +45,7 @@ export class InstallModal extends Component {
     if (currentAppVersion && !isVersionFetching && !versionError) {
       permissions = (currentAppVersion.manifest && currentAppVersion.manifest.permissions) || {}
     }
-    const appName = app.name && (app.name[lang] || app.name.en)
+    const appName = getLocalizedAppProperty(app, 'name', lang)
     return (
       <div className='sto-modal--install'>
         <Modal
