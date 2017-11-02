@@ -10,25 +10,25 @@ const isValidUrl = (url) => {
 }
 
 export const Details = ({t, description, changes, category, langs, mobileApps, developer}) => {
-  const langsInfos = langs.map(l => t(`app_langs.${l}`))
+  const langsInfos = langs && langs.map(l => t(`app_langs.${l}`))
   const developerName = developer && developer.name === 'Cozy' ? 'Cozy Cloud Inc.' : developer.name
   return (
     <div className='sto-app-details'>
       <div className='sto-app-descriptions'>
-        <div className='sto-app-description'>
+        {description && <div className='sto-app-description'>
           <h3>{t('app_page.description')}</h3>
           <ReactMarkdownWrapper
             source={description}
             parseEmoji
           />
-        </div>
-        <div className='sto-app-changes'>
+        </div>}
+        {changes && <div className='sto-app-changes'>
           <h3>{t('app_page.changes')}</h3>
           <ReactMarkdownWrapper
             source={changes}
             parseEmoji
           />
-        </div>
+        </div>}
       </div>
       <div className='sto-app-additional-details'>
         <h3>{t('app_page.infos.title')}</h3>
@@ -40,14 +40,14 @@ export const Details = ({t, description, changes, category, langs, mobileApps, d
             {t(`app_categories.${category || 'others'}`)}
           </div>
         </div>
-        <div className='sto-app-info'>
+        {langsInfos && <div className='sto-app-info'>
           <div className='sto-app-info-header'>
             {t('app_page.infos.langs')}
           </div>
           <div className='sto-app-info-content'>
             {langsInfos.join(t('app_langs.list_separator'))}
           </div>
-        </div>
+        </div>}
         {mobileApps && !!mobileApps.length &&
           <div className='sto-app-info'>
             <div className='sto-app-info-header'>

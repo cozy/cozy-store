@@ -153,6 +153,14 @@ function _consolidateApps (stateApps, newAppsInfos) {
   return Array.from(apps.values()).filter(app => app)
 }
 
+// FIXME retro-compatibility for old formatted manifest
+function _sanitizeOldManifest (app) {
+  if (!app.short_description) app.short_description = app.description
+  if (!app.long_description) app.long_description = app.description
+  if (typeof app.name === 'object') app.name = app.name.en
+  return app
+}
+
 export function fetchInstalledApps () {
   return (dispatch, getState) => {
     dispatch({type: FETCH_APPS})
@@ -160,18 +168,13 @@ export function fetchInstalledApps () {
     .then(installedApps => {
       installedApps = installedApps.filter(app => !config.notDisplayedApps.includes(app.attributes.slug))
       Promise.all(installedApps.map(app => {
-        // FIXME waiting name and description is locales object everywhere
-        const appDesc = typeof app.attributes.description === 'string'
-          ? { en: app.attributes.description } : app.attributes.description
-        const appName = typeof app.attributes.name === 'string'
-          ? { en: app.attributes.name } : app.attributes.name
+        // FIXME retro-compatibility for old formatted manifest
+        app.attributes = _sanitizeOldManifest(app.attributes)
         return _getIcon(app.links.icon)
         .then(iconData => {
           return Object.assign({}, app.attributes, {
             _id: app.id,
             icon: iconData,
-            name: appName,
-            description: appDesc,
             installed: true,
             related: app.links.related,
             uninstallable: !config.notRemovableApps.includes(app.attributes.slug)
