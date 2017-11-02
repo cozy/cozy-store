@@ -150,6 +150,15 @@
   line-height: 1.5rem;
 }
 
+.sto-app-info-content--mobile-apps {
+  display: flex;
+  flex-direction: row;
+}
+
+.sto-app-info-content--mobile-apps .sto-app-info-content-icon {
+  margin-right: .5rem;
+}
+
 .sto-app-developer-infos {
   display: flex;
   flex-direction: column;

@@ -53,15 +53,14 @@
     "open": "Open",
     "uninstall": "Uninstall this application",
     "description": "Description",
-    "changes": "What's new?",
+    "changes": "What's New?",
     "infos": {
       "title": "Informations",
       "category": "Category",
       "langs": "Languages",
-      "mobile_app": "Mobile Application",
-      "yes": "Yes"
+      "mobile_app": "Mobile Application"
     },
-    "developer_infos": "Developer details",
+    "developer_infos": "Developer Details",
     "preview": "Preview"
   },
 
