@@ -6,7 +6,7 @@ import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
 
 const isValidUrl = (url) => {
   if (!url) return null
-  url.match(/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w.-]+)+[\w\-._~:/?#[\]@!$&'()*+,;=.]+$/)
+  return url.match(/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w.-]+)+[\w\-._~:/?#[\]@!$&'()*+,;=.]+$/)
 }
 
 export const Details = ({t, description, changes, category, langs, mobileApps, developer}) => {
@@ -61,6 +61,7 @@ export const Details = ({t, description, changes, category, langs, mobileApps, d
                     className='sto-app-info-content-icon'
                     href={isValidUrl(a.url) ? a.url : null}
                     target='_blank'
+                    key={a.type}
                   >
                     <Icon icon={icon.default} width='24px' height='24px' />
                   </a>
@@ -69,13 +70,15 @@ export const Details = ({t, description, changes, category, langs, mobileApps, d
             </div>
           </div>
         }
-        <h3>{t('app_page.developer_infos')}</h3>
-        {developer &&
-          <div className='sto-app-developer-infos'>
-            {developerName && <span>{developerName}</span>}
-            {isValidUrl(developer.url) && <a href={developer.url} className='sto-app-developer-link' target='_blank'>
-              {developer.url}
-            </a>}
+        {developerName &&
+          <div>
+            <h3>{t('app_page.developer_infos')}</h3>
+            <div className='sto-app-developer-infos'>
+              <span>{developerName}</span>
+              {isValidUrl(developer.url) && <a href={developer.url} className='sto-app-developer-link' target='_blank'>
+                {developer.url}
+              </a>}
+            </div>
           </div>
         }
       </div>

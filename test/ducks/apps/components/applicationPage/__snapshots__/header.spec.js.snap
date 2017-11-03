@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApplicationPage component should be rendered correctly provided app 1`] = `
+<div
+  className="sto-app-header"
+>
+  <div
+    className="sto-app-header-icon"
+  >
+    <svg
+      className="sto-app-icon--default blurry"
+    >
+      <use
+        xlinkHref="#undefined"
+      />
+    </svg>
+  </div>
+  <div
+    className="sto-app-header-content"
+  >
+    <h2>
+      Cozy Photos
+    </h2>
+    <p />
+    <Link
+      className="coz-btn coz-btn--regular"
+      replace={false}
+      to="//myapps/photos/manage"
+    >
+      <Icon
+        className="sto-app-icon--button"
+        height="16px"
+        icon="test-file-stub"
+        width="16px"
+      />
+       
+      Install on my Cozy
+    </Link>
+  </div>
+</div>
+`;
+
+exports[`ApplicationPage component should be rendered correctly provided app with broken icon and no editor 1`] = `
+<div
+  className="sto-app-header"
+>
+  <div
+    className="sto-app-header-icon"
+  >
+    <svg
+      className="sto-app-icon--default blurry"
+    >
+      <use
+        xlinkHref="#undefined"
+      />
+    </svg>
+  </div>
+  <div
+    className="sto-app-header-content"
+  >
+    <h2>
+      Photos
+    </h2>
+    <p />
+    <Link
+      className="coz-btn coz-btn--regular"
+      replace={false}
+      to="//myapps/photos/manage"
+    >
+      <Icon
+        className="sto-app-icon--button"
+        height="16px"
+        icon="test-file-stub"
+        width="16px"
+      />
+       
+      Install on my Cozy
+    </Link>
+  </div>
+</div>
+`;

@@ -6,7 +6,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 
 import { tMock } from '../../../jestLib/I18n'
-import { UninstallModal } from '../../../../src/ducks/apps/components/UninstallModal'
+import { UninstallModal } from 'ducks/apps/components/UninstallModal'
 
 import mockApps from '../_mockApps'
 
@@ -62,7 +62,7 @@ describe('UninstallModal component', () => {
       <UninstallModal t={tMock} {...mockProps} />
     )
     expect(component.type()).toBe(null)
-    // goToParent should be called once
+    // goToParent should be called once to go to the parent view
     expect(mockProps.history.push.mock.calls.length).toBe(1)
     expect(mockProps.history.push.mock.calls[0][0]).toBe(mockProps.parent)
   })
@@ -84,9 +84,9 @@ describe('UninstallModal component', () => {
     // uninstallApp from props should be called once
     expect(mockProps.uninstallApp.mock.calls.length).toBe(1)
     expect(mockProps.uninstallApp.mock.calls[0][0]).toBe('photos')
-    // goToParent should be called
+    // goToParent should be called to return to the app page url
     expect(mockProps.history.push.mock.calls.length).toBe(1)
-    expect(mockProps.history.push.mock.calls[0][0]).toBe(mockProps.parent)
+    expect(mockProps.history.push.mock.calls[0][0]).toBe(`${mockProps.parent}/photos`)
   })
 
   it('should handle error from uninstall', async () => {

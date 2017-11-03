@@ -9,6 +9,7 @@ export class Gallery extends Component {
     this.state = {
       currentImage: null
     }
+    this.onClose = this.onClose.bind(this)
   }
 
   onClick (imageUrl) {
@@ -42,6 +43,7 @@ export class Gallery extends Component {
                 className='sto-app-big-image'
                 src={image}
                 alt={`${slug}-image-${index + 1}`}
+                key={`${slug}-image-${index + 1}`}
                 onClick={() => this.onClick(image)}
               />
             )}
@@ -56,6 +58,7 @@ export class Gallery extends Component {
                 className='sto-app-small-image'
                 src={image}
                 alt={`${slug}-image-${index + 3}`}
+                key={`${slug}-image-${index + 3}`}
                 onClick={() => this.onClick(image)}
               />
             )}
@@ -64,7 +67,7 @@ export class Gallery extends Component {
         {currentImage &&
           <Modal
             title={t('app_page.preview')}
-            secondaryAction={() => this.onClose()}
+            secondaryAction={this.onClose}
           >
             <ModalContent>
               <img

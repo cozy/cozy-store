@@ -39,7 +39,7 @@ export class Discover extends Component {
                   const appName = getLocalizedAppProperty(app, 'name', lang)
                   return <SmallAppItem
                     slug={app.slug}
-                    developer={app.developer || ''}
+                    developer={app.developer || {}}
                     editor={app.editor || ''}
                     icon={app.icon}
                     name={appName}

@@ -31,7 +31,11 @@ export class InstallModal extends Component {
 
   gotoParent () {
     const { app, parent, history } = this.props
-    history.push(`${parent}/${app.slug}`)
+    if (app && app.slug) {
+      history.push(`${parent}/${app.slug}`)
+    } else {
+      history.push(`${parent}`)
+    }
   }
 
   render () {

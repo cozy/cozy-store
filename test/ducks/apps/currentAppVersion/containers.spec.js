@@ -6,7 +6,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
 
-import { InstallModal } from '../../../../src/ducks/apps/currentAppVersion/Containers'
+import { InstallModal } from 'ducks/apps/currentAppVersion/Containers'
 
 const mockStore = configureStore()
 

@@ -6,7 +6,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { Route } from 'react-router-dom'
 
-import { ApplicationRouting } from '../../../../src/ducks/apps/components/ApplicationRouting'
+import { ApplicationRouting } from 'ducks/apps/components/ApplicationRouting'
 
 import mockApps from '../_mockApps'
 

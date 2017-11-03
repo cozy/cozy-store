@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReactMarkdownWrapper component should handle correctly markdown with emojis 1`] = `
+<ReactMarkdown
+  containerTagName="div"
+  parserOptions={Object {}}
+  renderers={
+    Object {
+      "Heading": [Function],
+      "Link": [Function],
+    }
+  }
+  source="### Heading 3
+
+This is a \`test\` <img src=\\"/emoji-data/img-apple-64/1f389.png\\" class=\\"emoji\\" data-codepoints=\\"1f389\\" />"
+/>
+`;
+
+exports[`ReactMarkdownWrapper component should handle correctly title with css classes in markdown 1`] = `
+<h3
+  className="md-title md-title--h3"
+>
+  Heading 3
+</h3>
+`;

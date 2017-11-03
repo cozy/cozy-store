@@ -6,6 +6,7 @@ exports[`ReactMarkdownWrapper component should be rendered correctly 1`] = `
   parserOptions={Object {}}
   renderers={
     Object {
+      "Heading": [Function],
       "Link": [Function],
     }
   }

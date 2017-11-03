@@ -6,10 +6,10 @@ import React from 'react'
 import { shallow } from 'enzyme'
 
 import { tMock } from '../../../jestLib/I18n'
-import { InstallModal } from '../../../../src/ducks/apps/components/InstallModal'
+import { InstallModal } from 'ducks/apps/components/InstallModal'
 
 import mockApps from '../_mockApps'
-import mockAppVersion from '../_mockAppRegistryVersion'
+import mockAppVersion from '../_mockPhotosRegistryVersion'
 
 /* SinonJS is used here to stub Promise in order to be synchronous.
 In this way, (p)React will call setState synchronously. It will allow
@@ -79,7 +79,7 @@ describe('InstallModal component', () => {
       <InstallModal t={tMock} {...mockProps} />
     )
     expect(component.type()).toBe(null)
-    // goToParent should be called once
+    // goToParent should be called once to go to the parent view
     expect(mockProps.history.push.mock.calls.length).toBe(1)
     expect(mockProps.history.push.mock.calls[0][0]).toBe(mockProps.parent)
   })
@@ -109,9 +109,9 @@ describe('InstallModal component', () => {
     // uninstallApp from props should be called once
     expect(mockProps.installApp.mock.calls.length).toBe(1)
     expect(mockProps.installApp.mock.calls[0][0]).toBe('photos')
-    // goToParent should be called
+    // goToParent should be called to return to the app page url
     expect(mockProps.history.push.mock.calls.length).toBe(1)
-    expect(mockProps.history.push.mock.calls[0][0]).toBe(mockProps.parent)
+    expect(mockProps.history.push.mock.calls[0][0]).toBe(`${mockProps.parent}/photos`)
   })
 
   it('should handle error from uninstall', async () => {

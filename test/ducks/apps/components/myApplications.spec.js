@@ -6,8 +6,8 @@ import React from 'react'
 import { shallow } from 'enzyme'
 
 import { tMock } from '../../../jestLib/I18n'
-import SmallAppItem from '../../../../src/ducks/components/SmallAppItem'
-import { MyApplications } from '../../../../src/ducks/apps/components/MyApplications'
+import SmallAppItem from 'ducks/components/SmallAppItem'
+import { MyApplications } from 'ducks/apps/components/MyApplications'
 
 import mockApps from '../_mockApps'
 

@@ -1,7 +1,5 @@
 import React from 'react'
 
-import { translate } from 'cozy-ui/react/I18n'
-
 import Header from './Header'
 import Gallery from './Gallery'
 import Details from './Details'
@@ -50,4 +48,4 @@ export const ApplicationPage = ({t, lang, app, parent}) => {
   )
 }
 
-export default translate()(ApplicationPage)
+export default ApplicationPage
