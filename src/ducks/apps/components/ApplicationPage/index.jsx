@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { translate } from 'cozy-ui/react/I18n'
+
 import Header from './Header'
 import Gallery from './Gallery'
 import Details from './Details'
@@ -8,7 +10,7 @@ import { getLocalizedAppProperty } from 'ducks/apps'
 const MOBILE_PLATFORMS = ['ios', 'android']
 const isMobilePlatform = (name) => MOBILE_PLATFORMS.includes(name)
 
-export const ApplicationPage = ({t, lang, app, parent}) => {
+export const ApplicationPage = ({lang, app, parent}) => {
   const { icon, installed, editor, related, slug } = app
   const appName = getLocalizedAppProperty(app, 'name', lang)
   const appShortDesc = getLocalizedAppProperty(app, 'short_description', lang)
@@ -48,4 +50,5 @@ export const ApplicationPage = ({t, lang, app, parent}) => {
   )
 }
 
-export default ApplicationPage
+// translate is needed here for the lang props
+export default translate()(ApplicationPage)
