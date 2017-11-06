@@ -14,10 +14,11 @@ export const reactMarkdownRendererOptions = {
   }
 }
 
-export const ReactMarkdownWrapper = ({ source, parseEmoji }) =>
+export const ReactMarkdownWrapper = ({ source, parseEmoji, className }) =>
   <ReactMarkdown
     source={parseEmoji ? emojiParser.replace_colons(source) : source}
     renderers={reactMarkdownRendererOptions}
+    className={className}
   />
 
 export default ReactMarkdownWrapper

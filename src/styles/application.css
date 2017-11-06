@@ -123,6 +123,33 @@
   margin-bottom: 4rem;
 }
 
+.sto-app-changes--less,
+.sto-app-description--less {
+  max-height: 6rem;
+  overflow: hidden;
+  background: linear-gradient(rgba(0,0,0,.7), transparent);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* remove margin-top from any first elements */
+.sto-app-changes--less *:first-child,
+.sto-app-description--less *:first-child {
+  margin-top: 0;
+}
+
+.sto-details-display-more {
+  margin: .2rem 0 0;
+  padding-left: 0;
+  border: 0;
+  color: var(--dodger-blue);
+  background-color: white;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
 /* Informations */
 .sto-app-additional-details {
   display: flex;
