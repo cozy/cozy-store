@@ -44,7 +44,9 @@ export class Gallery extends Component {
                 src={image}
                 alt={`${slug}-image-${index + 1}`}
                 key={`${slug}-image-${index + 1}`}
+                tabIndex={0}
                 onClick={() => this.onClick(image)}
+                onKeyUp={(e) => e.keyCode === 13 ? this.onClick(image) : null}
               />
             )}
           </div>
@@ -59,7 +61,9 @@ export class Gallery extends Component {
                 src={image}
                 alt={`${slug}-image-${index + 3}`}
                 key={`${slug}-image-${index + 3}`}
+                tabIndex={0}
                 onClick={() => this.onClick(image)}
+                onKeyUp={(e) => e.keyCode === 13 ? this.onClick(image) : null}
               />
             )}
           </div>

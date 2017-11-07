@@ -85,7 +85,9 @@
 }
 
 .sto-app-small-image:hover,
-.sto-app-big-image:hover {
+.sto-app-big-image:hover,
+.sto-app-small-image:focus,
+.sto-app-big-image:focus {
   box-shadow: 0px 0px 50px -20px var(--charcoal-grey);
 }
 

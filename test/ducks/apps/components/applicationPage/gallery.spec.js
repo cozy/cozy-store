@@ -74,6 +74,30 @@ describe('ApplicationPage gallery component', () => {
     expect(component.state().currentImage).toBe(props.images[2])
   })
 
+  it('should handle on enter key up on images (big and small)', () => {
+    const props = getProps()
+    const component = shallow(
+      <Gallery t={tMock} {...props} />
+    )
+    expect(component.state().currentImage).toBe(null)
+    component.find('img[alt="photos-image-1"]').simulate('keyUp', {keyCode: 13})
+    expect(component.state().currentImage).toBe(props.images[0])
+    component.find('img[alt="photos-image-3"]').simulate('keyUp', {keyCode: 13})
+    expect(component.state().currentImage).toBe(props.images[2])
+  })
+
+  it('should do nothing on any other key up on images (big and small)', () => {
+    const props = getProps()
+    const component = shallow(
+      <Gallery t={tMock} {...props} />
+    )
+    expect(component.state().currentImage).toBe(null)
+    component.find('img[alt="photos-image-1"]').simulate('keyUp', {keyCode: 20})
+    expect(component.state().currentImage).toBe(null)
+    component.find('img[alt="photos-image-3"]').simulate('keyUp', {keyCode: 30})
+    expect(component.state().currentImage).toBe(null)
+  })
+
   it('should open a modal on image click', () => {
     const props = getProps()
     const component = shallow(

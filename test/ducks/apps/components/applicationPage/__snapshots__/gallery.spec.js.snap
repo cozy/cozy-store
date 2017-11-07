@@ -11,13 +11,17 @@ exports[`ApplicationPage gallery component should be rendered correctly with 5 i
       alt="photos-image-1"
       className="sto-app-big-image"
       onClick={[Function]}
+      onKeyUp={[Function]}
       src="https://mockcozy.cc/registry/photos/screenshot1.png"
+      tabIndex={0}
     />
     <img
       alt="photos-image-2"
       className="sto-app-big-image"
       onClick={[Function]}
+      onKeyUp={[Function]}
       src="https://mockcozy.cc/registry/photos/screenshot2.png"
+      tabIndex={0}
     />
   </div>
   <div
@@ -27,19 +31,25 @@ exports[`ApplicationPage gallery component should be rendered correctly with 5 i
       alt="photos-image-3"
       className="sto-app-small-image"
       onClick={[Function]}
+      onKeyUp={[Function]}
       src="https://mockcozy.cc/registry/photos/screenshot3.png"
+      tabIndex={0}
     />
     <img
       alt="photos-image-4"
       className="sto-app-small-image"
       onClick={[Function]}
+      onKeyUp={[Function]}
       src="https://mockcozy.cc/registry/photos/screenshot4.png"
+      tabIndex={0}
     />
     <img
       alt="photos-image-5"
       className="sto-app-small-image"
       onClick={[Function]}
+      onKeyUp={[Function]}
       src="https://mockcozy.cc/registry/photos/screenshot5.png"
+      tabIndex={0}
     />
   </div>
 </div>
@@ -56,13 +66,17 @@ exports[`ApplicationPage gallery component should be rendered correctly with pro
       alt="photos-image-1"
       className="sto-app-big-image"
       onClick={[Function]}
+      onKeyUp={[Function]}
       src="https://mockcozy.cc/registry/photos/screenshot1.png"
+      tabIndex={0}
     />
     <img
       alt="photos-image-2"
       className="sto-app-big-image"
       onClick={[Function]}
+      onKeyUp={[Function]}
       src="https://mockcozy.cc/registry/photos/screenshot2.png"
+      tabIndex={0}
     />
   </div>
   <div
@@ -72,7 +86,9 @@ exports[`ApplicationPage gallery component should be rendered correctly with pro
       alt="photos-image-3"
       className="sto-app-small-image"
       onClick={[Function]}
+      onKeyUp={[Function]}
       src="https://mockcozy.cc/registry/photos/screenshot3.png"
+      tabIndex={0}
     />
   </div>
 </div>
@@ -89,13 +105,17 @@ exports[`ApplicationPage gallery component should be rendered correctly with the
       alt="photos-image-1"
       className="sto-app-big-image"
       onClick={[Function]}
+      onKeyUp={[Function]}
       src="https://mockcozy.cc/registry/photos/screenshot1.png"
+      tabIndex={0}
     />
     <img
       alt="photos-image-2"
       className="sto-app-big-image"
       onClick={[Function]}
+      onKeyUp={[Function]}
       src="https://mockcozy.cc/registry/photos/screenshot2.png"
+      tabIndex={0}
     />
   </div>
   <div
@@ -105,19 +125,25 @@ exports[`ApplicationPage gallery component should be rendered correctly with the
       alt="photos-image-3"
       className="sto-app-small-image"
       onClick={[Function]}
+      onKeyUp={[Function]}
       src="https://mockcozy.cc/registry/photos/screenshot3.png"
+      tabIndex={0}
     />
     <img
       alt="photos-image-4"
       className="sto-app-small-image"
       onClick={[Function]}
+      onKeyUp={[Function]}
       src="https://mockcozy.cc/registry/photos/screenshot4.png"
+      tabIndex={0}
     />
     <img
       alt="photos-image-5"
       className="sto-app-small-image"
       onClick={[Function]}
+      onKeyUp={[Function]}
       src="https://mockcozy.cc/registry/photos/screenshot5.png"
+      tabIndex={0}
     />
   </div>
 </div>
@@ -134,13 +160,17 @@ exports[`ApplicationPage gallery component should open a modal and handle onClos
       alt="photos-image-1"
       className="sto-app-big-image"
       onClick={[Function]}
+      onKeyUp={[Function]}
       src="https://mockcozy.cc/registry/photos/screenshot1.png"
+      tabIndex={0}
     />
     <img
       alt="photos-image-2"
       className="sto-app-big-image"
       onClick={[Function]}
+      onKeyUp={[Function]}
       src="https://mockcozy.cc/registry/photos/screenshot2.png"
+      tabIndex={0}
     />
   </div>
   <div
@@ -150,7 +180,9 @@ exports[`ApplicationPage gallery component should open a modal and handle onClos
       alt="photos-image-3"
       className="sto-app-small-image"
       onClick={[Function]}
+      onKeyUp={[Function]}
       src="https://mockcozy.cc/registry/photos/screenshot3.png"
+      tabIndex={0}
     />
   </div>
   <Modal
@@ -183,13 +215,17 @@ exports[`ApplicationPage gallery component should open a modal on image click 1`
       alt="photos-image-1"
       className="sto-app-big-image"
       onClick={[Function]}
+      onKeyUp={[Function]}
       src="https://mockcozy.cc/registry/photos/screenshot1.png"
+      tabIndex={0}
     />
     <img
       alt="photos-image-2"
       className="sto-app-big-image"
       onClick={[Function]}
+      onKeyUp={[Function]}
       src="https://mockcozy.cc/registry/photos/screenshot2.png"
+      tabIndex={0}
     />
   </div>
   <div
@@ -199,7 +235,9 @@ exports[`ApplicationPage gallery component should open a modal on image click 1`
       alt="photos-image-3"
       className="sto-app-small-image"
       onClick={[Function]}
+      onKeyUp={[Function]}
       src="https://mockcozy.cc/registry/photos/screenshot3.png"
+      tabIndex={0}
     />
   </div>
   <Modal
