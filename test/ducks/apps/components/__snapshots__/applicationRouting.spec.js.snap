@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ApplicationRouting component with ApplicationDetails should handle correctly if app found 1`] = `
-<Unknown
+<_translate
   app={
     Object {
       "developer": Object {

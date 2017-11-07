@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ApplicationPage component should be rendered correctly with 5 images 1`] = `
+exports[`ApplicationPage gallery component should be rendered correctly with 5 images 1`] = `
 <div
   className="sto-app-images"
 >
@@ -45,7 +45,7 @@ exports[`ApplicationPage component should be rendered correctly with 5 images 1`
 </div>
 `;
 
-exports[`ApplicationPage component should be rendered correctly with provided images 1`] = `
+exports[`ApplicationPage gallery component should be rendered correctly with provided images 1`] = `
 <div
   className="sto-app-images"
 >
@@ -78,7 +78,7 @@ exports[`ApplicationPage component should be rendered correctly with provided im
 </div>
 `;
 
-exports[`ApplicationPage component should be rendered correctly with the first 5 images if more images provided 1`] = `
+exports[`ApplicationPage gallery component should be rendered correctly with the first 5 images if more images provided 1`] = `
 <div
   className="sto-app-images"
 >
@@ -123,7 +123,7 @@ exports[`ApplicationPage component should be rendered correctly with the first 5
 </div>
 `;
 
-exports[`ApplicationPage component should open a modal and handle onClose 1`] = `
+exports[`ApplicationPage gallery component should open a modal and handle onClose 1`] = `
 <div
   className="sto-app-images"
 >
@@ -172,7 +172,7 @@ exports[`ApplicationPage component should open a modal and handle onClose 1`] = 
 </div>
 `;
 
-exports[`ApplicationPage component should open a modal on image click 1`] = `
+exports[`ApplicationPage gallery component should open a modal on image click 1`] = `
 <div
   className="sto-app-images"
 >
@@ -221,4 +221,4 @@ exports[`ApplicationPage component should open a modal on image click 1`] = `
 </div>
 `;
 
-exports[`ApplicationPage component should return null if no images provided 1`] = `null`;
+exports[`ApplicationPage gallery component should return null if no images provided 1`] = `null`;

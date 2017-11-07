@@ -2,6 +2,7 @@
 
 exports[`ReactMarkdownWrapper component should handle correctly markdown with emojis 1`] = `
 <ReactMarkdown
+  className={undefined}
   containerTagName="div"
   parserOptions={Object {}}
   renderers={

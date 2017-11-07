@@ -19,7 +19,7 @@ const getProps = () => {
   }
 }
 
-describe('ApplicationPage component', () => {
+describe('ApplicationPage gallery component', () => {
   it('should be rendered correctly with provided images', () => {
     const component = shallow(
       <Gallery t={tMock} {...getProps()} />

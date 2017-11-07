@@ -12,7 +12,7 @@ import mockApp from '../../_mockPhotosRegistryVersion'
 
 window.location.assign = jest.fn()
 
-describe('ApplicationPage component', () => {
+describe('ApplicationPage header component', () => {
   it('should be rendered correctly provided app', () => {
     const component = shallow(
       <Header t={tMock} parent='/myapps' {...mockApp.manifest} />

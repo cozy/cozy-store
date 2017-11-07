@@ -24,7 +24,7 @@ const getProps = () => {
   }
 }
 
-describe('ApplicationPage component', () => {
+describe('ApplicationPage details component', () => {
   it('should be rendered correctly with provided app', () => {
     const component = shallow(
       <Details {...getProps()} />
@@ -44,5 +44,21 @@ describe('ApplicationPage component', () => {
       <Details {...appProps} />
     ).node
     expect(component).toMatchSnapshot()
+  })
+
+  it('should handle correctly `display more` behaviour on description part', () => {
+    const component = shallow(
+      <Details {...getProps()} />
+    )
+    component.find('.sto-app-description .sto-details-display-more').simulate('click')
+    expect(component.node).toMatchSnapshot()
+  })
+
+  it('should handle correctly `display more` behaviour on changes part', () => {
+    const component = shallow(
+      <Details {...getProps()} />
+    )
+    component.find('.sto-app-changes .sto-details-display-more').simulate('click')
+    expect(component.node).toMatchSnapshot()
   })
 })

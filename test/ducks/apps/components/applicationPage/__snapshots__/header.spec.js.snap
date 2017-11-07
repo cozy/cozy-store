@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ApplicationPage component should be rendered correctly provided app 1`] = `
+exports[`ApplicationPage header component should be rendered correctly provided app 1`] = `
 <div
   className="sto-app-header"
 >
@@ -40,7 +40,7 @@ exports[`ApplicationPage component should be rendered correctly provided app 1`]
 </div>
 `;
 
-exports[`ApplicationPage component should be rendered correctly provided app with broken icon and no editor 1`] = `
+exports[`ApplicationPage header component should be rendered correctly provided app with broken icon and no editor 1`] = `
 <div
   className="sto-app-header"
 >
