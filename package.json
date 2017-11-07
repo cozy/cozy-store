@@ -93,7 +93,7 @@
   },
   "dependencies": {
     "cozy-bar": "^4.1.4",
-    "cozy-client-js": "^0.3.17",
+    "cozy-client-js": "^0.4.0",
     "cozy-ui": "^4.0.0-beta",
     "date-fns": "^1.28.5",
     "node-polyglot": "^2.2.2",
