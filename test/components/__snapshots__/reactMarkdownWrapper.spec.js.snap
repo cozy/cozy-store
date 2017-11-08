@@ -2,10 +2,12 @@
 
 exports[`ReactMarkdownWrapper component should be rendered correctly 1`] = `
 <ReactMarkdown
+  className={undefined}
   containerTagName="div"
   parserOptions={Object {}}
   renderers={
     Object {
+      "Heading": [Function],
       "Link": [Function],
     }
   }

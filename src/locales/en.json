@@ -17,11 +17,7 @@
   "loading": {
     "appsFetching": "Loading..."
   },
-  "app": {
-    "install": "Install on my Cozy",
-    "open": "Open",
-    "uninstall": "Uninstall this application"
-  },
+
   "app_modal": {
     "uninstall": {
       "title": "Uninstall this application",
@@ -50,6 +46,73 @@
         "install_error": "Something went wrong when installing the application on your Cozy. Reason: %{message}"
       }
     }
+  },
+
+  "app_page": {
+    "install": "Install on my Cozy",
+    "open": "Open",
+    "uninstall": "Uninstall this application",
+    "description": "Description",
+    "changes": "What's New?",
+    "infos": {
+      "title": "Informations",
+      "category": "Category",
+      "langs": "Languages",
+      "mobile_app": "Mobile Application"
+    },
+    "developer_infos": "Developer Details",
+    "preview": "Preview",
+    "more": "More"
+  },
+
+  "app_categories": {
+    "cozy": "Cozy",
+    "partners": "Partners",
+    "ptnb": "expPTNB",
+    "others": "Others"
+  },
+
+  "app_langs": {
+    "list_separator": ", ",
+    "fr": "French",
+    "en": "English",
+    "es": "Spanish",
+    "ja": "Japanese",
+    "nl": "Dutch",
+    "de": "German",
+    "ru": "Russian",
+    "nl_NL": "Dutch (Netherlands)",
+    "ko": "Korean",
+    "pl": "Polish",
+    "pt": "Portuguese",
+    "da": "Danish",
+    "ro_RO": "Romanian (Romania)",
+    "pt_BR": "Portuguese (Brazil)",
+    "zh_CN": "Chinese (China)",
+    "ar": "Arabic",
+    "it": "Italian",
+    "ro": "Romanian",
+    "eo": "Esperanto",
+    "de_DE": "German (Germany)",
+    "sq": "Albanian",
+    "tr": "Turkish",
+    "uk_UA": "Ukrainian (Ukraine)",
+    "ru_RU": "Russian (Russia)",
+    "sq_AL": "Albanian (Albania)",
+    "ca": "Catalan",
+    "ca_ES": "Catalan (Spain)",
+    "zh": "Chinese",
+    "zh_TW": "Chinese (Taiwan)",
+    "cs": "Czech",
+    "cs_CZ": "Czech (Czech Republic)",
+    "el": "Greek",
+    "id": "Indonesian",
+    "it_IT": "Italian (Italy)",
+    "sk": "Slovak",
+    "sk_SK": "Sloval (Slovakia)",
+    "es_CO": "Spanish (Colombia)",
+    "es_ES": "Spanish (Spain)",
+    "sv": "Swedish"
   },
 
   "doctypes": {

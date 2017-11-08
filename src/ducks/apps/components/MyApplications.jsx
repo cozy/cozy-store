@@ -6,6 +6,8 @@ import Spinner from 'cozy-ui/react/Spinner'
 import ApplicationRouting from './ApplicationRouting'
 import SmallAppItem from '../../components/SmallAppItem'
 
+import { getLocalizedAppProperty } from 'ducks/apps'
+
 export class MyApplications extends Component {
   constructor (props) {
     super(props)
@@ -32,7 +34,7 @@ export class MyApplications extends Component {
                     developer={app.developer}
                     editor={app.editor}
                     icon={app.icon}
-                    name={app.name && (app.name[lang] || app.name.en)}
+                    name={getLocalizedAppProperty(app, 'name', lang)}
                     version={app.version}
                     installed={app.installed}
                     onClick={() => this.onAppClick(app.slug)}

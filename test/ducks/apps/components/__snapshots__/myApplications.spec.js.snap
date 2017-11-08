@@ -19,7 +19,7 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
             "name": "Cozy",
           }
         }
-        editor="cozy"
+        editor="Cozy"
         icon="<svg></svg>"
         installed={true}
         name="Collect"
@@ -33,7 +33,7 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
             "name": "Cozy",
           }
         }
-        editor="cozy"
+        editor="Cozy"
         icon="<svg></svg>"
         installed={true}
         name="Drive"
@@ -48,19 +48,14 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
     installedApps={
       Array [
         Object {
-          "description": Object {
-            "en": "The konnectors manager for Cozy V3",
-          },
           "developer": Object {
             "name": "Cozy",
           },
-          "editor": "cozy",
+          "editor": "Cozy",
           "icon": "<svg></svg>",
           "installed": true,
           "isInRegistry": true,
-          "name": Object {
-            "en": "Collect",
-          },
+          "name": "Collect",
           "related": "http://collect.cozy.mock/",
           "slug": "collect",
           "uninstallable": false,
@@ -78,18 +73,13 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
           },
         },
         Object {
-          "description": Object {
-            "en": "The files manager for Cozy V3",
-          },
           "developer": Object {
             "name": "Cozy",
           },
-          "editor": "cozy",
+          "editor": "Cozy",
           "icon": "<svg></svg>",
           "installed": true,
-          "name": Object {
-            "en": "Drive",
-          },
+          "name": "Drive",
           "related": "http://drive.cozy.mock/",
           "slug": "drive",
           "uninstallable": false,
@@ -172,19 +162,14 @@ exports[`MyApplications component should render only routing if path not exactly
     installedApps={
       Array [
         Object {
-          "description": Object {
-            "en": "The konnectors manager for Cozy V3",
-          },
           "developer": Object {
             "name": "Cozy",
           },
-          "editor": "cozy",
+          "editor": "Cozy",
           "icon": "<svg></svg>",
           "installed": true,
           "isInRegistry": true,
-          "name": Object {
-            "en": "Collect",
-          },
+          "name": "Collect",
           "related": "http://collect.cozy.mock/",
           "slug": "collect",
           "uninstallable": false,
@@ -202,18 +187,13 @@ exports[`MyApplications component should render only routing if path not exactly
           },
         },
         Object {
-          "description": Object {
-            "en": "The files manager for Cozy V3",
-          },
           "developer": Object {
             "name": "Cozy",
           },
-          "editor": "cozy",
+          "editor": "Cozy",
           "icon": "<svg></svg>",
           "installed": true,
-          "name": Object {
-            "en": "Drive",
-          },
+          "name": "Drive",
           "related": "http://drive.cozy.mock/",
           "slug": "drive",
           "uninstallable": false,

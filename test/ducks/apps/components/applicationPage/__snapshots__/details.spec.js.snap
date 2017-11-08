@@ -1,0 +1,461 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApplicationPage details component should be rendered correctly provided app with no description, no platforms, no category, no langs and no changes 1`] = `
+<div
+  className="sto-app-details"
+>
+  <div
+    className="sto-app-descriptions"
+  >
+    
+    
+  </div>
+  <div
+    className="sto-app-additional-details"
+  >
+    <h3>
+      Informations
+    </h3>
+    <div
+      className="sto-app-info"
+    >
+      <div
+        className="sto-app-info-header"
+      >
+        Category
+      </div>
+      <div
+        className="sto-app-info-content"
+      >
+        Others
+      </div>
+    </div>
+    <div
+      className="sto-app-info"
+    >
+      <div
+        className="sto-app-info-header"
+      >
+        Languages
+      </div>
+      <div
+        className="sto-app-info-content"
+      >
+        
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ApplicationPage details component should be rendered correctly with provided app 1`] = `
+<div
+  className="sto-app-details"
+>
+  <div
+    className="sto-app-descriptions"
+  >
+    <div
+      className="sto-app-description"
+    >
+      <h3>
+        Description
+      </h3>
+      <Unknown
+        className="sto-app-description--less"
+        parseEmoji={true}
+        source="### Features
+
+Enjoy features to grab your data in you Cozy :tada:"
+      />
+      <button
+        className="sto-details-display-more"
+        onClick={[Function]}
+        type="button"
+      >
+        More
+      </button>
+    </div>
+    <div
+      className="sto-app-changes"
+    >
+      <h3>
+        What's New?
+      </h3>
+      <Unknown
+        className="sto-app-changes--less"
+        parseEmoji={true}
+        source="### NEW!!!
+
+ Now on the cozy-store :tada"
+      />
+      <button
+        className="sto-details-display-more"
+        onClick={[Function]}
+        type="button"
+      >
+        More
+      </button>
+    </div>
+  </div>
+  <div
+    className="sto-app-additional-details"
+  >
+    <h3>
+      Informations
+    </h3>
+    <div
+      className="sto-app-info"
+    >
+      <div
+        className="sto-app-info-header"
+      >
+        Category
+      </div>
+      <div
+        className="sto-app-info-content"
+      >
+        Cozy
+      </div>
+    </div>
+    <div
+      className="sto-app-info"
+    >
+      <div
+        className="sto-app-info-header"
+      >
+        Languages
+      </div>
+      <div
+        className="sto-app-info-content"
+      >
+        English, French
+      </div>
+    </div>
+    <div
+      className="sto-app-info"
+    >
+      <div
+        className="sto-app-info-header"
+      >
+        Mobile Application
+      </div>
+      <div
+        className="sto-app-info-content sto-app-info-content--mobile-apps"
+      >
+        <a
+          className="sto-app-info-content-icon"
+          href={null}
+          target="_blank"
+        >
+          <Icon
+            height="24px"
+            icon={undefined}
+            width="24px"
+          />
+        </a>
+        <a
+          className="sto-app-info-content-icon"
+          href="https://mock.app"
+          target="_blank"
+        >
+          <Icon
+            height="24px"
+            icon={undefined}
+            width="24px"
+          />
+        </a>
+      </div>
+    </div>
+    <div>
+      <h3>
+        Developer Details
+      </h3>
+      <div
+        className="sto-app-developer-infos"
+      >
+        <span>
+          Cozy Cloud Inc.
+        </span>
+        <a
+          className="sto-app-developer-link"
+          href="https://cozy.io"
+          target="_blank"
+        >
+          https://cozy.io
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ApplicationPage details component should handle correctly \`display more\` behaviour on changes part 1`] = `
+<div
+  className="sto-app-details"
+>
+  <div
+    className="sto-app-descriptions"
+  >
+    <div
+      className="sto-app-description"
+    >
+      <h3>
+        Description
+      </h3>
+      <Unknown
+        className="sto-app-description--less"
+        parseEmoji={true}
+        source="### Features
+
+Enjoy features to grab your data in you Cozy :tada:"
+      />
+      <button
+        className="sto-details-display-more"
+        onClick={[Function]}
+        type="button"
+      >
+        More
+      </button>
+    </div>
+    <div
+      className="sto-app-changes"
+    >
+      <h3>
+        What's New?
+      </h3>
+      <Unknown
+        className=""
+        parseEmoji={true}
+        source="### NEW!!!
+
+ Now on the cozy-store :tada"
+      />
+    </div>
+  </div>
+  <div
+    className="sto-app-additional-details"
+  >
+    <h3>
+      Informations
+    </h3>
+    <div
+      className="sto-app-info"
+    >
+      <div
+        className="sto-app-info-header"
+      >
+        Category
+      </div>
+      <div
+        className="sto-app-info-content"
+      >
+        Cozy
+      </div>
+    </div>
+    <div
+      className="sto-app-info"
+    >
+      <div
+        className="sto-app-info-header"
+      >
+        Languages
+      </div>
+      <div
+        className="sto-app-info-content"
+      >
+        English, French
+      </div>
+    </div>
+    <div
+      className="sto-app-info"
+    >
+      <div
+        className="sto-app-info-header"
+      >
+        Mobile Application
+      </div>
+      <div
+        className="sto-app-info-content sto-app-info-content--mobile-apps"
+      >
+        <a
+          className="sto-app-info-content-icon"
+          href={null}
+          target="_blank"
+        >
+          <Icon
+            height="24px"
+            icon={undefined}
+            width="24px"
+          />
+        </a>
+        <a
+          className="sto-app-info-content-icon"
+          href="https://mock.app"
+          target="_blank"
+        >
+          <Icon
+            height="24px"
+            icon={undefined}
+            width="24px"
+          />
+        </a>
+      </div>
+    </div>
+    <div>
+      <h3>
+        Developer Details
+      </h3>
+      <div
+        className="sto-app-developer-infos"
+      >
+        <span>
+          Cozy Cloud Inc.
+        </span>
+        <a
+          className="sto-app-developer-link"
+          href="https://cozy.io"
+          target="_blank"
+        >
+          https://cozy.io
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ApplicationPage details component should handle correctly \`display more\` behaviour on description part 1`] = `
+<div
+  className="sto-app-details"
+>
+  <div
+    className="sto-app-descriptions"
+  >
+    <div
+      className="sto-app-description"
+    >
+      <h3>
+        Description
+      </h3>
+      <Unknown
+        className=""
+        parseEmoji={true}
+        source="### Features
+
+Enjoy features to grab your data in you Cozy :tada:"
+      />
+    </div>
+    <div
+      className="sto-app-changes"
+    >
+      <h3>
+        What's New?
+      </h3>
+      <Unknown
+        className="sto-app-changes--less"
+        parseEmoji={true}
+        source="### NEW!!!
+
+ Now on the cozy-store :tada"
+      />
+      <button
+        className="sto-details-display-more"
+        onClick={[Function]}
+        type="button"
+      >
+        More
+      </button>
+    </div>
+  </div>
+  <div
+    className="sto-app-additional-details"
+  >
+    <h3>
+      Informations
+    </h3>
+    <div
+      className="sto-app-info"
+    >
+      <div
+        className="sto-app-info-header"
+      >
+        Category
+      </div>
+      <div
+        className="sto-app-info-content"
+      >
+        Cozy
+      </div>
+    </div>
+    <div
+      className="sto-app-info"
+    >
+      <div
+        className="sto-app-info-header"
+      >
+        Languages
+      </div>
+      <div
+        className="sto-app-info-content"
+      >
+        English, French
+      </div>
+    </div>
+    <div
+      className="sto-app-info"
+    >
+      <div
+        className="sto-app-info-header"
+      >
+        Mobile Application
+      </div>
+      <div
+        className="sto-app-info-content sto-app-info-content--mobile-apps"
+      >
+        <a
+          className="sto-app-info-content-icon"
+          href={null}
+          target="_blank"
+        >
+          <Icon
+            height="24px"
+            icon={undefined}
+            width="24px"
+          />
+        </a>
+        <a
+          className="sto-app-info-content-icon"
+          href="https://mock.app"
+          target="_blank"
+        >
+          <Icon
+            height="24px"
+            icon={undefined}
+            width="24px"
+          />
+        </a>
+      </div>
+    </div>
+    <div>
+      <h3>
+        Developer Details
+      </h3>
+      <div
+        className="sto-app-developer-infos"
+      >
+        <span>
+          Cozy Cloud Inc.
+        </span>
+        <a
+          className="sto-app-developer-link"
+          href="https://cozy.io"
+          target="_blank"
+        >
+          https://cozy.io
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -27,7 +27,7 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
               "name": "Cozy",
             }
           }
-          editor="cozy"
+          editor="Cozy"
           icon="<svg></svg>"
           installed={true}
           name="Collect"
@@ -41,7 +41,7 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
               "name": "Cozy",
             }
           }
-          editor="cozy"
+          editor="Cozy"
           icon="<svg></svg>"
           installed={undefined}
           name="Photos"
@@ -50,7 +50,7 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
           version="3.0.0"
         />
         <SmallAppItem
-          developer=""
+          developer={Object {}}
           editor=""
           icon="<svg></svg>"
           installed={undefined}
@@ -66,19 +66,14 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
     apps={
       Array [
         Object {
-          "description": Object {
-            "en": "The konnectors manager for Cozy V3",
-          },
           "developer": Object {
             "name": "Cozy",
           },
-          "editor": "cozy",
+          "editor": "Cozy",
           "icon": "<svg></svg>",
           "installed": true,
           "isInRegistry": true,
-          "name": Object {
-            "en": "Collect",
-          },
+          "name": "Collect",
           "related": "http://collect.cozy.mock/",
           "slug": "collect",
           "uninstallable": false,
@@ -96,18 +91,13 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
           },
         },
         Object {
-          "description": Object {
-            "en": "The photos manager for Cozy V3",
-          },
           "developer": Object {
             "name": "Cozy",
           },
-          "editor": "cozy",
+          "editor": "Cozy",
           "icon": "<svg></svg>",
           "isInRegistry": true,
-          "name": Object {
-            "en": "Photos",
-          },
+          "name": "Photos",
           "slug": "photos",
           "uninstallable": true,
           "versions": Object {
@@ -123,15 +113,9 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
           },
         },
         Object {
-          "description": Object {
-            "en": "The tasks manager for Cozy V3",
-          },
-          "editor": "",
           "icon": "<svg></svg>",
           "isInRegistry": true,
-          "name": Object {
-            "en": "Tasky",
-          },
+          "name": "Tasky",
           "slug": "tasky",
           "uninstallable": true,
           "versions": Object {

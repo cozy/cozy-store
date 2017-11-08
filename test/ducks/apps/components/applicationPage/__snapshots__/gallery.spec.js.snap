@@ -1,0 +1,262 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApplicationPage gallery component should be rendered correctly with 5 images 1`] = `
+<div
+  className="sto-app-images"
+>
+  <div
+    className="sto-app-big-images"
+  >
+    <img
+      alt="photos-image-1"
+      className="sto-app-big-image"
+      onClick={[Function]}
+      onKeyUp={[Function]}
+      src="https://mockcozy.cc/registry/photos/screenshot1.png"
+      tabIndex={0}
+    />
+    <img
+      alt="photos-image-2"
+      className="sto-app-big-image"
+      onClick={[Function]}
+      onKeyUp={[Function]}
+      src="https://mockcozy.cc/registry/photos/screenshot2.png"
+      tabIndex={0}
+    />
+  </div>
+  <div
+    className="sto-app-small-images --space-around"
+  >
+    <img
+      alt="photos-image-3"
+      className="sto-app-small-image"
+      onClick={[Function]}
+      onKeyUp={[Function]}
+      src="https://mockcozy.cc/registry/photos/screenshot3.png"
+      tabIndex={0}
+    />
+    <img
+      alt="photos-image-4"
+      className="sto-app-small-image"
+      onClick={[Function]}
+      onKeyUp={[Function]}
+      src="https://mockcozy.cc/registry/photos/screenshot4.png"
+      tabIndex={0}
+    />
+    <img
+      alt="photos-image-5"
+      className="sto-app-small-image"
+      onClick={[Function]}
+      onKeyUp={[Function]}
+      src="https://mockcozy.cc/registry/photos/screenshot5.png"
+      tabIndex={0}
+    />
+  </div>
+</div>
+`;
+
+exports[`ApplicationPage gallery component should be rendered correctly with provided images 1`] = `
+<div
+  className="sto-app-images"
+>
+  <div
+    className="sto-app-big-images"
+  >
+    <img
+      alt="photos-image-1"
+      className="sto-app-big-image"
+      onClick={[Function]}
+      onKeyUp={[Function]}
+      src="https://mockcozy.cc/registry/photos/screenshot1.png"
+      tabIndex={0}
+    />
+    <img
+      alt="photos-image-2"
+      className="sto-app-big-image"
+      onClick={[Function]}
+      onKeyUp={[Function]}
+      src="https://mockcozy.cc/registry/photos/screenshot2.png"
+      tabIndex={0}
+    />
+  </div>
+  <div
+    className="sto-app-small-images"
+  >
+    <img
+      alt="photos-image-3"
+      className="sto-app-small-image"
+      onClick={[Function]}
+      onKeyUp={[Function]}
+      src="https://mockcozy.cc/registry/photos/screenshot3.png"
+      tabIndex={0}
+    />
+  </div>
+</div>
+`;
+
+exports[`ApplicationPage gallery component should be rendered correctly with the first 5 images if more images provided 1`] = `
+<div
+  className="sto-app-images"
+>
+  <div
+    className="sto-app-big-images"
+  >
+    <img
+      alt="photos-image-1"
+      className="sto-app-big-image"
+      onClick={[Function]}
+      onKeyUp={[Function]}
+      src="https://mockcozy.cc/registry/photos/screenshot1.png"
+      tabIndex={0}
+    />
+    <img
+      alt="photos-image-2"
+      className="sto-app-big-image"
+      onClick={[Function]}
+      onKeyUp={[Function]}
+      src="https://mockcozy.cc/registry/photos/screenshot2.png"
+      tabIndex={0}
+    />
+  </div>
+  <div
+    className="sto-app-small-images --space-around"
+  >
+    <img
+      alt="photos-image-3"
+      className="sto-app-small-image"
+      onClick={[Function]}
+      onKeyUp={[Function]}
+      src="https://mockcozy.cc/registry/photos/screenshot3.png"
+      tabIndex={0}
+    />
+    <img
+      alt="photos-image-4"
+      className="sto-app-small-image"
+      onClick={[Function]}
+      onKeyUp={[Function]}
+      src="https://mockcozy.cc/registry/photos/screenshot4.png"
+      tabIndex={0}
+    />
+    <img
+      alt="photos-image-5"
+      className="sto-app-small-image"
+      onClick={[Function]}
+      onKeyUp={[Function]}
+      src="https://mockcozy.cc/registry/photos/screenshot5.png"
+      tabIndex={0}
+    />
+  </div>
+</div>
+`;
+
+exports[`ApplicationPage gallery component should open a modal and handle onClose 1`] = `
+<div
+  className="sto-app-images"
+>
+  <div
+    className="sto-app-big-images"
+  >
+    <img
+      alt="photos-image-1"
+      className="sto-app-big-image"
+      onClick={[Function]}
+      onKeyUp={[Function]}
+      src="https://mockcozy.cc/registry/photos/screenshot1.png"
+      tabIndex={0}
+    />
+    <img
+      alt="photos-image-2"
+      className="sto-app-big-image"
+      onClick={[Function]}
+      onKeyUp={[Function]}
+      src="https://mockcozy.cc/registry/photos/screenshot2.png"
+      tabIndex={0}
+    />
+  </div>
+  <div
+    className="sto-app-small-images"
+  >
+    <img
+      alt="photos-image-3"
+      className="sto-app-small-image"
+      onClick={[Function]}
+      onKeyUp={[Function]}
+      src="https://mockcozy.cc/registry/photos/screenshot3.png"
+      tabIndex={0}
+    />
+  </div>
+  <Modal
+    overflowHidden={false}
+    primaryType="secondary"
+    secondaryAction={[Function]}
+    secondaryType="regular"
+    title="Preview"
+    withCross={true}
+  >
+    <ModalContent>
+      <img
+        alt="image-preview"
+        className="sto-app-image-preview"
+        src="https://mockcozy.cc/registry/photos/screenshot1.png"
+      />
+    </ModalContent>
+  </Modal>
+</div>
+`;
+
+exports[`ApplicationPage gallery component should open a modal on image click 1`] = `
+<div
+  className="sto-app-images"
+>
+  <div
+    className="sto-app-big-images"
+  >
+    <img
+      alt="photos-image-1"
+      className="sto-app-big-image"
+      onClick={[Function]}
+      onKeyUp={[Function]}
+      src="https://mockcozy.cc/registry/photos/screenshot1.png"
+      tabIndex={0}
+    />
+    <img
+      alt="photos-image-2"
+      className="sto-app-big-image"
+      onClick={[Function]}
+      onKeyUp={[Function]}
+      src="https://mockcozy.cc/registry/photos/screenshot2.png"
+      tabIndex={0}
+    />
+  </div>
+  <div
+    className="sto-app-small-images"
+  >
+    <img
+      alt="photos-image-3"
+      className="sto-app-small-image"
+      onClick={[Function]}
+      onKeyUp={[Function]}
+      src="https://mockcozy.cc/registry/photos/screenshot3.png"
+      tabIndex={0}
+    />
+  </div>
+  <Modal
+    overflowHidden={false}
+    primaryType="secondary"
+    secondaryAction={[Function]}
+    secondaryType="regular"
+    title="Preview"
+    withCross={true}
+  >
+    <ModalContent>
+      <img
+        alt="image-preview"
+        className="sto-app-image-preview"
+        src="https://mockcozy.cc/registry/photos/screenshot1.png"
+      />
+    </ModalContent>
+  </Modal>
+</div>
+`;
+
+exports[`ApplicationPage gallery component should return null if no images provided 1`] = `null`;

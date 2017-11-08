@@ -6,13 +6,13 @@
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 
-import { version, isFetching, error, fetchLastAppVersion } from '../../../../src/ducks/apps/currentAppVersion'
-import mockAppVersion from '../_mockAppRegistryVersion'
+import { version, isFetching, error, fetchLastAppVersion } from 'ducks/apps/currentAppVersion'
+import mockAppVersion from '../_mockPhotosRegistryVersion'
 
 import {
   UnavailableRegistryException,
   NotFoundException
-} from '../../../../src/lib/exceptions'
+} from 'lib/exceptions'
 
 const mockError = new UnavailableRegistryException()
 const mockNotFoundError = new NotFoundException()

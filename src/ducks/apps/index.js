@@ -108,6 +108,13 @@ export function getRegistryApps (state) {
   return state.apps.list.filter(app => app.isInRegistry).filter(app => (Array.isArray(app.versions.stable) && !!app.versions.stable))
 }
 
+export function getLocalizedAppProperty (app, property, lang) {
+  if (app.locales && app.locales[lang] && app.locales[lang][property]) {
+    return app.locales[lang][property]
+  }
+  return app[property]
+}
+
 function _sortAlphabetically (array, property) {
   return array.sort((a, b) => a[property] > b[property])
 }
@@ -146,6 +153,14 @@ function _consolidateApps (stateApps, newAppsInfos) {
   return Array.from(apps.values()).filter(app => app)
 }
 
+// FIXME retro-compatibility for old formatted manifest
+function _sanitizeOldManifest (app) {
+  if (!app.short_description) app.short_description = app.description
+  if (!app.long_description) app.long_description = app.description
+  if (typeof app.name === 'object') app.name = app.name.en
+  return app
+}
+
 export function fetchInstalledApps () {
   return (dispatch, getState) => {
     dispatch({type: FETCH_APPS})
@@ -153,18 +168,13 @@ export function fetchInstalledApps () {
     .then(installedApps => {
       installedApps = installedApps.filter(app => !config.notDisplayedApps.includes(app.attributes.slug))
       Promise.all(installedApps.map(app => {
-        // FIXME waiting name and description is locales object everywhere
-        const appDesc = typeof app.attributes.description === 'string'
-          ? { en: app.attributes.description } : app.attributes.description
-        const appName = typeof app.attributes.name === 'string'
-          ? { en: app.attributes.name } : app.attributes.name
+        // FIXME retro-compatibility for old formatted manifest
+        app.attributes = _sanitizeOldManifest(app.attributes)
         return _getIcon(app.links.icon)
         .then(iconData => {
           return Object.assign({}, app.attributes, {
             _id: app.id,
             icon: iconData,
-            name: appName,
-            description: appDesc,
             installed: true,
             related: app.links.related,
             uninstallable: !config.notRemovableApps.includes(app.attributes.slug)
@@ -191,14 +201,15 @@ export function fetchRegistryApps () {
       .filter(app => !config.notDisplayedApps.includes(app.name))
       .filter(app => app.versions.dev && app.versions.dev.length) // only apps with versions available
       return Promise.all(apps.map(app => {
-        return _getIcon(`/registry/${app.slug}/icon`)
-        .then(iconData => {
-          return Object.assign({}, app, {
-            icon: iconData,
-            installed: false,
-            uninstallable: true,
-            isInRegistry: true
-          })
+        const screensLinks = app.screenshots && app.screenshots.map(name => {
+          return `${cozy.client._url}/registry/${app.slug}/screenshots/${name}`
+        })
+        return Object.assign({}, app, {
+          icon: `${cozy.client._url}/registry/${app.slug}/icon`,
+          screenshots: screensLinks,
+          installed: false,
+          uninstallable: true,
+          isInRegistry: true
         })
       }))
       .then(apps => {

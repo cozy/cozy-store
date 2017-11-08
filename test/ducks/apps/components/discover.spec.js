@@ -4,11 +4,10 @@
 
 import React from 'react'
 import { shallow } from 'enzyme'
-import { Route } from 'react-router-dom'
 
 import { tMock } from '../../../jestLib/I18n'
-import SmallAppItem from '../../../../src/ducks/components/SmallAppItem'
-import { Discover } from '../../../../src/ducks/apps/components/Discover'
+import SmallAppItem from 'ducks/components/SmallAppItem'
+import { Discover } from 'ducks/apps/components/Discover'
 
 import mockApps from '../_mockApps'
 
@@ -62,5 +61,4 @@ describe('Discover component', () => {
     expect(mockProps.history.push.mock.calls.length).toBe(1)
     expect(mockProps.history.push.mock.calls[0][0]).toBe(`/discover/${mockRegistyApps[0].slug}`)
   })
-
 })

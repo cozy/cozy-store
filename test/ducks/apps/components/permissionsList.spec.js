@@ -6,9 +6,9 @@ import React from 'react'
 import { shallow } from 'enzyme'
 
 import { tMock } from '../../../jestLib/I18n'
-import { PermissionsList } from '../../../../src/ducks/apps/components/PermissionsList'
+import { PermissionsList } from 'ducks/apps/components/PermissionsList'
 
-import mockAppVersion from '../_mockAppRegistryVersion'
+import mockAppVersion from '../_mockPhotosRegistryVersion'
 
 describe('MyApplications component', () => {
   beforeAll(() => {

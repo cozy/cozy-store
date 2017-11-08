@@ -6,7 +6,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
 
-import { MyApplications, Discover } from '../../../src/ducks/apps/Containers'
+import { MyApplications, Discover } from 'ducks/apps/Containers'
 
 const mockStore = configureStore()
 
