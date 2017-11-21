@@ -192,7 +192,7 @@ export function fetchInstalledApps () {
   }
 }
 
-export function fetchRegistryApps () {
+export function fetchRegistryApps (channel = 'dev') {
   return (dispatch, getState) => {
     dispatch({type: FETCH_APPS})
     return cozy.client.fetchJSON('GET', '/registry?filter[type]=webapp')
@@ -201,15 +201,26 @@ export function fetchRegistryApps () {
       .filter(app => !config.notDisplayedApps.includes(app.name))
       .filter(app => app.versions.dev && app.versions.dev.length) // only apps with versions available
       return Promise.all(apps.map(app => {
-        const screensLinks = app.screenshots && app.screenshots.map(name => {
-          return `${cozy.client._url}/registry/${app.slug}/screenshots/${name}`
+        return cozy.client.fetchJSON('GET', `/registry/${app.slug}/${channel}/latest`)
+        .then(version => {
+          const versionFromRegistry = version.version
+          const manifest = version.manifest
+          const screensLinks = manifest.screenshots && manifest.screenshots.map(name => {
+            const fileName = name.replace(/^.*[\\/]/, '')
+            return `${cozy.client._url}/registry/${manifest.slug}/${versionFromRegistry}/screenshots/${fileName}`
+          })
+          const iconLink = `${cozy.client._url}/registry/${manifest.slug}/${versionFromRegistry}/icon`
+          return Object.assign({}, app, manifest, {
+            icon: iconLink,
+            screenshots: screensLinks,
+            installed: false,
+            uninstallable: true,
+            isInRegistry: true
+          })
         })
-        return Object.assign({}, app, {
-          icon: `${cozy.client._url}/registry/${app.slug}/icon`,
-          screenshots: screensLinks,
-          installed: false,
-          uninstallable: true,
-          isInRegistry: true
+        .catch(err => {
+          console.warn(`Something went wrong when trying to fetch more informations about ${app.slug} from the registry on ${channel} channel, so we skip it. ${err}`)
+          return false
         })
       }))
       .then(apps => {
