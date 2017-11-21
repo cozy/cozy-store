@@ -53,7 +53,22 @@ export function fetchLastAppVersion (appSlug, channel = 'stable') {
     dispatch({type: FETCH_APP_VERSION})
     return cozy.client.fetchJSON('GET', `/registry/${appSlug}/${channel}/latest`)
     .then(version => {
-      return dispatch({type: FETCH_APP_VERSION_SUCCESS, version})
+      const versionFromRegistry = version.version
+      const manifest = version.manifest
+      const screensLinks = manifest.screenshots && manifest.screenshots.map(name => {
+        const fileName = name.replace(/^.*[\\/]/, '')
+        return `${cozy.client._url}/registry/${manifest.slug}/${versionFromRegistry}/screenshots/${fileName}`
+      })
+      const iconLink = `${cozy.client._url}/registry/${manifest.slug}/${versionFromRegistry}/icon`
+      return dispatch({
+        type: FETCH_APP_VERSION_SUCCESS,
+        version: Object.assign({}, version, {
+          manifest: Object.assign({}, manifest, {
+            screenshots: screensLinks,
+            icon: iconLink
+          })
+        })
+      })
     })
     .catch(error => {
       let registryError = new UnavailableRegistryException()

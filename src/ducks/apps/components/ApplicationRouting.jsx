@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { Route, withRouter } from 'react-router-dom'
 
-import { InstallModal } from '../currentAppVersion/Containers'
+import { InstallModal, ApplicationPage } from '../currentAppVersion/Containers'
 
-import ApplicationPage from './ApplicationPage'
 import UninstallModal from './UninstallModal'
 
 export class ApplicationRouting extends Component {

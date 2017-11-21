@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { fetchLastAppVersion } from './index'
 
 import InstallModalComponent from '../components/InstallModal'
+import ApplicationPageComponent from '../components/ApplicationPage'
 
 const mapStateToProps = (state, ownProps) => ({
   currentAppVersion: state.currentAppVersion.version,
@@ -18,3 +19,8 @@ export const InstallModal = connect(
   mapStateToProps,
   mapDispatchToProps
 )(InstallModalComponent)
+
+export const ApplicationPage = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ApplicationPageComponent)
