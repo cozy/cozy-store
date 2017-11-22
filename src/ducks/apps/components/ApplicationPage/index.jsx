@@ -12,30 +12,26 @@ const MOBILE_PLATFORMS = ['ios', 'android']
 const isMobilePlatform = (name) => MOBILE_PLATFORMS.includes(name)
 
 export class ApplicationPage extends Component {
-  constructor (props) {
-    super(props)
-    if (props.app) props.fetchLastAppVersion(props.app.slug, 'dev')
-  }
-
   render () {
-    const { t, lang, parent, isVersionFetching, currentAppVersion, versionError } = this.props
-    if (!currentAppVersion) {
+    const { t, lang, parent, app, isFetching, fetchError } = this.props
+    if (isFetching) {
       return (
         <div className='sto-app'>
-          {isVersionFetching &&
-            <Spinner
-              size='xxlarge'
-              loadingType='appsFetching'
-              middle='true'
-            />
-          }
-          {versionError &&
-            <p class='coz-error'>{t('app_modal.install.message.version_error', {message: versionError.message})}</p>
-          }
+          <Spinner
+            size='xxlarge'
+            loadingType='appsFetching'
+            middle='true'
+          />
         </div>
       )
     }
-    const app = currentAppVersion.manifest
+    if (fetchError) {
+      return (
+        <p class='coz-error'>
+          {t('app_modal.install.message.version_error', {message: fetchError.message})}
+        </p>
+      )
+    }
     const { icon, installed, editor, related, slug } = app
     const appName = getLocalizedAppProperty(app, 'name', lang)
     const appShortDesc = getLocalizedAppProperty(app, 'short_description', lang)
@@ -52,7 +48,7 @@ export class ApplicationPage extends Component {
       }, [])
     return (
       <div>
-        {!isVersionFetching && currentAppVersion && <div className='sto-app'>
+        <div className='sto-app'>
           <Header
             icon={icon}
             editor={editor}
@@ -72,7 +68,7 @@ export class ApplicationPage extends Component {
             developer={app.developer}
             mobileApps={mobileApps}
           />
-        </div>}
+        </div>
       </div>
     )
   }
