@@ -14,6 +14,8 @@ const APP_STATE = {
   ERRORED: 'errored'
 }
 
+const DEFAULT_CHANNEL = 'dev'
+
 const FETCH_APPS = 'FETCH_APPS'
 const FETCH_APPS_SUCCESS = 'FETCH_APPS_SUCCESS'
 const FETCH_APPS_FAILURE = 'FETCH_APPS_FAILURE'
@@ -221,7 +223,7 @@ export function fetchInstalledApps () {
   }
 }
 
-export function fetchRegistryApps (channel = 'dev') {
+export function fetchRegistryApps (channel = DEFAULT_CHANNEL) {
   return (dispatch, getState) => {
     dispatch({type: FETCH_APPS})
     return cozy.client.fetchJSON('GET', '/registry?filter[type]=webapp')
@@ -325,7 +327,7 @@ export function installApp (slug, source, isUpdate = false) {
   }
 }
 
-export function installAppFromRegistry (slug, channel = 'stable') {
+export function installAppFromRegistry (slug, channel = DEFAULT_CHANNEL) {
   return (dispatch, getState) => {
     const source = `registry://${slug}/${channel}`
     return dispatch(installApp(slug, source, false))
