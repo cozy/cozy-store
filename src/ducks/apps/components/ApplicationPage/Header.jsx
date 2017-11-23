@@ -20,7 +20,9 @@ export const Header = ({t, icon, slug, editor, name, description, installed, ins
         }
       </div>
       <div className='sto-app-header-content'>
-        <h2>{editor ? `${editor} ${name}` : name}</h2>
+        <h2 className='sto-app-header-title'>
+          {editor ? `${editor} ${name}` : name}
+        </h2>
         <p>{description}</p>
         {installed
           ? <div>
@@ -37,7 +39,7 @@ export const Header = ({t, icon, slug, editor, name, description, installed, ins
             </button>
             <Link
               to={`/${parent}/${slug}/manage`}
-              className='coz-btn coz-btn--danger-outline'
+              className='coz-btn coz-btn--danger-outline sto-app-header-uninstall-button'
             >
               {t('app_page.uninstall')}
             </Link>

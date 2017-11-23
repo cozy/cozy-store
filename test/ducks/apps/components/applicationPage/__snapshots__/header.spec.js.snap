@@ -18,7 +18,9 @@ exports[`ApplicationPage header component should be rendered correctly provided 
   <div
     className="sto-app-header-content"
   >
-    <h2>
+    <h2
+      className="sto-app-header-title"
+    >
       Cozy Photos
     </h2>
     <p />
@@ -58,7 +60,9 @@ exports[`ApplicationPage header component should be rendered correctly provided 
   <div
     className="sto-app-header-content"
   >
-    <h2>
+    <h2
+      className="sto-app-header-title"
+    >
       Photos
     </h2>
     <p />
