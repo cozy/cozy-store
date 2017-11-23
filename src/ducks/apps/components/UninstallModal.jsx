@@ -36,7 +36,7 @@ export class UninstallModal extends Component {
   }
 
   render () {
-    const { t, app, error } = this.props
+    const { t, app, uninstallError } = this.props
     // if app not found, return to parent
     if (!app) {
       this.gotoParent()
@@ -57,8 +57,8 @@ export class UninstallModal extends Component {
                     : t('app_modal.uninstall.uninstallable_description')
                 }
               />
-              {error &&
-                <p class='coz-error'>{t('app_modal.uninstall.message.error', {message: error.message})}</p>
+              {uninstallError &&
+                <p class='coz-error'>{t('app_modal.uninstall.message.error', {message: uninstallError.message})}</p>
               }
               <div className='sto-modal-controls'>
                 <button

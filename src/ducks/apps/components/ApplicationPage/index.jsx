@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { translate } from 'cozy-ui/react/I18n'
+import Spinner from 'cozy-ui/react/Spinner'
 
 import Header from './Header'
 import Gallery from './Gallery'
@@ -10,7 +11,25 @@ import { getLocalizedAppProperty } from 'ducks/apps'
 const MOBILE_PLATFORMS = ['ios', 'android']
 const isMobilePlatform = (name) => MOBILE_PLATFORMS.includes(name)
 
-export const ApplicationPage = ({lang, app, parent}) => {
+export const ApplicationPage = ({ t, lang, parent, app, isFetching, fetchError }) => {
+  if (isFetching) {
+    return (
+      <div className='sto-app'>
+        <Spinner
+          size='xxlarge'
+          loadingType='appsFetching'
+          middle='true'
+        />
+      </div>
+    )
+  }
+  if (fetchError) {
+    return (
+      <p class='coz-error'>
+        {t('app_modal.install.message.version_error', {message: fetchError.message})}
+      </p>
+    )
+  }
   const { icon, installed, editor, related, slug } = app
   const appName = getLocalizedAppProperty(app, 'name', lang)
   const appShortDesc = getLocalizedAppProperty(app, 'short_description', lang)
@@ -26,26 +45,28 @@ export const ApplicationPage = ({lang, app, parent}) => {
       return mobilePlatforms
     }, [])
   return (
-    <div className='sto-app'>
-      <Header
-        icon={icon}
-        editor={editor}
-        name={appName}
-        description={appShortDesc}
-        installed={installed}
-        installedAppLink={related}
-        parent={parent}
-        slug={slug}
-      />
-      <Gallery slug={slug} images={app.screenshots} />
-      <Details
-        description={appLongDesc}
-        changes={appChanges}
-        category={app.category}
-        langs={app.langs}
-        developer={app.developer}
-        mobileApps={mobileApps}
-      />
+    <div>
+      <div className='sto-app'>
+        <Header
+          icon={icon}
+          editor={editor}
+          name={appName}
+          description={appShortDesc}
+          installed={installed}
+          installedAppLink={related}
+          parent={parent}
+          slug={slug}
+        />
+        <Gallery slug={slug} images={app.screenshots} />
+        <Details
+          description={appLongDesc}
+          changes={appChanges}
+          category={app.category}
+          langs={app.langs}
+          developer={app.developer}
+          mobileApps={mobileApps}
+        />
+      </div>
     </div>
   )
 }

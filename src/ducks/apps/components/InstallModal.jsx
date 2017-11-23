@@ -13,8 +13,6 @@ export class InstallModal extends Component {
   constructor (props) {
     super(props)
 
-    if (props.app) props.fetchLastAppVersion(props.app.slug)
-
     this.gotoParent = this.gotoParent.bind(this)
     this.installApp = this.installApp.bind(this)
   }
@@ -39,15 +37,15 @@ export class InstallModal extends Component {
   }
 
   render () {
-    const { t, lang, app, isVersionFetching, currentAppVersion, versionError, isInstalling, error } = this.props
+    const { t, lang, app, isFetching, fetchError, isInstalling, installError } = this.props
     // if app not found, return to parent
     if (!app) {
       this.gotoParent()
       return null
     }
     let permissions = null
-    if (currentAppVersion && !isVersionFetching && !versionError) {
-      permissions = (currentAppVersion.manifest && currentAppVersion.manifest.permissions) || {}
+    if (app && !isFetching && !fetchError) {
+      permissions = (app.permissions) || {}
     }
     const appName = getLocalizedAppProperty(app, 'name', lang)
     return (
@@ -57,17 +55,17 @@ export class InstallModal extends Component {
         >
           <ModalContent>
             <header className='sto-modal-header'>
-              <div className='sto-modal-header-icon' aria-busy={isVersionFetching}>
+              <div className='sto-modal-header-icon' aria-busy={isFetching}>
                 <a href='https://cozy.io' target='_blank' title='Cozy Website' class='sto-modal-header-icon-shield' />
               </div>
-              {!isVersionFetching && !versionError &&
+              {!isFetching && !fetchError &&
                 <h2>{t('app_modal.install.title', {appName})}</h2>
               }
             </header>
             <div className='sto-modal-content'>
               {permissions && <PermissionsList permissions={permissions} appName={appName} />
               }
-              {!isVersionFetching && !versionError &&
+              {!isFetching && !fetchError &&
                 <div>
                   {permissions && !!Object.values(permissions).length &&
                     <ReactMarkdownWrapper
@@ -77,8 +75,8 @@ export class InstallModal extends Component {
                       }
                     />
                   }
-                  {error &&
-                    <p class='coz-error'>{t('app_modal.install.message.install_error', {message: error.message})}</p>
+                  {installError &&
+                    <p class='coz-error'>{t('app_modal.install.message.install_error', {message: installError.message})}</p>
                   }
                   <div className='sto-modal-controls'>
                     <button
@@ -100,8 +98,8 @@ export class InstallModal extends Component {
                   </div>
                 </div>
               }
-              {versionError &&
-                <p class='coz-error'>{t('app_modal.install.message.version_error', {message: versionError.message})}</p>
+              {fetchError &&
+                <p class='coz-error'>{t('app_modal.install.message.version_error', {message: fetchError.message})}</p>
               }
             </div>
           </ModalContent>

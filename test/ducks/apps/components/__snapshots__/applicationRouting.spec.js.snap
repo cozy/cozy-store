@@ -1,6 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ApplicationRouting component with ApplicationDetails should handle correctly if app found 1`] = `
+exports[`ApplicationRouting component with ApplicationPage should handle correctly if app found 1`] = `
+<_translate
+  app={
+    Object {
+      "developer": Object {
+        "name": "Cozy",
+      },
+      "editor": "Cozy",
+      "icon": "<svg></svg>",
+      "installed": true,
+      "isInRegistry": true,
+      "name": "Collect",
+      "related": "http://collect.cozy.mock/",
+      "slug": "collect",
+      "uninstallable": false,
+      "version": "3.0.0",
+      "versions": Object {
+        "beta": Array [
+          "3.0.0",
+        ],
+        "dev": Array [
+          "3.0.0",
+        ],
+        "stable": Array [
+          "3.0.0",
+        ],
+      },
+    }
+  }
+  parent="myapps"
+/>
+`;
+
+exports[`ApplicationRouting component with ApplicationPage should render correctly if apps list is null but not installedApps 1`] = `
 <_translate
   app={
     Object {
@@ -62,14 +95,49 @@ exports[`ApplicationRouting component with Modal should handle correctly if inst
       },
     }
   }
-  error={undefined}
   parent="/myapps"
   uninstallApp={[Function]}
+  uninstallError={undefined}
 />
 `;
 
-exports[`ApplicationRouting component with Modal should handle correctly if uninstalled app found 1`] = `
-<Connect(_translate)
+exports[`ApplicationRouting component with Modal should render correctly if apps list is null but not installedApps 1`] = `
+<_translate
+  app={
+    Object {
+      "developer": Object {
+        "name": "Cozy",
+      },
+      "editor": "Cozy",
+      "icon": "<svg></svg>",
+      "installed": true,
+      "isInRegistry": true,
+      "name": "Collect",
+      "related": "http://collect.cozy.mock/",
+      "slug": "collect",
+      "uninstallable": false,
+      "version": "3.0.0",
+      "versions": Object {
+        "beta": Array [
+          "3.0.0",
+        ],
+        "dev": Array [
+          "3.0.0",
+        ],
+        "stable": Array [
+          "3.0.0",
+        ],
+      },
+    }
+  }
+  parent="/myapps"
+  uninstallApp={[Function]}
+  uninstallError={undefined}
+/>
+`;
+
+exports[`ApplicationRouting component with Modal should render correctly if uninstalled app found 1`] = `
+<_translate
   app={
     Object {
       "developer": Object {
@@ -94,8 +162,10 @@ exports[`ApplicationRouting component with Modal should handle correctly if unin
       },
     }
   }
-  error={undefined}
+  fetchError={undefined}
   installApp={[Function]}
+  installError={undefined}
+  isFetching={false}
   isInstalling={undefined}
   parent="/myapps"
 />

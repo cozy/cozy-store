@@ -2,7 +2,6 @@
 /* global cozy */
 
 import { combineReducers } from 'redux'
-import { currentAppVersionReducers } from './currentAppVersion'
 import config from 'config/apps'
 
 import {
@@ -14,6 +13,8 @@ const APP_STATE = {
   INSTALLING: 'installing',
   ERRORED: 'errored'
 }
+
+const DEFAULT_CHANNEL = 'dev'
 
 const FETCH_APPS = 'FETCH_APPS'
 const FETCH_APPS_SUCCESS = 'FETCH_APPS_SUCCESS'
@@ -95,8 +96,7 @@ export const appsReducers = combineReducers({
   actionError,
   fetchError,
   isFetching,
-  isInstalling,
-  currentAppVersion: currentAppVersionReducers
+  isInstalling
 })
 
 export function getInstalledApps (state) {
@@ -161,6 +161,48 @@ function _sanitizeOldManifest (app) {
   return app
 }
 
+export function getFormattedInstalledApp (response) {
+  // FIXME retro-compatibility for old formatted manifest
+  response.attributes = _sanitizeOldManifest(response.attributes)
+  return _getIcon(response.links.icon)
+  .then(iconData => {
+    return Object.assign({}, response.attributes, {
+      _id: response.id || response._id,
+      icon: iconData,
+      installed: true,
+      related: response.links.related,
+      uninstallable: !config.notRemovableApps.includes(response.attributes.slug)
+    })
+  })
+}
+
+export function getFormattedRegistryApp (response, channel) {
+  return cozy.client.fetchJSON('GET', `/registry/${response.slug}/${channel}/latest`)
+  .then(version => {
+    const versionFromRegistry = version.version
+    const manifest = version.manifest
+    const screensLinks = manifest.screenshots && manifest.screenshots.map(name => {
+      const fileName = name.replace(/^.*[\\/]/, '')
+      return `${cozy.client._url}/registry/${manifest.slug}/${versionFromRegistry}/screenshots/${fileName}`
+    })
+    const iconLink = `${cozy.client._url}/registry/${manifest.slug}/${versionFromRegistry}/icon`
+    return Object.assign(
+      {},
+      {
+        versions: response.versions
+      },
+      manifest,
+      {
+        icon: iconLink,
+        screenshots: screensLinks,
+        installed: false,
+        uninstallable: true,
+        isInRegistry: true
+      }
+    )
+  })
+}
+
 export function fetchInstalledApps () {
   return (dispatch, getState) => {
     dispatch({type: FETCH_APPS})
@@ -168,18 +210,7 @@ export function fetchInstalledApps () {
     .then(installedApps => {
       installedApps = installedApps.filter(app => !config.notDisplayedApps.includes(app.attributes.slug))
       Promise.all(installedApps.map(app => {
-        // FIXME retro-compatibility for old formatted manifest
-        app.attributes = _sanitizeOldManifest(app.attributes)
-        return _getIcon(app.links.icon)
-        .then(iconData => {
-          return Object.assign({}, app.attributes, {
-            _id: app.id,
-            icon: iconData,
-            installed: true,
-            related: app.links.related,
-            uninstallable: !config.notRemovableApps.includes(app.attributes.slug)
-          })
-        })
+        return getFormattedInstalledApp(app)
       }))
       .then(apps => {
         return dispatch({type: FETCH_APPS_SUCCESS, apps})
@@ -192,7 +223,7 @@ export function fetchInstalledApps () {
   }
 }
 
-export function fetchRegistryApps () {
+export function fetchRegistryApps (channel = DEFAULT_CHANNEL) {
   return (dispatch, getState) => {
     dispatch({type: FETCH_APPS})
     return cozy.client.fetchJSON('GET', '/registry?filter[type]=webapp')
@@ -201,15 +232,10 @@ export function fetchRegistryApps () {
       .filter(app => !config.notDisplayedApps.includes(app.name))
       .filter(app => app.versions.dev && app.versions.dev.length) // only apps with versions available
       return Promise.all(apps.map(app => {
-        const screensLinks = app.screenshots && app.screenshots.map(name => {
-          return `${cozy.client._url}/registry/${app.slug}/screenshots/${name}`
-        })
-        return Object.assign({}, app, {
-          icon: `${cozy.client._url}/registry/${app.slug}/icon`,
-          screenshots: screensLinks,
-          installed: false,
-          uninstallable: true,
-          isInRegistry: true
+        return getFormattedRegistryApp(app, channel)
+        .catch(err => {
+          console.warn(`Something went wrong when trying to fetch more informations about ${app.slug} from the registry on ${channel} channel, so we skip it. ${err}`)
+          return false // useful to skip in an array.map function
         })
       }))
       .then(apps => {
@@ -301,7 +327,7 @@ export function installApp (slug, source, isUpdate = false) {
   }
 }
 
-export function installAppFromRegistry (slug, channel = 'stable') {
+export function installAppFromRegistry (slug, channel = DEFAULT_CHANNEL) {
   return (dispatch, getState) => {
     const source = `registry://${slug}/${channel}`
     return dispatch(installApp(slug, source, false))

@@ -1,109 +1,133 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ApplicationPage component should be rendered correctly with app infos from registry (not installed) 1`] = `
-<div
-  className="sto-app"
->
-  <_translate
-    description="Gestionnaire de photos pour Cozy v3"
-    editor="Cozy"
-    icon="https://mockcozy.cc/registry/photos/icon"
-    installed={false}
-    installedAppLink={null}
-    name="Photos"
-    parent="/myapps"
-    slug="photos"
-  />
-  <_translate
-    images={undefined}
-    slug="photos"
-  />
-  <_translate
-    category="cozy"
-    changes="### NEW!!!
+<div>
+  <div
+    className="sto-app"
+  >
+    <_translate
+      description="Gestionnaire de photos pour Cozy v3"
+      editor="Cozy"
+      icon="https://mockcozy.cc/registry/photos/icon"
+      installed={false}
+      installedAppLink={null}
+      name="Photos"
+      parent="/myapps"
+      slug="photos"
+    />
+    <_translate
+      images={undefined}
+      slug="photos"
+    />
+    <_translate
+      category="cozy"
+      changes="### NEW!!!
 
  Now on the cozy-store :tada"
-    description="### Features
+      description="### Features
 
 Enjoy features to grab your data in you Cozy :tada:"
-    developer={
-      Object {
-        "name": "Cozy",
-        "url": "https://cozy.io",
+      developer={
+        Object {
+          "name": "Cozy",
+          "url": "https://cozy.io",
+        }
       }
-    }
-    langs={
-      Array [
-        "en",
-        "fr",
-      ]
-    }
-    mobileApps={
-      Array [
-        Object {
-          "type": "ios",
-          "url": "",
-        },
-        Object {
-          "type": "android",
-          "url": "https://mock.app",
-        },
-      ]
-    }
-  />
+      langs={
+        Array [
+          "en",
+          "fr",
+        ]
+      }
+      mobileApps={
+        Array [
+          Object {
+            "type": "ios",
+            "url": "",
+          },
+          Object {
+            "type": "android",
+            "url": "https://mock.app",
+          },
+        ]
+      }
+    />
+  </div>
 </div>
 `;
 
 exports[`ApplicationPage component should be rendered correctly with provided installed app 1`] = `
+<div>
+  <div
+    className="sto-app"
+  >
+    <_translate
+      description="Gestionnaire de photos pour Cozy v3"
+      editor="Cozy"
+      icon="https://mockcozy.cc/registry/photos/icon"
+      installed={true}
+      installedAppLink="https://photos.mockcozy.cc"
+      name="Photos"
+      parent="/myapps"
+      slug="photos"
+    />
+    <_translate
+      images={undefined}
+      slug="photos"
+    />
+    <_translate
+      category="cozy"
+      changes="### NEW!!!
+
+ Now on the cozy-store :tada"
+      description="### Features
+
+Enjoy features to grab your data in you Cozy :tada:"
+      developer={
+        Object {
+          "name": "Cozy",
+          "url": "https://cozy.io",
+        }
+      }
+      langs={
+        Array [
+          "en",
+          "fr",
+        ]
+      }
+      mobileApps={
+        Array [
+          Object {
+            "type": "ios",
+            "url": "",
+          },
+          Object {
+            "type": "android",
+            "url": "https://mock.app",
+          },
+        ]
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`ApplicationPage component should render correctly a spinner if isFetching 1`] = `
 <div
   className="sto-app"
 >
   <_translate
-    description="Gestionnaire de photos pour Cozy v3"
-    editor="Cozy"
-    icon="https://mockcozy.cc/registry/photos/icon"
-    installed={true}
-    installedAppLink="https://photos.mockcozy.cc"
-    name="Photos"
-    parent="/myapps"
-    slug="photos"
-  />
-  <_translate
-    images={undefined}
-    slug="photos"
-  />
-  <_translate
-    category="cozy"
-    changes="### NEW!!!
-
- Now on the cozy-store :tada"
-    description="### Features
-
-Enjoy features to grab your data in you Cozy :tada:"
-    developer={
-      Object {
-        "name": "Cozy",
-        "url": "https://cozy.io",
-      }
-    }
-    langs={
-      Array [
-        "en",
-        "fr",
-      ]
-    }
-    mobileApps={
-      Array [
-        Object {
-          "type": "ios",
-          "url": "",
-        },
-        Object {
-          "type": "android",
-          "url": "https://mock.app",
-        },
-      ]
-    }
+    loadingType="appsFetching"
+    middle="true"
+    size="xxlarge"
   />
 </div>
+`;
+
+exports[`ApplicationPage component should render correctly an error message if fetchError 1`] = `
+<p
+  class="coz-error"
+>
+  Something went wrong when fetching the application informations. Reason: This is a test error
+</p>
 `;
