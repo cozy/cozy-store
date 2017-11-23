@@ -49,6 +49,15 @@ describe('Discover component', () => {
     ).node
     expect(component).toMatchSnapshot()
   })
+
+  it('should not render apps list if !match.isExact', () => {
+    const mockProps = getMockProps(mockRegistyApps, false, null, { isExact: false })
+    const component = shallow(
+      <Discover t={tMock} {...mockProps} />
+    ).node
+    expect(component).toMatchSnapshot()
+  })
+
   it('should handle correctly items onClick', () => {
     const mockProps = getMockProps()
     const component = shallow(

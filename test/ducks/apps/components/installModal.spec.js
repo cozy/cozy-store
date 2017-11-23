@@ -20,24 +20,22 @@ sinonStubPromise(sinon)
 
 const mockError = new Error('This is a test error')
 
-const getMockProps = (slug, error = null, versionError = null, currentAppVersion = null) => ({
-  app: mockApps.find(a => a.slug === slug),
+const getMockProps = (slug, installError = null, fetchError = null, fromRegistry = null) => ({
+  app: fromRegistry ? Object.assign(
+    {},
+    fromRegistry.manifest,
+    mockApps.find(a => a.slug === slug)
+  ) : mockApps.find(a => a.slug === slug),
   parent: '/discover',
   installApp: jest.fn((appSlug) => {
     if (appSlug === 'photos') return sinon.stub().returnsPromise().resolves(mockApps.find(a => a.slug === 'photos'))()
     return sinon.stub().returnsPromise().rejects(mockError)()
   }),
-  fetchLastAppVersion: jest.fn((appSlug) => {
-    // only photos has mock version here
-    if (appSlug === 'photos') return sinon.stub().returnsPromise().resolves(mockAppVersion)()
-    return sinon.stub().returnsPromise().rejects(mockError)()
-  }),
   history: {
     push: jest.fn()
   },
-  currentAppVersion,
-  error,
-  versionError
+  installError,
+  fetchError
 })
 
 describe('InstallModal component', () => {
@@ -57,7 +55,7 @@ describe('InstallModal component', () => {
     expect(component).toMatchSnapshot()
   })
 
-  it('should be rendered correctly with currentAppVersion fetched', () => {
+  it('should be rendered correctly with also app in registry', () => {
     const mockProps = getMockProps('photos', null, null, mockAppVersion)
     const component = shallow(
       <InstallModal t={tMock} {...mockProps} />
@@ -66,7 +64,8 @@ describe('InstallModal component', () => {
   })
 
   it('should not break the permissions part if no permissions property found in manifest', () => {
-    const mockProps = getMockProps('photos', null, null, { manifest: {} })
+    const mockProps = getMockProps('photos', null, null, mockAppVersion)
+    delete mockProps.app.permissions
     const component = shallow(
       <InstallModal t={tMock} {...mockProps} />
     ).node
@@ -84,7 +83,7 @@ describe('InstallModal component', () => {
     expect(mockProps.history.push.mock.calls[0][0]).toBe(mockProps.parent)
   })
 
-  it('should hanlde correctly error from props', () => {
+  it('should handle correctly installError from props', () => {
     const mockProps = getMockProps('photos', mockError)
     const component = shallow(
       <InstallModal t={tMock} {...mockProps} />
@@ -92,7 +91,7 @@ describe('InstallModal component', () => {
     expect(component.node).toMatchSnapshot()
   })
 
-  it('should hanlde correctly versionError from props', () => {
+  it('should handle correctly fetchError from props', () => {
     const mockProps = getMockProps('photos', null, mockError)
     const component = shallow(
       <InstallModal t={tMock} {...mockProps} />
@@ -114,7 +113,7 @@ describe('InstallModal component', () => {
     expect(mockProps.history.push.mock.calls[0][0]).toBe(`${mockProps.parent}/photos`)
   })
 
-  it('should handle error from uninstall', async () => {
+  it('should handle error from install', async () => {
     const mockProps = getMockProps('drive')
     const component = shallow(
       <InstallModal t={tMock} {...mockProps} />

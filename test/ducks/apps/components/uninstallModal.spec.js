@@ -19,7 +19,7 @@ sinonStubPromise(sinon)
 
 const mockError = new Error('This is a test error')
 
-const getMockProps = (slug, error = null) => ({
+const getMockProps = (slug, uninstallError = null) => ({
   app: mockApps.find(a => a.slug === slug),
   parent: '/myapps',
   uninstallApp: jest.fn((appSlug) => {
@@ -29,7 +29,7 @@ const getMockProps = (slug, error = null) => ({
   history: {
     push: jest.fn()
   },
-  error
+  uninstallError
 })
 
 describe('UninstallModal component', () => {
