@@ -131,6 +131,7 @@
   overflow: hidden;
   background: linear-gradient(rgba(0,0,0,.7), transparent);
   background-clip: text;
+  -webkit-background-clip: text; /* Safari and Chrome support */
   -webkit-text-fill-color: transparent;
 }
 
