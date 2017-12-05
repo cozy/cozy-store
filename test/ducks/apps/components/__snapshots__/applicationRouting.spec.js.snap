@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ApplicationRouting component with ApplicationPage should handle correctly if app found 1`] = `
-<_translate
+<Unknown
   app={
     Object {
       "developer": Object {
@@ -34,7 +34,7 @@ exports[`ApplicationRouting component with ApplicationPage should handle correct
 `;
 
 exports[`ApplicationRouting component with ApplicationPage should render correctly if apps list is null but not installedApps 1`] = `
-<_translate
+<Unknown
   app={
     Object {
       "developer": Object {
@@ -67,7 +67,7 @@ exports[`ApplicationRouting component with ApplicationPage should render correct
 `;
 
 exports[`ApplicationRouting component with Modal should handle correctly if installed app found 1`] = `
-<_translate
+<Unknown
   app={
     Object {
       "developer": Object {
@@ -102,7 +102,7 @@ exports[`ApplicationRouting component with Modal should handle correctly if inst
 `;
 
 exports[`ApplicationRouting component with Modal should render correctly if apps list is null but not installedApps 1`] = `
-<_translate
+<Unknown
   app={
     Object {
       "developer": Object {
@@ -137,7 +137,7 @@ exports[`ApplicationRouting component with Modal should render correctly if apps
 `;
 
 exports[`ApplicationRouting component with Modal should render correctly if uninstalled app found 1`] = `
-<_translate
+<Unknown
   app={
     Object {
       "developer": Object {

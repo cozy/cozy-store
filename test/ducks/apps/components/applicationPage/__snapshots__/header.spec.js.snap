@@ -25,7 +25,7 @@ exports[`ApplicationPage header component should be rendered correctly provided 
     </h2>
     <p />
     <Link
-      className="coz-btn coz-btn--regular"
+      className="c-btn c-btn--regular"
       replace={false}
       to="//myapps/photos/manage"
     >
@@ -67,7 +67,7 @@ exports[`ApplicationPage header component should be rendered correctly provided 
     </h2>
     <p />
     <Link
-      className="coz-btn coz-btn--regular"
+      className="c-btn c-btn--regular"
       replace={false}
       to="//myapps/photos/manage"
     >

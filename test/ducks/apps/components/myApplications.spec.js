@@ -3,13 +3,16 @@
 /* eslint-env jest */
 
 import React from 'react'
-import { shallow } from 'enzyme'
+import Enzyme, { shallow } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
 
 import { tMock } from '../../../jestLib/I18n'
 import SmallAppItem from 'ducks/components/SmallAppItem'
 import { MyApplications } from 'ducks/apps/components/MyApplications'
 
 import mockApps from '../_mockApps'
+
+Enzyme.configure({ adapter: new Adapter() })
 
 const mockMyApplicationsError = new Error('This is a test error')
 
@@ -30,7 +33,7 @@ describe('MyApplications component', () => {
     const mockProps = getMockProps()
     const component = shallow(
       <MyApplications t={tMock} {...mockProps} />
-    ).node
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 
@@ -38,7 +41,7 @@ describe('MyApplications component', () => {
     const mockProps = getMockProps([], true, null)
     const component = shallow(
       <MyApplications t={tMock} {...mockProps} />
-    ).node
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 
@@ -46,7 +49,7 @@ describe('MyApplications component', () => {
     const mockProps = getMockProps([], false, mockMyApplicationsError)
     const component = shallow(
       <MyApplications t={tMock} {...mockProps} />
-    ).node
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 
@@ -67,7 +70,7 @@ describe('MyApplications component', () => {
     const mockProps = getMockProps(mockInstalledApps, false, null, { isExact: false })
     const component = shallow(
       <MyApplications t={tMock} {...mockProps} />
-    ).node
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 })

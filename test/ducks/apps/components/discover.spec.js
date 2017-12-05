@@ -3,13 +3,16 @@
 /* eslint-env jest */
 
 import React from 'react'
-import { shallow } from 'enzyme'
+import Enzyme, { shallow } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
 
 import { tMock } from '../../../jestLib/I18n'
 import SmallAppItem from 'ducks/components/SmallAppItem'
 import { Discover } from 'ducks/apps/components/Discover'
 
 import mockApps from '../_mockApps'
+
+Enzyme.configure({ adapter: new Adapter() })
 
 const mockError = new Error('This is a test error')
 
@@ -30,7 +33,7 @@ describe('Discover component', () => {
     const mockProps = getMockProps()
     const component = shallow(
       <Discover t={tMock} {...mockProps} />
-    ).node
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 
@@ -38,7 +41,7 @@ describe('Discover component', () => {
     const mockProps = getMockProps([], true, null)
     const component = shallow(
       <Discover t={tMock} {...mockProps} />
-    ).node
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 
@@ -46,7 +49,7 @@ describe('Discover component', () => {
     const mockProps = getMockProps([], false, mockError)
     const component = shallow(
       <Discover t={tMock} {...mockProps} />
-    ).node
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 
@@ -54,7 +57,7 @@ describe('Discover component', () => {
     const mockProps = getMockProps(mockRegistyApps, false, null, { isExact: false })
     const component = shallow(
       <Discover t={tMock} {...mockProps} />
-    ).node
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 

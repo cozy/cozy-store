@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Apps Containers (connected components): Discover should be rendered correctly at initial store 1`] = `
-<_translate
+<Unknown
   actionError={null}
   apps={Array []}
   fetchApps={[Function]}
@@ -25,7 +25,10 @@ exports[`Apps Containers (connected components): Discover should be rendered cor
   storeSubscription={
     Subscription {
       "listeners": Object {
+        "clear": [Function],
+        "get": [Function],
         "notify": [Function],
+        "subscribe": [Function],
       },
       "onStateChange": [Function],
       "parentSub": undefined,
@@ -37,7 +40,7 @@ exports[`Apps Containers (connected components): Discover should be rendered cor
         "replaceReducer": [Function],
         "subscribe": [Function],
       },
-      "unsubscribe": null,
+      "unsubscribe": [Function],
     }
   }
   uninstallApp={[Function]}
@@ -45,7 +48,7 @@ exports[`Apps Containers (connected components): Discover should be rendered cor
 `;
 
 exports[`Apps Containers (connected components): MyApplications should be rendered correctly at initial store 1`] = `
-<_translate
+<Unknown
   actionError={null}
   apps={Array []}
   fetchApps={[Function]}
@@ -69,7 +72,10 @@ exports[`Apps Containers (connected components): MyApplications should be render
   storeSubscription={
     Subscription {
       "listeners": Object {
+        "clear": [Function],
+        "get": [Function],
         "notify": [Function],
+        "subscribe": [Function],
       },
       "onStateChange": [Function],
       "parentSub": undefined,
@@ -81,7 +87,7 @@ exports[`Apps Containers (connected components): MyApplications should be render
         "replaceReducer": [Function],
         "subscribe": [Function],
       },
-      "unsubscribe": null,
+      "unsubscribe": [Function],
     }
   }
   uninstallApp={[Function]}

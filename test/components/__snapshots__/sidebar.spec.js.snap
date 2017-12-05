@@ -4,6 +4,35 @@ exports[`Sidebar component should be rendered correctly 1`] = `
 <aside
   className="coz-sidebar"
 >
-  <_translate />
+  <nav>
+    <ul
+      className="c-nav"
+    >
+      <li
+        className="c-nav-item"
+      >
+        <NavLink
+          activeClassName="active"
+          ariaCurrent="true"
+          className="sto-cat-discover c-nav-link"
+          to="/discover"
+        >
+          Discover
+        </NavLink>
+      </li>
+      <li
+        className="c-nav-item"
+      >
+        <NavLink
+          activeClassName="active"
+          ariaCurrent="true"
+          className="sto-cat-myapps c-nav-link"
+          to="/myapps"
+        >
+          My Applications
+        </NavLink>
+      </li>
+    </ul>
+  </nav>
 </aside>
 `;

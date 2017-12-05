@@ -29,7 +29,7 @@ export const Header = ({t, icon, slug, editor, name, description, installed, ins
             <button
               role='button'
               onClick={() => openApp(installedAppLink)}
-              className='coz-btn coz-btn--regular'
+              className='c-btn c-btn--regular'
             >
               <Icon
                 icon='openwith'
@@ -39,14 +39,14 @@ export const Header = ({t, icon, slug, editor, name, description, installed, ins
             </button>
             <Link
               to={`/${parent}/${slug}/manage`}
-              className='coz-btn coz-btn--danger-outline sto-app-header-uninstall-button'
+              className='c-btn c-btn--danger-outline sto-app-header-uninstall-button'
             >
               {t('app_page.uninstall')}
             </Link>
           </div>
           : <Link
             to={`/${parent}/${slug}/manage`}
-            className='coz-btn coz-btn--regular'
+            className='c-btn c-btn--regular'
           >
             <Icon
               icon={cozySmileWhiteIcon}

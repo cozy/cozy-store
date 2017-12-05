@@ -3,12 +3,15 @@
 /* eslint-env jest */
 
 import React from 'react'
-import { shallow } from 'enzyme'
+import Enzyme, { shallow } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
 
 import { tMock } from '../../../../jestLib/I18n'
 import { ApplicationPage } from 'ducks/apps/components/ApplicationPage'
 
 import mockApp from '../../_mockPhotosRegistryVersion'
+
+Enzyme.configure({ adapter: new Adapter() })
 
 const appManifest = mockApp.manifest
 const mockError = new Error('This is a test error')
@@ -30,7 +33,7 @@ describe('ApplicationPage component', () => {
     const props = getProps(true, 'https://photos.mockcozy.cc')
     const component = shallow(
       <ApplicationPage t={tMock} {...props} />
-    ).node
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 
@@ -38,7 +41,7 @@ describe('ApplicationPage component', () => {
     const props = getProps(false, null)
     const component = shallow(
       <ApplicationPage t={tMock} {...props} />
-    ).node
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 
@@ -46,7 +49,7 @@ describe('ApplicationPage component', () => {
     const props = getProps(false, null)
     const component = shallow(
       <ApplicationPage t={tMock} isFetching {...props} />
-    ).node
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 
@@ -54,7 +57,7 @@ describe('ApplicationPage component', () => {
     const props = getProps(false, null)
     const component = shallow(
       <ApplicationPage t={tMock} fetchError={mockError} {...props} />
-    ).node
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 })

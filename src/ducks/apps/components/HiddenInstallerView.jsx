@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-import { translate } from 'cozy-ui/react/helpers/i18n'
+import { translate } from 'cozy-ui/react/I18n'
 import Toggle from 'cozy-ui/react/Toggle'
 import ReactMarkdownWrapper from '../../components/ReactMarkdownWrapper'
 
@@ -69,7 +69,7 @@ class HiddenInstallerView extends Component {
                 role='button'
                 disabled={isInstalling || !this.isValid()}
                 aria-busy={isInstalling}
-                className='coz-btn coz-btn--regular'
+                className='c-btn c-btn--regular'
                 onClick={this.handleSubmit}
               >
                 {t('HiddenInstallerView.install')}

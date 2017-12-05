@@ -295,7 +295,7 @@ exports[`Discover component should render correctly a spinner if apps is fetchin
     parent="discover"
     uninstallApp={undefined}
   />
-  <_translate
+  <Unknown
     loadingType="appsFetching"
     middle="true"
     size="xxlarge"

@@ -3,10 +3,13 @@
 /* eslint-env jest */
 
 import React from 'react'
-import { shallow } from 'enzyme'
+import Enzyme, { shallow } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
 
 import { tMock } from '../../../../jestLib/I18n'
 import { Gallery } from 'ducks/apps/components/ApplicationPage/Gallery'
+
+Enzyme.configure({ adapter: new Adapter() })
 
 const getProps = () => {
   return {
@@ -23,7 +26,7 @@ describe('ApplicationPage gallery component', () => {
   it('should be rendered correctly with provided images', () => {
     const component = shallow(
       <Gallery t={tMock} {...getProps()} />
-    ).node
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 
@@ -35,7 +38,7 @@ describe('ApplicationPage gallery component', () => {
     ])
     const component = shallow(
       <Gallery t={tMock} {...props} />
-    ).node
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 
@@ -50,7 +53,7 @@ describe('ApplicationPage gallery component', () => {
       <Gallery t={tMock} {...props} />
     )
     expect(component.find('img').length).toBe(5)
-    expect(component.node).toMatchSnapshot()
+    expect(component.getElement()).toMatchSnapshot()
   })
 
   it('should return null if no images provided', () => {
@@ -58,7 +61,7 @@ describe('ApplicationPage gallery component', () => {
     props.images = null
     const component = shallow(
       <Gallery t={tMock} {...props} />
-    ).node
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 
@@ -106,7 +109,7 @@ describe('ApplicationPage gallery component', () => {
     expect(component.state().currentImage).toBe(null)
     component.find('img[alt="photos-image-1"]').simulate('click')
     expect(component.state().currentImage).toBe(props.images[0])
-    expect(component.node).toMatchSnapshot()
+    expect(component.getElement()).toMatchSnapshot()
   })
 
   it('should open a modal and handle onClose', () => {
@@ -119,6 +122,6 @@ describe('ApplicationPage gallery component', () => {
     expect(component.state().currentImage).toBe(props.images[0])
     component.instance().onClose()
     expect(component.state().currentImage).toBe(null)
-    expect(component.node).toMatchSnapshot()
+    expect(component.getElement()).toMatchSnapshot()
   })
 })

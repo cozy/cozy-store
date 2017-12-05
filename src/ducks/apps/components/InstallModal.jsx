@@ -81,7 +81,7 @@ export class InstallModal extends Component {
                   <div className='sto-modal-controls'>
                     <button
                       role='button'
-                      className='coz-btn coz-btn--secondary'
+                      className='c-btn c-btn--secondary'
                       onClick={this.gotoParent}
                     >
                       {t('app_modal.install.cancel')}
@@ -90,7 +90,7 @@ export class InstallModal extends Component {
                       role='button'
                       disabled={isInstalling}
                       aria-busy={isInstalling}
-                      className='coz-btn coz-btn--regular coz-btn--download'
+                      className='c-btn c-btn--regular c-btn--download'
                       onClick={this.installApp}
                     >
                       {t('app_modal.install.install')}

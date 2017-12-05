@@ -63,7 +63,7 @@ export class UninstallModal extends Component {
               <div className='sto-modal-controls'>
                 <button
                   role='button'
-                  className='coz-btn coz-btn--secondary'
+                  className='c-btn c-btn--secondary'
                   onClick={this.gotoParent}
                 >
                   {t('app_modal.uninstall.cancel')}
@@ -71,7 +71,7 @@ export class UninstallModal extends Component {
                 <button
                   role='button'
                   disabled={!app.uninstallable}
-                  className='coz-btn coz-btn--danger coz-btn--delete'
+                  className='c-btn c-btn--danger c-btn--delete'
                   onClick={this.uninstallApp}
                 >
                   {t('app_modal.uninstall.uninstall')}

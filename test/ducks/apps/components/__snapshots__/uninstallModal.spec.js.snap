@@ -16,21 +16,21 @@ exports[`UninstallModal component should be rendered correctly if app not uninst
       <div
         className="sto-modal-content"
       >
-        <Unknown
+        <ReactMarkdownWrapper
           source="This application is a major part of the Cozy platform. In order to keep you a __minimum user experience quality__, it's not possible to uninstall it through the Store application."
         />
         <div
           className="sto-modal-controls"
         >
           <button
-            className="coz-btn coz-btn--secondary"
+            className="c-btn c-btn--secondary"
             onClick={[Function]}
             role="button"
           >
             Cancel
           </button>
           <button
-            className="coz-btn coz-btn--danger coz-btn--delete"
+            className="c-btn c-btn--danger c-btn--delete"
             disabled={true}
             onClick={[Function]}
             role="button"
@@ -60,21 +60,21 @@ exports[`UninstallModal component should be rendered correctly if app uninstalla
       <div
         className="sto-modal-content"
       >
-        <Unknown
+        <ReactMarkdownWrapper
           source="This application is bound to be removed from your Cozy cozytest.mock.cc. Are you sure to __remove this application definitively__?"
         />
         <div
           className="sto-modal-controls"
         >
           <button
-            className="coz-btn coz-btn--secondary"
+            className="c-btn c-btn--secondary"
             onClick={[Function]}
             role="button"
           >
             Cancel
           </button>
           <button
-            className="coz-btn coz-btn--danger coz-btn--delete"
+            className="c-btn c-btn--danger c-btn--delete"
             disabled={false}
             onClick={[Function]}
             role="button"
@@ -104,7 +104,7 @@ exports[`UninstallModal component should hanlde correctly error from props 1`] =
       <div
         className="sto-modal-content"
       >
-        <Unknown
+        <ReactMarkdownWrapper
           source="This application is bound to be removed from your Cozy cozytest.mock.cc. Are you sure to __remove this application definitively__?"
         />
         <p
@@ -116,14 +116,14 @@ exports[`UninstallModal component should hanlde correctly error from props 1`] =
           className="sto-modal-controls"
         >
           <button
-            className="coz-btn coz-btn--secondary"
+            className="c-btn c-btn--secondary"
             onClick={[Function]}
             role="button"
           >
             Cancel
           </button>
           <button
-            className="coz-btn coz-btn--danger coz-btn--delete"
+            className="c-btn c-btn--danger c-btn--delete"
             disabled={false}
             onClick={[Function]}
             role="button"

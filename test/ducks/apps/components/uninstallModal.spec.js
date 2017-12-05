@@ -3,7 +3,8 @@
 /* eslint-env jest */
 
 import React from 'react'
-import { shallow } from 'enzyme'
+import Enzyme, { shallow } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
 
 import { tMock } from '../../../jestLib/I18n'
 import { UninstallModal } from 'ducks/apps/components/UninstallModal'
@@ -16,6 +17,8 @@ to assert the component state juste after */
 import sinon from 'sinon'
 import sinonStubPromise from 'sinon-stub-promise'
 sinonStubPromise(sinon)
+
+Enzyme.configure({ adapter: new Adapter() })
 
 const mockError = new Error('This is a test error')
 
@@ -45,14 +48,14 @@ describe('UninstallModal component', () => {
   it('should be rendered correctly if app not uninstallable', () => {
     const component = shallow(
       <UninstallModal t={tMock} {...getMockProps('collect')} />
-    ).node
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 
   it('should be rendered correctly if app uninstallable', () => {
     const component = shallow(
       <UninstallModal t={tMock} {...getMockProps('photos')} />
-    ).node
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 
@@ -72,7 +75,7 @@ describe('UninstallModal component', () => {
     const component = shallow(
       <UninstallModal t={tMock} {...mockProps} />
     )
-    expect(component.node).toMatchSnapshot()
+    expect(component.getElement()).toMatchSnapshot()
   })
 
   it('should call the correct props function on uninstall', async () => {

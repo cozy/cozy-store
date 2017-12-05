@@ -61,7 +61,7 @@ exports[`ApplicationPage details component should be rendered correctly with pro
       <h3>
         Description
       </h3>
-      <Unknown
+      <ReactMarkdownWrapper
         className="sto-app-description--less"
         parseEmoji={true}
         source="### Features
@@ -82,7 +82,7 @@ Enjoy features to grab your data in you Cozy :tada:"
       <h3>
         What's New?
       </h3>
-      <Unknown
+      <ReactMarkdownWrapper
         className="sto-app-changes--less"
         parseEmoji={true}
         source="### NEW!!!
@@ -203,7 +203,7 @@ exports[`ApplicationPage details component should handle correctly \`display mor
       <h3>
         Description
       </h3>
-      <Unknown
+      <ReactMarkdownWrapper
         className="sto-app-description--less"
         parseEmoji={true}
         source="### Features
@@ -224,7 +224,7 @@ Enjoy features to grab your data in you Cozy :tada:"
       <h3>
         What's New?
       </h3>
-      <Unknown
+      <ReactMarkdownWrapper
         className=""
         parseEmoji={true}
         source="### NEW!!!
@@ -338,7 +338,7 @@ exports[`ApplicationPage details component should handle correctly \`display mor
       <h3>
         Description
       </h3>
-      <Unknown
+      <ReactMarkdownWrapper
         className=""
         parseEmoji={true}
         source="### Features
@@ -352,7 +352,7 @@ Enjoy features to grab your data in you Cozy :tada:"
       <h3>
         What's New?
       </h3>
-      <Unknown
+      <ReactMarkdownWrapper
         className="sto-app-changes--less"
         parseEmoji={true}
         source="### NEW!!!
