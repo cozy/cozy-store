@@ -33,7 +33,7 @@ exports[`InstallModal component should be rendered correctly if app found 1`] = 
       <div
         className="sto-modal-content"
       >
-        <_translate
+        <Unknown
           appName="Photos"
           permissions={Object {}}
         />
@@ -98,7 +98,7 @@ exports[`InstallModal component should be rendered correctly with also app in re
       <div
         className="sto-modal-content"
       >
-        <_translate
+        <Unknown
           appName="Photos"
           permissions={
             Object {
@@ -146,7 +146,7 @@ exports[`InstallModal component should be rendered correctly with also app in re
           }
         />
         <div>
-          <Unknown
+          <ReactMarkdownWrapper
             source="By electing __Install__, you accept that the application Photos obtains access to these data, only locally and within your Cozy, and in compliance with the terms of service and the privacy policy."
           />
           <div
@@ -250,7 +250,7 @@ exports[`InstallModal component should handle correctly installError from props 
       <div
         className="sto-modal-content"
       >
-        <_translate
+        <Unknown
           appName="Photos"
           permissions={Object {}}
         />
@@ -320,7 +320,7 @@ exports[`InstallModal component should not break the permissions part if no perm
       <div
         className="sto-modal-content"
       >
-        <_translate
+        <Unknown
           appName="Photos"
           permissions={Object {}}
         />

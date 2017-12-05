@@ -3,12 +3,15 @@
 /* eslint-env jest */
 
 import React from 'react'
-import { shallow } from 'enzyme'
+import Enzyme, { shallow } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
 
 import { tMock } from '../../../../jestLib/I18n'
 import { Details } from 'ducks/apps/components/ApplicationPage/Details'
 
 import mockApp from '../../_mockPhotosRegistryVersion'
+
+Enzyme.configure({ adapter: new Adapter() })
 
 const appManifest = mockApp.manifest
 
@@ -28,7 +31,7 @@ describe('ApplicationPage details component', () => {
   it('should be rendered correctly with provided app', () => {
     const component = shallow(
       <Details {...getProps()} />
-    ).node
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 
@@ -42,7 +45,7 @@ describe('ApplicationPage details component', () => {
     appProps.developer = {}
     const component = shallow(
       <Details {...appProps} />
-    ).node
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 
@@ -51,7 +54,7 @@ describe('ApplicationPage details component', () => {
       <Details {...getProps()} />
     )
     component.find('.sto-app-description .sto-details-display-more').simulate('click')
-    expect(component.node).toMatchSnapshot()
+    expect(component.getElement()).toMatchSnapshot()
   })
 
   it('should handle correctly `display more` behaviour on changes part', () => {
@@ -59,6 +62,6 @@ describe('ApplicationPage details component', () => {
       <Details {...getProps()} />
     )
     component.find('.sto-app-changes .sto-details-display-more').simulate('click')
-    expect(component.node).toMatchSnapshot()
+    expect(component.getElement()).toMatchSnapshot()
   })
 })

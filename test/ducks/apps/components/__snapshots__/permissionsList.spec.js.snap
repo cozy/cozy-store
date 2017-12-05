@@ -2,7 +2,7 @@
 
 exports[`MyApplications component should be rendered correctly with permissions 1`] = `
 <div>
-  <Unknown
+  <ReactMarkdownWrapper
     source="In order to improve the value of your Cozy (cozytest.mock.cc), the application Mock requires access to the following data:"
   />
   <ul
@@ -11,35 +11,35 @@ exports[`MyApplications component should be rendered correctly with permissions 
     <li
       className="io.cozy.files"
     >
-      <Unknown
+      <ReactMarkdownWrapper
         source="__Files__"
       />
     </li>
     <li
       className="io.cozy.apps"
     >
-      <Unknown
+      <ReactMarkdownWrapper
         source="__List of installed applications__"
       />
     </li>
     <li
       className="io.cozy.photos.albums"
     >
-      <Unknown
+      <ReactMarkdownWrapper
         source="__Photo albums__"
       />
     </li>
     <li
       className="io.cozy.contacts"
     >
-      <Unknown
+      <ReactMarkdownWrapper
         source="__Contacts__"
       />
     </li>
     <li
       className="io.cozy.settings"
     >
-      <Unknown
+      <ReactMarkdownWrapper
         source="__Settings__"
       />
     </li>
@@ -48,7 +48,7 @@ exports[`MyApplications component should be rendered correctly with permissions 
 `;
 
 exports[`MyApplications component should be rendered correctly without permissions 1`] = `
-<Unknown
+<ReactMarkdownWrapper
   source="The application Mock doesn't require any data access to work correctly on your Cozy (cozytest.mock.cc)."
 />
 `;

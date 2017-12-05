@@ -3,10 +3,13 @@
 /* eslint-env jest */
 
 import React from 'react'
-import { shallow } from 'enzyme'
+import Enzyme, { shallow } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
 import configureStore from 'redux-mock-store'
 
 import { MyApplications, Discover } from 'ducks/apps/Containers'
+
+Enzyme.configure({ adapter: new Adapter() })
 
 const mockStore = configureStore()
 
@@ -25,7 +28,7 @@ describe('Apps Containers (connected components):', () => {
     const store = mockStore(initialState)
     const component = shallow(
       <MyApplications store={store} />
-    ).node
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 
@@ -33,7 +36,7 @@ describe('Apps Containers (connected components):', () => {
     const store = mockStore(initialState)
     const component = shallow(
       <Discover store={store} />
-    ).node
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 

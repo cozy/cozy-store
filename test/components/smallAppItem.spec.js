@@ -3,9 +3,12 @@
 /* eslint-env jest */
 
 import React from 'react'
-import { shallow } from 'enzyme'
+import Enzyme, { shallow } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
 
 import SmallAppItem from '../../src/ducks/components/SmallAppItem'
+
+Enzyme.configure({ adapter: new Adapter() })
 
 const appMock = {
   slug: 'test',
@@ -49,21 +52,21 @@ describe('SmallAppItem component', () => {
   it('should be rendered correctly an app', () => {
     const component = shallow(
       <SmallAppItem {...appMock} />
-    ).node
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 
   it('should be rendered correctly an installed app', () => {
     const component = shallow(
       <SmallAppItem {...appMock2} />
-    ).node
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 
   it('should be rendered correctly an installed app', () => {
     const component = shallow(
       <SmallAppItem {...appMockWithoutIcon} />
-    ).node
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 

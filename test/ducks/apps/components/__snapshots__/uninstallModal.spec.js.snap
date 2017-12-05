@@ -16,7 +16,7 @@ exports[`UninstallModal component should be rendered correctly if app not uninst
       <div
         className="sto-modal-content"
       >
-        <Unknown
+        <ReactMarkdownWrapper
           source="This application is a major part of the Cozy platform. In order to keep you a __minimum user experience quality__, it's not possible to uninstall it through the Store application."
         />
         <div
@@ -60,7 +60,7 @@ exports[`UninstallModal component should be rendered correctly if app uninstalla
       <div
         className="sto-modal-content"
       >
-        <Unknown
+        <ReactMarkdownWrapper
           source="This application is bound to be removed from your Cozy cozytest.mock.cc. Are you sure to __remove this application definitively__?"
         />
         <div
@@ -104,7 +104,7 @@ exports[`UninstallModal component should hanlde correctly error from props 1`] =
       <div
         className="sto-modal-content"
       >
-        <Unknown
+        <ReactMarkdownWrapper
           source="This application is bound to be removed from your Cozy cozytest.mock.cc. Are you sure to __remove this application definitively__?"
         />
         <p

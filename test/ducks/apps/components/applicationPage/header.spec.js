@@ -3,12 +3,15 @@
 /* eslint-env jest */
 
 import React from 'react'
-import { shallow } from 'enzyme'
+import Enzyme, { shallow } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
 
 import { tMock } from '../../../../jestLib/I18n'
 import { Header } from 'ducks/apps/components/ApplicationPage/Header'
 
 import mockApp from '../../_mockPhotosRegistryVersion'
+
+Enzyme.configure({ adapter: new Adapter() })
 
 window.location.assign = jest.fn()
 
@@ -16,7 +19,7 @@ describe('ApplicationPage header component', () => {
   it('should be rendered correctly provided app', () => {
     const component = shallow(
       <Header t={tMock} parent='/myapps' {...mockApp.manifest} />
-    ).node
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 
@@ -26,7 +29,7 @@ describe('ApplicationPage header component', () => {
     appProps.editor = ''
     const component = shallow(
       <Header t={tMock} parent='/myapps' {...appProps} />
-    ).node
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 

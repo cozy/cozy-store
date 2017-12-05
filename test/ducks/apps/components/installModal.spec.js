@@ -3,7 +3,8 @@
 /* eslint-env jest */
 
 import React from 'react'
-import { shallow } from 'enzyme'
+import Enzyme, { shallow } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
 
 import { tMock } from '../../../jestLib/I18n'
 import { InstallModal } from 'ducks/apps/components/InstallModal'
@@ -17,6 +18,8 @@ to assert the component state juste after */
 import sinon from 'sinon'
 import sinonStubPromise from 'sinon-stub-promise'
 sinonStubPromise(sinon)
+
+Enzyme.configure({ adapter: new Adapter() })
 
 const mockError = new Error('This is a test error')
 
@@ -51,7 +54,7 @@ describe('InstallModal component', () => {
   it('should be rendered correctly if app found', () => {
     const component = shallow(
       <InstallModal t={tMock} {...getMockProps('photos')} />
-    ).node
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 
@@ -59,7 +62,7 @@ describe('InstallModal component', () => {
     const mockProps = getMockProps('photos', null, null, mockAppVersion)
     const component = shallow(
       <InstallModal t={tMock} {...mockProps} />
-    ).node
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 
@@ -68,7 +71,7 @@ describe('InstallModal component', () => {
     delete mockProps.app.permissions
     const component = shallow(
       <InstallModal t={tMock} {...mockProps} />
-    ).node
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 
@@ -88,7 +91,7 @@ describe('InstallModal component', () => {
     const component = shallow(
       <InstallModal t={tMock} {...mockProps} />
     )
-    expect(component.node).toMatchSnapshot()
+    expect(component.getElement()).toMatchSnapshot()
   })
 
   it('should handle correctly fetchError from props', () => {
@@ -96,7 +99,7 @@ describe('InstallModal component', () => {
     const component = shallow(
       <InstallModal t={tMock} {...mockProps} />
     )
-    expect(component.node).toMatchSnapshot()
+    expect(component.getElement()).toMatchSnapshot()
   })
 
   it('should call the correct props function on install', async () => {

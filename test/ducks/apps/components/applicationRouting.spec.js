@@ -3,12 +3,15 @@
 /* eslint-env jest */
 
 import React from 'react'
-import { shallow } from 'enzyme'
+import Enzyme, { shallow } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
 import { Route } from 'react-router-dom'
 
 import { ApplicationRouting } from 'ducks/apps/components/ApplicationRouting'
 
 import mockApps from '../_mockApps'
+
+Enzyme.configure({ adapter: new Adapter() })
 
 // const mockRegistyApps = mockApps.filter(app => app.isInRegistry).filter(app =>
 // (Array.isArray(app.versions.stable) && !!app.versions.stable.length))
@@ -32,7 +35,7 @@ describe('ApplicationRouting component with ApplicationPage', () => {
     )
     const routes = component.find(Route)
     expect(routes.length).toBe(2)
-    const routeToAppPage = routes.nodes[0]
+    const routeToAppPage = routes.getElements()[0]
     // collect in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'collect' } } }
     const resultComponent = routeToAppPage.props.render(routeProps)
@@ -47,7 +50,7 @@ describe('ApplicationRouting component with ApplicationPage', () => {
     )
     const routes = component.find(Route)
     expect(routes.length).toBe(2)
-    const routeToAppPage = routes.nodes[0]
+    const routeToAppPage = routes.getElements()[0]
     // collect in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'collect' } } }
     const resultComponent = routeToAppPage.props.render(routeProps)
@@ -63,7 +66,7 @@ describe('ApplicationRouting component with ApplicationPage', () => {
     )
     const routes = component.find(Route)
     expect(routes.length).toBe(2)
-    const routeToAppPage = routes.nodes[0]
+    const routeToAppPage = routes.getElements()[0]
     // collect in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'mock' } } }
     const resultComponent = routeToAppPage.props.render(routeProps)
@@ -79,7 +82,7 @@ describe('ApplicationRouting component with ApplicationPage', () => {
     )
     const routes = component.find(Route)
     expect(routes.length).toBe(2)
-    const routeToAppPage = routes.nodes[0]
+    const routeToAppPage = routes.getElements()[0]
     // collect in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'collect' } } }
     const resultComponent = routeToAppPage.props.render(routeProps)
@@ -93,7 +96,7 @@ describe('ApplicationRouting component with ApplicationPage', () => {
     )
     const routes = component.find(Route)
     expect(routes.length).toBe(2)
-    const routeToAppPage = routes.nodes[0]
+    const routeToAppPage = routes.getElements()[0]
     // collect in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'collect' } } }
     const resultComponent = routeToAppPage.props.render(routeProps)
@@ -107,7 +110,7 @@ describe('ApplicationRouting component with ApplicationPage', () => {
     )
     const routes = component.find(Route)
     expect(routes.length).toBe(2)
-    const routeToAppPage = routes.nodes[0]
+    const routeToAppPage = routes.getElements()[0]
     // collect in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'collect' } } }
     const resultComponent = routeToAppPage.props.render(routeProps)
@@ -123,7 +126,7 @@ describe('ApplicationRouting component with Modal', () => {
     )
     const routes = component.find(Route)
     expect(routes.length).toBe(2)
-    const routeToModal = routes.nodes[1]
+    const routeToModal = routes.getElements()[1]
     // collect in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'collect' } } }
     const resultComponent = routeToModal.props.render(routeProps)
@@ -138,7 +141,7 @@ describe('ApplicationRouting component with Modal', () => {
     )
     const routes = component.find(Route)
     expect(routes.length).toBe(2)
-    const routeToModal = routes.nodes[1]
+    const routeToModal = routes.getElements()[1]
     // photos in mockApps is not installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'photos' } } }
     const resultComponent = routeToModal.props.render(routeProps)
@@ -154,7 +157,7 @@ describe('ApplicationRouting component with Modal', () => {
     )
     const routes = component.find(Route)
     expect(routes.length).toBe(2)
-    const routeToModal = routes.nodes[1]
+    const routeToModal = routes.getElements()[1]
     // collect in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'mock' } } }
     const resultComponent = routeToModal.props.render(routeProps)
@@ -170,7 +173,7 @@ describe('ApplicationRouting component with Modal', () => {
     )
     const routes = component.find(Route)
     expect(routes.length).toBe(2)
-    const routeToModal = routes.nodes[1]
+    const routeToModal = routes.getElements()[1]
     // collect in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'collect' } } }
     const resultComponent = routeToModal.props.render(routeProps)
@@ -185,7 +188,7 @@ describe('ApplicationRouting component with Modal', () => {
     )
     const routes = component.find(Route)
     expect(routes.length).toBe(2)
-    const routeToModal = routes.nodes[1]
+    const routeToModal = routes.getElements()[1]
     // collect in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'collect' } } }
     const resultComponent = routeToModal.props.render(routeProps)
@@ -199,7 +202,7 @@ describe('ApplicationRouting component with Modal', () => {
     )
     const routes = component.find(Route)
     expect(routes.length).toBe(2)
-    const routeToModal = routes.nodes[1]
+    const routeToModal = routes.getElements()[1]
     // collect in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'collect' } } }
     const resultComponent = routeToModal.props.render(routeProps)
