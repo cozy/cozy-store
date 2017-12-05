@@ -18,7 +18,7 @@
   margin-right: 1.7em;
 }
 
-.sto-app-header-content .coz-btn {
+.sto-app-header-content .c-btn {
   margin-left: 0;
 }
 
@@ -39,7 +39,7 @@
 }
 
 @media (max-width: 48rem) {
-  .sto-app-header .coz-btn {
+  .sto-app-header .c-btn {
     width: 100%;
   }
 

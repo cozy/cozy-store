@@ -42,7 +42,7 @@ exports[`InstallModal component should be rendered correctly if app found 1`] = 
             className="sto-modal-controls"
           >
             <button
-              className="coz-btn coz-btn--secondary"
+              className="c-btn c-btn--secondary"
               onClick={[Function]}
               role="button"
             >
@@ -50,7 +50,7 @@ exports[`InstallModal component should be rendered correctly if app found 1`] = 
             </button>
             <button
               aria-busy={undefined}
-              className="coz-btn coz-btn--regular coz-btn--download"
+              className="c-btn c-btn--regular c-btn--download"
               disabled={undefined}
               onClick={[Function]}
               role="button"
@@ -153,7 +153,7 @@ exports[`InstallModal component should be rendered correctly with also app in re
             className="sto-modal-controls"
           >
             <button
-              className="coz-btn coz-btn--secondary"
+              className="c-btn c-btn--secondary"
               onClick={[Function]}
               role="button"
             >
@@ -161,7 +161,7 @@ exports[`InstallModal component should be rendered correctly with also app in re
             </button>
             <button
               aria-busy={undefined}
-              className="coz-btn coz-btn--regular coz-btn--download"
+              className="c-btn c-btn--regular c-btn--download"
               disabled={undefined}
               onClick={[Function]}
               role="button"
@@ -264,7 +264,7 @@ exports[`InstallModal component should handle correctly installError from props 
             className="sto-modal-controls"
           >
             <button
-              className="coz-btn coz-btn--secondary"
+              className="c-btn c-btn--secondary"
               onClick={[Function]}
               role="button"
             >
@@ -272,7 +272,7 @@ exports[`InstallModal component should handle correctly installError from props 
             </button>
             <button
               aria-busy={undefined}
-              className="coz-btn coz-btn--regular coz-btn--download"
+              className="c-btn c-btn--regular c-btn--download"
               disabled={undefined}
               onClick={[Function]}
               role="button"
@@ -329,7 +329,7 @@ exports[`InstallModal component should not break the permissions part if no perm
             className="sto-modal-controls"
           >
             <button
-              className="coz-btn coz-btn--secondary"
+              className="c-btn c-btn--secondary"
               onClick={[Function]}
               role="button"
             >
@@ -337,7 +337,7 @@ exports[`InstallModal component should not break the permissions part if no perm
             </button>
             <button
               aria-busy={undefined}
-              className="coz-btn coz-btn--regular coz-btn--download"
+              className="c-btn c-btn--regular c-btn--download"
               disabled={undefined}
               onClick={[Function]}
               role="button"

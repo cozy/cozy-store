@@ -23,14 +23,14 @@ exports[`UninstallModal component should be rendered correctly if app not uninst
           className="sto-modal-controls"
         >
           <button
-            className="coz-btn coz-btn--secondary"
+            className="c-btn c-btn--secondary"
             onClick={[Function]}
             role="button"
           >
             Cancel
           </button>
           <button
-            className="coz-btn coz-btn--danger coz-btn--delete"
+            className="c-btn c-btn--danger c-btn--delete"
             disabled={true}
             onClick={[Function]}
             role="button"
@@ -67,14 +67,14 @@ exports[`UninstallModal component should be rendered correctly if app uninstalla
           className="sto-modal-controls"
         >
           <button
-            className="coz-btn coz-btn--secondary"
+            className="c-btn c-btn--secondary"
             onClick={[Function]}
             role="button"
           >
             Cancel
           </button>
           <button
-            className="coz-btn coz-btn--danger coz-btn--delete"
+            className="c-btn c-btn--danger c-btn--delete"
             disabled={false}
             onClick={[Function]}
             role="button"
@@ -116,14 +116,14 @@ exports[`UninstallModal component should hanlde correctly error from props 1`] =
           className="sto-modal-controls"
         >
           <button
-            className="coz-btn coz-btn--secondary"
+            className="c-btn c-btn--secondary"
             onClick={[Function]}
             role="button"
           >
             Cancel
           </button>
           <button
-            className="coz-btn coz-btn--danger coz-btn--delete"
+            className="c-btn c-btn--danger c-btn--delete"
             disabled={false}
             onClick={[Function]}
             role="button"
