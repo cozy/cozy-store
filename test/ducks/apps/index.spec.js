@@ -2,8 +2,8 @@
 
 /* eslint-env jest */
 
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
+// import configureMockStore from 'redux-mock-store'
+// import thunk from 'redux-thunk'
 
 import {
   list,
@@ -16,18 +16,16 @@ import {
 } from 'ducks/apps'
 import mockApps from './_mockApps'
 
-import {
-  NotUninstallableAppException
-} from 'lib/exceptions'
+// import { NotUninstallableAppException } from 'lib/exceptions'
 
 const mockError = new Error('This is a test error')
-const mockUninstallableError = new NotUninstallableAppException()
+// const mockUninstallableError = new NotUninstallableAppException()
 
 const mockInstalledApps = mockApps.filter(a => a.installed)
 const mockRegistryApps = mockApps.filter(a => a.isInRegistry)
 
-const middlewares = [ thunk ]
-const mockStore = configureMockStore(middlewares)
+// const middlewares = [thunk]
+// const mockStore = configureMockStore(middlewares)
 
 const fetchAppsAction = {
   type: 'FETCH_APPS'
@@ -84,8 +82,15 @@ describe('Apps ducks reducers', () => {
     expect(list([], uninstallAppSuccessAction)).toEqual(mockApps)
     expect(list([], uninstallAppErrorAction)).toEqual([])
     // with apps already in state, collect is installed and isInRegistry
-    expect(list([{ slug: 'collect', name: 'Collect' }], fetchAppsSuccessAction)).toEqual(mockApps)
-    expect(list([{ slug: 'collect', name: 'Collect' }], fetchRegistryAppsSuccessAction)).toEqual(mockRegistryApps)
+    expect(
+      list([{ slug: 'collect', name: 'Collect' }], fetchAppsSuccessAction)
+    ).toEqual(mockApps)
+    expect(
+      list(
+        [{ slug: 'collect', name: 'Collect' }],
+        fetchRegistryAppsSuccessAction
+      )
+    ).toEqual(mockRegistryApps)
   })
 
   it('isFetching', () => {

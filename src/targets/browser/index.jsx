@@ -20,13 +20,16 @@ if (__DEVELOPMENT__) {
 }
 
 const renderApp = function (lang) {
-  render(<Root
-    store={store}
-    lang={lang} />, document.querySelector('[role=application]'))
+  render(
+    <Root store={store} lang={lang} />,
+    document.querySelector('[role=application]')
+  )
 }
 
 if (module.hot) {
-  module.hot.accept('ducks/components/Root', () => requestAnimationFrame(renderApp))
+  module.hot.accept('ducks/components/Root', () =>
+    requestAnimationFrame(renderApp)
+  )
 }
 
 document.addEventListener('DOMContentLoaded', () => {

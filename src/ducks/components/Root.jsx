@@ -6,13 +6,15 @@ import PiwikHashRouter from '../../lib/PiwikHashRouter'
 import App from './App'
 
 const Root = ({ context, lang, store }) => {
-  return <I18n lang={lang} dictRequire={(lang) => require(`../../locales/${lang}`)}>
-    <Provider store={store}>
-      <PiwikHashRouter>
-        <App />
-      </PiwikHashRouter>
-    </Provider>
-  </I18n>
+  return (
+    <I18n lang={lang} dictRequire={lang => require(`../../locales/${lang}`)}>
+      <Provider store={store}>
+        <PiwikHashRouter>
+          <App />
+        </PiwikHashRouter>
+      </Provider>
+    </I18n>
+  )
 }
 
 export default Root

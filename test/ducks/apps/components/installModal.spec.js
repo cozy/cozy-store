@@ -23,16 +23,31 @@ Enzyme.configure({ adapter: new Adapter() })
 
 const mockError = new Error('This is a test error')
 
-const getMockProps = (slug, installError = null, fetchError = null, fromRegistry = null) => ({
-  app: fromRegistry ? Object.assign(
-    {},
-    fromRegistry.manifest,
-    mockApps.find(a => a.slug === slug)
-  ) : mockApps.find(a => a.slug === slug),
+const getMockProps = (
+  slug,
+  installError = null,
+  fetchError = null,
+  fromRegistry = null
+) => ({
+  app: fromRegistry
+    ? Object.assign(
+      {},
+      fromRegistry.manifest,
+      mockApps.find(a => a.slug === slug)
+    )
+    : mockApps.find(a => a.slug === slug),
   parent: '/discover',
-  installApp: jest.fn((appSlug) => {
-    if (appSlug === 'photos') return sinon.stub().returnsPromise().resolves(mockApps.find(a => a.slug === 'photos'))()
-    return sinon.stub().returnsPromise().rejects(mockError)()
+  installApp: jest.fn(appSlug => {
+    if (appSlug === 'photos') {
+      return sinon
+        .stub()
+        .returnsPromise()
+        .resolves(mockApps.find(a => a.slug === 'photos'))()
+    }
+    return sinon
+      .stub()
+      .returnsPromise()
+      .rejects(mockError)()
   }),
   history: {
     push: jest.fn()
@@ -77,9 +92,7 @@ describe('InstallModal component', () => {
 
   it('should go to parent if app not found', () => {
     const mockProps = getMockProps('unknown')
-    const component = shallow(
-      <InstallModal t={tMock} {...mockProps} />
-    )
+    const component = shallow(<InstallModal t={tMock} {...mockProps} />)
     expect(component.type()).toBe(null)
     // goToParent should be called once to go to the parent view
     expect(mockProps.history.push.mock.calls.length).toBe(1)
@@ -88,39 +101,33 @@ describe('InstallModal component', () => {
 
   it('should handle correctly installError from props', () => {
     const mockProps = getMockProps('photos', mockError)
-    const component = shallow(
-      <InstallModal t={tMock} {...mockProps} />
-    )
+    const component = shallow(<InstallModal t={tMock} {...mockProps} />)
     expect(component.getElement()).toMatchSnapshot()
   })
 
   it('should handle correctly fetchError from props', () => {
     const mockProps = getMockProps('photos', null, mockError)
-    const component = shallow(
-      <InstallModal t={tMock} {...mockProps} />
-    )
+    const component = shallow(<InstallModal t={tMock} {...mockProps} />)
     expect(component.getElement()).toMatchSnapshot()
   })
 
   it('should call the correct props function on install', async () => {
     const mockProps = getMockProps('photos')
-    const component = shallow(
-      <InstallModal t={tMock} {...mockProps} />
-    )
+    const component = shallow(<InstallModal t={tMock} {...mockProps} />)
     await component.instance().installApp()
     // uninstallApp from props should be called once
     expect(mockProps.installApp.mock.calls.length).toBe(1)
     expect(mockProps.installApp.mock.calls[0][0]).toBe('photos')
     // goToParent should be called to return to the app page url
     expect(mockProps.history.push.mock.calls.length).toBe(1)
-    expect(mockProps.history.push.mock.calls[0][0]).toBe(`${mockProps.parent}/photos`)
+    expect(mockProps.history.push.mock.calls[0][0]).toBe(
+      `${mockProps.parent}/photos`
+    )
   })
 
   it('should handle error from install', async () => {
     const mockProps = getMockProps('drive')
-    const component = shallow(
-      <InstallModal t={tMock} {...mockProps} />
-    )
+    const component = shallow(<InstallModal t={tMock} {...mockProps} />)
     await component.instance().installApp()
     // uninstallApp from props should be called once
     expect(mockProps.installApp.mock.calls.length).toBe(1)

@@ -17,11 +17,13 @@ export const Photos = {
     locales: {
       fr: {
         short_description: 'Gestionnaire de photos pour Cozy v3',
-        long_description: '### Photos\n\nGestionnaire de photos pour Cozy v3 :tada:'
+        long_description:
+          '### Photos\n\nGestionnaire de photos pour Cozy v3 :tada:'
       },
       en: {
         short_description: 'Gestionnaire de photos pour Cozy v3',
-        long_description: '### Features\n\nEnjoy features to grab your data in you Cozy :tada:',
+        long_description:
+          '### Features\n\nEnjoy features to grab your data in you Cozy :tada:',
         changes: '### NEW!!!\n\n Now on the cozy-store :tada'
       }
     },
@@ -58,42 +60,29 @@ export const Photos = {
       files: {
         description: 'Required for photo access',
         type: 'io.cozy.files',
-        methods: [
-          'GET',
-          'POST',
-          'PUT'
-        ]
+        methods: ['GET', 'POST', 'PUT']
       },
       apps: {
-        description: 'Required by the cozy-bar to display the icons of the apps',
+        description:
+          'Required by the cozy-bar to display the icons of the apps',
         type: 'io.cozy.apps',
-        verbs: [
-          'GET'
-        ]
+        verbs: ['GET']
       },
       albums: {
         description: 'Required to manage photos albums',
         type: 'io.cozy.photos.albums',
-        methods: [
-          'GET',
-          'POST',
-          'PUT'
-        ]
+        methods: ['GET', 'POST', 'PUT']
       },
       contacts: {
         description: 'Required to to share photos with your contacts',
         type: 'io.cozy.contacts',
-        methods: [
-          'GET',
-          'POST'
-        ]
+        methods: ['GET', 'POST']
       },
       settings: {
-        description: 'Required by the cozy-bar to display Claudy and know which applications are coming soon',
+        description:
+          'Required by the cozy-bar to display Claudy and know which applications are coming soon',
         type: 'io.cozy.settings',
-        verbs: [
-          'GET'
-        ]
+        verbs: ['GET']
       }
     }
   }

@@ -50,16 +50,12 @@ const appMockWithoutIcon = {
 
 describe('SmallAppItem component', () => {
   it('should be rendered correctly an app', () => {
-    const component = shallow(
-      <SmallAppItem {...appMock} />
-    ).getElement()
+    const component = shallow(<SmallAppItem {...appMock} />).getElement()
     expect(component).toMatchSnapshot()
   })
 
   it('should be rendered correctly an installed app', () => {
-    const component = shallow(
-      <SmallAppItem {...appMock2} />
-    ).getElement()
+    const component = shallow(<SmallAppItem {...appMock2} />).getElement()
     expect(component).toMatchSnapshot()
   })
 
@@ -71,20 +67,20 @@ describe('SmallAppItem component', () => {
   })
 
   it('should not call onClick when Enter is not pressed', () => {
-    const component = shallow(
-      <SmallAppItem {...appMock} />
-    )
+    const component = shallow(<SmallAppItem {...appMock} />)
     expect(component.find('div.sto-small-app-item').length).toBe(1)
-    component.find('div.sto-small-app-item').simulate('keydown', {keyCode: 98})
+    component
+      .find('div.sto-small-app-item')
+      .simulate('keydown', { keyCode: 98 })
     expect(appMock.onClick.mock.calls.length).toBe(0)
   })
 
   it('should call onClick when Enter is pressed', () => {
-    const component = shallow(
-      <SmallAppItem {...appMock} />
-    )
+    const component = shallow(<SmallAppItem {...appMock} />)
     expect(component.find('div.sto-small-app-item').length).toBe(1)
-    component.find('div.sto-small-app-item').simulate('keydown', {keyCode: 13})
+    component
+      .find('div.sto-small-app-item')
+      .simulate('keydown', { keyCode: 13 })
     expect(appMock.onClick.mock.calls.length).toBe(1)
   })
 })

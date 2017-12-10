@@ -16,10 +16,18 @@ Enzyme.configure({ adapter: new Adapter() })
 
 const mockError = new Error('This is a test error')
 
-const mockRegistyApps = mockApps.filter(app => app.isInRegistry).filter(app =>
-(Array.isArray(app.versions.stable) && !!app.versions.stable.length))
+const mockRegistyApps = mockApps
+  .filter(app => app.isInRegistry)
+  .filter(
+    app => Array.isArray(app.versions.stable) && !!app.versions.stable.length
+  )
 
-const getMockProps = (apps = mockRegistyApps, isFetching = false, fetchError = null, match = { isExact: true }) => ({
+const getMockProps = (
+  apps = mockRegistyApps,
+  isFetching = false,
+  fetchError = null,
+  match = { isExact: true }
+) => ({
   fetchApps: jest.fn(),
   apps,
   isFetching,
@@ -54,7 +62,9 @@ describe('Discover component', () => {
   })
 
   it('should not render apps list if !match.isExact', () => {
-    const mockProps = getMockProps(mockRegistyApps, false, null, { isExact: false })
+    const mockProps = getMockProps(mockRegistyApps, false, null, {
+      isExact: false
+    })
     const component = shallow(
       <Discover t={tMock} {...mockProps} />
     ).getElement()
@@ -63,14 +73,17 @@ describe('Discover component', () => {
 
   it('should handle correctly items onClick', () => {
     const mockProps = getMockProps()
-    const component = shallow(
-      <Discover t={tMock} {...mockProps} />
-    )
+    const component = shallow(<Discover t={tMock} {...mockProps} />)
     expect(component.find(SmallAppItem).length).toBe(mockRegistyApps.length)
-    const appItem = component.find(SmallAppItem).at(0).dive() // shallow on more level on first app item
+    const appItem = component
+      .find(SmallAppItem)
+      .at(0)
+      .dive() // shallow on more level on first app item
     appItem.simulate('click')
     // history push to app modal URL
     expect(mockProps.history.push.mock.calls.length).toBe(1)
-    expect(mockProps.history.push.mock.calls[0][0]).toBe(`/discover/${mockRegistyApps[0].slug}`)
+    expect(mockProps.history.push.mock.calls[0][0]).toBe(
+      `/discover/${mockRegistyApps[0].slug}`
+    )
   })
 })

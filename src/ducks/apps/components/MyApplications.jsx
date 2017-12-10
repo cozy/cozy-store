@@ -22,33 +22,32 @@ export class MyApplications extends Component {
     const { t, lang, installedApps, isFetching, fetchError } = this.props
     return (
       <div className='sto-myapps'>
-        {
-          this.props.match.isExact
-          ? <div>
+        {this.props.match.isExact ? (
+          <div>
             <h2 className='sto-myapps-title'>{t('myapps.title')}</h2>
             <div className='sto-myapps-list'>
-              {!isFetching && installedApps && !!installedApps.length &&
+              {!isFetching &&
+                installedApps &&
+                !!installedApps.length &&
                 installedApps.map(app => {
-                  return <SmallAppItem
-                    slug={app.slug}
-                    developer={app.developer}
-                    editor={app.editor}
-                    icon={app.icon}
-                    name={getLocalizedAppProperty(app, 'name', lang)}
-                    version={app.version}
-                    installed={app.installed}
-                    onClick={() => this.onAppClick(app.slug)}
-                    key={app.slug}
-                  />
-                })
-              }
-              {fetchError &&
-                <p className='coz-error'>{fetchError.message}</p>
-              }
+                  return (
+                    <SmallAppItem
+                      slug={app.slug}
+                      developer={app.developer}
+                      editor={app.editor}
+                      icon={app.icon}
+                      name={getLocalizedAppProperty(app, 'name', lang)}
+                      version={app.version}
+                      installed={app.installed}
+                      onClick={() => this.onAppClick(app.slug)}
+                      key={app.slug}
+                    />
+                  )
+                })}
+              {fetchError && <p className='coz-error'>{fetchError.message}</p>}
             </div>
           </div>
-          : null
-        }
+        ) : null}
 
         <ApplicationRouting
           installedApps={installedApps}
@@ -58,13 +57,9 @@ export class MyApplications extends Component {
           parent='myapps'
         />
 
-        {isFetching &&
-          <Spinner
-            size='xxlarge'
-            loadingType='appsFetching'
-            middle='true'
-          />
-        }
+        {isFetching && (
+          <Spinner size='xxlarge' loadingType='appsFetching' middle='true' />
+        )}
       </div>
     )
   }

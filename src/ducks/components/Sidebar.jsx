@@ -7,13 +7,21 @@ export const Sidebar = ({ t }) => (
     <nav>
       <ul className='c-nav'>
         <li className='c-nav-item'>
-          <NavLink to='/discover' className='sto-cat-discover c-nav-link' activeClassName='active'>
-            { t('nav.discover') }
+          <NavLink
+            to='/discover'
+            className='sto-cat-discover c-nav-link'
+            activeClassName='active'
+          >
+            {t('nav.discover')}
           </NavLink>
         </li>
         <li className='c-nav-item'>
-          <NavLink to='/myapps' className='sto-cat-myapps c-nav-link' activeClassName='active'>
-            { t('nav.myapps') }
+          <NavLink
+            to='/myapps'
+            className='sto-cat-myapps c-nav-link'
+            activeClassName='active'
+          >
+            {t('nav.myapps')}
           </NavLink>
         </li>
       </ul>

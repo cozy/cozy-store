@@ -9,24 +9,29 @@ import Details from './Details'
 import { getLocalizedAppProperty } from 'ducks/apps'
 
 const MOBILE_PLATFORMS = ['ios', 'android']
-const isMobilePlatform = (name) => MOBILE_PLATFORMS.includes(name)
+const isMobilePlatform = name => MOBILE_PLATFORMS.includes(name)
 
-export const ApplicationPage = ({ t, lang, parent, app, isFetching, fetchError }) => {
+export const ApplicationPage = ({
+  t,
+  lang,
+  parent,
+  app,
+  isFetching,
+  fetchError
+}) => {
   if (isFetching) {
     return (
       <div className='sto-app'>
-        <Spinner
-          size='xxlarge'
-          loadingType='appsFetching'
-          middle='true'
-        />
+        <Spinner size='xxlarge' loadingType='appsFetching' middle='true' />
       </div>
     )
   }
   if (fetchError) {
     return (
       <p class='coz-error'>
-        {t('app_modal.install.message.version_error', {message: fetchError.message})}
+        {t('app_modal.install.message.version_error', {
+          message: fetchError.message
+        })}
       </p>
     )
   }
@@ -35,7 +40,9 @@ export const ApplicationPage = ({ t, lang, parent, app, isFetching, fetchError }
   const appShortDesc = getLocalizedAppProperty(app, 'short_description', lang)
   const appLongDesc = getLocalizedAppProperty(app, 'long_description', lang)
   const appChanges = getLocalizedAppProperty(app, 'changes', lang)
-  const mobileApps = app.platforms && !!app.platforms.length &&
+  const mobileApps =
+    app.platforms &&
+    !!app.platforms.length &&
     app.platforms.reduce((mobilePlatforms, platformInfos) => {
       // force to be lower case
       platformInfos.type = platformInfos.type.toLowerCase()

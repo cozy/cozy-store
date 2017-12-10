@@ -4,7 +4,7 @@ export default [
     slug: 'collect',
     name: 'Collect',
     editor: 'Cozy',
-    developer: {name: 'Cozy'},
+    developer: { name: 'Cozy' },
     icon: '<svg></svg>',
     version: '3.0.0',
     versions: {
@@ -21,7 +21,7 @@ export default [
     slug: 'devonly',
     name: 'DevOnly',
     editor: 'Cozy',
-    developer: {name: 'Cozy'},
+    developer: { name: 'Cozy' },
     locales: {
       name: 'For Dev Only'
     },
@@ -38,7 +38,7 @@ export default [
     slug: 'drive',
     name: 'Drive',
     editor: 'Cozy',
-    developer: {name: 'Cozy'},
+    developer: { name: 'Cozy' },
     icon: '<svg></svg>',
     version: '3.0.0-beta89bnhj3993',
     uninstallable: false,
@@ -49,7 +49,7 @@ export default [
     slug: 'photos',
     name: 'Photos',
     editor: 'Cozy',
-    developer: {name: 'Cozy'},
+    developer: { name: 'Cozy' },
     icon: '<svg></svg>',
     versions: {
       stable: ['3.0.0'],
