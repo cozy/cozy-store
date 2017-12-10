@@ -1,6 +1,8 @@
 
 [![Travis build status shield](https://img.shields.io/travis/cozy/cozy-store.svg?branch=master)](https://travis-ci.org/cozy/cozy-store)
 [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovateapp.com/)
+[![dependencies Status](https://david-dm.org/cpatchane/cozy-store/status.svg)](https://david-dm.org/cpatchane/cozy-store)
+[![devDependencies Status](https://david-dm.org/cpatchane/cozy-store/dev-status.svg)](https://david-dm.org/cpatchane/cozy-store?type=dev)
 [![Github Release version shield](https://img.shields.io/github/tag/cozy/cozy-store.svg)](https://github.com/cozy/cozy-store/releases)
 
 
