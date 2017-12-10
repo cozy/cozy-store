@@ -17,7 +17,12 @@ Enzyme.configure({ adapter: new Adapter() })
 // (Array.isArray(app.versions.stable) && !!app.versions.stable.length))
 const mockInstalledApps = mockApps.filter(a => a.installed)
 
-const getMockProps = (parent, installedApps = mockInstalledApps, apps = mockApps, isFetching = false) => ({
+const getMockProps = (
+  parent,
+  installedApps = mockInstalledApps,
+  apps = mockApps,
+  isFetching = false
+) => ({
   apps,
   installedApps,
   isFetching,
@@ -30,9 +35,7 @@ const getMockProps = (parent, installedApps = mockInstalledApps, apps = mockApps
 describe('ApplicationRouting component with ApplicationPage', () => {
   it('should handle correctly if app found', () => {
     const mockProps = getMockProps('myapps')
-    const component = shallow(
-      <ApplicationRouting {...mockProps} />
-    )
+    const component = shallow(<ApplicationRouting {...mockProps} />)
     const routes = component.find(Route)
     expect(routes.length).toBe(2)
     const routeToAppPage = routes.getElements()[0]
@@ -45,9 +48,7 @@ describe('ApplicationRouting component with ApplicationPage', () => {
 
   it('should render correctly if apps list is null but not installedApps', () => {
     const mockProps = getMockProps('myapps', mockInstalledApps, null)
-    const component = shallow(
-      <ApplicationRouting {...mockProps} />
-    )
+    const component = shallow(<ApplicationRouting {...mockProps} />)
     const routes = component.find(Route)
     expect(routes.length).toBe(2)
     const routeToAppPage = routes.getElements()[0]
@@ -61,9 +62,7 @@ describe('ApplicationRouting component with ApplicationPage', () => {
   it('should correctly go to parent if app not found', () => {
     const parent = 'myapps'
     const mockProps = getMockProps(parent)
-    const component = shallow(
-      <ApplicationRouting {...mockProps} />
-    )
+    const component = shallow(<ApplicationRouting {...mockProps} />)
     const routes = component.find(Route)
     expect(routes.length).toBe(2)
     const routeToAppPage = routes.getElements()[0]
@@ -77,9 +76,7 @@ describe('ApplicationRouting component with ApplicationPage', () => {
 
   it('should not return anything if apps list is empty', () => {
     const mockProps = getMockProps('myapps', [], [])
-    const component = shallow(
-      <ApplicationRouting {...mockProps} />
-    )
+    const component = shallow(<ApplicationRouting {...mockProps} />)
     const routes = component.find(Route)
     expect(routes.length).toBe(2)
     const routeToAppPage = routes.getElements()[0]
@@ -91,9 +88,7 @@ describe('ApplicationRouting component with ApplicationPage', () => {
 
   it('should not return anything if neither apps and installedApps are provided', () => {
     const mockProps = getMockProps('myapps', null, null)
-    const component = shallow(
-      <ApplicationRouting {...mockProps} />
-    )
+    const component = shallow(<ApplicationRouting {...mockProps} />)
     const routes = component.find(Route)
     expect(routes.length).toBe(2)
     const routeToAppPage = routes.getElements()[0]
@@ -105,9 +100,7 @@ describe('ApplicationRouting component with ApplicationPage', () => {
 
   it('should not return anything if isFetching', () => {
     const mockProps = getMockProps('myapps', [], [], true)
-    const component = shallow(
-      <ApplicationRouting {...mockProps} />
-    )
+    const component = shallow(<ApplicationRouting {...mockProps} />)
     const routes = component.find(Route)
     expect(routes.length).toBe(2)
     const routeToAppPage = routes.getElements()[0]
@@ -121,9 +114,7 @@ describe('ApplicationRouting component with ApplicationPage', () => {
 describe('ApplicationRouting component with Modal', () => {
   it('should handle correctly if installed app found', () => {
     const mockProps = getMockProps('myapps')
-    const component = shallow(
-      <ApplicationRouting {...mockProps} />
-    )
+    const component = shallow(<ApplicationRouting {...mockProps} />)
     const routes = component.find(Route)
     expect(routes.length).toBe(2)
     const routeToModal = routes.getElements()[1]
@@ -136,9 +127,7 @@ describe('ApplicationRouting component with Modal', () => {
 
   it('should render correctly if uninstalled app found', () => {
     const mockProps = getMockProps('myapps')
-    const component = shallow(
-      <ApplicationRouting {...mockProps} />
-    )
+    const component = shallow(<ApplicationRouting {...mockProps} />)
     const routes = component.find(Route)
     expect(routes.length).toBe(2)
     const routeToModal = routes.getElements()[1]
@@ -152,9 +141,7 @@ describe('ApplicationRouting component with Modal', () => {
   it('should correctly go to parent if app not found', () => {
     const parent = 'myapps'
     const mockProps = getMockProps(parent)
-    const component = shallow(
-      <ApplicationRouting {...mockProps} />
-    )
+    const component = shallow(<ApplicationRouting {...mockProps} />)
     const routes = component.find(Route)
     expect(routes.length).toBe(2)
     const routeToModal = routes.getElements()[1]
@@ -168,9 +155,7 @@ describe('ApplicationRouting component with Modal', () => {
 
   it('should render correctly if apps list is null but not installedApps', () => {
     const mockProps = getMockProps('myapps', mockInstalledApps, null)
-    const component = shallow(
-      <ApplicationRouting {...mockProps} />
-    )
+    const component = shallow(<ApplicationRouting {...mockProps} />)
     const routes = component.find(Route)
     expect(routes.length).toBe(2)
     const routeToModal = routes.getElements()[1]
@@ -183,9 +168,7 @@ describe('ApplicationRouting component with Modal', () => {
 
   it('should not return anything if apps lists is empty', () => {
     const mockProps = getMockProps('myapps', [], [])
-    const component = shallow(
-      <ApplicationRouting {...mockProps} />
-    )
+    const component = shallow(<ApplicationRouting {...mockProps} />)
     const routes = component.find(Route)
     expect(routes.length).toBe(2)
     const routeToModal = routes.getElements()[1]
@@ -197,9 +180,7 @@ describe('ApplicationRouting component with Modal', () => {
 
   it('should not return anything if isFetching', () => {
     const mockProps = getMockProps('myapps', [], [], true)
-    const component = shallow(
-      <ApplicationRouting {...mockProps} />
-    )
+    const component = shallow(<ApplicationRouting {...mockProps} />)
     const routes = component.find(Route)
     expect(routes.length).toBe(2)
     const routeToModal = routes.getElements()[1]

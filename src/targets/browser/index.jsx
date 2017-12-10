@@ -2,13 +2,13 @@
 
 import 'babel-polyfill'
 
-import './styles'
+import 'styles'
 
 import React from 'react'
 import { render } from 'react-dom'
 
-import store from './lib/store'
-import Root from './ducks/components/Root'
+import store from 'lib/store'
+import Root from 'ducks/components/Root'
 
 if (__DEVELOPMENT__) {
   // Enables React dev tools for Preact
@@ -20,13 +20,16 @@ if (__DEVELOPMENT__) {
 }
 
 const renderApp = function (lang) {
-  render(<Root
-    store={store}
-    lang={lang} />, document.querySelector('[role=application]'))
+  render(
+    <Root store={store} lang={lang} />,
+    document.querySelector('[role=application]')
+  )
 }
 
 if (module.hot) {
-  module.hot.accept('./components/Root', () => requestAnimationFrame(renderApp))
+  module.hot.accept('ducks/components/Root', () =>
+    requestAnimationFrame(renderApp)
+  )
 }
 
 document.addEventListener('DOMContentLoaded', () => {

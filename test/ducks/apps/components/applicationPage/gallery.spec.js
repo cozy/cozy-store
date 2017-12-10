@@ -36,9 +36,7 @@ describe('ApplicationPage gallery component', () => {
       'https://mockcozy.cc/registry/photos/screenshot4.png',
       'https://mockcozy.cc/registry/photos/screenshot5.png'
     ])
-    const component = shallow(
-      <Gallery t={tMock} {...props} />
-    ).getElement()
+    const component = shallow(<Gallery t={tMock} {...props} />).getElement()
     expect(component).toMatchSnapshot()
   })
 
@@ -49,9 +47,7 @@ describe('ApplicationPage gallery component', () => {
       'https://mockcozy.cc/registry/photos/screenshot5.png',
       'https://mockcozy.cc/registry/photos/screenshot6.png'
     ])
-    const component = shallow(
-      <Gallery t={tMock} {...props} />
-    )
+    const component = shallow(<Gallery t={tMock} {...props} />)
     expect(component.find('img').length).toBe(5)
     expect(component.getElement()).toMatchSnapshot()
   })
@@ -59,17 +55,13 @@ describe('ApplicationPage gallery component', () => {
   it('should return null if no images provided', () => {
     const props = getProps()
     props.images = null
-    const component = shallow(
-      <Gallery t={tMock} {...props} />
-    ).getElement()
+    const component = shallow(<Gallery t={tMock} {...props} />).getElement()
     expect(component).toMatchSnapshot()
   })
 
   it('should handle click on images (big and small)', () => {
     const props = getProps()
-    const component = shallow(
-      <Gallery t={tMock} {...props} />
-    )
+    const component = shallow(<Gallery t={tMock} {...props} />)
     expect(component.state().currentImage).toBe(null)
     component.find('img[alt="photos-image-1"]').simulate('click')
     expect(component.state().currentImage).toBe(props.images[0])
@@ -79,33 +71,35 @@ describe('ApplicationPage gallery component', () => {
 
   it('should handle on enter key up on images (big and small)', () => {
     const props = getProps()
-    const component = shallow(
-      <Gallery t={tMock} {...props} />
-    )
+    const component = shallow(<Gallery t={tMock} {...props} />)
     expect(component.state().currentImage).toBe(null)
-    component.find('img[alt="photos-image-1"]').simulate('keyUp', {keyCode: 13})
+    component
+      .find('img[alt="photos-image-1"]')
+      .simulate('keyUp', { keyCode: 13 })
     expect(component.state().currentImage).toBe(props.images[0])
-    component.find('img[alt="photos-image-3"]').simulate('keyUp', {keyCode: 13})
+    component
+      .find('img[alt="photos-image-3"]')
+      .simulate('keyUp', { keyCode: 13 })
     expect(component.state().currentImage).toBe(props.images[2])
   })
 
   it('should do nothing on any other key up on images (big and small)', () => {
     const props = getProps()
-    const component = shallow(
-      <Gallery t={tMock} {...props} />
-    )
+    const component = shallow(<Gallery t={tMock} {...props} />)
     expect(component.state().currentImage).toBe(null)
-    component.find('img[alt="photos-image-1"]').simulate('keyUp', {keyCode: 20})
+    component
+      .find('img[alt="photos-image-1"]')
+      .simulate('keyUp', { keyCode: 20 })
     expect(component.state().currentImage).toBe(null)
-    component.find('img[alt="photos-image-3"]').simulate('keyUp', {keyCode: 30})
+    component
+      .find('img[alt="photos-image-3"]')
+      .simulate('keyUp', { keyCode: 30 })
     expect(component.state().currentImage).toBe(null)
   })
 
   it('should open a modal on image click', () => {
     const props = getProps()
-    const component = shallow(
-      <Gallery t={tMock} {...props} />
-    )
+    const component = shallow(<Gallery t={tMock} {...props} />)
     expect(component.state().currentImage).toBe(null)
     component.find('img[alt="photos-image-1"]').simulate('click')
     expect(component.state().currentImage).toBe(props.images[0])
@@ -114,9 +108,7 @@ describe('ApplicationPage gallery component', () => {
 
   it('should open a modal and handle onClose', () => {
     const props = getProps()
-    const component = shallow(
-      <Gallery t={tMock} {...props} />
-    )
+    const component = shallow(<Gallery t={tMock} {...props} />)
     expect(component.state().currentImage).toBe(null)
     component.find('img[alt="photos-image-1"]').simulate('click')
     expect(component.state().currentImage).toBe(props.images[0])

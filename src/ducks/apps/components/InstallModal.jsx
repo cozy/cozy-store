@@ -20,11 +20,12 @@ export class InstallModal extends Component {
   installApp () {
     this.setState({ error: null })
     const { app } = this.props
-    this.props.installApp(app.slug)
-    .then(() => {
-      this.gotoParent()
-    })
-    .catch()
+    this.props
+      .installApp(app.slug)
+      .then(() => {
+        this.gotoParent()
+      })
+      .catch()
   }
 
   gotoParent () {
@@ -37,7 +38,15 @@ export class InstallModal extends Component {
   }
 
   render () {
-    const { t, lang, app, isFetching, fetchError, isInstalling, installError } = this.props
+    const {
+      t,
+      lang,
+      app,
+      isFetching,
+      fetchError,
+      isInstalling,
+      installError
+    } = this.props
     // if app not found, return to parent
     if (!app) {
       this.gotoParent()
@@ -45,62 +54,76 @@ export class InstallModal extends Component {
     }
     let permissions = null
     if (app && !isFetching && !fetchError) {
-      permissions = (app.permissions) || {}
+      permissions = app.permissions || {}
     }
     const appName = getLocalizedAppProperty(app, 'name', lang)
     return (
       <div className='sto-modal--install'>
-        <Modal
-          secondaryAction={this.gotoParent}
-        >
+        <Modal secondaryAction={this.gotoParent}>
           <ModalContent>
             <header className='sto-modal-header'>
               <div className='sto-modal-header-icon' aria-busy={isFetching}>
-                <a href='https://cozy.io' target='_blank' title='Cozy Website' class='sto-modal-header-icon-shield' />
+                <a
+                  href='https://cozy.io'
+                  target='_blank'
+                  title='Cozy Website'
+                  class='sto-modal-header-icon-shield'
+                />
               </div>
-              {!isFetching && !fetchError &&
-                <h2>{t('app_modal.install.title', {appName})}</h2>
-              }
+              {!isFetching &&
+                !fetchError && (
+                  <h2>{t('app_modal.install.title', { appName })}</h2>
+                )}
             </header>
             <div className='sto-modal-content'>
-              {permissions && <PermissionsList permissions={permissions} appName={appName} />
-              }
-              {!isFetching && !fetchError &&
-                <div>
-                  {permissions && !!Object.values(permissions).length &&
-                    <ReactMarkdownWrapper
-                      source={t('app_modal.install.accept_description', {
-                        appName
-                      })
-                      }
-                    />
-                  }
-                  {installError &&
-                    <p class='coz-error'>{t('app_modal.install.message.install_error', {message: installError.message})}</p>
-                  }
-                  <div className='sto-modal-controls'>
-                    <button
-                      role='button'
-                      className='c-btn c-btn--secondary'
-                      onClick={this.gotoParent}
-                    >
-                      {t('app_modal.install.cancel')}
-                    </button>
-                    <button
-                      role='button'
-                      disabled={isInstalling}
-                      aria-busy={isInstalling}
-                      className='c-btn c-btn--regular c-btn--download'
-                      onClick={this.installApp}
-                    >
-                      {t('app_modal.install.install')}
-                    </button>
+              {permissions && (
+                <PermissionsList permissions={permissions} appName={appName} />
+              )}
+              {!isFetching &&
+                !fetchError && (
+                  <div>
+                    {permissions &&
+                      !!Object.values(permissions).length && (
+                        <ReactMarkdownWrapper
+                          source={t('app_modal.install.accept_description', {
+                            appName
+                          })}
+                        />
+                      )}
+                    {installError && (
+                      <p class='coz-error'>
+                        {t('app_modal.install.message.install_error', {
+                          message: installError.message
+                        })}
+                      </p>
+                    )}
+                    <div className='sto-modal-controls'>
+                      <button
+                        role='button'
+                        className='c-btn c-btn--secondary'
+                        onClick={this.gotoParent}
+                      >
+                        {t('app_modal.install.cancel')}
+                      </button>
+                      <button
+                        role='button'
+                        disabled={isInstalling}
+                        aria-busy={isInstalling}
+                        className='c-btn c-btn--regular c-btn--download'
+                        onClick={this.installApp}
+                      >
+                        {t('app_modal.install.install')}
+                      </button>
+                    </div>
                   </div>
-                </div>
-              }
-              {fetchError &&
-                <p class='coz-error'>{t('app_modal.install.message.version_error', {message: fetchError.message})}</p>
-              }
+                )}
+              {fetchError && (
+                <p class='coz-error'>
+                  {t('app_modal.install.message.version_error', {
+                    message: fetchError.message
+                  })}
+                </p>
+              )}
             </div>
           </ModalContent>
         </Modal>

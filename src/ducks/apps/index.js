@@ -4,9 +4,7 @@
 import { combineReducers } from 'redux'
 import config from 'config/apps'
 
-import {
-  NotUninstallableAppException
-} from '../../lib/exceptions'
+import { NotUninstallableAppException } from '../../lib/exceptions'
 
 const APP_STATE = {
   READY: 'ready',
@@ -105,7 +103,9 @@ export function getInstalledApps (state) {
 
 export function getRegistryApps (state) {
   // display only apps with stable versions for now
-  return state.apps.list.filter(app => app.isInRegistry).filter(app => (Array.isArray(app.versions.stable) && !!app.versions.stable))
+  return state.apps.list
+    .filter(app => app.isInRegistry)
+    .filter(app => Array.isArray(app.versions.stable) && !!app.versions.stable)
 }
 
 export function getLocalizedAppProperty (app, property, lang) {
@@ -130,7 +130,8 @@ async function _getIcon (url) {
 
   try {
     return 'data:image/svg+xml;base64,' + btoa(icon)
-  } catch (e) { // eslint-disable-line
+  } catch (e) {
+    // eslint-disable-line
     try {
       return URL.createObjectURL(icon)
     } catch (e) {
@@ -164,8 +165,7 @@ function _sanitizeOldManifest (app) {
 export function getFormattedInstalledApp (response) {
   // FIXME retro-compatibility for old formatted manifest
   response.attributes = _sanitizeOldManifest(response.attributes)
-  return _getIcon(response.links.icon)
-  .then(iconData => {
+  return _getIcon(response.links.icon).then(iconData => {
     return Object.assign({}, response.attributes, {
       _id: response.id || response._id,
       icon: iconData,
@@ -177,153 +177,177 @@ export function getFormattedInstalledApp (response) {
 }
 
 export function getFormattedRegistryApp (response, channel) {
-  return cozy.client.fetchJSON('GET', `/registry/${response.slug}/${channel}/latest`)
-  .then(version => {
-    const versionFromRegistry = version.version
-    const manifest = version.manifest
-    const screensLinks = manifest.screenshots && manifest.screenshots.map(name => {
-      const fileName = name.replace(/^.*[\\/]/, '')
-      return `${cozy.client._url}/registry/${manifest.slug}/${versionFromRegistry}/screenshots/${fileName}`
+  return cozy.client
+    .fetchJSON('GET', `/registry/${response.slug}/${channel}/latest`)
+    .then(version => {
+      const versionFromRegistry = version.version
+      const manifest = version.manifest
+      const screensLinks =
+        manifest.screenshots &&
+        manifest.screenshots.map(name => {
+          const fileName = name.replace(/^.*[\\/]/, '')
+          return `${cozy.client._url}/registry/${
+            manifest.slug
+          }/${versionFromRegistry}/screenshots/${fileName}`
+        })
+      const iconLink = `${cozy.client._url}/registry/${
+        manifest.slug
+      }/${versionFromRegistry}/icon`
+      return Object.assign(
+        {},
+        {
+          versions: response.versions
+        },
+        manifest,
+        {
+          icon: iconLink,
+          screenshots: screensLinks,
+          installed: false,
+          uninstallable: true,
+          isInRegistry: true
+        }
+      )
     })
-    const iconLink = `${cozy.client._url}/registry/${manifest.slug}/${versionFromRegistry}/icon`
-    return Object.assign(
-      {},
-      {
-        versions: response.versions
-      },
-      manifest,
-      {
-        icon: iconLink,
-        screenshots: screensLinks,
-        installed: false,
-        uninstallable: true,
-        isInRegistry: true
-      }
-    )
-  })
 }
 
 export function fetchInstalledApps () {
   return (dispatch, getState) => {
-    dispatch({type: FETCH_APPS})
-    return cozy.client.fetchJSON('GET', '/apps/')
-    .then(installedApps => {
-      installedApps = installedApps.filter(app => !config.notDisplayedApps.includes(app.attributes.slug))
-      Promise.all(installedApps.map(app => {
-        return getFormattedInstalledApp(app)
-      }))
-      .then(apps => {
-        return dispatch({type: FETCH_APPS_SUCCESS, apps})
+    dispatch({ type: FETCH_APPS })
+    return cozy.client
+      .fetchJSON('GET', '/apps/')
+      .then(installedApps => {
+        installedApps = installedApps.filter(
+          app => !config.notDisplayedApps.includes(app.attributes.slug)
+        )
+        Promise.all(
+          installedApps.map(app => {
+            return getFormattedInstalledApp(app)
+          })
+        ).then(apps => {
+          return dispatch({ type: FETCH_APPS_SUCCESS, apps })
+        })
       })
-    })
-    .catch(e => {
-      dispatch({type: FETCH_APPS_FAILURE, error: e})
-      throw e
-    })
+      .catch(e => {
+        dispatch({ type: FETCH_APPS_FAILURE, error: e })
+        throw e
+      })
   }
 }
 
 export function fetchRegistryApps (channel = DEFAULT_CHANNEL) {
   return (dispatch, getState) => {
-    dispatch({type: FETCH_APPS})
-    return cozy.client.fetchJSON('GET', '/registry?filter[type]=webapp')
-    .then(response => {
-      const apps = response.data
-      .filter(app => !config.notDisplayedApps.includes(app.name))
-      .filter(app => app.versions.dev && app.versions.dev.length) // only apps with versions available
-      return Promise.all(apps.map(app => {
-        return getFormattedRegistryApp(app, channel)
-        .catch(err => {
-          console.warn(`Something went wrong when trying to fetch more informations about ${app.slug} from the registry on ${channel} channel, so we skip it. ${err}`)
-          return false // useful to skip in an array.map function
+    dispatch({ type: FETCH_APPS })
+    return cozy.client
+      .fetchJSON('GET', '/registry?filter[type]=webapp')
+      .then(response => {
+        const apps = response.data
+          .filter(app => !config.notDisplayedApps.includes(app.name))
+          .filter(app => app.versions.dev && app.versions.dev.length) // only apps with versions available
+        return Promise.all(
+          apps.map(app => {
+            return getFormattedRegistryApp(app, channel).catch(err => {
+              console.warn(
+                `Something went wrong when trying to fetch more informations about ${
+                  app.slug
+                } from the registry on ${channel} channel, so we skip it. ${err}`
+              )
+              return false // useful to skip in an array.map function
+            })
+          })
+        ).then(apps => {
+          return dispatch({ type: FETCH_REGISTRY_APPS_SUCCESS, apps })
         })
-      }))
-      .then(apps => {
-        return dispatch({type: FETCH_REGISTRY_APPS_SUCCESS, apps})
       })
-    })
-    .catch(e => {
-      dispatch({type: FETCH_APPS_FAILURE, error: e})
-      throw e
-    })
+      .catch(e => {
+        dispatch({ type: FETCH_APPS_FAILURE, error: e })
+        throw e
+      })
   }
 }
 
 export function fetchApps () {
   return (dispatch, getState) => {
-    dispatch(fetchRegistryApps())
-    .then(() => dispatch(fetchInstalledApps()))
+    dispatch(fetchRegistryApps()).then(() => dispatch(fetchInstalledApps()))
   }
 }
 
 export function uninstallApp (slug) {
   return (dispatch, getState) => {
-    if (config.notRemovableApps.includes(slug) || config.notDisplayedApps.includes(slug)) {
+    if (
+      config.notRemovableApps.includes(slug) ||
+      config.notDisplayedApps.includes(slug)
+    ) {
       const error = new NotUninstallableAppException()
       dispatch({ type: UNINSTALL_APP_FAILURE, error })
       throw error
     }
-    return cozy.client.fetchJSON('DELETE', `/apps/${slug}`)
-    .then(() => {
-      // remove the app from the state apps list
-      const apps = getState().apps.list.map(app => {
-        if (app.slug === slug) app.installed = false
-        return app
+    return cozy.client
+      .fetchJSON('DELETE', `/apps/${slug}`)
+      .then(() => {
+        // remove the app from the state apps list
+        const apps = getState().apps.list.map(app => {
+          if (app.slug === slug) app.installed = false
+          return app
+        })
+        dispatch({ type: UNINSTALL_APP_SUCCESS, apps })
+        return dispatch({
+          type: 'SEND_LOG_SUCCESS',
+          alert: {
+            message: 'app_modal.uninstall.message.success',
+            level: 'success'
+          }
+        })
       })
-      dispatch({type: UNINSTALL_APP_SUCCESS, apps})
-      return dispatch({
-        type: 'SEND_LOG_SUCCESS',
-        alert: {
-          message: 'app_modal.uninstall.message.success',
-          level: 'success'
-        }
+      .catch(e => {
+        dispatch({ type: UNINSTALL_APP_FAILURE, error: e })
+        throw e
       })
-    })
-    .catch(e => {
-      dispatch({type: UNINSTALL_APP_FAILURE, error: e})
-      throw e
-    })
   }
 }
 
 export function installApp (slug, source, isUpdate = false) {
   return (dispatch, getState) => {
-    dispatch({type: INSTALL_APP})
+    dispatch({ type: INSTALL_APP })
     const verb = isUpdate ? 'PUT' : 'POST'
-    return cozy.client.fetchJSON(verb, `/apps/${slug}?Source=${encodeURIComponent(source)}`)
-    .then(resp => waitForAppReady(resp))
-    .then(appData => {
-      return _getIcon(appData.links.icon)
-      .then(iconData => {
-        return Object.assign({}, appData.attributes, {
-          _id: appData.id,
-          icon: iconData,
-          installed: true,
-          uninstallable: !config.notRemovableApps.includes(appData.attributes.slug)
-        })
+    return cozy.client
+      .fetchJSON(verb, `/apps/${slug}?Source=${encodeURIComponent(source)}`)
+      .then(resp => waitForAppReady(resp))
+      .then(appData => {
+        return _getIcon(appData.links.icon)
+          .then(iconData => {
+            return Object.assign({}, appData.attributes, {
+              _id: appData.id,
+              icon: iconData,
+              installed: true,
+              uninstallable: !config.notRemovableApps.includes(
+                appData.attributes.slug
+              )
+            })
+          })
+          .then(app => {
+            // add the installed app to the state apps list
+            const apps = getState().apps.list.map(a => {
+              if (a.slug === slug) {
+                return Object.assign({}, a, app, { installed: true })
+              }
+              return a
+            })
+            dispatch({ type: INSTALL_APP_SUCCESS, apps })
+            return dispatch({
+              type: 'SEND_LOG_SUCCESS',
+              alert: {
+                message: `app_modal.install.message.${
+                  isUpdate ? 'update' : 'install'
+                }_success`,
+                level: 'success'
+              }
+            })
+          })
       })
-      .then(app => {
-        // add the installed app to the state apps list
-        const apps = getState().apps.list.map(a => {
-          if (a.slug === slug) {
-            return Object.assign({}, a, app, {installed: true})
-          }
-          return a
-        })
-        dispatch({type: INSTALL_APP_SUCCESS, apps})
-        return dispatch({
-          type: 'SEND_LOG_SUCCESS',
-          alert: {
-            message: `app_modal.install.message.${isUpdate ? 'update' : 'install'}_success`,
-            level: 'success'
-          }
-        })
+      .catch(e => {
+        dispatch({ type: INSTALL_APP_FAILURE, error: e })
+        throw e
       })
-    })
-    .catch(e => {
-      dispatch({type: INSTALL_APP_FAILURE, error: e})
-      throw e
-    })
   }
 }
 
@@ -347,7 +371,8 @@ function waitForAppReady (app, timeout = 20 * 1000) {
     }, timeout)
 
     idInterval = setInterval(() => {
-      cozy.client.fetchJSON('GET', `/apps/${app.attributes.slug}`)
+      cozy.client
+        .fetchJSON('GET', `/apps/${app.attributes.slug}`)
         .then(app => {
           if (app.attributes.state === APP_STATE.ERRORED) {
             if (idTimeout) {

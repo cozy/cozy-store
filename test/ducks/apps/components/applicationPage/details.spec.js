@@ -22,16 +22,17 @@ const getProps = () => {
     changes: appManifest.locales.en.changes,
     category: appManifest.category,
     langs: appManifest.langs,
-    mobileApps: [{type: 'ios', url: ''}, {type: 'android', url: 'https://mock.app'}],
+    mobileApps: [
+      { type: 'ios', url: '' },
+      { type: 'android', url: 'https://mock.app' }
+    ],
     developer: appManifest.developer
   }
 }
 
 describe('ApplicationPage details component', () => {
   it('should be rendered correctly with provided app', () => {
-    const component = shallow(
-      <Details {...getProps()} />
-    ).getElement()
+    const component = shallow(<Details {...getProps()} />).getElement()
     expect(component).toMatchSnapshot()
   })
 
@@ -43,25 +44,23 @@ describe('ApplicationPage details component', () => {
     appProps.langs = []
     appProps.mobileApps = []
     appProps.developer = {}
-    const component = shallow(
-      <Details {...appProps} />
-    ).getElement()
+    const component = shallow(<Details {...appProps} />).getElement()
     expect(component).toMatchSnapshot()
   })
 
   it('should handle correctly `display more` behaviour on description part', () => {
-    const component = shallow(
-      <Details {...getProps()} />
-    )
-    component.find('.sto-app-description .sto-details-display-more').simulate('click')
+    const component = shallow(<Details {...getProps()} />)
+    component
+      .find('.sto-app-description .sto-details-display-more')
+      .simulate('click')
     expect(component.getElement()).toMatchSnapshot()
   })
 
   it('should handle correctly `display more` behaviour on changes part', () => {
-    const component = shallow(
-      <Details {...getProps()} />
-    )
-    component.find('.sto-app-changes .sto-details-display-more').simulate('click')
+    const component = shallow(<Details {...getProps()} />)
+    component
+      .find('.sto-app-changes .sto-details-display-more')
+      .simulate('click')
     expect(component.getElement()).toMatchSnapshot()
   })
 })

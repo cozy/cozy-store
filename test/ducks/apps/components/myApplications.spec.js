@@ -18,7 +18,12 @@ const mockMyApplicationsError = new Error('This is a test error')
 
 const mockInstalledApps = mockApps.filter(a => a.installed)
 
-const getMockProps = (installedApps = mockInstalledApps, isFetching = false, fetchError = null, match = { isExact: true }) => ({
+const getMockProps = (
+  installedApps = mockInstalledApps,
+  isFetching = false,
+  fetchError = null,
+  match = { isExact: true }
+) => ({
   fetchInstalledApps: jest.fn(),
   uninstallApp: jest.fn(),
   installedApps,
@@ -55,19 +60,24 @@ describe('MyApplications component', () => {
 
   it('should handle correctly items onClick', () => {
     const mockProps = getMockProps()
-    const component = shallow(
-      <MyApplications t={tMock} {...mockProps} />
-    )
+    const component = shallow(<MyApplications t={tMock} {...mockProps} />)
     expect(component.find(SmallAppItem).length).toBe(mockInstalledApps.length)
-    const appItem = component.find(SmallAppItem).at(0).dive() // shallow on more level on first app item
+    const appItem = component
+      .find(SmallAppItem)
+      .at(0)
+      .dive() // shallow on more level on first app item
     appItem.simulate('click')
     // history push to app modal URL
     expect(mockProps.history.push.mock.calls.length).toBe(1)
-    expect(mockProps.history.push.mock.calls[0][0]).toBe(`/myapps/${mockInstalledApps[0].slug}`)
+    expect(mockProps.history.push.mock.calls[0][0]).toBe(
+      `/myapps/${mockInstalledApps[0].slug}`
+    )
   })
 
   it('should render only routing if path not exactly match /myapps', () => {
-    const mockProps = getMockProps(mockInstalledApps, false, null, { isExact: false })
+    const mockProps = getMockProps(mockInstalledApps, false, null, {
+      isExact: false
+    })
     const component = shallow(
       <MyApplications t={tMock} {...mockProps} />
     ).getElement()

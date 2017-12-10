@@ -19,11 +19,12 @@ export class UninstallModal extends Component {
   uninstallApp () {
     this.setState({ error: null })
     const { app } = this.props
-    this.props.uninstallApp(app.slug)
-    .then(() => {
-      this.gotoParent()
-    })
-    .catch()
+    this.props
+      .uninstallApp(app.slug)
+      .then(() => {
+        this.gotoParent()
+      })
+      .catch()
   }
 
   gotoParent () {
@@ -53,13 +54,19 @@ export class UninstallModal extends Component {
               <ReactMarkdownWrapper
                 source={
                   app.uninstallable
-                    ? t('app_modal.uninstall.description', { cozyName: cozy.client._url.replace(/^\/\//, '') })
+                    ? t('app_modal.uninstall.description', {
+                      cozyName: cozy.client._url.replace(/^\/\//, '')
+                    })
                     : t('app_modal.uninstall.uninstallable_description')
                 }
               />
-              {uninstallError &&
-                <p class='coz-error'>{t('app_modal.uninstall.message.error', {message: uninstallError.message})}</p>
-              }
+              {uninstallError && (
+                <p class='coz-error'>
+                  {t('app_modal.uninstall.message.error', {
+                    message: uninstallError.message
+                  })}
+                </p>
+              )}
               <div className='sto-modal-controls'>
                 <button
                   role='button'

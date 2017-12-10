@@ -25,7 +25,11 @@ describe('MyApplications component', () => {
 
   it('should be rendered correctly with permissions', () => {
     const component = shallow(
-      <PermissionsList t={tMock} appName='Mock' permissions={mockAppVersion.manifest.permissions} />
+      <PermissionsList
+        t={tMock}
+        appName='Mock'
+        permissions={mockAppVersion.manifest.permissions}
+      />
     ).getElement()
     expect(component).toMatchSnapshot()
   })

@@ -16,9 +16,7 @@ const exceptionProperties = [
   'NotUninstallableAppException'
 ]
 
-const statusCodes = [
-  '401', '403', '404', '405', '500'
-]
+const statusCodes = ['401', '403', '404', '405', '500']
 
 describe('Exceptions library', () => {
   it('should have correct exeception classes', () => {

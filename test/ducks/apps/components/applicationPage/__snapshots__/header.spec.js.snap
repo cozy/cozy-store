@@ -7,13 +7,13 @@ exports[`ApplicationPage header component should be rendered correctly provided 
   <div
     className="sto-app-header-icon"
   >
-    <svg
+    <Icon
       className="sto-app-icon--default blurry"
-    >
-      <use
-        xlinkHref="#undefined"
-      />
-    </svg>
+      color="#95999D"
+      height="88px"
+      icon="test-file-stub"
+      width="88px"
+    />
   </div>
   <div
     className="sto-app-header-content"
@@ -31,6 +31,7 @@ exports[`ApplicationPage header component should be rendered correctly provided 
     >
       <Icon
         className="sto-app-icon--button"
+        color="#FFFFFF"
         height="16px"
         icon="test-file-stub"
         width="16px"
@@ -49,13 +50,13 @@ exports[`ApplicationPage header component should be rendered correctly provided 
   <div
     className="sto-app-header-icon"
   >
-    <svg
+    <Icon
       className="sto-app-icon--default blurry"
-    >
-      <use
-        xlinkHref="#undefined"
-      />
-    </svg>
+      color="#95999D"
+      height="88px"
+      icon="test-file-stub"
+      width="88px"
+    />
   </div>
   <div
     className="sto-app-header-content"
@@ -73,6 +74,7 @@ exports[`ApplicationPage header component should be rendered correctly provided 
     >
       <Icon
         className="sto-app-icon--button"
+        color="#FFFFFF"
         height="16px"
         icon="test-file-stub"
         width="16px"

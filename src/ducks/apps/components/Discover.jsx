@@ -24,39 +24,40 @@ export class Discover extends Component {
     const { t, lang, apps, isFetching, fetchError, isInstalling } = this.props
     return (
       <div className='sto-discover'>
-        {
-          this.props.match.isExact
-          ? <div>
+        {this.props.match.isExact ? (
+          <div>
             <h2 className='sto-discover-title'>{t('discover.title')}</h2>
             <div className='sto-discover-get-started'>
               <h3 className='sto-discover-get-started-title'>
                 {t('discover.get_started')}
               </h3>
               <div className='sto-discover-get-started-list'>
-                {!isFetching && apps.map(app => {
-                  const stableVers = app.versions.stable
-                  const version = stableVers[stableVers.length - 1]
-                  const appName = getLocalizedAppProperty(app, 'name', lang)
-                  return <SmallAppItem
-                    slug={app.slug}
-                    developer={app.developer || {}}
-                    editor={app.editor || ''}
-                    icon={app.icon}
-                    name={appName}
-                    version={version}
-                    installed={app.installed}
-                    onClick={() => this.onAppClick(app.slug)}
-                    key={app.slug}
-                  />
-                })}
-                {fetchError &&
+                {!isFetching &&
+                  apps.map(app => {
+                    const stableVers = app.versions.stable
+                    const version = stableVers[stableVers.length - 1]
+                    const appName = getLocalizedAppProperty(app, 'name', lang)
+                    return (
+                      <SmallAppItem
+                        slug={app.slug}
+                        developer={app.developer || {}}
+                        editor={app.editor || ''}
+                        icon={app.icon}
+                        name={appName}
+                        version={version}
+                        installed={app.installed}
+                        onClick={() => this.onAppClick(app.slug)}
+                        key={app.slug}
+                      />
+                    )
+                  })}
+                {fetchError && (
                   <p className='coz-error'>{fetchError.message}</p>
-                }
+                )}
               </div>
             </div>
           </div>
-          : null
-        }
+        ) : null}
 
         <ApplicationRouting
           apps={apps}
@@ -67,13 +68,9 @@ export class Discover extends Component {
           parent='discover'
         />
 
-        {isFetching &&
-          <Spinner
-            size='xxlarge'
-            loadingType='appsFetching'
-            middle='true'
-          />
-        }
+        {isFetching && (
+          <Spinner size='xxlarge' loadingType='appsFetching' middle='true' />
+        )}
       </div>
     )
   }

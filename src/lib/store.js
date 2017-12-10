@@ -6,7 +6,8 @@ import { createLogger } from 'redux-logger'
 import {
   shouldEnableTracking,
   getTracker,
-  createTrackerMiddleware } from 'cozy-ui/react/helpers/tracker'
+  createTrackerMiddleware
+} from 'cozy-ui/react/helpers/tracker'
 
 const loggerMiddleware = createLogger()
 

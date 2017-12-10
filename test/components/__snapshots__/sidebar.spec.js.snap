@@ -17,6 +17,10 @@ exports[`Sidebar component should be rendered correctly 1`] = `
           className="sto-cat-discover c-nav-link"
           to="/discover"
         >
+          <Icon
+            className="nav-icon"
+            icon="test-file-stub"
+          />
           Discover
         </NavLink>
       </li>
@@ -29,6 +33,10 @@ exports[`Sidebar component should be rendered correctly 1`] = `
           className="sto-cat-myapps c-nav-link"
           to="/myapps"
         >
+          <Icon
+            className="nav-icon"
+            icon="test-file-stub"
+          />
           My Applications
         </NavLink>
       </li>

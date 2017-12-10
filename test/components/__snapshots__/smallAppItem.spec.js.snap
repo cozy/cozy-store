@@ -86,16 +86,18 @@ exports[`SmallAppItem component should be rendered correctly an installed app 2`
   onKeyDown={[Function]}
   tabIndex={0}
 >
-  <svg
+  <Icon
     className="sto-small-app-item-icon--default blurry"
+    color="#95999D"
     height="64"
-    style="padding: 0 8px"
+    icon="test-file-stub"
+    style={
+      Object {
+        "padding": "0 8px",
+      }
+    }
     width="48"
-  >
-    <use
-      xlinkHref="#undefined"
-    />
-  </svg>
+  />
   <Icon
     className="sto-small-app-item-badge-installed"
     color="#2bba40"
