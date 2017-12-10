@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import Icon from 'cozy-ui/react/Icon'
 import { translate } from 'cozy-ui/react/I18n'
 
-import cozySmileWhiteIcon from 'assets/icons/icon-cozy-smile-white.svg'
+import cozySmileIcon from 'assets/icons/icon-cozy-smile.svg'
 import defaultAppIcon from 'assets/icons/icon-cube.svg'
 
 export const Header = ({
@@ -27,9 +27,13 @@ export const Header = ({
         {icon ? (
           <img className='sto-app-icon' src={icon} alt={`${slug}-icon`} />
         ) : (
-          <svg className='sto-app-icon--default blurry'>
-            <use xlinkHref={`#${defaultAppIcon.id}`} />
-          </svg>
+          <Icon
+            className='sto-app-icon--default blurry'
+            icon={defaultAppIcon}
+            height='88px'
+            width='88px'
+            color='#95999D'
+          />
         )}
       </div>
       <div className='sto-app-header-content'>
@@ -60,7 +64,8 @@ export const Header = ({
             className='c-btn c-btn--regular'
           >
             <Icon
-              icon={cozySmileWhiteIcon}
+              icon={cozySmileIcon}
+              color='#FFFFFF'
               width='16px'
               height='16px'
               className='sto-app-icon--button'

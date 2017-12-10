@@ -29,7 +29,11 @@ class HiddenInstallerView extends Component {
   isValid () {
     const { slug, source } = this.state
     if (!slug) return false
-    if (!source.match(/(^registry:\/\/)|(^git(\+ssh)?:\/\/)|(^http(s)?:\/\/)/)) { return false }
+    if (
+      !source.match(/(^registry:\/\/)|(^git(\+ssh)?:\/\/)|(^http(s)?:\/\/)/)
+    ) {
+      return false
+    }
     return true
   }
 

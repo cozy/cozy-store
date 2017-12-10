@@ -1,22 +1,31 @@
-.sto-cat-discover {
-	background: var(--icon-compass) no-repeat 1.5em center/1em;
+.c-nav-link {
+	padding: 0 1rem;
 }
 
-.sto-cat-discover.active {
-	background-image: var(--icon-compass-active);
+.c-nav-link .nav-icon {
+	padding-right: 0.5rem;
+	fill: #95999D;
 }
 
-.sto-cat-myapps {
-	background: var(--icon-cozy) no-repeat 1.5em center/1em;
-}
-
-.sto-cat-myapps.active {
-	background-image: var(--icon-cozy-active);
+.c-nav-link.active .nav-icon {
+	fill: #297EF2;
 }
 
 @media (max-width: 63.9375rem) {
-  .coz-nav-link {
-  	background-position: top;
-	  background-size: 16px;
-  }
+	.c-nav-link {
+		padding: 0;
+	}
+
+	.c-nav-link.active {
+		color: #297EF2;
+	}
+
+	.c-nav-link .nav-icon {
+		display: block;
+		padding: 0;
+		width: 1.15rem;
+		height: 1.15rem;
+		margin: auto;
+		margin-bottom: 0.25rem;
+	}
 }
