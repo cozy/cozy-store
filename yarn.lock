@@ -923,7 +923,7 @@ babel-polyfill@6.26.0:
     core-js "^2.5.0"
     regenerator-runtime "^0.10.5"
 
-babel-preset-cozy-app@^0.3.1:
+babel-preset-cozy-app@0.3.1, babel-preset-cozy-app@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/babel-preset-cozy-app/-/babel-preset-cozy-app-0.3.1.tgz#3b5d646b5038afad00b16f1c4eada4c4fa8b955f"
   dependencies:
@@ -1855,7 +1855,7 @@ cozy-client-js@^0.3.19:
   version "0.3.21"
   resolved "https://registry.yarnpkg.com/cozy-client-js/-/cozy-client-js-0.3.21.tgz#d27d0288077ce95139333c41dfb537b8584ff254"
 
-cozy-scripts@^0.4.0:
+cozy-scripts@0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/cozy-scripts/-/cozy-scripts-0.4.0.tgz#4156640871b87456826353f1f1a10f74ce108d7c"
   dependencies:
@@ -2647,7 +2647,7 @@ escope@^3.6.0:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint-config-cozy-app@^0.3.1:
+eslint-config-cozy-app@0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/eslint-config-cozy-app/-/eslint-config-cozy-app-0.3.1.tgz#ff2f2762fe429f32ef1a92a916b30423323c800f"
   dependencies:
@@ -6826,7 +6826,7 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prettier@^1.9.1:
+prettier@1.9.1:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.9.1.tgz#41638a0d47c1efbd1b7d5a742aaa5548eab86d70"
 
