@@ -1,9 +1,7 @@
 
 [![Travis build status shield](https://img.shields.io/travis/cozy/cozy-store.svg?branch=master)](https://travis-ci.org/cozy/cozy-store)
-[![Greenkeeper badge](https://badges.greenkeeper.io/cozy/cozy-store.svg)](https://greenkeeper.io/)
-[![NPM release version shield](https://img.shields.io/npm/v/cozy-store.svg)](https://www.npmjs.com/package/cozy-store)
+[![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovateapp.com/)
 [![Github Release version shield](https://img.shields.io/github/tag/cozy/cozy-store.svg)](https://github.com/cozy/cozy-store/releases)
-[![NPM Licence shield](https://img.shields.io/npm/l/cozy-store.svg)](https://github.com/cozy/cozy-store/blob/master/LICENSE)
 
 
 [Cozy] Store
