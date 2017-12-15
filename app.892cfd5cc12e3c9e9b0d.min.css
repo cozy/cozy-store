@@ -1160,6 +1160,7 @@ body {
 .o-layout--2panes main,
 .o-layout--2panes main > [role=contentinfo] {
   height: auto;
+  overflow: visible;
 }
 .o-sidebar {
   width: 13.75em;
@@ -1460,6 +1461,7 @@ body {
   width: 100%;
   margin: .5rem 0;
   padding: 1rem 0;
+  max-height: 20rem;
 }
 
 .sto-app-big-images {
@@ -1503,6 +1505,7 @@ body {
   -webkit-box-shadow: 0px 0px 20px -10px var(--charcoal-grey);
           box-shadow: 0px 0px 20px -10px var(--charcoal-grey);
   cursor: pointer;
+  max-height: 100%;
 }
 
 .sto-app-small-image {
@@ -1512,6 +1515,9 @@ body {
   -webkit-box-shadow: 0px 0px 20px -10px var(--charcoal-grey);
           box-shadow: 0px 0px 20px -10px var(--charcoal-grey);
   cursor: pointer;
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-height: calc(100% / 3 - 2rem);
 }
 
 .sto-app-small-image:hover,
@@ -2708,7 +2714,6 @@ body {
   .o-layout--2panes main,
   .o-layout--2panes main > [role=contentinfo] {
     display: block;
-    overflow: visible;
   }
   .o-layout--2panes:before,
   .o-layout--2panes:after {
