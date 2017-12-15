@@ -2,45 +2,39 @@
 
 exports[`Sidebar component should be rendered correctly 1`] = `
 <aside
-  className="coz-sidebar"
+  className="o-sidebar"
 >
-  <nav>
-    <ul
-      className="c-nav"
-    >
-      <li
-        className="c-nav-item"
+  <Nav>
+    <NavItem>
+      <NavLink
+        activeClassName="is-active"
+        ariaCurrent="true"
+        className="c-nav-link"
+        to="/discover"
       >
-        <NavLink
-          activeClassName="active"
-          ariaCurrent="true"
-          className="sto-cat-discover c-nav-link"
-          to="/discover"
-        >
-          <Icon
-            className="nav-icon"
-            icon="test-file-stub"
-          />
+        <NavIcon
+          icon="test-file-stub"
+        />
+        <NavText>
           Discover
-        </NavLink>
-      </li>
-      <li
-        className="c-nav-item"
+        </NavText>
+      </NavLink>
+    </NavItem>
+    <NavItem>
+      <NavLink
+        activeClassName="is-active"
+        ariaCurrent="true"
+        className="c-nav-link"
+        to="/myapps"
       >
-        <NavLink
-          activeClassName="active"
-          ariaCurrent="true"
-          className="sto-cat-myapps c-nav-link"
-          to="/myapps"
-        >
-          <Icon
-            className="nav-icon"
-            icon="test-file-stub"
-          />
+        <NavIcon
+          icon="test-file-stub"
+        />
+        <NavText>
           My Applications
-        </NavLink>
-      </li>
-    </ul>
-  </nav>
+        </NavText>
+      </NavLink>
+    </NavItem>
+  </Nav>
 </aside>
 `;

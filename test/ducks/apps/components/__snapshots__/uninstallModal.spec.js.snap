@@ -4,13 +4,9 @@ exports[`UninstallModal component should be rendered correctly if app not uninst
 <div
   className="sto-modal--uninstall"
 >
-  <Modal
-    overflowHidden={false}
-    primaryType="secondary"
+  <Unknown
     secondaryAction={[Function]}
-    secondaryType="regular"
     title="Uninstall this application"
-    withCross={true}
   >
     <ModalContent>
       <div
@@ -40,7 +36,7 @@ exports[`UninstallModal component should be rendered correctly if app not uninst
         </div>
       </div>
     </ModalContent>
-  </Modal>
+  </Unknown>
 </div>
 `;
 
@@ -48,13 +44,9 @@ exports[`UninstallModal component should be rendered correctly if app uninstalla
 <div
   className="sto-modal--uninstall"
 >
-  <Modal
-    overflowHidden={false}
-    primaryType="secondary"
+  <Unknown
     secondaryAction={[Function]}
-    secondaryType="regular"
     title="Uninstall this application"
-    withCross={true}
   >
     <ModalContent>
       <div
@@ -84,7 +76,7 @@ exports[`UninstallModal component should be rendered correctly if app uninstalla
         </div>
       </div>
     </ModalContent>
-  </Modal>
+  </Unknown>
 </div>
 `;
 
@@ -92,13 +84,9 @@ exports[`UninstallModal component should hanlde correctly error from props 1`] =
 <div
   className="sto-modal--uninstall"
 >
-  <Modal
-    overflowHidden={false}
-    primaryType="secondary"
+  <Unknown
     secondaryAction={[Function]}
-    secondaryType="regular"
     title="Uninstall this application"
-    withCross={true}
   >
     <ModalContent>
       <div
@@ -133,6 +121,6 @@ exports[`UninstallModal component should hanlde correctly error from props 1`] =
         </div>
       </div>
     </ModalContent>
-  </Modal>
+  </Unknown>
 </div>
 `;

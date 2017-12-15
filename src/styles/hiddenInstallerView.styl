@@ -1,10 +1,13 @@
+@require 'cozy-ui'
+
 .sto-hidden-install
+    @extend $form
     @extend $form-text
 
     code
-        background-color pale-grey
+        background-color paleGrey
         font-size   .9rem
-        color   charcoal-grey
+        color   charcoalGrey
         padding 1px 4px
 
     .sto-installer-title
@@ -29,6 +32,7 @@
     .coz-form-controls
         width   100%
         padding-top 2em
+        padding-bottom 2em
 
         .c-btn
             width   100%

@@ -11,15 +11,16 @@ import {
 import { Alerter } from 'cozy-ui/react/Alerter'
 
 export const App = () => (
-  <div className='sto-wrapper coz-sticky'>
+  <div className='app-wrapper o-layout--2panes'>
     <Alerter />
     <Sidebar />
-    <main className='sto-content'>
+    <main className='app-content'>
       <Switch>
         <Route path='/discover' component={Discover} />
         <Route path='/install' component={HiddenInstallerView} />
         <Route path='/myapps' component={MyApplications} />
         <Redirect exact from='/' to='/myapps' />
+        <Redirect from='*' to='/myapps' />
       </Switch>
     </main>
   </div>

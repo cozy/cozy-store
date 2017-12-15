@@ -185,13 +185,9 @@ exports[`ApplicationPage gallery component should open a modal and handle onClos
       tabIndex={0}
     />
   </div>
-  <Modal
-    overflowHidden={false}
-    primaryType="secondary"
+  <Unknown
     secondaryAction={[Function]}
-    secondaryType="regular"
     title="Preview"
-    withCross={true}
   >
     <ModalContent>
       <img
@@ -200,7 +196,7 @@ exports[`ApplicationPage gallery component should open a modal and handle onClos
         src="https://mockcozy.cc/registry/photos/screenshot1.png"
       />
     </ModalContent>
-  </Modal>
+  </Unknown>
 </div>
 `;
 
@@ -240,13 +236,9 @@ exports[`ApplicationPage gallery component should open a modal on image click 1`
       tabIndex={0}
     />
   </div>
-  <Modal
-    overflowHidden={false}
-    primaryType="secondary"
+  <Unknown
     secondaryAction={[Function]}
-    secondaryType="regular"
     title="Preview"
-    withCross={true}
   >
     <ModalContent>
       <img
@@ -255,7 +247,7 @@ exports[`ApplicationPage gallery component should open a modal on image click 1`
         src="https://mockcozy.cc/registry/photos/screenshot1.png"
       />
     </ModalContent>
-  </Modal>
+  </Unknown>
 </div>
 `;
 

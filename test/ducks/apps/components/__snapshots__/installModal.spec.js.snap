@@ -4,12 +4,8 @@ exports[`InstallModal component should be rendered correctly if app found 1`] = 
 <div
   className="sto-modal--install"
 >
-  <Modal
-    overflowHidden={false}
-    primaryType="secondary"
+  <Unknown
     secondaryAction={[Function]}
-    secondaryType="regular"
-    withCross={true}
   >
     <ModalContent>
       <header
@@ -61,7 +57,7 @@ exports[`InstallModal component should be rendered correctly if app found 1`] = 
         </div>
       </div>
     </ModalContent>
-  </Modal>
+  </Unknown>
 </div>
 `;
 
@@ -69,12 +65,8 @@ exports[`InstallModal component should be rendered correctly with also app in re
 <div
   className="sto-modal--install"
 >
-  <Modal
-    overflowHidden={false}
-    primaryType="secondary"
+  <Unknown
     secondaryAction={[Function]}
-    secondaryType="regular"
-    withCross={true}
   >
     <ModalContent>
       <header
@@ -172,7 +164,7 @@ exports[`InstallModal component should be rendered correctly with also app in re
         </div>
       </div>
     </ModalContent>
-  </Modal>
+  </Unknown>
 </div>
 `;
 
@@ -180,12 +172,8 @@ exports[`InstallModal component should handle correctly fetchError from props 1`
 <div
   className="sto-modal--install"
 >
-  <Modal
-    overflowHidden={false}
-    primaryType="secondary"
+  <Unknown
     secondaryAction={[Function]}
-    secondaryType="regular"
-    withCross={true}
   >
     <ModalContent>
       <header
@@ -213,7 +201,7 @@ exports[`InstallModal component should handle correctly fetchError from props 1`
         </p>
       </div>
     </ModalContent>
-  </Modal>
+  </Unknown>
 </div>
 `;
 
@@ -221,12 +209,8 @@ exports[`InstallModal component should handle correctly installError from props 
 <div
   className="sto-modal--install"
 >
-  <Modal
-    overflowHidden={false}
-    primaryType="secondary"
+  <Unknown
     secondaryAction={[Function]}
-    secondaryType="regular"
-    withCross={true}
   >
     <ModalContent>
       <header
@@ -283,7 +267,7 @@ exports[`InstallModal component should handle correctly installError from props 
         </div>
       </div>
     </ModalContent>
-  </Modal>
+  </Unknown>
 </div>
 `;
 
@@ -291,12 +275,8 @@ exports[`InstallModal component should not break the permissions part if no perm
 <div
   className="sto-modal--install"
 >
-  <Modal
-    overflowHidden={false}
-    primaryType="secondary"
+  <Unknown
     secondaryAction={[Function]}
-    secondaryType="regular"
-    withCross={true}
   >
     <ModalContent>
       <header
@@ -348,6 +328,6 @@ exports[`InstallModal component should not break the permissions part if no perm
         </div>
       </div>
     </ModalContent>
-  </Modal>
+  </Unknown>
 </div>
 `;
