@@ -1,20 +1,16 @@
-@import 'cozy-ui'
+@require 'cozy-ui/build'
 
-@import './palette.styl'
+@require './palette.styl'
 
-@import './application.css'
-@import './discover.css'
-@import './empty.css'
-@import './modal.css'
-@import './myApplications.css'
-@import './nav.css'
-@import './permissions.css'
-@import './smallAppItemsList.css'
+@require './application.css'
+@require './discover.css'
+@require './empty.css'
+@require './modal.css'
+@require './myApplications.css'
+@require './permissions.css'
+@require './smallAppItemsList.css'
 
-.sto-wrapper
-    @extend $app-2panes-sticky
-
-.sto-content
+.app-content
     top-padded(15px)
     @media (max-width: (768/basefont)rem)
         top-padded(10px)
@@ -23,11 +19,5 @@
     opacity .7
     filter blur(2px)
 
-[role=application]
-    // need this due to no css-modules usage in this app
-    @media (max-width: (1023/basefont)rem)
-        aside
-            width   100%!important // @stylint ignore
-
 // should be temporary
-@import './hiddenInstallerView.styl'
+@require './hiddenInstallerView.styl'
