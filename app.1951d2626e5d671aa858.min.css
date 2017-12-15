@@ -1160,7 +1160,6 @@ body {
 .o-layout--2panes main,
 .o-layout--2panes main > [role=contentinfo] {
   height: auto;
-  overflow: visible;
 }
 .o-sidebar {
   width: 13.75em;
@@ -2709,6 +2708,7 @@ body {
   .o-layout--2panes main,
   .o-layout--2panes main > [role=contentinfo] {
     display: block;
+    overflow: visible;
   }
   .o-layout--2panes:before,
   .o-layout--2panes:after {
