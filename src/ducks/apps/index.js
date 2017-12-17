@@ -165,12 +165,23 @@ function _sanitizeOldManifest (app) {
 export function getFormattedInstalledApp (response) {
   // FIXME retro-compatibility for old formatted manifest
   response.attributes = _sanitizeOldManifest(response.attributes)
+
   return _getIcon(response.links.icon).then(iconData => {
+    const manifest = response.attributes
+    const screensLinks =
+      manifest.screenshots &&
+      manifest.screenshots.map(name => {
+        const fileName = name.replace(/^.*[\\/]/, '')
+        return `${cozy.client._url}/registry/${
+          manifest.slug
+        }/${manifest.version}/screenshots/${fileName}`
+      })
     return Object.assign({}, response.attributes, {
       _id: response.id || response._id,
       icon: iconData,
       installed: true,
       related: response.links.related,
+      screenshots: screensLinks,
       uninstallable: !config.notRemovableApps.includes(response.attributes.slug)
     })
   })
