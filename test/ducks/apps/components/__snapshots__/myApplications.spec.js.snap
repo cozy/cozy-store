@@ -89,7 +89,7 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
     }
     isFetching={false}
     parent="myapps"
-    uninstallApp={[Function]}
+    uninstallApp={[MockFunction]}
   />
 </div>
 `;
@@ -119,7 +119,7 @@ exports[`MyApplications component should display error from props correctly 1`] 
     installedApps={Array []}
     isFetching={false}
     parent="myapps"
-    uninstallApp={[Function]}
+    uninstallApp={[MockFunction]}
   />
 </div>
 `;
@@ -143,7 +143,7 @@ exports[`MyApplications component should render correctly a spinner if apps is f
     installedApps={Array []}
     isFetching={true}
     parent="myapps"
-    uninstallApp={[Function]}
+    uninstallApp={[MockFunction]}
   />
   <Unknown
     loadingType="appsFetching"
@@ -203,7 +203,7 @@ exports[`MyApplications component should render only routing if path not exactly
     }
     isFetching={false}
     parent="myapps"
-    uninstallApp={[Function]}
+    uninstallApp={[MockFunction]}
   />
 </div>
 `;
