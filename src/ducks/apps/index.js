@@ -323,18 +323,8 @@ export function installApp (slug, source, isUpdate = false) {
     return cozy.client
       .fetchJSON(verb, `/apps/${slug}?Source=${encodeURIComponent(source)}`)
       .then(resp => waitForAppReady(resp))
-      .then(appData => {
-        return _getIcon(appData.links.icon)
-          .then(iconData => {
-            return Object.assign({}, appData.attributes, {
-              _id: appData.id,
-              icon: iconData,
-              installed: true,
-              uninstallable: !config.notRemovableApps.includes(
-                appData.attributes.slug
-              )
-            })
-          })
+      .then(appResponse => {
+        return getFormattedInstalledApp(appResponse)
           .then(app => {
             // add the installed app to the state apps list
             const apps = getState().apps.list.map(a => {
