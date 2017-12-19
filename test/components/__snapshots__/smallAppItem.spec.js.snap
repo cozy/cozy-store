@@ -3,7 +3,7 @@
 exports[`SmallAppItem component should be rendered correctly an app 1`] = `
 <div
   className="sto-small-app-item"
-  onClick={[Function]}
+  onClick={[MockFunction]}
   onKeyDown={[Function]}
   tabIndex={0}
 >
@@ -40,7 +40,7 @@ exports[`SmallAppItem component should be rendered correctly an app 1`] = `
 exports[`SmallAppItem component should be rendered correctly an installed app 1`] = `
 <div
   className="sto-small-app-item"
-  onClick={[Function]}
+  onClick={[MockFunction]}
   onKeyDown={[Function]}
   tabIndex={0}
 >
@@ -82,7 +82,7 @@ exports[`SmallAppItem component should be rendered correctly an installed app 1`
 exports[`SmallAppItem component should be rendered correctly an installed app 2`] = `
 <div
   className="sto-small-app-item"
-  onClick={[Function]}
+  onClick={[MockFunction]}
   onKeyDown={[Function]}
   tabIndex={0}
 >

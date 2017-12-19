@@ -96,7 +96,7 @@ exports[`ApplicationRouting component with Modal should handle correctly if inst
     }
   }
   parent="/myapps"
-  uninstallApp={[Function]}
+  uninstallApp={[MockFunction]}
   uninstallError={undefined}
 />
 `;
@@ -131,7 +131,7 @@ exports[`ApplicationRouting component with Modal should render correctly if apps
     }
   }
   parent="/myapps"
-  uninstallApp={[Function]}
+  uninstallApp={[MockFunction]}
   uninstallError={undefined}
 />
 `;
@@ -163,7 +163,7 @@ exports[`ApplicationRouting component with Modal should render correctly if unin
     }
   }
   fetchError={undefined}
-  installApp={[Function]}
+  installApp={[MockFunction]}
   installError={undefined}
   isFetching={false}
   isInstalling={undefined}
