@@ -24,6 +24,7 @@ export const ReactMarkdownWrapper = ({ source, parseEmoji, className }) => (
     source={parseEmoji ? emojiParser.replace_colons(source) : source}
     renderers={reactMarkdownRendererOptions}
     className={className}
+    escapeHtml={false}
   />
 )
 
