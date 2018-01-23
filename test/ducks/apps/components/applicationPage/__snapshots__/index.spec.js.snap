@@ -5,7 +5,7 @@ exports[`ApplicationPage component should be rendered correctly with app infos f
   <div
     className="sto-app"
   >
-    <Unknown
+    <Wrapper
       description="Gestionnaire de photos pour Cozy v3"
       editor="Cozy"
       icon="https://mockcozy.cc/registry/photos/icon"
@@ -15,11 +15,11 @@ exports[`ApplicationPage component should be rendered correctly with app infos f
       parent="/myapps"
       slug="photos"
     />
-    <Unknown
+    <Wrapper
       images={undefined}
       slug="photos"
     />
-    <Unknown
+    <Wrapper
       category="cozy"
       changes="### NEW!!!
 
@@ -61,7 +61,7 @@ exports[`ApplicationPage component should be rendered correctly with provided in
   <div
     className="sto-app"
   >
-    <Unknown
+    <Wrapper
       description="Gestionnaire de photos pour Cozy v3"
       editor="Cozy"
       icon="https://mockcozy.cc/registry/photos/icon"
@@ -71,11 +71,11 @@ exports[`ApplicationPage component should be rendered correctly with provided in
       parent="/myapps"
       slug="photos"
     />
-    <Unknown
+    <Wrapper
       images={undefined}
       slug="photos"
     />
-    <Unknown
+    <Wrapper
       category="cozy"
       changes="### NEW!!!
 
@@ -116,7 +116,7 @@ exports[`ApplicationPage component should render correctly a spinner if isFetchi
 <div
   className="sto-app"
 >
-  <Unknown
+  <Wrapper
     loadingType="appsFetching"
     middle="true"
     size="xxlarge"
