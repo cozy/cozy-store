@@ -76,7 +76,7 @@
     "cozy-ui": "6.0.3",
     "emoji-js": "3.4.0",
     "preact": "8.2.7",
-    "preact-compat": "3.17.0",
+    "preact-compat": "3.18.0",
     "react-redux": "5.0.6",
     "react-router-dom": "4.2.2",
     "redux": "3.7.2",
