@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Apps Containers (connected components): Discover should be rendered correctly at initial store 1`] = `
-<Unknown
+<Wrapper
   actionError={null}
   apps={Array []}
   fetchApps={[Function]}
@@ -48,7 +48,7 @@ exports[`Apps Containers (connected components): Discover should be rendered cor
 `;
 
 exports[`Apps Containers (connected components): MyApplications should be rendered correctly at initial store 1`] = `
-<Unknown
+<Wrapper
   actionError={null}
   apps={Array []}
   fetchApps={[Function]}
