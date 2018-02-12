@@ -7459,9 +7459,9 @@ react-dom@16.2.0:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
-react-markdown@3.1.5:
-  version "3.1.5"
-  resolved "https://registry.yarnpkg.com/react-markdown/-/react-markdown-3.1.5.tgz#b1de8e3d421d31b8e1a679c66380fff20ee9a096"
+react-markdown@3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/react-markdown/-/react-markdown-3.2.0.tgz#0fec0629dda35887518559ea9e2cca3e761e24dc"
   dependencies:
     prop-types "^15.6.0"
     remark-parse "^4.0.0"
