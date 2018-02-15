@@ -26,6 +26,11 @@
       "description": "Required to manage applications",
       "type": "io.cozy.apps"
     },
+    "konnectors": {
+      "description": "Required to get the list of konnectors",
+      "type": "io.cozy.konnectors",
+      "verbs": ["GET"]
+    },
     "settings": {
       "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
       "type": "io.cozy.settings",

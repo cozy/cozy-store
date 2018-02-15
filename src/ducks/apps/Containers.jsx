@@ -26,12 +26,13 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchApps: () => dispatch(fetchApps()),
   fetchInstalledApps: () => dispatch(fetchInstalledApps()),
-  installApp: (appSlug, channel) =>
-    dispatch(installAppFromRegistry(appSlug, channel)),
-  uninstallApp: appSlug => dispatch(uninstallApp(appSlug)),
+  installApp: (appSlug, appType, channel) =>
+    dispatch(installAppFromRegistry(appSlug, appType, channel)),
+  uninstallApp: (appSlug, appType) =>
+    dispatch(uninstallApp(appSlug, appType)),
   // for the hidden installer only
-  installUsingInstaller: (appSlug, source, isUpdate) =>
-    dispatch(installApp(appSlug, source, isUpdate)).catch(() => {
+  installUsingInstaller: (appSlug, appType, source, isUpdate) =>
+    dispatch(installApp(appSlug, appType, source, isUpdate)).catch(() => {
       dispatch({
         type: 'SEND_LOG_FAILURE',
         alert: {

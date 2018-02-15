@@ -21,7 +21,7 @@ export class InstallModal extends Component {
     this.setState({ error: null })
     const { app } = this.props
     this.props
-      .installApp(app.slug)
+      .installApp(app.slug, app.type)
       .then(() => {
         this.gotoParent()
       })
