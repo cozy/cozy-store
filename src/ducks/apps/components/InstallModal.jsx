@@ -67,7 +67,7 @@ export class InstallModal extends Component {
                   href='https://cozy.io'
                   target='_blank'
                   title='Cozy Website'
-                  class='sto-modal-header-icon-shield'
+                  className='sto-modal-header-icon-shield'
                 />
               </div>
               {!isFetching &&
@@ -91,7 +91,7 @@ export class InstallModal extends Component {
                         />
                       )}
                     {installError && (
-                      <p class='u-error'>
+                      <p className='u-error'>
                         {t('app_modal.install.message.install_error', {
                           message: installError.message
                         })}
@@ -118,7 +118,7 @@ export class InstallModal extends Component {
                   </div>
                 )}
               {fetchError && (
-                <p class='u-error'>
+                <p className='u-error'>
                   {t('app_modal.install.message.version_error', {
                     message: fetchError.message
                   })}
