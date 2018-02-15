@@ -32,7 +32,7 @@ export class Discover extends Component {
                 {t('discover.get_started')}
               </h3>
               <div className='sto-discover-get-started-list'>
-                {!isFetching &&
+                {!isFetching && !fetchError &&
                   apps.map(app => {
                     const stableVers = app.versions.stable
                     const version = stableVers[stableVers.length - 1]
@@ -52,7 +52,7 @@ export class Discover extends Component {
                     )
                   })}
                 {fetchError && (
-                  <p className='coz-error'>{fetchError.message}</p>
+                  <p className='u-error'>{fetchError.message}</p>
                 )}
               </div>
             </div>

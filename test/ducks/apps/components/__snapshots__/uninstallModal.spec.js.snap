@@ -96,7 +96,7 @@ exports[`UninstallModal component should hanlde correctly error from props 1`] =
           source="This application is bound to be removed from your Cozy cozytest.mock.cc. Are you sure to __remove this application definitively__?"
         />
         <p
-          class="coz-error"
+          className="u-error"
         >
           Something went wrong when uninstalling this application. Reason: This is a test error
         </p>

@@ -28,7 +28,7 @@ export const ApplicationPage = ({
   }
   if (fetchError) {
     return (
-      <p class='coz-error'>
+      <p className='u-error'>
         {t('app_modal.install.message.version_error', {
           message: fetchError.message
         })}

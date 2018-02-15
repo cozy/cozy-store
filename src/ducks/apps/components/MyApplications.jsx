@@ -44,7 +44,7 @@ export class MyApplications extends Component {
                     />
                   )
                 })}
-              {fetchError && <p className='coz-error'>{fetchError.message}</p>}
+              {fetchError && <p className='u-error'>{fetchError.message}</p>}
             </div>
           </div>
         ) : null}

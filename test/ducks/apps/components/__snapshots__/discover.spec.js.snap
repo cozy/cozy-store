@@ -163,7 +163,7 @@ exports[`Discover component should display error from props correctly 1`] = `
         className="sto-discover-get-started-list"
       >
         <p
-          className="coz-error"
+          className="u-error"
         >
           This is a test error
         </p>
