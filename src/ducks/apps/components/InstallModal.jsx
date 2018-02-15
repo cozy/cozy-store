@@ -91,7 +91,7 @@ export class InstallModal extends Component {
                         />
                       )}
                     {installError && (
-                      <p class='coz-error'>
+                      <p class='u-error'>
                         {t('app_modal.install.message.install_error', {
                           message: installError.message
                         })}
@@ -118,7 +118,7 @@ export class InstallModal extends Component {
                   </div>
                 )}
               {fetchError && (
-                <p class='coz-error'>
+                <p class='u-error'>
                   {t('app_modal.install.message.version_error', {
                     message: fetchError.message
                   })}

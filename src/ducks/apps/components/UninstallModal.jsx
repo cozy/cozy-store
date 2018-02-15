@@ -61,7 +61,7 @@ export class UninstallModal extends Component {
                 }
               />
               {uninstallError && (
-                <p class='coz-error'>
+                <p class='u-error'>
                   {t('app_modal.uninstall.message.error', {
                     message: uninstallError.message
                   })}

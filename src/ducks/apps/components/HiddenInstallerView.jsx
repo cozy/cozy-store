@@ -82,7 +82,7 @@ class HiddenInstallerView extends Component {
               />
             </div>
             {actionError && (
-              <p className='coz-error'>
+              <p className='u-error'>
                 {actionError.status === 409
                   ? t('HiddenInstallerView.conflict')
                   : `Error: ${error.detail}`}

@@ -126,7 +126,7 @@ exports[`ApplicationPage component should render correctly a spinner if isFetchi
 
 exports[`ApplicationPage component should render correctly an error message if fetchError 1`] = `
 <p
-  class="coz-error"
+  class="u-error"
 >
   Something went wrong when fetching the application informations. Reason: This is a test error
 </p>

@@ -108,7 +108,7 @@ exports[`MyApplications component should display error from props correctly 1`] 
       className="sto-myapps-list"
     >
       <p
-        className="coz-error"
+        className="u-error"
       >
         This is a test error
       </p>
