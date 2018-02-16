@@ -219,7 +219,7 @@ export function getFormattedRegistryApp (response, channel) {
           icon: iconLink,
           // the konnector manifest type must stay 'node'
           // for the stack so we use appType here
-          appType: version.type,
+          type: version.type,
           // add screensLinks property only if it exists
           ...(screensLinks ? {screenshots: screensLinks} : {}),
           installed: false,
@@ -298,7 +298,7 @@ export function fetchApps () {
   }
 }
 
-export function uninstallApp (slug, appType) {
+export function uninstallApp (slug, type) {
   return (dispatch, getState) => {
     if (
       config.notRemovableApps.includes(slug) ||
@@ -308,7 +308,7 @@ export function uninstallApp (slug, appType) {
       dispatch({ type: UNINSTALL_APP_FAILURE, error })
       throw error
     }
-    const route = appType === APP_TYPE.KONNECTOR
+    const route = type === APP_TYPE.KONNECTOR
       ? 'konnectors' : 'apps'
     return cozy.client
       .fetchJSON('DELETE', `/${route}/${slug}`)
@@ -334,11 +334,11 @@ export function uninstallApp (slug, appType) {
   }
 }
 
-export function installApp (slug, appType, source, isUpdate = false) {
+export function installApp (slug, type, source, isUpdate = false) {
   return (dispatch, getState) => {
     dispatch({ type: INSTALL_APP })
     const verb = isUpdate ? 'PUT' : 'POST'
-    const route = appType === APP_TYPE.KONNECTOR
+    const route = type === APP_TYPE.KONNECTOR
       ? 'konnectors' : 'apps'
     return cozy.client
       .fetchJSON(verb, `/${route}/${slug}?Source=${encodeURIComponent(source)}`)
@@ -372,10 +372,10 @@ export function installApp (slug, appType, source, isUpdate = false) {
   }
 }
 
-export function installAppFromRegistry (slug, appType, channel = DEFAULT_CHANNEL) {
+export function installAppFromRegistry (slug, type, channel = DEFAULT_CHANNEL) {
   return (dispatch, getState) => {
     const source = `registry://${slug}/${channel}`
-    return dispatch(installApp(slug, appType, source, false))
+    return dispatch(installApp(slug, type, source, false))
   }
 }
 

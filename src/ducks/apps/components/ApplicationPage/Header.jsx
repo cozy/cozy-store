@@ -15,7 +15,7 @@ export const Header = ({
   slug,
   editor,
   name,
-  appType,
+  type,
   description,
   installed,
   installedAppLink,
@@ -24,7 +24,7 @@ export const Header = ({
   const openApp = link => {
     window.location.assign(link)
   }
-  const isKonnector = appType === APP_TYPE.KONNECTOR
+  const isKonnector = type === APP_TYPE.KONNECTOR
   return (
     <div className='sto-app-header'>
       <div className='sto-app-header-icon'>
