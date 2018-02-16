@@ -29,6 +29,7 @@ const getMockProps = (
   installedApps,
   isFetching,
   fetchError,
+  actionError: null,
   history: { push: jest.fn() },
   match
 })

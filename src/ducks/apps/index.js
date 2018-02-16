@@ -17,6 +17,8 @@ export const APP_TYPE = {
   WEBAPP: 'webpapp'
 }
 
+const COLLECT_RELATED_PATH = '#/providers/all'
+
 const DEFAULT_CHANNEL = 'dev'
 
 const FETCH_APPS = 'FETCH_APPS'
@@ -167,12 +169,21 @@ function _sanitizeOldManifest (app) {
   return app
 }
 
-export function getFormattedInstalledApp (response) {
+// all konnector slugs begin by konnector- in the registry
+// so we remove this prefix before using it with the stack
+function _getStackSlug (slug = '') {
+  return slug.replace(/^konnector-/, '')
+}
+
+export function getFormattedInstalledApp (response, collectLink) {
   // FIXME retro-compatibility for old formatted manifest
   response.attributes = _sanitizeOldManifest(response.attributes)
 
   return _getIcon(response.links.icon).then(iconData => {
     const manifest = response.attributes
+    const openingLink = response.attributes.type === APP_TYPE.KONNECTOR
+      ? `${collectLink}/${COLLECT_RELATED_PATH}/${_getStackSlug(manifest.slug)}`
+      : response.links.related
     const screensLinks =
       manifest.screenshots &&
       manifest.screenshots.map(name => {
@@ -185,7 +196,7 @@ export function getFormattedInstalledApp (response) {
       _id: response.id || response._id,
       icon: iconData,
       installed: true,
-      related: response.links.related,
+      related: openingLink,
       screenshots: screensLinks,
       uninstallable: !config.notRemovableApps.includes(response.attributes.slug)
     })
@@ -236,6 +247,8 @@ export function fetchInstalledApps () {
     try {
       let installedWebApps = await cozy.client
         .fetchJSON('GET', '/apps/')
+      const collectApp = installedWebApps.find(a => a.attributes.slug === 'collect')
+      const collectLink = collectApp && collectApp.links.related
       installedWebApps = installedWebApps.filter(
         app =>
           !config.notDisplayedApps.includes(app.attributes.slug)
@@ -249,7 +262,7 @@ export function fetchInstalledApps () {
       const installedApps = installedWebApps.concat(installedKonnectors)
       Promise.all(
         installedApps.map(app => {
-          return getFormattedInstalledApp(app)
+          return getFormattedInstalledApp(app, collectLink)
         })
       ).then(apps => {
         return dispatch({ type: FETCH_APPS_SUCCESS, apps })
@@ -308,10 +321,11 @@ export function uninstallApp (slug, type) {
       dispatch({ type: UNINSTALL_APP_FAILURE, error })
       throw error
     }
-    const route = type === APP_TYPE.KONNECTOR
+    // FIXME: hack to handle node type from stack for the konnectors
+    const route = (type === APP_TYPE.KONNECTOR || type === 'node')
       ? 'konnectors' : 'apps'
     return cozy.client
-      .fetchJSON('DELETE', `/${route}/${slug}`)
+      .fetchJSON('DELETE', `/${route}/${_getStackSlug(slug)}`)
       .then(() => {
         // remove the app from the state apps list
         const apps = getState().apps.list.map(app => {
@@ -341,8 +355,10 @@ export function installApp (slug, type, source, isUpdate = false) {
     const route = type === APP_TYPE.KONNECTOR
       ? 'konnectors' : 'apps'
     return cozy.client
-      .fetchJSON(verb, `/${route}/${slug}?Source=${encodeURIComponent(source)}`)
-      .then(resp => waitForAppReady(resp))
+      .fetchJSON(
+        verb,
+        `/${route}/${_getStackSlug(slug)}?Source=${encodeURIComponent(source)}`
+      ).then(resp => waitForAppReady(resp))
       .then(appResponse => {
         return getFormattedInstalledApp(appResponse)
           .then(app => {
@@ -386,8 +402,9 @@ function waitForAppReady (app, timeout = 20 * 1000) {
     let idTimeout
     let idInterval
 
+    // FIXME: hack to handle node type from stack for the konnectors
     const route =
-      app.attributes.type === APP_TYPE.KONNECTOR
+      (app.attributes.type === APP_TYPE.KONNECTOR || app.attributes.type === 'node')
         ? 'konnectors'
         : 'apps'
 

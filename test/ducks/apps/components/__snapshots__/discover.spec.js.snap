@@ -77,6 +77,7 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
     </div>
   </div>
   <withRouter(ApplicationRouting)
+    actionError={null}
     apps={
       Array [
         Object {
@@ -210,6 +211,7 @@ exports[`Discover component should display error from props correctly 1`] = `
     </div>
   </div>
   <withRouter(ApplicationRouting)
+    actionError={null}
     apps={Array []}
     installApp={undefined}
     isFetching={false}
@@ -225,6 +227,7 @@ exports[`Discover component should not render apps list if !match.isExact 1`] = 
   className="sto-discover"
 >
   <withRouter(ApplicationRouting)
+    actionError={null}
     apps={
       Array [
         Object {
@@ -352,6 +355,7 @@ exports[`Discover component should render correctly a spinner if apps is fetchin
     </div>
   </div>
   <withRouter(ApplicationRouting)
+    actionError={null}
     apps={Array []}
     installApp={undefined}
     isFetching={true}

@@ -112,7 +112,7 @@ export class InstallModal extends Component {
                         className='c-btn c-btn--regular c-btn--download'
                         onClick={this.installApp}
                       >
-                        {t('app_modal.install.install')}
+                        <span>{t('app_modal.install.install')}</span>
                       </button>
                     </div>
                   </div>
