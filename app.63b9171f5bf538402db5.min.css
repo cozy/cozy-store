@@ -2106,7 +2106,7 @@ body {
             box-shadow: 0 1px 3px 0 rgba(50, 54, 63, 0.25), 0 6px 18px 0 rgba(50, 54, 63, 0.2);
 }
 
-.sto-modal--install .sto-modal-header-icon[aria-busy="true"]:before {
+/* .sto-modal--install .sto-modal-header-icon[aria-busy="true"]:before {
   position: absolute;
   content: '';
   width: 100%;
@@ -2117,11 +2117,9 @@ body {
   border-radius: 100%;
   border: .4em solid var(--science-blue);
   border-right: .2em solid white;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-animation: 1s linear infinite spin;
-          animation: 1s linear infinite spin;
-}
+  box-sizing: border-box;
+  animation: 1s linear infinite spin;
+} */
 
 .sto-myapps-title {
   padding-left: 1.5em;
