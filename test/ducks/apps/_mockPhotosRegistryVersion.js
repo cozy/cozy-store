@@ -6,6 +6,8 @@ export const Photos = {
   manifest: {
     name: 'Photos',
     slug: 'photos',
+    type: 'webapp',
+    icon: 'https://mockcozy.cc/registry/photos/3.0.0/icon.svg',
     short_description: 'Photos manager for Cozy v3',
     category: 'cozy',
     source: 'https://github.com/cozy/cozy-drive.git@build-photos',

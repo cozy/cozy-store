@@ -14,6 +14,7 @@ exports[`ApplicationRouting component with ApplicationPage should handle correct
       "name": "Collect",
       "related": "http://collect.cozy.mock/",
       "slug": "collect",
+      "type": "webapp",
       "uninstallable": false,
       "version": "3.0.0",
       "versions": Object {
@@ -47,6 +48,7 @@ exports[`ApplicationRouting component with ApplicationPage should render correct
       "name": "Collect",
       "related": "http://collect.cozy.mock/",
       "slug": "collect",
+      "type": "webapp",
       "uninstallable": false,
       "version": "3.0.0",
       "versions": Object {
@@ -80,6 +82,7 @@ exports[`ApplicationRouting component with Modal should handle correctly if inst
       "name": "Collect",
       "related": "http://collect.cozy.mock/",
       "slug": "collect",
+      "type": "webapp",
       "uninstallable": false,
       "version": "3.0.0",
       "versions": Object {
@@ -115,6 +118,7 @@ exports[`ApplicationRouting component with Modal should render correctly if apps
       "name": "Collect",
       "related": "http://collect.cozy.mock/",
       "slug": "collect",
+      "type": "webapp",
       "uninstallable": false,
       "version": "3.0.0",
       "versions": Object {
@@ -148,6 +152,7 @@ exports[`ApplicationRouting component with Modal should render correctly if unin
       "isInRegistry": true,
       "name": "Photos",
       "slug": "photos",
+      "type": "webapp",
       "uninstallable": true,
       "versions": Object {
         "beta": Array [

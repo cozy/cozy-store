@@ -14,6 +14,7 @@ exports[`ApplicationPage component should be rendered correctly with app infos f
       name="Photos"
       parent="/myapps"
       slug="photos"
+      type="webapp"
     />
     <Wrapper
       images={undefined}
@@ -56,6 +57,48 @@ Enjoy features to grab your data in you Cozy :tada:"
 </div>
 `;
 
+exports[`ApplicationPage component should be rendered correctly with konnector infos from registry (not installed) 1`] = `
+<div>
+  <div
+    className="sto-app"
+  >
+    <Wrapper
+      description="A konnector for trinlane"
+      editor="Cozy"
+      icon="https://mockcozy.cc/registry/konnector-trinlane/icon"
+      installed={false}
+      installedAppLink={undefined}
+      name="Trinlane"
+      parent="/myapps"
+      slug="konnector-trinlane"
+      type="konnector"
+    />
+    <Wrapper
+      images={undefined}
+      slug="konnector-trinlane"
+    />
+    <Wrapper
+      category="cozy"
+      changes={undefined}
+      description={undefined}
+      developer={
+        Object {
+          "name": "Cozy",
+          "url": "https://cozy.io",
+        }
+      }
+      langs={
+        Array [
+          "fr",
+          "en",
+        ]
+      }
+      mobileApps={undefined}
+    />
+  </div>
+</div>
+`;
+
 exports[`ApplicationPage component should be rendered correctly with provided installed app 1`] = `
 <div>
   <div
@@ -70,6 +113,7 @@ exports[`ApplicationPage component should be rendered correctly with provided in
       name="Photos"
       parent="/myapps"
       slug="photos"
+      type="webapp"
     />
     <Wrapper
       images={undefined}
@@ -107,6 +151,48 @@ Enjoy features to grab your data in you Cozy :tada:"
           },
         ]
       }
+    />
+  </div>
+</div>
+`;
+
+exports[`ApplicationPage component should be rendered correctly with provided installed konnector 1`] = `
+<div>
+  <div
+    className="sto-app"
+  >
+    <Wrapper
+      description="A konnector for trinlane"
+      editor="Cozy"
+      icon="https://mockcozy.cc/registry/konnector-trinlane/icon"
+      installed={true}
+      installedAppLink={undefined}
+      name="Trinlane"
+      parent="/myapps"
+      slug="konnector-trinlane"
+      type="konnector"
+    />
+    <Wrapper
+      images={undefined}
+      slug="konnector-trinlane"
+    />
+    <Wrapper
+      category="cozy"
+      changes={undefined}
+      description={undefined}
+      developer={
+        Object {
+          "name": "Cozy",
+          "url": "https://cozy.io",
+        }
+      }
+      langs={
+        Array [
+          "fr",
+          "en",
+        ]
+      }
+      mobileApps={undefined}
     />
   </div>
 </div>

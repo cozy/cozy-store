@@ -190,6 +190,70 @@ Enjoy features to grab your data in you Cozy :tada:"
 </div>
 `;
 
+exports[`ApplicationPage details component should be rendered correctly with provided konnector 1`] = `
+<div
+  className="sto-app-details"
+>
+  <div
+    className="sto-app-descriptions"
+  />
+  <div
+    className="sto-app-additional-details"
+  >
+    <h3>
+      Informations
+    </h3>
+    <div
+      className="sto-app-info"
+    >
+      <div
+        className="sto-app-info-header"
+      >
+        Category
+      </div>
+      <div
+        className="sto-app-info-content"
+      >
+        Cozy
+      </div>
+    </div>
+    <div
+      className="sto-app-info"
+    >
+      <div
+        className="sto-app-info-header"
+      >
+        Languages
+      </div>
+      <div
+        className="sto-app-info-content"
+      >
+        French, English
+      </div>
+    </div>
+    <div>
+      <h3>
+        Developer Details
+      </h3>
+      <div
+        className="sto-app-developer-infos"
+      >
+        <span>
+          Cozy Cloud Inc.
+        </span>
+        <a
+          className="sto-app-developer-link"
+          href="https://cozy.io"
+          target="_blank"
+        >
+          https://cozy.io
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`ApplicationPage details component should handle correctly \`display more\` behaviour on changes part 1`] = `
 <div
   className="sto-app-details"
