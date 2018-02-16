@@ -19,7 +19,7 @@ export class MyApplications extends Component {
   }
 
   render () {
-    const { t, lang, installedApps, isFetching, fetchError } = this.props
+    const { t, lang, installedApps, isFetching, fetchError, actionError } = this.props
     return (
       <div className='sto-myapps'>
         {this.props.match.isExact ? (
@@ -52,6 +52,7 @@ export class MyApplications extends Component {
         <ApplicationRouting
           installedApps={installedApps}
           isFetching={isFetching}
+          actionError={actionError}
           installApp={this.props.installApp}
           uninstallApp={this.props.uninstallApp}
           parent='myapps'
