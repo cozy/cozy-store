@@ -10,13 +10,15 @@ import { tMock } from '../../../../jestLib/I18n'
 import { ApplicationPage } from 'ducks/apps/components/ApplicationPage'
 
 import mockApp from '../../_mockPhotosRegistryVersion'
+import mockKonnector from '../../_mockPKonnectorTrinlaneRegistryVersion'
 
 Enzyme.configure({ adapter: new Adapter() })
 
 const appManifest = mockApp.manifest
+const konnectorManifest = mockKonnector.manifest
 const mockError = new Error('This is a test error')
 
-const getProps = (installed, related) => {
+const getAppProps = (installed, related) => {
   return {
     lang: 'en',
     app: Object.assign({}, appManifest, {
@@ -28,9 +30,28 @@ const getProps = (installed, related) => {
   }
 }
 
+const getKonnectorProps = (installed) => {
+  return {
+    lang: 'en',
+    app: Object.assign({}, konnectorManifest, {
+      installed,
+      icon: 'https://mockcozy.cc/registry/konnector-trinlane/icon'
+    }),
+    parent: '/myapps'
+  }
+}
+
 describe('ApplicationPage component', () => {
   it('should be rendered correctly with provided installed app', () => {
-    const props = getProps(true, 'https://photos.mockcozy.cc')
+    const props = getAppProps(true, 'https://photos.mockcozy.cc')
+    const component = shallow(
+      <ApplicationPage t={tMock} {...props} />
+    ).getElement()
+    expect(component).toMatchSnapshot()
+  })
+
+  it('should be rendered correctly with provided installed konnector', () => {
+    const props = getKonnectorProps(true)
     const component = shallow(
       <ApplicationPage t={tMock} {...props} />
     ).getElement()
@@ -38,7 +59,15 @@ describe('ApplicationPage component', () => {
   })
 
   it('should be rendered correctly with app infos from registry (not installed)', () => {
-    const props = getProps(false, null)
+    const props = getAppProps(false, null)
+    const component = shallow(
+      <ApplicationPage t={tMock} {...props} />
+    ).getElement()
+    expect(component).toMatchSnapshot()
+  })
+
+  it('should be rendered correctly with konnector infos from registry (not installed)', () => {
+    const props = getKonnectorProps(false)
     const component = shallow(
       <ApplicationPage t={tMock} {...props} />
     ).getElement()
@@ -46,7 +75,7 @@ describe('ApplicationPage component', () => {
   })
 
   it('should render correctly a spinner if isFetching', () => {
-    const props = getProps(false, null)
+    const props = getAppProps(false, null)
     const component = shallow(
       <ApplicationPage t={tMock} isFetching {...props} />
     ).getElement()
@@ -54,7 +83,7 @@ describe('ApplicationPage component', () => {
   })
 
   it('should render correctly an error message if fetchError', () => {
-    const props = getProps(false, null)
+    const props = getAppProps(false, null)
     const component = shallow(
       <ApplicationPage t={tMock} fetchError={mockError} {...props} />
     ).getElement()

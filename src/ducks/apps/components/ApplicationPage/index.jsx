@@ -35,7 +35,7 @@ export const ApplicationPage = ({
       </p>
     )
   }
-  const { icon, installed, editor, related, slug } = app
+  const { icon, installed, editor, related, slug, type } = app
   const appName = getLocalizedAppProperty(app, 'name', lang)
   const appShortDesc = getLocalizedAppProperty(app, 'short_description', lang)
   const appLongDesc = getLocalizedAppProperty(app, 'long_description', lang)
@@ -58,6 +58,7 @@ export const ApplicationPage = ({
           icon={icon}
           editor={editor}
           name={appName}
+          type={type}
           description={appShortDesc}
           installed={installed}
           installedAppLink={related}

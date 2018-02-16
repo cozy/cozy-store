@@ -10,6 +10,7 @@ import { tMock } from '../../../jestLib/I18n'
 import { PermissionsList } from 'ducks/apps/components/PermissionsList'
 
 import mockAppVersion from '../_mockPhotosRegistryVersion'
+import mockKonnectorVersion from '../_mockPKonnectorTrinlaneRegistryVersion'
 
 Enzyme.configure({ adapter: new Adapter() })
 
@@ -29,6 +30,17 @@ describe('MyApplications component', () => {
         t={tMock}
         appName='Mock'
         permissions={mockAppVersion.manifest.permissions}
+      />
+    ).getElement()
+    expect(component).toMatchSnapshot()
+  })
+
+  it('should be rendered correctly with konnector permissions', () => {
+    const component = shallow(
+      <PermissionsList
+        t={tMock}
+        appName='Mock'
+        permissions={mockKonnectorVersion.manifest.permissions}
       />
     ).getElement()
     expect(component).toMatchSnapshot()

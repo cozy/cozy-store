@@ -12,6 +12,13 @@ const APP_STATE = {
   ERRORED: 'errored'
 }
 
+export const APP_TYPE = {
+  KONNECTOR: 'konnector',
+  WEBAPP: 'webpapp'
+}
+
+const COLLECT_RELATED_PATH = '#/providers/all'
+
 const DEFAULT_CHANNEL = 'dev'
 
 const FETCH_APPS = 'FETCH_APPS'
@@ -162,12 +169,21 @@ function _sanitizeOldManifest (app) {
   return app
 }
 
-export function getFormattedInstalledApp (response) {
+// all konnector slugs begin by konnector- in the registry
+// so we remove this prefix before using it with the stack
+function _getStackSlug (slug = '') {
+  return slug.replace(/^konnector-/, '')
+}
+
+export function getFormattedInstalledApp (response, collectLink) {
   // FIXME retro-compatibility for old formatted manifest
   response.attributes = _sanitizeOldManifest(response.attributes)
 
   return _getIcon(response.links.icon).then(iconData => {
     const manifest = response.attributes
+    const openingLink = response.attributes.type === APP_TYPE.KONNECTOR
+      ? `${collectLink}/${COLLECT_RELATED_PATH}/${_getStackSlug(manifest.slug)}`
+      : response.links.related
     const screensLinks =
       manifest.screenshots &&
       manifest.screenshots.map(name => {
@@ -180,7 +196,7 @@ export function getFormattedInstalledApp (response) {
       _id: response.id || response._id,
       icon: iconData,
       installed: true,
-      related: response.links.related,
+      related: openingLink,
       screenshots: screensLinks,
       uninstallable: !config.notRemovableApps.includes(response.attributes.slug)
     })
@@ -212,7 +228,11 @@ export function getFormattedRegistryApp (response, channel) {
         manifest,
         {
           icon: iconLink,
-          screenshots: screensLinks,
+          // the konnector manifest type must stay 'node'
+          // for the stack so we use appType here
+          type: version.type,
+          // add screensLinks property only if it exists
+          ...(screensLinks ? {screenshots: screensLinks} : {}),
           installed: false,
           uninstallable: true,
           isInRegistry: true
@@ -222,26 +242,35 @@ export function getFormattedRegistryApp (response, channel) {
 }
 
 export function fetchInstalledApps () {
-  return (dispatch, getState) => {
+  return async (dispatch, getState) => {
     dispatch({ type: FETCH_APPS })
-    return cozy.client
-      .fetchJSON('GET', '/apps/')
-      .then(installedApps => {
-        installedApps = installedApps.filter(
-          app => !config.notDisplayedApps.includes(app.attributes.slug)
-        )
-        Promise.all(
-          installedApps.map(app => {
-            return getFormattedInstalledApp(app)
-          })
-        ).then(apps => {
-          return dispatch({ type: FETCH_APPS_SUCCESS, apps })
+    try {
+      let installedWebApps = await cozy.client
+        .fetchJSON('GET', '/apps/')
+      const collectApp = installedWebApps.find(a => a.attributes.slug === 'collect')
+      const collectLink = collectApp && collectApp.links.related
+      installedWebApps = installedWebApps.filter(
+        app =>
+          !config.notDisplayedApps.includes(app.attributes.slug)
+      )
+      let installedKonnectors = await cozy.client
+        .fetchJSON('GET', '/konnectors/')
+      installedKonnectors = installedKonnectors.filter(
+        app =>
+          !config.notDisplayedApps.includes(app.attributes.slug)
+      )
+      const installedApps = installedWebApps.concat(installedKonnectors)
+      Promise.all(
+        installedApps.map(app => {
+          return getFormattedInstalledApp(app, collectLink)
         })
+      ).then(apps => {
+        return dispatch({ type: FETCH_APPS_SUCCESS, apps })
       })
-      .catch(e => {
-        dispatch({ type: FETCH_APPS_FAILURE, error: e })
-        throw e
-      })
+    } catch (e) {
+      dispatch({ type: FETCH_APPS_FAILURE, error: e })
+      throw e
+    }
   }
 }
 
@@ -249,7 +278,7 @@ export function fetchRegistryApps (channel = DEFAULT_CHANNEL) {
   return (dispatch, getState) => {
     dispatch({ type: FETCH_APPS })
     return cozy.client
-      .fetchJSON('GET', '/registry?filter[type]=webapp')
+      .fetchJSON('GET', '/registry')
       .then(response => {
         const apps = response.data
           .filter(app => !config.notDisplayedApps.includes(app.name))
@@ -282,7 +311,7 @@ export function fetchApps () {
   }
 }
 
-export function uninstallApp (slug) {
+export function uninstallApp (slug, type) {
   return (dispatch, getState) => {
     if (
       config.notRemovableApps.includes(slug) ||
@@ -292,8 +321,11 @@ export function uninstallApp (slug) {
       dispatch({ type: UNINSTALL_APP_FAILURE, error })
       throw error
     }
+    // FIXME: hack to handle node type from stack for the konnectors
+    const route = (type === APP_TYPE.KONNECTOR || type === 'node')
+      ? 'konnectors' : 'apps'
     return cozy.client
-      .fetchJSON('DELETE', `/apps/${slug}`)
+      .fetchJSON('DELETE', `/${route}/${_getStackSlug(slug)}`)
       .then(() => {
         // remove the app from the state apps list
         const apps = getState().apps.list.map(app => {
@@ -316,13 +348,17 @@ export function uninstallApp (slug) {
   }
 }
 
-export function installApp (slug, source, isUpdate = false) {
+export function installApp (slug, type, source, isUpdate = false) {
   return (dispatch, getState) => {
     dispatch({ type: INSTALL_APP })
     const verb = isUpdate ? 'PUT' : 'POST'
+    const route = type === APP_TYPE.KONNECTOR
+      ? 'konnectors' : 'apps'
     return cozy.client
-      .fetchJSON(verb, `/apps/${slug}?Source=${encodeURIComponent(source)}`)
-      .then(resp => waitForAppReady(resp))
+      .fetchJSON(
+        verb,
+        `/${route}/${_getStackSlug(slug)}?Source=${encodeURIComponent(source)}`
+      ).then(resp => waitForAppReady(resp))
       .then(appResponse => {
         return getFormattedInstalledApp(appResponse)
           .then(app => {
@@ -352,10 +388,10 @@ export function installApp (slug, source, isUpdate = false) {
   }
 }
 
-export function installAppFromRegistry (slug, channel = DEFAULT_CHANNEL) {
+export function installAppFromRegistry (slug, type, channel = DEFAULT_CHANNEL) {
   return (dispatch, getState) => {
     const source = `registry://${slug}/${channel}`
-    return dispatch(installApp(slug, source, false))
+    return dispatch(installApp(slug, type, source, false))
   }
 }
 
@@ -366,6 +402,12 @@ function waitForAppReady (app, timeout = 20 * 1000) {
     let idTimeout
     let idInterval
 
+    // FIXME: hack to handle node type from stack for the konnectors
+    const route =
+      (app.attributes.type === APP_TYPE.KONNECTOR || app.attributes.type === 'node')
+        ? 'konnectors'
+        : 'apps'
+
     idTimeout = setTimeout(() => {
       clearInterval(idInterval)
       resolve(app)
@@ -373,7 +415,7 @@ function waitForAppReady (app, timeout = 20 * 1000) {
 
     idInterval = setInterval(() => {
       cozy.client
-        .fetchJSON('GET', `/apps/${app.attributes.slug}`)
+        .fetchJSON('GET', `/${route}/${app.attributes.slug}`)
         .then(app => {
           if (app.attributes.state === APP_STATE.ERRORED) {
             if (idTimeout) {

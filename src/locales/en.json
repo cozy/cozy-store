@@ -49,9 +49,16 @@
   },
 
   "app_page": {
-    "install": "Install on my Cozy",
-    "open": "Open",
-    "uninstall": "Uninstall this application",
+    "konnector": {
+      "open": "Configure in collect",
+      "install": "Install on my Cozy",
+      "uninstall": "Uninstall this konnector"
+    },
+    "webapp": {
+      "open": "Open",
+      "install": "Install on my Cozy",
+      "uninstall": "Uninstall this application"
+    },
     "description": "Description",
     "changes": "What's New?",
     "infos": {

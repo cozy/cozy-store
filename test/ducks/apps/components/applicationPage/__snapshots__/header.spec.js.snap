@@ -7,12 +7,10 @@ exports[`ApplicationPage header component should be rendered correctly provided 
   <div
     className="sto-app-header-icon"
   >
-    <Icon
-      className="sto-app-icon--default blurry"
-      color="#95999D"
-      height="88px"
-      icon="test-file-stub"
-      width="88px"
+    <img
+      alt="photos-icon"
+      className="sto-app-icon"
+      src="https://mockcozy.cc/registry/photos/3.0.0/icon.svg"
     />
   </div>
   <div
@@ -71,6 +69,47 @@ exports[`ApplicationPage header component should be rendered correctly provided 
       className="c-btn c-btn--regular"
       replace={false}
       to="//myapps/photos/manage"
+    >
+      <Icon
+        className="sto-app-icon--button"
+        color="#FFFFFF"
+        height="16px"
+        icon="test-file-stub"
+        width="16px"
+      />
+       
+      Install on my Cozy
+    </Link>
+  </div>
+</div>
+`;
+
+exports[`ApplicationPage header component should be rendered correctly provided konnector 1`] = `
+<div
+  className="sto-app-header"
+>
+  <div
+    className="sto-app-header-icon"
+  >
+    <img
+      alt="konnector-trinlane-icon"
+      className="sto-app-icon"
+      src="https://mockcozy.cc/registry/konnector-trinlane/0.1.0/icon.svg"
+    />
+  </div>
+  <div
+    className="sto-app-header-content"
+  >
+    <h2
+      className="sto-app-header-title"
+    >
+      Cozy Trinlane
+    </h2>
+    <p />
+    <Link
+      className="c-btn c-btn--regular"
+      replace={false}
+      to="//myapps/konnector-trinlane/manage"
     >
       <Icon
         className="sto-app-icon--button"

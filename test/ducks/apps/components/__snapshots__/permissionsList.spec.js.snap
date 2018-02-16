@@ -1,5 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`MyApplications component should be rendered correctly with konnector permissions 1`] = `
+<div>
+  <ReactMarkdownWrapper
+    source="In order to improve the value of your Cozy (cozytest.mock.cc), the application Mock requires access to the following data:"
+  />
+  <ul
+    className="sto-perm-list"
+  >
+    <li
+      className="io.cozy.bank.operations"
+    >
+      <ReactMarkdownWrapper
+        source="__io.cozy.bank.operations__"
+      />
+    </li>
+    <li
+      className="io.cozy.bills"
+    >
+      <ReactMarkdownWrapper
+        source="__Bills__"
+      />
+    </li>
+    <li
+      className="io.cozy.files"
+    >
+      <ReactMarkdownWrapper
+        source="__Files__"
+      />
+    </li>
+    <li
+      className="io.cozy.accounts"
+    >
+      <ReactMarkdownWrapper
+        source="__Accounts__"
+      />
+    </li>
+  </ul>
+</div>
+`;
+
 exports[`MyApplications component should be rendered correctly with permissions 1`] = `
 <div>
   <ReactMarkdownWrapper

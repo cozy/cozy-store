@@ -21,7 +21,7 @@ export class InstallModal extends Component {
     this.setState({ error: null })
     const { app } = this.props
     this.props
-      .installApp(app.slug)
+      .installApp(app.slug, app.type)
       .then(() => {
         this.gotoParent()
       })
@@ -112,7 +112,7 @@ export class InstallModal extends Component {
                         className='c-btn c-btn--regular c-btn--download'
                         onClick={this.installApp}
                       >
-                        {t('app_modal.install.install')}
+                        <span>{t('app_modal.install.install')}</span>
                       </button>
                     </div>
                   </div>

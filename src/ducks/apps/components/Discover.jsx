@@ -21,7 +21,7 @@ export class Discover extends Component {
   }
 
   render () {
-    const { t, lang, apps, isFetching, fetchError, isInstalling } = this.props
+    const { t, lang, apps, isFetching, fetchError, isInstalling, actionError } = this.props
     return (
       <div className='sto-discover'>
         {this.props.match.isExact ? (
@@ -63,6 +63,7 @@ export class Discover extends Component {
           apps={apps}
           isFetching={isFetching}
           isInstalling={isInstalling}
+          actionError={actionError}
           installApp={this.props.installApp}
           uninstallApp={this.props.uninstallApp}
           parent='discover'

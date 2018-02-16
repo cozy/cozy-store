@@ -51,7 +51,9 @@ exports[`InstallModal component should be rendered correctly if app found 1`] = 
               onClick={[Function]}
               role="button"
             >
-              Install
+              <span>
+                Install
+              </span>
             </button>
           </div>
         </div>
@@ -158,7 +160,9 @@ exports[`InstallModal component should be rendered correctly with also app in re
               onClick={[Function]}
               role="button"
             >
-              Install
+              <span>
+                Install
+              </span>
             </button>
           </div>
         </div>
@@ -261,7 +265,9 @@ exports[`InstallModal component should handle correctly installError from props 
               onClick={[Function]}
               role="button"
             >
-              Install
+              <span>
+                Install
+              </span>
             </button>
           </div>
         </div>
@@ -322,7 +328,9 @@ exports[`InstallModal component should not break the permissions part if no perm
               onClick={[Function]}
               role="button"
             >
-              Install
+              <span>
+                Install
+              </span>
             </button>
           </div>
         </div>

@@ -10,12 +10,14 @@ import { tMock } from '../../../../jestLib/I18n'
 import { Details } from 'ducks/apps/components/ApplicationPage/Details'
 
 import mockApp from '../../_mockPhotosRegistryVersion'
+import mockKonnector from '../../_mockPKonnectorTrinlaneRegistryVersion'
 
 Enzyme.configure({ adapter: new Adapter() })
 
 const appManifest = mockApp.manifest
+const konnectorManifest = mockKonnector.manifest
 
-const getProps = () => {
+const getAppProps = () => {
   return {
     t: tMock,
     description: appManifest.locales.en.long_description,
@@ -30,14 +32,30 @@ const getProps = () => {
   }
 }
 
+const getKonnectorProps = () => {
+  return {
+    t: tMock,
+    description: konnectorManifest.locales.en.long_description,
+    changes: konnectorManifest.locales.en.changes,
+    category: konnectorManifest.category,
+    langs: konnectorManifest.langs,
+    developer: konnectorManifest.developer
+  }
+}
+
 describe('ApplicationPage details component', () => {
   it('should be rendered correctly with provided app', () => {
-    const component = shallow(<Details {...getProps()} />).getElement()
+    const component = shallow(<Details {...getAppProps()} />).getElement()
+    expect(component).toMatchSnapshot()
+  })
+
+  it('should be rendered correctly with provided konnector', () => {
+    const component = shallow(<Details {...getKonnectorProps()} />).getElement()
     expect(component).toMatchSnapshot()
   })
 
   it('should be rendered correctly provided app with no description, no platforms, no category, no langs and no changes', () => {
-    const appProps = Object.assign({}, getProps())
+    const appProps = Object.assign({}, getAppProps())
     appProps.description = ''
     appProps.changes = ''
     appProps.category = ''
@@ -49,7 +67,7 @@ describe('ApplicationPage details component', () => {
   })
 
   it('should handle correctly `display more` behaviour on description part', () => {
-    const component = shallow(<Details {...getProps()} />)
+    const component = shallow(<Details {...getAppProps()} />)
     component
       .find('.sto-app-description .sto-details-display-more')
       .simulate('click')
@@ -57,7 +75,7 @@ describe('ApplicationPage details component', () => {
   })
 
   it('should handle correctly `display more` behaviour on changes part', () => {
-    const component = shallow(<Details {...getProps()} />)
+    const component = shallow(<Details {...getAppProps()} />)
     component
       .find('.sto-app-changes .sto-details-display-more')
       .simulate('click')

@@ -41,6 +41,20 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
               "name": "Cozy",
             }
           }
+          editor=""
+          icon="<svg></svg>"
+          installed={undefined}
+          name="Trinlane"
+          onClick={[Function]}
+          slug="konnector-trinlane"
+          version="0.1.0"
+        />
+        <SmallAppItem
+          developer={
+            Object {
+              "name": "Cozy",
+            }
+          }
           editor="Cozy"
           icon="<svg></svg>"
           installed={undefined}
@@ -63,6 +77,7 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
     </div>
   </div>
   <withRouter(ApplicationRouting)
+    actionError={null}
     apps={
       Array [
         Object {
@@ -76,6 +91,7 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
           "name": "Collect",
           "related": "http://collect.cozy.mock/",
           "slug": "collect",
+          "type": "webapp",
           "uninstallable": false,
           "version": "3.0.0",
           "versions": Object {
@@ -94,11 +110,34 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
           "developer": Object {
             "name": "Cozy",
           },
+          "icon": "<svg></svg>",
+          "isInRegistry": true,
+          "name": "Trinlane",
+          "slug": "konnector-trinlane",
+          "type": "konnector",
+          "uninstallable": true,
+          "versions": Object {
+            "beta": Array [
+              "0.1.0",
+            ],
+            "dev": Array [
+              "0.1.0",
+            ],
+            "stable": Array [
+              "0.1.0",
+            ],
+          },
+        },
+        Object {
+          "developer": Object {
+            "name": "Cozy",
+          },
           "editor": "Cozy",
           "icon": "<svg></svg>",
           "isInRegistry": true,
           "name": "Photos",
           "slug": "photos",
+          "type": "webapp",
           "uninstallable": true,
           "versions": Object {
             "beta": Array [
@@ -117,6 +156,7 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
           "isInRegistry": true,
           "name": "Tasky",
           "slug": "tasky",
+          "type": "webapp",
           "uninstallable": true,
           "versions": Object {
             "beta": Array [
@@ -171,6 +211,7 @@ exports[`Discover component should display error from props correctly 1`] = `
     </div>
   </div>
   <withRouter(ApplicationRouting)
+    actionError={null}
     apps={Array []}
     installApp={undefined}
     isFetching={false}
@@ -186,6 +227,7 @@ exports[`Discover component should not render apps list if !match.isExact 1`] = 
   className="sto-discover"
 >
   <withRouter(ApplicationRouting)
+    actionError={null}
     apps={
       Array [
         Object {
@@ -199,6 +241,7 @@ exports[`Discover component should not render apps list if !match.isExact 1`] = 
           "name": "Collect",
           "related": "http://collect.cozy.mock/",
           "slug": "collect",
+          "type": "webapp",
           "uninstallable": false,
           "version": "3.0.0",
           "versions": Object {
@@ -217,11 +260,34 @@ exports[`Discover component should not render apps list if !match.isExact 1`] = 
           "developer": Object {
             "name": "Cozy",
           },
+          "icon": "<svg></svg>",
+          "isInRegistry": true,
+          "name": "Trinlane",
+          "slug": "konnector-trinlane",
+          "type": "konnector",
+          "uninstallable": true,
+          "versions": Object {
+            "beta": Array [
+              "0.1.0",
+            ],
+            "dev": Array [
+              "0.1.0",
+            ],
+            "stable": Array [
+              "0.1.0",
+            ],
+          },
+        },
+        Object {
+          "developer": Object {
+            "name": "Cozy",
+          },
           "editor": "Cozy",
           "icon": "<svg></svg>",
           "isInRegistry": true,
           "name": "Photos",
           "slug": "photos",
+          "type": "webapp",
           "uninstallable": true,
           "versions": Object {
             "beta": Array [
@@ -240,6 +306,7 @@ exports[`Discover component should not render apps list if !match.isExact 1`] = 
           "isInRegistry": true,
           "name": "Tasky",
           "slug": "tasky",
+          "type": "webapp",
           "uninstallable": true,
           "versions": Object {
             "beta": Array [
@@ -288,6 +355,7 @@ exports[`Discover component should render correctly a spinner if apps is fetchin
     </div>
   </div>
   <withRouter(ApplicationRouting)
+    actionError={null}
     apps={Array []}
     installApp={undefined}
     isFetching={true}

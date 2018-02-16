@@ -7,12 +7,15 @@ import { translate } from 'cozy-ui/react/I18n'
 import cozySmileIcon from 'assets/icons/icon-cozy-smile.svg'
 import defaultAppIcon from 'assets/icons/icon-cube.svg'
 
+import { APP_TYPE } from 'ducks/apps'
+
 export const Header = ({
   t,
   icon,
   slug,
   editor,
   name,
+  type,
   description,
   installed,
   installedAppLink,
@@ -21,6 +24,7 @@ export const Header = ({
   const openApp = link => {
     window.location.assign(link)
   }
+  const isKonnector = type === APP_TYPE.KONNECTOR
   return (
     <div className='sto-app-header'>
       <div className='sto-app-header-icon'>
@@ -49,13 +53,19 @@ export const Header = ({
               className='c-btn c-btn--regular'
             >
               <Icon icon='openwith' width='10px' height='10px' />{' '}
-              {t('app_page.open')}
+              {isKonnector
+                ? t('app_page.konnector.open')
+                : t('app_page.webapp.open')
+              }
             </button>
             <Link
               to={`/${parent}/${slug}/manage`}
               className='c-btn c-btn--danger-outline sto-app-header-uninstall-button'
             >
-              {t('app_page.uninstall')}
+              {isKonnector
+                ? t('app_page.konnector.uninstall')
+                : t('app_page.webapp.uninstall')
+              }
             </Link>
           </div>
         ) : (
@@ -70,7 +80,10 @@ export const Header = ({
               height='16px'
               className='sto-app-icon--button'
             />{' '}
-            {t('app_page.install')}
+            {isKonnector
+              ? t('app_page.konnector.install')
+              : t('app_page.webapp.install')
+            }
           </Link>
         )}
       </div>
