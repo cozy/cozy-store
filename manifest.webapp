@@ -13,7 +13,11 @@
     "url": "https://cozy.io"
   },
   "default_locale": "en",
-  "locales": {},
+  "locales": {
+    "en": {},
+    "fr": {},
+    "pl": {}
+  },
   "routes": {
     "/": {
       "folder": "/",
@@ -37,5 +41,10 @@
         "GET"
       ]
     }
-  }
+  },
+  "langs": [
+    "en",
+    "fr",
+    "pl"
+  ]
 }
