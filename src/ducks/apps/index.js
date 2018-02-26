@@ -255,6 +255,13 @@ export function fetchInstalledApps () {
       )
       let installedKonnectors = await cozy.client
         .fetchJSON('GET', '/konnectors/')
+      installedKonnectors = installedKonnectors.map(k => {
+        // add `konnector-` if missing to match with the registry
+        if (!k.attributes.slug.match(/^konnector-.*/)) {
+          k.attributes.slug = `konnector-${k.attributes.slug}`
+        }
+        return k
+      })
       installedKonnectors = installedKonnectors.filter(
         app =>
           !config.notDisplayedApps.includes(app.attributes.slug)
