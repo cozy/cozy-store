@@ -17,12 +17,14 @@ export class UninstallModal extends Component {
   }
 
   uninstallApp () {
+    const { parent, history } = this.props
     this.setState({ error: null })
     const { app } = this.props
     this.props
       .uninstallApp(app.slug, app.type)
       .then(() => {
-        this.gotoParent()
+        // force go to parent since app from props still exists
+        history.push(`${parent}`)
       })
       .catch()
   }
