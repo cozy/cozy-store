@@ -39,7 +39,6 @@ const SmallAppItem = ({
           className='sto-small-app-item-icon--default blurry'
           width='48'
           height='64'
-          style={{ padding: '0 8px' }}
           icon={defaultAppIcon}
           color='#95999D'
         />

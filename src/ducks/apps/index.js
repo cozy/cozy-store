@@ -220,24 +220,26 @@ export function getFormattedRegistryApp (response, channel) {
       const iconLink = `${cozy.client._url}/registry/${
         manifest.slug
       }/${versionFromRegistry}/icon`
-      return Object.assign(
-        {},
-        {
-          versions: response.versions
-        },
-        manifest,
-        {
-          icon: iconLink,
-          // the konnector manifest type must stay 'node'
-          // for the stack so we use appType here
-          type: version.type,
-          // add screensLinks property only if it exists
-          ...(screensLinks ? {screenshots: screensLinks} : {}),
-          installed: false,
-          uninstallable: true,
-          isInRegistry: true
-        }
-      )
+      return _getIcon(iconLink).then(iconData => {
+        return Object.assign(
+          {},
+          {
+            versions: response.versions
+          },
+          manifest,
+          {
+            icon: iconData,
+            // the konnector manifest type must stay 'node'
+            // for the stack so we use appType here
+            type: version.type,
+            // add screensLinks property only if it exists
+            ...(screensLinks ? {screenshots: screensLinks} : {}),
+            installed: false,
+            uninstallable: true,
+            isInRegistry: true
+          }
+        )
+      })
     })
 }
 
