@@ -171,8 +171,16 @@ function _sanitizeOldManifest (app) {
 
 // all konnector slugs begin by konnector- in the registry
 // so we remove this prefix before using it with the stack
-function _getStackSlug (slug = '') {
+function _getKonnectorStackSlug (slug = '') {
   return slug.replace(/^konnector-/, '')
+}
+
+// add `konnector-` if missing from the stack
+// to match with the registry
+function _getKonnectorRegistrySlug (slug = '') {
+  return (!slug.match(/^konnector-.*/))
+    ? `konnector-${slug}`
+    : slug
 }
 
 export function getFormattedInstalledApp (response, collectLink) {
@@ -181,8 +189,11 @@ export function getFormattedInstalledApp (response, collectLink) {
 
   return _getIcon(response.links.icon).then(iconData => {
     const manifest = response.attributes
+    const appSlug = response.attributes.type === APP_TYPE.KONNECTOR
+      ? _getKonnectorRegistrySlug(response.attributes.slug)
+      : response.attributes.slug
     const openingLink = response.attributes.type === APP_TYPE.KONNECTOR
-      ? `${collectLink}/${COLLECT_RELATED_PATH}/${_getStackSlug(manifest.slug)}`
+      ? `${collectLink}/${COLLECT_RELATED_PATH}/${_getKonnectorStackSlug(manifest.slug)}`
       : response.links.related
     const screensLinks =
       manifest.screenshots &&
@@ -195,6 +206,7 @@ export function getFormattedInstalledApp (response, collectLink) {
     return Object.assign({}, response.attributes, {
       _id: response.id || response._id,
       icon: iconData,
+      slug: appSlug,
       installed: true,
       related: openingLink,
       screenshots: screensLinks,
@@ -256,10 +268,10 @@ export function fetchInstalledApps () {
       let installedKonnectors = await cozy.client
         .fetchJSON('GET', '/konnectors/')
       installedKonnectors = installedKonnectors.map(k => {
+        // FIXME type konnector is missing from stack
+        k.attributes.type = 'konnector'
         // add `konnector-` if missing to match with the registry
-        if (!k.attributes.slug.match(/^konnector-.*/)) {
-          k.attributes.slug = `konnector-${k.attributes.slug}`
-        }
+        k.attributes.slug = _getKonnectorRegistrySlug(k.attributes.slug)
         return k
       })
       installedKonnectors = installedKonnectors.filter(
@@ -332,7 +344,7 @@ export function uninstallApp (slug, type) {
     const route = (type === APP_TYPE.KONNECTOR || type === 'node')
       ? 'konnectors' : 'apps'
     return cozy.client
-      .fetchJSON('DELETE', `/${route}/${_getStackSlug(slug)}`)
+      .fetchJSON('DELETE', `/${route}/${_getKonnectorStackSlug(slug)}`)
       .then(() => {
         // remove the app from the state apps list
         const apps = getState().apps.list.map(app => {
@@ -364,9 +376,12 @@ export function installApp (slug, type, source, isUpdate = false) {
     return cozy.client
       .fetchJSON(
         verb,
-        `/${route}/${_getStackSlug(slug)}?Source=${encodeURIComponent(source)}`
-      ).then(resp => waitForAppReady(resp))
-      .then(appResponse => {
+        `/${route}/${_getKonnectorStackSlug(slug)}?Source=${encodeURIComponent(source)}`
+      ).then(resp => {
+        // FIXME type konnector is missing from stack
+        resp.attributes.type = 'konnector'
+        return waitForAppReady(resp)
+      }).then(appResponse => {
         return getFormattedInstalledApp(appResponse)
           .then(app => {
             // add the installed app to the state apps list
@@ -403,7 +418,7 @@ export function installAppFromRegistry (slug, type, channel = DEFAULT_CHANNEL) {
 }
 
 // monitor the status of the app and resolve when the app is ready
-function waitForAppReady (app, timeout = 20 * 1000) {
+function waitForAppReady (app, timeout = 30 * 1000) {
   if (app.attributes.state === APP_STATE.READY) return app
   return new Promise((resolve, reject) => {
     let idTimeout
