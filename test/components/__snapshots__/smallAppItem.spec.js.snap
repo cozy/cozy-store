@@ -91,11 +91,6 @@ exports[`SmallAppItem component should be rendered correctly an installed app 2`
     color="#95999D"
     height="64"
     icon="test-file-stub"
-    style={
-      Object {
-        "padding": "0 8px",
-      }
-    }
     width="48"
   />
   <Icon
