@@ -3,6 +3,8 @@ import { translate } from 'cozy-ui/react/I18n'
 import Toggle from 'cozy-ui/react/Toggle'
 import ReactMarkdownWrapper from '../../components/ReactMarkdownWrapper'
 
+import { APP_TYPE } from 'ducks/apps'
+
 class HiddenInstallerView extends Component {
   constructor (props) {
     super(props)
@@ -11,7 +13,8 @@ class HiddenInstallerView extends Component {
       source: null,
       isUpdate: false,
       isSuccess: false,
-      isErrored: false
+      isErrored: false,
+      isKonnector: false
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -22,8 +25,9 @@ class HiddenInstallerView extends Component {
   }
 
   handleSubmit () {
-    const { slug, source, isUpdate } = this.state
-    this.props.installUsingInstaller(slug, source, isUpdate)
+    const { slug, source, isUpdate, isKonnector } = this.state
+    const appType = isKonnector ? APP_TYPE.KONNECTOR : APP_TYPE.WEBAPP
+    this.props.installUsingInstaller(slug, appType, source, isUpdate)
   }
 
   isValid () {
@@ -74,6 +78,14 @@ class HiddenInstallerView extends Component {
               />
             </div>
             <div className='sto-installer-field'>
+              <h3>{t('HiddenInstallerView.konnector')}</h3>
+              <Toggle
+                id='isKonnector'
+                checked={this.state.isKonnector}
+                onToggle={() => this.onChange('isKonnector', !this.state.isKonnector)}
+              />
+            </div>
+            <div className='sto-installer-field'>
               <h3>{t('HiddenInstallerView.update')}</h3>
               <Toggle
                 id='isUpdate'
@@ -96,7 +108,9 @@ class HiddenInstallerView extends Component {
                 className='c-btn c-btn--regular'
                 onClick={this.handleSubmit}
               >
-                {t('HiddenInstallerView.install')}
+                <span>
+                  {t('HiddenInstallerView.install')}
+                </span>
               </button>
             </div>
           </div>
