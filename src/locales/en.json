@@ -52,12 +52,12 @@
     "konnector": {
       "open": "Configure in collect",
       "install": "Install on my Cozy",
-      "uninstall": "Uninstall this konnector"
+      "uninstall": "Uninstall"
     },
     "webapp": {
       "open": "Open",
       "install": "Install on my Cozy",
-      "uninstall": "Uninstall this application"
+      "uninstall": "Uninstall"
     },
     "description": "Description",
     "changes": "What's New?",
