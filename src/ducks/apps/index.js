@@ -229,7 +229,7 @@ export function getFormattedRegistryApp (response, channel) {
             manifest.slug
           }/${versionFromRegistry}/screenshots/${fileName}`
         })
-      const iconLink = `${cozy.client._url}/registry/${
+      const iconLink = `/registry/${
         manifest.slug
       }/${versionFromRegistry}/icon`
       return _getIcon(iconLink).then(iconData => {
