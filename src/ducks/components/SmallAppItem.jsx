@@ -10,13 +10,9 @@ const SmallAppItem = ({
   icon,
   name,
   namePrefix,
-  version,
   installed,
   onClick
 }) => {
-  const appVersion =
-    version &&
-    (version.match(/^(.*)-.*$/) ? version.match(/^(.*)-.*$/)[1] : version)
   return (
     // HACK a11y
     // `onKeyDown={(e) => e.keyCode === 13 ? onClick() : null`
@@ -58,9 +54,6 @@ const SmallAppItem = ({
         </h4>
         <p className='sto-small-app-item-detail'>
           {developer.name === 'Cozy' ? 'Cozy Cloud Inc.' : developer.name}
-        </p>
-        <p className='sto-small-app-item-detail'>
-          {appVersion && `Version ${appVersion}`}
         </p>
       </div>
     </div>

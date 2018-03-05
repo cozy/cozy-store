@@ -34,8 +34,6 @@ export class Discover extends Component {
               <div className='sto-discover-get-started-list'>
                 {!isFetching && !fetchError &&
                   apps.map(app => {
-                    const stableVers = app.versions.stable
-                    const version = stableVers[stableVers.length - 1]
                     const appName = getLocalizedAppProperty(app, 'name', lang)
                     const appNamePrefix = getLocalizedAppProperty(app, 'name_prefix', lang)
                     return (
@@ -46,7 +44,6 @@ export class Discover extends Component {
                         editor={app.editor || ''}
                         icon={app.icon}
                         name={appName}
-                        version={version}
                         installed={app.installed}
                         onClick={() => this.onAppClick(app.slug)}
                         key={app.slug}
