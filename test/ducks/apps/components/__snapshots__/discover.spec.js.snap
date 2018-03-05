@@ -31,6 +31,7 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
           icon="<svg></svg>"
           installed={true}
           name="Collect"
+          namePrefix="Cozy"
           onClick={[Function]}
           slug="collect"
           version="3.0.0"
@@ -45,6 +46,7 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
           icon="<svg></svg>"
           installed={undefined}
           name="Trinlane"
+          namePrefix=""
           onClick={[Function]}
           slug="konnector-trinlane"
           version="0.1.0"
@@ -59,6 +61,7 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
           icon="<svg></svg>"
           installed={undefined}
           name="Photos"
+          namePrefix="Cozy"
           onClick={[Function]}
           slug="photos"
           version="3.0.0"
@@ -69,6 +72,7 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
           icon="<svg></svg>"
           installed={undefined}
           name="Tasky"
+          namePrefix=""
           onClick={[Function]}
           slug="tasky"
           version="1.0.0"
@@ -89,6 +93,7 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
           "installed": true,
           "isInRegistry": true,
           "name": "Collect",
+          "name_prefix": "Cozy",
           "related": "http://collect.cozy.mock/",
           "slug": "collect",
           "type": "webapp",
@@ -136,6 +141,7 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
           "icon": "<svg></svg>",
           "isInRegistry": true,
           "name": "Photos",
+          "name_prefix": "Cozy",
           "slug": "photos",
           "type": "webapp",
           "uninstallable": true,
@@ -239,6 +245,7 @@ exports[`Discover component should not render apps list if !match.isExact 1`] = 
           "installed": true,
           "isInRegistry": true,
           "name": "Collect",
+          "name_prefix": "Cozy",
           "related": "http://collect.cozy.mock/",
           "slug": "collect",
           "type": "webapp",
@@ -286,6 +293,7 @@ exports[`Discover component should not render apps list if !match.isExact 1`] = 
           "icon": "<svg></svg>",
           "isInRegistry": true,
           "name": "Photos",
+          "name_prefix": "Cozy",
           "slug": "photos",
           "type": "webapp",
           "uninstallable": true,

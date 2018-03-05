@@ -1,6 +1,7 @@
 export const Photos = {
   slug: 'photos',
   editor: 'Cozy',
+  name_prefix: 'Cozy',
   type: 'webapp',
   version: '3.0.0',
   manifest: {
