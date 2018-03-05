@@ -27,11 +27,6 @@ exports[`SmallAppItem component should be rendered correctly an app 1`] = `
     >
       Cozy Cloud Inc.
     </p>
-    <p
-      className="sto-small-app-item-detail"
-    >
-      Version 3.0.3
-    </p>
   </div>
 </div>
 `;
@@ -68,16 +63,11 @@ exports[`SmallAppItem component should be rendered correctly an installed app 1`
     >
       Naming me
     </p>
-    <p
-      className="sto-small-app-item-detail"
-    >
-      Version 3.0.3
-    </p>
   </div>
 </div>
 `;
 
-exports[`SmallAppItem component should be rendered correctly an installed app 2`] = `
+exports[`SmallAppItem component should be rendered correctly an installed app without icon provided 1`] = `
 <div
   className="sto-small-app-item"
   onClick={[MockFunction]}
@@ -108,11 +98,6 @@ exports[`SmallAppItem component should be rendered correctly an installed app 2`
       className="sto-small-app-item-detail"
     >
       Naming me
-    </p>
-    <p
-      className="sto-small-app-item-detail"
-    >
-      Version 3.0.3
     </p>
   </div>
 </div>
