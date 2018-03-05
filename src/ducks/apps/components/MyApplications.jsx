@@ -40,7 +40,6 @@ export class MyApplications extends Component {
                       editor={app.editor}
                       icon={app.icon}
                       name={appName}
-                      version={app.version}
                       installed={app.installed}
                       onClick={() => this.onAppClick(app.slug)}
                       key={app.slug}

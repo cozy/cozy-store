@@ -26,7 +26,6 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
         namePrefix="Cozy"
         onClick={[Function]}
         slug="collect"
-        version="3.0.0"
       />
       <SmallAppItem
         developer={
@@ -41,7 +40,6 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
         namePrefix="Cozy"
         onClick={[Function]}
         slug="drive"
-        version="3.0.0-beta89bnhj3993"
       />
     </div>
   </div>

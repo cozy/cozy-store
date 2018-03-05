@@ -59,7 +59,7 @@ describe('SmallAppItem component', () => {
     expect(component).toMatchSnapshot()
   })
 
-  it('should be rendered correctly an installed app', () => {
+  it('should be rendered correctly an installed app without icon provided', () => {
     const component = shallow(
       <SmallAppItem {...appMockWithoutIcon} />
     ).getElement()

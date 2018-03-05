@@ -34,7 +34,6 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
           namePrefix="Cozy"
           onClick={[Function]}
           slug="collect"
-          version="3.0.0"
         />
         <SmallAppItem
           developer={
@@ -49,7 +48,6 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
           namePrefix=""
           onClick={[Function]}
           slug="konnector-trinlane"
-          version="0.1.0"
         />
         <SmallAppItem
           developer={
@@ -64,7 +62,6 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
           namePrefix="Cozy"
           onClick={[Function]}
           slug="photos"
-          version="3.0.0"
         />
         <SmallAppItem
           developer={Object {}}
@@ -75,7 +72,6 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
           namePrefix=""
           onClick={[Function]}
           slug="tasky"
-          version="1.0.0"
         />
       </div>
     </div>
