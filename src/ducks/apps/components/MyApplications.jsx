@@ -30,13 +30,16 @@ export class MyApplications extends Component {
                 installedApps &&
                 !!installedApps.length &&
                 installedApps.map(app => {
+                  const appName = getLocalizedAppProperty(app, 'name', lang)
+                  const appNamePrefix = getLocalizedAppProperty(app, 'name_prefix', lang)
                   return (
                     <SmallAppItem
                       slug={app.slug}
                       developer={app.developer}
+                      namePrefix={appNamePrefix || ''}
                       editor={app.editor}
                       icon={app.icon}
-                      name={getLocalizedAppProperty(app, 'name', lang)}
+                      name={appName}
                       version={app.version}
                       installed={app.installed}
                       onClick={() => this.onAppClick(app.slug)}
