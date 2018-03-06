@@ -95,9 +95,6 @@ export class Details extends Component {
               {categoriesInfos &&
                 categoriesInfos.join(t('app_categories.list_separator'))
               }
-              {!categoriesInfos &&
-                t('app_categories.others')
-              }
             </div>
           </div>
           {langsInfos && (
