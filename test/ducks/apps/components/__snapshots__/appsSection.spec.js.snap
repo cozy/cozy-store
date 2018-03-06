@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppsSection component should be rendered correctly with apps list, subtitle and onAppClick 1`] = `
+<div
+  className="sto-sections-apps"
+>
+  <h3
+    className="sto-sections-subtitle"
+  >
+    Test Apps
+  </h3>
+  <div
+    className="sto-sections-list"
+  >
+    <SmallAppItem
+      developer={
+        Object {
+          "name": "Cozy",
+        }
+      }
+      editor="Cozy"
+      icon="<svg></svg>"
+      installed={true}
+      name="Collect"
+      namePrefix="Cozy"
+      onClick={[Function]}
+      slug="collect"
+    />
+    <SmallAppItem
+      developer={
+        Object {
+          "name": "Cozy",
+        }
+      }
+      editor="Cozy"
+      icon="<svg></svg>"
+      installed={undefined}
+      name="DevOnly"
+      namePrefix=""
+      onClick={[Function]}
+      slug="devonly"
+    />
+    <SmallAppItem
+      developer={
+        Object {
+          "name": "Cozy",
+        }
+      }
+      editor="Cozy"
+      icon="<svg></svg>"
+      installed={true}
+      name="Drive"
+      namePrefix="Cozy"
+      onClick={[Function]}
+      slug="drive"
+    />
+    <SmallAppItem
+      developer={
+        Object {
+          "name": "Cozy",
+        }
+      }
+      editor=""
+      icon="<svg></svg>"
+      installed={undefined}
+      name="Bouilligue"
+      namePrefix=""
+      onClick={[Function]}
+      slug="konnector-bouilligue"
+    />
+    <SmallAppItem
+      developer={
+        Object {
+          "name": "Cozy",
+        }
+      }
+      editor=""
+      icon="<svg></svg>"
+      installed={undefined}
+      name="Trinlane"
+      namePrefix=""
+      onClick={[Function]}
+      slug="konnector-trinlane"
+    />
+    <SmallAppItem
+      developer={
+        Object {
+          "name": "Cozy",
+        }
+      }
+      editor="Cozy"
+      icon="<svg></svg>"
+      installed={undefined}
+      name="Photos"
+      namePrefix="Cozy"
+      onClick={[Function]}
+      slug="photos"
+    />
+    <SmallAppItem
+      developer={Object {}}
+      editor=""
+      icon="<svg></svg>"
+      installed={undefined}
+      name="Tasky"
+      namePrefix=""
+      onClick={[Function]}
+      slug="tasky"
+    />
+  </div>
+</div>
+`;

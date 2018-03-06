@@ -5,6 +5,7 @@ export default [
     name: 'Collect',
     editor: 'Cozy',
     name_prefix: 'Cozy',
+    categories: ['cozy'],
     developer: { name: 'Cozy' },
     type: 'webapp',
     icon: '<svg></svg>',
@@ -23,6 +24,7 @@ export default [
     slug: 'devonly',
     name: 'DevOnly',
     editor: 'Cozy',
+    categories: ['others'],
     developer: { name: 'Cozy' },
     type: 'webapp',
     locales: {
@@ -42,6 +44,7 @@ export default [
     name: 'Drive',
     editor: 'Cozy',
     name_prefix: 'Cozy',
+    categories: ['cozy'],
     developer: { name: 'Cozy' },
     type: 'webapp',
     icon: '<svg></svg>',
@@ -51,11 +54,27 @@ export default [
     related: 'http://drive.cozy.mock/'
   },
   {
+    slug: 'konnector-bouilligue',
+    name: 'Bouilligue',
+    icon: '<svg></svg>',
+    developer: { name: 'Cozy' },
+    type: 'konnector',
+    categories: ['isp', 'telecom'],
+    versions: {
+      stable: ['0.1.0'],
+      beta: ['0.1.0'],
+      dev: ['0.1.0']
+    },
+    uninstallable: true,
+    isInRegistry: true
+  },
+  {
     slug: 'konnector-trinlane',
     name: 'Trinlane',
     icon: '<svg></svg>',
     developer: { name: 'Cozy' },
     type: 'konnector',
+    categories: ['transport'],
     versions: {
       stable: ['0.1.0'],
       beta: ['0.1.0'],
@@ -69,6 +88,7 @@ export default [
     name: 'Photos',
     editor: 'Cozy',
     name_prefix: 'Cozy',
+    categories: ['cozy'],
     developer: { name: 'Cozy' },
     type: 'webapp',
     icon: '<svg></svg>',
@@ -83,6 +103,7 @@ export default [
   {
     slug: 'tasky',
     name: 'Tasky',
+    categories: ['partners'],
     icon: '<svg></svg>',
     type: 'webapp',
     versions: {

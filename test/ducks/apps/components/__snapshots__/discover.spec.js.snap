@@ -17,6 +17,9 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
         apps={
           Array [
             Object {
+              "categories": Array [
+                "cozy",
+              ],
               "developer": Object {
                 "name": "Cozy",
               },
@@ -44,6 +47,35 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
               },
             },
             Object {
+              "categories": Array [
+                "isp",
+                "telecom",
+              ],
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "icon": "<svg></svg>",
+              "isInRegistry": true,
+              "name": "Bouilligue",
+              "slug": "konnector-bouilligue",
+              "type": "konnector",
+              "uninstallable": true,
+              "versions": Object {
+                "beta": Array [
+                  "0.1.0",
+                ],
+                "dev": Array [
+                  "0.1.0",
+                ],
+                "stable": Array [
+                  "0.1.0",
+                ],
+              },
+            },
+            Object {
+              "categories": Array [
+                "transport",
+              ],
               "developer": Object {
                 "name": "Cozy",
               },
@@ -66,6 +98,9 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
               },
             },
             Object {
+              "categories": Array [
+                "cozy",
+              ],
               "developer": Object {
                 "name": "Cozy",
               },
@@ -90,6 +125,9 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
               },
             },
             Object {
+              "categories": Array [
+                "partners",
+              ],
               "icon": "<svg></svg>",
               "isInRegistry": true,
               "name": "Tasky",
@@ -120,6 +158,9 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
     apps={
       Array [
         Object {
+          "categories": Array [
+            "cozy",
+          ],
           "developer": Object {
             "name": "Cozy",
           },
@@ -147,6 +188,35 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
           },
         },
         Object {
+          "categories": Array [
+            "isp",
+            "telecom",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "icon": "<svg></svg>",
+          "isInRegistry": true,
+          "name": "Bouilligue",
+          "slug": "konnector-bouilligue",
+          "type": "konnector",
+          "uninstallable": true,
+          "versions": Object {
+            "beta": Array [
+              "0.1.0",
+            ],
+            "dev": Array [
+              "0.1.0",
+            ],
+            "stable": Array [
+              "0.1.0",
+            ],
+          },
+        },
+        Object {
+          "categories": Array [
+            "transport",
+          ],
           "developer": Object {
             "name": "Cozy",
           },
@@ -169,6 +239,9 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
           },
         },
         Object {
+          "categories": Array [
+            "cozy",
+          ],
           "developer": Object {
             "name": "Cozy",
           },
@@ -193,6 +266,9 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
           },
         },
         Object {
+          "categories": Array [
+            "partners",
+          ],
           "icon": "<svg></svg>",
           "isInRegistry": true,
           "name": "Tasky",
@@ -263,6 +339,9 @@ exports[`Discover component should not render apps list if !match.isExact 1`] = 
     apps={
       Array [
         Object {
+          "categories": Array [
+            "cozy",
+          ],
           "developer": Object {
             "name": "Cozy",
           },
@@ -290,6 +369,35 @@ exports[`Discover component should not render apps list if !match.isExact 1`] = 
           },
         },
         Object {
+          "categories": Array [
+            "isp",
+            "telecom",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "icon": "<svg></svg>",
+          "isInRegistry": true,
+          "name": "Bouilligue",
+          "slug": "konnector-bouilligue",
+          "type": "konnector",
+          "uninstallable": true,
+          "versions": Object {
+            "beta": Array [
+              "0.1.0",
+            ],
+            "dev": Array [
+              "0.1.0",
+            ],
+            "stable": Array [
+              "0.1.0",
+            ],
+          },
+        },
+        Object {
+          "categories": Array [
+            "transport",
+          ],
           "developer": Object {
             "name": "Cozy",
           },
@@ -312,6 +420,9 @@ exports[`Discover component should not render apps list if !match.isExact 1`] = 
           },
         },
         Object {
+          "categories": Array [
+            "cozy",
+          ],
           "developer": Object {
             "name": "Cozy",
           },
@@ -336,6 +447,9 @@ exports[`Discover component should not render apps list if !match.isExact 1`] = 
           },
         },
         Object {
+          "categories": Array [
+            "partners",
+          ],
           "icon": "<svg></svg>",
           "isInRegistry": true,
           "name": "Tasky",

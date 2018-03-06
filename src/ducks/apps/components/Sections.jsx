@@ -6,7 +6,6 @@ import { APP_TYPE } from '../index'
 
 const _getSortedByCategories = (appsList) => {
   return appsList.reduce((sortedAppsObject, app) => {
-    if (!app.categories) return sortedAppsObject
     app.categories.map(c => {
       if (!sortedAppsObject.hasOwnProperty(c)) sortedAppsObject[c] = []
       sortedAppsObject[c].push(app)

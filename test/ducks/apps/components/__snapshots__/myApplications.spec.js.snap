@@ -17,6 +17,9 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
         apps={
           Array [
             Object {
+              "categories": Array [
+                "cozy",
+              ],
               "developer": Object {
                 "name": "Cozy",
               },
@@ -44,6 +47,9 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
               },
             },
             Object {
+              "categories": Array [
+                "cozy",
+              ],
               "developer": Object {
                 "name": "Cozy",
               },
@@ -71,6 +77,9 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
     installedApps={
       Array [
         Object {
+          "categories": Array [
+            "cozy",
+          ],
           "developer": Object {
             "name": "Cozy",
           },
@@ -98,6 +107,9 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
           },
         },
         Object {
+          "categories": Array [
+            "cozy",
+          ],
           "developer": Object {
             "name": "Cozy",
           },
@@ -192,6 +204,9 @@ exports[`MyApplications component should render only routing if path not exactly
     installedApps={
       Array [
         Object {
+          "categories": Array [
+            "cozy",
+          ],
           "developer": Object {
             "name": "Cozy",
           },
@@ -219,6 +234,9 @@ exports[`MyApplications component should render only routing if path not exactly
           },
         },
         Object {
+          "categories": Array [
+            "cozy",
+          ],
           "developer": Object {
             "name": "Cozy",
           },
