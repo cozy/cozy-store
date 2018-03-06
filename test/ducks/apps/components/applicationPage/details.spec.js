@@ -54,14 +54,13 @@ describe('ApplicationPage details component', () => {
     expect(component).toMatchSnapshot()
   })
 
-  it('should be rendered correctly provided app with no description, no platforms, no categories, no langs and no changes', () => {
+  it('should be rendered correctly provided app with no description, no platforms, no langs and no changes', () => {
     const appProps = Object.assign({}, getAppProps())
     appProps.description = ''
     appProps.changes = ''
     appProps.langs = []
     appProps.mobileApps = []
     appProps.developer = {}
-    delete appProps.categories
     const component = shallow(<Details {...appProps} />).getElement()
     expect(component).toMatchSnapshot()
   })

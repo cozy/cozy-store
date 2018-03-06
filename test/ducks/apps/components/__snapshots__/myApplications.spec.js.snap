@@ -11,35 +11,56 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
       My Applications
     </h2>
     <div
-      className="sto-myapps-list"
+      className="sto-myapps-sections"
     >
-      <SmallAppItem
-        developer={
-          Object {
-            "name": "Cozy",
-          }
+      <Wrapper
+        apps={
+          Array [
+            Object {
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "editor": "Cozy",
+              "icon": "<svg></svg>",
+              "installed": true,
+              "isInRegistry": true,
+              "name": "Collect",
+              "name_prefix": "Cozy",
+              "related": "http://collect.cozy.mock/",
+              "slug": "collect",
+              "type": "webapp",
+              "uninstallable": false,
+              "version": "3.0.0",
+              "versions": Object {
+                "beta": Array [
+                  "3.0.0",
+                ],
+                "dev": Array [
+                  "3.0.0",
+                ],
+                "stable": Array [
+                  "3.0.0",
+                ],
+              },
+            },
+            Object {
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "editor": "Cozy",
+              "icon": "<svg></svg>",
+              "installed": true,
+              "name": "Drive",
+              "name_prefix": "Cozy",
+              "related": "http://drive.cozy.mock/",
+              "slug": "drive",
+              "type": "webapp",
+              "uninstallable": false,
+              "version": "3.0.0-beta89bnhj3993",
+            },
+          ]
         }
-        editor="Cozy"
-        icon="<svg></svg>"
-        installed={true}
-        name="Collect"
-        namePrefix="Cozy"
-        onClick={[Function]}
-        slug="collect"
-      />
-      <SmallAppItem
-        developer={
-          Object {
-            "name": "Cozy",
-          }
-        }
-        editor="Cozy"
-        icon="<svg></svg>"
-        installed={true}
-        name="Drive"
-        namePrefix="Cozy"
-        onClick={[Function]}
-        slug="drive"
+        error={null}
       />
     </div>
   </div>
@@ -110,13 +131,12 @@ exports[`MyApplications component should display error from props correctly 1`] 
       My Applications
     </h2>
     <div
-      className="sto-myapps-list"
+      className="sto-myapps-sections"
     >
-      <p
-        className="u-error"
-      >
-        This is a test error
-      </p>
+      <Wrapper
+        apps={Array []}
+        error={[Error: This is a test error]}
+      />
     </div>
   </div>
   <withRouter(ApplicationRouting)
@@ -141,7 +161,7 @@ exports[`MyApplications component should render correctly a spinner if apps is f
       My Applications
     </h2>
     <div
-      className="sto-myapps-list"
+      className="sto-myapps-sections"
     />
   </div>
   <withRouter(ApplicationRouting)
