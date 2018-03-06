@@ -165,6 +165,7 @@ function _consolidateApps (stateApps, newAppsInfos) {
 function _sanitizeOldManifest (app) {
   if (!app.short_description) app.short_description = app.description
   if (!app.long_description) app.long_description = app.description
+  if (!app.categories && typeof app.category === 'string') app.categories = [app.category]
   if (typeof app.name === 'object') app.name = app.name.en
   return app
 }

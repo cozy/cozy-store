@@ -63,7 +63,7 @@
     "changes": "What's New?",
     "infos": {
       "title": "Informations",
-      "category": "Category",
+      "categories": "Categories",
       "langs": "Languages",
       "mobile_app": "Mobile Application"
     },
@@ -73,10 +73,22 @@
   },
 
   "app_categories": {
+    "list_separator": ", ",
+    "banking": "Banking",
     "cozy": "Cozy",
+    "energy": "Energy",
+    "health": "Health",
+    "host_provider": "Host",
+    "insurance": "Insurance",
+    "isp": "ISP",
+    "others": "Others",
     "partners": "Partners",
+    "productivity": "Productivity",
     "ptnb": "expPTNB",
-    "others": "Others"
+    "shopping": "Shopping",
+    "social": "Social",
+    "telecom": "Telecom",
+    "transport": "Transportation"
   },
 
   "app_langs": {

@@ -21,7 +21,11 @@ exports[`ApplicationPage component should be rendered correctly with app infos f
       slug="photos"
     />
     <Wrapper
-      category="cozy"
+      categories={
+        Array [
+          "cozy",
+        ]
+      }
       changes="### NEW!!!
 
  Now on the cozy-store :tada"
@@ -78,7 +82,11 @@ exports[`ApplicationPage component should be rendered correctly with konnector i
       slug="konnector-trinlane"
     />
     <Wrapper
-      category="cozy"
+      categories={
+        Array [
+          "transport",
+        ]
+      }
       changes={undefined}
       description={undefined}
       developer={
@@ -120,7 +128,11 @@ exports[`ApplicationPage component should be rendered correctly with provided in
       slug="photos"
     />
     <Wrapper
-      category="cozy"
+      categories={
+        Array [
+          "cozy",
+        ]
+      }
       changes="### NEW!!!
 
  Now on the cozy-store :tada"
@@ -177,7 +189,11 @@ exports[`ApplicationPage component should be rendered correctly with provided in
       slug="konnector-trinlane"
     />
     <Wrapper
-      category="cozy"
+      categories={
+        Array [
+          "transport",
+        ]
+      }
       changes={undefined}
       description={undefined}
       developer={

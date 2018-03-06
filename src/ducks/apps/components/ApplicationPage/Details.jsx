@@ -29,13 +29,16 @@ export class Details extends Component {
       t,
       description,
       changes,
-      category,
+      categories,
       langs,
       mobileApps,
       developer
     } = this.props
     const { lessDescription, lessChanges } = this.state
     const langsInfos = langs && langs.map(l => t(`app_langs.${l}`))
+    const categoriesInfos = categories && !!categories.length && categories.map(
+      c => t(`app_categories.${c}`)
+    )
     const developerName =
       developer && developer.name === 'Cozy'
         ? 'Cozy Cloud Inc.'
@@ -86,10 +89,15 @@ export class Details extends Component {
           <h3>{t('app_page.infos.title')}</h3>
           <div className='sto-app-info'>
             <div className='sto-app-info-header'>
-              {t('app_page.infos.category')}
+              {t('app_page.infos.categories')}
             </div>
             <div className='sto-app-info-content'>
-              {t(`app_categories.${category || 'others'}`)}
+              {categoriesInfos &&
+                categoriesInfos.join(t('app_categories.list_separator'))
+              }
+              {!categoriesInfos &&
+                t('app_categories.others')
+              }
             </div>
           </div>
           {langsInfos && (

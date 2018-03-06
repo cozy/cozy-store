@@ -4,7 +4,7 @@
   "icon": "icon-store.svg",
   "editor": "Cozy",
   "description": "The apps store for Cozy V3",
-  "category": "cozy",
+  "categories": ["cozy"],
   "version": "3.0.0",
   "licence": "AGPL-3.0",
   "source": "https://github.com/cozy/cozy-store.git@build",
