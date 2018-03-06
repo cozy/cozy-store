@@ -10,7 +10,7 @@ export const Photos = {
     type: 'webapp',
     icon: 'https://mockcozy.cc/registry/photos/3.0.0/icon.svg',
     short_description: 'Photos manager for Cozy v3',
-    category: 'cozy',
+    categories: ['cozy'],
     source: 'https://github.com/cozy/cozy-drive.git@build-photos',
     editor: 'Cozy',
     developer: {

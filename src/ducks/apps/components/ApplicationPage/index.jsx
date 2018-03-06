@@ -69,7 +69,7 @@ export const ApplicationPage = ({
         <Details
           description={appLongDesc}
           changes={appChanges}
-          category={app.category}
+          categories={app.categories}
           langs={app.langs}
           developer={app.developer}
           mobileApps={mobileApps}

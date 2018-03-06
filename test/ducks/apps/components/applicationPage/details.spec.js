@@ -22,7 +22,7 @@ const getAppProps = () => {
     t: tMock,
     description: appManifest.locales.en.long_description,
     changes: appManifest.locales.en.changes,
-    category: appManifest.category,
+    categories: appManifest.categories,
     langs: appManifest.langs,
     mobileApps: [
       { type: 'ios', url: '' },
@@ -37,7 +37,7 @@ const getKonnectorProps = () => {
     t: tMock,
     description: konnectorManifest.locales.en.long_description,
     changes: konnectorManifest.locales.en.changes,
-    category: konnectorManifest.category,
+    categories: konnectorManifest.categories,
     langs: konnectorManifest.langs,
     developer: konnectorManifest.developer
   }
@@ -54,14 +54,14 @@ describe('ApplicationPage details component', () => {
     expect(component).toMatchSnapshot()
   })
 
-  it('should be rendered correctly provided app with no description, no platforms, no category, no langs and no changes', () => {
+  it('should be rendered correctly provided app with no description, no platforms, no categories, no langs and no changes', () => {
     const appProps = Object.assign({}, getAppProps())
     appProps.description = ''
     appProps.changes = ''
-    appProps.category = ''
     appProps.langs = []
     appProps.mobileApps = []
     appProps.developer = {}
+    delete appProps.categories
     const component = shallow(<Details {...appProps} />).getElement()
     expect(component).toMatchSnapshot()
   })

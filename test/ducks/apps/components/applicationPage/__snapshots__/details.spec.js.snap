@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ApplicationPage details component should be rendered correctly provided app with no description, no platforms, no category, no langs and no changes 1`] = `
+exports[`ApplicationPage details component should be rendered correctly provided app with no description, no platforms, no categories, no langs and no changes 1`] = `
 <div
   className="sto-app-details"
 >
@@ -22,7 +22,7 @@ exports[`ApplicationPage details component should be rendered correctly provided
       <div
         className="sto-app-info-header"
       >
-        Category
+        Categories
       </div>
       <div
         className="sto-app-info-content"
@@ -110,7 +110,7 @@ Enjoy features to grab your data in you Cozy :tada:"
       <div
         className="sto-app-info-header"
       >
-        Category
+        Categories
       </div>
       <div
         className="sto-app-info-content"
@@ -209,12 +209,12 @@ exports[`ApplicationPage details component should be rendered correctly with pro
       <div
         className="sto-app-info-header"
       >
-        Category
+        Categories
       </div>
       <div
         className="sto-app-info-content"
       >
-        Cozy
+        Transportation
       </div>
     </div>
     <div
@@ -309,7 +309,7 @@ Enjoy features to grab your data in you Cozy :tada:"
       <div
         className="sto-app-info-header"
       >
-        Category
+        Categories
       </div>
       <div
         className="sto-app-info-content"
@@ -444,7 +444,7 @@ Enjoy features to grab your data in you Cozy :tada:"
       <div
         className="sto-app-info-header"
       >
-        Category
+        Categories
       </div>
       <div
         className="sto-app-info-content"
