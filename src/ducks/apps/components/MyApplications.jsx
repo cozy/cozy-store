@@ -4,9 +4,7 @@ import { translate } from 'cozy-ui/react/I18n'
 import Spinner from 'cozy-ui/react/Spinner'
 
 import ApplicationRouting from './ApplicationRouting'
-import SmallAppItem from '../../components/SmallAppItem'
-
-import { getLocalizedAppProperty } from 'ducks/apps'
+import Sections from './Sections'
 
 export class MyApplications extends Component {
   constructor (props) {
@@ -19,34 +17,16 @@ export class MyApplications extends Component {
   }
 
   render () {
-    const { t, lang, installedApps, isFetching, fetchError, actionError } = this.props
+    const { t, installedApps, isFetching, fetchError, actionError } = this.props
     return (
       <div className='sto-myapps'>
         {this.props.match.isExact ? (
           <div>
             <h2 className='sto-myapps-title'>{t('myapps.title')}</h2>
-            <div className='sto-myapps-list'>
+            <div className='sto-myapps-sections'>
               {!isFetching &&
-                installedApps &&
-                !!installedApps.length &&
-                installedApps.map(app => {
-                  const appName = getLocalizedAppProperty(app, 'name', lang)
-                  const appNamePrefix = getLocalizedAppProperty(app, 'name_prefix', lang)
-                  return (
-                    <SmallAppItem
-                      slug={app.slug}
-                      developer={app.developer}
-                      namePrefix={appNamePrefix || ''}
-                      editor={app.editor}
-                      icon={app.icon}
-                      name={appName}
-                      installed={app.installed}
-                      onClick={() => this.onAppClick(app.slug)}
-                      key={app.slug}
-                    />
-                  )
-                })}
-              {fetchError && <p className='u-error'>{fetchError.message}</p>}
+                <Sections apps={installedApps} error={fetchError} />
+              }
             </div>
           </div>
         ) : null}

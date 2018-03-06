@@ -3,10 +3,8 @@ import React, { Component } from 'react'
 import { translate } from 'cozy-ui/react/I18n'
 import Spinner from 'cozy-ui/react/Spinner'
 
-import SmallAppItem from '../../components/SmallAppItem'
-
 import ApplicationRouting from './ApplicationRouting'
-import { getLocalizedAppProperty } from '../index'
+import Sections from './Sections'
 
 export class Discover extends Component {
   constructor (props, context) {
@@ -21,39 +19,16 @@ export class Discover extends Component {
   }
 
   render () {
-    const { t, lang, apps, isFetching, fetchError, isInstalling, actionError } = this.props
+    const { t, apps, isFetching, fetchError, isInstalling, actionError } = this.props
     return (
       <div className='sto-discover'>
         {this.props.match.isExact ? (
           <div>
             <h2 className='sto-discover-title'>{t('discover.title')}</h2>
-            <div className='sto-discover-get-started'>
-              <h3 className='sto-discover-get-started-title'>
-                {t('discover.get_started')}
-              </h3>
-              <div className='sto-discover-get-started-list'>
-                {!isFetching && !fetchError &&
-                  apps.map(app => {
-                    const appName = getLocalizedAppProperty(app, 'name', lang)
-                    const appNamePrefix = getLocalizedAppProperty(app, 'name_prefix', lang)
-                    return (
-                      <SmallAppItem
-                        slug={app.slug}
-                        developer={app.developer || {}}
-                        namePrefix={appNamePrefix || ''}
-                        editor={app.editor || ''}
-                        icon={app.icon}
-                        name={appName}
-                        installed={app.installed}
-                        onClick={() => this.onAppClick(app.slug)}
-                        key={app.slug}
-                      />
-                    )
-                  })}
-                {fetchError && (
-                  <p className='u-error'>{fetchError.message}</p>
-                )}
-              </div>
+            <div className='sto-discover-sections'>
+              {!isFetching &&
+                <Sections apps={apps} error={fetchError} />
+              }
             </div>
           </div>
         ) : null}

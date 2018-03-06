@@ -287,6 +287,11 @@ export function fetchInstalledApps () {
     try {
       let installedWebApps = await cozy.client
         .fetchJSON('GET', '/apps/')
+      installedWebApps = installedWebApps.map(w => {
+        // FIXME type konnector is missing from stack
+        w.attributes.type = 'webapp'
+        return w
+      })
       const collectApp = installedWebApps.find(a => a.attributes.slug === 'collect')
       const collectLink = collectApp && collectApp.links.related
       installedWebApps = installedWebApps.filter(
