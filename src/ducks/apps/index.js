@@ -14,7 +14,7 @@ const APP_STATE = {
 
 export const APP_TYPE = {
   KONNECTOR: 'konnector',
-  WEBAPP: 'webpapp'
+  WEBAPP: 'webapp'
 }
 
 const COLLECT_RELATED_PATH = '#/providers/all'
