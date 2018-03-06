@@ -111,6 +111,7 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
           ]
         }
         error={null}
+        onAppClick={[Function]}
       />
     </div>
   </div>
@@ -237,6 +238,7 @@ exports[`Discover component should display error from props correctly 1`] = `
       <Wrapper
         apps={Array []}
         error={[Error: This is a test error]}
+        onAppClick={[Function]}
       />
     </div>
   </div>

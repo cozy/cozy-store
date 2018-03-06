@@ -27,7 +27,11 @@ export class Discover extends Component {
             <h2 className='sto-discover-title'>{t('discover.title')}</h2>
             <div className='sto-discover-sections'>
               {!isFetching &&
-                <Sections apps={apps} error={fetchError} />
+                <Sections
+                  apps={apps}
+                  error={fetchError}
+                  onAppClick={this.onAppClick}
+                />
               }
             </div>
           </div>

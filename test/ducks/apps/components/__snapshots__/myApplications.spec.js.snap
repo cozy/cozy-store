@@ -61,6 +61,7 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
           ]
         }
         error={null}
+        onAppClick={[Function]}
       />
     </div>
   </div>
@@ -136,6 +137,7 @@ exports[`MyApplications component should display error from props correctly 1`] 
       <Wrapper
         apps={Array []}
         error={[Error: This is a test error]}
+        onAppClick={[Function]}
       />
     </div>
   </div>

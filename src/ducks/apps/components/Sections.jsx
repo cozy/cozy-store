@@ -6,6 +6,7 @@ import { APP_TYPE } from '../index'
 
 const _getSortedByCategories = (appsList) => {
   return appsList.reduce((sortedAppsObject, app) => {
+    if (!app.categories) return sortedAppsObject
     app.categories.map(c => {
       if (!sortedAppsObject.hasOwnProperty(c)) sortedAppsObject[c] = []
       sortedAppsObject[c].push(app)
@@ -14,7 +15,7 @@ const _getSortedByCategories = (appsList) => {
   }, {})
 }
 
-export const Sections = ({t, lang, apps, error}) => {
+export const Sections = ({t, lang, apps, error, onAppClick}) => {
   if (error) return <p className='u-error'>{error.message}</p>
   const konnectorsCategories = _getSortedByCategories(
     apps.filter(a => a.type === APP_TYPE.KONNECTOR)
@@ -33,6 +34,7 @@ export const Sections = ({t, lang, apps, error}) => {
             <AppsSection
               appsList={webAppsCategories[cat]}
               subtitle={t(`app_categories.${cat}`)}
+              onAppClick={onAppClick}
             />
           )
         })}
@@ -48,6 +50,7 @@ export const Sections = ({t, lang, apps, error}) => {
             <AppsSection
               appsList={konnectorsCategories[cat]}
               subtitle={t(`app_categories.${cat}`)}
+              onAppClick={onAppClick}
             />
           )
         })}

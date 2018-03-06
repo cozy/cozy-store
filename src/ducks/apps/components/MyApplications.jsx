@@ -10,6 +10,8 @@ export class MyApplications extends Component {
   constructor (props) {
     super(props)
     props.fetchInstalledApps()
+
+    this.onAppClick = this.onAppClick.bind(this)
   }
 
   onAppClick (appSlug) {
@@ -25,7 +27,11 @@ export class MyApplications extends Component {
             <h2 className='sto-myapps-title'>{t('myapps.title')}</h2>
             <div className='sto-myapps-sections'>
               {!isFetching &&
-                <Sections apps={installedApps} error={fetchError} />
+                <Sections
+                  apps={installedApps}
+                  error={fetchError}
+                  onAppClick={this.onAppClick}
+                />
               }
             </div>
           </div>

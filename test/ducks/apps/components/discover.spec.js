@@ -7,7 +7,6 @@ import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
 import { tMock } from '../../../jestLib/I18n'
-import SmallAppItem from 'ducks/components/SmallAppItem'
 import { Discover } from 'ducks/apps/components/Discover'
 
 import mockApps from '../_mockApps'
@@ -72,19 +71,14 @@ describe('Discover component', () => {
     expect(component).toMatchSnapshot()
   })
 
-  // it('should handle correctly items onClick', () => {
-  //   const mockProps = getMockProps()
-  //   const component = shallow(<Discover t={tMock} {...mockProps} />)
-  //   expect(component.find(SmallAppItem).length).toBe(mockRegistyApps.length)
-  //   const appItem = component
-  //     .find(SmallAppItem)
-  //     .at(0)
-  //     .dive() // shallow on more level on first app item
-  //   appItem.simulate('click')
-  //   // history push to app modal URL
-  //   expect(mockProps.history.push.mock.calls.length).toBe(1)
-  //   expect(mockProps.history.push.mock.calls[0][0]).toBe(
-  //     `/discover/${mockRegistyApps[0].slug}`
-  //   )
-  // })
+  it('should define the correct onAppClick function to pass to sections', () => {
+    const mockProps = getMockProps()
+    const component = shallow(<Discover t={tMock} {...mockProps} />)
+    const instance = component.instance()
+    instance.onAppClick(mockRegistyApps[0].slug)
+    expect(mockProps.history.push.mock.calls.length).toBe(1)
+    expect(mockProps.history.push.mock.calls[0][0]).toBe(
+      `/discover/${mockRegistyApps[0].slug}`
+    )
+  })
 })
