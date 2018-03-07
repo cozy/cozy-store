@@ -15,6 +15,7 @@ const _renderAppComponent = (app, lang, onAppClick) => {
       name={getLocalizedAppProperty(app, 'name', lang)}
       installed={app.installed}
       onClick={() => onAppClick(app.slug)}
+      installedAppLink={app.related}
       key={app.slug}
     />
   )

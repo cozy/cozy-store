@@ -12,7 +12,7 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
   <div
     className="sto-sections-list"
   >
-    <SmallAppItem
+    <Wrapper
       developer={
         Object {
           "name": "Cozy",
@@ -21,12 +21,13 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
       editor="Cozy"
       icon="<svg></svg>"
       installed={true}
+      installedAppLink="http://collect.cozy.mock/"
       name="Collect"
       namePrefix="Cozy"
       onClick={[Function]}
       slug="collect"
     />
-    <SmallAppItem
+    <Wrapper
       developer={
         Object {
           "name": "Cozy",
@@ -35,12 +36,13 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
       editor="Cozy"
       icon="<svg></svg>"
       installed={undefined}
+      installedAppLink={undefined}
       name="DevOnly"
       namePrefix=""
       onClick={[Function]}
       slug="devonly"
     />
-    <SmallAppItem
+    <Wrapper
       developer={
         Object {
           "name": "Cozy",
@@ -49,12 +51,13 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
       editor="Cozy"
       icon="<svg></svg>"
       installed={true}
+      installedAppLink="http://drive.cozy.mock/"
       name="Drive"
       namePrefix="Cozy"
       onClick={[Function]}
       slug="drive"
     />
-    <SmallAppItem
+    <Wrapper
       developer={
         Object {
           "name": "Cozy",
@@ -63,12 +66,13 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
       editor=""
       icon="<svg></svg>"
       installed={undefined}
+      installedAppLink={undefined}
       name="Bouilligue"
       namePrefix=""
       onClick={[Function]}
       slug="konnector-bouilligue"
     />
-    <SmallAppItem
+    <Wrapper
       developer={
         Object {
           "name": "Cozy",
@@ -77,12 +81,13 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
       editor=""
       icon="<svg></svg>"
       installed={undefined}
+      installedAppLink={undefined}
       name="Trinlane"
       namePrefix=""
       onClick={[Function]}
       slug="konnector-trinlane"
     />
-    <SmallAppItem
+    <Wrapper
       developer={
         Object {
           "name": "Cozy",
@@ -91,16 +96,18 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
       editor="Cozy"
       icon="<svg></svg>"
       installed={undefined}
+      installedAppLink={undefined}
       name="Photos"
       namePrefix="Cozy"
       onClick={[Function]}
       slug="photos"
     />
-    <SmallAppItem
+    <Wrapper
       developer={Object {}}
       editor=""
       icon="<svg></svg>"
       installed={undefined}
+      installedAppLink={undefined}
       name="Tasky"
       namePrefix=""
       onClick={[Function]}

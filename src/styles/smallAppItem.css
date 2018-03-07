@@ -65,6 +65,23 @@
   color: var(--cool-grey);
 }
 
+.sto-small-app-item-desc .sto-small-app-item-button {
+  margin-left: 0;
+}
+
+.sto-small-app-item-button-install,
+.sto-small-app-item-button-install:visited {
+  color: var(--dodger-blue);
+  background: white;
+  font-weight: 700;
+}
+
+.sto-small-app-item-button-install:hover,
+.sto-small-app-item-button-install:focus,
+.sto-small-app-item-button-install:active {
+  color: white;
+}
+
 @media (min-width: 40em) {
   .sto-small-app-item {
     flex-grow: 0;

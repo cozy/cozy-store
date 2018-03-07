@@ -1,9 +1,14 @@
 import React from 'react'
 
 import Icon from 'cozy-ui/react/Icon'
-import defaultAppIcon from '../../assets/icons/icon-cube.svg'
+import { translate } from 'cozy-ui/react/I18n'
 
-const SmallAppItem = ({
+import defaultAppIcon from '../../assets/icons/icon-cube.svg'
+import { Link } from 'react-router-dom'
+import Button from 'cozy-ui/react/Button'
+
+export const SmallAppItem = ({
+  t,
   slug,
   developer,
   editor,
@@ -11,8 +16,15 @@ const SmallAppItem = ({
   name,
   namePrefix,
   installed,
-  onClick
+  onClick,
+  installedAppLink
 }) => {
+  const onShortcutAppButton = (e, link) => {
+    // prevent from opening parent SmallAppItem link
+    // which will lead to the application main page
+    e.stopPropagation()
+    if (link) window.location.assign(link)
+  }
   return (
     // HACK a11y
     // `onKeyDown={(e) => e.keyCode === 13 ? onClick() : null`
@@ -54,9 +66,25 @@ const SmallAppItem = ({
         <p className='sto-small-app-item-detail'>
           {developer.name === 'Cozy' ? 'Cozy Cloud Inc.' : developer.name}
         </p>
+        {installed
+          ? <Button
+            onClick={(e) => onShortcutAppButton(e, installedAppLink)}
+            label={t('app_item.open')}
+            theme='secondary'
+            className='sto-small-app-item-button'
+            size='tiny'
+          />
+          : <Link
+            to={`/discover/${slug}/manage`}
+            onClick={(e) => onShortcutAppButton(e)}
+            className='c-btn c-btn--regular c-btn--tiny sto-small-app-item-button sto-small-app-item-button-install'
+          >
+            {t('app_item.install')}
+          </Link>
+        }
       </div>
     </div>
   )
 }
 
-export default SmallAppItem
+export default translate()(SmallAppItem)
