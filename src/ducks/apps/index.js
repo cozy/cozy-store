@@ -180,7 +180,7 @@ function _consolidateApps (stateApps, newAppsInfos) {
 
 // FIXME retro-compatibility for old formatted manifest
 function _sanitizeOldManifest (app) {
-  if (!app.categories && typeof app.category === 'string') app.categories = [app.category]
+  if (!app.categories && app.category && typeof app.category === 'string') app.categories = [app.category]
   if (typeof app.name === 'object') app.name = app.name.en
   return app
 }
@@ -201,8 +201,12 @@ function _getKonnectorRegistrySlug (slug = '') {
 
 // check authorized categories and add default 'others'
 function _sanitizeCategories (categoriesList) {
-  if (!categoriesList || !categoriesList.length) return ['others']
-  return categoriesList.filter(c => AUTHORIZED_CATEGORIES.includes(c))
+  if (!categoriesList) return ['others']
+  const filteredList = categoriesList.filter(
+    c => AUTHORIZED_CATEGORIES.includes(c)
+  )
+  if (!filteredList.length) return ['others']
+  return filteredList
 }
 
 export function getFormattedInstalledApp (response, collectLink) {
