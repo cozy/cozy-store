@@ -34,7 +34,9 @@ exports[`SmallAppItem component should be rendered correctly an app 1`] = `
       replace={false}
       to="/discover/test/manage"
     >
-      Install
+      <span>
+        Install
+      </span>
     </Link>
   </div>
 </div>

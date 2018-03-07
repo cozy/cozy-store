@@ -79,7 +79,7 @@ export const SmallAppItem = ({
             onClick={(e) => onShortcutAppButton(e)}
             className='c-btn c-btn--regular c-btn--tiny sto-small-app-item-button sto-small-app-item-button-install'
           >
-            {t('app_item.install')}
+            <span>{t('app_item.install')}</span>
           </Link>
         }
       </div>
