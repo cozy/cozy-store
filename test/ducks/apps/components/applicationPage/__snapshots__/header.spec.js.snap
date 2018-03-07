@@ -27,15 +27,17 @@ exports[`ApplicationPage header component should be rendered correctly provided 
       replace={false}
       to="//myapps/photos/manage"
     >
-      <Icon
-        className="sto-app-icon--button"
-        color="#FFFFFF"
-        height="16px"
-        icon="test-file-stub"
-        width="16px"
-      />
-       
-      Install on my Cozy
+      <span>
+        <Icon
+          className="sto-app-icon--button"
+          color="#FFFFFF"
+          height="16px"
+          icon="test-file-stub"
+          width="16px"
+        />
+         
+        Install on my Cozy
+      </span>
     </Link>
   </div>
 </div>
@@ -70,15 +72,17 @@ exports[`ApplicationPage header component should be rendered correctly provided 
       replace={false}
       to="//myapps/photos/manage"
     >
-      <Icon
-        className="sto-app-icon--button"
-        color="#FFFFFF"
-        height="16px"
-        icon="test-file-stub"
-        width="16px"
-      />
-       
-      Install on my Cozy
+      <span>
+        <Icon
+          className="sto-app-icon--button"
+          color="#FFFFFF"
+          height="16px"
+          icon="test-file-stub"
+          width="16px"
+        />
+         
+        Install on my Cozy
+      </span>
     </Link>
   </div>
 </div>
@@ -111,15 +115,17 @@ exports[`ApplicationPage header component should be rendered correctly provided 
       replace={false}
       to="//myapps/konnector-trinlane/manage"
     >
-      <Icon
-        className="sto-app-icon--button"
-        color="#FFFFFF"
-        height="16px"
-        icon="test-file-stub"
-        width="16px"
-      />
-       
-      Install on my Cozy
+      <span>
+        <Icon
+          className="sto-app-icon--button"
+          color="#FFFFFF"
+          height="16px"
+          icon="test-file-stub"
+          width="16px"
+        />
+         
+        Install on my Cozy
+      </span>
     </Link>
   </div>
 </div>

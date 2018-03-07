@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import Icon from 'cozy-ui/react/Icon'
+import Button from 'cozy-ui/react/Button'
 import { translate } from 'cozy-ui/react/I18n'
 
 import cozySmileIcon from 'assets/icons/icon-cozy-smile.svg'
@@ -47,25 +48,22 @@ export const Header = ({
         <p>{description}</p>
         {installed ? (
           <div>
-            <button
-              role='button'
+            <Button
               onClick={() => openApp(installedAppLink)}
-              className='c-btn c-btn--regular'
-            >
-              <Icon icon='openwith' width='10px' height='10px' />{' '}
-              {isKonnector
+              icon='openwith'
+              label={isKonnector
                 ? t('app_page.konnector.open')
                 : t('app_page.webapp.open')
               }
-            </button>
+            />
             <Link
               to={`/${parent}/${slug}/manage`}
               className='c-btn c-btn--danger-outline sto-app-header-uninstall-button'
             >
-              {isKonnector
+              <span>{isKonnector
                 ? t('app_page.konnector.uninstall')
                 : t('app_page.webapp.uninstall')
-              }
+              }</span>
             </Link>
           </div>
         ) : (
@@ -73,17 +71,19 @@ export const Header = ({
             to={`/${parent}/${slug}/manage`}
             className='c-btn c-btn--regular'
           >
-            <Icon
-              icon={cozySmileIcon}
-              color='#FFFFFF'
-              width='16px'
-              height='16px'
-              className='sto-app-icon--button'
-            />{' '}
-            {isKonnector
-              ? t('app_page.konnector.install')
-              : t('app_page.webapp.install')
-            }
+            <span>
+              <Icon
+                icon={cozySmileIcon}
+                color='#FFFFFF'
+                width='16px'
+                height='16px'
+                className='sto-app-icon--button'
+              />{' '}
+              {isKonnector
+                ? t('app_page.konnector.install')
+                : t('app_page.webapp.install')
+              }
+            </span>
           </Link>
         )}
       </div>

@@ -23,7 +23,9 @@ exports[`UninstallModal component should be rendered correctly if app not uninst
             onClick={[Function]}
             role="button"
           >
-            Cancel
+            <span>
+              Cancel
+            </span>
           </button>
           <button
             className="c-btn c-btn--danger c-btn--delete"
@@ -31,7 +33,9 @@ exports[`UninstallModal component should be rendered correctly if app not uninst
             onClick={[Function]}
             role="button"
           >
-            Uninstall
+            <span>
+              Uninstall
+            </span>
           </button>
         </div>
       </div>
@@ -63,7 +67,9 @@ exports[`UninstallModal component should be rendered correctly if app uninstalla
             onClick={[Function]}
             role="button"
           >
-            Cancel
+            <span>
+              Cancel
+            </span>
           </button>
           <button
             className="c-btn c-btn--danger c-btn--delete"
@@ -71,7 +77,9 @@ exports[`UninstallModal component should be rendered correctly if app uninstalla
             onClick={[Function]}
             role="button"
           >
-            Uninstall
+            <span>
+              Uninstall
+            </span>
           </button>
         </div>
       </div>
@@ -108,7 +116,9 @@ exports[`UninstallModal component should hanlde correctly error from props 1`] =
             onClick={[Function]}
             role="button"
           >
-            Cancel
+            <span>
+              Cancel
+            </span>
           </button>
           <button
             className="c-btn c-btn--danger c-btn--delete"
@@ -116,7 +126,9 @@ exports[`UninstallModal component should hanlde correctly error from props 1`] =
             onClick={[Function]}
             role="button"
           >
-            Uninstall
+            <span>
+              Uninstall
+            </span>
           </button>
         </div>
       </div>
