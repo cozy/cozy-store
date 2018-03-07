@@ -1830,9 +1830,7 @@ body {
 
 .sto-app-icon--button {
   position: relative;
-  top: .15rem;
-  margin-top: -.4rem;
-  margin-right: .3rem;
+  left: -.35rem;
 }
 
 /*********************/
