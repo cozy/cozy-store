@@ -1,4 +1,4 @@
-.sto-section-list {
+.sto-sections-list {
   /* We differenciate the "real" margin from the "used" margin. The "used" margin
   allow to use a little higher value for flex-basis calculation. Firefox
   and Chrome are behaving well but IE11 need it. */
@@ -14,12 +14,13 @@
   flex-shrink: 1;
   flex-basis: calc(100% - var(--item-margin) * 2);
   width: 20em;
-  margin: var(--item-real-margin);
+  padding: var(--item-real-margin);
+  /* padding: var(--item-real-margin); */
 }
 
 .sto-small-app-item:hover {
   background: var(--pale-grey);
-  box-shadow: 0 0 0 .7em var(--pale-grey);
+  box-shadow: 0 0 0 0 var(--pale-grey);
   cursor: pointer;
 }
 
@@ -35,8 +36,8 @@
 
 .sto-small-app-item-badge-installed {
   position: absolute;
-  bottom: 0;
-  left: 3em;
+  bottom: calc(0em + var(--item-real-margin));
+  left: calc(3em + var(--item-real-margin));
   width: 1em;
   height: 1em;
   background-color: white;
