@@ -11,69 +11,146 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
       Discover
     </h2>
     <div
-      className="sto-discover-get-started"
+      className="sto-discover-sections"
     >
-      <h3
-        className="sto-discover-get-started-title"
-      >
-        Get started with Cozy
-      </h3>
-      <div
-        className="sto-discover-get-started-list"
-      >
-        <SmallAppItem
-          developer={
+      <Wrapper
+        apps={
+          Array [
             Object {
-              "name": "Cozy",
-            }
-          }
-          editor="Cozy"
-          icon="<svg></svg>"
-          installed={true}
-          name="Collect"
-          namePrefix="Cozy"
-          onClick={[Function]}
-          slug="collect"
-        />
-        <SmallAppItem
-          developer={
+              "categories": Array [
+                "cozy",
+              ],
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "editor": "Cozy",
+              "icon": "<svg></svg>",
+              "installed": true,
+              "isInRegistry": true,
+              "name": "Collect",
+              "name_prefix": "Cozy",
+              "related": "http://collect.cozy.mock/",
+              "slug": "collect",
+              "type": "webapp",
+              "uninstallable": false,
+              "version": "3.0.0",
+              "versions": Object {
+                "beta": Array [
+                  "3.0.0",
+                ],
+                "dev": Array [
+                  "3.0.0",
+                ],
+                "stable": Array [
+                  "3.0.0",
+                ],
+              },
+            },
             Object {
-              "name": "Cozy",
-            }
-          }
-          editor=""
-          icon="<svg></svg>"
-          installed={undefined}
-          name="Trinlane"
-          namePrefix=""
-          onClick={[Function]}
-          slug="konnector-trinlane"
-        />
-        <SmallAppItem
-          developer={
+              "categories": Array [
+                "isp",
+                "telecom",
+              ],
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "icon": "<svg></svg>",
+              "isInRegistry": true,
+              "name": "Bouilligue",
+              "slug": "konnector-bouilligue",
+              "type": "konnector",
+              "uninstallable": true,
+              "versions": Object {
+                "beta": Array [
+                  "0.1.0",
+                ],
+                "dev": Array [
+                  "0.1.0",
+                ],
+                "stable": Array [
+                  "0.1.0",
+                ],
+              },
+            },
             Object {
-              "name": "Cozy",
-            }
-          }
-          editor="Cozy"
-          icon="<svg></svg>"
-          installed={undefined}
-          name="Photos"
-          namePrefix="Cozy"
-          onClick={[Function]}
-          slug="photos"
-        />
-        <SmallAppItem
-          developer={Object {}}
-          editor=""
-          icon="<svg></svg>"
-          installed={undefined}
-          name="Tasky"
-          namePrefix=""
-          onClick={[Function]}
-          slug="tasky"
-        />
-      </div>
+              "categories": Array [
+                "transport",
+              ],
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "icon": "<svg></svg>",
+              "isInRegistry": true,
+              "name": "Trinlane",
+              "slug": "konnector-trinlane",
+              "type": "konnector",
+              "uninstallable": true,
+              "versions": Object {
+                "beta": Array [
+                  "0.1.0",
+                ],
+                "dev": Array [
+                  "0.1.0",
+                ],
+                "stable": Array [
+                  "0.1.0",
+                ],
+              },
+            },
+            Object {
+              "categories": Array [
+                "cozy",
+              ],
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "editor": "Cozy",
+              "icon": "<svg></svg>",
+              "isInRegistry": true,
+              "name": "Photos",
+              "name_prefix": "Cozy",
+              "slug": "photos",
+              "type": "webapp",
+              "uninstallable": true,
+              "versions": Object {
+                "beta": Array [
+                  "3.0.0",
+                ],
+                "dev": Array [
+                  "3.0.0",
+                ],
+                "stable": Array [
+                  "3.0.0",
+                ],
+              },
+            },
+            Object {
+              "categories": Array [
+                "partners",
+              ],
+              "icon": "<svg></svg>",
+              "isInRegistry": true,
+              "name": "Tasky",
+              "slug": "tasky",
+              "type": "webapp",
+              "uninstallable": true,
+              "versions": Object {
+                "beta": Array [
+                  "1.0.0",
+                ],
+                "dev": Array [
+                  "1.0.0",
+                ],
+                "stable": Array [
+                  "1.0.0",
+                ],
+              },
+            },
+          ]
+        }
+        error={null}
+        onAppClick={[Function]}
+      />
     </div>
   </div>
   <withRouter(ApplicationRouting)
@@ -81,6 +158,9 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
     apps={
       Array [
         Object {
+          "categories": Array [
+            "cozy",
+          ],
           "developer": Object {
             "name": "Cozy",
           },
@@ -108,6 +188,35 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
           },
         },
         Object {
+          "categories": Array [
+            "isp",
+            "telecom",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "icon": "<svg></svg>",
+          "isInRegistry": true,
+          "name": "Bouilligue",
+          "slug": "konnector-bouilligue",
+          "type": "konnector",
+          "uninstallable": true,
+          "versions": Object {
+            "beta": Array [
+              "0.1.0",
+            ],
+            "dev": Array [
+              "0.1.0",
+            ],
+            "stable": Array [
+              "0.1.0",
+            ],
+          },
+        },
+        Object {
+          "categories": Array [
+            "transport",
+          ],
           "developer": Object {
             "name": "Cozy",
           },
@@ -130,6 +239,9 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
           },
         },
         Object {
+          "categories": Array [
+            "cozy",
+          ],
           "developer": Object {
             "name": "Cozy",
           },
@@ -154,6 +266,9 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
           },
         },
         Object {
+          "categories": Array [
+            "partners",
+          ],
           "icon": "<svg></svg>",
           "isInRegistry": true,
           "name": "Tasky",
@@ -194,22 +309,13 @@ exports[`Discover component should display error from props correctly 1`] = `
       Discover
     </h2>
     <div
-      className="sto-discover-get-started"
+      className="sto-discover-sections"
     >
-      <h3
-        className="sto-discover-get-started-title"
-      >
-        Get started with Cozy
-      </h3>
-      <div
-        className="sto-discover-get-started-list"
-      >
-        <p
-          className="u-error"
-        >
-          This is a test error
-        </p>
-      </div>
+      <Wrapper
+        apps={Array []}
+        error={[Error: This is a test error]}
+        onAppClick={[Function]}
+      />
     </div>
   </div>
   <withRouter(ApplicationRouting)
@@ -233,6 +339,9 @@ exports[`Discover component should not render apps list if !match.isExact 1`] = 
     apps={
       Array [
         Object {
+          "categories": Array [
+            "cozy",
+          ],
           "developer": Object {
             "name": "Cozy",
           },
@@ -260,6 +369,35 @@ exports[`Discover component should not render apps list if !match.isExact 1`] = 
           },
         },
         Object {
+          "categories": Array [
+            "isp",
+            "telecom",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "icon": "<svg></svg>",
+          "isInRegistry": true,
+          "name": "Bouilligue",
+          "slug": "konnector-bouilligue",
+          "type": "konnector",
+          "uninstallable": true,
+          "versions": Object {
+            "beta": Array [
+              "0.1.0",
+            ],
+            "dev": Array [
+              "0.1.0",
+            ],
+            "stable": Array [
+              "0.1.0",
+            ],
+          },
+        },
+        Object {
+          "categories": Array [
+            "transport",
+          ],
           "developer": Object {
             "name": "Cozy",
           },
@@ -282,6 +420,9 @@ exports[`Discover component should not render apps list if !match.isExact 1`] = 
           },
         },
         Object {
+          "categories": Array [
+            "cozy",
+          ],
           "developer": Object {
             "name": "Cozy",
           },
@@ -306,6 +447,9 @@ exports[`Discover component should not render apps list if !match.isExact 1`] = 
           },
         },
         Object {
+          "categories": Array [
+            "partners",
+          ],
           "icon": "<svg></svg>",
           "isInRegistry": true,
           "name": "Tasky",
@@ -346,17 +490,8 @@ exports[`Discover component should render correctly a spinner if apps is fetchin
       Discover
     </h2>
     <div
-      className="sto-discover-get-started"
-    >
-      <h3
-        className="sto-discover-get-started-title"
-      >
-        Get started with Cozy
-      </h3>
-      <div
-        className="sto-discover-get-started-list"
-      />
-    </div>
+      className="sto-discover-sections"
+    />
   </div>
   <withRouter(ApplicationRouting)
     actionError={null}

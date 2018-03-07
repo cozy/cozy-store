@@ -13,6 +13,7 @@ Enzyme.configure({ adapter: new Adapter() })
 const appMock = {
   slug: 'test',
   editor: 'cozy',
+  namePrefix: 'Cozy',
   developer: {
     name: 'Cozy'
   },
@@ -38,6 +39,7 @@ const appMock2 = {
 const appMockWithoutIcon = {
   slug: 'test2',
   editor: '',
+  namePrefix: 'Cozy',
   developer: {
     name: 'Naming me'
   },

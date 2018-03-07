@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ApplicationPage details component should be rendered correctly provided app with no description, no platforms, no categories, no langs and no changes 1`] = `
+exports[`ApplicationPage details component should be rendered correctly provided app with no description, no platforms, no langs and no changes 1`] = `
 <div
   className="sto-app-details"
 >
@@ -27,7 +27,7 @@ exports[`ApplicationPage details component should be rendered correctly provided
       <div
         className="sto-app-info-content"
       >
-        Others
+        Cozy
       </div>
     </div>
     <div

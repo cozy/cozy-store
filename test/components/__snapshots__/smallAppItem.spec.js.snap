@@ -20,6 +20,7 @@ exports[`SmallAppItem component should be rendered correctly an app 1`] = `
     <h4
       className="sto-small-app-item-title"
     >
+      Cozy 
       Test
     </h4>
     <p
@@ -92,6 +93,7 @@ exports[`SmallAppItem component should be rendered correctly an installed app wi
     <h4
       className="sto-small-app-item-title"
     >
+      Cozy 
       Test2
     </h4>
     <p

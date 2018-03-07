@@ -1,0 +1,18 @@
+.sto-sections {
+  margin: 2rem 0 0 2.4rem;
+}
+
+.sto-sections-section {
+  margin-bottom: 4rem;
+}
+
+.sto-sections-apps {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.sto-sections-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}

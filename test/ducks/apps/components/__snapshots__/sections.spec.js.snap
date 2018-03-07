@@ -1,0 +1,281 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppsSection component should be rendered correctly with apps list, subtitle and onAppClick 1`] = `
+<div
+  className="sto-sections"
+>
+  <div
+    className="sto-sections-section"
+  >
+    <h2
+      className="sto-sections-title"
+    >
+      Applications
+    </h2>
+    <Wrapper
+      appsList={
+        Array [
+          Object {
+            "categories": Array [
+              "cozy",
+            ],
+            "developer": Object {
+              "name": "Cozy",
+            },
+            "editor": "Cozy",
+            "icon": "<svg></svg>",
+            "installed": true,
+            "isInRegistry": true,
+            "name": "Collect",
+            "name_prefix": "Cozy",
+            "related": "http://collect.cozy.mock/",
+            "slug": "collect",
+            "type": "webapp",
+            "uninstallable": false,
+            "version": "3.0.0",
+            "versions": Object {
+              "beta": Array [
+                "3.0.0",
+              ],
+              "dev": Array [
+                "3.0.0",
+              ],
+              "stable": Array [
+                "3.0.0",
+              ],
+            },
+          },
+          Object {
+            "categories": Array [
+              "cozy",
+            ],
+            "developer": Object {
+              "name": "Cozy",
+            },
+            "editor": "Cozy",
+            "icon": "<svg></svg>",
+            "installed": true,
+            "name": "Drive",
+            "name_prefix": "Cozy",
+            "related": "http://drive.cozy.mock/",
+            "slug": "drive",
+            "type": "webapp",
+            "uninstallable": false,
+            "version": "3.0.0-beta89bnhj3993",
+          },
+          Object {
+            "categories": Array [
+              "cozy",
+            ],
+            "developer": Object {
+              "name": "Cozy",
+            },
+            "editor": "Cozy",
+            "icon": "<svg></svg>",
+            "isInRegistry": true,
+            "name": "Photos",
+            "name_prefix": "Cozy",
+            "slug": "photos",
+            "type": "webapp",
+            "uninstallable": true,
+            "versions": Object {
+              "beta": Array [
+                "3.0.0",
+              ],
+              "dev": Array [
+                "3.0.0",
+              ],
+              "stable": Array [
+                "3.0.0",
+              ],
+            },
+          },
+        ]
+      }
+      onAppClick={[MockFunction]}
+      subtitle="Cozy"
+    />
+    <Wrapper
+      appsList={
+        Array [
+          Object {
+            "categories": Array [
+              "others",
+            ],
+            "developer": Object {
+              "name": "Cozy",
+            },
+            "editor": "Cozy",
+            "icon": "<svg></svg>",
+            "isInRegistry": true,
+            "locales": Object {
+              "name": "For Dev Only",
+            },
+            "name": "DevOnly",
+            "slug": "devonly",
+            "type": "webapp",
+            "uninstallable": true,
+            "versions": Object {
+              "beta": Array [],
+              "dev": Array [
+                "1.0.0-betaojdkehy989ekhflldh",
+              ],
+              "stable": Array [],
+            },
+          },
+        ]
+      }
+      onAppClick={[MockFunction]}
+      subtitle="Others"
+    />
+    <Wrapper
+      appsList={
+        Array [
+          Object {
+            "categories": Array [
+              "partners",
+            ],
+            "icon": "<svg></svg>",
+            "isInRegistry": true,
+            "name": "Tasky",
+            "slug": "tasky",
+            "type": "webapp",
+            "uninstallable": true,
+            "versions": Object {
+              "beta": Array [
+                "1.0.0",
+              ],
+              "dev": Array [
+                "1.0.0",
+              ],
+              "stable": Array [
+                "1.0.0",
+              ],
+            },
+          },
+        ]
+      }
+      onAppClick={[MockFunction]}
+      subtitle="Partners"
+    />
+  </div>
+  <div
+    className="sto-sections-section"
+  >
+    <h2
+      className="sto-sections-title"
+    >
+      Fournisseurs
+    </h2>
+    <Wrapper
+      appsList={
+        Array [
+          Object {
+            "categories": Array [
+              "isp",
+              "telecom",
+            ],
+            "developer": Object {
+              "name": "Cozy",
+            },
+            "icon": "<svg></svg>",
+            "isInRegistry": true,
+            "name": "Bouilligue",
+            "slug": "konnector-bouilligue",
+            "type": "konnector",
+            "uninstallable": true,
+            "versions": Object {
+              "beta": Array [
+                "0.1.0",
+              ],
+              "dev": Array [
+                "0.1.0",
+              ],
+              "stable": Array [
+                "0.1.0",
+              ],
+            },
+          },
+        ]
+      }
+      onAppClick={[MockFunction]}
+      subtitle="ISP"
+    />
+    <Wrapper
+      appsList={
+        Array [
+          Object {
+            "categories": Array [
+              "isp",
+              "telecom",
+            ],
+            "developer": Object {
+              "name": "Cozy",
+            },
+            "icon": "<svg></svg>",
+            "isInRegistry": true,
+            "name": "Bouilligue",
+            "slug": "konnector-bouilligue",
+            "type": "konnector",
+            "uninstallable": true,
+            "versions": Object {
+              "beta": Array [
+                "0.1.0",
+              ],
+              "dev": Array [
+                "0.1.0",
+              ],
+              "stable": Array [
+                "0.1.0",
+              ],
+            },
+          },
+        ]
+      }
+      onAppClick={[MockFunction]}
+      subtitle="Telecom"
+    />
+    <Wrapper
+      appsList={
+        Array [
+          Object {
+            "categories": Array [
+              "transport",
+            ],
+            "developer": Object {
+              "name": "Cozy",
+            },
+            "icon": "<svg></svg>",
+            "isInRegistry": true,
+            "name": "Trinlane",
+            "slug": "konnector-trinlane",
+            "type": "konnector",
+            "uninstallable": true,
+            "versions": Object {
+              "beta": Array [
+                "0.1.0",
+              ],
+              "dev": Array [
+                "0.1.0",
+              ],
+              "stable": Array [
+                "0.1.0",
+              ],
+            },
+          },
+        ]
+      }
+      onAppClick={[MockFunction]}
+      subtitle="Transportation"
+    />
+  </div>
+</div>
+`;
+
+exports[`AppsSection component should render correctly render message if error provided 1`] = `
+<p
+  className="u-error"
+>
+  This is a test error
+</p>
+`;

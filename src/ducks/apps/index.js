@@ -14,8 +14,25 @@ const APP_STATE = {
 
 export const APP_TYPE = {
   KONNECTOR: 'konnector',
-  WEBAPP: 'webpapp'
+  WEBAPP: 'webapp'
 }
+
+const AUTHORIZED_CATEGORIES = [
+  'banking',
+  'cozy',
+  'energy',
+  'health',
+  'host_provider',
+  'insurance',
+  'isp',
+  'partners',
+  'productivity',
+  'ptnb',
+  'shopping',
+  'social',
+  'telecom',
+  'transport'
+]
 
 const COLLECT_RELATED_PATH = '#/providers/all'
 
@@ -163,8 +180,6 @@ function _consolidateApps (stateApps, newAppsInfos) {
 
 // FIXME retro-compatibility for old formatted manifest
 function _sanitizeOldManifest (app) {
-  if (!app.short_description) app.short_description = app.description
-  if (!app.long_description) app.long_description = app.description
   if (!app.categories && typeof app.category === 'string') app.categories = [app.category]
   if (typeof app.name === 'object') app.name = app.name.en
   return app
@@ -182,6 +197,12 @@ function _getKonnectorRegistrySlug (slug = '') {
   return (!slug.match(/^konnector-.*/))
     ? `konnector-${slug}`
     : slug
+}
+
+// check authorized categories and add default 'others'
+function _sanitizeCategories (categoriesList) {
+  if (!categoriesList || !categoriesList.length) return ['others']
+  return categoriesList.filter(c => AUTHORIZED_CATEGORIES.includes(c))
 }
 
 export function getFormattedInstalledApp (response, collectLink) {
@@ -208,6 +229,7 @@ export function getFormattedInstalledApp (response, collectLink) {
       _id: response.id || response._id,
       icon: iconData,
       slug: appSlug,
+      categories: _sanitizeCategories(manifest.categories),
       installed: true,
       related: openingLink,
       screenshots: screensLinks,
@@ -220,8 +242,10 @@ export function getFormattedRegistryApp (response, channel) {
   return cozy.client
     .fetchJSON('GET', `/registry/${response.slug}/${channel}/latest`)
     .then(version => {
+      // FIXME retro-compatibility for old formatted manifest
+      const manifest = _sanitizeOldManifest(version.manifest)
+
       const versionFromRegistry = version.version
-      const manifest = version.manifest
       const screensLinks =
         manifest.screenshots &&
         manifest.screenshots.map(name => {
@@ -245,6 +269,7 @@ export function getFormattedRegistryApp (response, channel) {
             // the konnector manifest type must stay 'node'
             // for the stack so we use appType here
             type: version.type,
+            categories: _sanitizeCategories(manifest.categories),
             // add screensLinks property only if it exists
             ...(screensLinks ? {screenshots: screensLinks} : {}),
             installed: false,
@@ -262,6 +287,11 @@ export function fetchInstalledApps () {
     try {
       let installedWebApps = await cozy.client
         .fetchJSON('GET', '/apps/')
+      installedWebApps = installedWebApps.map(w => {
+        // FIXME type konnector is missing from stack
+        w.attributes.type = 'webapp'
+        return w
+      })
       const collectApp = installedWebApps.find(a => a.attributes.slug === 'collect')
       const collectLink = collectApp && collectApp.links.related
       installedWebApps = installedWebApps.filter(

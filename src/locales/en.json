@@ -72,6 +72,11 @@
     "more": "More"
   },
 
+  "sections": {
+    "applications": "Applications",
+    "konnectors": "Fournisseurs"
+  },
+
   "app_categories": {
     "list_separator": ", ",
     "banking": "Banking",

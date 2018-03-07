@@ -7,7 +7,6 @@ import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
 import { tMock } from '../../../jestLib/I18n'
-import SmallAppItem from 'ducks/components/SmallAppItem'
 import { MyApplications } from 'ducks/apps/components/MyApplications'
 
 import mockApps from '../_mockApps'
@@ -59,16 +58,11 @@ describe('MyApplications component', () => {
     expect(component).toMatchSnapshot()
   })
 
-  it('should handle correctly items onClick', () => {
+  it('should define the correct onAppClick function to pass to sections', () => {
     const mockProps = getMockProps()
     const component = shallow(<MyApplications t={tMock} {...mockProps} />)
-    expect(component.find(SmallAppItem).length).toBe(mockInstalledApps.length)
-    const appItem = component
-      .find(SmallAppItem)
-      .at(0)
-      .dive() // shallow on more level on first app item
-    appItem.simulate('click')
-    // history push to app modal URL
+    const instance = component.instance()
+    instance.onAppClick(mockInstalledApps[0].slug)
     expect(mockProps.history.push.mock.calls.length).toBe(1)
     expect(mockProps.history.push.mock.calls[0][0]).toBe(
       `/myapps/${mockInstalledApps[0].slug}`
