@@ -77,6 +77,11 @@
     "konnectors": "Providers"
   },
 
+  "app_item": {
+    "open": "Open",
+    "install": "Install"
+  },
+
   "app_categories": {
     "list_separator": ", ",
     "banking": "Banking",

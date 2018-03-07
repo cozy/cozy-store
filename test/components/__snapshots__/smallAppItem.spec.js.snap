@@ -28,6 +28,14 @@ exports[`SmallAppItem component should be rendered correctly an app 1`] = `
     >
       Cozy Cloud Inc.
     </p>
+    <Link
+      className="c-btn c-btn--regular c-btn--tiny sto-small-app-item-button sto-small-app-item-button-install"
+      onClick={[Function]}
+      replace={false}
+      to="/discover/test/manage"
+    >
+      Install
+    </Link>
   </div>
 </div>
 `;
@@ -64,6 +72,17 @@ exports[`SmallAppItem component should be rendered correctly an installed app 1`
     >
       Naming me
     </p>
+    <Button
+      busy={false}
+      className="sto-small-app-item-button"
+      disabled={false}
+      extension=""
+      icon=""
+      label="Open"
+      onClick={[Function]}
+      size="tiny"
+      theme="secondary"
+    />
   </div>
 </div>
 `;
@@ -101,6 +120,17 @@ exports[`SmallAppItem component should be rendered correctly an installed app wi
     >
       Naming me
     </p>
+    <Button
+      busy={false}
+      className="sto-small-app-item-button"
+      disabled={false}
+      extension=""
+      icon=""
+      label="Open"
+      onClick={[Function]}
+      size="tiny"
+      theme="secondary"
+    />
   </div>
 </div>
 `;
