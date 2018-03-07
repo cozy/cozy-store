@@ -2081,10 +2081,6 @@ body {
   padding-bottom: 1em;
 }
 
-.sto-discover-get-started-title {
-  padding-left: 2em;
-}
-
 .sto-empty {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -2203,6 +2199,7 @@ body {
 
 .sto-myapps-title {
   padding-left: 1.5em;
+  padding-bottom: 1em;
 }
 
 /* Permissions */
@@ -2294,8 +2291,20 @@ body {
     background-image: url(sprite.svg#icon-sinister-usage);
 }
 
-.sto-myapps-list,
-.sto-discover-get-started-list {
+.sto-sections {
+  margin: 2rem 0 0 2.4rem;
+}
+
+.sto-sections-section {
+  margin-bottom: 4rem;
+}
+
+.sto-sections-apps {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.sto-sections-list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2304,7 +2313,9 @@ body {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  margin: 2em 0 0 1.7em;
+}
+
+.sto-sections-list {
   /* We differenciate the "real" margin from the "used" margin. The "used" margin
   allow to use a little higher value for flex-basis calculation. Firefox
   and Chrome are behaving well but IE11 need it. */
@@ -2329,13 +2340,14 @@ body {
   -ms-flex-preferred-size: calc(100% - var(--item-margin) * 2);
       flex-basis: calc(100% - var(--item-margin) * 2);
   width: 20em;
-  margin: var(--item-real-margin);
+  padding: var(--item-real-margin);
+  /* padding: var(--item-real-margin); */
 }
 
 .sto-small-app-item:hover {
   background: var(--pale-grey);
-  -webkit-box-shadow: 0 0 0 .7em var(--pale-grey);
-          box-shadow: 0 0 0 .7em var(--pale-grey);
+  -webkit-box-shadow: 0 0 0 0 var(--pale-grey);
+          box-shadow: 0 0 0 0 var(--pale-grey);
   cursor: pointer;
 }
 
@@ -2351,8 +2363,8 @@ body {
 
 .sto-small-app-item-badge-installed {
   position: absolute;
-  bottom: 0;
-  left: 3em;
+  bottom: calc(0em + var(--item-real-margin));
+  left: calc(3em + var(--item-real-margin));
   width: 1em;
   height: 1em;
   background-color: white;
