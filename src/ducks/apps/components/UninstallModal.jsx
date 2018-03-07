@@ -73,7 +73,7 @@ export class UninstallModal extends Component {
                   className='c-btn c-btn--secondary'
                   onClick={this.gotoParent}
                 >
-                  {t('app_modal.uninstall.cancel')}
+                  <span>{t('app_modal.uninstall.cancel')}</span>
                 </button>
                 <button
                   role='button'
@@ -81,7 +81,7 @@ export class UninstallModal extends Component {
                   className='c-btn c-btn--danger c-btn--delete'
                   onClick={this.uninstallApp}
                 >
-                  {t('app_modal.uninstall.uninstall')}
+                  <span>{t('app_modal.uninstall.uninstall')}</span>
                 </button>
               </div>
             </div>

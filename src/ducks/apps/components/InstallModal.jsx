@@ -103,7 +103,7 @@ export class InstallModal extends Component {
                         className='c-btn c-btn--secondary'
                         onClick={this.gotoParent}
                       >
-                        {t('app_modal.install.cancel')}
+                        <span>{t('app_modal.install.cancel')}</span>
                       </button>
                       <button
                         role='button'

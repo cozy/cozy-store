@@ -6,6 +6,8 @@ import React from 'react'
 import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
+import Button from 'cozy-ui/react/Button'
+
 import { tMock } from '../../../../jestLib/I18n'
 import { Header } from 'ducks/apps/components/ApplicationPage/Header'
 
@@ -53,7 +55,7 @@ describe('ApplicationPage header component', () => {
     const component = shallow(
       <Header t={tMock} parent='/myapps' {...appProps} />
     )
-    component.find('button[onClick]').simulate('click')
+    component.find(Button).simulate('click')
     expect(window.location.assign.mock.calls.length).toBe(1)
     expect(window.location.assign.mock.calls[0][0]).toBe('#')
   })
@@ -66,7 +68,7 @@ describe('ApplicationPage header component', () => {
     const component = shallow(
       <Header t={tMock} parent='/myapps' {...appProps} />
     )
-    component.find('button[onClick]').simulate('click')
+    component.find(Button).simulate('click')
     expect(window.location.assign.mock.calls.length).toBe(1)
     expect(window.location.assign.mock.calls[0][0]).toBe('#')
   })
