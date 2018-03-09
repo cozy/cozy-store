@@ -277,7 +277,7 @@ export function getFormattedRegistryApp (response, channel) {
             // add screensLinks property only if it exists
             ...(screensLinks ? {screenshots: screensLinks} : {}),
             installed: false,
-            uninstallable: true,
+            uninstallable: !config.notRemovableApps.includes(manifest.slug),
             isInRegistry: true
           }
         )
@@ -296,6 +296,7 @@ export function fetchInstalledApps () {
         w.attributes.type = 'webapp'
         return w
       })
+      // TODO throw error if collect is not installed
       const collectApp = installedWebApps.find(a => a.attributes.slug === 'collect')
       const collectLink = collectApp && collectApp.links.related
       installedWebApps = installedWebApps.filter(
@@ -419,7 +420,10 @@ export function installApp (slug, type, source, isUpdate = false) {
         resp.attributes.type = 'konnector'
         return waitForAppReady(resp)
       }).then(appResponse => {
-        return getFormattedInstalledApp(appResponse)
+        // TODO throw error if collect is not installed
+        const collectApp = getState().apps.list.find(a => a.slug === 'collect')
+        const collectLink = collectApp && collectApp.related
+        return getFormattedInstalledApp(appResponse, collectLink)
           .then(app => {
             // add the installed app to the state apps list
             const apps = getState().apps.list.map(a => {
