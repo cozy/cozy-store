@@ -79,11 +79,12 @@ exports[`SmallAppItem component should be rendered correctly an installed app 1`
       className="sto-small-app-item-button"
       disabled={false}
       extension=""
-      icon=""
+      icon={null}
       label="Open"
       onClick={[Function]}
       size="tiny"
       theme="secondary"
+      type="submit"
     />
   </div>
 </div>
@@ -127,11 +128,12 @@ exports[`SmallAppItem component should be rendered correctly an installed app wi
       className="sto-small-app-item-button"
       disabled={false}
       extension=""
-      icon=""
+      icon={null}
       label="Open"
       onClick={[Function]}
       size="tiny"
       theme="secondary"
+      type="submit"
     />
   </div>
 </div>
