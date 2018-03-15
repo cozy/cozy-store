@@ -246,6 +246,7 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
               "name": "Cozy",
             },
             "icon": "<svg></svg>",
+            "installed": true,
             "isInRegistry": true,
             "name": "Trinlane",
             "slug": "konnector-trinlane",

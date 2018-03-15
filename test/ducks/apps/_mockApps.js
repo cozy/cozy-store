@@ -80,6 +80,7 @@ export default [
       beta: ['0.1.0'],
       dev: ['0.1.0']
     },
+    installed: true,
     uninstallable: true,
     isInRegistry: true
   },

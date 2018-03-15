@@ -76,6 +76,21 @@ exports[`ApplicationRouting component with ApplicationPage should render correct
 />
 `;
 
+exports[`ApplicationRouting component with IntentModal should handle correctly if installed konnector found 1`] = `
+<IntentModal
+  action="CREATE"
+  closable={true}
+  dismissAction={[Function]}
+  doctype="io.cozy.accounts"
+  onComplete={[Function]}
+  options={
+    Object {
+      "slug": "trinlane",
+    }
+  }
+/>
+`;
+
 exports[`ApplicationRouting component with Modal should handle correctly if installed app found 1`] = `
 <Wrapper
   app={
@@ -190,7 +205,6 @@ exports[`ApplicationRouting component with Modal should render correctly if unin
   fetchError={undefined}
   installApp={[MockFunction]}
   installError={undefined}
-  isFetching={false}
   isInstalling={undefined}
   parent="/myapps"
 />

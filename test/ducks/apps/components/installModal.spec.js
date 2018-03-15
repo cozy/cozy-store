@@ -38,11 +38,11 @@ const getMockProps = (
     : mockApps.find(a => a.slug === slug),
   parent: '/discover',
   installApp: jest.fn(appSlug => {
-    if (appSlug === 'photos') {
+    if (appSlug === 'photos' || appSlug === 'konnector-bouilligue') {
       return sinon
         .stub()
         .returnsPromise()
-        .resolves(mockApps.find(a => a.slug === 'photos'))()
+        .resolves(mockApps.find(a => a.slug === appSlug))()
     }
     return sinon
       .stub()
@@ -111,11 +111,11 @@ describe('InstallModal component', () => {
     expect(component.getElement()).toMatchSnapshot()
   })
 
-  it('should call the correct props function on install', async () => {
+  it('should call the correct props function on install and goToParent if it is a webapp', async () => {
     const mockProps = getMockProps('photos')
     const component = shallow(<InstallModal t={tMock} {...mockProps} />)
     await component.instance().installApp()
-    // uninstallApp from props should be called once
+    // installApp from props should be called once
     expect(mockProps.installApp.mock.calls.length).toBe(1)
     expect(mockProps.installApp.mock.calls[0][0]).toBe('photos')
     // goToParent should be called to return to the app page url
@@ -125,11 +125,25 @@ describe('InstallModal component', () => {
     )
   })
 
+  it('should call the correct props function on install and go to configure modal if it is a konnector', async () => {
+    const mockProps = getMockProps('konnector-bouilligue')
+    const component = shallow(<InstallModal t={tMock} {...mockProps} />)
+    await component.instance().installApp()
+    // installApp from props should be called once
+    expect(mockProps.installApp.mock.calls.length).toBe(1)
+    expect(mockProps.installApp.mock.calls[0][0]).toBe('konnector-bouilligue')
+    // history.push should be called to go to the konnector configuration intent
+    expect(mockProps.history.push.mock.calls.length).toBe(1)
+    expect(mockProps.history.push.mock.calls[0][0]).toBe(
+      `${mockProps.parent}/konnector-bouilligue/configure`
+    )
+  })
+
   it('should handle error from install', async () => {
     const mockProps = getMockProps('drive')
     const component = shallow(<InstallModal t={tMock} {...mockProps} />)
     await component.instance().installApp()
-    // uninstallApp from props should be called once
+    // installApp from props should be called once
     expect(mockProps.installApp.mock.calls.length).toBe(1)
     expect(mockProps.installApp.mock.calls[0][0]).toBe('drive')
     // goToParent shouldn't be called
