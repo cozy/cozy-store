@@ -64,6 +64,32 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
               "uninstallable": false,
               "version": "3.0.0-beta89bnhj3993",
             },
+            Object {
+              "categories": Array [
+                "transport",
+              ],
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "icon": "<svg></svg>",
+              "installed": true,
+              "isInRegistry": true,
+              "name": "Trinlane",
+              "slug": "konnector-trinlane",
+              "type": "konnector",
+              "uninstallable": true,
+              "versions": Object {
+                "beta": Array [
+                  "0.1.0",
+                ],
+                "dev": Array [
+                  "0.1.0",
+                ],
+                "stable": Array [
+                  "0.1.0",
+                ],
+              },
+            },
           ]
         }
         error={null}
@@ -123,6 +149,32 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
           "type": "webapp",
           "uninstallable": false,
           "version": "3.0.0-beta89bnhj3993",
+        },
+        Object {
+          "categories": Array [
+            "transport",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "icon": "<svg></svg>",
+          "installed": true,
+          "isInRegistry": true,
+          "name": "Trinlane",
+          "slug": "konnector-trinlane",
+          "type": "konnector",
+          "uninstallable": true,
+          "versions": Object {
+            "beta": Array [
+              "0.1.0",
+            ],
+            "dev": Array [
+              "0.1.0",
+            ],
+            "stable": Array [
+              "0.1.0",
+            ],
+          },
         },
       ]
     }
@@ -250,6 +302,32 @@ exports[`MyApplications component should render only routing if path not exactly
           "type": "webapp",
           "uninstallable": false,
           "version": "3.0.0-beta89bnhj3993",
+        },
+        Object {
+          "categories": Array [
+            "transport",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "icon": "<svg></svg>",
+          "installed": true,
+          "isInRegistry": true,
+          "name": "Trinlane",
+          "slug": "konnector-trinlane",
+          "type": "konnector",
+          "uninstallable": true,
+          "versions": Object {
+            "beta": Array [
+              "0.1.0",
+            ],
+            "dev": Array [
+              "0.1.0",
+            ],
+            "stable": Array [
+              "0.1.0",
+            ],
+          },
         },
       ]
     }

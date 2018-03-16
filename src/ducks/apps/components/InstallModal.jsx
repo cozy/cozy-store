@@ -7,7 +7,7 @@ import Modal, { ModalContent } from 'cozy-ui/react/Modal'
 import PermissionsList from './PermissionsList'
 import ReactMarkdownWrapper from '../../components/ReactMarkdownWrapper'
 
-import { getLocalizedAppProperty } from 'ducks/apps'
+import { APP_TYPE, getLocalizedAppProperty } from 'ducks/apps'
 
 export class InstallModal extends Component {
   constructor (props) {
@@ -19,11 +19,15 @@ export class InstallModal extends Component {
 
   installApp () {
     this.setState({ error: null })
-    const { app } = this.props
+    const { app, parent, history } = this.props
     this.props
       .installApp(app.slug, app.type)
       .then(() => {
-        this.gotoParent()
+        if(app.type === APP_TYPE.KONNECTOR) {
+          history.push(`${parent}/${app.slug}/configure`)
+        } else {
+          this.gotoParent()
+        }
       })
       .catch()
   }

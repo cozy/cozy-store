@@ -187,7 +187,7 @@ function _sanitizeOldManifest (app) {
 
 // all konnector slugs begin by konnector- in the registry
 // so we remove this prefix before using it with the stack
-function _getKonnectorStackSlug (slug = '') {
+export function _getKonnectorStackSlug (slug = '') {
   return slug.replace(/^konnector-/, '')
 }
 

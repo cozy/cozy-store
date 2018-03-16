@@ -32,12 +32,14 @@ const getMockProps = (
   installApp: jest.fn()
 })
 
+const TOTAL_ROUTES = 3
+
 describe('ApplicationRouting component with ApplicationPage', () => {
   it('should handle correctly if app found', () => {
     const mockProps = getMockProps('myapps')
     const component = shallow(<ApplicationRouting {...mockProps} />)
     const routes = component.find(Route)
-    expect(routes.length).toBe(2)
+    expect(routes.length).toBe(TOTAL_ROUTES)
     const routeToAppPage = routes.getElements()[0]
     // collect in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'collect' } } }
@@ -50,7 +52,7 @@ describe('ApplicationRouting component with ApplicationPage', () => {
     const mockProps = getMockProps('myapps', mockInstalledApps, null)
     const component = shallow(<ApplicationRouting {...mockProps} />)
     const routes = component.find(Route)
-    expect(routes.length).toBe(2)
+    expect(routes.length).toBe(TOTAL_ROUTES)
     const routeToAppPage = routes.getElements()[0]
     // collect in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'collect' } } }
@@ -64,7 +66,7 @@ describe('ApplicationRouting component with ApplicationPage', () => {
     const mockProps = getMockProps(parent)
     const component = shallow(<ApplicationRouting {...mockProps} />)
     const routes = component.find(Route)
-    expect(routes.length).toBe(2)
+    expect(routes.length).toBe(TOTAL_ROUTES)
     const routeToAppPage = routes.getElements()[0]
     // collect in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'mock' } } }
@@ -78,7 +80,7 @@ describe('ApplicationRouting component with ApplicationPage', () => {
     const mockProps = getMockProps('myapps', [], [])
     const component = shallow(<ApplicationRouting {...mockProps} />)
     const routes = component.find(Route)
-    expect(routes.length).toBe(2)
+    expect(routes.length).toBe(TOTAL_ROUTES)
     const routeToAppPage = routes.getElements()[0]
     // collect in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'collect' } } }
@@ -90,7 +92,7 @@ describe('ApplicationRouting component with ApplicationPage', () => {
     const mockProps = getMockProps('myapps', null, null)
     const component = shallow(<ApplicationRouting {...mockProps} />)
     const routes = component.find(Route)
-    expect(routes.length).toBe(2)
+    expect(routes.length).toBe(TOTAL_ROUTES)
     const routeToAppPage = routes.getElements()[0]
     // collect in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'collect' } } }
@@ -102,7 +104,7 @@ describe('ApplicationRouting component with ApplicationPage', () => {
     const mockProps = getMockProps('myapps', [], [], true)
     const component = shallow(<ApplicationRouting {...mockProps} />)
     const routes = component.find(Route)
-    expect(routes.length).toBe(2)
+    expect(routes.length).toBe(TOTAL_ROUTES)
     const routeToAppPage = routes.getElements()[0]
     // collect in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'collect' } } }
@@ -116,7 +118,7 @@ describe('ApplicationRouting component with Modal', () => {
     const mockProps = getMockProps('myapps')
     const component = shallow(<ApplicationRouting {...mockProps} />)
     const routes = component.find(Route)
-    expect(routes.length).toBe(2)
+    expect(routes.length).toBe(TOTAL_ROUTES)
     const routeToModal = routes.getElements()[1]
     // collect in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'collect' } } }
@@ -129,7 +131,7 @@ describe('ApplicationRouting component with Modal', () => {
     const mockProps = getMockProps('myapps')
     const component = shallow(<ApplicationRouting {...mockProps} />)
     const routes = component.find(Route)
-    expect(routes.length).toBe(2)
+    expect(routes.length).toBe(TOTAL_ROUTES)
     const routeToModal = routes.getElements()[1]
     // photos in mockApps is not installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'photos' } } }
@@ -143,7 +145,7 @@ describe('ApplicationRouting component with Modal', () => {
     const mockProps = getMockProps(parent)
     const component = shallow(<ApplicationRouting {...mockProps} />)
     const routes = component.find(Route)
-    expect(routes.length).toBe(2)
+    expect(routes.length).toBe(TOTAL_ROUTES)
     const routeToModal = routes.getElements()[1]
     // collect in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'mock' } } }
@@ -157,7 +159,7 @@ describe('ApplicationRouting component with Modal', () => {
     const mockProps = getMockProps('myapps', mockInstalledApps, null)
     const component = shallow(<ApplicationRouting {...mockProps} />)
     const routes = component.find(Route)
-    expect(routes.length).toBe(2)
+    expect(routes.length).toBe(TOTAL_ROUTES)
     const routeToModal = routes.getElements()[1]
     // collect in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'collect' } } }
@@ -170,7 +172,7 @@ describe('ApplicationRouting component with Modal', () => {
     const mockProps = getMockProps('myapps', [], [])
     const component = shallow(<ApplicationRouting {...mockProps} />)
     const routes = component.find(Route)
-    expect(routes.length).toBe(2)
+    expect(routes.length).toBe(TOTAL_ROUTES)
     const routeToModal = routes.getElements()[1]
     // collect in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'collect' } } }
@@ -182,10 +184,76 @@ describe('ApplicationRouting component with Modal', () => {
     const mockProps = getMockProps('myapps', [], [], true)
     const component = shallow(<ApplicationRouting {...mockProps} />)
     const routes = component.find(Route)
-    expect(routes.length).toBe(2)
+    expect(routes.length).toBe(TOTAL_ROUTES)
     const routeToModal = routes.getElements()[1]
     // collect in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'collect' } } }
+    const resultComponent = routeToModal.props.render(routeProps)
+    expect(resultComponent).toBeUndefined()
+  })
+})
+
+describe('ApplicationRouting component with IntentModal', () => {
+  it('should handle correctly if installed konnector found', () => {
+    const mockProps = getMockProps('myapps')
+    const component = shallow(<ApplicationRouting {...mockProps} />)
+    const routes = component.find(Route)
+    expect(routes.length).toBe(TOTAL_ROUTES)
+    const routeToModal = routes.getElements()[2]
+    // konnector-trinlane in mockApps is installed and isInRegistry
+    const routeProps = { match: { params: { appSlug: 'konnector-trinlane' } } }
+    const resultComponent = routeToModal.props.render(routeProps)
+    expect(resultComponent).toBeDefined()
+    expect(resultComponent).toMatchSnapshot()
+  })
+
+  it('should not return anything if app type is webapp', () => {
+    const mockProps = getMockProps('myapps')
+    const component = shallow(<ApplicationRouting {...mockProps} />)
+    const routes = component.find(Route)
+    expect(routes.length).toBe(TOTAL_ROUTES)
+    const routeToModal = routes.getElements()[2]
+    // collect in mockApps is installed and isInRegistry
+    const routeProps = { match: { params: { appSlug: 'collect' } } }
+    const resultComponent = routeToModal.props.render(routeProps)
+    expect(resultComponent).toBeUndefined()
+  })
+
+  it('should correctly go to parent if app not found', () => {
+    const parent = 'myapps'
+    const mockProps = getMockProps(parent)
+    const component = shallow(<ApplicationRouting {...mockProps} />)
+    const routes = component.find(Route)
+    expect(routes.length).toBe(TOTAL_ROUTES)
+    const routeToModal = routes.getElements()[2]
+    // konnector-trinlane in mockApps is installed and isInRegistry
+    const routeProps = { match: { params: { appSlug: 'mock' } } }
+    const resultComponent = routeToModal.props.render(routeProps)
+    expect(mockProps.history.push.mock.calls.length).toBe(1)
+    expect(mockProps.history.push.mock.calls[0][0]).toBe(`/${parent}`)
+    expect(resultComponent).toBeUndefined()
+  })
+
+  it('should not return anything if isFetching', () => {
+    const mockProps = getMockProps('myapps', [], [], true)
+    const component = shallow(<ApplicationRouting {...mockProps} />)
+    const routes = component.find(Route)
+    expect(routes.length).toBe(TOTAL_ROUTES)
+    const routeToModal = routes.getElements()[2]
+    // konnector-trinlane in mockApps is installed and isInRegistry
+    const routeProps = { match: { params: { appSlug: 'konnector-trinlane' } } }
+    const resultComponent = routeToModal.props.render(routeProps)
+    expect(resultComponent).toBeUndefined()
+  })
+
+  it('should not return anything if apps lists is empty', () => {
+    const mockProps = getMockProps('myapps', [], [])
+    const component = shallow(<ApplicationRouting {...mockProps} />)
+    const routes = component.find(Route)
+    expect(routes.length).toBe(TOTAL_ROUTES)
+    const routeToModal = routes.getElements()[2]
+    // konnector-trinlane in mockApps is installed and isInRegistry
+    const routeProps = { match: { params: { appSlug: 'konnector-trinlane' } } }
     const resultComponent = routeToModal.props.render(routeProps)
     expect(resultComponent).toBeUndefined()
   })
