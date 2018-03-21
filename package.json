@@ -47,7 +47,7 @@
   "homepage": "https://github.com/cozy/cozy-store#readme",
   "devDependencies": {
     "babel-core": "6.26.0",
-    "babel-jest": "22.4.1",
+    "babel-jest": "22.4.3",
     "babel-polyfill": "6.26.0",
     "babel-preset-cozy-app": "0.3.2",
     "cozy-scripts": "0.5.5",
@@ -58,7 +58,7 @@
     "eslint-loader": "2.0.0",
     "git-directory-deploy": "1.5.1",
     "identity-obj-proxy": "3.0.0",
-    "jest": "22.4.2",
+    "jest": "22.4.3",
     "npm-run-all": "4.1.2",
     "prettier": "1.11.1",
     "react": "16.2.0",
