@@ -793,7 +793,7 @@ body {
   padding: 0.5rem 1rem;
   background-color: transparent;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 1rem;
 }
 .c-btn-alert--error {
   color: #f52d2d;
@@ -987,28 +987,28 @@ body {
 .sto-hidden-install input[type=email]::-webkit-input-placeholder,
 .sto-hidden-install input[type=url]::-webkit-input-placeholder {
   color: #95999d;
-  font-size: 1em;
+  font-size: 1rem;
 }
 .sto-hidden-install input[type=text]:-ms-input-placeholder,
 .sto-hidden-install input[type=password]:-ms-input-placeholder,
 .sto-hidden-install input[type=email]:-ms-input-placeholder,
 .sto-hidden-install input[type=url]:-ms-input-placeholder {
   color: #95999d;
-  font-size: 1em;
+  font-size: 1rem;
 }
 .sto-hidden-install input[type=text]::-ms-input-placeholder,
 .sto-hidden-install input[type=password]::-ms-input-placeholder,
 .sto-hidden-install input[type=email]::-ms-input-placeholder,
 .sto-hidden-install input[type=url]::-ms-input-placeholder {
   color: #95999d;
-  font-size: 1em;
+  font-size: 1rem;
 }
 .sto-hidden-install input[type=text]::placeholder,
 .sto-hidden-install input[type=password]::placeholder,
 .sto-hidden-install input[type=email]::placeholder,
 .sto-hidden-install input[type=url]::placeholder {
   color: #95999d;
-  font-size: 1em;
+  font-size: 1rem;
 }
 .sto-hidden-install input[type=text]:focus,
 .sto-hidden-install input[type=password]:focus,
@@ -1537,6 +1537,21 @@ body {
   display: none;
   visibility: hidden;
 }
+.u-p-0 {
+  padding: 0;
+}
+.u-pt-0 {
+  padding-top: 0;
+}
+.u-pb-0 {
+  padding-bottom: 0;
+}
+.u-pl-0 {
+  padding-left: 0;
+}
+.u-pr-0 {
+  padding-right: 0;
+}
 .u-p-1 {
   padding: 1rem;
 }
@@ -1626,6 +1641,21 @@ body {
 }
 .u-pr-2-half {
   padding-right: 2.5rem;
+}
+.u-m-0 {
+  margin: 0;
+}
+.u-mt-0 {
+  margin-top: 0;
+}
+.u-mb-0 {
+  margin-bottom: 0;
+}
+.u-ml-0 {
+  margin-left: 0;
+}
+.u-mr-0 {
+  margin-right: 0;
 }
 .u-m-1 {
   margin: 1rem;
@@ -2596,7 +2626,7 @@ body {
   padding: 0.5rem 1rem;
   background-color: transparent;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 1rem;
 }
 .coz-btn--alert-error--VBdH7 {
   color: #f52d2d;
@@ -2855,8 +2885,8 @@ body {
           align-items: stretch;
 }
 .c-modal-content--27Ex2 {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, #fff), to(rgba(0,0,0,0))), -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), color-stop(70%, #fff)) 0 100%, -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(149,153,157,0.25)), color-stop(25%, rgba(149,153,157,0.25)), color-stop(26%, rgba(255,255,255,0)), to(rgba(255,255,255,0))), -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(255,255,255,0)), color-stop(74%, rgba(255,255,255,0)), color-stop(75%, rgba(149,153,157,0.25)), to(rgba(149,153,157,0.25))) 0 100%;
-  background: linear-gradient(#fff 30%, rgba(0,0,0,0)), linear-gradient(rgba(0,0,0,0), #fff 70%) 0 100%, linear-gradient(rgba(149,153,157,0.25) 0, rgba(149,153,157,0.25) 25%, rgba(255,255,255,0) 26%, rgba(255,255,255,0) 100%), linear-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,0) 74%, rgba(149,153,157,0.25) 75%, rgba(149,153,157,0.25) 100%) 0 100%;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, #fff), to(rgba(255,255,255,0))), -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0)), color-stop(70%, #fff)) 0 100%, -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(149,153,157,0.25)), color-stop(25%, rgba(149,153,157,0.25)), color-stop(26%, rgba(255,255,255,0)), to(rgba(255,255,255,0))), -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(255,255,255,0)), color-stop(74%, rgba(255,255,255,0)), color-stop(75%, rgba(149,153,157,0.25)), to(rgba(149,153,157,0.25))) 0 100%;
+  background: linear-gradient(#fff 30%, rgba(255,255,255,0)), linear-gradient(rgba(255,255,255,0), #fff 70%) 0 100%, linear-gradient(rgba(149,153,157,0.25) 0, rgba(149,153,157,0.25) 25%, rgba(255,255,255,0) 26%, rgba(255,255,255,0) 100%), linear-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,0) 74%, rgba(149,153,157,0.25) 75%, rgba(149,153,157,0.25) 100%) 0 100%;
   background-repeat: no-repeat;
   background-color: #fff;
   background-size: 100% 2rem, 100% 2rem, 100% 0.5rem, 100% 0.5rem;
