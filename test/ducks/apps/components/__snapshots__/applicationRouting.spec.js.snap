@@ -85,7 +85,7 @@ exports[`ApplicationRouting component with IntentModal should handle correctly i
   onComplete={[Function]}
   options={
     Object {
-      "slug": "trinlane",
+      "slug": "konnector-trinlane",
     }
   }
 />

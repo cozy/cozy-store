@@ -185,20 +185,6 @@ function _sanitizeOldManifest (app) {
   return app
 }
 
-// all konnector slugs begin by konnector- in the registry
-// so we remove this prefix before using it with the stack
-export function _getKonnectorStackSlug (slug = '') {
-  return slug.replace(/^konnector-/, '')
-}
-
-// add `konnector-` if missing from the stack
-// to match with the registry
-function _getKonnectorRegistrySlug (slug = '') {
-  return (!slug.match(/^konnector-.*/))
-    ? `konnector-${slug}`
-    : slug
-}
-
 // check authorized categories and add default 'others'
 function _sanitizeCategories (categoriesList) {
   if (!categoriesList) return ['others']
@@ -215,11 +201,8 @@ export function getFormattedInstalledApp (response, collectLink) {
 
   return _getIcon(response.links.icon).then(iconData => {
     const manifest = response.attributes
-    const appSlug = response.attributes.type === APP_TYPE.KONNECTOR
-      ? _getKonnectorRegistrySlug(response.attributes.slug)
-      : response.attributes.slug
     const openingLink = response.attributes.type === APP_TYPE.KONNECTOR
-      ? `${collectLink}/${COLLECT_RELATED_PATH}/${_getKonnectorStackSlug(manifest.slug)}`
+      ? `${collectLink}/${COLLECT_RELATED_PATH}/${manifest.slug}`
       : response.links.related
     const screensLinks =
       manifest.screenshots &&
@@ -232,7 +215,6 @@ export function getFormattedInstalledApp (response, collectLink) {
     return Object.assign({}, response.attributes, {
       _id: response.id || response._id,
       icon: iconData,
-      slug: appSlug,
       categories: _sanitizeCategories(manifest.categories),
       installed: true,
       related: openingLink,
@@ -308,8 +290,6 @@ export function fetchInstalledApps () {
       installedKonnectors = installedKonnectors.map(k => {
         // FIXME type konnector is missing from stack
         k.attributes.type = 'konnector'
-        // add `konnector-` if missing to match with the registry
-        k.attributes.slug = _getKonnectorRegistrySlug(k.attributes.slug)
         return k
       })
       installedKonnectors = installedKonnectors.filter(
@@ -382,7 +362,7 @@ export function uninstallApp (slug, type) {
     const route = (type === APP_TYPE.KONNECTOR || type === 'node')
       ? 'konnectors' : 'apps'
     return cozy.client
-      .fetchJSON('DELETE', `/${route}/${_getKonnectorStackSlug(slug)}`)
+      .fetchJSON('DELETE', `/${route}/${slug}`)
       .then(() => {
         // remove the app from the state apps list
         const apps = getState().apps.list.map(app => {
@@ -414,7 +394,7 @@ export function installApp (slug, type, source, isUpdate = false) {
     return cozy.client
       .fetchJSON(
         verb,
-        `/${route}/${_getKonnectorStackSlug(slug)}?Source=${encodeURIComponent(source)}`
+        `/${route}/${slug}?Source=${encodeURIComponent(source)}`
       ).then(resp => {
         // FIXME type konnector is missing from stack
         resp.attributes.type = 'konnector'
