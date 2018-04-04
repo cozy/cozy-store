@@ -7,7 +7,7 @@ import UninstallModal from './UninstallModal'
 import InstallModal from './InstallModal'
 import ApplicationPage from './ApplicationPage'
 
-import { APP_TYPE, _getKonnectorStackSlug } from 'ducks/apps'
+import { APP_TYPE } from 'ducks/apps'
 
 export class ApplicationRouting extends Component {
   render () {
@@ -85,7 +85,7 @@ export class ApplicationRouting extends Component {
                 return (<IntentModal
                   action='CREATE'
                   doctype='io.cozy.accounts'
-                  options={{ slug: _getKonnectorStackSlug(appSlug) }}
+                  options={{ slug: appSlug }}
                   dismissAction={goToApp}
                   onComplete={goToApp}
                 />)
