@@ -65,7 +65,11 @@
       "title": "Informations",
       "categories": "Categories",
       "langs": "Languages",
-      "mobile_app": "Mobile Application"
+      "mobile_app": "Mobile Application",
+      "version": {
+        "title": "Version",
+        "unknown": "Unknown"
+      }
     },
     "developer_infos": "Developer Details",
     "preview": "Preview",

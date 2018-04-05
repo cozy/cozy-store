@@ -73,6 +73,7 @@ export const ApplicationPage = ({
           langs={app.langs}
           developer={app.developer}
           mobileApps={mobileApps}
+          version={app.version}
         />
       </div>
     </div>
