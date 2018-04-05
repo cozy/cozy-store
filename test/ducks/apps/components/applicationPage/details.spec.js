@@ -24,6 +24,7 @@ const getAppProps = () => {
     changes: appManifest.locales.en.changes,
     categories: appManifest.categories,
     langs: appManifest.langs,
+    version: '0.1.0-dev123',
     mobileApps: [
       { type: 'ios', url: '' },
       { type: 'android', url: 'https://mock.app' }
@@ -54,13 +55,14 @@ describe('ApplicationPage details component', () => {
     expect(component).toMatchSnapshot()
   })
 
-  it('should be rendered correctly provided app with no description, no platforms, no langs and no changes', () => {
+  it('should be rendered correctly provided app with no description, no platforms, no langs and no changes no version', () => {
     const appProps = Object.assign({}, getAppProps())
     appProps.description = ''
     appProps.changes = ''
     appProps.langs = []
     appProps.mobileApps = []
     appProps.developer = {}
+    appProps.version = ''
     const component = shallow(<Details {...appProps} />).getElement()
     expect(component).toMatchSnapshot()
   })
