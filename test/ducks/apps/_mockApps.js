@@ -75,6 +75,7 @@ export default [
     developer: { name: 'Cozy' },
     type: 'konnector',
     categories: ['transport'],
+    version: '0.1.0',
     versions: {
       stable: ['0.1.0'],
       beta: ['0.1.0'],

@@ -78,6 +78,7 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
               "slug": "konnector-trinlane",
               "type": "konnector",
               "uninstallable": true,
+              "version": "0.1.0",
               "versions": Object {
                 "beta": Array [
                   "0.1.0",
@@ -164,6 +165,7 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
           "slug": "konnector-trinlane",
           "type": "konnector",
           "uninstallable": true,
+          "version": "0.1.0",
           "versions": Object {
             "beta": Array [
               "0.1.0",
@@ -317,6 +319,7 @@ exports[`MyApplications component should render only routing if path not exactly
           "slug": "konnector-trinlane",
           "type": "konnector",
           "uninstallable": true,
+          "version": "0.1.0",
           "versions": Object {
             "beta": Array [
               "0.1.0",

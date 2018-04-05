@@ -32,7 +32,8 @@ export class Details extends Component {
       categories,
       langs,
       mobileApps,
-      developer
+      developer,
+      version
     } = this.props
     const { lessDescription, lessChanges } = this.state
     const langsInfos = langs && langs.map(l => t(`app_langs.${l}`))
@@ -43,6 +44,9 @@ export class Details extends Component {
       developer && developer.name === 'Cozy'
         ? 'Cozy Cloud Inc.'
         : developer.name
+    const shortVersion = version && version.match(/^(\d+\.\d+\.\d+)-.*$/)
+    const displayedVersion =
+      shortVersion && shortVersion.length && shortVersion[1] || version
     return (
       <div className='sto-app-details'>
         <div className='sto-app-descriptions'>
@@ -95,6 +99,14 @@ export class Details extends Component {
               {categoriesInfos &&
                 categoriesInfos.join(t('app_categories.list_separator'))
               }
+            </div>
+          </div>
+          <div className="sto-app-info">
+            <div className="sto-app-info-header">
+              {t('app_page.infos.version.title')}
+            </div>
+            <div className="sto-app-info-content">
+              {displayedVersion || t('app_page.infos.version.unknown')}
             </div>
           </div>
           {langsInfos && (

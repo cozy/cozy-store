@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ApplicationPage details component should be rendered correctly provided app with no description, no platforms, no langs and no changes 1`] = `
+exports[`ApplicationPage details component should be rendered correctly provided app with no description, no platforms, no langs and no changes no version 1`] = `
 <div
   className="sto-app-details"
 >
@@ -28,6 +28,20 @@ exports[`ApplicationPage details component should be rendered correctly provided
         className="sto-app-info-content"
       >
         Cozy
+      </div>
+    </div>
+    <div
+      className="sto-app-info"
+    >
+      <div
+        className="sto-app-info-header"
+      >
+        Version
+      </div>
+      <div
+        className="sto-app-info-content"
+      >
+        Unknown
       </div>
     </div>
     <div
@@ -116,6 +130,20 @@ Enjoy features to grab your data in you Cozy :tada:"
         className="sto-app-info-content"
       >
         Cozy
+      </div>
+    </div>
+    <div
+      className="sto-app-info"
+    >
+      <div
+        className="sto-app-info-header"
+      >
+        Version
+      </div>
+      <div
+        className="sto-app-info-content"
+      >
+        0.1.0
       </div>
     </div>
     <div
@@ -223,6 +251,20 @@ exports[`ApplicationPage details component should be rendered correctly with pro
       <div
         className="sto-app-info-header"
       >
+        Version
+      </div>
+      <div
+        className="sto-app-info-content"
+      >
+        Unknown
+      </div>
+    </div>
+    <div
+      className="sto-app-info"
+    >
+      <div
+        className="sto-app-info-header"
+      >
         Languages
       </div>
       <div
@@ -315,6 +357,20 @@ Enjoy features to grab your data in you Cozy :tada:"
         className="sto-app-info-content"
       >
         Cozy
+      </div>
+    </div>
+    <div
+      className="sto-app-info"
+    >
+      <div
+        className="sto-app-info-header"
+      >
+        Version
+      </div>
+      <div
+        className="sto-app-info-content"
+      >
+        0.1.0
       </div>
     </div>
     <div
@@ -450,6 +506,20 @@ Enjoy features to grab your data in you Cozy :tada:"
         className="sto-app-info-content"
       >
         Cozy
+      </div>
+    </div>
+    <div
+      className="sto-app-info"
+    >
+      <div
+        className="sto-app-info-header"
+      >
+        Version
+      </div>
+      <div
+        className="sto-app-info-content"
+      >
+        0.1.0
       </div>
     </div>
     <div
