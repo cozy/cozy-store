@@ -44,7 +44,7 @@ export class Details extends Component {
       developer && developer.name === 'Cozy'
         ? 'Cozy Cloud Inc.'
         : developer.name
-    const shortVersion = version.match(/^(\d+\.\d+\.\d+)-.*$/)
+    const shortVersion = version && version.match(/^(\d+\.\d+\.\d+)-.*$/)
     const displayedVersion =
       shortVersion && shortVersion.length && shortVersion[1] || version
     return (
