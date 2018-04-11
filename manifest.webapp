@@ -14,9 +14,24 @@
   },
   "default_locale": "en",
   "locales": {},
+  "intents": [
+    {
+      "action": "INSTALL",
+      "data": ["slug"],
+      "href": "/intents",
+      "type": [
+        "io.cozy.apps"
+      ]
+    }
+  ],
   "routes": {
     "/": {
       "folder": "/",
+      "index": "index.html",
+      "public": false
+    },
+    "/intents": {
+      "folder": "/intents",
       "index": "index.html",
       "public": false
     }
