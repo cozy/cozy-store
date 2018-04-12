@@ -25,7 +25,8 @@ const getMockProps = (
   apps = mockRegistyApps,
   isFetching = false,
   fetchError = null,
-  match = { isExact: true }
+  match = { isExact: true },
+  location = null
 ) => ({
   fetchApps: jest.fn(),
   apps,
@@ -33,12 +34,21 @@ const getMockProps = (
   fetchError,
   actionError: null,
   history: { push: jest.fn() },
-  match
+  match,
+  location
 })
 
 describe('Discover component', () => {
   it('should be rendered correctly with apps', () => {
     const mockProps = getMockProps()
+    const component = shallow(
+      <Discover t={tMock} {...mockProps} />
+    ).getElement()
+    expect(component).toMatchSnapshot()
+  })
+
+  it('should be rendered correctly with apps and URL search params', () => {
+    const mockProps = getMockProps(mockRegistyApps, false, null, { isExact: true }, { search: '?category=cozy' })
     const component = shallow(
       <Discover t={tMock} {...mockProps} />
     ).getElement()

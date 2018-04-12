@@ -257,6 +257,189 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
 </div>
 `;
 
+exports[`MyApplications component should be rendered correctly with apps and URL search params 1`] = `
+<div
+  className="sto-myapps"
+>
+  <div>
+    <h2
+      className="sto-myapps-title"
+    >
+      My Applications
+    </h2>
+    <div
+      className="sto-myapps-sections"
+    >
+      <Wrapper
+        apps={
+          Array [
+            Object {
+              "categories": Array [
+                "cozy",
+              ],
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "editor": "Cozy",
+              "icon": "<svg></svg>",
+              "installed": true,
+              "isInRegistry": true,
+              "name": "Collect",
+              "name_prefix": "Cozy",
+              "permissions": Object {
+                "mock": Object {
+                  "type": "io.mock.doctype",
+                },
+                "mock2": Object {
+                  "type": "io.mock.doctype2",
+                },
+              },
+              "related": "http://collect.cozy.mock/",
+              "slug": "collect",
+              "tags": Array [
+                "konnector",
+                "collect",
+                "bills",
+                "providers",
+                "files",
+              ],
+              "type": "webapp",
+              "uninstallable": false,
+              "version": "3.0.0",
+              "versions": Object {
+                "beta": Array [
+                  "3.0.0",
+                ],
+                "dev": Array [
+                  "3.0.0",
+                ],
+                "stable": Array [
+                  "3.0.0",
+                ],
+              },
+            },
+            Object {
+              "categories": Array [
+                "cozy",
+              ],
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "editor": "Cozy",
+              "icon": "<svg></svg>",
+              "installed": true,
+              "name": "Drive",
+              "name_prefix": "Cozy",
+              "permissions": Object {
+                "mock2": Object {
+                  "type": "io.mock.doctype2",
+                },
+              },
+              "related": "http://drive.cozy.mock/",
+              "slug": "drive",
+              "tags": Array [
+                "search",
+                "files",
+                "folders",
+              ],
+              "type": "webapp",
+              "uninstallable": false,
+              "version": "3.0.0-beta89bnhj3993",
+            },
+          ]
+        }
+        error={null}
+        onAppClick={[Function]}
+      />
+    </div>
+  </div>
+  <withRouter(ApplicationRouting)
+    actionError={null}
+    installApp={undefined}
+    installedApps={
+      Array [
+        Object {
+          "categories": Array [
+            "cozy",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "editor": "Cozy",
+          "icon": "<svg></svg>",
+          "installed": true,
+          "isInRegistry": true,
+          "name": "Collect",
+          "name_prefix": "Cozy",
+          "permissions": Object {
+            "mock": Object {
+              "type": "io.mock.doctype",
+            },
+            "mock2": Object {
+              "type": "io.mock.doctype2",
+            },
+          },
+          "related": "http://collect.cozy.mock/",
+          "slug": "collect",
+          "tags": Array [
+            "konnector",
+            "collect",
+            "bills",
+            "providers",
+            "files",
+          ],
+          "type": "webapp",
+          "uninstallable": false,
+          "version": "3.0.0",
+          "versions": Object {
+            "beta": Array [
+              "3.0.0",
+            ],
+            "dev": Array [
+              "3.0.0",
+            ],
+            "stable": Array [
+              "3.0.0",
+            ],
+          },
+        },
+        Object {
+          "categories": Array [
+            "cozy",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "editor": "Cozy",
+          "icon": "<svg></svg>",
+          "installed": true,
+          "name": "Drive",
+          "name_prefix": "Cozy",
+          "permissions": Object {
+            "mock2": Object {
+              "type": "io.mock.doctype2",
+            },
+          },
+          "related": "http://drive.cozy.mock/",
+          "slug": "drive",
+          "tags": Array [
+            "search",
+            "files",
+            "folders",
+          ],
+          "type": "webapp",
+          "uninstallable": false,
+          "version": "3.0.0-beta89bnhj3993",
+        },
+      ]
+    }
+    isFetching={false}
+    parent="myapps"
+    uninstallApp={[MockFunction]}
+  />
+</div>
+`;
+
 exports[`MyApplications component should display error from props correctly 1`] = `
 <div
   className="sto-myapps"

@@ -21,7 +21,8 @@ const getMockProps = (
   installedApps = mockInstalledApps,
   isFetching = false,
   fetchError = null,
-  match = { isExact: true }
+  match = { isExact: true },
+  location = null
 ) => ({
   fetchInstalledApps: jest.fn(),
   uninstallApp: jest.fn(),
@@ -30,12 +31,22 @@ const getMockProps = (
   fetchError,
   actionError: null,
   history: { push: jest.fn() },
-  match
+  match,
+  location
 })
 
 describe('MyApplications component', () => {
   it('should be rendered correctly if apps uninstalled', () => {
     const mockProps = getMockProps()
+    const component = shallow(
+      <MyApplications t={tMock} {...mockProps} />
+    ).getElement()
+    expect(component).toMatchSnapshot()
+  })
+
+  it('should be rendered correctly with apps and URL search params', () => {
+    // default values so use null
+    const mockProps = getMockProps(mockInstalledApps, false, null, { isExact: true }, { search: '?category=cozy' })
     const component = shallow(
       <MyApplications t={tMock} {...mockProps} />
     ).getElement()
