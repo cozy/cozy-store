@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`getFilteredAppsFromSearch library should filter correctly on doctype 1`] = `
+exports[`getFilteredAppsFromSearch library should filter correctly on category 1`] = `
 Array [
   Object {
     "categories": Array [
@@ -25,6 +25,13 @@ Array [
     },
     "related": "http://collect.cozy.mock/",
     "slug": "collect",
+    "tags": Array [
+      "konnector",
+      "collect",
+      "bills",
+      "providers",
+      "files",
+    ],
     "type": "webapp",
     "uninstallable": false,
     "version": "3.0.0",
@@ -59,9 +66,206 @@ Array [
     },
     "related": "http://drive.cozy.mock/",
     "slug": "drive",
+    "tags": Array [
+      "search",
+      "files",
+      "folders",
+    ],
     "type": "webapp",
     "uninstallable": false,
     "version": "3.0.0-beta89bnhj3993",
+  },
+  Object {
+    "categories": Array [
+      "cozy",
+    ],
+    "developer": Object {
+      "name": "Cozy",
+    },
+    "editor": "Cozy",
+    "icon": "<svg></svg>",
+    "isInRegistry": true,
+    "name": "Photos",
+    "name_prefix": "Cozy",
+    "slug": "photos",
+    "type": "webapp",
+    "uninstallable": true,
+    "versions": Object {
+      "beta": Array [
+        "3.0.0",
+      ],
+      "dev": Array [
+        "3.0.0",
+      ],
+      "stable": Array [
+        "3.0.0",
+      ],
+    },
+  },
+]
+`;
+
+exports[`getFilteredAppsFromSearch library should filter correctly on doctype 1`] = `
+Array [
+  Object {
+    "categories": Array [
+      "cozy",
+    ],
+    "developer": Object {
+      "name": "Cozy",
+    },
+    "editor": "Cozy",
+    "icon": "<svg></svg>",
+    "installed": true,
+    "isInRegistry": true,
+    "name": "Collect",
+    "name_prefix": "Cozy",
+    "permissions": Object {
+      "mock": Object {
+        "type": "io.mock.doctype",
+      },
+      "mock2": Object {
+        "type": "io.mock.doctype2",
+      },
+    },
+    "related": "http://collect.cozy.mock/",
+    "slug": "collect",
+    "tags": Array [
+      "konnector",
+      "collect",
+      "bills",
+      "providers",
+      "files",
+    ],
+    "type": "webapp",
+    "uninstallable": false,
+    "version": "3.0.0",
+    "versions": Object {
+      "beta": Array [
+        "3.0.0",
+      ],
+      "dev": Array [
+        "3.0.0",
+      ],
+      "stable": Array [
+        "3.0.0",
+      ],
+    },
+  },
+  Object {
+    "categories": Array [
+      "cozy",
+    ],
+    "developer": Object {
+      "name": "Cozy",
+    },
+    "editor": "Cozy",
+    "icon": "<svg></svg>",
+    "installed": true,
+    "name": "Drive",
+    "name_prefix": "Cozy",
+    "permissions": Object {
+      "mock2": Object {
+        "type": "io.mock.doctype2",
+      },
+    },
+    "related": "http://drive.cozy.mock/",
+    "slug": "drive",
+    "tags": Array [
+      "search",
+      "files",
+      "folders",
+    ],
+    "type": "webapp",
+    "uninstallable": false,
+    "version": "3.0.0-beta89bnhj3993",
+  },
+]
+`;
+
+exports[`getFilteredAppsFromSearch library should filter correctly on tags 1`] = `
+Array [
+  Object {
+    "categories": Array [
+      "cozy",
+    ],
+    "developer": Object {
+      "name": "Cozy",
+    },
+    "editor": "Cozy",
+    "icon": "<svg></svg>",
+    "installed": true,
+    "isInRegistry": true,
+    "name": "Collect",
+    "name_prefix": "Cozy",
+    "permissions": Object {
+      "mock": Object {
+        "type": "io.mock.doctype",
+      },
+      "mock2": Object {
+        "type": "io.mock.doctype2",
+      },
+    },
+    "related": "http://collect.cozy.mock/",
+    "slug": "collect",
+    "tags": Array [
+      "konnector",
+      "collect",
+      "bills",
+      "providers",
+      "files",
+    ],
+    "type": "webapp",
+    "uninstallable": false,
+    "version": "3.0.0",
+    "versions": Object {
+      "beta": Array [
+        "3.0.0",
+      ],
+      "dev": Array [
+        "3.0.0",
+      ],
+      "stable": Array [
+        "3.0.0",
+      ],
+    },
+  },
+  Object {
+    "categories": Array [
+      "transport",
+    ],
+    "developer": Object {
+      "name": "Cozy",
+    },
+    "icon": "<svg></svg>",
+    "installed": true,
+    "isInRegistry": true,
+    "name": "Trinlane",
+    "permissions": Object {
+      "mock": Object {
+        "type": "io.mock.doctype",
+      },
+    },
+    "slug": "konnector-trinlane",
+    "tags": Array [
+      "transport",
+      "files",
+      "bills",
+    ],
+    "type": "konnector",
+    "uninstallable": true,
+    "version": "0.1.0",
+    "versions": Object {
+      "beta": Array [
+        "0.1.0",
+      ],
+      "dev": Array [
+        "0.1.0",
+      ],
+      "stable": Array [
+        "0.1.0",
+      ],
+    },
   },
 ]
 `;
@@ -91,6 +295,13 @@ Array [
     },
     "related": "http://collect.cozy.mock/",
     "slug": "collect",
+    "tags": Array [
+      "konnector",
+      "collect",
+      "bills",
+      "providers",
+      "files",
+    ],
     "type": "webapp",
     "uninstallable": false,
     "version": "3.0.0",
@@ -150,6 +361,11 @@ Array [
     },
     "related": "http://drive.cozy.mock/",
     "slug": "drive",
+    "tags": Array [
+      "search",
+      "files",
+      "folders",
+    ],
     "type": "webapp",
     "uninstallable": false,
     "version": "3.0.0-beta89bnhj3993",
@@ -206,7 +422,7 @@ Array [
 ]
 `;
 
-exports[`getFilteredAppsFromSearch library should filter correctly type AND doctype 1`] = `
+exports[`getFilteredAppsFromSearch library should handle correctly multi filters 1`] = `
 Array [
   Object {
     "categories": Array [
@@ -225,6 +441,11 @@ Array [
       },
     },
     "slug": "konnector-trinlane",
+    "tags": Array [
+      "transport",
+      "files",
+      "bills",
+    ],
     "type": "konnector",
     "uninstallable": true,
     "version": "0.1.0",

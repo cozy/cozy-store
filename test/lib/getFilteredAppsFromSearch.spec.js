@@ -14,7 +14,15 @@ describe('getFilteredAppsFromSearch library', () => {
     expect(getFilteredAppsFromSearch(mockApps, '?doctype=io.mock.doctype2')).toMatchSnapshot()
   })
 
-  it('should filter correctly type AND doctype', () => {
+  it('should filter correctly on tags', () => {
+    expect(getFilteredAppsFromSearch(mockApps, '?tag=bills')).toMatchSnapshot()
+  })
+
+  it('should filter correctly on category', () => {
+    expect(getFilteredAppsFromSearch(mockApps, '?category=cozy')).toMatchSnapshot()
+  })
+
+  it('should handle correctly multi filters', () => {
     expect(getFilteredAppsFromSearch(mockApps, '?type=konnector&doctype=io.mock.doctype')).toMatchSnapshot()
   })
 })

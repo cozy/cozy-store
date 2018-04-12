@@ -17,6 +17,7 @@ export default [
         type: 'io.mock.doctype2'
       }
     },
+    tags: ['konnector', 'collect', 'bills', 'providers', 'files'],
     version: '3.0.0',
     versions: {
       stable: ['3.0.0'],
@@ -54,6 +55,7 @@ export default [
     name_prefix: 'Cozy',
     categories: ['cozy'],
     developer: { name: 'Cozy' },
+    tags: ['search', 'files', 'folders'],
     type: 'webapp',
     icon: '<svg></svg>',
     permissions: {
@@ -88,6 +90,7 @@ export default [
     developer: { name: 'Cozy' },
     type: 'konnector',
     categories: ['transport'],
+    tags: ['transport', 'files', 'bills'],
     permissions: {
       mock: {
         type: 'io.mock.doctype'
