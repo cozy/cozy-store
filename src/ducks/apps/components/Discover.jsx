@@ -22,7 +22,9 @@ export class Discover extends Component {
 
   render () {
     const { t, location, apps, isFetching, fetchError, isInstalling, actionError } = this.props
-    const filteredApps = getFilteredAppsFromSearch(apps, location && location.search)
+    const filteredApps = getFilteredAppsFromSearch(
+      apps, location && location.search
+    )
     return (
       <div className='sto-discover'>
         {this.props.match.isExact ? (
