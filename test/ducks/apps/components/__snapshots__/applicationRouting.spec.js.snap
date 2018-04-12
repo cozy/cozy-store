@@ -16,8 +16,23 @@ exports[`ApplicationRouting component with ApplicationPage should handle correct
       "isInRegistry": true,
       "name": "Collect",
       "name_prefix": "Cozy",
+      "permissions": Object {
+        "mock": Object {
+          "type": "io.mock.doctype",
+        },
+        "mock2": Object {
+          "type": "io.mock.doctype2",
+        },
+      },
       "related": "http://collect.cozy.mock/",
       "slug": "collect",
+      "tags": Array [
+        "konnector",
+        "collect",
+        "bills",
+        "providers",
+        "files",
+      ],
       "type": "webapp",
       "uninstallable": false,
       "version": "3.0.0",
@@ -54,8 +69,23 @@ exports[`ApplicationRouting component with ApplicationPage should render correct
       "isInRegistry": true,
       "name": "Collect",
       "name_prefix": "Cozy",
+      "permissions": Object {
+        "mock": Object {
+          "type": "io.mock.doctype",
+        },
+        "mock2": Object {
+          "type": "io.mock.doctype2",
+        },
+      },
       "related": "http://collect.cozy.mock/",
       "slug": "collect",
+      "tags": Array [
+        "konnector",
+        "collect",
+        "bills",
+        "providers",
+        "files",
+      ],
       "type": "webapp",
       "uninstallable": false,
       "version": "3.0.0",
@@ -107,8 +137,23 @@ exports[`ApplicationRouting component with Modal should handle correctly if inst
       "isInRegistry": true,
       "name": "Collect",
       "name_prefix": "Cozy",
+      "permissions": Object {
+        "mock": Object {
+          "type": "io.mock.doctype",
+        },
+        "mock2": Object {
+          "type": "io.mock.doctype2",
+        },
+      },
       "related": "http://collect.cozy.mock/",
       "slug": "collect",
+      "tags": Array [
+        "konnector",
+        "collect",
+        "bills",
+        "providers",
+        "files",
+      ],
       "type": "webapp",
       "uninstallable": false,
       "version": "3.0.0",
@@ -147,8 +192,23 @@ exports[`ApplicationRouting component with Modal should render correctly if apps
       "isInRegistry": true,
       "name": "Collect",
       "name_prefix": "Cozy",
+      "permissions": Object {
+        "mock": Object {
+          "type": "io.mock.doctype",
+        },
+        "mock2": Object {
+          "type": "io.mock.doctype2",
+        },
+      },
       "related": "http://collect.cozy.mock/",
       "slug": "collect",
+      "tags": Array [
+        "konnector",
+        "collect",
+        "bills",
+        "providers",
+        "files",
+      ],
       "type": "webapp",
       "uninstallable": false,
       "version": "3.0.0",

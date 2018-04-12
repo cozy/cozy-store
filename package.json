@@ -82,7 +82,8 @@
     "react-redux": "5.0.7",
     "react-router-dom": "4.2.2",
     "redux": "3.7.2",
-    "redux-raven-middleware": "1.2.0"
+    "redux-raven-middleware": "1.2.0",
+    "url-search-params-polyfill": "^3.0.0"
   },
   "jest": {
     "moduleFileExtensions": [

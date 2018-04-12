@@ -6,6 +6,8 @@ import Spinner from 'cozy-ui/react/Spinner'
 import ApplicationRouting from './ApplicationRouting'
 import Sections from './Sections'
 
+import getFilteredAppsFromSearch from 'lib/getFilteredAppsFromSearch'
+
 export class MyApplications extends Component {
   constructor (props) {
     super(props)
@@ -19,7 +21,10 @@ export class MyApplications extends Component {
   }
 
   render () {
-    const { t, installedApps, isFetching, fetchError, actionError } = this.props
+    const { t, location, installedApps, isFetching, fetchError, actionError } = this.props
+    const filteredApps = getFilteredAppsFromSearch(
+      installedApps, location && location.search
+    )
     return (
       <div className='sto-myapps'>
         {this.props.match.isExact ? (
@@ -28,7 +33,7 @@ export class MyApplications extends Component {
             <div className='sto-myapps-sections'>
               {!isFetching &&
                 <Sections
-                  apps={installedApps}
+                  apps={filteredApps}
                   error={fetchError}
                   onAppClick={this.onAppClick}
                 />
@@ -38,7 +43,7 @@ export class MyApplications extends Component {
         ) : null}
 
         <ApplicationRouting
-          installedApps={installedApps}
+          installedApps={filteredApps}
           isFetching={isFetching}
           actionError={actionError}
           installApp={this.props.installApp}

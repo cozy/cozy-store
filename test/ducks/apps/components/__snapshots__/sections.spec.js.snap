@@ -28,8 +28,23 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
             "isInRegistry": true,
             "name": "Collect",
             "name_prefix": "Cozy",
+            "permissions": Object {
+              "mock": Object {
+                "type": "io.mock.doctype",
+              },
+              "mock2": Object {
+                "type": "io.mock.doctype2",
+              },
+            },
             "related": "http://collect.cozy.mock/",
             "slug": "collect",
+            "tags": Array [
+              "konnector",
+              "collect",
+              "bills",
+              "providers",
+              "files",
+            ],
             "type": "webapp",
             "uninstallable": false,
             "version": "3.0.0",
@@ -57,8 +72,18 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
             "installed": true,
             "name": "Drive",
             "name_prefix": "Cozy",
+            "permissions": Object {
+              "mock2": Object {
+                "type": "io.mock.doctype2",
+              },
+            },
             "related": "http://drive.cozy.mock/",
             "slug": "drive",
+            "tags": Array [
+              "search",
+              "files",
+              "folders",
+            ],
             "type": "webapp",
             "uninstallable": false,
             "version": "3.0.0-beta89bnhj3993",
@@ -249,7 +274,17 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
             "installed": true,
             "isInRegistry": true,
             "name": "Trinlane",
+            "permissions": Object {
+              "mock": Object {
+                "type": "io.mock.doctype",
+              },
+            },
             "slug": "konnector-trinlane",
+            "tags": Array [
+              "transport",
+              "files",
+              "bills",
+            ],
             "type": "konnector",
             "uninstallable": true,
             "version": "0.1.0",

@@ -9,6 +9,15 @@ export default [
     developer: { name: 'Cozy' },
     type: 'webapp',
     icon: '<svg></svg>',
+    permissions: {
+      mock: {
+        type: 'io.mock.doctype'
+      },
+      mock2: {
+        type: 'io.mock.doctype2'
+      }
+    },
+    tags: ['konnector', 'collect', 'bills', 'providers', 'files'],
     version: '3.0.0',
     versions: {
       stable: ['3.0.0'],
@@ -46,8 +55,14 @@ export default [
     name_prefix: 'Cozy',
     categories: ['cozy'],
     developer: { name: 'Cozy' },
+    tags: ['search', 'files', 'folders'],
     type: 'webapp',
     icon: '<svg></svg>',
+    permissions: {
+      mock2: {
+        type: 'io.mock.doctype2'
+      }
+    },
     version: '3.0.0-beta89bnhj3993',
     uninstallable: false,
     installed: true,
@@ -75,6 +90,12 @@ export default [
     developer: { name: 'Cozy' },
     type: 'konnector',
     categories: ['transport'],
+    tags: ['transport', 'files', 'bills'],
+    permissions: {
+      mock: {
+        type: 'io.mock.doctype'
+      }
+    },
     version: '0.1.0',
     versions: {
       stable: ['0.1.0'],
@@ -85,6 +106,7 @@ export default [
     uninstallable: true,
     isInRegistry: true
   },
+  // don't add permissions to Photos for testing
   {
     slug: 'photos',
     name: 'Photos',
