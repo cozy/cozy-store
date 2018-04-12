@@ -29,6 +29,14 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
               "isInRegistry": true,
               "name": "Collect",
               "name_prefix": "Cozy",
+              "permissions": Object {
+                "mock": Object {
+                  "type": "io.mock.doctype",
+                },
+                "mock2": Object {
+                  "type": "io.mock.doctype2",
+                },
+              },
               "related": "http://collect.cozy.mock/",
               "slug": "collect",
               "type": "webapp",
@@ -58,6 +66,11 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
               "installed": true,
               "name": "Drive",
               "name_prefix": "Cozy",
+              "permissions": Object {
+                "mock2": Object {
+                  "type": "io.mock.doctype2",
+                },
+              },
               "related": "http://drive.cozy.mock/",
               "slug": "drive",
               "type": "webapp",
@@ -75,6 +88,11 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
               "installed": true,
               "isInRegistry": true,
               "name": "Trinlane",
+              "permissions": Object {
+                "mock": Object {
+                  "type": "io.mock.doctype",
+                },
+              },
               "slug": "konnector-trinlane",
               "type": "konnector",
               "uninstallable": true,
@@ -116,6 +134,14 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
           "isInRegistry": true,
           "name": "Collect",
           "name_prefix": "Cozy",
+          "permissions": Object {
+            "mock": Object {
+              "type": "io.mock.doctype",
+            },
+            "mock2": Object {
+              "type": "io.mock.doctype2",
+            },
+          },
           "related": "http://collect.cozy.mock/",
           "slug": "collect",
           "type": "webapp",
@@ -145,6 +171,11 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
           "installed": true,
           "name": "Drive",
           "name_prefix": "Cozy",
+          "permissions": Object {
+            "mock2": Object {
+              "type": "io.mock.doctype2",
+            },
+          },
           "related": "http://drive.cozy.mock/",
           "slug": "drive",
           "type": "webapp",
@@ -162,6 +193,11 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
           "installed": true,
           "isInRegistry": true,
           "name": "Trinlane",
+          "permissions": Object {
+            "mock": Object {
+              "type": "io.mock.doctype",
+            },
+          },
           "slug": "konnector-trinlane",
           "type": "konnector",
           "uninstallable": true,
@@ -270,6 +306,14 @@ exports[`MyApplications component should render only routing if path not exactly
           "isInRegistry": true,
           "name": "Collect",
           "name_prefix": "Cozy",
+          "permissions": Object {
+            "mock": Object {
+              "type": "io.mock.doctype",
+            },
+            "mock2": Object {
+              "type": "io.mock.doctype2",
+            },
+          },
           "related": "http://collect.cozy.mock/",
           "slug": "collect",
           "type": "webapp",
@@ -299,6 +343,11 @@ exports[`MyApplications component should render only routing if path not exactly
           "installed": true,
           "name": "Drive",
           "name_prefix": "Cozy",
+          "permissions": Object {
+            "mock2": Object {
+              "type": "io.mock.doctype2",
+            },
+          },
           "related": "http://drive.cozy.mock/",
           "slug": "drive",
           "type": "webapp",
@@ -316,6 +365,11 @@ exports[`MyApplications component should render only routing if path not exactly
           "installed": true,
           "isInRegistry": true,
           "name": "Trinlane",
+          "permissions": Object {
+            "mock": Object {
+              "type": "io.mock.doctype",
+            },
+          },
           "slug": "konnector-trinlane",
           "type": "konnector",
           "uninstallable": true,

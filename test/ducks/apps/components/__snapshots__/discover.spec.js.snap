@@ -29,6 +29,14 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
               "isInRegistry": true,
               "name": "Collect",
               "name_prefix": "Cozy",
+              "permissions": Object {
+                "mock": Object {
+                  "type": "io.mock.doctype",
+                },
+                "mock2": Object {
+                  "type": "io.mock.doctype2",
+                },
+              },
               "related": "http://collect.cozy.mock/",
               "slug": "collect",
               "type": "webapp",
@@ -83,6 +91,11 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
               "installed": true,
               "isInRegistry": true,
               "name": "Trinlane",
+              "permissions": Object {
+                "mock": Object {
+                  "type": "io.mock.doctype",
+                },
+              },
               "slug": "konnector-trinlane",
               "type": "konnector",
               "uninstallable": true,
@@ -172,6 +185,14 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
           "isInRegistry": true,
           "name": "Collect",
           "name_prefix": "Cozy",
+          "permissions": Object {
+            "mock": Object {
+              "type": "io.mock.doctype",
+            },
+            "mock2": Object {
+              "type": "io.mock.doctype2",
+            },
+          },
           "related": "http://collect.cozy.mock/",
           "slug": "collect",
           "type": "webapp",
@@ -226,6 +247,11 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
           "installed": true,
           "isInRegistry": true,
           "name": "Trinlane",
+          "permissions": Object {
+            "mock": Object {
+              "type": "io.mock.doctype",
+            },
+          },
           "slug": "konnector-trinlane",
           "type": "konnector",
           "uninstallable": true,
@@ -355,6 +381,14 @@ exports[`Discover component should not render apps list if !match.isExact 1`] = 
           "isInRegistry": true,
           "name": "Collect",
           "name_prefix": "Cozy",
+          "permissions": Object {
+            "mock": Object {
+              "type": "io.mock.doctype",
+            },
+            "mock2": Object {
+              "type": "io.mock.doctype2",
+            },
+          },
           "related": "http://collect.cozy.mock/",
           "slug": "collect",
           "type": "webapp",
@@ -409,6 +443,11 @@ exports[`Discover component should not render apps list if !match.isExact 1`] = 
           "installed": true,
           "isInRegistry": true,
           "name": "Trinlane",
+          "permissions": Object {
+            "mock": Object {
+              "type": "io.mock.doctype",
+            },
+          },
           "slug": "konnector-trinlane",
           "type": "konnector",
           "uninstallable": true,

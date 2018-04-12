@@ -28,6 +28,14 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
             "isInRegistry": true,
             "name": "Collect",
             "name_prefix": "Cozy",
+            "permissions": Object {
+              "mock": Object {
+                "type": "io.mock.doctype",
+              },
+              "mock2": Object {
+                "type": "io.mock.doctype2",
+              },
+            },
             "related": "http://collect.cozy.mock/",
             "slug": "collect",
             "type": "webapp",
@@ -57,6 +65,11 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
             "installed": true,
             "name": "Drive",
             "name_prefix": "Cozy",
+            "permissions": Object {
+              "mock2": Object {
+                "type": "io.mock.doctype2",
+              },
+            },
             "related": "http://drive.cozy.mock/",
             "slug": "drive",
             "type": "webapp",
@@ -249,6 +262,11 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
             "installed": true,
             "isInRegistry": true,
             "name": "Trinlane",
+            "permissions": Object {
+              "mock": Object {
+                "type": "io.mock.doctype",
+              },
+            },
             "slug": "konnector-trinlane",
             "type": "konnector",
             "uninstallable": true,
