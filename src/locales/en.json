@@ -7,7 +7,7 @@
     "title": "My Applications"
   },
   "nav": {
-    "discover": "Discover",
+    "discover": "All",
     "myapps": "My Applications"
   },
   "soon": {
@@ -50,7 +50,7 @@
 
   "app_page": {
     "konnector": {
-      "open": "Configure in collect",
+      "open": "Open with Collect",
       "install": "Install on my Cozy",
       "uninstall": "Uninstall"
     },
