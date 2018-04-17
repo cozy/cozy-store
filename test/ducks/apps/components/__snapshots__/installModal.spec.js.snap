@@ -8,58 +8,41 @@ exports[`InstallModal component should be rendered correctly if app found 1`] = 
     secondaryAction={[Function]}
   >
     <ModalContent>
-      <header
-        className="sto-modal-header"
-      >
-        <div
-          aria-busy={undefined}
-          className="sto-modal-header-icon"
-        >
-          <a
-            className="sto-modal-header-icon-shield"
-            href="https://cozy.io"
-            target="_blank"
-            title="Cozy Website"
-          />
-        </div>
-        <h2>
-          The application Photos will not transmit any personal data to any third parties.
-        </h2>
-      </header>
-      <div
-        className="sto-modal-content"
-      >
-        <Wrapper
-          appName="Photos"
-          permissions={Object {}}
-        />
-        <div>
-          <div
-            className="sto-modal-controls"
-          >
-            <button
-              className="c-btn c-btn--secondary"
-              onClick={[Function]}
-              role="button"
-            >
-              <span>
-                Cancel
-              </span>
-            </button>
-            <button
-              aria-busy={undefined}
-              className="c-btn c-btn--regular c-btn--download"
-              disabled={undefined}
-              onClick={[Function]}
-              role="button"
-            >
-              <span>
-                Install
-              </span>
-            </button>
-          </div>
-        </div>
-      </div>
+      <Wrapper
+        app={
+          Object {
+            "categories": Array [
+              "cozy",
+            ],
+            "developer": Object {
+              "name": "Cozy",
+            },
+            "editor": "Cozy",
+            "icon": "<svg></svg>",
+            "isInRegistry": true,
+            "name": "Photos",
+            "name_prefix": "Cozy",
+            "slug": "photos",
+            "type": "webapp",
+            "uninstallable": true,
+            "versions": Object {
+              "beta": Array [
+                "3.0.0",
+              ],
+              "dev": Array [
+                "3.0.0",
+              ],
+              "stable": Array [
+                "3.0.0",
+              ],
+            },
+          }
+        }
+        installApp={undefined}
+        isInstalling={undefined}
+        onCancel={[Function]}
+        onSuccess={[Function]}
+      />
     </ModalContent>
   </Unknown>
 </div>
@@ -73,31 +56,43 @@ exports[`InstallModal component should be rendered correctly with also app in re
     secondaryAction={[Function]}
   >
     <ModalContent>
-      <header
-        className="sto-modal-header"
-      >
-        <div
-          aria-busy={undefined}
-          className="sto-modal-header-icon"
-        >
-          <a
-            className="sto-modal-header-icon-shield"
-            href="https://cozy.io"
-            target="_blank"
-            title="Cozy Website"
-          />
-        </div>
-        <h2>
-          The application Photos will not transmit any personal data to any third parties.
-        </h2>
-      </header>
-      <div
-        className="sto-modal-content"
-      >
-        <Wrapper
-          appName="Photos"
-          permissions={
-            Object {
+      <Wrapper
+        app={
+          Object {
+            "categories": Array [
+              "cozy",
+            ],
+            "developer": Object {
+              "name": "Cozy",
+            },
+            "editor": "Cozy",
+            "icon": "<svg></svg>",
+            "isInRegistry": true,
+            "langs": Array [
+              "en",
+              "fr",
+            ],
+            "licence": "AGPL-3.0",
+            "locales": Object {
+              "en": Object {
+                "changes": "### NEW!!!
+
+ Now on the cozy-store :tada",
+                "long_description": "### Features
+
+Enjoy features to grab your data in you Cozy :tada:",
+                "short_description": "Gestionnaire de photos pour Cozy v3",
+              },
+              "fr": Object {
+                "long_description": "### Photos
+
+Gestionnaire de photos pour Cozy v3 :tada:",
+                "short_description": "Gestionnaire de photos pour Cozy v3",
+              },
+            },
+            "name": "Photos",
+            "name_prefix": "Cozy",
+            "permissions": Object {
               "albums": Object {
                 "description": "Required to manage photos albums",
                 "methods": Array [
@@ -138,39 +133,57 @@ exports[`InstallModal component should be rendered correctly with also app in re
                   "GET",
                 ],
               },
-            }
+            },
+            "platforms": Array [
+              Object {
+                "type": "ios",
+                "url": "",
+              },
+              Object {
+                "type": "linux",
+                "url": "",
+              },
+              Object {
+                "type": "android",
+                "url": "https://mock.app",
+              },
+            ],
+            "routes": Object {
+              "/": Object {
+                "folder": "/",
+                "index": "index.html",
+                "public": false,
+              },
+              "/public": Object {
+                "folder": "/public",
+                "index": "index.html",
+                "public": true,
+              },
+            },
+            "short_description": "Photos manager for Cozy v3",
+            "slug": "photos",
+            "source": "https://github.com/cozy/cozy-drive.git@build-photos",
+            "type": "webapp",
+            "uninstallable": true,
+            "version": "3.0.0",
+            "versions": Object {
+              "beta": Array [
+                "3.0.0",
+              ],
+              "dev": Array [
+                "3.0.0",
+              ],
+              "stable": Array [
+                "3.0.0",
+              ],
+            },
           }
-        />
-        <div>
-          <ReactMarkdownWrapper
-            source="By electing __Install__, you accept that the application Photos obtains access to these data, only locally and within your Cozy, and in compliance with the terms of service and the privacy policy."
-          />
-          <div
-            className="sto-modal-controls"
-          >
-            <button
-              className="c-btn c-btn--secondary"
-              onClick={[Function]}
-              role="button"
-            >
-              <span>
-                Cancel
-              </span>
-            </button>
-            <button
-              aria-busy={undefined}
-              className="c-btn c-btn--regular c-btn--download"
-              disabled={undefined}
-              onClick={[Function]}
-              role="button"
-            >
-              <span>
-                Install
-              </span>
-            </button>
-          </div>
-        </div>
-      </div>
+        }
+        installApp={undefined}
+        isInstalling={undefined}
+        onCancel={[Function]}
+        onSuccess={[Function]}
+      />
     </ModalContent>
   </Unknown>
 </div>
@@ -184,30 +197,41 @@ exports[`InstallModal component should handle correctly fetchError from props 1`
     secondaryAction={[Function]}
   >
     <ModalContent>
-      <header
-        className="sto-modal-header"
-      >
-        <div
-          aria-busy={undefined}
-          className="sto-modal-header-icon"
-        >
-          <a
-            className="sto-modal-header-icon-shield"
-            href="https://cozy.io"
-            target="_blank"
-            title="Cozy Website"
-          />
-        </div>
-      </header>
-      <div
-        className="sto-modal-content"
-      >
-        <p
-          className="u-error"
-        >
-          Something went wrong when fetching the application informations. Reason: This is a test error
-        </p>
-      </div>
+      <Wrapper
+        app={
+          Object {
+            "categories": Array [
+              "cozy",
+            ],
+            "developer": Object {
+              "name": "Cozy",
+            },
+            "editor": "Cozy",
+            "icon": "<svg></svg>",
+            "isInRegistry": true,
+            "name": "Photos",
+            "name_prefix": "Cozy",
+            "slug": "photos",
+            "type": "webapp",
+            "uninstallable": true,
+            "versions": Object {
+              "beta": Array [
+                "3.0.0",
+              ],
+              "dev": Array [
+                "3.0.0",
+              ],
+              "stable": Array [
+                "3.0.0",
+              ],
+            },
+          }
+        }
+        installApp={undefined}
+        isInstalling={undefined}
+        onCancel={[Function]}
+        onSuccess={[Function]}
+      />
     </ModalContent>
   </Unknown>
 </div>
@@ -221,63 +245,41 @@ exports[`InstallModal component should handle correctly installError from props 
     secondaryAction={[Function]}
   >
     <ModalContent>
-      <header
-        className="sto-modal-header"
-      >
-        <div
-          aria-busy={undefined}
-          className="sto-modal-header-icon"
-        >
-          <a
-            className="sto-modal-header-icon-shield"
-            href="https://cozy.io"
-            target="_blank"
-            title="Cozy Website"
-          />
-        </div>
-        <h2>
-          The application Photos will not transmit any personal data to any third parties.
-        </h2>
-      </header>
-      <div
-        className="sto-modal-content"
-      >
-        <Wrapper
-          appName="Photos"
-          permissions={Object {}}
-        />
-        <div>
-          <p
-            className="u-error"
-          >
-            Something went wrong when installing the application on your Cozy. Reason: This is a test error
-          </p>
-          <div
-            className="sto-modal-controls"
-          >
-            <button
-              className="c-btn c-btn--secondary"
-              onClick={[Function]}
-              role="button"
-            >
-              <span>
-                Cancel
-              </span>
-            </button>
-            <button
-              aria-busy={undefined}
-              className="c-btn c-btn--regular c-btn--download"
-              disabled={undefined}
-              onClick={[Function]}
-              role="button"
-            >
-              <span>
-                Install
-              </span>
-            </button>
-          </div>
-        </div>
-      </div>
+      <Wrapper
+        app={
+          Object {
+            "categories": Array [
+              "cozy",
+            ],
+            "developer": Object {
+              "name": "Cozy",
+            },
+            "editor": "Cozy",
+            "icon": "<svg></svg>",
+            "isInRegistry": true,
+            "name": "Photos",
+            "name_prefix": "Cozy",
+            "slug": "photos",
+            "type": "webapp",
+            "uninstallable": true,
+            "versions": Object {
+              "beta": Array [
+                "3.0.0",
+              ],
+              "dev": Array [
+                "3.0.0",
+              ],
+              "stable": Array [
+                "3.0.0",
+              ],
+            },
+          }
+        }
+        installApp={undefined}
+        isInstalling={undefined}
+        onCancel={[Function]}
+        onSuccess={[Function]}
+      />
     </ModalContent>
   </Unknown>
 </div>
@@ -291,58 +293,92 @@ exports[`InstallModal component should not break the permissions part if no perm
     secondaryAction={[Function]}
   >
     <ModalContent>
-      <header
-        className="sto-modal-header"
-      >
-        <div
-          aria-busy={undefined}
-          className="sto-modal-header-icon"
-        >
-          <a
-            className="sto-modal-header-icon-shield"
-            href="https://cozy.io"
-            target="_blank"
-            title="Cozy Website"
-          />
-        </div>
-        <h2>
-          The application Photos will not transmit any personal data to any third parties.
-        </h2>
-      </header>
-      <div
-        className="sto-modal-content"
-      >
-        <Wrapper
-          appName="Photos"
-          permissions={Object {}}
-        />
-        <div>
-          <div
-            className="sto-modal-controls"
-          >
-            <button
-              className="c-btn c-btn--secondary"
-              onClick={[Function]}
-              role="button"
-            >
-              <span>
-                Cancel
-              </span>
-            </button>
-            <button
-              aria-busy={undefined}
-              className="c-btn c-btn--regular c-btn--download"
-              disabled={undefined}
-              onClick={[Function]}
-              role="button"
-            >
-              <span>
-                Install
-              </span>
-            </button>
-          </div>
-        </div>
-      </div>
+      <Wrapper
+        app={
+          Object {
+            "categories": Array [
+              "cozy",
+            ],
+            "developer": Object {
+              "name": "Cozy",
+            },
+            "editor": "Cozy",
+            "icon": "<svg></svg>",
+            "isInRegistry": true,
+            "langs": Array [
+              "en",
+              "fr",
+            ],
+            "licence": "AGPL-3.0",
+            "locales": Object {
+              "en": Object {
+                "changes": "### NEW!!!
+
+ Now on the cozy-store :tada",
+                "long_description": "### Features
+
+Enjoy features to grab your data in you Cozy :tada:",
+                "short_description": "Gestionnaire de photos pour Cozy v3",
+              },
+              "fr": Object {
+                "long_description": "### Photos
+
+Gestionnaire de photos pour Cozy v3 :tada:",
+                "short_description": "Gestionnaire de photos pour Cozy v3",
+              },
+            },
+            "name": "Photos",
+            "name_prefix": "Cozy",
+            "platforms": Array [
+              Object {
+                "type": "ios",
+                "url": "",
+              },
+              Object {
+                "type": "linux",
+                "url": "",
+              },
+              Object {
+                "type": "android",
+                "url": "https://mock.app",
+              },
+            ],
+            "routes": Object {
+              "/": Object {
+                "folder": "/",
+                "index": "index.html",
+                "public": false,
+              },
+              "/public": Object {
+                "folder": "/public",
+                "index": "index.html",
+                "public": true,
+              },
+            },
+            "short_description": "Photos manager for Cozy v3",
+            "slug": "photos",
+            "source": "https://github.com/cozy/cozy-drive.git@build-photos",
+            "type": "webapp",
+            "uninstallable": true,
+            "version": "3.0.0",
+            "versions": Object {
+              "beta": Array [
+                "3.0.0",
+              ],
+              "dev": Array [
+                "3.0.0",
+              ],
+              "stable": Array [
+                "3.0.0",
+              ],
+            },
+          }
+        }
+        installApp={undefined}
+        isInstalling={undefined}
+        onCancel={[Function]}
+        onSuccess={[Function]}
+      />
     </ModalContent>
   </Unknown>
 </div>

@@ -1,38 +1,23 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router'
 
-import { translate } from 'cozy-ui/react/I18n'
 import Modal, { ModalContent } from 'cozy-ui/react/Modal'
 
-import PermissionsList from './PermissionsList'
-import ReactMarkdownWrapper from '../../components/ReactMarkdownWrapper'
+import AppInstallation from './AppInstallation'
 
-import { APP_TYPE, getLocalizedAppProperty } from 'ducks/apps'
+import { APP_TYPE } from 'ducks/apps'
 
 export class InstallModal extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
-
     this.gotoParent = this.gotoParent.bind(this)
-    this.installApp = this.installApp.bind(this)
   }
 
-  installApp () {
-    this.setState({ error: null })
-    const { app, parent, history } = this.props
-    this.props
-      .installApp(app.slug, app.type)
-      .then(() => {
-        if(app.type === APP_TYPE.KONNECTOR) {
-          history.push(`${parent}/${app.slug}/configure`)
-        } else {
-          this.gotoParent()
-        }
-      })
-      .catch()
+  componentWillReceiveProps(nextProps) {
+    if (!nextProps.app) this.gotoParent()
   }
 
-  gotoParent () {
+  gotoParent() {
     const { app, parent, history } = this.props
     if (app && app.slug) {
       history.push(`${parent}/${app.slug}`)
@@ -41,94 +26,30 @@ export class InstallModal extends Component {
     }
   }
 
-  render () {
-    const {
-      t,
-      lang,
-      app,
-      isFetching,
-      fetchError,
-      isInstalling,
-      installError
-    } = this.props
-    // if app not found, return to parent
-    if (!app) {
+  onSuccess(app) {
+    const { history, parent } = this.props
+
+    if (app.type === APP_TYPE.KONNECTOR) {
+      history.push(`${parent}/${app.slug}/configure`)
+    } else {
       this.gotoParent()
-      return null
     }
-    let permissions = null
-    if (app && !isFetching && !fetchError) {
-      permissions = app.permissions || {}
-    }
-    const appName = getLocalizedAppProperty(app, 'name', lang)
+  }
+
+  render() {
+    const { app, installApp, isInstalling } = this.props
+    if (!app) return null
     return (
-      <div className='sto-modal--install'>
+      <div className="sto-modal--install">
         <Modal secondaryAction={this.gotoParent}>
           <ModalContent>
-            <header className='sto-modal-header'>
-              <div className='sto-modal-header-icon' aria-busy={isFetching}>
-                <a
-                  href='https://cozy.io'
-                  target='_blank'
-                  title='Cozy Website'
-                  className='sto-modal-header-icon-shield'
-                />
-              </div>
-              {!isFetching &&
-                !fetchError && (
-                  <h2>{t('app_modal.install.title', { appName })}</h2>
-                )}
-            </header>
-            <div className='sto-modal-content'>
-              {permissions && (
-                <PermissionsList permissions={permissions} appName={appName} />
-              )}
-              {!isFetching &&
-                !fetchError && (
-                  <div>
-                    {permissions &&
-                      !!Object.values(permissions).length && (
-                        <ReactMarkdownWrapper
-                          source={t('app_modal.install.accept_description', {
-                            appName
-                          })}
-                        />
-                      )}
-                    {installError && (
-                      <p className='u-error'>
-                        {t('app_modal.install.message.install_error', {
-                          message: installError.message
-                        })}
-                      </p>
-                    )}
-                    <div className='sto-modal-controls'>
-                      <button
-                        role='button'
-                        className='c-btn c-btn--secondary'
-                        onClick={this.gotoParent}
-                      >
-                        <span>{t('app_modal.install.cancel')}</span>
-                      </button>
-                      <button
-                        role='button'
-                        disabled={isInstalling}
-                        aria-busy={isInstalling}
-                        className='c-btn c-btn--regular c-btn--download'
-                        onClick={this.installApp}
-                      >
-                        <span>{t('app_modal.install.install')}</span>
-                      </button>
-                    </div>
-                  </div>
-                )}
-              {fetchError && (
-                <p className='u-error'>
-                  {t('app_modal.install.message.version_error', {
-                    message: fetchError.message
-                  })}
-                </p>
-              )}
-            </div>
+            <AppInstallation
+              app={app}
+              installApp={installApp}
+              isInstalling={isInstalling}
+              onCancel={() => this.gotoParent()}
+              onSuccess={app => this.onSuccess(app)}
+            />
           </ModalContent>
         </Modal>
       </div>
@@ -136,4 +57,4 @@ export class InstallModal extends Component {
   }
 }
 
-export default translate()(withRouter(InstallModal))
+export default withRouter(InstallModal)
