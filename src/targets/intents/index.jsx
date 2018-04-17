@@ -3,6 +3,7 @@ import 'babel-polyfill'
 
 import 'styles'
 
+import { Provider } from 'react-redux'
 import React from 'react'
 import { render } from 'react-dom'
 import store from 'lib/store'
@@ -29,11 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
       lang={appData.cozyLocale}
       dictRequire={lang => require(`../../locales/${lang}`)}
     >
-      <IntentHandler
-        intents={cozy.client.intents}
-        appData={appData}
-        store={store}
-      />
+      <Provider store={store}>
+        <IntentHandler
+          appData={appData}
+          intents={cozy.client.intents}
+        />
+      </Provider>
     </I18n>,
     document.querySelector('[role=application]')
   )
