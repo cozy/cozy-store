@@ -20,13 +20,6 @@
     "fr": {},
     "pl": {}
   },
-  "routes": {
-    "/": {
-      "folder": "/",
-      "index": "index.html",
-      "public": false
-    }
-  },
   "intents": [
     {
       "action": "REDIRECT",
@@ -42,6 +35,18 @@
       ]
     }
   ],
+  "routes": {
+    "/": {
+      "folder": "/",
+      "index": "index.html",
+      "public": false
+    },
+    "/intents": {
+      "folder": "/intents",
+      "index": "index.html",
+      "public": false
+    }
+  },
   "permissions": {
     "apps": {
       "description": "Required to manage applications",
