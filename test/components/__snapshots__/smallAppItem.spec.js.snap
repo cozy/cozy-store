@@ -78,7 +78,6 @@ exports[`SmallAppItem component should be rendered correctly an installed app 1`
       busy={false}
       className="sto-small-app-item-button"
       disabled={false}
-      extension=""
       icon={null}
       label="Open"
       onClick={[Function]}
@@ -127,7 +126,6 @@ exports[`SmallAppItem component should be rendered correctly an installed app wi
       busy={false}
       className="sto-small-app-item-button"
       disabled={false}
-      extension=""
       icon={null}
       label="Open"
       onClick={[Function]}

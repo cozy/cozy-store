@@ -4,7 +4,9 @@ exports[`App component only should be mounted correctly 1`] = `
 <div
   className="app-wrapper o-layout--2panes"
 >
-  <Wrapper />
+  <Alerter
+    into="body"
+  />
   <Wrapper />
   <main
     className="app-content"
