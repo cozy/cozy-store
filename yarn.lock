@@ -1969,9 +1969,9 @@ cozy-bar@4.10.2:
     redux-persist "^5.4.0"
     redux-thunk "^2.2.0"
 
-cozy-client-js@0.8.1:
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/cozy-client-js/-/cozy-client-js-0.8.1.tgz#728d2623f56370b6716f1c28597a90d12da1b009"
+cozy-client-js@0.8.3:
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/cozy-client-js/-/cozy-client-js-0.8.3.tgz#d4970a09f6485d496c1999f5a995a3cd77b75934"
   dependencies:
     core-js "^2.5.3"
     pouchdb "6.1.1"
