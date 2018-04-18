@@ -1,0 +1,24 @@
+.coz-intent,
+.coz-intent-wrapper,
+.coz-intent-content {
+    width: 100%;
+    height: 100%;
+}
+
+.coz-intent-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.coz-intent,
+.coz-intent-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coz-error {
+    font-size: 1.5em;
+    color: red;
+}

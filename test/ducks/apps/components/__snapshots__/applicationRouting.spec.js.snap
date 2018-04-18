@@ -232,7 +232,7 @@ exports[`ApplicationRouting component with Modal should render correctly if apps
 `;
 
 exports[`ApplicationRouting component with Modal should render correctly if uninstalled app found 1`] = `
-<Wrapper
+<withRouter(InstallModal)
   app={
     Object {
       "categories": Array [

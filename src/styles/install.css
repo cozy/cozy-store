@@ -1,0 +1,44 @@
+.sto-install-content,
+.sto-install-header {
+  max-width: 30em;
+}
+
+.sto-install-content {
+  max-height: calc(100vh - 20em);
+  overflow-y: auto;
+}
+
+
+.sto-install-header-icon {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background: #297EF2 url('../assets/icons/icon-cozy.svg') center center / 58% auto no-repeat;
+    box-shadow: 0 1px 3px 0 rgba(50, 54, 63, 0.19), 0 4px 12px 0 rgba(50, 54, 63, 0.12);
+}
+
+.sto-install-header-icon-shield:after {
+    content: '';
+    position: absolute;
+    right: -10%;
+    bottom: -10%;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: #FF7F1A url('../assets/icons/icon-shield.svg') center center / 60% no-repeat;
+    box-shadow: 0 1px 3px 0 rgba(50, 54, 63, 0.25), 0 6px 18px 0 rgba(50, 54, 63, 0.2);
+}
+
+
+.sto-install-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+.sto-install-controls .c-btn {
+  flex-grow: 1;
+}

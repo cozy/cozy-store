@@ -3,6 +3,23 @@
     "title": "Discover",
     "get_started": "Get started with Cozy"
   },
+  "intent": {
+    "install": {
+      "error": {
+        "fetch": "An error occured during data fetch",
+        "install": "An error occured during installation",
+        "installed": "Application is already installed",
+        "unavailable": "Application is not available"
+      }
+    },
+    "service": {
+      "creation": {
+        "error": {
+          "title": "Error during intent service creation"
+        }
+      }
+    }
+  },
   "myapps": {
     "title": "My Applications"
   },
