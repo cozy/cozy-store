@@ -8,7 +8,7 @@ import {
   HiddenInstallerView,
   MyApplications
 } from '../apps/Containers'
-import { Alerter } from 'cozy-ui/react/Alerter'
+import Alerter from 'cozy-ui/react/Alerter'
 
 export const App = () => (
   <div className='app-wrapper o-layout--2panes'>
