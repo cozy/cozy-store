@@ -16,6 +16,11 @@
   "locales": {},
   "intents": [
     {
+      "action": "REDIRECT",
+      "type": ["io.cozy.apps"],
+      "href": "/#/discover",
+      "data": ["type", "category", "doctype", "tag"]
+    }, {
       "action": "INSTALL",
       "data": ["slug"],
       "href": "/intents",
@@ -36,14 +41,6 @@
       "public": false
     }
   },
-  "intents": [
-    {
-      "action": "REDIRECT",
-      "type": ["io.cozy.apps"],
-      "href": "/#/discover",
-      "data": ["type", "category", "doctype", "tag"]
-    }
-  ],
   "permissions": {
     "apps": {
       "description": "Required to manage applications",
