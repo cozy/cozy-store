@@ -24,6 +24,8 @@
 
 .sto-app-icon {
   width: 8rem;
+  height: 100%;
+  object-fit: contain;
 }
 
 .sto-app-icon--default {
@@ -55,6 +57,7 @@
   }
 
   .sto-app-header {
+    margin-top: .5rem;
     flex-direction: column;
   }
 
