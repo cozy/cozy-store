@@ -1,6 +1,7 @@
 'use strict'
 
 /* eslint-env jest */
+/* global cozy */
 
 import React from 'react'
 import Enzyme, { shallow } from 'enzyme'
@@ -10,6 +11,8 @@ import { tMock } from '../../../jestLib/I18n'
 import { Discover } from 'ducks/apps/components/Discover'
 
 import mockApps from '../_mockApps'
+
+const { BarCenter } = cozy.bar
 
 Enzyme.configure({ adapter: new Adapter() })
 
@@ -90,5 +93,14 @@ describe('Discover component', () => {
     expect(mockProps.history.push.mock.calls[0][0]).toBe(
       `/discover/${mockRegistyApps[0].slug}`
     )
+  })
+
+  it('should use BarCenter from cozy-bar in mobile view only', () => {
+    const mockProps = getMockProps()
+    const component = shallow(<Discover t={tMock} {...mockProps} />)
+    expect(component.find(BarCenter).length).toBe(0)
+    const componentMobile = shallow(<Discover t={tMock} breakpoints={{isMobile: true}} {...mockProps} />)
+    expect(componentMobile.find(BarCenter).length).toBe(1)
+    expect(componentMobile.getElement()).toMatchSnapshot()
   })
 })
