@@ -2743,35 +2743,6 @@ body {
 .sto-hidden-install .coz-form-controls .c-btn {
   width: 100%;
 }
-.intentHeader--1D-_G {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 2rem;
-  padding: 0.5rem 1rem;
-  background-color: #f5f6f7;
-  margin: 0;
-}
-.intentHeader-title--26M1u {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 1.25rem;
-  color: #32363f;
-}
-.intentHeader-title--26M1u span {
-  font-weight: normal;
-}
-.intentHeader-icon--34ITn {
-  height: 1.125rem;
-  margin-right: 0.5rem;
-}
 @-webkit-keyframes spin--1ywvo {
   from {
     -webkit-transform: rotate(0deg);
@@ -2873,6 +2844,35 @@ body {
 }
 .c-spinner--nomargin--2H_8E {
   margin: 0;
+}
+.intentHeader--1D-_G {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 2rem;
+  padding: 0.5rem 1rem;
+  background-color: #f5f6f7;
+  margin: 0;
+}
+.intentHeader-title--26M1u {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.25rem;
+  color: #32363f;
+}
+.intentHeader-title--26M1u span {
+  font-weight: normal;
+}
+.intentHeader-icon--34ITn {
+  height: 1.125rem;
+  margin-right: 0.5rem;
 }
 @media (max-width: 63.9375rem) {
   html,
