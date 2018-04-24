@@ -10,6 +10,7 @@ import store from 'lib/store'
 
 import I18n from 'cozy-ui/react/I18n'
 import IntentHandler from '../../ducks/components/intents/IntentHandler'
+import InstallAppIntent from '../../ducks/components/intents/InstallAppIntent'
 
 // import 'styles/intents.styl'
 
@@ -31,10 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
       dictRequire={lang => require(`../../locales/${lang}`)}
     >
       <Provider store={store}>
-        <IntentHandler
-          appData={appData}
-          intents={cozy.client.intents}
-        />
+        <IntentHandler appData={appData} intents={cozy.client.intents}>
+          <InstallAppIntent action="INSTALL" type="io.cozy.apps" />
+        </IntentHandler>
       </Provider>
     </I18n>,
     document.querySelector('[role=application]')

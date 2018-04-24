@@ -1,7 +1,6 @@
-import React, { Component } from 'react'
+import React, { Children, Component } from 'react'
 import { translate } from 'cozy-ui/react/I18n'
 
-import InstallAppIntent from './InstallAppIntent'
 import Spinner from 'cozy-ui/react/Spinner'
 
 class IntentHandler extends Component {
@@ -37,9 +36,13 @@ class IntentHandler extends Component {
   }
 
   render() {
-    const { appData, t } = this.props
+    const { appData, children, t } = this.props
     const { error, service, status } = this.state
-
+    const intent = service && service.getIntent()
+    const child = intent && Children.toArray(children).find(child => {
+      const { action, type } = child.props
+      return action === intent.action && type === intent.type
+    })
     return (
       <div className="coz-intent">
         {status === 'creating' && <Spinner size="xxlarge" />}
@@ -49,16 +52,16 @@ class IntentHandler extends Component {
             <p>{error.message}</p>
           </div>
         )}
-        {status === 'created' && (
+        {child && (
           // In the future, we may switch here between available intents
-          <InstallAppIntent
-            appData={appData}
-            data={service.getData()}
-            intent={service.getIntent()}
-            onCancel={() => service.cancel()}
-            onError={error => service.throw(error)}
-            onTerminate={app => service.terminate(app)}
-          />
+          React.cloneElement(child, {
+            appData: appData,
+            data: service.getData(),
+            intent: service.getIntent(),
+            onCancel: () => service.cancel(),
+            onError: error => service.throw(error),
+            onTerminate: app => service.terminate(app)
+          })
         )}
       </div>
     )
