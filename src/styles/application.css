@@ -20,6 +20,8 @@
 
 .sto-app-header-content .c-btn {
   margin-left: 0;
+  margin-right: .5rem;
+  font-weight: 700;
 }
 
 .sto-app-icon {
@@ -40,6 +42,7 @@
 @media (max-width: 48rem) {
   .sto-app-header .c-btn {
     width: 100%;
+    margin-right: 0;
   }
 
   .sto-app-header-title {

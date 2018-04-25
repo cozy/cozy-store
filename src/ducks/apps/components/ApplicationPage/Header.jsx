@@ -50,6 +50,7 @@ export const Header = ({
           <div>
             <Button
               onClick={() => openApp(installedAppLink)}
+              className="c-btn"
               icon='openwith'
               label={isKonnector
                 ? t('app_page.konnector.open')
