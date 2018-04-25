@@ -17,10 +17,6 @@ exports[`ApplicationPage component should be rendered correctly with app infos f
       type="webapp"
     />
     <Wrapper
-      images={undefined}
-      slug="photos"
-    />
-    <Wrapper
       categories={
         Array [
           "cozy",
@@ -79,10 +75,6 @@ exports[`ApplicationPage component should be rendered correctly with konnector i
       type="konnector"
     />
     <Wrapper
-      images={undefined}
-      slug="konnector-trinlane"
-    />
-    <Wrapper
       categories={
         Array [
           "transport",
@@ -124,10 +116,6 @@ exports[`ApplicationPage component should be rendered correctly with provided in
       parent="/myapps"
       slug="photos"
       type="webapp"
-    />
-    <Wrapper
-      images={undefined}
-      slug="photos"
     />
     <Wrapper
       categories={
@@ -186,10 +174,6 @@ exports[`ApplicationPage component should be rendered correctly with provided in
       parent="/myapps"
       slug="konnector-trinlane"
       type="konnector"
-    />
-    <Wrapper
-      images={undefined}
-      slug="konnector-trinlane"
     />
     <Wrapper
       categories={

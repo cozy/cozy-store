@@ -66,7 +66,9 @@ export const ApplicationPage = ({
           parent={parent}
           slug={slug}
         />
-        <Gallery slug={slug} images={app.screenshots} />
+        {app.screenshots && !!app.screenshots.length &&
+          <Gallery slug={slug} images={app.screenshots} />
+        }
         <Details
           description={appLongDesc}
           changes={appChanges}
