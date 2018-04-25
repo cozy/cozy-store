@@ -190,7 +190,7 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
     <h2
       className="sto-sections-title"
     >
-      Providers
+      Services
     </h2>
     <Wrapper
       appsList={

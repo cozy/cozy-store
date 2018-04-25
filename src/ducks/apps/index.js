@@ -28,6 +28,7 @@ const AUTHORIZED_CATEGORIES = [
   'partners',
   'productivity',
   'ptnb',
+  'public_service',
   'shopping',
   'social',
   'telecom',
