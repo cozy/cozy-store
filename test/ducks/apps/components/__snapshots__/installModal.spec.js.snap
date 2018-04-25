@@ -5,6 +5,7 @@ exports[`InstallModal component should be rendered correctly if app found 1`] = 
   className="sto-modal--install"
 >
   <Unknown
+    mobileFullscreen={true}
     secondaryAction={[Function]}
   >
     <ModalContent>
@@ -53,6 +54,7 @@ exports[`InstallModal component should be rendered correctly with also app in re
   className="sto-modal--install"
 >
   <Unknown
+    mobileFullscreen={true}
     secondaryAction={[Function]}
   >
     <ModalContent>
@@ -194,6 +196,7 @@ exports[`InstallModal component should handle correctly fetchError from props 1`
   className="sto-modal--install"
 >
   <Unknown
+    mobileFullscreen={true}
     secondaryAction={[Function]}
   >
     <ModalContent>
@@ -242,6 +245,7 @@ exports[`InstallModal component should handle correctly installError from props 
   className="sto-modal--install"
 >
   <Unknown
+    mobileFullscreen={true}
     secondaryAction={[Function]}
   >
     <ModalContent>
@@ -290,6 +294,7 @@ exports[`InstallModal component should not break the permissions part if no perm
   className="sto-modal--install"
 >
   <Unknown
+    mobileFullscreen={true}
     secondaryAction={[Function]}
   >
     <ModalContent>

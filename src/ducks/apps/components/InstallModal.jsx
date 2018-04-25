@@ -41,7 +41,7 @@ export class InstallModal extends Component {
     if (!app) return null
     return (
       <div className="sto-modal--install">
-        <Modal secondaryAction={this.gotoParent}>
+        <Modal secondaryAction={this.gotoParent} mobileFullscreen>
           <ModalContent>
             <AppInstallation
               app={app}

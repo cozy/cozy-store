@@ -186,6 +186,7 @@ exports[`ApplicationPage gallery component should open a modal and handle onClos
     />
   </div>
   <Unknown
+    mobileFullscreen={true}
     secondaryAction={[Function]}
     title="Preview"
   >
@@ -237,6 +238,7 @@ exports[`ApplicationPage gallery component should open a modal on image click 1`
     />
   </div>
   <Unknown
+    mobileFullscreen={true}
     secondaryAction={[Function]}
     title="Preview"
   >

@@ -73,7 +73,11 @@ export class Gallery extends Component {
             </div>
           )}
         {currentImage && (
-          <Modal title={t('app_page.preview')} secondaryAction={this.onClose}>
+          <Modal
+            title={t('app_page.preview')}
+            secondaryAction={this.onClose}
+            mobileFullscreen
+          >
             <ModalContent>
               <img
                 className='sto-app-image-preview'
