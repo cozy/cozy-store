@@ -19,6 +19,10 @@ export const Sections = ({t, lang, apps, error, onAppClick}) => {
   const konnectorsCategories = _getSortedByCategories(
     apps.filter(a => a.type === APP_TYPE.KONNECTOR)
   )
+  const categoriesList = Object.keys(konnectorsCategories).sort((a, b) => {
+    // alphabetically except for 'others' always at the end
+    return (a === 'others' && 1) || (b === 'others' && -1) || a > b
+  })
   const webAppsCategories = _getSortedByCategories(
     apps.filter(a => a.type === APP_TYPE.WEBAPP)
   )
@@ -39,12 +43,12 @@ export const Sections = ({t, lang, apps, error, onAppClick}) => {
         })}
       </div>
     }
-    {!!Object.keys(konnectorsCategories).length &&
+    {!!categoriesList.length &&
       <div className='sto-sections-section'>
         <h2 className='sto-sections-title'>
           {t('sections.konnectors')}
         </h2>
-        {Object.keys(konnectorsCategories).map(cat => {
+        {categoriesList.map(cat => {
           return (
             <AppsSection
               appsList={konnectorsCategories[cat]}
