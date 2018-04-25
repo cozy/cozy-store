@@ -25,6 +25,7 @@ const AUTHORIZED_CATEGORIES = [
   'host_provider',
   'insurance',
   'isp',
+  'mes_infos',
   'partners',
   'productivity',
   'ptnb',
