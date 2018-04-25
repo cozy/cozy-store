@@ -19,8 +19,8 @@ export const App = () => (
         <Route path='/discover' component={Discover} />
         <Route path='/install' component={HiddenInstallerView} />
         <Route path='/myapps' component={MyApplications} />
-        <Redirect exact from='/' to='/myapps' />
-        <Redirect from='*' to='/myapps' />
+        <Redirect exact from='/' to='/discover' />
+        <Redirect from='*' to='/discover' />
       </Switch>
     </main>
   </div>

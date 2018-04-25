@@ -28,12 +28,12 @@ exports[`App component only should be mounted correctly 1`] = `
         exact={true}
         from="/"
         push={false}
-        to="/myapps"
+        to="/discover"
       />
       <Redirect
         from="*"
         push={false}
-        to="/myapps"
+        to="/discover"
       />
     </Switch>
   </main>
