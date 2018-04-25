@@ -747,7 +747,7 @@ exports[`Discover component should render correctly a spinner if apps is fetchin
   />
   <Wrapper
     loadingType="appsFetching"
-    middle="true"
+    middle={true}
     size="xxlarge"
   />
 </div>

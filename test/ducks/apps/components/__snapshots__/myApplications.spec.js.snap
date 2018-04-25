@@ -475,7 +475,7 @@ exports[`MyApplications component should render correctly a spinner if apps is f
   />
   <Wrapper
     loadingType="appsFetching"
-    middle="true"
+    middle={true}
     size="xxlarge"
   />
 </div>

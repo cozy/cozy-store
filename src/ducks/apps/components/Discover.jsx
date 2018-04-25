@@ -68,7 +68,7 @@ export class Discover extends Component {
         />
 
         {isFetching && (
-          <Spinner size='xxlarge' loadingType='appsFetching' middle='true' />
+          <Spinner size='xxlarge' loadingType='appsFetching' middle />
         )}
       </div>
     )

@@ -208,7 +208,7 @@ exports[`ApplicationPage component should render correctly a spinner if isFetchi
 >
   <Wrapper
     loadingType="appsFetching"
-    middle="true"
+    middle={true}
     size="xxlarge"
   />
 </div>

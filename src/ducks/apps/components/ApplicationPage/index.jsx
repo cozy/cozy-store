@@ -22,7 +22,7 @@ export const ApplicationPage = ({
   if (isFetching) {
     return (
       <div className='sto-app'>
-        <Spinner size='xxlarge' loadingType='appsFetching' middle='true' />
+        <Spinner size='xxlarge' loadingType='appsFetching' middle />
       </div>
     )
   }
