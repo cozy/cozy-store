@@ -76,19 +76,12 @@ exports[`ApplicationPage details component should be rendered correctly with pro
         Description
       </h3>
       <ReactMarkdownWrapper
-        className="sto-app-description--less"
+        className=""
         parseEmoji={true}
         source="### Features
 
 Enjoy features to grab your data in you Cozy :tada:"
       />
-      <button
-        className="sto-details-display-more"
-        onClick={[Function]}
-        type="button"
-      >
-        More
-      </button>
     </div>
     <div
       className="sto-app-changes"
@@ -97,19 +90,12 @@ Enjoy features to grab your data in you Cozy :tada:"
         What's New?
       </h3>
       <ReactMarkdownWrapper
-        className="sto-app-changes--less"
+        className=""
         parseEmoji={true}
         source="### NEW!!!
 
  Now on the cozy-store :tada"
       />
-      <button
-        className="sto-details-display-more"
-        onClick={[Function]}
-        type="button"
-      >
-        More
-      </button>
     </div>
   </div>
   <div
@@ -310,19 +296,12 @@ exports[`ApplicationPage details component should handle correctly \`display mor
         Description
       </h3>
       <ReactMarkdownWrapper
-        className="sto-app-description--less"
+        className=""
         parseEmoji={true}
         source="### Features
 
 Enjoy features to grab your data in you Cozy :tada:"
       />
-      <button
-        className="sto-details-display-more"
-        onClick={[Function]}
-        type="button"
-      >
-        More
-      </button>
     </div>
     <div
       className="sto-app-changes"
@@ -334,6 +313,16 @@ Enjoy features to grab your data in you Cozy :tada:"
         className=""
         parseEmoji={true}
         source="### NEW!!!
+
+ Now on the cozy-store :tada### NEW!!!
+
+ Now on the cozy-store :tada### NEW!!!
+
+ Now on the cozy-store :tada### NEW!!!
+
+ Now on the cozy-store :tada### NEW!!!
+
+ Now on the cozy-store :tada### NEW!!!
 
  Now on the cozy-store :tada"
       />
@@ -463,6 +452,16 @@ exports[`ApplicationPage details component should handle correctly \`display mor
         parseEmoji={true}
         source="### Features
 
+Enjoy features to grab your data in you Cozy :tada:### Features
+
+Enjoy features to grab your data in you Cozy :tada:### Features
+
+Enjoy features to grab your data in you Cozy :tada:### Features
+
+Enjoy features to grab your data in you Cozy :tada:### Features
+
+Enjoy features to grab your data in you Cozy :tada:### Features
+
 Enjoy features to grab your data in you Cozy :tada:"
       />
     </div>
@@ -473,19 +472,12 @@ Enjoy features to grab your data in you Cozy :tada:"
         What's New?
       </h3>
       <ReactMarkdownWrapper
-        className="sto-app-changes--less"
+        className=""
         parseEmoji={true}
         source="### NEW!!!
 
  Now on the cozy-store :tada"
       />
-      <button
-        className="sto-details-display-more"
-        onClick={[Function]}
-        type="button"
-      >
-        More
-      </button>
     </div>
   </div>
   <div

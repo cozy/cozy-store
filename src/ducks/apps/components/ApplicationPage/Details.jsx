@@ -11,12 +11,29 @@ const isValidUrl = url => {
   )
 }
 
+const isLessButtonNeeded = (text = '') => {
+  const screenWidth = window.innerWidth || 0
+  const textNewLinesCount = text.split(/\r\n|\r|\n/).length
+  if (screenWidth <= 768) {
+    return text.length > 350 || textNewLinesCount > 7
+  } else if (screenWidth <= 1024) {
+    return text.length > 220 || textNewLinesCount > 7
+  } else if (screenWidth <= 1440) {
+    return text.length > 350 || textNewLinesCount > 7
+  } else if (screenWidth <= 2400) {
+    return text.length > 500 || textNewLinesCount > 7
+  } else {
+    return false
+  }
+}
+
 export class Details extends Component {
   constructor (props) {
     super(props)
+    const { changes, description } = this.props
     this.state = {
-      lessDescription: true,
-      lessChanges: true
+      lessDescription: isLessButtonNeeded(description),
+      lessChanges: isLessButtonNeeded(changes)
     }
   }
 
