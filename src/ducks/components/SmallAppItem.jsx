@@ -54,7 +54,7 @@ export const SmallAppItem = ({
       )}
       <div className='sto-small-app-item-desc'>
         <h4 className='sto-small-app-item-title'>
-          {namePrefix && `${namePrefix} `}{name}
+          {namePrefix ? `${namePrefix} ${name}` : name}
         </h4>
         <p className='sto-small-app-item-detail'>
           {developer.name === 'Cozy' ? 'Cozy Cloud Inc.' : developer.name}

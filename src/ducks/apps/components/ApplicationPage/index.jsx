@@ -35,8 +35,9 @@ export const ApplicationPage = ({
       </p>
     )
   }
-  const { icon, installed, editor, related, slug, type } = app
+  const { icon, installed, related, slug, type } = app
   const appName = getLocalizedAppProperty(app, 'name', lang)
+  const namePrefix = getLocalizedAppProperty(app, 'name_prefix', lang)
   const appShortDesc = getLocalizedAppProperty(app, 'short_description', lang)
   const appLongDesc = getLocalizedAppProperty(app, 'long_description', lang)
   const appChanges = getLocalizedAppProperty(app, 'changes', lang)
@@ -56,7 +57,7 @@ export const ApplicationPage = ({
       <div className='sto-app'>
         <Header
           icon={icon}
-          editor={editor}
+          namePrefix={namePrefix}
           name={appName}
           type={type}
           description={appShortDesc}

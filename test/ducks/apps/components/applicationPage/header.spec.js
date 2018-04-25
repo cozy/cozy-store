@@ -25,7 +25,7 @@ describe('ApplicationPage header component', () => {
 
   it('should be rendered correctly provided app', () => {
     const component = shallow(
-      <Header t={tMock} parent='/myapps' {...mockApp.manifest} />
+      <Header t={tMock} parent='/myapps' namePrefix='Cozy' {...mockApp.manifest} />
     ).getElement()
     expect(component).toMatchSnapshot()
   })

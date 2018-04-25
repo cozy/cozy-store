@@ -107,7 +107,7 @@ exports[`ApplicationPage header component should be rendered correctly provided 
     <h2
       className="sto-app-header-title"
     >
-      Cozy Trinlane
+      Trinlane
     </h2>
     <p />
     <Link

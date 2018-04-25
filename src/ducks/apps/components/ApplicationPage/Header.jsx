@@ -14,7 +14,7 @@ export const Header = ({
   t,
   icon,
   slug,
-  editor,
+  namePrefix,
   name,
   type,
   description,
@@ -43,7 +43,7 @@ export const Header = ({
       </div>
       <div className='sto-app-header-content'>
         <h2 className='sto-app-header-title'>
-          {editor ? `${editor} ${name}` : name}
+          {namePrefix ? `${namePrefix} ${name}` : name}
         </h2>
         <p>{description}</p>
         {installed ? (

@@ -7,11 +7,11 @@ exports[`ApplicationPage component should be rendered correctly with app infos f
   >
     <Wrapper
       description="Gestionnaire de photos pour Cozy v3"
-      editor="Cozy"
       icon="https://mockcozy.cc/registry/photos/icon"
       installed={false}
       installedAppLink={null}
       name="Photos"
+      namePrefix="Cozy"
       parent="/myapps"
       slug="photos"
       type="webapp"
@@ -69,11 +69,11 @@ exports[`ApplicationPage component should be rendered correctly with konnector i
   >
     <Wrapper
       description="A konnector for trinlane"
-      editor="Cozy"
       icon="https://mockcozy.cc/registry/konnector-trinlane/icon"
       installed={false}
       installedAppLink={undefined}
       name="Trinlane"
+      namePrefix={undefined}
       parent="/myapps"
       slug="konnector-trinlane"
       type="konnector"
@@ -116,11 +116,11 @@ exports[`ApplicationPage component should be rendered correctly with provided in
   >
     <Wrapper
       description="Gestionnaire de photos pour Cozy v3"
-      editor="Cozy"
       icon="https://mockcozy.cc/registry/photos/icon"
       installed={true}
       installedAppLink="https://photos.mockcozy.cc"
       name="Photos"
+      namePrefix="Cozy"
       parent="/myapps"
       slug="photos"
       type="webapp"
@@ -178,11 +178,11 @@ exports[`ApplicationPage component should be rendered correctly with provided in
   >
     <Wrapper
       description="A konnector for trinlane"
-      editor="Cozy"
       icon="https://mockcozy.cc/registry/konnector-trinlane/icon"
       installed={true}
       installedAppLink={undefined}
       name="Trinlane"
+      namePrefix={undefined}
       parent="/myapps"
       slug="konnector-trinlane"
       type="konnector"
