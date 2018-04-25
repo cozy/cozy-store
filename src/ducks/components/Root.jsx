@@ -4,13 +4,16 @@ import { I18n } from 'cozy-ui/react/I18n'
 import PiwikHashRouter from '../../lib/PiwikHashRouter'
 
 import App from './App'
+import ScrollToTop from './ScrollToTop'
 
 const Root = ({ context, lang, store }) => {
   return (
     <I18n lang={lang} dictRequire={lang => require(`../../locales/${lang}`)}>
       <Provider store={store}>
         <PiwikHashRouter>
-          <App />
+          <ScrollToTop>
+            <App />
+          </ScrollToTop>
         </PiwikHashRouter>
       </Provider>
     </I18n>
