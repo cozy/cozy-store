@@ -149,25 +149,32 @@ function _sortAlphabetically (array, property) {
   return array.sort((a, b) => a[property] > b[property])
 }
 
+/* Only for the icon fetching */
+const root = document.querySelector('[role=application]')
+const data = root && root.dataset
+const COZY_TOKEN = data && data.cozyToken
+const COZY_DOMAIN = data && (`//${data.cozyDomain}`)
+/* Only for the icon fetching */
+
 async function _getIcon (url) {
   if (!url) return ''
   let icon
   try {
-    icon = await cozy.client.fetchJSON('GET', url)
+    const resp = await fetch(`${COZY_DOMAIN}${url}`, {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        Authorization: `Bearer ${COZY_TOKEN}`
+      }
+    })
+    if (!resp.ok) throw new Error (`Error while fetching icon: ${resp.statusText}: ${url}`)
+    icon = await resp.blob()
   } catch (e) {
     return ''
   }
-
-  try {
-    return 'data:image/svg+xml;base64,' + btoa(icon)
-  } catch (e) {
-    // eslint-disable-line
-    try {
-      return URL.createObjectURL(icon)
-    } catch (e) {
-      return ''
-    }
-  }
+  // check if MIME type is an image
+  if (!icon.type.match(/^image\/.*$/)) return ''
+  return URL.createObjectURL(icon)
 }
 
 function _consolidateApps (stateApps, newAppsInfos) {

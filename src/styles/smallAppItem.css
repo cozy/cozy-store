@@ -26,6 +26,7 @@
 
 .sto-small-app-item-icon {
   height: 100%;
+  object-fit: contain;
 }
 
 .sto-small-app-item-icon--default {
