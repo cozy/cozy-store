@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import { ModalContent, ModalHeader, ModalFooter } from 'cozy-ui/react/Modal'
+
 import PermissionsList from './PermissionsList'
 import ReactMarkdownWrapper from '../../components/ReactMarkdownWrapper'
 
@@ -38,65 +40,73 @@ class AppInstallation extends Component {
 
     return (
       <div>
-        <header className='sto-install-header'>
+        <ModalHeader className='sto-install-header'>
           <div className='sto-install-header-icon' aria-busy={isFetching}>
             <span className='sto-install-header-icon-shield' />
           </div>
-          {!isFetching &&
-            !fetchError && (
-              <h2>{t('app_modal.install.title', { appName })}</h2>
+        </ModalHeader>
+        <ModalContent>
+          <div className='sto-install-content'>
+            {!isFetching &&
+              !fetchError && (
+                <h3>{t('app_modal.install.title', { appName })}</h3>
             )}
-        </header>
-        <div className='sto-install-content'>
-          {permissions && (
-            <PermissionsList permissions={app.permissions} appName={appName} />
-          )}
-          {!isFetching &&
-            !fetchError && (
-              <div>
-                {permissions &&
-                  !!Object.values(permissions).length && (
-                    <ReactMarkdownWrapper
-                      source={t('app_modal.install.accept_description', {
-                        appName
-                      })}
-                    />
-                  )}
-                {installError && (
-                  <p className='u-error'>
-                    {t('app_modal.install.message.install_error', {
-                      message: installError.message
-                    })}
-                  </p>
-                )}
-                <div className='sto-install-controls'>
-                  <button
-                    role='button'
-                    className='c-btn c-btn--secondary'
-                    onClick={onCancel}
-                  >
-                    <span>{t('app_modal.install.cancel')}</span>
-                  </button>
-                  <button
-                    role='button'
-                    disabled={isInstalling}
-                    aria-busy={isInstalling}
-                    className='c-btn c-btn--regular c-btn--download'
-                    onClick={() => this.installApp()}
-                  >
-                    <span>{t('app_modal.install.install')}</span>
-                  </button>
+            {permissions && (
+              <PermissionsList permissions={app.permissions} appName={appName} />
+            )}
+            {!isFetching &&
+              !fetchError && (
+                <div>
+                  {permissions &&
+                    !!Object.values(permissions).length && (
+                      <ReactMarkdownWrapper
+                        source={t('app_modal.install.accept_description', {
+                          appName
+                        })}
+                      />
+                    )}
                 </div>
-              </div>
+              )}
+            {fetchError && (
+              <p className='u-error'>
+                {t('app_modal.install.message.version_error', {
+                  message: fetchError.message
+                })}
+              </p>
             )}
-          {fetchError && (
-            <p className='u-error'>
-              {t('app_modal.install.message.version_error', {
-                message: fetchError.message
-              })}
-            </p>
-          )}
-        </div>
+          </div>
+        </ModalContent>
+        {!isFetching &&
+          !fetchError && (
+            <ModalFooter>
+              {installError && (
+                <p className='u-error'>
+                  {t('app_modal.install.message.install_error', {
+                    message: installError.message
+                  })}
+                </p>
+              )}
+              <div className='sto-install-controls'>
+                <button
+                  role='button'
+                  className='c-btn c-btn--secondary'
+                  onClick={onCancel}
+                >
+                  <span>{t('app_modal.install.cancel')}</span>
+                </button>
+                <button
+                  role='button'
+                  disabled={isInstalling}
+                  aria-busy={isInstalling}
+                  className='c-btn c-btn--regular c-btn--download'
+                  onClick={() => this.installApp()}
+                >
+                  <span>{t('app_modal.install.install')}</span>
+                </button>
+              </div>
+            </ModalFooter>
+          )
+        }
       </div>
     )
   }

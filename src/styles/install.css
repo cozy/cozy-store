@@ -36,7 +36,6 @@
 .sto-install-controls {
   display: flex;
   justify-content: center;
-  margin-top: 2em;
 }
 
 .sto-install-controls .c-btn {
