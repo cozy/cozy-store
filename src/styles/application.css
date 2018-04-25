@@ -254,5 +254,15 @@
   .sto-app-descriptions,
   .sto-app-additional-details {
     width: 100%;
+    padding-right: 0;
+  }
+
+  .sto-app-info-content {
+    align-items: end;
+  }
+
+  .sto-app-info-content--mobile-apps {
+    align-items: center;
+    justify-content: end;
   }
 }
