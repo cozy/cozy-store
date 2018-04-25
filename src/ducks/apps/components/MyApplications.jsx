@@ -43,7 +43,7 @@ export class MyApplications extends Component {
       <div className='sto-myapps'>
         {this.props.match.isExact ? (
           <div>
-            {isMobile ? <BarCenter>{title}</BarCenter> : title}
+            {isMobile && <BarCenter>{title}</BarCenter>}
             <div className='sto-myapps-sections'>
               {!isFetching &&
                 <Sections

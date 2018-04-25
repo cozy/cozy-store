@@ -5,11 +5,6 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
   className="sto-myapps"
 >
   <div>
-    <h2
-      className="sto-view-title"
-    >
-      My Applications
-    </h2>
     <div
       className="sto-myapps-sections"
     >
@@ -262,11 +257,6 @@ exports[`MyApplications component should be rendered correctly with apps and URL
   className="sto-myapps"
 >
   <div>
-    <h2
-      className="sto-view-title"
-    >
-      My Applications
-    </h2>
     <div
       className="sto-myapps-sections"
     >
@@ -445,11 +435,6 @@ exports[`MyApplications component should display error from props correctly 1`] 
   className="sto-myapps"
 >
   <div>
-    <h2
-      className="sto-view-title"
-    >
-      My Applications
-    </h2>
     <div
       className="sto-myapps-sections"
     >
@@ -476,11 +461,6 @@ exports[`MyApplications component should render correctly a spinner if apps is f
   className="sto-myapps"
 >
   <div>
-    <h2
-      className="sto-view-title"
-    >
-      My Applications
-    </h2>
     <div
       className="sto-myapps-sections"
     />

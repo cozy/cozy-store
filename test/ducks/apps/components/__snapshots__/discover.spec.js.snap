@@ -5,11 +5,6 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
   className="sto-discover"
 >
   <div>
-    <h2
-      className="sto-view-title"
-    >
-      Discover
-    </h2>
     <div
       className="sto-discover-sections"
     >
@@ -357,11 +352,6 @@ exports[`Discover component should be rendered correctly with apps and URL searc
   className="sto-discover"
 >
   <div>
-    <h2
-      className="sto-view-title"
-    >
-      Discover
-    </h2>
     <div
       className="sto-discover-sections"
     >
@@ -539,11 +529,6 @@ exports[`Discover component should display error from props correctly 1`] = `
   className="sto-discover"
 >
   <div>
-    <h2
-      className="sto-view-title"
-    >
-      Discover
-    </h2>
     <div
       className="sto-discover-sections"
     >
@@ -747,11 +732,6 @@ exports[`Discover component should render correctly a spinner if apps is fetchin
   className="sto-discover"
 >
   <div>
-    <h2
-      className="sto-view-title"
-    >
-      Discover
-    </h2>
     <div
       className="sto-discover-sections"
     />

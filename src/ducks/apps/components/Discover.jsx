@@ -44,7 +44,7 @@ export class Discover extends Component {
       <div className='sto-discover'>
         {this.props.match.isExact ? (
           <div>
-            {isMobile ? <BarCenter>{title}</BarCenter> : title}
+            {isMobile && <BarCenter>{title}</BarCenter>}
             <div className='sto-discover-sections'>
               {!isFetching &&
                 <Sections
