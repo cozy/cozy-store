@@ -56,11 +56,6 @@ exports[`SmallAppItem component should be rendered correctly an installed app 1`
     src="<svg></svg>"
     width="64"
   />
-  <Icon
-    className="sto-small-app-item-badge-installed"
-    color="#2bba40"
-    icon="check"
-  />
   <div
     className="sto-small-app-item-desc"
   >
@@ -102,11 +97,6 @@ exports[`SmallAppItem component should be rendered correctly an installed app wi
     height="64"
     icon="test-file-stub"
     width="48"
-  />
-  <Icon
-    className="sto-small-app-item-badge-installed"
-    color="#2bba40"
-    icon="check"
   />
   <div
     className="sto-small-app-item-desc"

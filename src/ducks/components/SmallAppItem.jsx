@@ -52,13 +52,6 @@ export const SmallAppItem = ({
           color='#95999D'
         />
       )}
-      {installed && (
-        <Icon
-          className='sto-small-app-item-badge-installed'
-          icon='check'
-          color='#2bba40'
-        />
-      )}
       <div className='sto-small-app-item-desc'>
         <h4 className='sto-small-app-item-title'>
           {namePrefix && `${namePrefix} `}{name}
