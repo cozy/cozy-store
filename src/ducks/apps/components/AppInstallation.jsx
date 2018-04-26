@@ -39,7 +39,7 @@ class AppInstallation extends Component {
     const permissions = app.permissions || {}
 
     return (
-      <div>
+      <div className="sto-install">
         <ModalHeader className='sto-install-header'>
           <div className='sto-install-header-icon' aria-busy={isFetching}>
             <span className='sto-install-header-icon-shield' />

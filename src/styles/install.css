@@ -1,13 +1,17 @@
-.sto-install-content,
-.sto-install-header {
-  max-width: 30em;
+.sto-install {
+  height: 100%;
+  max-width: 32rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-self: center;
 }
 
-.sto-install-content {
-  max-height: calc(100vh - 20em);
-  overflow-y: auto;
+@media (max-width: 48em) {
+  .sto-install {
+    justify-content: center;
+  }
 }
-
 
 .sto-install-header-icon {
     position: relative;
