@@ -21,7 +21,9 @@ exports[`ApplicationPage header component should be rendered correctly provided 
     >
       Cozy Photos
     </h2>
-    <p />
+    <p
+      className="sto-app-header-description"
+    />
     <Link
       className="c-btn c-btn--regular"
       replace={false}
@@ -66,7 +68,9 @@ exports[`ApplicationPage header component should be rendered correctly provided 
     >
       Photos
     </h2>
-    <p />
+    <p
+      className="sto-app-header-description"
+    />
     <Link
       className="c-btn c-btn--regular"
       replace={false}
@@ -109,7 +113,9 @@ exports[`ApplicationPage header component should be rendered correctly provided 
     >
       Trinlane
     </h2>
-    <p />
+    <p
+      className="sto-app-header-description"
+    />
     <Link
       className="c-btn c-btn--regular"
       replace={false}

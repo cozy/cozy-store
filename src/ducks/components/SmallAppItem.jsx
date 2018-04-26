@@ -53,28 +53,32 @@ export const SmallAppItem = ({
         />
       )}
       <div className='sto-small-app-item-desc'>
-        <h4 className='sto-small-app-item-title'>
-          {namePrefix ? `${namePrefix} ${name}` : name}
-        </h4>
-        <p className='sto-small-app-item-detail'>
-          {developer.name === 'Cozy' ? 'Cozy Cloud Inc.' : developer.name}
-        </p>
-        {installed
-          ? <Button
-            onClick={(e) => onShortcutAppButton(e, installedAppLink)}
-            label={t('app_item.open')}
-            theme='secondary'
-            className='sto-small-app-item-button'
-            size='tiny'
-          />
-          : <Link
-            to={`/discover/${slug}/manage`}
-            onClick={(e) => onShortcutAppButton(e)}
-            className='c-btn c-btn--regular c-btn--tiny sto-small-app-item-button sto-small-app-item-button-install'
-          >
-            <span>{t('app_item.install')}</span>
-          </Link>
-        }
+        <div className='sto-small-app-item-text'>
+          <h4 className='sto-small-app-item-title'>
+            {namePrefix ? `${namePrefix} ${name}` : name}
+          </h4>
+          <p className='sto-small-app-item-detail'>
+            {developer.name === 'Cozy' ? 'Cozy Cloud Inc.' : developer.name}
+          </p>
+        </div>
+        <div className='sto-small-app-item-buttons'>
+          {installed
+            ? <Button
+              onClick={(e) => onShortcutAppButton(e, installedAppLink)}
+              label={t('app_item.open')}
+              theme='secondary'
+              className='sto-small-app-item-button'
+              size='tiny'
+            />
+            : <Link
+              to={`/discover/${slug}/manage`}
+              onClick={(e) => onShortcutAppButton(e)}
+              className='c-btn c-btn--regular c-btn--tiny sto-small-app-item-button sto-small-app-item-button-install'
+            >
+              <span>{t('app_item.install')}</span>
+            </Link>
+          }
+        </div>
       </div>
     </div>
   )

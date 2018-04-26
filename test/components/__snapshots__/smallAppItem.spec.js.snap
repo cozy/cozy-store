@@ -17,26 +17,34 @@ exports[`SmallAppItem component should be rendered correctly an app 1`] = `
   <div
     className="sto-small-app-item-desc"
   >
-    <h4
-      className="sto-small-app-item-title"
+    <div
+      className="sto-small-app-item-text"
     >
-      Cozy Test
-    </h4>
-    <p
-      className="sto-small-app-item-detail"
+      <h4
+        className="sto-small-app-item-title"
+      >
+        Cozy Test
+      </h4>
+      <p
+        className="sto-small-app-item-detail"
+      >
+        Cozy Cloud Inc.
+      </p>
+    </div>
+    <div
+      className="sto-small-app-item-buttons"
     >
-      Cozy Cloud Inc.
-    </p>
-    <Link
-      className="c-btn c-btn--regular c-btn--tiny sto-small-app-item-button sto-small-app-item-button-install"
-      onClick={[Function]}
-      replace={false}
-      to="/discover/test/manage"
-    >
-      <span>
-        Install
-      </span>
-    </Link>
+      <Link
+        className="c-btn c-btn--regular c-btn--tiny sto-small-app-item-button sto-small-app-item-button-install"
+        onClick={[Function]}
+        replace={false}
+        to="/discover/test/manage"
+      >
+        <span>
+          Install
+        </span>
+      </Link>
+    </div>
   </div>
 </div>
 `;
@@ -58,27 +66,35 @@ exports[`SmallAppItem component should be rendered correctly an installed app 1`
   <div
     className="sto-small-app-item-desc"
   >
-    <h4
-      className="sto-small-app-item-title"
+    <div
+      className="sto-small-app-item-text"
     >
-      Test2
-    </h4>
-    <p
-      className="sto-small-app-item-detail"
+      <h4
+        className="sto-small-app-item-title"
+      >
+        Test2
+      </h4>
+      <p
+        className="sto-small-app-item-detail"
+      >
+        Naming me
+      </p>
+    </div>
+    <div
+      className="sto-small-app-item-buttons"
     >
-      Naming me
-    </p>
-    <Button
-      busy={false}
-      className="sto-small-app-item-button"
-      disabled={false}
-      icon={null}
-      label="Open"
-      onClick={[Function]}
-      size="tiny"
-      theme="secondary"
-      type="submit"
-    />
+      <Button
+        busy={false}
+        className="sto-small-app-item-button"
+        disabled={false}
+        icon={null}
+        label="Open"
+        onClick={[Function]}
+        size="tiny"
+        theme="secondary"
+        type="submit"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -100,27 +116,35 @@ exports[`SmallAppItem component should be rendered correctly an installed app wi
   <div
     className="sto-small-app-item-desc"
   >
-    <h4
-      className="sto-small-app-item-title"
+    <div
+      className="sto-small-app-item-text"
     >
-      Cozy Test2
-    </h4>
-    <p
-      className="sto-small-app-item-detail"
+      <h4
+        className="sto-small-app-item-title"
+      >
+        Cozy Test2
+      </h4>
+      <p
+        className="sto-small-app-item-detail"
+      >
+        Naming me
+      </p>
+    </div>
+    <div
+      className="sto-small-app-item-buttons"
     >
-      Naming me
-    </p>
-    <Button
-      busy={false}
-      className="sto-small-app-item-button"
-      disabled={false}
-      icon={null}
-      label="Open"
-      onClick={[Function]}
-      size="tiny"
-      theme="secondary"
-      type="submit"
-    />
+      <Button
+        busy={false}
+        className="sto-small-app-item-button"
+        disabled={false}
+        icon={null}
+        label="Open"
+        onClick={[Function]}
+        size="tiny"
+        theme="secondary"
+        type="submit"
+      />
+    </div>
   </div>
 </div>
 `;

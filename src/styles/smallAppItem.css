@@ -13,9 +13,7 @@
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: calc(100% - var(--item-margin) * 2);
-  width: 20em;
   padding: var(--item-real-margin);
-  /* padding: var(--item-real-margin); */
 }
 
 .sto-small-app-item:hover {
@@ -43,6 +41,12 @@
   margin-left: 1em;
 }
 
+.sto-small-app-item-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .sto-small-app-item-title, .sto-small-app-item-detail {
   flex: 0 1;
   width: 100%;
@@ -55,9 +59,12 @@
   color: var(--cool-grey);
 }
 
+.sto-small-app-item-buttons {
+  display: flex;
+}
+
 .sto-small-app-item-desc .sto-small-app-item-button {
   margin-left: 0;
-  width: 7rem;
 }
 
 .sto-small-app-item-button-install,
@@ -71,39 +78,58 @@
 .sto-small-app-item-button-install:focus,
 .sto-small-app-item-button-install:active {
   color: white;
+  background: var(--dodger-blue);
 }
 
-@media (min-width: 40em) {
+@media (min-width: 25rem) and (max-width: 38rem) {
+  .sto-small-app-item {
+    justify-content: space-between;
+  }
+  .sto-small-app-item-buttons {
+    margin-left: .5rem;
+  }
+  .sto-small-app-item-desc {
+    flex-direction: row;
+    flex-grow: 1;
+    justify-content: space-between;
+  }
+
+  .sto-small-app-item-desc .sto-small-app-item-button {
+    align-self: center;
+  }
+}
+
+@media (min-width: 38rem) {
   .sto-small-app-item {
     flex-grow: 0;
   }
 }
 
-@media (min-width: 48em) {
+@media (min-width: 38rem) {
   .sto-small-app-item {
     flex-basis: calc(50% - var(--item-margin) * 2);
   }
 }
 
-@media (min-width: 80em) {
+@media (min-width: 70rem) {
   .sto-small-app-item {
     flex-basis: calc(33.333% - var(--item-margin) * 2);
   }
 }
 
-@media (min-width: 96em) {
+@media (min-width: 90rem) {
   .sto-small-app-item {
     flex-basis: calc(25% - var(--item-margin) * 2);
   }
 }
 
-@media (min-width: 112em) {
+@media (min-width: 112rem) {
   .sto-small-app-item {
     flex-basis: calc(20% - var(--item-margin) * 2);
   }
 }
 
-@media (min-width: 128em) {
+@media (min-width: 128rem) {
   .sto-small-app-item {
     flex-basis: calc(16.666% - var(--item-margin) * 2);
   }

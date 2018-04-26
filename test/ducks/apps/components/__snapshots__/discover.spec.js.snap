@@ -762,7 +762,7 @@ exports[`Discover component should use BarCenter from cozy-bar in mobile view on
       <h2
         className="sto-view-title"
       >
-        Discover
+        All
       </h2>
     </BarCenter>
     <div
