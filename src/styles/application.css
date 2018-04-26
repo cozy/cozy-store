@@ -2,6 +2,31 @@
   margin: auto 1.7em;
 }
 
+.sto-app-bar {
+  display: flex;
+  position: relative;
+  height: 2.2rem;
+  padding: .4rem 0;
+  width: 100%;
+  justify-content: center;
+  padding-right: 1.75rem;
+  overflow: hidden;
+}
+
+.sto-app-bar-icon {
+  height: 100%;
+  object-fit: contain;
+  transform: translateY(0);
+  opacity: 1;
+  transition: .1s ease-in;
+}
+
+.sto-app-bar-icon--hidden {
+  transform: translateY(.3rem);
+  opacity: 0;
+  transition: .1s ease;
+}
+
 /*********************/
 /**      HEADER     **/
 /*********************/
