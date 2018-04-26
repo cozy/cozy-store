@@ -45,6 +45,10 @@
     margin-right: 0;
   }
 
+  .sto-app-header-description {
+    text-align: center;
+  }
+
   .sto-app-header-title {
     text-align: center;
   }

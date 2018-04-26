@@ -45,7 +45,7 @@ export const Header = ({
         <h2 className='sto-app-header-title'>
           {namePrefix ? `${namePrefix} ${name}` : name}
         </h2>
-        <p>{description}</p>
+        <p className='sto-app-header-description'>{description}</p>
         {installed ? (
           <div>
             <Button
