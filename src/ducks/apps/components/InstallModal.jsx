@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router'
 
-import Modal, { ModalContent } from 'cozy-ui/react/Modal'
+import Modal from 'cozy-ui/react/Modal'
 
 import AppInstallation from './AppInstallation'
 
@@ -41,16 +41,14 @@ export class InstallModal extends Component {
     if (!app) return null
     return (
       <div className="sto-modal--install">
-        <Modal secondaryAction={this.gotoParent}>
-          <ModalContent>
-            <AppInstallation
-              app={app}
-              installApp={installApp}
-              isInstalling={isInstalling}
-              onCancel={() => this.gotoParent()}
-              onSuccess={app => this.onSuccess(app)}
-            />
-          </ModalContent>
+        <Modal secondaryAction={this.gotoParent} mobileFullscreen>
+          <AppInstallation
+            app={app}
+            installApp={installApp}
+            isInstalling={isInstalling}
+            onCancel={() => this.gotoParent()}
+            onSuccess={app => this.onSuccess(app)}
+          />
         </Modal>
       </div>
     )

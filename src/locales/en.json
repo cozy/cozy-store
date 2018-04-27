@@ -1,6 +1,6 @@
 {
   "discover": {
-    "title": "Discover",
+    "title": "All",
     "get_started": "Get started with Cozy"
   },
   "intent": {
@@ -95,7 +95,7 @@
 
   "sections": {
     "applications": "Applications",
-    "konnectors": "Providers"
+    "konnectors": "Services"
   },
 
   "app_item": {
@@ -113,9 +113,11 @@
     "insurance": "Insurance",
     "isp": "ISP",
     "others": "Others",
+    "mes_infos": "MesInfos experimentation",
     "partners": "Partners",
     "productivity": "Productivity",
-    "ptnb": "expPTNB",
+    "ptnb": "PTNB experimentation",
+    "public_service": "Public services",
     "shopping": "Shopping",
     "social": "Social",
     "telecom": "Telecom",

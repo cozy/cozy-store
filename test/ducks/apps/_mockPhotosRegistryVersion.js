@@ -1,11 +1,11 @@
 export const Photos = {
   slug: 'photos',
   editor: 'Cozy',
-  name_prefix: 'Cozy',
   type: 'webapp',
   version: '3.0.0',
   manifest: {
     name: 'Photos',
+    name_prefix: 'Cozy',
     slug: 'photos',
     type: 'webapp',
     icon: 'https://mockcozy.cc/registry/photos/3.0.0/icon.svg',

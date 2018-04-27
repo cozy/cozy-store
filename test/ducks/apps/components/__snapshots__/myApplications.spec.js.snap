@@ -5,11 +5,6 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
   className="sto-myapps"
 >
   <div>
-    <h2
-      className="sto-myapps-title"
-    >
-      My Applications
-    </h2>
     <div
       className="sto-myapps-sections"
     >
@@ -262,11 +257,6 @@ exports[`MyApplications component should be rendered correctly with apps and URL
   className="sto-myapps"
 >
   <div>
-    <h2
-      className="sto-myapps-title"
-    >
-      My Applications
-    </h2>
     <div
       className="sto-myapps-sections"
     >
@@ -445,11 +435,6 @@ exports[`MyApplications component should display error from props correctly 1`] 
   className="sto-myapps"
 >
   <div>
-    <h2
-      className="sto-myapps-title"
-    >
-      My Applications
-    </h2>
     <div
       className="sto-myapps-sections"
     >
@@ -476,11 +461,6 @@ exports[`MyApplications component should render correctly a spinner if apps is f
   className="sto-myapps"
 >
   <div>
-    <h2
-      className="sto-myapps-title"
-    >
-      My Applications
-    </h2>
     <div
       className="sto-myapps-sections"
     />
@@ -495,7 +475,7 @@ exports[`MyApplications component should render correctly a spinner if apps is f
   />
   <Wrapper
     loadingType="appsFetching"
-    middle="true"
+    middle={true}
     size="xxlarge"
   />
 </div>
@@ -505,6 +485,265 @@ exports[`MyApplications component should render only routing if path not exactly
 <div
   className="sto-myapps"
 >
+  <withRouter(ApplicationRouting)
+    actionError={null}
+    installApp={undefined}
+    installedApps={
+      Array [
+        Object {
+          "categories": Array [
+            "cozy",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "editor": "Cozy",
+          "icon": "<svg></svg>",
+          "installed": true,
+          "isInRegistry": true,
+          "name": "Collect",
+          "name_prefix": "Cozy",
+          "permissions": Object {
+            "mock": Object {
+              "type": "io.mock.doctype",
+            },
+            "mock2": Object {
+              "type": "io.mock.doctype2",
+            },
+          },
+          "related": "http://collect.cozy.mock/",
+          "slug": "collect",
+          "tags": Array [
+            "konnector",
+            "collect",
+            "bills",
+            "providers",
+            "files",
+          ],
+          "type": "webapp",
+          "uninstallable": false,
+          "version": "3.0.0",
+          "versions": Object {
+            "beta": Array [
+              "3.0.0",
+            ],
+            "dev": Array [
+              "3.0.0",
+            ],
+            "stable": Array [
+              "3.0.0",
+            ],
+          },
+        },
+        Object {
+          "categories": Array [
+            "cozy",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "editor": "Cozy",
+          "icon": "<svg></svg>",
+          "installed": true,
+          "name": "Drive",
+          "name_prefix": "Cozy",
+          "permissions": Object {
+            "mock2": Object {
+              "type": "io.mock.doctype2",
+            },
+          },
+          "related": "http://drive.cozy.mock/",
+          "slug": "drive",
+          "tags": Array [
+            "search",
+            "files",
+            "folders",
+          ],
+          "type": "webapp",
+          "uninstallable": false,
+          "version": "3.0.0-beta89bnhj3993",
+        },
+        Object {
+          "categories": Array [
+            "transport",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "icon": "<svg></svg>",
+          "installed": true,
+          "isInRegistry": true,
+          "name": "Trinlane",
+          "permissions": Object {
+            "mock": Object {
+              "type": "io.mock.doctype",
+            },
+          },
+          "slug": "konnector-trinlane",
+          "tags": Array [
+            "transport",
+            "files",
+            "bills",
+          ],
+          "type": "konnector",
+          "uninstallable": true,
+          "version": "0.1.0",
+          "versions": Object {
+            "beta": Array [
+              "0.1.0",
+            ],
+            "dev": Array [
+              "0.1.0",
+            ],
+            "stable": Array [
+              "0.1.0",
+            ],
+          },
+        },
+      ]
+    }
+    isFetching={false}
+    parent="myapps"
+    uninstallApp={[MockFunction]}
+  />
+</div>
+`;
+
+exports[`MyApplications component should use BarCenter from cozy-bar in mobile view only 1`] = `
+<div
+  className="sto-myapps"
+>
+  <div>
+    <BarCenter>
+      <h2
+        className="sto-view-title"
+      >
+        My Applications
+      </h2>
+    </BarCenter>
+    <div
+      className="sto-myapps-sections"
+    >
+      <Wrapper
+        apps={
+          Array [
+            Object {
+              "categories": Array [
+                "cozy",
+              ],
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "editor": "Cozy",
+              "icon": "<svg></svg>",
+              "installed": true,
+              "isInRegistry": true,
+              "name": "Collect",
+              "name_prefix": "Cozy",
+              "permissions": Object {
+                "mock": Object {
+                  "type": "io.mock.doctype",
+                },
+                "mock2": Object {
+                  "type": "io.mock.doctype2",
+                },
+              },
+              "related": "http://collect.cozy.mock/",
+              "slug": "collect",
+              "tags": Array [
+                "konnector",
+                "collect",
+                "bills",
+                "providers",
+                "files",
+              ],
+              "type": "webapp",
+              "uninstallable": false,
+              "version": "3.0.0",
+              "versions": Object {
+                "beta": Array [
+                  "3.0.0",
+                ],
+                "dev": Array [
+                  "3.0.0",
+                ],
+                "stable": Array [
+                  "3.0.0",
+                ],
+              },
+            },
+            Object {
+              "categories": Array [
+                "cozy",
+              ],
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "editor": "Cozy",
+              "icon": "<svg></svg>",
+              "installed": true,
+              "name": "Drive",
+              "name_prefix": "Cozy",
+              "permissions": Object {
+                "mock2": Object {
+                  "type": "io.mock.doctype2",
+                },
+              },
+              "related": "http://drive.cozy.mock/",
+              "slug": "drive",
+              "tags": Array [
+                "search",
+                "files",
+                "folders",
+              ],
+              "type": "webapp",
+              "uninstallable": false,
+              "version": "3.0.0-beta89bnhj3993",
+            },
+            Object {
+              "categories": Array [
+                "transport",
+              ],
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "icon": "<svg></svg>",
+              "installed": true,
+              "isInRegistry": true,
+              "name": "Trinlane",
+              "permissions": Object {
+                "mock": Object {
+                  "type": "io.mock.doctype",
+                },
+              },
+              "slug": "konnector-trinlane",
+              "tags": Array [
+                "transport",
+                "files",
+                "bills",
+              ],
+              "type": "konnector",
+              "uninstallable": true,
+              "version": "0.1.0",
+              "versions": Object {
+                "beta": Array [
+                  "0.1.0",
+                ],
+                "dev": Array [
+                  "0.1.0",
+                ],
+                "stable": Array [
+                  "0.1.0",
+                ],
+              },
+            },
+          ]
+        }
+        error={null}
+        onAppClick={[Function]}
+      />
+    </div>
+  </div>
   <withRouter(ApplicationRouting)
     actionError={null}
     installApp={undefined}

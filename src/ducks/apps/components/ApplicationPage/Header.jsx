@@ -14,7 +14,7 @@ export const Header = ({
   t,
   icon,
   slug,
-  editor,
+  namePrefix,
   name,
   type,
   description,
@@ -43,13 +43,14 @@ export const Header = ({
       </div>
       <div className='sto-app-header-content'>
         <h2 className='sto-app-header-title'>
-          {editor ? `${editor} ${name}` : name}
+          {namePrefix ? `${namePrefix} ${name}` : name}
         </h2>
-        <p>{description}</p>
+        <p className='sto-app-header-description'>{description}</p>
         {installed ? (
           <div>
             <Button
               onClick={() => openApp(installedAppLink)}
+              className="c-btn"
               icon='openwith'
               label={isKonnector
                 ? t('app_page.konnector.open')

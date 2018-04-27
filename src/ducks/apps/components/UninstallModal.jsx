@@ -48,6 +48,7 @@ export class UninstallModal extends Component {
         <Modal
           title={t('app_modal.uninstall.title')}
           secondaryAction={this.gotoParent}
+          mobileFullscreen
         >
           <ModalContent>
             <div className='sto-modal-content'>

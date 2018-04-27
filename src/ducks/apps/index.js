@@ -3,6 +3,8 @@
 
 import { combineReducers } from 'redux'
 import config from 'config/apps'
+import constants from 'config/constants'
+import categories from 'config/categories'
 
 import { NotUninstallableAppException } from '../../lib/exceptions'
 
@@ -17,26 +19,11 @@ export const APP_TYPE = {
   WEBAPP: 'webapp'
 }
 
-const AUTHORIZED_CATEGORIES = [
-  'banking',
-  'cozy',
-  'energy',
-  'health',
-  'host_provider',
-  'insurance',
-  'isp',
-  'partners',
-  'productivity',
-  'ptnb',
-  'shopping',
-  'social',
-  'telecom',
-  'transport'
-]
+const AUTHORIZED_CATEGORIES = categories
 
-const COLLECT_RELATED_PATH = '#/providers/all'
+const COLLECT_RELATED_PATH = constants.collect_providers
 
-const DEFAULT_CHANNEL = 'dev'
+const DEFAULT_CHANNEL = constants.default.registry.channel
 
 const FETCH_APPS = 'FETCH_APPS'
 const FETCH_APPS_SUCCESS = 'FETCH_APPS_SUCCESS'
@@ -336,11 +323,17 @@ export function fetchRegistryApps (channel = DEFAULT_CHANNEL) {
         return Promise.all(
           apps.map(app => {
             return getFormattedRegistryApp(app, channel).catch(err => {
-              console.warn(
-                `Something went wrong when trying to fetch more informations about ${
-                  app.slug
-                } from the registry on ${channel} channel, so we skip it. ${err}`
-              )
+              if (err.status === 404) {
+                console.warn(
+                  `No ${channel} version found for ${app.slug} from the registry.`
+                )
+              } else {
+                console.warn(
+                  `Something went wrong when trying to fetch more informations about ${
+                    app.slug
+                  } from the registry on ${channel} channel. ${err}`
+                )
+              }
               return false // useful to skip in an array.map function
             })
           })

@@ -25,8 +25,6 @@ const mockError = new Error('This is a test error')
 
 const getMockProps = (
   slug,
-  installError = null,
-  fetchError = null,
   fromRegistry = null
 ) => ({
   app: fromRegistry
@@ -51,9 +49,7 @@ const getMockProps = (
   }),
   history: {
     push: jest.fn()
-  },
-  installError,
-  fetchError
+  }
 })
 
 describe('InstallModal component', () => {
@@ -98,18 +94,6 @@ describe('InstallModal component', () => {
     // goToParent should be called once to go to the parent view
     expect(mockProps.history.push.mock.calls.length).toBe(1)
     expect(mockProps.history.push.mock.calls[0][0]).toBe(mockProps.parent)
-  })
-
-  it('should handle correctly installError from props', () => {
-    const mockProps = getMockProps('photos', mockError)
-    const component = shallow(<InstallModal t={tMock} {...mockProps} />)
-    expect(component.getElement()).toMatchSnapshot()
-  })
-
-  it('should handle correctly fetchError from props', () => {
-    const mockProps = getMockProps('photos', null, mockError)
-    const component = shallow(<InstallModal t={tMock} {...mockProps} />)
-    expect(component.getElement()).toMatchSnapshot()
   })
 
   it('should call the correct props function on success and goToParent if it is a webapp', async () => {

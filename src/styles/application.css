@@ -2,6 +2,31 @@
   margin: auto 1.7em;
 }
 
+.sto-app-bar {
+  display: flex;
+  position: relative;
+  height: 2.2rem;
+  padding: .4rem 0;
+  width: 100%;
+  justify-content: center;
+  padding-right: 1.75rem;
+  overflow: hidden;
+}
+
+.sto-app-bar-icon {
+  height: 100%;
+  object-fit: contain;
+  transform: translateY(0);
+  opacity: 1;
+  transition: .1s ease-in;
+}
+
+.sto-app-bar-icon--hidden {
+  transform: translateY(.3rem);
+  opacity: 0;
+  transition: .1s ease;
+}
+
 /*********************/
 /**      HEADER     **/
 /*********************/
@@ -20,6 +45,8 @@
 
 .sto-app-header-content .c-btn {
   margin-left: 0;
+  margin-right: .5rem;
+  font-weight: 700;
 }
 
 .sto-app-icon {
@@ -40,6 +67,11 @@
 @media (max-width: 48rem) {
   .sto-app-header .c-btn {
     width: 100%;
+    margin-right: 0;
+  }
+
+  .sto-app-header-description {
+    text-align: center;
   }
 
   .sto-app-header-title {
@@ -251,5 +283,15 @@
   .sto-app-descriptions,
   .sto-app-additional-details {
     width: 100%;
+    padding-right: 0;
+  }
+
+  .sto-app-info-content {
+    align-items: end;
+  }
+
+  .sto-app-info-content--mobile-apps {
+    align-items: center;
+    justify-content: end;
   }
 }

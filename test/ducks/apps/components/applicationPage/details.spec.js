@@ -68,7 +68,10 @@ describe('ApplicationPage details component', () => {
   })
 
   it('should handle correctly `display more` behaviour on description part', () => {
-    const component = shallow(<Details {...getAppProps()} />)
+    // window.innerWidth is 1024 by default using jest
+    const props = getAppProps()
+    props.description = props.description + props.description + props.description + props.description + props.description + props.description
+    const component = shallow(<Details {...props} />)
     component
       .find('.sto-app-description .sto-details-display-more')
       .simulate('click')
@@ -76,7 +79,10 @@ describe('ApplicationPage details component', () => {
   })
 
   it('should handle correctly `display more` behaviour on changes part', () => {
-    const component = shallow(<Details {...getAppProps()} />)
+    // window.innerWidth is 1024 by default using jest
+    const props = getAppProps()
+    props.changes = props.changes + props.changes + props.changes + props.changes + props.changes + props.changes
+    const component = shallow(<Details {...props} />)
     component
       .find('.sto-app-changes .sto-details-display-more')
       .simulate('click')

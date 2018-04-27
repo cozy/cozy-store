@@ -1,0 +1,8 @@
+{
+  "default": {
+    "registry": {
+      "channel": "stable"
+    }
+  },
+  "collect_providers": "#/providers/all"
+}

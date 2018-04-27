@@ -5,6 +5,7 @@ exports[`UninstallModal component should be rendered correctly if app not uninst
   className="sto-modal--uninstall"
 >
   <Unknown
+    mobileFullscreen={true}
     secondaryAction={[Function]}
     title="Uninstall this application"
   >
@@ -49,6 +50,7 @@ exports[`UninstallModal component should be rendered correctly if app uninstalla
   className="sto-modal--uninstall"
 >
   <Unknown
+    mobileFullscreen={true}
     secondaryAction={[Function]}
     title="Uninstall this application"
   >
@@ -93,6 +95,7 @@ exports[`UninstallModal component should hanlde correctly error from props 1`] =
   className="sto-modal--uninstall"
 >
   <Unknown
+    mobileFullscreen={true}
     secondaryAction={[Function]}
     title="Uninstall this application"
   >
