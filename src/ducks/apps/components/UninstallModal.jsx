@@ -9,14 +9,14 @@ import Modal, { ModalContent } from 'cozy-ui/react/Modal'
 import ReactMarkdownWrapper from '../../components/ReactMarkdownWrapper'
 
 export class UninstallModal extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.gotoParent = this.gotoParent.bind(this)
     this.uninstallApp = this.uninstallApp.bind(this)
   }
 
-  uninstallApp () {
+  uninstallApp() {
     this.setState({ error: null })
     const { app } = this.props
     this.props
@@ -27,7 +27,7 @@ export class UninstallModal extends Component {
       .catch()
   }
 
-  gotoParent () {
+  gotoParent() {
     const { app, parent, history } = this.props
     if (app && app.slug) {
       history.push(`${parent}/${app.slug}`)
@@ -36,7 +36,7 @@ export class UninstallModal extends Component {
     }
   }
 
-  render () {
+  render() {
     const { t, app, uninstallError } = this.props
     // if app not found, return to parent
     if (!app) {
@@ -44,42 +44,42 @@ export class UninstallModal extends Component {
       return null
     }
     return (
-      <div className='sto-modal--uninstall'>
+      <div className="sto-modal--uninstall">
         <Modal
           title={t('app_modal.uninstall.title')}
           secondaryAction={this.gotoParent}
           mobileFullscreen
         >
           <ModalContent>
-            <div className='sto-modal-content'>
+            <div className="sto-modal-content">
               <ReactMarkdownWrapper
                 source={
                   app.uninstallable
                     ? t('app_modal.uninstall.description', {
-                      cozyName: cozy.client._url.replace(/^\/\//, '')
-                    })
+                        cozyName: cozy.client._url.replace(/^\/\//, '')
+                      })
                     : t('app_modal.uninstall.uninstallable_description')
                 }
               />
               {uninstallError && (
-                <p className='u-error'>
+                <p className="u-error">
                   {t('app_modal.uninstall.message.error', {
                     message: uninstallError.message
                   })}
                 </p>
               )}
-              <div className='sto-modal-controls'>
+              <div className="sto-modal-controls">
                 <button
-                  role='button'
-                  className='c-btn c-btn--secondary'
+                  role="button"
+                  className="c-btn c-btn--secondary"
                   onClick={this.gotoParent}
                 >
                   <span>{t('app_modal.uninstall.cancel')}</span>
                 </button>
                 <button
-                  role='button'
+                  role="button"
                   disabled={!app.uninstallable}
-                  className='c-btn c-btn--danger c-btn--delete'
+                  className="c-btn c-btn--danger c-btn--delete"
                   onClick={this.uninstallApp}
                 >
                   <span>{t('app_modal.uninstall.uninstall')}</span>

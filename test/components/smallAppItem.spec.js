@@ -56,12 +56,16 @@ const appMockWithoutIcon = {
 
 describe('SmallAppItem component', () => {
   it('should be rendered correctly an app', () => {
-    const component = shallow(<SmallAppItem t={tMock} {...appMock} />).getElement()
+    const component = shallow(
+      <SmallAppItem t={tMock} {...appMock} />
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 
   it('should be rendered correctly an installed app', () => {
-    const component = shallow(<SmallAppItem t={tMock} {...appMock2} />).getElement()
+    const component = shallow(
+      <SmallAppItem t={tMock} {...appMock2} />
+    ).getElement()
     expect(component).toMatchSnapshot()
   })
 
@@ -98,7 +102,9 @@ describe('SmallAppItem component', () => {
       .find(Button)
       .simulate('click', { stopPropagation: mockEventStopPropagation })
     expect(window.location.assign.mock.calls.length).toBe(1)
-    expect(window.location.assign.mock.calls[0][0]).toBe(appMock2.installedAppLink)
+    expect(window.location.assign.mock.calls[0][0]).toBe(
+      appMock2.installedAppLink
+    )
     expect(mockEventStopPropagation.mock.calls.length).toBe(1)
   })
 
@@ -106,8 +112,12 @@ describe('SmallAppItem component', () => {
     const mockEventStopPropagation = jest.fn()
     const component = shallow(<SmallAppItem t={tMock} {...appMock} />)
     const linkComponent = component.find(Link)
-    expect(linkComponent.getElement().props.to).toBe(`/discover/${appMock.slug}/manage`)
-    linkComponent.simulate('click', { stopPropagation: mockEventStopPropagation })
+    expect(linkComponent.getElement().props.to).toBe(
+      `/discover/${appMock.slug}/manage`
+    )
+    linkComponent.simulate('click', {
+      stopPropagation: mockEventStopPropagation
+    })
     expect(mockEventStopPropagation.mock.calls.length).toBe(1)
   })
 })

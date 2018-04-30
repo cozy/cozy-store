@@ -13,18 +13,18 @@ import getFilteredAppsFromSearch from 'lib/getFilteredAppsFromSearch'
 const { BarCenter } = cozy.bar
 
 export class Discover extends Component {
-  constructor (props, context) {
+  constructor(props, context) {
     super(props)
     props.fetchApps(context.lang)
 
     this.onAppClick = this.onAppClick.bind(this)
   }
 
-  onAppClick (appSlug) {
+  onAppClick(appSlug) {
     this.props.history.push(`/discover/${appSlug}`)
   }
 
-  render () {
+  render() {
     const {
       t,
       location,
@@ -37,22 +37,23 @@ export class Discover extends Component {
     } = this.props
     const { isMobile } = breakpoints
     const filteredApps = getFilteredAppsFromSearch(
-      apps, location && location.search
+      apps,
+      location && location.search
     )
-    const title = <h2 className='sto-view-title'>{t('discover.title')}</h2>
+    const title = <h2 className="sto-view-title">{t('discover.title')}</h2>
     return (
-      <div className='sto-discover'>
+      <div className="sto-discover">
         {this.props.match.isExact ? (
           <div>
             {isMobile && <BarCenter>{title}</BarCenter>}
-            <div className='sto-discover-sections'>
-              {!isFetching &&
+            <div className="sto-discover-sections">
+              {!isFetching && (
                 <Sections
                   apps={filteredApps}
                   error={fetchError}
                   onAppClick={this.onAppClick}
                 />
-              }
+              )}
             </div>
           </div>
         ) : null}
@@ -64,11 +65,11 @@ export class Discover extends Component {
           actionError={actionError}
           installApp={this.props.installApp}
           uninstallApp={this.props.uninstallApp}
-          parent='discover'
+          parent="discover"
         />
 
         {isFetching && (
-          <Spinner size='xxlarge' loadingType='appsFetching' middle />
+          <Spinner size="xxlarge" loadingType="appsFetching" middle />
         )}
       </div>
     )

@@ -15,12 +15,12 @@ class IntentHandler extends Component {
 
     props.intents
       .createService()
-    // Free : easy mocking !
-    // Promise.resolve({
-    //   getData: () => ({ slug: <konnector slug> }),
-    //   getIntent: () => ({ action: 'INSTALL', type: 'io.cozy.apps' }),
-    //   terminate: (doc) => { alert(`Installed ${doc.name}`) }
-    // })
+      // Free : easy mocking !
+      // Promise.resolve({
+      //   getData: () => ({ slug: <konnector slug> }),
+      //   getIntent: () => ({ action: 'INSTALL', type: 'io.cozy.apps' }),
+      //   terminate: (doc) => { alert(`Installed ${doc.name}`) }
+      // })
       .then(service =>
         this.setState({
           status: 'created',
@@ -39,10 +39,12 @@ class IntentHandler extends Component {
     const { appData, children, t } = this.props
     const { error, service, status } = this.state
     const intent = service && service.getIntent()
-    const child = intent && Children.toArray(children).find(child => {
-      const { action, type } = child.props
-      return action === intent.action && type === intent.type
-    })
+    const child =
+      intent &&
+      Children.toArray(children).find(child => {
+        const { action, type } = child.props
+        return action === intent.action && type === intent.type
+      })
     return (
       <div className="coz-intent">
         {status === 'creating' && <Spinner size="xxlarge" />}
@@ -52,7 +54,7 @@ class IntentHandler extends Component {
             <p>{error.message}</p>
           </div>
         )}
-        {child && (
+        {child &&
           // In the future, we may switch here between available intents
           React.cloneElement(child, {
             appData: appData,
@@ -61,8 +63,7 @@ class IntentHandler extends Component {
             onCancel: () => service.cancel(),
             onError: error => service.throw(error),
             onTerminate: app => service.terminate(app)
-          })
-        )}
+          })}
       </div>
     )
   }

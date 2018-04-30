@@ -8,6 +8,6 @@ global.requestAnimationFrame = cb => {
 
 global.cozy = {
   bar: {
-    BarCenter: ({ children }) => (<div>{children}</div>)
+    BarCenter: ({ children }) => <div>{children}</div>
   }
 }

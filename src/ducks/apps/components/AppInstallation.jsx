@@ -9,7 +9,7 @@ import { getLocalizedAppProperty } from 'ducks/apps'
 import { translate } from 'cozy-ui/react/I18n'
 
 class AppInstallation extends Component {
-  installApp () {
+  installApp() {
     this.setState({ error: null })
     const { app, onError, onSuccess } = this.props
     this.props
@@ -23,7 +23,7 @@ class AppInstallation extends Component {
       })
   }
 
-  render () {
+  render() {
     const {
       app,
       fetchError,
@@ -40,19 +40,22 @@ class AppInstallation extends Component {
 
     return (
       <div className="sto-install">
-        <ModalHeader className='sto-install-header'>
-          <div className='sto-install-header-icon' aria-busy={isFetching}>
-            <span className='sto-install-header-icon-shield' />
+        <ModalHeader className="sto-install-header">
+          <div className="sto-install-header-icon" aria-busy={isFetching}>
+            <span className="sto-install-header-icon-shield" />
           </div>
         </ModalHeader>
         <ModalContent>
-          <div className='sto-install-content'>
+          <div className="sto-install-content">
             {!isFetching &&
               !fetchError && (
                 <h3>{t('app_modal.install.title', { appName })}</h3>
-            )}
+              )}
             {permissions && (
-              <PermissionsList permissions={app.permissions} appName={appName} />
+              <PermissionsList
+                permissions={app.permissions}
+                appName={appName}
+              />
             )}
             {!isFetching &&
               !fetchError && (
@@ -68,7 +71,7 @@ class AppInstallation extends Component {
                 </div>
               )}
             {fetchError && (
-              <p className='u-error'>
+              <p className="u-error">
                 {t('app_modal.install.message.version_error', {
                   message: fetchError.message
                 })}
@@ -80,33 +83,32 @@ class AppInstallation extends Component {
           !fetchError && (
             <ModalFooter>
               {installError && (
-                <p className='u-error'>
+                <p className="u-error">
                   {t('app_modal.install.message.install_error', {
                     message: installError.message
                   })}
                 </p>
               )}
-              <div className='sto-install-controls'>
+              <div className="sto-install-controls">
                 <button
-                  role='button'
-                  className='c-btn c-btn--secondary'
+                  role="button"
+                  className="c-btn c-btn--secondary"
                   onClick={onCancel}
                 >
                   <span>{t('app_modal.install.cancel')}</span>
                 </button>
                 <button
-                  role='button'
+                  role="button"
                   disabled={isInstalling}
                   aria-busy={isInstalling}
-                  className='c-btn c-btn--regular c-btn--download'
+                  className="c-btn c-btn--regular c-btn--download"
                   onClick={() => this.installApp()}
                 >
                   <span>{t('app_modal.install.install')}</span>
                 </button>
               </div>
             </ModalFooter>
-          )
-        }
+          )}
       </div>
     )
   }

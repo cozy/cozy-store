@@ -27,9 +27,7 @@ export const KonnectorTrinlane = {
         }
       }
     },
-    dataType: [
-      'bill'
-    ],
+    dataType: ['bill'],
     permissions: {
       'bank operations': {
         description: 'Required to link bills to bank operations',
@@ -44,7 +42,7 @@ export const KonnectorTrinlane = {
         type: 'io.cozy.files'
       },
       accounts: {
-        description: 'Required to get the account\'s data',
+        description: "Required to get the account's data",
         type: 'io.cozy.accounts',
         verbs: ['GET']
       }
@@ -59,7 +57,8 @@ export const KonnectorTrinlane = {
         description: 'Récupère toutes vos factures Trainline',
         permissions: {
           'bank operations': {
-            description: 'Utilisé pour lier vos factures à vos opérations banquaires'
+            description:
+              'Utilisé pour lier vos factures à vos opérations banquaires'
           },
           bills: {
             description: 'Utilisé pour sauvegarder les données de facturation'
@@ -85,7 +84,7 @@ export const KonnectorTrinlane = {
             description: 'Required to save the bills'
           },
           accounts: {
-            description: 'Required to get the account\'s data'
+            description: "Required to get the account's data"
           }
         }
       }

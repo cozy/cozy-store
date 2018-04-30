@@ -23,16 +23,13 @@ Enzyme.configure({ adapter: new Adapter() })
 
 const mockError = new Error('This is a test error')
 
-const getMockProps = (
-  slug,
-  fromRegistry = null
-) => ({
+const getMockProps = (slug, fromRegistry = null) => ({
   app: fromRegistry
     ? Object.assign(
-      {},
-      fromRegistry.manifest,
-      mockApps.find(a => a.slug === slug)
-    )
+        {},
+        fromRegistry.manifest,
+        mockApps.find(a => a.slug === slug)
+      )
     : mockApps.find(a => a.slug === slug),
   parent: '/discover',
   onSuccess: jest.fn(app => {

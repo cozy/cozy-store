@@ -6,7 +6,7 @@ import ReactMarkdownWrapper from '../../components/ReactMarkdownWrapper'
 import { APP_TYPE } from 'ducks/apps'
 
 class HiddenInstallerView extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       slug: null,
@@ -20,17 +20,17 @@ class HiddenInstallerView extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  onChange (name, value) {
+  onChange(name, value) {
     this.setState({ [name]: value })
   }
 
-  handleSubmit () {
+  handleSubmit() {
     const { slug, source, isUpdate, isKonnector } = this.state
     const appType = isKonnector ? APP_TYPE.KONNECTOR : APP_TYPE.WEBAPP
     this.props.installUsingInstaller(slug, appType, source, isUpdate)
   }
 
-  isValid () {
+  isValid() {
     const { slug, source } = this.state
     if (!slug) return false
     if (
@@ -41,7 +41,7 @@ class HiddenInstallerView extends Component {
     return true
   }
 
-  render () {
+  render() {
     const { t, isInstalling, actionError } = this.props
     const error =
       actionError &&
@@ -49,68 +49,68 @@ class HiddenInstallerView extends Component {
         detail: actionError.reason
       })
     return (
-      <div role='contentinfo'>
-        <div className='sto-content sto-hidden-install'>
-          <h2 className='sto-installer-title'>
+      <div role="contentinfo">
+        <div className="sto-content sto-hidden-install">
+          <h2 className="sto-installer-title">
             {t('HiddenInstallerView.title')}
           </h2>
-          <div className='coz-form'>
-            <div className='sto-installer-field'>
+          <div className="coz-form">
+            <div className="sto-installer-field">
               <ReactMarkdownWrapper
                 source={t('HiddenInstallerView.source_examples')}
               />
               <h3>{t('HiddenInstallerView.source')}</h3>
               <input
                 placeholder={t('HiddenInstallerView.source_placeholder')}
-                type='text'
-                name='source'
+                type="text"
+                name="source"
                 onChange={e =>
                   this.onChange(e.target.name, e.target.value.trim())
                 }
               />
             </div>
-            <div className='sto-installer-field'>
+            <div className="sto-installer-field">
               <h3>{t('HiddenInstallerView.slug')}</h3>
               <input
-                type='text'
-                name='slug'
+                type="text"
+                name="slug"
                 onChange={e => this.onChange(e.target.name, e.target.value)}
               />
             </div>
-            <div className='sto-installer-field'>
+            <div className="sto-installer-field">
               <h3>{t('HiddenInstallerView.konnector')}</h3>
               <Toggle
-                id='isKonnector'
+                id="isKonnector"
                 checked={this.state.isKonnector}
-                onToggle={() => this.onChange('isKonnector', !this.state.isKonnector)}
+                onToggle={() =>
+                  this.onChange('isKonnector', !this.state.isKonnector)
+                }
               />
             </div>
-            <div className='sto-installer-field'>
+            <div className="sto-installer-field">
               <h3>{t('HiddenInstallerView.update')}</h3>
               <Toggle
-                id='isUpdate'
+                id="isUpdate"
                 checked={this.state.isUpdate}
                 onToggle={() => this.onChange('isUpdate', !this.state.isUpdate)}
               />
             </div>
             {actionError && (
-              <p className='u-error'>
+              <p className="u-error">
                 {actionError.status === 409
                   ? t('HiddenInstallerView.conflict')
                   : `Error: ${error.detail}`}
               </p>
             )}
-            <div className='coz-form-controls'>
+            <div className="coz-form-controls">
               <button
-                role='button'
+                role="button"
                 disabled={isInstalling || !this.isValid()}
                 aria-busy={isInstalling}
-                className='c-btn c-btn--regular'
+                className="c-btn c-btn--regular"
                 onClick={this.handleSubmit}
               >
-                <span>
-                  {t('HiddenInstallerView.install')}
-                </span>
+                <span>{t('HiddenInstallerView.install')}</span>
               </button>
             </div>
           </div>

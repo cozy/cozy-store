@@ -10,7 +10,7 @@ import ApplicationPage from './ApplicationPage'
 import { APP_TYPE } from 'ducks/apps'
 
 export class ApplicationRouting extends Component {
-  render () {
+  render() {
     const {
       apps,
       installedApps,
@@ -76,19 +76,19 @@ export class ApplicationRouting extends Component {
             if (isFetching) return
             if (appsArray.length && match.params) {
               const appSlug = match.params.appSlug
-              const app = appsArray.find(
-                app => app.slug === appSlug
-              )
+              const app = appsArray.find(app => app.slug === appSlug)
               if (!app) return history.push(`/${parent}`)
               const goToApp = () => history.push(`/${parent}/${appSlug}`)
               if (app && app.installed && app.type === APP_TYPE.KONNECTOR) {
-                return (<IntentModal
-                  action='CREATE'
-                  doctype='io.cozy.accounts'
-                  options={{ slug: appSlug }}
-                  dismissAction={goToApp}
-                  onComplete={goToApp}
-                />)
+                return (
+                  <IntentModal
+                    action="CREATE"
+                    doctype="io.cozy.accounts"
+                    options={{ slug: appSlug }}
+                    dismissAction={goToApp}
+                    onComplete={goToApp}
+                  />
+                )
               } else {
                 return goToApp()
               }

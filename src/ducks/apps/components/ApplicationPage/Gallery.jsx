@@ -4,7 +4,7 @@ import { translate } from 'cozy-ui/react/I18n'
 import Modal, { ModalContent } from 'cozy-ui/react/Modal'
 
 export class Gallery extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       currentImage: null
@@ -12,15 +12,15 @@ export class Gallery extends Component {
     this.onClose = this.onClose.bind(this)
   }
 
-  onClick (imageUrl) {
+  onClick(imageUrl) {
     this.setState({ currentImage: imageUrl })
   }
 
-  onClose () {
+  onClose() {
     this.setState({ currentImage: null })
   }
 
-  render () {
+  render() {
     const { t, slug, images } = this.props
     const { currentImage } = this.state
     if (!images) return null
@@ -35,13 +35,13 @@ export class Gallery extends Component {
       return acc
     }, {})
     return (
-      <div className='sto-app-images'>
+      <div className="sto-app-images">
         {imagesParts.big &&
           !!imagesParts.big.length && (
-            <div className='sto-app-big-images'>
+            <div className="sto-app-big-images">
               {imagesParts.big.map((image, index) => (
                 <img
-                  className='sto-app-big-image'
+                  className="sto-app-big-image"
                   src={image}
                   alt={`${slug}-image-${index + 1}`}
                   key={`${slug}-image-${index + 1}`}
@@ -61,7 +61,7 @@ export class Gallery extends Component {
             >
               {imagesParts.small.map((image, index) => (
                 <img
-                  className='sto-app-small-image'
+                  className="sto-app-small-image"
                   src={image}
                   alt={`${slug}-image-${index + 3}`}
                   key={`${slug}-image-${index + 3}`}
@@ -80,9 +80,9 @@ export class Gallery extends Component {
           >
             <ModalContent>
               <img
-                className='sto-app-image-preview'
+                className="sto-app-image-preview"
                 src={currentImage}
-                alt='image-preview'
+                alt="image-preview"
               />
             </ModalContent>
           </Modal>

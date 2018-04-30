@@ -13,18 +13,18 @@ import getFilteredAppsFromSearch from 'lib/getFilteredAppsFromSearch'
 const { BarCenter } = cozy.bar
 
 export class MyApplications extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     props.fetchInstalledApps()
 
     this.onAppClick = this.onAppClick.bind(this)
   }
 
-  onAppClick (appSlug) {
+  onAppClick(appSlug) {
     this.props.history.push(`/myapps/${appSlug}`)
   }
 
-  render () {
+  render() {
     const {
       t,
       location,
@@ -36,22 +36,23 @@ export class MyApplications extends Component {
     } = this.props
     const { isMobile } = breakpoints
     const filteredApps = getFilteredAppsFromSearch(
-      installedApps, location && location.search
+      installedApps,
+      location && location.search
     )
-    const title = <h2 className='sto-view-title'>{t('myapps.title')}</h2>
+    const title = <h2 className="sto-view-title">{t('myapps.title')}</h2>
     return (
-      <div className='sto-myapps'>
+      <div className="sto-myapps">
         {this.props.match.isExact ? (
           <div>
             {isMobile && <BarCenter>{title}</BarCenter>}
-            <div className='sto-myapps-sections'>
-              {!isFetching &&
+            <div className="sto-myapps-sections">
+              {!isFetching && (
                 <Sections
                   apps={filteredApps}
                   error={fetchError}
                   onAppClick={this.onAppClick}
                 />
-              }
+              )}
             </div>
           </div>
         ) : null}
@@ -62,11 +63,11 @@ export class MyApplications extends Component {
           actionError={actionError}
           installApp={this.props.installApp}
           uninstallApp={this.props.uninstallApp}
-          parent='myapps'
+          parent="myapps"
         />
 
         {isFetching && (
-          <Spinner size='xxlarge' loadingType='appsFetching' middle />
+          <Spinner size="xxlarge" loadingType="appsFetching" middle />
         )}
       </div>
     )
