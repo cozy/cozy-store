@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import {
   fetchApps,
   fetchInstalledApps,
+  fetchLatestApp,
   uninstallApp,
   getInstalledApps,
   getRegistryApps,
@@ -18,6 +19,7 @@ const mapStateToProps = (state, ownProps) => ({
   apps: getRegistryApps(state),
   installedApps: getInstalledApps(state),
   isFetching: state.apps.isFetching,
+  isAppFetching: state.apps.isAppFetching,
   isInstalling: state.apps.isInstalling,
   actionError: state.apps.actionError,
   fetchError: state.apps.fetchError
@@ -29,6 +31,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   installApp: (appSlug, appType, channel) =>
     dispatch(installAppFromRegistry(appSlug, appType, channel)),
   uninstallApp: (appSlug, appType) => dispatch(uninstallApp(appSlug, appType)),
+  updateApp: (appSlug, appType, channel) =>
+    dispatch(installAppFromRegistry(appSlug, appType, channel, true)),
+  fetchLatestApp: (slug, channel) => dispatch(fetchLatestApp(slug, channel)),
   // for the hidden installer only
   installUsingInstaller: (appSlug, appType, source, isUpdate) =>
     dispatch(installApp(appSlug, appType, source, isUpdate)).catch(() => {

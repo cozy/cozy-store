@@ -7,14 +7,19 @@ import UninstallModal from './UninstallModal'
 import InstallModal from './InstallModal'
 import ApplicationPage from './ApplicationPage'
 
-import { APP_TYPE } from 'ducks/apps'
+import { APP_TYPE, REGISTRY_CHANNELS } from 'ducks/apps'
 
 export class ApplicationRouting extends Component {
   render() {
     const {
       apps,
+      fetchLatestApp,
+      installApp,
+      uninstallApp,
+      updateApp,
       installedApps,
       isFetching,
+      isAppFetching,
       isInstalling,
       parent,
       history,
@@ -33,7 +38,40 @@ export class ApplicationRouting extends Component {
                 app => app.slug === match.params.appSlug
               )
               if (!app) return history.push(`/${parent}`)
-              return <ApplicationPage app={app} parent={parent} />
+              return (<ApplicationPage
+                app={app}
+                parent={parent}
+              />)
+            }
+          }}
+        />
+        <Route
+          path={`/${parent}/:appSlug/channel/:channel`}
+          render={({ match }) => {
+            if (isFetching) return
+            if (appsArray.length && match.params) {
+              const app = appsArray.find(
+                app => app.slug === match.params.appSlug
+              )
+              const channel = match.params.channel
+              const isChannelAvailable = Object.values(REGISTRY_CHANNELS).includes(channel)
+              if (!isChannelAvailable) {
+                return history.push(`/${parent}/${app.slug}/manage`)
+              }
+              if(!app) return history.push(`/${parent}`)
+              return (
+                <InstallModal
+                  installApp={app.installed ? updateApp : installApp}
+                  parent={`/${parent}`}
+                  fetchApp={() => fetchLatestApp(app.slug, channel)}
+                  isAppFetching={isAppFetching}
+                  installError={actionError}
+                  fetchError={fetchError}
+                  app={app}
+                  isInstalling={isInstalling}
+                  channel={channel}
+                />
+              )
             }
           }}
         />
@@ -49,7 +87,7 @@ export class ApplicationRouting extends Component {
               if (app && app.installed) {
                 return (
                   <UninstallModal
-                    uninstallApp={this.props.uninstallApp}
+                    uninstallApp={uninstallApp}
                     parent={`/${parent}`}
                     uninstallError={actionError}
                     app={app}
@@ -58,10 +96,9 @@ export class ApplicationRouting extends Component {
               } else {
                 return (
                   <InstallModal
-                    installApp={this.props.installApp}
+                    installApp={installApp}
                     parent={`/${parent}`}
                     installError={actionError}
-                    fetchError={fetchError}
                     app={app}
                     isInstalling={isInstalling}
                   />
@@ -80,15 +117,14 @@ export class ApplicationRouting extends Component {
               if (!app) return history.push(`/${parent}`)
               const goToApp = () => history.push(`/${parent}/${appSlug}`)
               if (app && app.installed && app.type === APP_TYPE.KONNECTOR) {
-                return (
-                  <IntentModal
-                    action="CREATE"
-                    doctype="io.cozy.accounts"
-                    options={{ slug: appSlug }}
-                    dismissAction={goToApp}
-                    onComplete={goToApp}
-                  />
-                )
+                return (<IntentModal
+                  action="CREATE"
+                  doctype="io.cozy.accounts"
+                  options={{ slug: appSlug }}
+                  dismissAction={goToApp}
+                  onComplete={goToApp}
+                  mobileFullScreen
+                />)
               } else {
                 return goToApp()
               }

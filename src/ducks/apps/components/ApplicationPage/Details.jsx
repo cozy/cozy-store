@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 
 import { translate } from 'cozy-ui/react/I18n'
 import Icon from 'cozy-ui/react/Icon'
+import Toggle from 'cozy-ui/react/Toggle'
+
 import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
+import { getContext, REGISTRY_CHANNELS } from 'ducks/apps'
 
 const isValidUrl = url => {
   if (!url) return null
@@ -29,23 +33,61 @@ const isLessButtonNeeded = (text = '') => {
   // }
 }
 
+const getChannel = source => {
+  const registrySourcePattern = /^registry:\/\/(.*)\/(.*)/
+  const matches = source && source.match(registrySourcePattern)
+  if (matches && matches.length && matches.length > 2) {
+    return matches[2]
+  } else {
+    return null
+  }
+}
+
 export class Details extends Component {
   constructor(props) {
     super(props)
-    const { changes, description } = this.props
+    const { changes, description, source } = this.props
+    const appChannel = getChannel(source)
     this.state = {
       lessDescription: isLessButtonNeeded(description),
-      lessChanges: isLessButtonNeeded(changes)
+      lessChanges: isLessButtonNeeded(changes),
+      displayBetaChannel: appChannel === REGISTRY_CHANNELS.BETA,
+      displayDevChannel: appChannel=== REGISTRY_CHANNELS.DEV
     }
+
+    this.toggleChannels = this.toggleChannels.bind(this)
+    this.onUpdateChannel = this.onUpdateChannel.bind(this)
   }
 
   toggleDisplayMore(type) {
     this.setState({ [`less${type}`]: false })
   }
 
+  toggleChannels() {
+    if (!this.state.displayBetaChannel) {
+      this.setState(state => ({ displayBetaChannel: true }))
+    }
+    if (!this.state.displayDevChannel) {
+      getContext()
+      .then(context => {
+        if (context && context.attributes && context.attributes.debug) {
+          this.setState(state => ({ displayDevChannel: true }))
+        }
+      })
+    }
+  }
+
+  onUpdateChannel(checked, channel) {
+    const { slug, history, parent } = this.props
+    const targetChannel = checked ? channel : REGISTRY_CHANNELS.STABLE
+    history.push(`/${parent}/${slug}/channel/${targetChannel}`)
+  }
+
   render() {
     const {
       t,
+      slug,
+      source,
       description,
       changes,
       categories,
@@ -54,7 +96,15 @@ export class Details extends Component {
       developer,
       version
     } = this.props
-    const { lessDescription, lessChanges } = this.state
+    const {
+      lessDescription,
+      lessChanges,
+      displayBetaChannel,
+      displayDevChannel
+    } = this.state
+    const appChannel = getChannel(source)
+    const isBeta = appChannel === REGISTRY_CHANNELS.BETA
+    const isDev = appChannel === REGISTRY_CHANNELS.DEV
     const langsInfos = langs && langs.map(l => t(`app_langs.${l}`))
     const categoriesInfos =
       categories &&
@@ -125,9 +175,39 @@ export class Details extends Component {
               {t('app_page.infos.version.title')}
             </div>
             <div className="sto-app-info-content">
-              {displayedVersion || t('app_page.infos.version.unknown')}
+              <span onDoubleClick={this.toggleChannels}>
+                {displayedVersion || t('app_page.infos.version.unknown')}
+              </span>
             </div>
           </div>
+          {(displayBetaChannel || displayDevChannel) &&
+            <div className="sto-app-info">
+              <div className="sto-app-info-header">
+                {t('app_page.infos.beta')}
+              </div>
+              <div className="sto-app-info-content">
+                <Toggle
+                  id={`sto-app-${slug}-beta-toggle`}
+                  checked={isBeta}
+                  onToggle={(e) => this.onUpdateChannel(e, REGISTRY_CHANNELS.BETA)}
+                />
+              </div>
+            </div>
+          }
+          {displayDevChannel &&
+            <div className="sto-app-info">
+              <div className="sto-app-info-header">
+                {t('app_page.infos.dev')}
+              </div>
+              <div className="sto-app-info-content">
+                <Toggle
+                  id={`sto-app-${slug}-dev-toggle`}
+                  checked={isDev}
+                  onToggle={(e) => this.onUpdateChannel(e, REGISTRY_CHANNELS.DEV)}
+                />
+              </div>
+            </div>
+          }
           {langsInfos && (
             <div className="sto-app-info">
               <div className="sto-app-info-header">
@@ -186,4 +266,4 @@ export class Details extends Component {
   }
 }
 
-export default translate()(Details)
+export default translate()(withRouter(Details))

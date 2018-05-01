@@ -122,6 +122,9 @@ export class ApplicationPage extends Component {
             langs={app.langs}
             developer={app.developer}
             mobileApps={mobileApps}
+            parent={parent}
+            slug={slug}
+            source={app.source}
             version={app.version}
           />
         </div>
