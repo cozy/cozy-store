@@ -20,8 +20,8 @@ describe('AppsSection component', () => {
     const component = shallow(
       <AppsSection
         t={tMock}
-        lang='en'
-        subtitle='Test Apps'
+        lang="en"
+        subtitle="Test Apps"
         appsList={mockApps}
         onAppClick={mockOnAppClick}
       />
@@ -34,8 +34,8 @@ describe('AppsSection component', () => {
     const component = shallow(
       <AppsSection
         t={tMock}
-        lang='en'
-        subtitle='Test Apps'
+        lang="en"
+        subtitle="Test Apps"
         appsList={mockApps}
         onAppClick={mockOnAppClick}
       />

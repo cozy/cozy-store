@@ -28,8 +28,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchInstalledApps: () => dispatch(fetchInstalledApps()),
   installApp: (appSlug, appType, channel) =>
     dispatch(installAppFromRegistry(appSlug, appType, channel)),
-  uninstallApp: (appSlug, appType) =>
-    dispatch(uninstallApp(appSlug, appType)),
+  uninstallApp: (appSlug, appType) => dispatch(uninstallApp(appSlug, appType)),
   // for the hidden installer only
   installUsingInstaller: (appSlug, appType, source, isUpdate) =>
     dispatch(installApp(appSlug, appType, source, isUpdate)).catch(() => {

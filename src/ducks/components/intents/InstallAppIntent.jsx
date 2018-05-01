@@ -60,8 +60,7 @@ export class InstallAppIntent extends Component {
     const isInstalled = status === 'installed'
 
     const appError = isReady && !app
-    const alreadyInstalledError =
-      !isInstalled && app && app.installed
+    const alreadyInstalledError = !isInstalled && app && app.installed
     const errors = { alreadyInstalledError, fetchError, installError, appError }
     const errorKey = Object.keys(errors).reduce(
       (final, key) => (errors[key] ? errorKeys[key] : final),

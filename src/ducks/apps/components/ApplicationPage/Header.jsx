@@ -27,63 +27,64 @@ export const Header = ({
   }
   const isKonnector = type === APP_TYPE.KONNECTOR
   return (
-    <div className='sto-app-header'>
-      <div className='sto-app-header-icon'>
+    <div className="sto-app-header">
+      <div className="sto-app-header-icon">
         {icon ? (
-          <img className='sto-app-icon' src={icon} alt={`${slug}-icon`} />
+          <img className="sto-app-icon" src={icon} alt={`${slug}-icon`} />
         ) : (
           <Icon
-            className='sto-app-icon--default blurry'
+            className="sto-app-icon--default blurry"
             icon={defaultAppIcon}
-            height='88px'
-            width='88px'
-            color='#95999D'
+            height="88px"
+            width="88px"
+            color="#95999D"
           />
         )}
       </div>
-      <div className='sto-app-header-content'>
-        <h2 className='sto-app-header-title'>
+      <div className="sto-app-header-content">
+        <h2 className="sto-app-header-title">
           {namePrefix ? `${namePrefix} ${name}` : name}
         </h2>
-        <p className='sto-app-header-description'>{description}</p>
+        <p className="sto-app-header-description">{description}</p>
         {installed ? (
           <div>
             <Button
               onClick={() => openApp(installedAppLink)}
               className="c-btn"
-              icon='openwith'
-              label={isKonnector
-                ? t('app_page.konnector.open')
-                : t('app_page.webapp.open')
+              icon="openwith"
+              label={
+                isKonnector
+                  ? t('app_page.konnector.open')
+                  : t('app_page.webapp.open')
               }
             />
             <Link
               to={`/${parent}/${slug}/manage`}
-              className='c-btn c-btn--danger-outline sto-app-header-uninstall-button'
+              className="c-btn c-btn--danger-outline sto-app-header-uninstall-button"
             >
-              <span>{isKonnector
-                ? t('app_page.konnector.uninstall')
-                : t('app_page.webapp.uninstall')
-              }</span>
+              <span>
+                {isKonnector
+                  ? t('app_page.konnector.uninstall')
+                  : t('app_page.webapp.uninstall')}
+              </span>
             </Link>
           </div>
         ) : (
           <Link
             to={`/${parent}/${slug}/manage`}
-            className='c-btn c-btn--regular'
+            className="c-btn c-btn--regular"
           >
             <span>
               <Icon
                 icon={cozySmileIcon}
-                color='#FFFFFF'
-                width='16px'
-                height='16px'
-                className='sto-app-icon--button'
+                color="#FFFFFF"
+                width="16px"
+                height="16px"
+                className="sto-app-icon--button"
               />{' '}
               {isKonnector
                 ? t('app_page.konnector.install')
-                : t('app_page.webapp.install')
-              }
+                : t('app_page.webapp.install')}
             </span>
           </Link>
         )}

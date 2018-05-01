@@ -52,14 +52,14 @@ export class ApplicationPage extends Component {
     const { isMobile } = breakpoints
     if (isFetching) {
       return (
-        <div className='sto-app'>
-          <Spinner size='xxlarge' loadingType='appsFetching' middle />
+        <div className="sto-app">
+          <Spinner size="xxlarge" loadingType="appsFetching" middle />
         </div>
       )
     }
     if (fetchError) {
       return (
-        <p className='u-error'>
+        <p className="u-error">
           {t('app_modal.install.message.version_error', {
             message: fetchError.message
           })}
@@ -85,20 +85,21 @@ export class ApplicationPage extends Component {
       }, [])
     return (
       <div>
-        {isMobile && icon &&
-          <BarCenter>
-            <div class='sto-app-bar'>
-              <img
-                className={`sto-app-bar-icon ${!displayBarIcon
-                  ? 'sto-app-bar-icon--hidden'
-                  : ''}`}
-                src={icon}
-                alt={`${slug}-icon`}
-              />
-            </div>
-          </BarCenter>
-        }
-        <div className='sto-app'>
+        {isMobile &&
+          icon && (
+            <BarCenter>
+              <div class="sto-app-bar">
+                <img
+                  className={`sto-app-bar-icon ${
+                    !displayBarIcon ? 'sto-app-bar-icon--hidden' : ''
+                  }`}
+                  src={icon}
+                  alt={`${slug}-icon`}
+                />
+              </div>
+            </BarCenter>
+          )}
+        <div className="sto-app">
           <Header
             icon={icon}
             namePrefix={namePrefix}
@@ -110,9 +111,10 @@ export class ApplicationPage extends Component {
             parent={parent}
             slug={slug}
           />
-          {app.screenshots && !!app.screenshots.length &&
-            <Gallery slug={slug} images={app.screenshots} />
-          }
+          {app.screenshots &&
+            !!app.screenshots.length && (
+              <Gallery slug={slug} images={app.screenshots} />
+            )}
           <Details
             description={appLongDesc}
             changes={appChanges}

@@ -49,7 +49,13 @@ describe('MyApplications component', () => {
 
   it('should be rendered correctly with apps and URL search params', () => {
     // default values so use null
-    const mockProps = getMockProps(mockInstalledApps, false, null, { isExact: true }, { search: '?category=cozy' })
+    const mockProps = getMockProps(
+      mockInstalledApps,
+      false,
+      null,
+      { isExact: true },
+      { search: '?category=cozy' }
+    )
     const component = shallow(
       <MyApplications t={tMock} {...mockProps} />
     ).getElement()
@@ -97,7 +103,13 @@ describe('MyApplications component', () => {
     const mockProps = getMockProps()
     const component = shallow(<MyApplications t={tMock} {...mockProps} />)
     expect(component.find(BarCenter).length).toBe(0)
-    const componentMobile = shallow(<MyApplications t={tMock} breakpoints={{isMobile: true}} {...mockProps} />)
+    const componentMobile = shallow(
+      <MyApplications
+        t={tMock}
+        breakpoints={{ isMobile: true }}
+        {...mockProps}
+      />
+    )
     expect(componentMobile.find(BarCenter).length).toBe(1)
     expect(componentMobile.getElement()).toMatchSnapshot()
   })

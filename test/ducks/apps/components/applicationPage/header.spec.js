@@ -25,14 +25,19 @@ describe('ApplicationPage header component', () => {
 
   it('should be rendered correctly provided app', () => {
     const component = shallow(
-      <Header t={tMock} parent='/myapps' namePrefix='Cozy' {...mockApp.manifest} />
+      <Header
+        t={tMock}
+        parent="/myapps"
+        namePrefix="Cozy"
+        {...mockApp.manifest}
+      />
     ).getElement()
     expect(component).toMatchSnapshot()
   })
 
   it('should be rendered correctly provided konnector', () => {
     const component = shallow(
-      <Header t={tMock} parent='/myapps' {...mockKonnector.manifest} />
+      <Header t={tMock} parent="/myapps" {...mockKonnector.manifest} />
     ).getElement()
     expect(component).toMatchSnapshot()
   })
@@ -42,7 +47,7 @@ describe('ApplicationPage header component', () => {
     appProps.icon = ''
     appProps.editor = ''
     const component = shallow(
-      <Header t={tMock} parent='/myapps' {...appProps} />
+      <Header t={tMock} parent="/myapps" {...appProps} />
     ).getElement()
     expect(component).toMatchSnapshot()
   })
@@ -53,7 +58,7 @@ describe('ApplicationPage header component', () => {
     appProps.icon = '<svg></svg>'
     appProps.installedAppLink = '#'
     const component = shallow(
-      <Header t={tMock} parent='/myapps' {...appProps} />
+      <Header t={tMock} parent="/myapps" {...appProps} />
     )
     component.find(Button).simulate('click')
     expect(window.location.assign.mock.calls.length).toBe(1)
@@ -66,7 +71,7 @@ describe('ApplicationPage header component', () => {
     appProps.icon = '<svg></svg>'
     appProps.installedAppLink = '#'
     const component = shallow(
-      <Header t={tMock} parent='/myapps' {...appProps} />
+      <Header t={tMock} parent="/myapps" {...appProps} />
     )
     component.find(Button).simulate('click')
     expect(window.location.assign.mock.calls.length).toBe(1)

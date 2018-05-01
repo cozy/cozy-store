@@ -1,5 +1,5 @@
 class ForbiddenException extends Error {
-  constructor (message) {
+  constructor(message) {
     super()
 
     this.name = 'Forbidden'
@@ -11,7 +11,7 @@ class ForbiddenException extends Error {
 }
 
 class ServerErrorException extends Error {
-  constructor (message) {
+  constructor(message) {
     super()
 
     this.name = 'ServerError'
@@ -21,7 +21,7 @@ class ServerErrorException extends Error {
 }
 
 class NotFoundException extends Error {
-  constructor (message) {
+  constructor(message) {
     super()
 
     this.name = 'NotFound'
@@ -31,7 +31,7 @@ class NotFoundException extends Error {
 }
 
 class MethodNotAllowedException extends Error {
-  constructor (message) {
+  constructor(message) {
     super()
 
     this.name = 'MethodNotAllowed'
@@ -41,7 +41,7 @@ class MethodNotAllowedException extends Error {
 }
 
 class UnavailableStackException extends Error {
-  constructor (message) {
+  constructor(message) {
     super()
 
     this.name = 'UnavailableStack'
@@ -51,7 +51,7 @@ class UnavailableStackException extends Error {
 }
 
 class UnavailableRegistryException extends Error {
-  constructor (message) {
+  constructor(message) {
     super()
 
     this.name = 'UnavailableRegistry'
@@ -61,7 +61,7 @@ class UnavailableRegistryException extends Error {
 }
 
 class NotUninstallableAppException extends Error {
-  constructor (message) {
+  constructor(message) {
     super()
 
     this.name = 'NotUninstallableAppException'
@@ -71,7 +71,7 @@ class NotUninstallableAppException extends Error {
 }
 
 class UnauthorizedStackException extends Error {
-  constructor (message) {
+  constructor(message) {
     super()
 
     this.name = 'UnauthorizedStack'
@@ -82,7 +82,7 @@ class UnauthorizedStackException extends Error {
 }
 
 class UnavailableSettingsException extends Error {
-  constructor (message) {
+  constructor(message) {
     super()
 
     this.name = 'UnavailableSettings'

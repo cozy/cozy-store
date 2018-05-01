@@ -19,8 +19,8 @@ describe('AppsSection component', () => {
     const component = shallow(
       <Sections
         t={tMock}
-        lang='en'
-        subtitle='Test Apps'
+        lang="en"
+        subtitle="Test Apps"
         apps={mockApps}
         onAppClick={mockOnAppClick}
         error={null}
@@ -34,8 +34,8 @@ describe('AppsSection component', () => {
     const component = shallow(
       <Sections
         t={tMock}
-        lang='en'
-        subtitle='Test Apps'
+        lang="en"
+        subtitle="Test Apps"
         apps={mockApps}
         onAppClick={mockOnAppClick}
         error={new Error('This is a test error')}

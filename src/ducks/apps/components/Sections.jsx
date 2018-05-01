@@ -4,7 +4,7 @@ import { translate } from 'cozy-ui/react/I18n'
 import AppsSection from './AppsSection'
 import { APP_TYPE } from '../index'
 
-const _getSortedByCategories = (appsList) => {
+const _getSortedByCategories = appsList => {
   return appsList.reduce((sortedAppsObject, app) => {
     app.categories.map(c => {
       if (!sortedAppsObject.hasOwnProperty(c)) sortedAppsObject[c] = []
@@ -14,8 +14,8 @@ const _getSortedByCategories = (appsList) => {
   }, {})
 }
 
-export const Sections = ({t, lang, apps, error, onAppClick}) => {
-  if (error) return <p className='u-error'>{error.message}</p>
+export const Sections = ({ t, lang, apps, error, onAppClick }) => {
+  if (error) return <p className="u-error">{error.message}</p>
   const konnectorsCategories = _getSortedByCategories(
     apps.filter(a => a.type === APP_TYPE.KONNECTOR)
   )
@@ -26,40 +26,38 @@ export const Sections = ({t, lang, apps, error, onAppClick}) => {
   const webAppsCategories = _getSortedByCategories(
     apps.filter(a => a.type === APP_TYPE.WEBAPP)
   )
-  return (<div className='sto-sections'>
-    {!!Object.keys(webAppsCategories).length &&
-      <div className='sto-sections-section'>
-        <h2 className='sto-sections-title'>
-          {t('sections.applications')}
-        </h2>
-        {Object.keys(webAppsCategories).map(cat => {
-          return (
-            <AppsSection
-              appsList={webAppsCategories[cat]}
-              subtitle={t(`app_categories.${cat}`)}
-              onAppClick={onAppClick}
-            />
-          )
-        })}
-      </div>
-    }
-    {!!categoriesList.length &&
-      <div className='sto-sections-section'>
-        <h2 className='sto-sections-title'>
-          {t('sections.konnectors')}
-        </h2>
-        {categoriesList.map(cat => {
-          return (
-            <AppsSection
-              appsList={konnectorsCategories[cat]}
-              subtitle={t(`app_categories.${cat}`)}
-              onAppClick={onAppClick}
-            />
-          )
-        })}
-      </div>
-    }
-  </div>)
+  return (
+    <div className="sto-sections">
+      {!!Object.keys(webAppsCategories).length && (
+        <div className="sto-sections-section">
+          <h2 className="sto-sections-title">{t('sections.applications')}</h2>
+          {Object.keys(webAppsCategories).map(cat => {
+            return (
+              <AppsSection
+                appsList={webAppsCategories[cat]}
+                subtitle={t(`app_categories.${cat}`)}
+                onAppClick={onAppClick}
+              />
+            )
+          })}
+        </div>
+      )}
+      {!!categoriesList.length && (
+        <div className="sto-sections-section">
+          <h2 className="sto-sections-title">{t('sections.konnectors')}</h2>
+          {categoriesList.map(cat => {
+            return (
+              <AppsSection
+                appsList={konnectorsCategories[cat]}
+                subtitle={t(`app_categories.${cat}`)}
+                onAppClick={onAppClick}
+              />
+            )
+          })}
+        </div>
+      )}
+    </div>
+  )
 }
 
 export default translate()(Sections)

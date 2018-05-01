@@ -30,7 +30,7 @@ export const SmallAppItem = ({
     // `onKeyDown={(e) => e.keyCode === 13 ? onClick() : null`
     // This syntax make the div accessible.
     <div
-      className='sto-small-app-item'
+      className="sto-small-app-item"
       onKeyDown={e => (e.keyCode === 13 ? onClick() : null)}
       onClick={onClick}
       tabIndex={0}
@@ -39,45 +39,46 @@ export const SmallAppItem = ({
         <img
           src={icon}
           alt={`${slug}-icon`}
-          width='64'
-          height='64'
-          className='sto-small-app-item-icon'
+          width="64"
+          height="64"
+          className="sto-small-app-item-icon"
         />
       ) : (
         <Icon
-          className='sto-small-app-item-icon--default blurry'
-          width='48'
-          height='64'
+          className="sto-small-app-item-icon--default blurry"
+          width="48"
+          height="64"
           icon={defaultAppIcon}
-          color='#95999D'
+          color="#95999D"
         />
       )}
-      <div className='sto-small-app-item-desc'>
-        <div className='sto-small-app-item-text'>
-          <h4 className='sto-small-app-item-title'>
+      <div className="sto-small-app-item-desc">
+        <div className="sto-small-app-item-text">
+          <h4 className="sto-small-app-item-title">
             {namePrefix ? `${namePrefix} ${name}` : name}
           </h4>
-          <p className='sto-small-app-item-detail'>
+          <p className="sto-small-app-item-detail">
             {developer.name === 'Cozy' ? 'Cozy Cloud Inc.' : developer.name}
           </p>
         </div>
-        <div className='sto-small-app-item-buttons'>
-          {installed
-            ? <Button
-              onClick={(e) => onShortcutAppButton(e, installedAppLink)}
+        <div className="sto-small-app-item-buttons">
+          {installed ? (
+            <Button
+              onClick={e => onShortcutAppButton(e, installedAppLink)}
               label={t('app_item.open')}
-              theme='secondary'
-              className='sto-small-app-item-button'
-              size='tiny'
+              theme="secondary"
+              className="sto-small-app-item-button"
+              size="tiny"
             />
-            : <Link
+          ) : (
+            <Link
               to={`/discover/${slug}/manage`}
-              onClick={(e) => onShortcutAppButton(e)}
-              className='c-btn c-btn--regular c-btn--tiny sto-small-app-item-button sto-small-app-item-button-install'
+              onClick={e => onShortcutAppButton(e)}
+              className="c-btn c-btn--regular c-btn--tiny sto-small-app-item-button sto-small-app-item-button-install"
             >
               <span>{t('app_item.install')}</span>
             </Link>
-          }
+          )}
         </div>
       </div>
     </div>

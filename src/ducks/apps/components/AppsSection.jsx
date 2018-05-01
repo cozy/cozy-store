@@ -21,17 +21,16 @@ const _renderAppComponent = (app, lang, onAppClick) => {
   )
 }
 
-export const AppsSection = ({lang, appsList, subtitle, onAppClick}) => {
+export const AppsSection = ({ lang, appsList, subtitle, onAppClick }) => {
   return (
-    <div className='sto-sections-apps'>
-      {subtitle && <h3 className='sto-sections-subtitle'>
-        {subtitle}
-      </h3>}
-      {appsList && !!appsList.length && <div className='sto-sections-list'>
-        {appsList.map(
-          app => _renderAppComponent(app, lang, onAppClick)
+    <div className="sto-sections-apps">
+      {subtitle && <h3 className="sto-sections-subtitle">{subtitle}</h3>}
+      {appsList &&
+        !!appsList.length && (
+          <div className="sto-sections-list">
+            {appsList.map(app => _renderAppComponent(app, lang, onAppClick))}
+          </div>
         )}
-      </div>}
     </div>
   )
 }

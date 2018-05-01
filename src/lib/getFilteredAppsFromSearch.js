@@ -19,17 +19,19 @@ const getFilteredAppsFromSearch = (apps = [], search = '') => {
 
   // filer by category
   const categoryParam = params.get('category')
-  if (categoryParam) filteredApps = filteredApps.filter(a => {
-    if (!Array.isArray(a.categories)) return false
-    return a.categories.includes(categoryParam)
-  })
+  if (categoryParam)
+    filteredApps = filteredApps.filter(a => {
+      if (!Array.isArray(a.categories)) return false
+      return a.categories.includes(categoryParam)
+    })
 
   // filter by tag
   const tagParam = params.get('tag')
-  if (tagParam) filteredApps = filteredApps.filter(a => {
-    if (!Array.isArray(a.tags)) return false
-    return a.tags.includes(tagParam)
-  })
+  if (tagParam)
+    filteredApps = filteredApps.filter(a => {
+      if (!Array.isArray(a.tags)) return false
+      return a.tags.includes(tagParam)
+    })
 
   // filter by doctype
   const doctypeParam = params.get('doctype')

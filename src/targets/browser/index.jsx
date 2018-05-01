@@ -18,7 +18,7 @@ if (__DEVELOPMENT__) {
   window.React = React
 }
 
-const renderApp = function (lang) {
+const renderApp = function(lang) {
   const Root = require('ducks/components/Root').default
   render(
     <Root store={store} lang={lang} />,

@@ -6,7 +6,7 @@ const emojiParser = new Emoji()
 
 export const reactMarkdownRendererOptions = {
   link: props => (
-    <a href={props.href} target='_blank'>
+    <a href={props.href} target="_blank">
       {props.children}
     </a>
   ),

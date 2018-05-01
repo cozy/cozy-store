@@ -15,7 +15,7 @@ Enzyme.configure({ adapter: new Adapter() })
 describe('ReactMarkdownWrapper component', () => {
   it('should be rendered correctly', () => {
     const component = shallow(
-      <ReactMarkdownWrapper source='Test [link]() __strong__' />
+      <ReactMarkdownWrapper source="Test [link]() __strong__" />
     ).getElement()
     expect(component).toMatchSnapshot()
   })
@@ -30,13 +30,13 @@ describe('ReactMarkdownWrapper component', () => {
   })
   it('should have correct link renderer options', () => {
     const component = shallow(
-      <reactMarkdownRendererOptions.link href='#' children={<div />} />
+      <reactMarkdownRendererOptions.link href="#" children={<div />} />
     ).getElement()
     expect(component).toMatchSnapshot()
   })
   it('should have correct heading renderer options', () => {
     const component = shallow(
-      <reactMarkdownRendererOptions.heading level='3' children='MyHeading' />
+      <reactMarkdownRendererOptions.heading level="3" children="MyHeading" />
     ).getElement()
     expect(component).toMatchSnapshot()
   })

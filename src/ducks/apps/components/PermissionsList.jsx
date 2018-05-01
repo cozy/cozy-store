@@ -17,7 +17,7 @@ export const PermissionsList = ({ t, permissions, appName }) => {
           appName
         })}
       />
-      <ul className='sto-perm-list'>
+      <ul className="sto-perm-list">
         {permissionsArray.map(permission => (
           <li key={permission.type} className={permission.type}>
             <ReactMarkdownWrapper

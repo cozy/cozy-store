@@ -7,11 +7,15 @@ import mockApps from '../ducks/apps/_mockApps'
 
 describe('getFilteredAppsFromSearch library', () => {
   it('should filter correctly on type', () => {
-    expect(getFilteredAppsFromSearch(mockApps, '?type=webapp')).toMatchSnapshot()
+    expect(
+      getFilteredAppsFromSearch(mockApps, '?type=webapp')
+    ).toMatchSnapshot()
   })
 
   it('should filter correctly on doctype', () => {
-    expect(getFilteredAppsFromSearch(mockApps, '?doctype=io.mock.doctype2')).toMatchSnapshot()
+    expect(
+      getFilteredAppsFromSearch(mockApps, '?doctype=io.mock.doctype2')
+    ).toMatchSnapshot()
   })
 
   it('should filter correctly on tags', () => {
@@ -19,10 +23,17 @@ describe('getFilteredAppsFromSearch library', () => {
   })
 
   it('should filter correctly on category', () => {
-    expect(getFilteredAppsFromSearch(mockApps, '?category=cozy')).toMatchSnapshot()
+    expect(
+      getFilteredAppsFromSearch(mockApps, '?category=cozy')
+    ).toMatchSnapshot()
   })
 
   it('should handle correctly multi filters', () => {
-    expect(getFilteredAppsFromSearch(mockApps, '?type=konnector&doctype=io.mock.doctype')).toMatchSnapshot()
+    expect(
+      getFilteredAppsFromSearch(
+        mockApps,
+        '?type=konnector&doctype=io.mock.doctype'
+      )
+    ).toMatchSnapshot()
   })
 })

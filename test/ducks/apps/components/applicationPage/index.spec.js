@@ -30,7 +30,7 @@ const getAppProps = (installed, related) => {
   }
 }
 
-const getKonnectorProps = (installed) => {
+const getKonnectorProps = installed => {
   return {
     lang: 'en',
     app: Object.assign({}, konnectorManifest, {

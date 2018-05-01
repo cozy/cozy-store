@@ -1,10 +1,7 @@
 import { HashRouter } from 'react-router-dom'
-import {
-  shouldEnableTracking,
-  getTracker
-} from 'cozy-ui/react/helpers/tracker'
+import { shouldEnableTracking, getTracker } from 'cozy-ui/react/helpers/tracker'
 
-const addPiwik = function (history) {
+const addPiwik = function(history) {
   if (shouldEnableTracking() && getTracker()) {
     let trackerInstance = getTracker()
     history = trackerInstance.connectToHistory(history)
@@ -15,7 +12,7 @@ const addPiwik = function (history) {
 }
 
 export default class PiwikHashRouter extends HashRouter {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.history = addPiwik(this.history)
   }

@@ -51,7 +51,13 @@ describe('Discover component', () => {
   })
 
   it('should be rendered correctly with apps and URL search params', () => {
-    const mockProps = getMockProps(mockRegistyApps, false, null, { isExact: true }, { search: '?category=cozy' })
+    const mockProps = getMockProps(
+      mockRegistyApps,
+      false,
+      null,
+      { isExact: true },
+      { search: '?category=cozy' }
+    )
     const component = shallow(
       <Discover t={tMock} {...mockProps} />
     ).getElement()
@@ -99,7 +105,9 @@ describe('Discover component', () => {
     const mockProps = getMockProps()
     const component = shallow(<Discover t={tMock} {...mockProps} />)
     expect(component.find(BarCenter).length).toBe(0)
-    const componentMobile = shallow(<Discover t={tMock} breakpoints={{isMobile: true}} {...mockProps} />)
+    const componentMobile = shallow(
+      <Discover t={tMock} breakpoints={{ isMobile: true }} {...mockProps} />
+    )
     expect(componentMobile.find(BarCenter).length).toBe(1)
     expect(componentMobile.getElement()).toMatchSnapshot()
   })
