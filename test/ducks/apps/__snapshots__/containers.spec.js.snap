@@ -7,9 +7,11 @@ exports[`Apps Containers (connected components): Discover should be rendered cor
   fetchApps={[Function]}
   fetchError={null}
   fetchInstalledApps={[Function]}
+  fetchLatestApp={[Function]}
   installApp={[Function]}
   installUsingInstaller={[Function]}
   installedApps={Array []}
+  isAppFetching={undefined}
   isFetching={false}
   isInstalling={false}
   store={
@@ -44,6 +46,7 @@ exports[`Apps Containers (connected components): Discover should be rendered cor
     }
   }
   uninstallApp={[Function]}
+  updateApp={[Function]}
 />
 `;
 
@@ -54,9 +57,11 @@ exports[`Apps Containers (connected components): MyApplications should be render
   fetchApps={[Function]}
   fetchError={null}
   fetchInstalledApps={[Function]}
+  fetchLatestApp={[Function]}
   installApp={[Function]}
   installUsingInstaller={[Function]}
   installedApps={Array []}
+  isAppFetching={undefined}
   isFetching={false}
   isInstalling={false}
   store={
@@ -91,5 +96,6 @@ exports[`Apps Containers (connected components): MyApplications should be render
     }
   }
   uninstallApp={[Function]}
+  updateApp={[Function]}
 />
 `;

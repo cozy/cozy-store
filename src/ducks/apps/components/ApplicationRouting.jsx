@@ -53,12 +53,12 @@ export class ApplicationRouting extends Component {
               const app = appsArray.find(
                 app => app.slug === match.params.appSlug
               )
+              if(!app || !app.isInRegistry) return history.push(`/${parent}`)
               const channel = match.params.channel
               const isChannelAvailable = Object.values(REGISTRY_CHANNELS).includes(channel)
               if (!isChannelAvailable) {
                 return history.push(`/${parent}/${app.slug}/manage`)
               }
-              if(!app) return history.push(`/${parent}`)
               return (
                 <InstallModal
                   installApp={app.installed ? updateApp : installApp}

@@ -106,12 +106,115 @@ exports[`ApplicationRouting component with ApplicationPage should render correct
 />
 `;
 
+exports[`ApplicationRouting component with Channel install should handle correctly if installed app found 1`] = `
+<withRouter(InstallModal)
+  app={
+    Object {
+      "categories": Array [
+        "cozy",
+      ],
+      "developer": Object {
+        "name": "Cozy",
+      },
+      "editor": "Cozy",
+      "icon": "<svg></svg>",
+      "installed": true,
+      "isInRegistry": true,
+      "name": "Collect",
+      "name_prefix": "Cozy",
+      "permissions": Object {
+        "mock": Object {
+          "type": "io.mock.doctype",
+        },
+        "mock2": Object {
+          "type": "io.mock.doctype2",
+        },
+      },
+      "related": "http://collect.cozy.mock/",
+      "slug": "collect",
+      "tags": Array [
+        "konnector",
+        "collect",
+        "bills",
+        "providers",
+        "files",
+      ],
+      "type": "webapp",
+      "uninstallable": false,
+      "version": "3.0.0",
+      "versions": Object {
+        "beta": Array [
+          "3.0.0",
+        ],
+        "dev": Array [
+          "3.0.0",
+        ],
+        "stable": Array [
+          "3.0.0",
+        ],
+      },
+    }
+  }
+  channel="beta"
+  fetchApp={[Function]}
+  fetchError={undefined}
+  installApp={[MockFunction mockUpdateApp]}
+  installError={undefined}
+  isAppFetching={undefined}
+  isInstalling={undefined}
+  parent="/discover"
+/>
+`;
+
+exports[`ApplicationRouting component with Channel install should render correctly if uninstalled app found 1`] = `
+<withRouter(InstallModal)
+  app={
+    Object {
+      "categories": Array [
+        "cozy",
+      ],
+      "developer": Object {
+        "name": "Cozy",
+      },
+      "editor": "Cozy",
+      "icon": "<svg></svg>",
+      "isInRegistry": true,
+      "name": "Photos",
+      "name_prefix": "Cozy",
+      "slug": "photos",
+      "type": "webapp",
+      "uninstallable": true,
+      "versions": Object {
+        "beta": Array [
+          "3.0.0",
+        ],
+        "dev": Array [
+          "3.0.0",
+        ],
+        "stable": Array [
+          "3.0.0",
+        ],
+      },
+    }
+  }
+  channel="beta"
+  fetchApp={[Function]}
+  fetchError={undefined}
+  installApp={[MockFunction mockInstallApp]}
+  installError={undefined}
+  isAppFetching={undefined}
+  isInstalling={undefined}
+  parent="/discover"
+/>
+`;
+
 exports[`ApplicationRouting component with IntentModal should handle correctly if installed konnector found 1`] = `
 <IntentModal
   action="CREATE"
   closable={true}
   dismissAction={[Function]}
   doctype="io.cozy.accounts"
+  mobileFullScreen={true}
   onComplete={[Function]}
   options={
     Object {
@@ -171,7 +274,7 @@ exports[`ApplicationRouting component with Modal should handle correctly if inst
     }
   }
   parent="/myapps"
-  uninstallApp={[MockFunction]}
+  uninstallApp={[MockFunction mockUninstallApp]}
   uninstallError={undefined}
 />
 `;
@@ -226,7 +329,7 @@ exports[`ApplicationRouting component with Modal should render correctly if apps
     }
   }
   parent="/myapps"
-  uninstallApp={[MockFunction]}
+  uninstallApp={[MockFunction mockUninstallApp]}
   uninstallError={undefined}
 />
 `;
@@ -262,8 +365,7 @@ exports[`ApplicationRouting component with Modal should render correctly if unin
       },
     }
   }
-  fetchError={undefined}
-  installApp={[MockFunction]}
+  installApp={[MockFunction mockInstallApp]}
   installError={undefined}
   isInstalling={undefined}
   parent="/myapps"

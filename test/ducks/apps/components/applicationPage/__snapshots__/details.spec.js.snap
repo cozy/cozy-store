@@ -41,7 +41,11 @@ exports[`ApplicationPage details component should be rendered correctly provided
       <div
         className="sto-app-info-content"
       >
-        Unknown
+        <span
+          onDoubleClick={[Function]}
+        >
+          Unknown
+        </span>
       </div>
     </div>
     <div
@@ -129,7 +133,11 @@ Enjoy features to grab your data in you Cozy :tada:"
       <div
         className="sto-app-info-content"
       >
-        0.1.0
+        <span
+          onDoubleClick={[Function]}
+        >
+          0.1.0
+        </span>
       </div>
     </div>
     <div
@@ -242,7 +250,11 @@ exports[`ApplicationPage details component should be rendered correctly with pro
       <div
         className="sto-app-info-content"
       >
-        Unknown
+        <span
+          onDoubleClick={[Function]}
+        >
+          Unknown
+        </span>
       </div>
     </div>
     <div

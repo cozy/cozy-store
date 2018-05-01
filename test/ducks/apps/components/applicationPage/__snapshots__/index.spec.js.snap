@@ -52,6 +52,9 @@ Enjoy features to grab your data in you Cozy :tada:"
           },
         ]
       }
+      parent="/myapps"
+      slug="photos"
+      source="https://github.com/cozy/cozy-drive.git@build-photos"
       version="3.0.0"
     />
   </div>
@@ -95,6 +98,9 @@ exports[`ApplicationPage component should be rendered correctly with konnector i
         ]
       }
       mobileApps={undefined}
+      parent="/myapps"
+      slug="konnector-trinlane"
+      source="https://github.com/cozy/cozy-konnector-trinlane.git@build"
       version={undefined}
     />
   </div>
@@ -153,6 +159,9 @@ Enjoy features to grab your data in you Cozy :tada:"
           },
         ]
       }
+      parent="/myapps"
+      slug="photos"
+      source="https://github.com/cozy/cozy-drive.git@build-photos"
       version="3.0.0"
     />
   </div>
@@ -196,6 +205,9 @@ exports[`ApplicationPage component should be rendered correctly with provided in
         ]
       }
       mobileApps={undefined}
+      parent="/myapps"
+      slug="konnector-trinlane"
+      source="https://github.com/cozy/cozy-konnector-trinlane.git@build"
       version={undefined}
     />
   </div>
