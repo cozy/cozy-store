@@ -13,6 +13,7 @@ import {
 
 import DiscoverComponent from './components/Discover'
 import HiddenInstallerViewComponent from './components/HiddenInstallerView'
+import { translate } from 'cozy-ui/react/I18n'
 import MyApplicationsComponent from './components/MyApplications'
 
 const mapStateToProps = (state, ownProps) => ({
@@ -26,8 +27,8 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  fetchApps: () => dispatch(fetchApps()),
-  fetchInstalledApps: () => dispatch(fetchInstalledApps()),
+  fetchApps: () => dispatch(fetchApps(ownProps.lang)),
+  fetchInstalledApps: () => dispatch(fetchInstalledApps(ownProps.lang)),
   installApp: (appSlug, appType, channel) =>
     dispatch(installAppFromRegistry(appSlug, appType, channel)),
   uninstallApp: (appSlug, appType) => dispatch(uninstallApp(appSlug, appType)),
@@ -50,14 +51,15 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     })
 })
 
-export const Discover = connect(mapStateToProps, mapDispatchToProps)(
+// translate last to pass the lang property to fetchApps()
+export const Discover = translate()(connect(mapStateToProps, mapDispatchToProps)(
   DiscoverComponent
-)
+))
 
-export const HiddenInstallerView = connect(mapStateToProps, mapDispatchToProps)(
+export const HiddenInstallerView = translate()(connect(mapStateToProps, mapDispatchToProps)(
   HiddenInstallerViewComponent
-)
+))
 
-export const MyApplications = connect(mapStateToProps, mapDispatchToProps)(
+export const MyApplications = translate()(connect(mapStateToProps, mapDispatchToProps)(
   MyApplicationsComponent
-)
+))
