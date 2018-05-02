@@ -30,6 +30,7 @@ export class Discover extends Component {
       location,
       apps,
       isFetching,
+      isAppFetching,
       fetchError,
       isInstalling,
       actionError,
@@ -61,10 +62,13 @@ export class Discover extends Component {
         <ApplicationRouting
           apps={filteredApps}
           isFetching={isFetching}
+          isAppFetching={isAppFetching}
           isInstalling={isInstalling}
           actionError={actionError}
           installApp={this.props.installApp}
           uninstallApp={this.props.uninstallApp}
+          updateApp={this.props.updateApp}
+          fetchLatestApp={this.props.fetchLatestApp}
           parent="discover"
         />
 

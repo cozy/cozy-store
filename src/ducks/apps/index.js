@@ -19,6 +19,12 @@ export const APP_TYPE = {
   WEBAPP: 'webapp'
 }
 
+export const REGISTRY_CHANNELS = {
+  DEV: 'dev',
+  BETA: 'beta',
+  STABLE: 'stable'
+}
+
 const AUTHORIZED_CATEGORIES = categories
 
 const COLLECT_RELATED_PATH = constants.collect_providers
@@ -28,6 +34,10 @@ const DEFAULT_CHANNEL = constants.default.registry.channel
 const FETCH_APPS = 'FETCH_APPS'
 const FETCH_APPS_SUCCESS = 'FETCH_APPS_SUCCESS'
 const FETCH_APPS_FAILURE = 'FETCH_APPS_FAILURE'
+
+const FETCH_APP = 'FETCH_APP'
+const FETCH_APP_SUCCESS = 'FETCH_APP_SUCCESS'
+const FETCH_APP_FAILURE = 'FETCH_APP_FAILURE'
 
 const FETCH_REGISTRY_APPS_SUCCESS = 'FETCH_REGISTRY_APPS_SUCCESS'
 
@@ -46,6 +56,7 @@ export const list = (state = [], action) => {
       return _sortAlphabetically(_consolidateApps(state, action.apps), 'slug')
     case UNINSTALL_APP_SUCCESS:
     case INSTALL_APP_SUCCESS:
+    case FETCH_APP_SUCCESS:
       return _sortAlphabetically(action.apps, 'slug')
     default:
       return state
@@ -58,6 +69,18 @@ export const isFetching = (state = false, action) => {
       return true
     case FETCH_APPS_SUCCESS:
     case FETCH_APPS_FAILURE:
+      return false
+    default:
+      return state
+  }
+}
+
+export const isAppFetching = (state = false, action) => {
+  switch (action.type) {
+    case FETCH_APP:
+      return true
+    case FETCH_APP_SUCCESS:
+    case FETCH_APP_FAILURE:
       return false
     default:
       return state
@@ -92,8 +115,10 @@ export const actionError = (state = null, action) => {
 export const fetchError = (state = null, action) => {
   switch (action.type) {
     case FETCH_APPS_FAILURE:
+    case FETCH_APP_FAILURE:
       return action.error
     case FETCH_APPS_SUCCESS:
+    case FETCH_APP_SUCCESS:
       return null
     default:
       return state
@@ -105,6 +130,7 @@ export const appsReducers = combineReducers({
   actionError,
   fetchError,
   isFetching,
+  isAppFetching,
   isInstalling
 })
 
@@ -197,6 +223,23 @@ function _sanitizeCategories(categoriesList) {
   return filteredList
 }
 
+let contextCache
+export function getContext() {
+  return contextCache
+    ? Promise.resolve(contextCache)
+    : cozy.client.fetchJSON('GET', '/settings/context')
+      .then(context => {
+        contextCache = context
+        return context
+      })
+      .catch(error => {
+        if (error.status && error.status === 404) {
+          contextCache = {}
+          return contextCache
+        }
+      })
+}
+
 export function getFormattedInstalledApp(response, collectLink) {
   // FIXME retro-compatibility for old formatted manifest
   response.attributes = _sanitizeOldManifest(response.attributes)
@@ -227,6 +270,42 @@ export function getFormattedInstalledApp(response, collectLink) {
   })
 }
 
+export function fetchLatestApp(slug, channel = DEFAULT_CHANNEL) {
+  return async (dispatch, getState) => {
+    dispatch({ type: FETCH_APP })
+    const app = getState().apps.list.find(a => a.slug === slug)
+    if (!app) {
+      return dispatch({
+        type: FETCH_APP_FAILURE,
+        error: new Error(`Application ${slug} not found.`)
+      })
+    }
+    return getFormattedRegistryApp(app, channel)
+    .then(fetched => {
+      // replace the new fetched app in the apps list
+      return dispatch({
+        type: FETCH_APP_SUCCESS,
+        apps: getState().apps.list.map(a => a.slug === slug ? fetched : a)
+      })
+    })
+    .catch(err => {
+      if (err.status === 404) {
+        console.warn(
+          `No ${channel} version found for ${app.slug} from the registry.`
+        )
+      } else {
+        console.warn(
+          `Something went wrong when trying to fetch more informations about ${
+            app.slug
+          } from the registry on ${channel} channel. ${err}`
+        )
+      }
+      dispatch({ type: FETCH_APP_FAILURE, error: err })
+      throw err
+    })
+  }
+}
+
 export function getFormattedRegistryApp(response, channel) {
   return cozy.client
     .fetchJSON('GET', `/registry/${response.slug}/${channel}/latest`)
@@ -253,15 +332,16 @@ export function getFormattedRegistryApp(response, channel) {
           manifest,
           {
             icon: iconData,
-            // the konnector manifest type must stay 'node'
-            // for the stack so we use appType here
+            version: versionFromRegistry,
+            source: version.source,
             type: version.type,
             categories: _sanitizeCategories(manifest.categories),
-            // add screensLinks property only if it exists
-            ...(screensLinks ? { screenshots: screensLinks } : {}),
-            installed: false,
             uninstallable: !config.notRemovableApps.includes(manifest.slug),
-            isInRegistry: true
+            isInRegistry: true,
+            // add screensLinks property only if it exists
+            ...(screensLinks ? {screenshots: screensLinks} : {}),
+            // add installed value only if not already provided
+            installed: response.installed || false
           }
         )
       })
@@ -438,10 +518,10 @@ export function installApp(slug, type, source, isUpdate = false) {
   }
 }
 
-export function installAppFromRegistry(slug, type, channel = DEFAULT_CHANNEL) {
+export function installAppFromRegistry(slug, type, channel = DEFAULT_CHANNEL, isUpdate = false) {
   return (dispatch, getState) => {
     const source = `registry://${slug}/${channel}`
-    return dispatch(installApp(slug, type, source, false))
+    return dispatch(installApp(slug, type, source, isUpdate))
   }
 }
 

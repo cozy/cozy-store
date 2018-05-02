@@ -11,6 +11,7 @@ export class InstallModal extends Component {
   constructor(props) {
     super(props)
     this.gotoParent = this.gotoParent.bind(this)
+    if (typeof props.fetchApp === 'function') props.fetchApp()
   }
 
   componentWillReceiveProps(nextProps) {
@@ -37,7 +38,7 @@ export class InstallModal extends Component {
   }
 
   render() {
-    const { app, installApp, isInstalling } = this.props
+    const { app, installApp, isInstalling, channel, isAppFetching } = this.props
     if (!app) return null
     return (
       <div className="sto-modal--install">
@@ -45,6 +46,8 @@ export class InstallModal extends Component {
           <AppInstallation
             app={app}
             installApp={installApp}
+            isFetching={isAppFetching}
+            channel={channel}
             isInstalling={isInstalling}
             onCancel={() => this.gotoParent()}
             onSuccess={app => this.onSuccess(app)}

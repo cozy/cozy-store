@@ -30,6 +30,7 @@ export class MyApplications extends Component {
       location,
       installedApps,
       isFetching,
+      isAppFetching,
       fetchError,
       actionError,
       breakpoints = {}
@@ -60,9 +61,12 @@ export class MyApplications extends Component {
         <ApplicationRouting
           installedApps={filteredApps}
           isFetching={isFetching}
+          isAppFetching={isAppFetching}
           actionError={actionError}
           installApp={this.props.installApp}
           uninstallApp={this.props.uninstallApp}
+          updateApp={this.props.updateApp}
+          fetchLatestApp={this.props.fetchLatestApp}
           parent="myapps"
         />
 

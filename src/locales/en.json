@@ -83,6 +83,8 @@
       "categories": "Categories",
       "langs": "Languages",
       "mobile_app": "Mobile Application",
+      "beta": "Get Beta",
+      "dev": "Get Dev",
       "version": {
         "title": "Version",
         "unknown": "Unknown"
