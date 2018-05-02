@@ -1,93 +1,1073 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MyApplications component should be rendered correctly with konnector permissions 1`] = `
+exports[`PermissionsList component should be rendered correctly with konnector permissions 1`] = `
 <div>
-  <ReactMarkdownWrapper
-    source="In order to improve the value of your Cozy (cozytest.mock.cc), the application Mock requires access to the following data:"
-  />
+  <h3
+    className="sto-perm-list-title"
+  >
+    <Icon
+      className="coz-inline-icon"
+      icon="test-file-stub"
+      size="24"
+      spin={false}
+    />
+    Access to your Cozy's data
+  </h3>
   <ul
     className="sto-perm-list"
   >
-    <li
-      className="io.cozy.bank.operations"
-    >
-      <ReactMarkdownWrapper
-        source="__io.cozy.bank.operations__"
-      />
-    </li>
-    <li
-      className="io.cozy.bills"
-    >
-      <ReactMarkdownWrapper
-        source="__Bills__"
-      />
-    </li>
-    <li
-      className="io.cozy.files"
-    >
-      <ReactMarkdownWrapper
-        source="__Files__"
-      />
-    </li>
-    <li
-      className="io.cozy.accounts"
-    >
-      <ReactMarkdownWrapper
-        source="__Accounts__"
-      />
-    </li>
+    <LocalizedPermission
+      app={
+        Object {
+          "categories": Array [
+            "transport",
+          ],
+          "dataType": Array [
+            "bill",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+            "url": "https://cozy.io",
+          },
+          "editor": "Cozy",
+          "fields": Object {
+            "advancedFields": Object {
+              "folderPath": Object {
+                "advanced": true,
+                "isRequired": false,
+              },
+            },
+            "login": Object {
+              "type": "text",
+            },
+            "password": Object {
+              "type": "password",
+            },
+          },
+          "icon": "https://mockcozy.cc/registry/konnector-trinlane/0.1.0/icon.svg",
+          "langs": Array [
+            "fr",
+            "en",
+          ],
+          "locales": Object {
+            "en": Object {
+              "description": "Fetch all your trainline bills",
+              "permissions": Object {
+                "accounts": Object {
+                  "description": "Required to get the account's data",
+                },
+                "bank operations": Object {
+                  "description": "Required to link bills to bank operations",
+                },
+                "bills": Object {
+                  "description": "Required to save the bills data",
+                },
+                "files": Object {
+                  "description": "Required to save the bills",
+                },
+              },
+            },
+            "fr": Object {
+              "description": "Récupère toutes vos factures Trainline",
+              "permissions": Object {
+                "accounts": Object {
+                  "description": "Utilisé pour obtenir les données du compte",
+                },
+                "bank operations": Object {
+                  "description": "Utilisé pour lier vos factures à vos opérations banquaires",
+                },
+                "bills": Object {
+                  "description": "Utilisé pour sauvegarder les données de facturation",
+                },
+                "files": Object {
+                  "description": "Utilisé pour sauvegarder les factures",
+                },
+              },
+            },
+          },
+          "name": "Trinlane",
+          "permissions": Object {
+            "accounts": Object {
+              "description": "Required to get the account's data",
+              "type": "io.cozy.accounts",
+              "verbs": Array [
+                "GET",
+              ],
+            },
+            "bank operations": Object {
+              "description": "Required to link bills to bank operations",
+              "type": "io.cozy.bank.operations",
+            },
+            "bills": Object {
+              "description": "Required to save the bills data",
+              "type": "io.cozy.bills",
+            },
+            "files": Object {
+              "description": "Required to save the bills",
+              "type": "io.cozy.files",
+            },
+          },
+          "short_description": "A konnector for trinlane",
+          "slug": "konnector-trinlane",
+          "source": "https://github.com/cozy/cozy-konnector-trinlane.git@build",
+          "type": "konnector",
+          "vendorLink": "www.trinlane.fr",
+        }
+      }
+      description="Required to link bills to bank operations"
+      name="bank operations"
+      t={[Function]}
+      type="io.cozy.bank.operations"
+    />
+    <LocalizedPermission
+      app={
+        Object {
+          "categories": Array [
+            "transport",
+          ],
+          "dataType": Array [
+            "bill",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+            "url": "https://cozy.io",
+          },
+          "editor": "Cozy",
+          "fields": Object {
+            "advancedFields": Object {
+              "folderPath": Object {
+                "advanced": true,
+                "isRequired": false,
+              },
+            },
+            "login": Object {
+              "type": "text",
+            },
+            "password": Object {
+              "type": "password",
+            },
+          },
+          "icon": "https://mockcozy.cc/registry/konnector-trinlane/0.1.0/icon.svg",
+          "langs": Array [
+            "fr",
+            "en",
+          ],
+          "locales": Object {
+            "en": Object {
+              "description": "Fetch all your trainline bills",
+              "permissions": Object {
+                "accounts": Object {
+                  "description": "Required to get the account's data",
+                },
+                "bank operations": Object {
+                  "description": "Required to link bills to bank operations",
+                },
+                "bills": Object {
+                  "description": "Required to save the bills data",
+                },
+                "files": Object {
+                  "description": "Required to save the bills",
+                },
+              },
+            },
+            "fr": Object {
+              "description": "Récupère toutes vos factures Trainline",
+              "permissions": Object {
+                "accounts": Object {
+                  "description": "Utilisé pour obtenir les données du compte",
+                },
+                "bank operations": Object {
+                  "description": "Utilisé pour lier vos factures à vos opérations banquaires",
+                },
+                "bills": Object {
+                  "description": "Utilisé pour sauvegarder les données de facturation",
+                },
+                "files": Object {
+                  "description": "Utilisé pour sauvegarder les factures",
+                },
+              },
+            },
+          },
+          "name": "Trinlane",
+          "permissions": Object {
+            "accounts": Object {
+              "description": "Required to get the account's data",
+              "type": "io.cozy.accounts",
+              "verbs": Array [
+                "GET",
+              ],
+            },
+            "bank operations": Object {
+              "description": "Required to link bills to bank operations",
+              "type": "io.cozy.bank.operations",
+            },
+            "bills": Object {
+              "description": "Required to save the bills data",
+              "type": "io.cozy.bills",
+            },
+            "files": Object {
+              "description": "Required to save the bills",
+              "type": "io.cozy.files",
+            },
+          },
+          "short_description": "A konnector for trinlane",
+          "slug": "konnector-trinlane",
+          "source": "https://github.com/cozy/cozy-konnector-trinlane.git@build",
+          "type": "konnector",
+          "vendorLink": "www.trinlane.fr",
+        }
+      }
+      description="Required to save the bills data"
+      name="bills"
+      t={[Function]}
+      type="io.cozy.bills"
+    />
+    <LocalizedPermission
+      app={
+        Object {
+          "categories": Array [
+            "transport",
+          ],
+          "dataType": Array [
+            "bill",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+            "url": "https://cozy.io",
+          },
+          "editor": "Cozy",
+          "fields": Object {
+            "advancedFields": Object {
+              "folderPath": Object {
+                "advanced": true,
+                "isRequired": false,
+              },
+            },
+            "login": Object {
+              "type": "text",
+            },
+            "password": Object {
+              "type": "password",
+            },
+          },
+          "icon": "https://mockcozy.cc/registry/konnector-trinlane/0.1.0/icon.svg",
+          "langs": Array [
+            "fr",
+            "en",
+          ],
+          "locales": Object {
+            "en": Object {
+              "description": "Fetch all your trainline bills",
+              "permissions": Object {
+                "accounts": Object {
+                  "description": "Required to get the account's data",
+                },
+                "bank operations": Object {
+                  "description": "Required to link bills to bank operations",
+                },
+                "bills": Object {
+                  "description": "Required to save the bills data",
+                },
+                "files": Object {
+                  "description": "Required to save the bills",
+                },
+              },
+            },
+            "fr": Object {
+              "description": "Récupère toutes vos factures Trainline",
+              "permissions": Object {
+                "accounts": Object {
+                  "description": "Utilisé pour obtenir les données du compte",
+                },
+                "bank operations": Object {
+                  "description": "Utilisé pour lier vos factures à vos opérations banquaires",
+                },
+                "bills": Object {
+                  "description": "Utilisé pour sauvegarder les données de facturation",
+                },
+                "files": Object {
+                  "description": "Utilisé pour sauvegarder les factures",
+                },
+              },
+            },
+          },
+          "name": "Trinlane",
+          "permissions": Object {
+            "accounts": Object {
+              "description": "Required to get the account's data",
+              "type": "io.cozy.accounts",
+              "verbs": Array [
+                "GET",
+              ],
+            },
+            "bank operations": Object {
+              "description": "Required to link bills to bank operations",
+              "type": "io.cozy.bank.operations",
+            },
+            "bills": Object {
+              "description": "Required to save the bills data",
+              "type": "io.cozy.bills",
+            },
+            "files": Object {
+              "description": "Required to save the bills",
+              "type": "io.cozy.files",
+            },
+          },
+          "short_description": "A konnector for trinlane",
+          "slug": "konnector-trinlane",
+          "source": "https://github.com/cozy/cozy-konnector-trinlane.git@build",
+          "type": "konnector",
+          "vendorLink": "www.trinlane.fr",
+        }
+      }
+      description="Required to save the bills"
+      name="files"
+      t={[Function]}
+      type="io.cozy.files"
+    />
+    <LocalizedPermission
+      app={
+        Object {
+          "categories": Array [
+            "transport",
+          ],
+          "dataType": Array [
+            "bill",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+            "url": "https://cozy.io",
+          },
+          "editor": "Cozy",
+          "fields": Object {
+            "advancedFields": Object {
+              "folderPath": Object {
+                "advanced": true,
+                "isRequired": false,
+              },
+            },
+            "login": Object {
+              "type": "text",
+            },
+            "password": Object {
+              "type": "password",
+            },
+          },
+          "icon": "https://mockcozy.cc/registry/konnector-trinlane/0.1.0/icon.svg",
+          "langs": Array [
+            "fr",
+            "en",
+          ],
+          "locales": Object {
+            "en": Object {
+              "description": "Fetch all your trainline bills",
+              "permissions": Object {
+                "accounts": Object {
+                  "description": "Required to get the account's data",
+                },
+                "bank operations": Object {
+                  "description": "Required to link bills to bank operations",
+                },
+                "bills": Object {
+                  "description": "Required to save the bills data",
+                },
+                "files": Object {
+                  "description": "Required to save the bills",
+                },
+              },
+            },
+            "fr": Object {
+              "description": "Récupère toutes vos factures Trainline",
+              "permissions": Object {
+                "accounts": Object {
+                  "description": "Utilisé pour obtenir les données du compte",
+                },
+                "bank operations": Object {
+                  "description": "Utilisé pour lier vos factures à vos opérations banquaires",
+                },
+                "bills": Object {
+                  "description": "Utilisé pour sauvegarder les données de facturation",
+                },
+                "files": Object {
+                  "description": "Utilisé pour sauvegarder les factures",
+                },
+              },
+            },
+          },
+          "name": "Trinlane",
+          "permissions": Object {
+            "accounts": Object {
+              "description": "Required to get the account's data",
+              "type": "io.cozy.accounts",
+              "verbs": Array [
+                "GET",
+              ],
+            },
+            "bank operations": Object {
+              "description": "Required to link bills to bank operations",
+              "type": "io.cozy.bank.operations",
+            },
+            "bills": Object {
+              "description": "Required to save the bills data",
+              "type": "io.cozy.bills",
+            },
+            "files": Object {
+              "description": "Required to save the bills",
+              "type": "io.cozy.files",
+            },
+          },
+          "short_description": "A konnector for trinlane",
+          "slug": "konnector-trinlane",
+          "source": "https://github.com/cozy/cozy-konnector-trinlane.git@build",
+          "type": "konnector",
+          "vendorLink": "www.trinlane.fr",
+        }
+      }
+      description="Required to get the account's data"
+      name="accounts"
+      t={[Function]}
+      type="io.cozy.accounts"
+      verbs={
+        Array [
+          "GET",
+        ]
+      }
+    />
   </ul>
 </div>
 `;
 
-exports[`MyApplications component should be rendered correctly with permissions 1`] = `
+exports[`PermissionsList component should be rendered correctly with permissions 1`] = `
 <div>
-  <ReactMarkdownWrapper
-    source="In order to improve the value of your Cozy (cozytest.mock.cc), the application Mock requires access to the following data:"
-  />
+  <h3
+    className="sto-perm-list-title"
+  >
+    <Icon
+      className="coz-inline-icon"
+      icon="test-file-stub"
+      size="24"
+      spin={false}
+    />
+    Access to your Cozy's data
+  </h3>
   <ul
     className="sto-perm-list"
   >
-    <li
-      className="io.cozy.files"
-    >
-      <ReactMarkdownWrapper
-        source="__Files__"
-      />
-    </li>
-    <li
-      className="io.cozy.apps"
-    >
-      <ReactMarkdownWrapper
-        source="__List of installed applications__"
-      />
-    </li>
-    <li
-      className="io.cozy.photos.albums"
-    >
-      <ReactMarkdownWrapper
-        source="__Photo albums__"
-      />
-    </li>
-    <li
-      className="io.cozy.contacts"
-    >
-      <ReactMarkdownWrapper
-        source="__Contacts__"
-      />
-    </li>
-    <li
-      className="io.cozy.settings"
-    >
-      <ReactMarkdownWrapper
-        source="__Settings__"
-      />
-    </li>
+    <LocalizedPermission
+      app={
+        Object {
+          "categories": Array [
+            "cozy",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+            "url": "https://cozy.io",
+          },
+          "editor": "Cozy",
+          "icon": "https://mockcozy.cc/registry/photos/3.0.0/icon.svg",
+          "langs": Array [
+            "en",
+            "fr",
+          ],
+          "licence": "AGPL-3.0",
+          "locales": Object {
+            "en": Object {
+              "changes": "### NEW!!!
+
+ Now on the cozy-store :tada",
+              "long_description": "### Features
+
+Enjoy features to grab your data in you Cozy :tada:",
+              "short_description": "Gestionnaire de photos pour Cozy v3",
+            },
+            "fr": Object {
+              "long_description": "### Photos
+
+Gestionnaire de photos pour Cozy v3 :tada:",
+              "short_description": "Gestionnaire de photos pour Cozy v3",
+            },
+          },
+          "name": "Photos",
+          "name_prefix": "Cozy",
+          "permissions": Object {
+            "albums": Object {
+              "description": "Required to manage photos albums",
+              "methods": Array [
+                "GET",
+                "POST",
+                "PUT",
+              ],
+              "type": "io.cozy.photos.albums",
+            },
+            "apps": Object {
+              "description": "Required by the cozy-bar to display the icons of the apps",
+              "type": "io.cozy.apps",
+              "verbs": Array [
+                "GET",
+              ],
+            },
+            "contacts": Object {
+              "description": "Required to to share photos with your contacts",
+              "methods": Array [
+                "GET",
+                "POST",
+              ],
+              "type": "io.cozy.contacts",
+            },
+            "files": Object {
+              "description": "Required for photo access",
+              "methods": Array [
+                "GET",
+                "POST",
+                "PUT",
+              ],
+              "type": "io.cozy.files",
+            },
+            "settings": Object {
+              "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
+              "type": "io.cozy.settings",
+              "verbs": Array [
+                "GET",
+              ],
+            },
+          },
+          "platforms": Array [
+            Object {
+              "type": "ios",
+              "url": "",
+            },
+            Object {
+              "type": "linux",
+              "url": "",
+            },
+            Object {
+              "type": "android",
+              "url": "https://mock.app",
+            },
+          ],
+          "routes": Object {
+            "/": Object {
+              "folder": "/",
+              "index": "index.html",
+              "public": false,
+            },
+            "/public": Object {
+              "folder": "/public",
+              "index": "index.html",
+              "public": true,
+            },
+          },
+          "short_description": "Photos manager for Cozy v3",
+          "slug": "photos",
+          "source": "https://github.com/cozy/cozy-drive.git@build-photos",
+          "type": "webapp",
+          "version": "3.0.0",
+        }
+      }
+      description="Required for photo access"
+      methods={
+        Array [
+          "GET",
+          "POST",
+          "PUT",
+        ]
+      }
+      name="files"
+      t={[Function]}
+      type="io.cozy.files"
+    />
+    <LocalizedPermission
+      app={
+        Object {
+          "categories": Array [
+            "cozy",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+            "url": "https://cozy.io",
+          },
+          "editor": "Cozy",
+          "icon": "https://mockcozy.cc/registry/photos/3.0.0/icon.svg",
+          "langs": Array [
+            "en",
+            "fr",
+          ],
+          "licence": "AGPL-3.0",
+          "locales": Object {
+            "en": Object {
+              "changes": "### NEW!!!
+
+ Now on the cozy-store :tada",
+              "long_description": "### Features
+
+Enjoy features to grab your data in you Cozy :tada:",
+              "short_description": "Gestionnaire de photos pour Cozy v3",
+            },
+            "fr": Object {
+              "long_description": "### Photos
+
+Gestionnaire de photos pour Cozy v3 :tada:",
+              "short_description": "Gestionnaire de photos pour Cozy v3",
+            },
+          },
+          "name": "Photos",
+          "name_prefix": "Cozy",
+          "permissions": Object {
+            "albums": Object {
+              "description": "Required to manage photos albums",
+              "methods": Array [
+                "GET",
+                "POST",
+                "PUT",
+              ],
+              "type": "io.cozy.photos.albums",
+            },
+            "apps": Object {
+              "description": "Required by the cozy-bar to display the icons of the apps",
+              "type": "io.cozy.apps",
+              "verbs": Array [
+                "GET",
+              ],
+            },
+            "contacts": Object {
+              "description": "Required to to share photos with your contacts",
+              "methods": Array [
+                "GET",
+                "POST",
+              ],
+              "type": "io.cozy.contacts",
+            },
+            "files": Object {
+              "description": "Required for photo access",
+              "methods": Array [
+                "GET",
+                "POST",
+                "PUT",
+              ],
+              "type": "io.cozy.files",
+            },
+            "settings": Object {
+              "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
+              "type": "io.cozy.settings",
+              "verbs": Array [
+                "GET",
+              ],
+            },
+          },
+          "platforms": Array [
+            Object {
+              "type": "ios",
+              "url": "",
+            },
+            Object {
+              "type": "linux",
+              "url": "",
+            },
+            Object {
+              "type": "android",
+              "url": "https://mock.app",
+            },
+          ],
+          "routes": Object {
+            "/": Object {
+              "folder": "/",
+              "index": "index.html",
+              "public": false,
+            },
+            "/public": Object {
+              "folder": "/public",
+              "index": "index.html",
+              "public": true,
+            },
+          },
+          "short_description": "Photos manager for Cozy v3",
+          "slug": "photos",
+          "source": "https://github.com/cozy/cozy-drive.git@build-photos",
+          "type": "webapp",
+          "version": "3.0.0",
+        }
+      }
+      description="Required by the cozy-bar to display the icons of the apps"
+      name="apps"
+      t={[Function]}
+      type="io.cozy.apps"
+      verbs={
+        Array [
+          "GET",
+        ]
+      }
+    />
+    <LocalizedPermission
+      app={
+        Object {
+          "categories": Array [
+            "cozy",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+            "url": "https://cozy.io",
+          },
+          "editor": "Cozy",
+          "icon": "https://mockcozy.cc/registry/photos/3.0.0/icon.svg",
+          "langs": Array [
+            "en",
+            "fr",
+          ],
+          "licence": "AGPL-3.0",
+          "locales": Object {
+            "en": Object {
+              "changes": "### NEW!!!
+
+ Now on the cozy-store :tada",
+              "long_description": "### Features
+
+Enjoy features to grab your data in you Cozy :tada:",
+              "short_description": "Gestionnaire de photos pour Cozy v3",
+            },
+            "fr": Object {
+              "long_description": "### Photos
+
+Gestionnaire de photos pour Cozy v3 :tada:",
+              "short_description": "Gestionnaire de photos pour Cozy v3",
+            },
+          },
+          "name": "Photos",
+          "name_prefix": "Cozy",
+          "permissions": Object {
+            "albums": Object {
+              "description": "Required to manage photos albums",
+              "methods": Array [
+                "GET",
+                "POST",
+                "PUT",
+              ],
+              "type": "io.cozy.photos.albums",
+            },
+            "apps": Object {
+              "description": "Required by the cozy-bar to display the icons of the apps",
+              "type": "io.cozy.apps",
+              "verbs": Array [
+                "GET",
+              ],
+            },
+            "contacts": Object {
+              "description": "Required to to share photos with your contacts",
+              "methods": Array [
+                "GET",
+                "POST",
+              ],
+              "type": "io.cozy.contacts",
+            },
+            "files": Object {
+              "description": "Required for photo access",
+              "methods": Array [
+                "GET",
+                "POST",
+                "PUT",
+              ],
+              "type": "io.cozy.files",
+            },
+            "settings": Object {
+              "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
+              "type": "io.cozy.settings",
+              "verbs": Array [
+                "GET",
+              ],
+            },
+          },
+          "platforms": Array [
+            Object {
+              "type": "ios",
+              "url": "",
+            },
+            Object {
+              "type": "linux",
+              "url": "",
+            },
+            Object {
+              "type": "android",
+              "url": "https://mock.app",
+            },
+          ],
+          "routes": Object {
+            "/": Object {
+              "folder": "/",
+              "index": "index.html",
+              "public": false,
+            },
+            "/public": Object {
+              "folder": "/public",
+              "index": "index.html",
+              "public": true,
+            },
+          },
+          "short_description": "Photos manager for Cozy v3",
+          "slug": "photos",
+          "source": "https://github.com/cozy/cozy-drive.git@build-photos",
+          "type": "webapp",
+          "version": "3.0.0",
+        }
+      }
+      description="Required to manage photos albums"
+      methods={
+        Array [
+          "GET",
+          "POST",
+          "PUT",
+        ]
+      }
+      name="albums"
+      t={[Function]}
+      type="io.cozy.photos.albums"
+    />
+    <LocalizedPermission
+      app={
+        Object {
+          "categories": Array [
+            "cozy",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+            "url": "https://cozy.io",
+          },
+          "editor": "Cozy",
+          "icon": "https://mockcozy.cc/registry/photos/3.0.0/icon.svg",
+          "langs": Array [
+            "en",
+            "fr",
+          ],
+          "licence": "AGPL-3.0",
+          "locales": Object {
+            "en": Object {
+              "changes": "### NEW!!!
+
+ Now on the cozy-store :tada",
+              "long_description": "### Features
+
+Enjoy features to grab your data in you Cozy :tada:",
+              "short_description": "Gestionnaire de photos pour Cozy v3",
+            },
+            "fr": Object {
+              "long_description": "### Photos
+
+Gestionnaire de photos pour Cozy v3 :tada:",
+              "short_description": "Gestionnaire de photos pour Cozy v3",
+            },
+          },
+          "name": "Photos",
+          "name_prefix": "Cozy",
+          "permissions": Object {
+            "albums": Object {
+              "description": "Required to manage photos albums",
+              "methods": Array [
+                "GET",
+                "POST",
+                "PUT",
+              ],
+              "type": "io.cozy.photos.albums",
+            },
+            "apps": Object {
+              "description": "Required by the cozy-bar to display the icons of the apps",
+              "type": "io.cozy.apps",
+              "verbs": Array [
+                "GET",
+              ],
+            },
+            "contacts": Object {
+              "description": "Required to to share photos with your contacts",
+              "methods": Array [
+                "GET",
+                "POST",
+              ],
+              "type": "io.cozy.contacts",
+            },
+            "files": Object {
+              "description": "Required for photo access",
+              "methods": Array [
+                "GET",
+                "POST",
+                "PUT",
+              ],
+              "type": "io.cozy.files",
+            },
+            "settings": Object {
+              "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
+              "type": "io.cozy.settings",
+              "verbs": Array [
+                "GET",
+              ],
+            },
+          },
+          "platforms": Array [
+            Object {
+              "type": "ios",
+              "url": "",
+            },
+            Object {
+              "type": "linux",
+              "url": "",
+            },
+            Object {
+              "type": "android",
+              "url": "https://mock.app",
+            },
+          ],
+          "routes": Object {
+            "/": Object {
+              "folder": "/",
+              "index": "index.html",
+              "public": false,
+            },
+            "/public": Object {
+              "folder": "/public",
+              "index": "index.html",
+              "public": true,
+            },
+          },
+          "short_description": "Photos manager for Cozy v3",
+          "slug": "photos",
+          "source": "https://github.com/cozy/cozy-drive.git@build-photos",
+          "type": "webapp",
+          "version": "3.0.0",
+        }
+      }
+      description="Required to to share photos with your contacts"
+      methods={
+        Array [
+          "GET",
+          "POST",
+        ]
+      }
+      name="contacts"
+      t={[Function]}
+      type="io.cozy.contacts"
+    />
+    <LocalizedPermission
+      app={
+        Object {
+          "categories": Array [
+            "cozy",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+            "url": "https://cozy.io",
+          },
+          "editor": "Cozy",
+          "icon": "https://mockcozy.cc/registry/photos/3.0.0/icon.svg",
+          "langs": Array [
+            "en",
+            "fr",
+          ],
+          "licence": "AGPL-3.0",
+          "locales": Object {
+            "en": Object {
+              "changes": "### NEW!!!
+
+ Now on the cozy-store :tada",
+              "long_description": "### Features
+
+Enjoy features to grab your data in you Cozy :tada:",
+              "short_description": "Gestionnaire de photos pour Cozy v3",
+            },
+            "fr": Object {
+              "long_description": "### Photos
+
+Gestionnaire de photos pour Cozy v3 :tada:",
+              "short_description": "Gestionnaire de photos pour Cozy v3",
+            },
+          },
+          "name": "Photos",
+          "name_prefix": "Cozy",
+          "permissions": Object {
+            "albums": Object {
+              "description": "Required to manage photos albums",
+              "methods": Array [
+                "GET",
+                "POST",
+                "PUT",
+              ],
+              "type": "io.cozy.photos.albums",
+            },
+            "apps": Object {
+              "description": "Required by the cozy-bar to display the icons of the apps",
+              "type": "io.cozy.apps",
+              "verbs": Array [
+                "GET",
+              ],
+            },
+            "contacts": Object {
+              "description": "Required to to share photos with your contacts",
+              "methods": Array [
+                "GET",
+                "POST",
+              ],
+              "type": "io.cozy.contacts",
+            },
+            "files": Object {
+              "description": "Required for photo access",
+              "methods": Array [
+                "GET",
+                "POST",
+                "PUT",
+              ],
+              "type": "io.cozy.files",
+            },
+            "settings": Object {
+              "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
+              "type": "io.cozy.settings",
+              "verbs": Array [
+                "GET",
+              ],
+            },
+          },
+          "platforms": Array [
+            Object {
+              "type": "ios",
+              "url": "",
+            },
+            Object {
+              "type": "linux",
+              "url": "",
+            },
+            Object {
+              "type": "android",
+              "url": "https://mock.app",
+            },
+          ],
+          "routes": Object {
+            "/": Object {
+              "folder": "/",
+              "index": "index.html",
+              "public": false,
+            },
+            "/public": Object {
+              "folder": "/public",
+              "index": "index.html",
+              "public": true,
+            },
+          },
+          "short_description": "Photos manager for Cozy v3",
+          "slug": "photos",
+          "source": "https://github.com/cozy/cozy-drive.git@build-photos",
+          "type": "webapp",
+          "version": "3.0.0",
+        }
+      }
+      description="Required by the cozy-bar to display Claudy and know which applications are coming soon"
+      name="settings"
+      t={[Function]}
+      type="io.cozy.settings"
+      verbs={
+        Array [
+          "GET",
+        ]
+      }
+    />
   </ul>
 </div>
 `;
 
-exports[`MyApplications component should be rendered correctly without permissions 1`] = `
+exports[`PermissionsList component should be rendered correctly without permissions 1`] = `
 <ReactMarkdownWrapper
   source="The application Mock doesn't require any data access to work correctly on your Cozy (cozytest.mock.cc)."
 />

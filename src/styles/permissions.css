@@ -1,4 +1,8 @@
 /* Permissions */
+.sto-perm-list-title {
+  margin-top: 0;
+}
+
 .sto-perm-list {
     padding: 0;
     list-style: none;
@@ -7,80 +11,97 @@
 .sto-perm-list li {
     list-style: none;
     display: flex;
+    margin: 1em 0
 }
 .sto-perm-list li:before {
     content: '';
     display: inline-block;
-    width: 2em;
-    margin-right: 1em;
+    width: 1em;
+    height: 1em;
+    margin-right: .42em;
     background-image: url('../assets/icons/permissions/icon-fallback.svg');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
     vertical-align: -5em;
+    font-size: 3em
 }
-.sto-perm-list li[class^="io.cozy.settings"]:before {
+
+.sto-perm-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.3em;
+  font-size: 1.125em;
+}
+
+.sto-perm-description {
+  color: var(--cool-grey);
+  font-size: .7em;
+}
+
+.sto-perm-list li[data-doctype^="io.cozy.settings"]:before {
     background-image: url('../assets/icons/permissions/icon-settings.svg');
 }
-.sto-perm-list li[class^="io.cozy.accounts"]:before {
+.sto-perm-list li[data-doctype^="io.cozy.accounts"]:before {
     background-image: url('../assets/icons/permissions/icon-accounts.svg');
 }
-.sto-perm-list li[class^="io.cozy.apps"]:before {
+.sto-perm-list li[data-doctype^="io.cozy.apps"]:before {
     background-image: url('../assets/icons/permissions/icon-apps.svg');
 }
-.sto-perm-list li[class^="io.cozy.bank.accounts"]:before {
+.sto-perm-list li[data-doctype^="io.cozy.bank.accounts"]:before {
     background-image: url('../assets/icons/permissions/icon-bank-accounts.svg');
 }
-.sto-perm-list li[class^="io.cozy.bank.groups"]:before {
+.sto-perm-list li[data-doctype^="io.cozy.bank.groups"]:before {
     background-image: url('../assets/icons/permissions/icon-bank-groups.svg');
 }
-.sto-perm-list li[class^="io.cozy.bills"]:before {
+.sto-perm-list li[data-doctype^="io.cozy.bills"]:before {
     background-image: url('../assets/icons/permissions/icon-bill.svg');
 }
-.sto-perm-list li[class^="io.cozy.files"]:before {
+.sto-perm-list li[data-doctype^="io.cozy.files"]:before {
     background-image: url('../assets/icons/permissions/icon-files.svg');
 }
-.sto-perm-list li[class^="io.cozy.konnectors"]:before {
+.sto-perm-list li[data-doctype^="io.cozy.konnectors"]:before {
     background-image: url('../assets/icons/permissions/icon-konnectors.svg');
 }
-.sto-perm-list li[class^="io.cozy.konnectors.result"]:before {
+.sto-perm-list li[data-doctype^="io.cozy.konnectors.result"]:before {
     background-image: url('../assets/icons/permissions/icon-konnectors-result.svg');
 }
-.sto-perm-list li[class^="io.cozy.photos.albums"]:before {
+.sto-perm-list li[data-doctype^="io.cozy.photos.albums"]:before {
     background-image: url('../assets/icons/permissions/icon-photos-album.svg');
 }
-.sto-perm-list li[class^="io.cozy.triggers"]:before {
+.sto-perm-list li[data-doctype^="io.cozy.triggers"]:before {
     background-image: url('../assets/icons/permissions/icon-triggers.svg');
 }
-.sto-perm-list li[class^="io.cozy.permissions"]:before {
+.sto-perm-list li[data-doctype^="io.cozy.permissions"]:before {
     background-image: url('../assets/icons/permissions/icon-permissions.svg');
 }
-.sto-perm-list li[class^="org.fing.mesinfos.client"]:before,
-.sto-perm-list li[class^="fr.maif.maifuser.societaire"]:before {
+.sto-perm-list li[data-doctype^="org.fing.mesinfos.client"]:before,
+.sto-perm-list li[data-doctype^="fr.maif.maifuser.societaire"]:before {
     background-image: url('../assets/icons/permissions/icon-profile.svg');
 }
-.sto-perm-list li[class^="org.fing.mesinfos.consumptionstatement"]:before {
+.sto-perm-list li[data-doctype^="org.fing.mesinfos.consumptionstatement"]:before {
     background-image: url('../assets/icons/permissions/icon-consumption.svg');
 }
-.sto-perm-list li[class^="org.fing.mesinfos.contract"]:before,
-.sto-perm-list li[class^="fr.maif.maifuser.contrat"]:before {
+.sto-perm-list li[data-doctype^="org.fing.mesinfos.contract"]:before,
+.sto-perm-list li[data-doctype^="fr.maif.maifuser.contrat"]:before {
     background-image: url('../assets/icons/permissions/icon-contract.svg');
 }
-.sto-perm-list li[class^="org.fing.mesinfos.energybreakdown"]:before {
+.sto-perm-list li[data-doctype^="org.fing.mesinfos.energybreakdown"]:before {
     background-image: url('../assets/icons/permissions/icon-energybreakdown.svg');
 }
-.sto-perm-list li[class^="org.fing.mesinfos.home"]:before,
-.sto-perm-list li[class^="fr.maif.maifuser.home"]:before {
+.sto-perm-list li[data-doctype^="org.fing.mesinfos.home"]:before,
+.sto-perm-list li[data-doctype^="fr.maif.maifuser.home"]:before {
     background-image: url('../assets/icons/permissions/icon-home.svg');
 }
-.sto-perm-list li[class^="org.fing.mesinfos.paymentterms"]:before,
-.sto-perm-list li[class^="fr.maif.maifuser.paymentterms"]:before {
+.sto-perm-list li[data-doctype^="org.fing.mesinfos.paymentterms"]:before,
+.sto-perm-list li[data-doctype^="fr.maif.maifuser.paymentterms"]:before {
     background-image: url('../assets/icons/permissions/icon-files-pen.svg');
 }
-.sto-perm-list li[class^="fr.maif.maifuser.foyer"]:before {
+.sto-perm-list li[data-doctype^="fr.maif.maifuser.foyer"]:before {
     background-image: url('../assets/icons/permissions/icon-family.svg');
 }
-.sto-perm-list li[class^="org.fing.mesinfos.insuranceclaim"]:before,
-.sto-perm-list li[class^="fr.maif.maifuser.sinistre"]:before {
+.sto-perm-list li[data-doctype^="org.fing.mesinfos.insuranceclaim"]:before,
+.sto-perm-list li[data-doctype^="fr.maif.maifuser.sinistre"]:before {
     background-image: url('../assets/icons/permissions/icon-sinister.svg');
 }

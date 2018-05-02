@@ -1,10 +1,9 @@
 .sto-install {
   height: 100%;
-  max-width: 32rem;
+  width: 32rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-self: center;
 }
 
 @media (max-width: 48em) {

@@ -1,3 +1,4 @@
+/* global cozy */
 import React, { Component } from 'react'
 
 import { ModalContent, ModalHeader, ModalFooter } from 'cozy-ui/react/Modal'
@@ -41,43 +42,31 @@ class AppInstallation extends Component {
     return (
       <div className="sto-install">
         <ModalHeader className="sto-install-header">
-          <div className="sto-install-header-icon" aria-busy={isFetching}>
-            <span className="sto-install-header-icon-shield" />
-          </div>
+          <h3>{t('app_modal.install.title')}</h3>
         </ModalHeader>
         <ModalContent>
-          <div className="sto-install-content">
-            {!isFetching &&
-              !fetchError && (
-                <h3>{t('app_modal.install.title', { appName })}</h3>
-              )}
-            {permissions && (
+          {permissions && (
+            <div>
+              <ReactMarkdownWrapper
+                source={t('app_modal.install.permissions.description', {
+                  cozyName: cozy.client._url.replace(/^\/\//, ''),
+                  appName: app.name
+                })}
+              />
               <PermissionsList
+                app={app}
                 permissions={app.permissions}
                 appName={appName}
               />
-            )}
-            {!isFetching &&
-              !fetchError && (
-                <div>
-                  {permissions &&
-                    !!Object.values(permissions).length && (
-                      <ReactMarkdownWrapper
-                        source={t('app_modal.install.accept_description', {
-                          appName
-                        })}
-                      />
-                    )}
-                </div>
-              )}
-            {fetchError && (
-              <p className="u-error">
-                {t('app_modal.install.message.version_error', {
-                  message: fetchError.message
-                })}
-              </p>
-            )}
-          </div>
+            </div>
+          )}
+          {fetchError && (
+            <p className="u-error">
+              {t('app_modal.install.message.version_error', {
+                message: fetchError.message
+              })}
+            </p>
+          )}
         </ModalContent>
         {!isFetching &&
           !fetchError && (

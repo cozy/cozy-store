@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Route, withRouter } from 'react-router-dom'
 
 import IntentModal from 'cozy-ui/react/IntentModal'
-
+import PermissionsModal from './PermissionsModal'
 import UninstallModal from './UninstallModal'
 import InstallModal from './InstallModal'
 import ApplicationPage from './ApplicationPage'
@@ -104,6 +104,18 @@ export class ApplicationRouting extends Component {
                   />
                 )
               }
+            }
+          }}
+        />
+        <Route
+          path={`/${parent}/:appSlug/permissions`}
+          render={({ match }) => {
+            if (isFetching) return
+            if (appsArray.length && match.params) {
+              const appSlug = match.params.appSlug
+              const app = appsArray.find(app => app.slug === appSlug)
+              if (!app) return history.push(`/${parent}`)
+              return <PermissionsModal app={app} parent={`/${parent}`} />
             }
           }}
         />

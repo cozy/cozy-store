@@ -1,29 +1,52 @@
 /* global cozy */
-
 import React from 'react'
 import { translate } from 'cozy-ui/react/I18n'
+
+import Icon from 'cozy-ui/react/Icon'
+import localAccessIcon from 'assets/icons/icon-cloud-in-cozy.svg'
 import ReactMarkdownWrapper from '../../components/ReactMarkdownWrapper'
 
-export const PermissionsList = ({ t, permissions, appName }) => {
-  const permissionsArray = Object.values(permissions).map(p => {
-    p.typeDescription = t(`doctypes.${p.type}`).replace(/^doctypes\./, '')
-    return p
-  })
-  return permissionsArray.length ? (
+const tOrNothing = (t, key, options) => {
+  const translated = t(key, options)
+  return translated === key ? '' : translated
+}
+
+export const Permission = ({ description, label, type }) => (
+  <li key={type} data-doctype={type} className="sto-perm-list-item">
+    <div className="sto-perm-label">
+      <span className="sto-perm-title">{label}</span>
+      <small className="sto-perm-description">{description}</small>
+    </div>
+  </li>
+)
+
+const LocalizedPermission = ({ app, description, label, name, t, type }) => (
+  <Permission
+    description={tOrNothing(t, `${app.slug}.permissions.${name}.description`)}
+    label={t(`doctypes.${type}`)}
+    type={type}
+  />
+)
+
+export const PermissionsList = ({ t, app }) => {
+  return app.permissions ? (
     <div>
-      <ReactMarkdownWrapper
-        source={t('app_modal.install.permissions.description', {
-          cozyName: cozy.client._url.replace(/^\/\//, ''),
-          appName
-        })}
-      />
+      <h3 className="sto-perm-list-title">
+        <Icon
+          className="coz-inline-icon"
+          icon={localAccessIcon}
+          size="24"
+        />
+        {t(`permissions.local.description`)}
+      </h3>
       <ul className="sto-perm-list">
-        {permissionsArray.map(permission => (
-          <li key={permission.type} className={permission.type}>
-            <ReactMarkdownWrapper
-              source={`__${permission.typeDescription}__`}
-            />
-          </li>
+        {Object.keys(app.permissions).map(name => (
+          <LocalizedPermission
+            {...app.permissions[name]}
+            app={app}
+            name={name}
+            t={t}
+          />
         ))}
       </ul>
     </div>
@@ -31,7 +54,7 @@ export const PermissionsList = ({ t, permissions, appName }) => {
     <ReactMarkdownWrapper
       source={t('app_modal.install.permissions.nothing', {
         cozyName: cozy.client._url.replace(/^\/\//, ''),
-        appName
+        appName: app.name
       })}
     />
   )

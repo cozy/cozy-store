@@ -48,13 +48,13 @@
       }
     },
     "install": {
-      "title": "The application %{appName} will not transmit any personal data to any third parties.",
+      "title": "Permissions before installation",
       "cancel": "Cancel",
       "install": "Install",
       "accept_description": "By electing __Install__, you accept that the application %{appName} obtains access to these data, only locally and within your Cozy, and in compliance with the terms of service and the privacy policy.",
       "permissions": {
         "nothing": "The application %{appName} doesn't require any data access to work correctly on your Cozy (%{cozyName}).",
-        "description": "In order to improve the value of your Cozy (%{cozyName}), the application %{appName} requires access to the following data:"
+        "description": "**%{appName}** would like to access to the following data:"
       },
       "message": {
         "install_success": "The application has correctly been installed.",
@@ -70,6 +70,11 @@
       "open": "Open with Collect",
       "install": "Install on my Cozy",
       "uninstall": "Uninstall"
+    },
+    "permissions": {
+      "button": {
+        "label": "Show permissions"
+      }
     },
     "webapp": {
       "open": "Open",
@@ -176,6 +181,7 @@
         "apps": "List of installed applications",
         "bank.accounts": "Banking accounts",
         "bank.groups": "Banking groups",
+        "bank.operations": "Bank operations",
         "bills": "Bills",
         "contacts": "Contacts",
         "files": "Files",
@@ -221,5 +227,11 @@
     "source_examples": "#### Source documentation: \n* `registry://`: to install an application from __the instance registries__ \n* `git://` or `git+ssh://`: to install an application from __a git repository__ \n* `http://` or `https://`: to install an application from __an http(s) server (via a tarball)__ \n#### Source examples: \n* `registry://drive/stable`, `registry://drive/beta`, or `registry://drive/dev` \n* `git://github.com/cozy/cozy-collect.git#build` \n* `https://github.com/cozy/cozy-collect/archive/v3.0.3.tar.gz` \n#### [Link to complete cozy-stack docs](https://cozy.github.io/cozy-stack/apps.html#sources)",
     "source_placeholder": "See examples above",
     "install": "Install"
+  },
+
+  "permissions": {
+    "local": {
+      "description": "Access to your Cozy's data"
+    }
   }
 }

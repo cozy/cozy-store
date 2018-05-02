@@ -17,7 +17,7 @@ export class PermissionsModal extends Component {
   render(props) {
     const { app } = props
     return (
-      <Modal secondaryAction={() => this.gotoParent()}>
+      <Modal secondaryAction={() => this.gotoParent()} mobileFullscreen>
         <ModalContent>
           <PermissionsList app={app} />
         </ModalContent>
