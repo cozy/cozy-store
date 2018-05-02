@@ -91,6 +91,7 @@ exports[`SmallAppItem component should be rendered correctly an installed app 1`
         label="Open"
         onClick={[Function]}
         size="tiny"
+        subtle={false}
         theme="secondary"
         type="submit"
       />
@@ -111,6 +112,7 @@ exports[`SmallAppItem component should be rendered correctly an installed app wi
     color="#95999D"
     height="64"
     icon="test-file-stub"
+    spin={false}
     width="48"
   />
   <div
@@ -141,6 +143,7 @@ exports[`SmallAppItem component should be rendered correctly an installed app wi
         label="Open"
         onClick={[Function]}
         size="tiny"
+        subtle={false}
         theme="secondary"
         type="submit"
       />
