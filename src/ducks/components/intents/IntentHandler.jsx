@@ -43,8 +43,11 @@ class IntentHandler extends Component {
       intent &&
       Children.toArray(children).find(child => {
         const { action, type } = child.props
-        return action === intent.action && type === intent.type
+        return (
+          action === intent.attributes.action && type === intent.attributes.type
+        )
       })
+
     return (
       <div className="coz-intent">
         {status === 'creating' && <Spinner size="xxlarge" />}
