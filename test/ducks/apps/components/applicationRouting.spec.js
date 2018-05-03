@@ -33,7 +33,7 @@ const getMockProps = (
   updateApp: jest.fn().mockName('mockUpdateApp')
 })
 
-const TOTAL_ROUTES = 4
+const TOTAL_ROUTES = 5
 
 describe('ApplicationRouting component with ApplicationPage', () => {
   it('should handle correctly if app found', () => {
@@ -296,7 +296,7 @@ describe('ApplicationRouting component with IntentModal', () => {
     const component = shallow(<ApplicationRouting {...mockProps} />)
     const routes = component.find(Route)
     expect(routes.length).toBe(TOTAL_ROUTES)
-    const routeToModal = routes.getElements()[3]
+    const routeToModal = routes.getElements()[4]
     // konnector-trinlane in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'konnector-trinlane' } } }
     const resultComponent = routeToModal.props.render(routeProps)
@@ -309,7 +309,7 @@ describe('ApplicationRouting component with IntentModal', () => {
     const component = shallow(<ApplicationRouting {...mockProps} />)
     const routes = component.find(Route)
     expect(routes.length).toBe(TOTAL_ROUTES)
-    const routeToModal = routes.getElements()[3]
+    const routeToModal = routes.getElements()[4]
     // collect in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'collect' } } }
     const resultComponent = routeToModal.props.render(routeProps)
@@ -322,7 +322,7 @@ describe('ApplicationRouting component with IntentModal', () => {
     const component = shallow(<ApplicationRouting {...mockProps} />)
     const routes = component.find(Route)
     expect(routes.length).toBe(TOTAL_ROUTES)
-    const routeToModal = routes.getElements()[3]
+    const routeToModal = routes.getElements()[4]
     // konnector-trinlane in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'mock' } } }
     const resultComponent = routeToModal.props.render(routeProps)
@@ -336,7 +336,7 @@ describe('ApplicationRouting component with IntentModal', () => {
     const component = shallow(<ApplicationRouting {...mockProps} />)
     const routes = component.find(Route)
     expect(routes.length).toBe(TOTAL_ROUTES)
-    const routeToModal = routes.getElements()[3]
+    const routeToModal = routes.getElements()[4]
     // konnector-trinlane in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'konnector-trinlane' } } }
     const resultComponent = routeToModal.props.render(routeProps)
@@ -348,7 +348,7 @@ describe('ApplicationRouting component with IntentModal', () => {
     const component = shallow(<ApplicationRouting {...mockProps} />)
     const routes = component.find(Route)
     expect(routes.length).toBe(TOTAL_ROUTES)
-    const routeToModal = routes.getElements()[3]
+    const routeToModal = routes.getElements()[4]
     // konnector-trinlane in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'konnector-trinlane' } } }
     const resultComponent = routeToModal.props.render(routeProps)

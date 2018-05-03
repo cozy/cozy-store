@@ -1,19 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Apps Containers (connected components): Discover should be rendered correctly at initial store 1`] = `
-<Wrapper
-  actionError={null}
-  apps={Array []}
-  fetchApps={[Function]}
-  fetchError={null}
-  fetchInstalledApps={[Function]}
-  fetchLatestApp={[Function]}
-  installApp={[Function]}
-  installUsingInstaller={[Function]}
-  installedApps={Array []}
-  isAppFetching={undefined}
-  isFetching={false}
-  isInstalling={false}
+<Connect(Wrapper)
+  f={undefined}
+  lang={undefined}
   store={
     Object {
       "clearActions": [Function],
@@ -24,46 +14,14 @@ exports[`Apps Containers (connected components): Discover should be rendered cor
       "subscribe": [Function],
     }
   }
-  storeSubscription={
-    Subscription {
-      "listeners": Object {
-        "clear": [Function],
-        "get": [Function],
-        "notify": [Function],
-        "subscribe": [Function],
-      },
-      "onStateChange": [Function],
-      "parentSub": undefined,
-      "store": Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "unsubscribe": [Function],
-    }
-  }
-  uninstallApp={[Function]}
-  updateApp={[Function]}
+  t={undefined}
 />
 `;
 
 exports[`Apps Containers (connected components): MyApplications should be rendered correctly at initial store 1`] = `
-<Wrapper
-  actionError={null}
-  apps={Array []}
-  fetchApps={[Function]}
-  fetchError={null}
-  fetchInstalledApps={[Function]}
-  fetchLatestApp={[Function]}
-  installApp={[Function]}
-  installUsingInstaller={[Function]}
-  installedApps={Array []}
-  isAppFetching={undefined}
-  isFetching={false}
-  isInstalling={false}
+<Connect(Wrapper)
+  f={undefined}
+  lang={undefined}
   store={
     Object {
       "clearActions": [Function],
@@ -74,28 +32,6 @@ exports[`Apps Containers (connected components): MyApplications should be render
       "subscribe": [Function],
     }
   }
-  storeSubscription={
-    Subscription {
-      "listeners": Object {
-        "clear": [Function],
-        "get": [Function],
-        "notify": [Function],
-        "subscribe": [Function],
-      },
-      "onStateChange": [Function],
-      "parentSub": undefined,
-      "store": Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "unsubscribe": [Function],
-    }
-  }
-  uninstallApp={[Function]}
-  updateApp={[Function]}
+  t={undefined}
 />
 `;

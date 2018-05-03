@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 
 import { translate } from 'cozy-ui/react/I18n'
+
+import { Button } from 'cozy-ui/react/Button'
 import Icon from 'cozy-ui/react/Icon'
 import Toggle from 'cozy-ui/react/Toggle'
 
@@ -59,7 +61,12 @@ export class Details extends Component {
     this.onUpdateChannel = this.onUpdateChannel.bind(this)
   }
 
-  toggleDisplayMore(type) {
+  onShowPermissions () {
+    const { app, parent } = this.props
+    this.props.history.push(`/${parent}/${app.slug}/permissions`)
+  }
+
+  toggleDisplayMore (type) {
     this.setState({ [`less${type}`]: false })
   }
 
@@ -260,10 +267,17 @@ export class Details extends Component {
               </div>
             </div>
           )}
+          <div>
+            <Button
+              label={t('app_page.permissions.button.label')}
+              onClick={() => this.onShowPermissions()}
+              subtle
+            />
+          </div>
         </div>
       </div>
     )
   }
 }
 
-export default translate()(withRouter(Details))
+export default withRouter(translate()(Details))

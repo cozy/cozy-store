@@ -116,6 +116,7 @@ export class ApplicationPage extends Component {
               <Gallery slug={slug} images={app.screenshots} />
             )}
           <Details
+            app={app}
             description={appLongDesc}
             changes={appChanges}
             categories={app.categories}

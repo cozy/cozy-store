@@ -62,6 +62,19 @@ exports[`ApplicationPage details component should be rendered correctly provided
         
       </div>
     </div>
+    <div>
+      <Button
+        busy={false}
+        className=""
+        disabled={false}
+        icon={null}
+        label="Show permissions"
+        onClick={[Function]}
+        subtle={true}
+        theme=""
+        type="submit"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -210,6 +223,19 @@ Enjoy features to grab your data in you Cozy :tada:"
         </a>
       </div>
     </div>
+    <div>
+      <Button
+        busy={false}
+        className=""
+        disabled={false}
+        icon={null}
+        label="Show permissions"
+        onClick={[Function]}
+        subtle={true}
+        theme=""
+        type="submit"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -291,6 +317,19 @@ exports[`ApplicationPage details component should be rendered correctly with pro
           https://cozy.io
         </a>
       </div>
+    </div>
+    <div>
+      <Button
+        busy={false}
+        className=""
+        disabled={false}
+        icon={null}
+        label="Show permissions"
+        onClick={[Function]}
+        subtle={true}
+        theme=""
+        type="submit"
+      />
     </div>
   </div>
 </div>

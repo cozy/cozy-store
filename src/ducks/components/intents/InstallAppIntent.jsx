@@ -104,12 +104,13 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  fetchApps: () => dispatch(fetchApps()),
-  fetchInstalledApps: () => dispatch(fetchInstalledApps()),
+  fetchApps: () => dispatch(fetchApps(ownProps.lang)),
+  fetchInstalledApps: () => dispatch(fetchInstalledApps(ownProps.lang)),
   installApp: (appSlug, appType, channel) =>
     dispatch(installAppFromRegistry(appSlug, appType, channel))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(
-  translate()(InstallAppIntent)
-)
+// translate last to pass the lang property to fetchApps()
+export default translate()(connect(mapStateToProps, mapDispatchToProps)(
+  InstallAppIntent
+))

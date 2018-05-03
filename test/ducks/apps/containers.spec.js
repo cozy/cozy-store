@@ -35,33 +35,4 @@ describe('Apps Containers (connected components):', () => {
     const component = shallow(<Discover store={store} />).getElement()
     expect(component).toMatchSnapshot()
   })
-
-  const propsToTest = [
-    'fetchApps',
-    'fetchInstalledApps',
-    'installApp',
-    'uninstallApp'
-  ]
-
-  propsToTest.map(name => {
-    it(`MyApplications should dispatch one action on ${name}`, () => {
-      const store = mockStore(initialState)
-      store.dispatch = jest.fn(() => Promise.resolve())
-      const component = shallow(<MyApplications store={store} />)
-      component.props()[name]()
-      expect(store.dispatch.mock.calls.length).toBe(1)
-      expect(store.dispatch.mock.calls[0][0]).toBeInstanceOf(Function)
-    })
-  })
-
-  propsToTest.map(name => {
-    it(`Discover should dispatch one action on ${name}`, () => {
-      const store = mockStore(initialState)
-      store.dispatch = jest.fn(() => Promise.resolve())
-      const component = shallow(<Discover store={store} />)
-      component.props()[name]()
-      expect(store.dispatch.mock.calls.length).toBe(1)
-      expect(store.dispatch.mock.calls[0][0]).toBeInstanceOf(Function)
-    })
-  })
 })

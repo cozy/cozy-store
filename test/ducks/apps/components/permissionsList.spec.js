@@ -14,7 +14,7 @@ import mockKonnectorVersion from '../_mockPKonnectorTrinlaneRegistryVersion'
 
 Enzyme.configure({ adapter: new Adapter() })
 
-describe('MyApplications component', () => {
+describe('PermissionsList component', () => {
   beforeAll(() => {
     // define global mock url
     global.cozy = {
@@ -28,8 +28,7 @@ describe('MyApplications component', () => {
     const component = shallow(
       <PermissionsList
         t={tMock}
-        appName="Mock"
-        permissions={mockAppVersion.manifest.permissions}
+        app={mockAppVersion.manifest}
       />
     ).getElement()
     expect(component).toMatchSnapshot()
@@ -39,8 +38,7 @@ describe('MyApplications component', () => {
     const component = shallow(
       <PermissionsList
         t={tMock}
-        appName="Mock"
-        permissions={mockKonnectorVersion.manifest.permissions}
+        app={mockKonnectorVersion.manifest}
       />
     ).getElement()
     expect(component).toMatchSnapshot()
@@ -48,7 +46,7 @@ describe('MyApplications component', () => {
 
   it('should be rendered correctly without permissions', () => {
     const component = shallow(
-      <PermissionsList t={tMock} appName="Mock" permissions={{}} />
+      <PermissionsList t={tMock} app={{ name: 'Mock' }} />
     ).getElement()
     expect(component).toMatchSnapshot()
   })

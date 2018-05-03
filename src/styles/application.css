@@ -13,6 +13,11 @@
   overflow: hidden;
 }
 
+.coz-inline-icon {
+  margin: 0 .5em 0 0;
+  vertical-align: bottom;
+}
+
 .sto-app-bar-icon {
   height: 100%;
   object-fit: contain;

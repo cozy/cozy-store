@@ -5,7 +5,7 @@ import { combineReducers } from 'redux'
 import config from 'config/apps'
 import constants from 'config/constants'
 import categories from 'config/categories'
-
+import { extend as extendI18n } from 'cozy-ui/react/I18n'
 import { NotUninstallableAppException } from '../../lib/exceptions'
 
 const APP_STATE = {
@@ -51,9 +51,15 @@ const INSTALL_APP_FAILURE = 'INSTALL_APP_FAILURE'
 export const list = (state = [], action) => {
   switch (action.type) {
     case FETCH_REGISTRY_APPS_SUCCESS:
-      return _sortAlphabetically(_consolidateApps(state, action.apps), 'slug')
+      return _sortAlphabetically(
+        _consolidateApps(state, action.apps, action.lang),
+        'slug'
+      )
     case FETCH_APPS_SUCCESS:
-      return _sortAlphabetically(_consolidateApps(state, action.apps), 'slug')
+      return _sortAlphabetically(
+        _consolidateApps(state, action.apps, action.lang),
+        'slug'
+      )
     case UNINSTALL_APP_SUCCESS:
     case INSTALL_APP_SUCCESS:
     case FETCH_APP_SUCCESS:
@@ -191,10 +197,13 @@ async function _getIcon(url) {
   return URL.createObjectURL(icon)
 }
 
-function _consolidateApps(stateApps, newAppsInfos) {
+function _consolidateApps(stateApps, newAppsInfos, lang) {
   const apps = new Map()
   stateApps.forEach(app => apps.set(app.slug, app))
   newAppsInfos.forEach(app => {
+    if (app.locales && app.locales[lang]) {
+      extendI18n({[app.slug]: app.locales[lang]})
+    }
     const appFromState = apps.get(app.slug)
     if (appFromState) {
       apps.set(app.slug, Object.assign({}, appFromState, app))
@@ -348,7 +357,7 @@ export function getFormattedRegistryApp(response, channel) {
     })
 }
 
-export function fetchInstalledApps() {
+export function fetchInstalledApps(lang) {
   return async (dispatch, getState) => {
     dispatch({ type: FETCH_APPS })
     try {
@@ -384,7 +393,7 @@ export function fetchInstalledApps() {
           return getFormattedInstalledApp(app, collectLink)
         })
       ).then(apps => {
-        return dispatch({ type: FETCH_APPS_SUCCESS, apps })
+        return dispatch({ type: FETCH_APPS_SUCCESS, apps, lang })
       })
     } catch (e) {
       dispatch({ type: FETCH_APPS_FAILURE, error: e })
@@ -393,7 +402,7 @@ export function fetchInstalledApps() {
   }
 }
 
-export function fetchRegistryApps(channel = DEFAULT_CHANNEL) {
+export function fetchRegistryApps(lang, channel = DEFAULT_CHANNEL) {
   return (dispatch, getState) => {
     dispatch({ type: FETCH_APPS })
     return cozy.client
@@ -422,7 +431,7 @@ export function fetchRegistryApps(channel = DEFAULT_CHANNEL) {
             })
           })
         ).then(apps => {
-          return dispatch({ type: FETCH_REGISTRY_APPS_SUCCESS, apps })
+          return dispatch({ type: FETCH_REGISTRY_APPS_SUCCESS, apps, lang })
         })
       })
       .catch(e => {
@@ -432,9 +441,11 @@ export function fetchRegistryApps(channel = DEFAULT_CHANNEL) {
   }
 }
 
-export function fetchApps() {
+export function fetchApps(lang) {
   return (dispatch, getState) => {
-    dispatch(fetchRegistryApps()).then(() => dispatch(fetchInstalledApps()))
+    dispatch(fetchRegistryApps(lang)).then(() =>
+      dispatch(fetchInstalledApps(lang))
+    )
   }
 }
 
