@@ -63,7 +63,7 @@ export class ApplicationRouting extends Component {
                 <InstallModal
                   installApp={app.installed ? updateApp : installApp}
                   parent={`/${parent}`}
-                  fetchApp={() => fetchLatestApp(app.slug, channel)}
+                  fetchApp={(chan) => fetchLatestApp(app.slug, chan)}
                   isAppFetching={isAppFetching}
                   installError={actionError}
                   fetchError={fetchError}

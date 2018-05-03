@@ -15,7 +15,7 @@ const { BarCenter } = cozy.bar
 export class MyApplications extends Component {
   constructor(props) {
     super(props)
-    props.fetchInstalledApps(props.lang)
+    props.fetchApps(props.lang)
 
     this.onAppClick = this.onAppClick.bind(this)
   }

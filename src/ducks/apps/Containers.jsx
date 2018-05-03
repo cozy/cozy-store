@@ -2,7 +2,6 @@ import { connect } from 'react-redux'
 
 import {
   fetchApps,
-  fetchInstalledApps,
   fetchLatestApp,
   uninstallApp,
   getInstalledApps,
@@ -28,7 +27,6 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchApps: () => dispatch(fetchApps(ownProps.lang)),
-  fetchInstalledApps: () => dispatch(fetchInstalledApps(ownProps.lang)),
   installApp: (appSlug, appType, channel) =>
     dispatch(installAppFromRegistry(appSlug, appType, channel)),
   uninstallApp: (appSlug, appType) => dispatch(uninstallApp(appSlug, appType)),

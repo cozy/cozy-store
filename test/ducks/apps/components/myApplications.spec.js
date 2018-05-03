@@ -27,7 +27,7 @@ const getMockProps = (
   match = { isExact: true },
   location = null
 ) => ({
-  fetchInstalledApps: jest.fn(),
+  fetchApps: jest.fn(),
   uninstallApp: jest.fn(),
   installedApps,
   isFetching,
