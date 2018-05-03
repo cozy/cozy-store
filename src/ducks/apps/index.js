@@ -55,6 +55,7 @@ export const list = (state = [], action) => {
         _consolidateApps(state, action.apps, action.lang),
         'slug'
       )
+    case FETCH_APP_SUCCESS:
     case FETCH_APPS_SUCCESS:
       return _sortAlphabetically(
         _consolidateApps(state, action.apps, action.lang),
@@ -62,7 +63,6 @@ export const list = (state = [], action) => {
       )
     case UNINSTALL_APP_SUCCESS:
     case INSTALL_APP_SUCCESS:
-    case FETCH_APP_SUCCESS:
       return _sortAlphabetically(action.apps, 'slug')
     default:
       return state
@@ -294,7 +294,7 @@ export function fetchLatestApp(slug, channel = DEFAULT_CHANNEL) {
       // replace the new fetched app in the apps list
       return dispatch({
         type: FETCH_APP_SUCCESS,
-        apps: getState().apps.list.map(a => a.slug === slug ? fetched : a)
+        apps: [fetched]
       })
     })
     .catch(err => {
@@ -321,6 +321,9 @@ export function getFormattedRegistryApp(response, channel) {
     .then(version => {
       // FIXME retro-compatibility for old formatted manifest
       const manifest = _sanitizeOldManifest(version.manifest)
+      // source is only used by the stack when installed
+      // so we removed it from the app manifest if present
+      if (manifest.source) delete manifest.source
 
       const versionFromRegistry = version.version
       const screensLinks =
@@ -342,7 +345,6 @@ export function getFormattedRegistryApp(response, channel) {
           {
             icon: iconData,
             version: versionFromRegistry,
-            source: version.source,
             type: version.type,
             categories: _sanitizeCategories(manifest.categories),
             uninstallable: !config.notRemovableApps.includes(manifest.slug),

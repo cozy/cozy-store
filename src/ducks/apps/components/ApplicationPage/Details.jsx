@@ -9,6 +9,7 @@ import Toggle from 'cozy-ui/react/Toggle'
 
 import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
 import { getContext, REGISTRY_CHANNELS } from 'ducks/apps'
+import getChannel from 'lib/getChannelFromSource'
 
 const isValidUrl = url => {
   if (!url) return null
@@ -33,16 +34,6 @@ const isLessButtonNeeded = (text = '') => {
   // } else {
   //   return false
   // }
-}
-
-const getChannel = source => {
-  const registrySourcePattern = /^registry:\/\/(.*)\/(.*)/
-  const matches = source && source.match(registrySourcePattern)
-  if (matches && matches.length && matches.length > 2) {
-    return matches[2]
-  } else {
-    return null
-  }
 }
 
 export class Details extends Component {
@@ -71,6 +62,8 @@ export class Details extends Component {
   }
 
   toggleChannels() {
+    const { source } = this.props
+    if (!getChannel(source)) console.warn('This application don\'t use the registry')
     if (!this.state.displayBetaChannel) {
       this.setState(state => ({ displayBetaChannel: true }))
     }

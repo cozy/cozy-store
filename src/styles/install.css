@@ -12,6 +12,16 @@
   }
 }
 
+.sto-install-loading {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.sto-install .sto-install-header {
+  padding-top: 2rem;
+}
+
 .sto-install-header-icon {
     position: relative;
     display: block;
