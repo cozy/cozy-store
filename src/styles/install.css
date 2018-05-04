@@ -11,12 +11,6 @@
   }
 }
 
-@media (min-width: 48em) {
-  .sto-install {
-    max-width: 32rem;
-  }
-}
-
 .sto-install-loading {
   display: flex;
   flex-direction: row;
