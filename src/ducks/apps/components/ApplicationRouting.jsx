@@ -136,6 +136,7 @@ export class ApplicationRouting extends Component {
                   dismissAction={goToApp}
                   onComplete={goToApp}
                   mobileFullScreen
+                  size="medium"
                 />)
               } else {
                 return goToApp()
