@@ -2433,7 +2433,6 @@ body {
 
 .sto-install {
   height: 100%;
-  width: 32rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4159,6 +4158,11 @@ iframe {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+  }
+}
+@media (min-width: 48em) {
+  .sto-install {
+    max-width: 32rem;
   }
 }
 @media (min-width: 25rem) and (max-width: 38rem) {
