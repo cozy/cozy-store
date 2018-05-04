@@ -276,6 +276,7 @@
 
 .sto-app-developer-link {
   margin-top: .5rem;
+  display: inline-table;
   text-decoration: none;
   color: var(--dodger-blue);
 }

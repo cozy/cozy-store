@@ -45,31 +45,31 @@ export class Details extends Component {
       lessDescription: isLessButtonNeeded(description),
       lessChanges: isLessButtonNeeded(changes),
       displayBetaChannel: appChannel === REGISTRY_CHANNELS.BETA,
-      displayDevChannel: appChannel=== REGISTRY_CHANNELS.DEV
+      displayDevChannel: appChannel === REGISTRY_CHANNELS.DEV
     }
 
     this.toggleChannels = this.toggleChannels.bind(this)
     this.onUpdateChannel = this.onUpdateChannel.bind(this)
   }
 
-  onShowPermissions () {
+  onShowPermissions() {
     const { app, parent } = this.props
     this.props.history.push(`/${parent}/${app.slug}/permissions`)
   }
 
-  toggleDisplayMore (type) {
+  toggleDisplayMore(type) {
     this.setState({ [`less${type}`]: false })
   }
 
   toggleChannels() {
     const { source } = this.props
-    if (!getChannel(source)) console.warn('This application don\'t use the registry')
+    if (!getChannel(source))
+      console.warn("This application don't use the registry")
     if (!this.state.displayBetaChannel) {
       this.setState(state => ({ displayBetaChannel: true }))
     }
     if (!this.state.displayDevChannel) {
-      getContext()
-      .then(context => {
+      getContext().then(context => {
         if (context && context.attributes && context.attributes.debug) {
           this.setState(state => ({ displayDevChannel: true }))
         }
@@ -180,7 +180,7 @@ export class Details extends Component {
               </span>
             </div>
           </div>
-          {(displayBetaChannel || displayDevChannel) &&
+          {(displayBetaChannel || displayDevChannel) && (
             <div className="sto-app-info">
               <div className="sto-app-info-header">
                 {t('app_page.infos.beta')}
@@ -189,12 +189,14 @@ export class Details extends Component {
                 <Toggle
                   id={`sto-app-${slug}-beta-toggle`}
                   checked={isBeta}
-                  onToggle={(e) => this.onUpdateChannel(e, REGISTRY_CHANNELS.BETA)}
+                  onToggle={e =>
+                    this.onUpdateChannel(e, REGISTRY_CHANNELS.BETA)
+                  }
                 />
               </div>
             </div>
-          }
-          {displayDevChannel &&
+          )}
+          {displayDevChannel && (
             <div className="sto-app-info">
               <div className="sto-app-info-header">
                 {t('app_page.infos.dev')}
@@ -203,11 +205,11 @@ export class Details extends Component {
                 <Toggle
                   id={`sto-app-${slug}-dev-toggle`}
                   checked={isDev}
-                  onToggle={(e) => this.onUpdateChannel(e, REGISTRY_CHANNELS.DEV)}
+                  onToggle={e => this.onUpdateChannel(e, REGISTRY_CHANNELS.DEV)}
                 />
               </div>
             </div>
-          }
+          )}
           {langsInfos && (
             <div className="sto-app-info">
               <div className="sto-app-info-header">
@@ -243,6 +245,13 @@ export class Details extends Component {
                 </div>
               </div>
             )}
+          <div>
+            <Button
+              label={t('app_page.permissions.button.label')}
+              onClick={() => this.onShowPermissions()}
+              subtle
+            />
+          </div>
           {developerName && (
             <div>
               <h3>{t('app_page.developer_infos')}</h3>
@@ -260,13 +269,6 @@ export class Details extends Component {
               </div>
             </div>
           )}
-          <div>
-            <Button
-              label={t('app_page.permissions.button.label')}
-              onClick={() => this.onShowPermissions()}
-              subtle
-            />
-          </div>
         </div>
       </div>
     )
