@@ -2530,6 +2530,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  width: 32rem;
 }
 
 .coz-intent,
@@ -4158,11 +4159,6 @@ iframe {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-  }
-}
-@media (min-width: 48em) {
-  .sto-install {
-    max-width: 32rem;
   }
 }
 @media (min-width: 25rem) and (max-width: 38rem) {
