@@ -221,6 +221,7 @@ exports[`ApplicationRouting component with IntentModal should handle correctly i
       "slug": "konnector-trinlane",
     }
   }
+  size="medium"
 />
 `;
 
