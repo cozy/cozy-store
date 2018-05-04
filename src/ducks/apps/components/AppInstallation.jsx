@@ -1,4 +1,3 @@
-/* global cozy */
 import React, { Component } from 'react'
 
 import { ModalContent, ModalHeader, ModalFooter } from 'cozy-ui/react/Modal'
@@ -58,8 +57,7 @@ class AppInstallation extends Component {
               <div>
                 <ReactMarkdownWrapper
                   source={t('app_modal.install.permissions.description', {
-                    cozyName: cozy.client._url.replace(/^\/\//, ''),
-                    appName: app.name
+                    appName
                   })}
                 />
                 <PermissionsList

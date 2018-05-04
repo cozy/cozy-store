@@ -51,9 +51,8 @@
       "title": "Permissions before installation",
       "cancel": "Cancel",
       "install": "Install",
-      "accept_description": "By electing __Install__, you accept that the application %{appName} obtains access to these data, only locally and within your Cozy, and in compliance with the terms of service and the privacy policy.",
       "permissions": {
-        "nothing": "The application %{appName} doesn't require any data access to work correctly on your Cozy (%{cozyName}).",
+        "nothing": "The application %{appName} doesn't require any data access to work correctly on your Cozy.",
         "description": "**%{appName}** would like to access to the following data:"
       },
       "message": {

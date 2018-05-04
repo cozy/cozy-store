@@ -1069,6 +1069,6 @@ Gestionnaire de photos pour Cozy v3 :tada:",
 
 exports[`PermissionsList component should be rendered correctly without permissions 1`] = `
 <ReactMarkdownWrapper
-  source="The application Mock doesn't require any data access to work correctly on your Cozy (cozytest.mock.cc)."
+  source="The application Mock doesn't require any data access to work correctly on your Cozy."
 />
 `;

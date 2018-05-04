@@ -1,4 +1,3 @@
-/* global cozy */
 import React from 'react'
 import { translate } from 'cozy-ui/react/I18n'
 
@@ -53,7 +52,6 @@ export const PermissionsList = ({ t, app }) => {
   ) : (
     <ReactMarkdownWrapper
       source={t('app_modal.install.permissions.nothing', {
-        cozyName: cozy.client._url.replace(/^\/\//, ''),
         appName: app.name
       })}
     />
