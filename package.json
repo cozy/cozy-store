@@ -3,8 +3,8 @@
   "version": "3.0.0",
   "main": "src/index.jsx",
   "scripts": {
-    "clean:browser": "rm -rf build/*",
-    "clean:mobile": "rm -rf mobile/www/*",
+    "clean:browser": "rm -rf build",
+    "clean:mobile": "rm -rf mobile/www",
     "tx": "tx pull --all || true",
     "lint": "npm-run-all --parallel 'lint:*'",
     "lint:js": "eslint '{src,test}/**/*.{js,jsx}'",
