@@ -215,12 +215,16 @@ exports[`ApplicationRouting component with IntentModal should handle correctly i
   dismissAction={[Function]}
   doctype="io.cozy.accounts"
   mobileFullScreen={true}
+  mobileFullscreen={false}
   onComplete={[Function]}
   options={
     Object {
       "slug": "konnector-trinlane",
     }
   }
+  overflowHidden={false}
+  primaryType="regular"
+  secondaryType="secondary"
   size="medium"
 />
 `;
