@@ -1,5 +1,6 @@
 {
   "name": "store",
+  "name_prefix": "Cozy",
   "slug": "app",
   "icon": "icon-store.svg",
   "editor": "Cozy",
