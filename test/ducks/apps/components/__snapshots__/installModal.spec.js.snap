@@ -5,8 +5,13 @@ exports[`InstallModal component should be rendered correctly if app found 1`] = 
   className="sto-modal--install"
 >
   <Unknown
+    closable={true}
     mobileFullscreen={true}
+    overflowHidden={false}
+    primaryType="regular"
     secondaryAction={[Function]}
+    secondaryType="secondary"
+    size="small"
   >
     <Wrapper
       app={
@@ -55,8 +60,13 @@ exports[`InstallModal component should be rendered correctly with also app in re
   className="sto-modal--install"
 >
   <Unknown
+    closable={true}
     mobileFullscreen={true}
+    overflowHidden={false}
+    primaryType="regular"
     secondaryAction={[Function]}
+    secondaryType="secondary"
+    size="small"
   >
     <Wrapper
       app={
@@ -105,8 +115,13 @@ exports[`InstallModal component should not break the permissions part if no perm
   className="sto-modal--install"
 >
   <Unknown
+    closable={true}
     mobileFullscreen={true}
+    overflowHidden={false}
+    primaryType="regular"
     secondaryAction={[Function]}
+    secondaryType="secondary"
+    size="small"
   >
     <Wrapper
       app={

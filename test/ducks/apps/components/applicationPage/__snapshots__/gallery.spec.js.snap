@@ -186,8 +186,13 @@ exports[`ApplicationPage gallery component should open a modal and handle onClos
     />
   </div>
   <Unknown
+    closable={true}
     mobileFullscreen={true}
+    overflowHidden={false}
+    primaryType="regular"
     secondaryAction={[Function]}
+    secondaryType="secondary"
+    size="small"
     title="Preview"
   >
     <ModalContent>
@@ -238,8 +243,13 @@ exports[`ApplicationPage gallery component should open a modal on image click 1`
     />
   </div>
   <Unknown
+    closable={true}
     mobileFullscreen={true}
+    overflowHidden={false}
+    primaryType="regular"
     secondaryAction={[Function]}
+    secondaryType="secondary"
+    size="small"
     title="Preview"
   >
     <ModalContent>
