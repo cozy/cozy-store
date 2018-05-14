@@ -1108,6 +1108,7 @@ body {
 }
 .c-btn--full {
   width: 100%;
+  margin: 0;
 }
 .c-btn--narrow {
   min-width: auto;
@@ -3412,6 +3413,7 @@ body {
 }
 .c-btn--1NF6Q.c-btn--full--1-5mu {
   width: 100%;
+  margin: 0;
 }
 .c-btn--1NF6Q.c-btn--narrow--1Pjmc {
   min-width: auto;

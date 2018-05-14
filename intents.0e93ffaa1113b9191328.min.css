@@ -1108,6 +1108,7 @@ body {
 }
 .c-btn--full {
   width: 100%;
+  margin: 0;
 }
 .c-btn--narrow {
   min-width: auto;
@@ -3416,6 +3417,7 @@ body {
 }
 .c-btn--1NF6Q.c-btn--full--1-5mu {
   width: 100%;
+  margin: 0;
 }
 .c-btn--1NF6Q.c-btn--narrow--1Pjmc {
   min-width: auto;
@@ -3578,6 +3580,10 @@ body {
   padding: 0.5rem 1rem;
   background-color: #f5f6f7;
   margin: 0;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 .intentHeader-title--26M1u {
   display: -webkit-box;
