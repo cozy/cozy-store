@@ -7,7 +7,6 @@ import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
 import { tMock } from '../jestLib/I18n'
-import { Button } from 'cozy-ui/react/Button'
 import { Link } from 'react-router-dom'
 import { SmallAppItem } from '../../src/ducks/components/SmallAppItem'
 
@@ -99,7 +98,7 @@ describe('SmallAppItem component', () => {
     const mockEventStopPropagation = jest.fn()
     const component = shallow(<SmallAppItem t={tMock} {...appMock2} />)
     component
-      .find(Button)
+      .find('.sto-small-app-item-button')
       .simulate('click', { stopPropagation: mockEventStopPropagation })
     expect(window.location.assign.mock.calls.length).toBe(1)
     expect(window.location.assign.mock.calls[0][0]).toBe(
