@@ -64,14 +64,10 @@ exports[`ApplicationPage details component should be rendered correctly provided
     </div>
     <div>
       <Button
-        busy={false}
-        className=""
-        disabled={false}
-        icon={null}
         label="Show permissions"
         onClick={[Function]}
         subtle={true}
-        theme=""
+        tag="button"
         type="submit"
       />
     </div>
@@ -206,14 +202,10 @@ Enjoy features to grab your data in you Cozy :tada:"
     </div>
     <div>
       <Button
-        busy={false}
-        className=""
-        disabled={false}
-        icon={null}
         label="Show permissions"
         onClick={[Function]}
         subtle={true}
-        theme=""
+        tag="button"
         type="submit"
       />
     </div>
@@ -301,14 +293,10 @@ exports[`ApplicationPage details component should be rendered correctly with pro
     </div>
     <div>
       <Button
-        busy={false}
-        className=""
-        disabled={false}
-        icon={null}
         label="Show permissions"
         onClick={[Function]}
         subtle={true}
-        theme=""
+        tag="button"
         type="submit"
       />
     </div>
