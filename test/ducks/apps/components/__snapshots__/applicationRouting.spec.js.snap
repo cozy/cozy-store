@@ -225,7 +225,7 @@ exports[`ApplicationRouting component with IntentModal should handle correctly i
   overflowHidden={false}
   primaryType="regular"
   secondaryType="secondary"
-  size="medium"
+  size="xlarge"
 />
 `;
 
