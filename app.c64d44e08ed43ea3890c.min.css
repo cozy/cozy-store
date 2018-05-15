@@ -3105,6 +3105,9 @@ body {
   top: 1rem;
   right: 1rem;
 }
+.c-modal--closable--39w_z .c-modal-header--CNyQy {
+  padding-right: 4.5rem;
+}
 .c-modal--large-spacing--2uWw9 .c-modal-close--ZBJ0A {
   top: 2.5rem;
   right: 2.5rem;
@@ -3612,16 +3615,14 @@ body {
 .c-nav-link--3aZyS.is-active--1jrB6 .c-nav-icon--23pW7 {
   color: #297ef2;
 }
-.intentModal--25jqp.intentModal--25jqp {
-  max-width: unset;
-  width: 80vw;
+.intentModal--25jqp {
   height: 80vh;
 }
-.intentModal--25jqp.intentModal--25jqp > div {
+.intentModal--25jqp > div {
   height: 100%;
   max-width: unset !important;
 }
-.intentModal__cross--1elWg.intentModal__cross--1elWg {
+.intentModal__cross--1elWg {
   top: 0.25rem;
   right: 0.5rem;
 }
@@ -4152,7 +4153,7 @@ iframe {
     top: 1.3rem;
     right: 1.5rem;
   }
-  .intentModal--25jqp.intentModal--25jqp {
+  .intentModal--25jqp {
     height: 100%;
     width: 100%;
   }
