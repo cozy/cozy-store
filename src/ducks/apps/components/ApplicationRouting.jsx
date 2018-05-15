@@ -136,6 +136,7 @@ export class ApplicationRouting extends Component {
                   dismissAction={goToApp}
                   onComplete={goToApp}
                   mobileFullScreen
+                  overflowHidden // TODO: remove when Cozy-UI will update IntentModal
                   size="xlarge"
                 />)
               } else {

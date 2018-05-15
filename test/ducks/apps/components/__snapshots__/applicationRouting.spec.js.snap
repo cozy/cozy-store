@@ -222,7 +222,7 @@ exports[`ApplicationRouting component with IntentModal should handle correctly i
       "slug": "konnector-trinlane",
     }
   }
-  overflowHidden={false}
+  overflowHidden={true}
   primaryType="regular"
   secondaryType="secondary"
   size="xlarge"
