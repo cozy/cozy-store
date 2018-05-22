@@ -4,5 +4,5 @@
       "channel": "stable"
     }
   },
-  "collect_providers": "#/providers/all"
+  "collect": "#/connected"
 }
