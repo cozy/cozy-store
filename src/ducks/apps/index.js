@@ -27,7 +27,7 @@ export const REGISTRY_CHANNELS = {
 
 const AUTHORIZED_CATEGORIES = categories
 
-const COLLECT_RELATED_PATH = constants.collect_providers
+const COLLECT_RELATED_PATH = constants.collect
 
 const DEFAULT_CHANNEL = constants.default.registry.channel
 
