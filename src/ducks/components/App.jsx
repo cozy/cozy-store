@@ -5,7 +5,6 @@ import { Route, Switch, Redirect } from 'react-router-dom'
 
 import {
   Discover,
-  HiddenInstallerView,
   MyApplications
 } from '../apps/Containers'
 
@@ -18,7 +17,6 @@ export const App = () => (
     <main className="app-content">
       <Switch>
         <Route path="/discover" component={Discover} />
-        <Route path="/install" component={HiddenInstallerView} />
         <Route path="/myapps" component={MyApplications} />
         <Redirect exact from="/" to="/discover" />
         <Redirect from="*" to="/discover" />
