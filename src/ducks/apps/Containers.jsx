@@ -6,12 +6,10 @@ import {
   uninstallApp,
   getInstalledApps,
   getRegistryApps,
-  installAppFromRegistry,
-  installApp
+  installAppFromRegistry
 } from './index'
 
 import DiscoverComponent from './components/Discover'
-import HiddenInstallerViewComponent from './components/HiddenInstallerView'
 import { translate } from 'cozy-ui/react/I18n'
 import MyApplicationsComponent from './components/MyApplications'
 
@@ -32,30 +30,12 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   uninstallApp: (appSlug, appType) => dispatch(uninstallApp(appSlug, appType)),
   updateApp: (appSlug, appType, channel) =>
     dispatch(installAppFromRegistry(appSlug, appType, channel, true)),
-  fetchLatestApp: (slug, channel) => dispatch(fetchLatestApp(slug, channel)),
-  // for the hidden installer only
-  installUsingInstaller: (appSlug, appType, source, isUpdate) =>
-    dispatch(installApp(appSlug, appType, source, isUpdate)).catch(() => {
-      dispatch({
-        type: 'SEND_LOG_FAILURE',
-        alert: {
-          message: `HiddenInstallerView.${
-            isUpdate ? 'update' : 'install'
-          }_error`,
-          messageData: { slug: appSlug },
-          level: 'error'
-        }
-      })
-    })
+  fetchLatestApp: (slug, channel) => dispatch(fetchLatestApp(slug, channel))
 })
 
 // translate last to pass the lang property to fetchApps()
 export const Discover = translate()(connect(mapStateToProps, mapDispatchToProps)(
   DiscoverComponent
-))
-
-export const HiddenInstallerView = translate()(connect(mapStateToProps, mapDispatchToProps)(
-  HiddenInstallerViewComponent
 ))
 
 export const MyApplications = translate()(connect(mapStateToProps, mapDispatchToProps)(
