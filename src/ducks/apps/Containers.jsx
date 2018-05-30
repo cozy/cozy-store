@@ -35,9 +35,15 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 
 // translate last to pass the lang property to fetchApps()
 export const Discover = translate()(
-  connect(mapStateToProps, mapDispatchToProps)(DiscoverComponent)
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(DiscoverComponent)
 )
 
 export const MyApplications = translate()(
-  connect(mapStateToProps, mapDispatchToProps)(MyApplicationsComponent)
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(MyApplicationsComponent)
 )

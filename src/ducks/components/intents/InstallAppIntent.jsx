@@ -112,5 +112,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 
 // translate last to pass the lang property to fetchApps()
 export default translate()(
-  connect(mapStateToProps, mapDispatchToProps)(InstallAppIntent)
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(InstallAppIntent)
 )
