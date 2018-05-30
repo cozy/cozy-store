@@ -14,7 +14,7 @@ const _getSortedByCategories = appsList => {
   }, {})
 }
 
-export const Sections = ({ t, lang, apps, error, onAppClick }) => {
+export const Sections = ({ t, apps, error, onAppClick }) => {
   if (error) return <p className="u-error">{error.message}</p>
   const konnectorsCategories = _getSortedByCategories(
     apps.filter(a => a.type === APP_TYPE.KONNECTOR)
@@ -34,6 +34,7 @@ export const Sections = ({ t, lang, apps, error, onAppClick }) => {
           {Object.keys(webAppsCategories).map(cat => {
             return (
               <AppsSection
+                key={cat}
                 appsList={webAppsCategories[cat]}
                 subtitle={t(`app_categories.${cat}`)}
                 onAppClick={onAppClick}
@@ -48,6 +49,7 @@ export const Sections = ({ t, lang, apps, error, onAppClick }) => {
           {categoriesList.map(cat => {
             return (
               <AppsSection
+                key={cat}
                 appsList={konnectorsCategories[cat]}
                 subtitle={t(`app_categories.${cat}`)}
                 onAppClick={onAppClick}

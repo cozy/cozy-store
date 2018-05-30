@@ -6,7 +6,7 @@ import PiwikHashRouter from '../../lib/PiwikHashRouter'
 import App from './App'
 import ScrollToTop from './ScrollToTop'
 
-const Root = ({ context, lang, store }) => {
+const Root = ({ lang, store }) => {
   return (
     <I18n lang={lang} dictRequire={lang => require(`../../locales/${lang}`)}>
       <Provider store={store}>

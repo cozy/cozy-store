@@ -4,7 +4,7 @@ import { translate } from 'cozy-ui/react/I18n'
 import Spinner from 'cozy-ui/react/Spinner'
 
 class IntentHandler extends Component {
-  constructor(props, context) {
+  constructor(props) {
     super(props)
 
     this.state = {

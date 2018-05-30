@@ -19,7 +19,7 @@ export const Permission = ({ description, label, type }) => (
   </li>
 )
 
-const LocalizedPermission = ({ app, description, label, name, t, type }) => (
+const LocalizedPermission = ({ app, name, t, type }) => (
   <Permission
     description={tOrNothing(t, `${app.slug}.permissions.${name}.description`)}
     label={t(`doctypes.${type}`)}
@@ -31,16 +31,13 @@ export const PermissionsList = ({ t, app }) => {
   return app.permissions ? (
     <div>
       <h3 className="sto-perm-list-title">
-        <Icon
-          className="coz-inline-icon"
-          icon={localAccessIcon}
-          size="24"
-        />
+        <Icon className="coz-inline-icon" icon={localAccessIcon} size="24" />
         {t(`permissions.local.description`)}
       </h3>
       <ul className="sto-perm-list">
         {Object.keys(app.permissions).map(name => (
           <LocalizedPermission
+            key={name}
             {...app.permissions[name]}
             app={app}
             name={name}

@@ -38,10 +38,7 @@ export class ApplicationRouting extends Component {
                 app => app.slug === match.params.appSlug
               )
               if (!app) return history.push(`/${parent}`)
-              return (<ApplicationPage
-                app={app}
-                parent={parent}
-              />)
+              return <ApplicationPage app={app} parent={parent} />
             }
           }}
         />
@@ -53,9 +50,11 @@ export class ApplicationRouting extends Component {
               const app = appsArray.find(
                 app => app.slug === match.params.appSlug
               )
-              if(!app || !app.isInRegistry) return history.push(`/${parent}`)
+              if (!app || !app.isInRegistry) return history.push(`/${parent}`)
               const channel = match.params.channel
-              const isChannelAvailable = Object.values(REGISTRY_CHANNELS).includes(channel)
+              const isChannelAvailable = Object.values(
+                REGISTRY_CHANNELS
+              ).includes(channel)
               if (!isChannelAvailable) {
                 return history.push(`/${parent}/${app.slug}/manage`)
               }
@@ -63,7 +62,7 @@ export class ApplicationRouting extends Component {
                 <InstallModal
                   installApp={app.installed ? updateApp : installApp}
                   parent={`/${parent}`}
-                  fetchApp={(chan) => fetchLatestApp(app.slug, chan)}
+                  fetchApp={chan => fetchLatestApp(app.slug, chan)}
                   isAppFetching={isAppFetching}
                   installError={actionError}
                   fetchError={fetchError}
@@ -129,16 +128,18 @@ export class ApplicationRouting extends Component {
               if (!app) return history.push(`/${parent}`)
               const goToApp = () => history.push(`/${parent}/${appSlug}`)
               if (app && app.installed && app.type === APP_TYPE.KONNECTOR) {
-                return (<IntentModal
-                  action="CREATE"
-                  doctype="io.cozy.accounts"
-                  options={{ slug: appSlug }}
-                  dismissAction={goToApp}
-                  onComplete={goToApp}
-                  mobileFullScreen
-                  overflowHidden // TODO: remove when Cozy-UI will update IntentModal
-                  size="xlarge"
-                />)
+                return (
+                  <IntentModal
+                    action="CREATE"
+                    doctype="io.cozy.accounts"
+                    options={{ slug: appSlug }}
+                    dismissAction={goToApp}
+                    onComplete={goToApp}
+                    mobileFullScreen
+                    overflowHidden // TODO: remove when Cozy-UI will update IntentModal
+                    size="xlarge"
+                  />
+                )
               } else {
                 return goToApp()
               }

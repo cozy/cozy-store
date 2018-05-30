@@ -202,7 +202,9 @@ describe('ApplicationRouting component with Channel install', () => {
     expect(routes.length).toBe(TOTAL_ROUTES)
     const routeToModal = routes.getElements()[1]
     // collect in mockApps is installed and isInRegistry
-    const routeProps = { match: { params: { appSlug: 'collect', channel: 'beta' } } }
+    const routeProps = {
+      match: { params: { appSlug: 'collect', channel: 'beta' } }
+    }
     const resultComponent = routeToModal.props.render(routeProps)
     expect(resultComponent).toBeDefined()
     expect(resultComponent).toMatchSnapshot()
@@ -215,7 +217,9 @@ describe('ApplicationRouting component with Channel install', () => {
     expect(routes.length).toBe(TOTAL_ROUTES)
     const routeToModal = routes.getElements()[1]
     // photos in mockApps is not installed and isInRegistry
-    const routeProps = { match: { params: { appSlug: 'photos', channel: 'beta' } } }
+    const routeProps = {
+      match: { params: { appSlug: 'photos', channel: 'beta' } }
+    }
     const resultComponent = routeToModal.props.render(routeProps)
     expect(resultComponent).toBeDefined()
     expect(resultComponent).toMatchSnapshot()
@@ -228,7 +232,9 @@ describe('ApplicationRouting component with Channel install', () => {
     const routes = component.find(Route)
     expect(routes.length).toBe(TOTAL_ROUTES)
     const routeToModal = routes.getElements()[1]
-    const routeProps = { match: { params: { appSlug: 'mock', channel: 'beta' } } }
+    const routeProps = {
+      match: { params: { appSlug: 'mock', channel: 'beta' } }
+    }
     const resultComponent = routeToModal.props.render(routeProps)
     expect(mockProps.history.push.mock.calls.length).toBe(1)
     expect(mockProps.history.push.mock.calls[0][0]).toBe(`/${parent}`)
@@ -243,7 +249,9 @@ describe('ApplicationRouting component with Channel install', () => {
     expect(routes.length).toBe(TOTAL_ROUTES)
     const routeToModal = routes.getElements()[1]
     // drive in mockApps is installed and but not isInRegistry
-    const routeProps = { match: { params: { appSlug: 'drive', channel: 'beta' } } }
+    const routeProps = {
+      match: { params: { appSlug: 'drive', channel: 'beta' } }
+    }
     const resultComponent = routeToModal.props.render(routeProps)
     expect(mockProps.history.push.mock.calls.length).toBe(1)
     expect(mockProps.history.push.mock.calls[0][0]).toBe(`/${parent}`)
@@ -258,10 +266,14 @@ describe('ApplicationRouting component with Channel install', () => {
     expect(routes.length).toBe(TOTAL_ROUTES)
     const routeToModal = routes.getElements()[1]
     // collect in mockApps is installed and isInRegistry
-    const routeProps = { match: { params: { appSlug: 'collect', channel: 'mock' } } }
+    const routeProps = {
+      match: { params: { appSlug: 'collect', channel: 'mock' } }
+    }
     const resultComponent = routeToModal.props.render(routeProps)
     expect(mockProps.history.push.mock.calls.length).toBe(1)
-    expect(mockProps.history.push.mock.calls[0][0]).toBe(`/${parent}/collect/manage`)
+    expect(mockProps.history.push.mock.calls[0][0]).toBe(
+      `/${parent}/collect/manage`
+    )
     expect(resultComponent).toBeUndefined()
   })
 
@@ -272,7 +284,9 @@ describe('ApplicationRouting component with Channel install', () => {
     expect(routes.length).toBe(TOTAL_ROUTES)
     const routeToModal = routes.getElements()[1]
     // collect in mockApps is installed and isInRegistry
-    const routeProps = { match: { params: { appSlug: 'collect', channel: 'beta' } } }
+    const routeProps = {
+      match: { params: { appSlug: 'collect', channel: 'beta' } }
+    }
     const resultComponent = routeToModal.props.render(routeProps)
     expect(resultComponent).toBeUndefined()
   })
@@ -284,7 +298,9 @@ describe('ApplicationRouting component with Channel install', () => {
     expect(routes.length).toBe(TOTAL_ROUTES)
     const routeToModal = routes.getElements()[1]
     // collect in mockApps is installed and isInRegistry
-    const routeProps = { match: { params: { appSlug: 'collect', channel: 'beta' } } }
+    const routeProps = {
+      match: { params: { appSlug: 'collect', channel: 'beta' } }
+    }
     const resultComponent = routeToModal.props.render(routeProps)
     expect(resultComponent).toBeUndefined()
   })

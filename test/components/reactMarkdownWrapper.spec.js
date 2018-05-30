@@ -30,13 +30,17 @@ describe('ReactMarkdownWrapper component', () => {
   })
   it('should have correct link renderer options', () => {
     const component = shallow(
-      <reactMarkdownRendererOptions.link href="#" children={<div />} />
+      <reactMarkdownRendererOptions.link href="#">
+        <div />
+      </reactMarkdownRendererOptions.link>
     ).getElement()
     expect(component).toMatchSnapshot()
   })
   it('should have correct heading renderer options', () => {
     const component = shallow(
-      <reactMarkdownRendererOptions.heading level="3" children="MyHeading" />
+      <reactMarkdownRendererOptions.heading level="3">
+        MyHeading
+      </reactMarkdownRendererOptions.heading>
     ).getElement()
     expect(component).toMatchSnapshot()
   })

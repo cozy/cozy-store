@@ -18,7 +18,7 @@ const isValidUrl = url => {
   )
 }
 
-const isLessButtonNeeded = (text = '') => {
+const isLessButtonNeeded = (/* text = '' */) => {
   // Temporary disbable the less behaviour
   return false
   // const screenWidth = window.innerWidth || 0
@@ -66,12 +66,12 @@ export class Details extends Component {
     if (!getChannel(source))
       console.warn("This application don't use the registry")
     if (!this.state.displayBetaChannel) {
-      this.setState(state => ({ displayBetaChannel: true }))
+      this.setState(() => ({ displayBetaChannel: true }))
     }
     if (!this.state.displayDevChannel) {
       getContext().then(context => {
         if (context && context.attributes && context.attributes.debug) {
-          this.setState(state => ({ displayDevChannel: true }))
+          this.setState(() => ({ displayDevChannel: true }))
         }
       })
     }

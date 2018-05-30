@@ -26,20 +26,14 @@ describe('PermissionsList component', () => {
 
   it('should be rendered correctly with permissions', () => {
     const component = shallow(
-      <PermissionsList
-        t={tMock}
-        app={mockAppVersion.manifest}
-      />
+      <PermissionsList t={tMock} app={mockAppVersion.manifest} />
     ).getElement()
     expect(component).toMatchSnapshot()
   })
 
   it('should be rendered correctly with konnector permissions', () => {
     const component = shallow(
-      <PermissionsList
-        t={tMock}
-        app={mockKonnectorVersion.manifest}
-      />
+      <PermissionsList t={tMock} app={mockKonnectorVersion.manifest} />
     ).getElement()
     expect(component).toMatchSnapshot()
   })

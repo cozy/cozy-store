@@ -30,7 +30,7 @@ export class ApplicationPage extends Component {
     window.removeEventListener('scroll', this.handleScroll)
   }
 
-  handleScroll(event) {
+  handleScroll() {
     if (!this.state.displayBarIcon && window.scrollY > 100) {
       this.setState(() => ({ displayBarIcon: true }))
     } else if (this.state.displayBarIcon && window.scrollY < 100) {
@@ -88,7 +88,7 @@ export class ApplicationPage extends Component {
         {isMobile &&
           icon && (
             <BarCenter>
-              <div class="sto-app-bar">
+              <div className="sto-app-bar">
                 <img
                   className={`sto-app-bar-icon ${
                     !displayBarIcon ? 'sto-app-bar-icon--hidden' : ''
