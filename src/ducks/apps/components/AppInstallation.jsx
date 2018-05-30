@@ -4,8 +4,6 @@ import { ModalContent, ModalHeader, ModalFooter } from 'cozy-ui/react/Modal'
 import Spinner from 'cozy-ui/react/Spinner'
 
 import PermissionsList from './PermissionsList'
-import ReactMarkdownWrapper from '../../components/ReactMarkdownWrapper'
-
 import { getLocalizedAppProperty } from 'ducks/apps'
 import { translate } from 'cozy-ui/react/I18n'
 
@@ -54,20 +52,7 @@ class AppInstallation extends Component {
           </ModalContent>
         ) : (
           <ModalContent>
-            {permissions && (
-              <div>
-                <ReactMarkdownWrapper
-                  source={t('app_modal.install.permissions.description', {
-                    appName
-                  })}
-                />
-                <PermissionsList
-                  app={app}
-                  permissions={app.permissions}
-                  appName={appName}
-                />
-              </div>
-            )}
+            {permissions && <PermissionsList app={app} appName={appName} />}
             {fetchError && (
               <p className="u-error">
                 {t('app_modal.install.message.version_error', {

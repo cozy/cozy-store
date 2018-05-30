@@ -48,13 +48,9 @@
       }
     },
     "install": {
-      "title": "Permissions before installation",
+      "title": "Data usage",
       "cancel": "Cancel",
       "install": "Install",
-      "permissions": {
-        "nothing": "The application %{appName} doesn't require any data access to work correctly on your Cozy.",
-        "description": "**%{appName}** would like to access to the following data:"
-      },
       "message": {
         "install_success": "The application has correctly been installed.",
         "update_success": "The application has correctly been updated.",
@@ -179,7 +175,7 @@
   "doctypes": {
     "io": {
       "cozy": {
-        "accounts": "Accounts",
+        "accounts": "Login details",
         "apps": "List of installed applications",
         "bank.accounts": "Banking accounts",
         "bank.groups": "Banking groups",
@@ -232,8 +228,14 @@
   },
 
   "permissions": {
-    "local": {
-      "description": "Access to your Cozy's data"
+    "linxo": "Display your banking accounts in your Cozy, thanks to the secured connexion to your bank by our partner Linxo ([linxo.com](https://linxo.com))",
+    "reason": "**Reason: **",
+    "developer_default": "The developer of this application",
+    "description": {
+      "only_internal": "%{name} commits to not giving the data used by the application:",
+      "internal": "%{name} commits to not giving the other data used by the application:",
+      "external": "%{name} commits to giving only the following data:",
+      "nothing": "%{appName} doesn't require any data access to work correctly on your Cozy."
     }
   }
 }
