@@ -1931,6 +1931,35 @@ body {
   height: 100%;
   background-color: rgba(41,126,242,0.05);
 }
+:root {
+  --paleGrey: #f5f6f7;
+  --silver: #d6d8da;
+  --coolGrey: #95999d;
+  --slateGrey: #5d6165;
+  --charcoalGrey: #32363f;
+  --zircon: #f1f7ff;
+  --frenchPass: #c2dcff;
+  --dodgerBlue: #297ef2;
+  --scienceBlue: #0b61d6;
+  --puertoRico: #4dcec5;
+  --emerald: #35ce68;
+  --malachite: #08b442;
+  --texasRose: #ffae5f;
+  --chablis: #fff2f2;
+  --yourPink: #fdcbcb;
+  --pomegranate: #f52d2d;
+  --monza: #dd0505;
+  --portage: #9169f2;
+  --azure: #1fa8f1;
+  --melon: #fd7461;
+  --blazeOrange: #fc6d00;
+  --mango: #ff962f;
+  --pumpkinOrange: #ff7f1b;
+  --darkPeriwinkle: #6984ce;
+  --purpley: #7f6bee;
+  --lightishPurple: #b449e7;
+  --weirdGreen: #40de8e;
+}
 .c-nav-icon {
   fill: currentColor;
 }
