@@ -3,10 +3,7 @@ import React from 'react'
 import Sidebar from './Sidebar'
 import { Route, Switch, Redirect } from 'react-router-dom'
 
-import {
-  Discover,
-  MyApplications
-} from '../apps/Containers'
+import { Discover, MyApplications } from '../apps/Containers'
 
 import Alerter from 'cozy-ui/react/Alerter'
 

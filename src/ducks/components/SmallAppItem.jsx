@@ -11,7 +11,6 @@ export const SmallAppItem = ({
   t,
   slug,
   developer,
-  editor,
   icon,
   name,
   namePrefix,

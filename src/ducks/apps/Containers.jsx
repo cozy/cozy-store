@@ -13,7 +13,7 @@ import DiscoverComponent from './components/Discover'
 import { translate } from 'cozy-ui/react/I18n'
 import MyApplicationsComponent from './components/MyApplications'
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = state => ({
   apps: getRegistryApps(state),
   installedApps: getInstalledApps(state),
   isFetching: state.apps.isFetching,
@@ -34,10 +34,10 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 })
 
 // translate last to pass the lang property to fetchApps()
-export const Discover = translate()(connect(mapStateToProps, mapDispatchToProps)(
-  DiscoverComponent
-))
+export const Discover = translate()(
+  connect(mapStateToProps, mapDispatchToProps)(DiscoverComponent)
+)
 
-export const MyApplications = translate()(connect(mapStateToProps, mapDispatchToProps)(
-  MyApplicationsComponent
-))
+export const MyApplications = translate()(
+  connect(mapStateToProps, mapDispatchToProps)(MyApplicationsComponent)
+)

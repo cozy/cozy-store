@@ -1,4 +1,5 @@
 require('babel-polyfill')
+const React = require('react')
 
 // polyfill for requestAnimationFrame
 /* istanbul ignore next */
@@ -8,6 +9,7 @@ global.requestAnimationFrame = cb => {
 
 global.cozy = {
   bar: {
+    // eslint-disable-next-line react/display-name
     BarCenter: ({ children }) => <div>{children}</div>
   }
 }

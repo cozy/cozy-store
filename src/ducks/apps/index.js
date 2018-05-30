@@ -202,7 +202,7 @@ function _consolidateApps(stateApps, newAppsInfos, lang) {
   stateApps.forEach(app => apps.set(app.slug, app))
   newAppsInfos.forEach(app => {
     if (app.locales && app.locales[lang]) {
-      extendI18n({[app.slug]: app.locales[lang]})
+      extendI18n({ [app.slug]: app.locales[lang] })
     }
     const appFromState = apps.get(app.slug)
     if (appFromState) {
@@ -236,17 +236,18 @@ let contextCache
 export function getContext() {
   return contextCache
     ? Promise.resolve(contextCache)
-    : cozy.client.fetchJSON('GET', '/settings/context')
-      .then(context => {
-        contextCache = context
-        return context
-      })
-      .catch(error => {
-        if (error.status && error.status === 404) {
-          contextCache = {}
-          return contextCache
-        }
-      })
+    : cozy.client
+        .fetchJSON('GET', '/settings/context')
+        .then(context => {
+          contextCache = context
+          return context
+        })
+        .catch(error => {
+          if (error.status && error.status === 404) {
+            contextCache = {}
+            return contextCache
+          }
+        })
 }
 
 export function getFormattedInstalledApp(response, collectLink) {
@@ -290,28 +291,28 @@ export function fetchLatestApp(slug, channel = DEFAULT_CHANNEL) {
       })
     }
     return getFormattedRegistryApp(app, channel)
-    .then(fetched => {
-      // replace the new fetched app in the apps list
-      return dispatch({
-        type: FETCH_APP_SUCCESS,
-        apps: [fetched]
+      .then(fetched => {
+        // replace the new fetched app in the apps list
+        return dispatch({
+          type: FETCH_APP_SUCCESS,
+          apps: [fetched]
+        })
       })
-    })
-    .catch(err => {
-      if (err.status === 404) {
-        console.warn(
-          `No ${channel} version found for ${app.slug} from the registry.`
-        )
-      } else {
-        console.warn(
-          `Something went wrong when trying to fetch more informations about ${
-            app.slug
-          } from the registry on ${channel} channel. ${err}`
-        )
-      }
-      dispatch({ type: FETCH_APP_FAILURE, error: err })
-      throw err
-    })
+      .catch(err => {
+        if (err.status === 404) {
+          console.warn(
+            `No ${channel} version found for ${app.slug} from the registry.`
+          )
+        } else {
+          console.warn(
+            `Something went wrong when trying to fetch more informations about ${
+              app.slug
+            } from the registry on ${channel} channel. ${err}`
+          )
+        }
+        dispatch({ type: FETCH_APP_FAILURE, error: err })
+        throw err
+      })
   }
 }
 
@@ -350,7 +351,7 @@ export function getFormattedRegistryApp(response, channel) {
             uninstallable: !config.notRemovableApps.includes(manifest.slug),
             isInRegistry: true,
             // add screensLinks property only if it exists
-            ...(screensLinks ? {screenshots: screensLinks} : {}),
+            ...(screensLinks ? { screenshots: screensLinks } : {}),
             // add installed value only if not already provided
             installed: response.installed || false
           }
@@ -360,7 +361,7 @@ export function getFormattedRegistryApp(response, channel) {
 }
 
 export function fetchInstalledApps(lang) {
-  return async (dispatch, getState) => {
+  return async dispatch => {
     dispatch({ type: FETCH_APPS })
     try {
       let installedWebApps = await cozy.client.fetchJSON('GET', '/apps/')
@@ -405,7 +406,7 @@ export function fetchInstalledApps(lang) {
 }
 
 export function fetchRegistryApps(lang, channel = DEFAULT_CHANNEL) {
-  return (dispatch, getState) => {
+  return dispatch => {
     dispatch({ type: FETCH_APPS })
     return cozy.client
       .fetchJSON('GET', '/registry')
@@ -444,7 +445,7 @@ export function fetchRegistryApps(lang, channel = DEFAULT_CHANNEL) {
 }
 
 export function fetchApps(lang) {
-  return (dispatch, getState) => {
+  return dispatch => {
     dispatch(fetchRegistryApps(lang)).then(() =>
       dispatch(fetchInstalledApps(lang))
     )
@@ -531,8 +532,13 @@ export function installApp(slug, type, source, isUpdate = false) {
   }
 }
 
-export function installAppFromRegistry(slug, type, channel = DEFAULT_CHANNEL, isUpdate = false) {
-  return (dispatch, getState) => {
+export function installAppFromRegistry(
+  slug,
+  type,
+  channel = DEFAULT_CHANNEL,
+  isUpdate = false
+) {
+  return dispatch => {
     const source = `registry://${slug}/${channel}`
     return dispatch(installApp(slug, type, source, isUpdate))
   }
