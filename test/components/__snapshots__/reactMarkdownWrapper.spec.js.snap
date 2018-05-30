@@ -2,8 +2,11 @@
 
 exports[`ReactMarkdownWrapper component should be rendered correctly 1`] = `
 <ReactMarkdown
+  astPlugins={Array []}
   className={undefined}
   escapeHtml={false}
+  plugins={Array []}
+  rawSourcePos={false}
   renderers={
     Object {
       "heading": [Function],
@@ -12,14 +15,18 @@ exports[`ReactMarkdownWrapper component should be rendered correctly 1`] = `
   }
   skipHtml={false}
   source="Test [link]() __strong__"
+  sourcePos={false}
   transformLinkUri={[Function]}
 />
 `;
 
 exports[`ReactMarkdownWrapper component should handle correctly markdown with emojis 1`] = `
 <ReactMarkdown
+  astPlugins={Array []}
   className={undefined}
   escapeHtml={false}
+  plugins={Array []}
+  rawSourcePos={false}
   renderers={
     Object {
       "heading": [Function],
@@ -30,6 +37,7 @@ exports[`ReactMarkdownWrapper component should handle correctly markdown with em
   source="### Heading 3
 
 This is a \`test\` <img src=\\"/emoji-data/img-apple-64/1f389.png\\" class=\\"emoji\\" data-codepoints=\\"1f389\\" />"
+  sourcePos={false}
   transformLinkUri={[Function]}
 />
 `;
