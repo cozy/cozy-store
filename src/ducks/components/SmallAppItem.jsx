@@ -56,9 +56,7 @@ export const SmallAppItem = ({
           <h4 className="sto-small-app-item-title">
             {namePrefix ? `${namePrefix} ${name}` : name}
           </h4>
-          <p className="sto-small-app-item-detail">
-            {developer.name === 'Cozy' ? 'Cozy Cloud Inc.' : developer.name}
-          </p>
+          <p className="sto-small-app-item-detail">{developer.name}</p>
         </div>
         <div className="sto-small-app-item-buttons">
           {installed ? (

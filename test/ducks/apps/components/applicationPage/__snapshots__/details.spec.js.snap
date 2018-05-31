@@ -215,7 +215,7 @@ Enjoy features to grab your data in you Cozy :tada:"
         className="sto-app-developer-infos"
       >
         <span>
-          Cozy Cloud Inc.
+          Cozy
         </span>
         <a
           className="sto-app-developer-link"
@@ -306,7 +306,7 @@ exports[`ApplicationPage details component should be rendered correctly with pro
         className="sto-app-developer-infos"
       >
         <span>
-          Cozy Cloud Inc.
+          Cozy
         </span>
         <a
           className="sto-app-developer-link"
