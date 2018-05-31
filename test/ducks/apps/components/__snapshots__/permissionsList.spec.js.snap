@@ -10,6 +10,7 @@ exports[`PermissionsList component should be rendered correctly with konnector p
   >
     <Icon
       className="sto-perm-list-icon"
+      color="#35CE68"
       icon="test-file-stub"
       size="24"
       spin={false}
@@ -68,6 +69,7 @@ exports[`PermissionsList component should be rendered correctly with permissions
   >
     <Icon
       className="sto-perm-list-icon"
+      color="#35CE68"
       icon="test-file-stub"
       size="24"
       spin={false}
