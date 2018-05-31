@@ -76,7 +76,7 @@
     },
     "webapp": {
       "open": "Open",
-      "install": "Install on my Cozy",
+      "install": "Install",
       "uninstall": "Uninstall"
     },
     "description": "Description",
