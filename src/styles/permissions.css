@@ -80,8 +80,20 @@
 .sto-perm-title[data-doctype^="io.cozy.bank.groups"]:before {
   background-image: url('../assets/icons/permissions/icon-bank-groups.svg');
 }
+.sto-perm-title[data-doctype^="io.cozy.bank.operations"]:before {
+  background-image: url('../assets/icons/permissions/icon-bank-operations.svg');
+}
+.sto-perm-title[data-doctype^="io.cozy.bank.settings"]:before {
+  background-image: url('../assets/icons/permissions/icon-settings.svg');
+}
 .sto-perm-title[data-doctype^="io.cozy.bills"]:before {
   background-image: url('../assets/icons/permissions/icon-bill.svg');
+}
+.sto-perm-title[data-doctype^="io.cozy.contacts"]:before {
+  background-image: url('../assets/icons/permissions/icon-contacts.svg');
+}
+.sto-perm-title[data-doctype^="io.cozy.contacts.groups"]:before {
+  background-image: url('../assets/icons/permissions/icon-contacts-groups.svg');
 }
 .sto-perm-title[data-doctype^="io.cozy.files"]:before {
   background-image: url('../assets/icons/permissions/icon-files.svg');
@@ -92,8 +104,17 @@
 .sto-perm-title[data-doctype^="io.cozy.konnectors.result"]:before {
   background-image: url('../assets/icons/permissions/icon-konnectors-result.svg');
 }
+.sto-perm-title[data-doctype^="io.cozy.notifications"]:before {
+  background-image: url('../assets/icons/permissions/icon-notifications.svg');
+}
+.sto-perm-title[data-doctype^="io.cozy.oauth.clients"]:before {
+  background-image: url('../assets/icons/permissions/icon-connected-clients.svg');
+}
 .sto-perm-title[data-doctype^="io.cozy.photos.albums"]:before {
   background-image: url('../assets/icons/permissions/icon-photos-album.svg');
+}
+.sto-perm-title[data-doctype^="io.cozy.jobs"]:before {
+  background-image: url('../assets/icons/permissions/icon-task-to-effectuate.svg');
 }
 .sto-perm-title[data-doctype^="io.cozy.triggers"]:before {
   background-image: url('../assets/icons/permissions/icon-triggers.svg');
