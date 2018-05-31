@@ -2,8 +2,6 @@
 
 exports[`Apps Containers (connected components): Discover should be rendered correctly at initial store 1`] = `
 <Connect(Wrapper)
-  f={undefined}
-  lang={undefined}
   store={
     Object {
       "clearActions": [Function],
@@ -14,14 +12,11 @@ exports[`Apps Containers (connected components): Discover should be rendered cor
       "subscribe": [Function],
     }
   }
-  t={undefined}
 />
 `;
 
 exports[`Apps Containers (connected components): MyApplications should be rendered correctly at initial store 1`] = `
 <Connect(Wrapper)
-  f={undefined}
-  lang={undefined}
   store={
     Object {
       "clearActions": [Function],
@@ -32,6 +27,5 @@ exports[`Apps Containers (connected components): MyApplications should be render
       "subscribe": [Function],
     }
   }
-  t={undefined}
 />
 `;

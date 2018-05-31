@@ -157,11 +157,7 @@ exports[`ApplicationRouting component with Channel install should handle correct
   }
   channel="beta"
   fetchApp={[Function]}
-  fetchError={undefined}
   installApp={[MockFunction mockUpdateApp]}
-  installError={undefined}
-  isAppFetching={undefined}
-  isInstalling={undefined}
   parent="/discover"
 />
 `;
@@ -199,11 +195,7 @@ exports[`ApplicationRouting component with Channel install should render correct
   }
   channel="beta"
   fetchApp={[Function]}
-  fetchError={undefined}
   installApp={[MockFunction mockInstallApp]}
-  installError={undefined}
-  isAppFetching={undefined}
-  isInstalling={undefined}
   parent="/discover"
 />
 `;
@@ -280,7 +272,6 @@ exports[`ApplicationRouting component with Modal should handle correctly if inst
   }
   parent="/myapps"
   uninstallApp={[MockFunction mockUninstallApp]}
-  uninstallError={undefined}
 />
 `;
 
@@ -335,7 +326,6 @@ exports[`ApplicationRouting component with Modal should render correctly if apps
   }
   parent="/myapps"
   uninstallApp={[MockFunction mockUninstallApp]}
-  uninstallError={undefined}
 />
 `;
 
@@ -371,8 +361,6 @@ exports[`ApplicationRouting component with Modal should render correctly if unin
     }
   }
   installApp={[MockFunction mockInstallApp]}
-  installError={undefined}
-  isInstalling={undefined}
   parent="/myapps"
 />
 `;
