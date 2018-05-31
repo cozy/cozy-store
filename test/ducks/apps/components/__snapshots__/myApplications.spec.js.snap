@@ -130,8 +130,6 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
   </div>
   <withRouter(ApplicationRouting)
     actionError={null}
-    fetchLatestApp={undefined}
-    installApp={undefined}
     installedApps={
       Array [
         Object {
@@ -246,11 +244,9 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
         },
       ]
     }
-    isAppFetching={undefined}
     isFetching={false}
     parent="myapps"
     uninstallApp={[MockFunction]}
-    updateApp={undefined}
   />
 </div>
 `;
@@ -348,8 +344,6 @@ exports[`MyApplications component should be rendered correctly with apps and URL
   </div>
   <withRouter(ApplicationRouting)
     actionError={null}
-    fetchLatestApp={undefined}
-    installApp={undefined}
     installedApps={
       Array [
         Object {
@@ -427,11 +421,9 @@ exports[`MyApplications component should be rendered correctly with apps and URL
         },
       ]
     }
-    isAppFetching={undefined}
     isFetching={false}
     parent="myapps"
     uninstallApp={[MockFunction]}
-    updateApp={undefined}
   />
 </div>
 `;
@@ -453,14 +445,10 @@ exports[`MyApplications component should display error from props correctly 1`] 
   </div>
   <withRouter(ApplicationRouting)
     actionError={null}
-    fetchLatestApp={undefined}
-    installApp={undefined}
     installedApps={Array []}
-    isAppFetching={undefined}
     isFetching={false}
     parent="myapps"
     uninstallApp={[MockFunction]}
-    updateApp={undefined}
   />
 </div>
 `;
@@ -476,14 +464,10 @@ exports[`MyApplications component should render correctly a spinner if apps is f
   </div>
   <withRouter(ApplicationRouting)
     actionError={null}
-    fetchLatestApp={undefined}
-    installApp={undefined}
     installedApps={Array []}
-    isAppFetching={undefined}
     isFetching={true}
     parent="myapps"
     uninstallApp={[MockFunction]}
-    updateApp={undefined}
   />
   <Wrapper
     loadingType="appsFetching"
@@ -499,8 +483,6 @@ exports[`MyApplications component should render only routing if path not exactly
 >
   <withRouter(ApplicationRouting)
     actionError={null}
-    fetchLatestApp={undefined}
-    installApp={undefined}
     installedApps={
       Array [
         Object {
@@ -615,11 +597,9 @@ exports[`MyApplications component should render only routing if path not exactly
         },
       ]
     }
-    isAppFetching={undefined}
     isFetching={false}
     parent="myapps"
     uninstallApp={[MockFunction]}
-    updateApp={undefined}
   />
 </div>
 `;
@@ -761,8 +741,6 @@ exports[`MyApplications component should use BarCenter from cozy-bar in mobile v
   </div>
   <withRouter(ApplicationRouting)
     actionError={null}
-    fetchLatestApp={undefined}
-    installApp={undefined}
     installedApps={
       Array [
         Object {
@@ -877,11 +855,9 @@ exports[`MyApplications component should use BarCenter from cozy-bar in mobile v
         },
       ]
     }
-    isAppFetching={undefined}
     isFetching={false}
     parent="myapps"
     uninstallApp={[MockFunction]}
-    updateApp={undefined}
   />
 </div>
 `;

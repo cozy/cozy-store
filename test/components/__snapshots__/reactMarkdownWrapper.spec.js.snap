@@ -3,7 +3,6 @@
 exports[`ReactMarkdownWrapper component should be rendered correctly 1`] = `
 <ReactMarkdown
   astPlugins={Array []}
-  className={undefined}
   escapeHtml={false}
   plugins={Array []}
   rawSourcePos={false}
@@ -23,7 +22,6 @@ exports[`ReactMarkdownWrapper component should be rendered correctly 1`] = `
 exports[`ReactMarkdownWrapper component should handle correctly markdown with emojis 1`] = `
 <ReactMarkdown
   astPlugins={Array []}
-  className={undefined}
   escapeHtml={false}
   plugins={Array []}
   rawSourcePos={false}

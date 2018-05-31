@@ -338,14 +338,8 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
         },
       ]
     }
-    fetchLatestApp={undefined}
-    installApp={undefined}
-    isAppFetching={undefined}
     isFetching={false}
-    isInstalling={undefined}
     parent="discover"
-    uninstallApp={undefined}
-    updateApp={undefined}
   />
 </div>
 `;
@@ -518,14 +512,8 @@ exports[`Discover component should be rendered correctly with apps and URL searc
         },
       ]
     }
-    fetchLatestApp={undefined}
-    installApp={undefined}
-    isAppFetching={undefined}
     isFetching={false}
-    isInstalling={undefined}
     parent="discover"
-    uninstallApp={undefined}
-    updateApp={undefined}
   />
 </div>
 `;
@@ -548,14 +536,8 @@ exports[`Discover component should display error from props correctly 1`] = `
   <withRouter(ApplicationRouting)
     actionError={null}
     apps={Array []}
-    fetchLatestApp={undefined}
-    installApp={undefined}
-    isAppFetching={undefined}
     isFetching={false}
-    isInstalling={undefined}
     parent="discover"
-    uninstallApp={undefined}
-    updateApp={undefined}
   />
 </div>
 `;
@@ -727,14 +709,8 @@ exports[`Discover component should not render apps list if !match.isExact 1`] = 
         },
       ]
     }
-    fetchLatestApp={undefined}
-    installApp={undefined}
-    isAppFetching={undefined}
     isFetching={false}
-    isInstalling={undefined}
     parent="discover"
-    uninstallApp={undefined}
-    updateApp={undefined}
   />
 </div>
 `;
@@ -751,14 +727,8 @@ exports[`Discover component should render correctly a spinner if apps is fetchin
   <withRouter(ApplicationRouting)
     actionError={null}
     apps={Array []}
-    fetchLatestApp={undefined}
-    installApp={undefined}
-    isAppFetching={undefined}
     isFetching={true}
-    isInstalling={undefined}
     parent="discover"
-    uninstallApp={undefined}
-    updateApp={undefined}
   />
   <Wrapper
     loadingType="appsFetching"
@@ -1113,14 +1083,8 @@ exports[`Discover component should use BarCenter from cozy-bar in mobile view on
         },
       ]
     }
-    fetchLatestApp={undefined}
-    installApp={undefined}
-    isAppFetching={undefined}
     isFetching={false}
-    isInstalling={undefined}
     parent="discover"
-    uninstallApp={undefined}
-    updateApp={undefined}
   />
 </div>
 `;

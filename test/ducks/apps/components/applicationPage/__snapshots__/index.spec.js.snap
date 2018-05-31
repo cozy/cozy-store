@@ -182,9 +182,7 @@ exports[`ApplicationPage component should be rendered correctly with konnector i
       description="A konnector for trinlane"
       icon="https://mockcozy.cc/registry/konnector-trinlane/icon"
       installed={false}
-      installedAppLink={undefined}
       name="Trinlane"
-      namePrefix={undefined}
       parent="/myapps"
       slug="konnector-trinlane"
       type="konnector"
@@ -293,8 +291,6 @@ exports[`ApplicationPage component should be rendered correctly with konnector i
           "transport",
         ]
       }
-      changes={undefined}
-      description={undefined}
       developer={
         Object {
           "name": "Cozy",
@@ -307,11 +303,9 @@ exports[`ApplicationPage component should be rendered correctly with konnector i
           "en",
         ]
       }
-      mobileApps={undefined}
       parent="/myapps"
       slug="konnector-trinlane"
       source="https://github.com/cozy/cozy-konnector-trinlane.git@build"
-      version={undefined}
     />
   </div>
 </div>
@@ -499,9 +493,7 @@ exports[`ApplicationPage component should be rendered correctly with provided in
       description="A konnector for trinlane"
       icon="https://mockcozy.cc/registry/konnector-trinlane/icon"
       installed={true}
-      installedAppLink={undefined}
       name="Trinlane"
-      namePrefix={undefined}
       parent="/myapps"
       slug="konnector-trinlane"
       type="konnector"
@@ -610,8 +602,6 @@ exports[`ApplicationPage component should be rendered correctly with provided in
           "transport",
         ]
       }
-      changes={undefined}
-      description={undefined}
       developer={
         Object {
           "name": "Cozy",
@@ -624,11 +614,9 @@ exports[`ApplicationPage component should be rendered correctly with provided in
           "en",
         ]
       }
-      mobileApps={undefined}
       parent="/myapps"
       slug="konnector-trinlane"
       source="https://github.com/cozy/cozy-konnector-trinlane.git@build"
-      version={undefined}
     />
   </div>
 </div>
