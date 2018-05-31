@@ -470,6 +470,7 @@ exports[`MyApplications component should render correctly a spinner if apps is f
     uninstallApp={[MockFunction]}
   />
   <Wrapper
+    className="sto-view-loading"
     loadingType="appsFetching"
     middle={true}
     size="xxlarge"

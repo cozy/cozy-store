@@ -731,6 +731,7 @@ exports[`Discover component should render correctly a spinner if apps is fetchin
     parent="discover"
   />
   <Wrapper
+    className="sto-view-loading"
     loadingType="appsFetching"
     middle={true}
     size="xxlarge"
