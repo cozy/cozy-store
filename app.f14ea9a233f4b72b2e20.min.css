@@ -2788,13 +2788,8 @@ body {
   -webkit-filter: blur(2px);
           filter: blur(2px);
 }
-html,
-body {
-  height: 100% !important;
-}
-.o-layout--2panes {
-  height: 100% !important;
-  position: relative;
+.sto-view-loading {
+  top: 45vh !important;
 }
 .c-spinner--blue--3iyo3:before,
 .c-spinner--grey--1uLdj:before,
@@ -4225,10 +4220,5 @@ iframe {
   .sto-small-app-item {
     -ms-flex-preferred-size: calc(16.666% - var(--item-margin) * 2);
     flex-basis: calc(16.666% - var(--item-margin) * 2);
-  }
-}
-@media (max-width: 64rem) {
-  .o-layout--2panes main {
-    height: calc(100% - 3rem - 3rem);
   }
 }
