@@ -45,7 +45,7 @@
   },
   "homepage": "https://github.com/cozy/cozy-store#readme",
   "devDependencies": {
-    "babel-core": "6.26.0",
+    "babel-core": "6.26.3",
     "babel-jest": "23.0.1",
     "babel-polyfill": "6.26.0",
     "babel-preset-cozy-app": "0.8.0",
