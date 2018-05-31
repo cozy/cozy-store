@@ -63,6 +63,10 @@
   background-position: top center;
   background-repeat: no-repeat;
   background-size: contain;
+  /* grayscale */
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray;
 }
 
 .sto-perm-title[data-doctype^="io.cozy.settings"]:before {
