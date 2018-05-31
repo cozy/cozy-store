@@ -26,6 +26,19 @@
       <path fill="#FFFFFF" fill-rule="nonzero" d="M5.29194944,13.7099466 C4.89985674,13.3178539 4.9055206,12.6764822 5.29194944,12.2900534 L11.8720562,5.70994663 C12.2641489,5.31785393 13.0350391,5 13.5790329,5 L19.5849727,5 C20.1356172,5 20.5820028,5.45303631 20.5820028,5.99703014 L20.5820028,12.0029699 C20.5820028,12.5536144 20.258485,13.3235178 19.8720562,13.7099466 L13.2919494,20.2900534 C12.8998567,20.6821461 12.258485,20.6764822 11.8720562,20.2900534 L5.29194944,13.7099466 Z M16.5800018,11 C17.6845713,11 18.5800018,10.1045695 18.5800018,9 C18.5800018,7.8954305 17.6845713,7 16.5800018,7 C15.4754323,7 14.5800018,7.8954305 14.5800018,9 C14.5800018,10.1045695 15.4754323,11 16.5800018,11 Z" transform="matrix(-1 0 0 1 25.582 0)" />
     </g>
   </g>
+</symbol><symbol viewBox="0 0 48 48" id="icon-bank-operations">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-bank-operations</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="icon-bank-operations_data-type" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-bank-operations_icon-bank-operations">
+            <g id="icon-bank-operations_icon-euro" fill="#B5EDBD" fill-rule="nonzero">
+                <path d="M24,0 C10.766,0 0,10.766 0,24 C0,37.232 10.766,48 24,48 C37.232,48 48,37.232 48,24 C48,10.766 37.232,0 24,0 Z" id="icon-bank-operations_Shape" />
+            </g>
+            <path d="M33.9326923,16.3756906 C32.1490385,13.8563536 29.8269231,12 25.7211538,12 C20.9423077,12 17.5096154,15.2154696 16.1634615,19.6906077 L13,19.6906077 L13,22.5082873 L15.625,22.5082873 C15.5576923,23.0055249 15.5576923,23.5359116 15.5576923,24.0331492 C15.5576923,24.4640884 15.5576923,24.8950276 15.5913462,25.2928177 L13,25.2928177 L13,28.1436464 L16.0625,28.1436464 C17.375,32.8508287 20.875,36 25.8557692,36 C29.6923077,36 32.0817308,34.0773481 34,31.3259669 L31.0384615,29.1712707 C29.4903846,31.1933702 28.1442308,32.3535912 25.8894231,32.3535912 C23.2644231,32.3535912 21.3461538,30.7624309 20.4038462,28.1436464 L27.6730769,28.1436464 L27.6730769,25.2928177 L19.7644231,25.2928177 C19.7307692,24.8618785 19.7307692,24.4309392 19.7307692,23.9668508 C19.7307692,23.4696133 19.7307692,22.9723757 19.7980769,22.5082873 L27.6730769,22.5082873 L27.6730769,19.6906077 L20.4375,19.6906077 C21.3798077,17.2044199 23.2307692,15.6464088 25.6201923,15.6464088 C27.9759615,15.6464088 29.3557692,16.7071823 30.8028846,18.6629834 L33.9326923,16.3756906 Z" id="icon-bank-operations_icon-euro" fill="#1EC737" />
+        </g>
+    </g>
 </symbol><symbol viewBox="0 0 48 48" id="icon-bill">
   <g fill="none" fill-rule="evenodd" transform="translate(-480 -192)">
     <g transform="translate(487 193)">
@@ -35,6 +48,19 @@
       <path stroke="#35CE68" stroke-width="2" d="M6 21L28 21M6 27L28 27M6 33L28 33M13 16L13 40" stroke-linecap="round" stroke-linejoin="round" />
     </g>
   </g>
+</symbol><symbol viewBox="0 0 48 48" id="icon-connected-clients">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-connected-clients</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="icon-connected-clients_icon-connected-clients" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-connected-clients_icon-phone" transform="translate(9.000000, 0.000000)">
+            <path d="M26,48 L4,48 C1.79,48 0,46.130087 0,43.826087 L0,4.17391304 C0,1.86991304 1.79,0 4,0 L26,0 C28.208,0 30,1.86991304 30,4.17391304 L30,43.826087 C30,46.130087 28.208,48 26,48 Z" id="icon-connected-clients_Stroke-2079" fill="#D1D5DB" />
+            <path d="M12,3 L18,3" id="icon-connected-clients_Stroke-2082" stroke="#95999D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M17,44 C17,45.104 16.104,46 15,46 C13.896,46 13,45.104 13,44 C13,42.896 13.896,42 15,42 C16.104,42 17,42.896 17,44 L17,44 Z" id="icon-connected-clients_Stroke-2083" fill="#95999D" />
+            <rect id="icon-connected-clients_Rectangle-3" fill="#95999D" x="3" y="6" width="24" height="34" />
+        </g>
+    </g>
 </symbol><symbol viewBox="0 0 48 48" id="icon-consumption">
   <g fill="none" fill-rule="evenodd" transform="translate(-480 -96)">
     <g transform="translate(481 97)">
@@ -45,6 +71,28 @@
       <path stroke="#FF9125" stroke-width="2" d="M26 23C26 24.656 24.656 26 23 26 21.344 26 20 24.656 20 23 20 21.344 21.344 20 23 20 24.656 20 26 21.344 26 23L26 23zM25.121 20.879L35.021 10.981" stroke-linecap="round" stroke-linejoin="round" />
     </g>
   </g>
+</symbol><symbol viewBox="0 0 48 48" id="icon-contacts">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-contacts</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="icon-contacts_icon-contacts" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-contacts_contacts-02" transform="translate(0.000000, 6.000000)">
+            <path d="M48,34.0002927 C48,35.1047006 47.0980496,36 45.9914698,36 L36,36 L36,31.498576 C36,30.6709353 35.3360095,30 34.5015652,30 L32.9984348,30 C32.1708721,30 31.5,30.6650298 31.5,31.498576 L31.5,36 L16.5,36 L16.5,31.498576 C16.5,30.6709353 15.8360095,30 15.0015652,30 L13.4984348,30 C12.6708721,30 12,30.6650298 12,31.498576 L12,36 L2.0085302,36 C0.899249601,36 -3.06019073e-13,35.1101074 -3.07126717e-13,34.0002927 L-3.39064717e-13,1.99970728 C-3.40166965e-13,0.895299444 0.894938439,2.94329233e-14 2.00138927,2.94091709e-14 L45.9986107,2.84646737e-14 C47.1039475,2.84409452e-14 48,0.889892578 48,1.99970728 L48,34.0002927 Z" id="icon-contacts_Fill-647" fill="#FFD799" />
+            <path d="M25.5,7.5 L34.5,7.5 L34.5,9 L25.5,9 L25.5,7.5 Z M25.5,12 L42,12 L42,13.5 L25.5,13.5 L25.5,12 Z M25.5,16.5 L42,16.5 L42,18 L25.5,18 L25.5,16.5 Z M25.5,21 L42,21 L42,22.5 L25.5,22.5 L25.5,21 Z M13.5,16.125 C11.0147186,16.125 9,13.8584415 9,11.0625 C9,8.26655845 11.0147186,6 13.5,6 C15.9852814,6 18,8.26655845 18,11.0625 C18,13.8584415 15.9852814,16.125 13.5,16.125 Z M4.5,21.75 C4.49999999,20.625 6.75,17.25 9,17.25 C11.25,17.25 10.125,18.375 13.5,18.375 C16.875,18.375 15.75,17.25 18,17.25 C20.25,17.25 22.5,20.625 22.5,21.75 C22.5,22.875 22.5,24 21.375,24 L5.625,24 C4.5,24 4.50000001,22.875 4.5,21.75 Z" id="icon-contacts_Combined-Shape" fill="#FF9300" />
+        </g>
+    </g>
+</symbol><symbol viewBox="0 0 48 48" id="icon-contacts-groups">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-contacts-groups</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="icon-contacts-groups_icon-contacts-groups" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-contacts-groups_contacts-01" transform="translate(5.000000, 0.000000)">
+            <path d="M37.9995806,9 C38.552097,9 39,9.43798828 39,10.0032421 L39,46.9967579 C39,47.5508332 38.5620117,48 37.9967579,48 L3.99040483,48 C1.7865651,48 0,46.2059475 0,43.9901068 L0,4.00989318 C0,1.79529033 1.78347516,0 3.99538978,0 L36.4969656,0 C37.0509262,0 37.5,0.442660332 37.5,0.998956561 L37.5,2.00104344 C37.5,2.55275191 37.0511745,3 36.5046887,3 L5.00398732,3 C3.89721568,3 3,3.89826062 3,4.99791312 L3,7.00208688 C3,8.10550383 3.88989258,9 4.99970728,9 L37.9995806,9 Z M4.5,6 C4.5,5.17157288 5.17249525,4.5 5.99811914,4.5 L34.5018809,4.5 C35.3292692,4.5 36,5.16579723 36,6 C36,6.82842712 35.3275047,7.5 34.5018809,7.5 L5.99811914,7.5 C5.17073078,7.5 4.5,6.83420277 4.5,6 Z" id="icon-contacts-groups_Combined-Shape" fill="#FFD799" />
+            <path d="M19.5,30 C16.1862915,30 13.5,26.9779221 13.5,23.25 C13.5,19.5220779 16.1862915,16.5 19.5,16.5 C22.8137085,16.5 25.5,19.5220779 25.5,23.25 C25.5,26.9779221 22.8137085,30 19.5,30 Z M7.5,37.5 C7.49999999,36 10.5,31.5 13.5,31.5 C16.5,31.5 15,33 19.5,33 C24,33 22.5,31.5 25.5,31.5 C28.5,31.5 31.5,36 31.5,37.5 C31.5,39 31.5,40.5 30,40.5 L9,40.5 C7.5,40.5 7.50000001,39 7.5,37.5 Z" id="icon-contacts-groups_icon-user-16" fill="#FF9300" />
+        </g>
+    </g>
 </symbol><symbol viewBox="0 0 48 48" id="icon-contract">
   <g fill="none" fill-rule="evenodd" transform="translate(-192 -192)">
     <g transform="translate(193 193)">
@@ -108,6 +156,19 @@
     <circle cx="36" cy="36" r="12" fill="#1EC737" />
     <path fill="#FFFFFF" fill-rule="nonzero" d="M31.7071068,37.2928932 C31.3165825,36.9023689 30.6834175,36.9023689 30.2928932,37.2928932 C29.9023689,37.6834175 29.9023689,38.3165825 30.2928932,38.7071068 L32.2928932,40.7071068 C32.6834175,41.0976311 33.3165825,41.0976311 33.7071068,40.7071068 L41.7071068,32.7071068 C42.0976311,32.3165825 42.0976311,31.6834175 41.7071068,31.2928932 C41.3165825,30.9023689 40.6834175,30.9023689 40.2928932,31.2928932 L33,38.5857864 L31.7071068,37.2928932 Z" />
   </g>
+</symbol><symbol viewBox="0 0 48 48" id="icon-notifications">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-notifications</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="icon-notifications_data-type" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-notifications_icon-notifications">
+            <g id="icon-notifications_Page-1">
+                <path d="M24,0 C37.255,0 48,10.745 48,24 C48,37.255 37.255,48 24,48 C10.745,48 0,37.255 0,24 C0,10.745 10.745,0 24,0" id="icon-notifications_Fill-1" fill="#FCBABA" />
+                <path d="M26.5361,36.3926 L33.4641,32.3926 L33.4701,32.4026 C34.5711,34.3106 33.9271,36.7446 32.0001,37.8566 C30.0871,38.9606 27.6411,38.3066 26.5421,36.4026 L26.5361,36.3926 Z M25.5361,34.6606 L18.6191,38.6536 C17.6561,39.2096 16.4321,38.8916 15.8751,37.9276 C15.3231,36.9716 15.6611,35.7436 16.6081,35.1966 C16.6081,35.1966 15.6081,33.4636 14.6081,31.7326 C12.1581,27.4896 11.3511,20.7586 14.9091,16.2536 L14.5301,15.5976 C13.4291,13.6896 14.0741,11.2556 16.0001,10.1436 C17.9131,9.0386 20.3581,9.6926 21.4581,11.5976 L21.8371,12.2536 C27.5171,11.4256 32.9421,15.4896 35.3921,19.7316 L37.3921,23.1966 C38.3491,22.6436 39.5681,22.9646 40.1241,23.9286 C40.6771,24.8846 40.3451,26.1106 39.3811,26.6666 L32.4641,30.6606 L25.5361,34.6606 Z" id="icon-notifications_Fill-3" fill="#F52D2D" />
+            </g>
+        </g>
+    </g>
 </symbol><symbol viewBox="0 0 48 48" id="icon-permissions">
   <g fill="none" fill-rule="evenodd">
     <rect width="10" height="16" x="19" y="24" fill="#F52D2D" />
@@ -172,9 +233,37 @@
       <path fill="#F52D2D" d="M23.0006826,40.1725 C21.9426826,40.1725 21.0866826,39.3165 21.0866826,38.2605 C21.0866826,37.2065 21.9426826,36.3465 23.0006826,36.3465 C24.0546826,36.3465 24.9126826,37.2065 24.9126826,38.2605 C24.9126826,39.3165 24.0546826,40.1725 23.0006826,40.1725 Z M22.0006826,16.2605 C22.0006826,15.7085 22.4486826,15.2605 23.0006826,15.2605 C23.5506826,15.2605 24.0006826,15.7085 24.0006826,16.2605 L24.0006826,31.5645 C24.0006826,32.1165 23.5506826,32.5645 23.0006826,32.5645 C22.4486826,32.5645 22.0006826,32.1165 22.0006826,31.5645 L22.0006826,16.2605 Z" />
     </g>
   </g>
+</symbol><symbol viewBox="0 0 48 48" id="icon-task-to-effectuate">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-task-to-effectuate</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="icon-task-to-effectuate_icon-task-to-effectuate" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-task-to-effectuate_Group-5">
+            <g id="icon-task-to-effectuate_Group">
+                <rect id="icon-task-to-effectuate_Rectangle" fill="#D1D5DB" x="0" y="0" width="38" height="38" rx="2" />
+                <g id="icon-task-to-effectuate_Group-2" transform="translate(23.000000, 17.000000) scale(1, -1) translate(-23.000000, -17.000000) translate(11.000000, 2.000000)" fill="#95999D">
+                    <rect id="icon-task-to-effectuate_Rectangle-5" x="0" y="0" width="10" height="4" rx="2" />
+                    <rect id="icon-task-to-effectuate_Rectangle-5-Copy-2" x="0" y="8" width="15" height="4" rx="2" />
+                    <rect id="icon-task-to-effectuate_Rectangle-5-Copy-3" x="0" y="16" width="23" height="4" rx="2" />
+                    <rect id="icon-task-to-effectuate_Rectangle-5-Copy-4" x="0" y="24" width="23" height="4" rx="2" />
+                </g>
+            </g>
+            <g id="icon-task-to-effectuate_Group-3" transform="translate(24.000000, 24.000000)">
+                <g id="icon-task-to-effectuate_Group-4">
+                    <circle id="icon-task-to-effectuate_Oval-9" fill="#95999D" cx="12" cy="12" r="12" />
+                    <path d="M12.3284505,12.3333333 L12.3284505,5.66666667 C12.3284505,5.29866667 12.0297839,5 11.6617839,5 C11.2937839,5 10.9951172,5.29866667 10.9951172,5.66666667 L10.9951172,13.6666667 L16.3284505,13.6666667 C16.6964505,13.6666667 16.9951172,13.368 16.9951172,13 C16.9951172,12.632 16.6964505,12.3333333 16.3284505,12.3333333 L12.3284505,12.3333333 Z" id="icon-task-to-effectuate_Fill-162" stroke="#D1D5DB" fill="#D1D5DB" />
+                </g>
+            </g>
+            <circle id="icon-task-to-effectuate_Oval-27" fill="#95999D" cx="6" cy="14" r="2" />
+            <circle id="icon-task-to-effectuate_Oval-27-Copy-3" fill="#95999D" cx="6" cy="6" r="2" />
+            <circle id="icon-task-to-effectuate_Oval-27-Copy" fill="#95999D" cx="6" cy="22" r="2" />
+            <circle id="icon-task-to-effectuate_Oval-27-Copy-2" fill="#95999D" cx="6" cy="30" r="2" />
+        </g>
+    </g>
 </symbol><symbol viewBox="0 0 48 48" id="icon-triggers">
   <g fill="none" fill-rule="evenodd">
     <ellipse cx="24" cy="24.5" fill="#F52D2D" rx="18" ry="18.5" />
     <path fill="#FCBFBF" d="M42,0 C45.308,0 48,2.692 48,6 L48,42 C48,45.308 45.308,48 42,48 L6,48 C2.692,48 0,45.308 0,42 L0,6 C0,2.692 2.692,0 6,0 L42,0 Z M24,40 C32.822,40 40,32.822 40,24 C40,15.178 32.822,8 24,8 C15.178,8 8,15.178 8,24 C8,32.822 15.178,40 24,40 Z M30,24 C30.552,24 31,24.448 31,25 C31,25.552 30.552,26 30,26 L22,26 L22,14 C22,13.448 22.448,13 23,13 C23.552,13 24,13.448 24,14 L24,24 L30,24 Z" />
   </g>
-</symbol></defs><use id="icon-accounts-usage" xlink:href="#icon-accounts" class="sprite-symbol-usage" /><use id="icon-apps-usage" xlink:href="#icon-apps" class="sprite-symbol-usage" /><use id="icon-bank-accounts-usage" xlink:href="#icon-bank-accounts" class="sprite-symbol-usage" /><use id="icon-bank-groups-usage" xlink:href="#icon-bank-groups" class="sprite-symbol-usage" /><use id="icon-bill-usage" xlink:href="#icon-bill" class="sprite-symbol-usage" /><use id="icon-consumption-usage" xlink:href="#icon-consumption" class="sprite-symbol-usage" /><use id="icon-contract-usage" xlink:href="#icon-contract" class="sprite-symbol-usage" /><use id="icon-cozy-usage" xlink:href="#icon-cozy" class="sprite-symbol-usage" /><use id="icon-energybreakdown-usage" xlink:href="#icon-energybreakdown" class="sprite-symbol-usage" /><use id="icon-fallback-usage" xlink:href="#icon-fallback" class="sprite-symbol-usage" /><use id="icon-family-usage" xlink:href="#icon-family" class="sprite-symbol-usage" /><use id="icon-files-usage" xlink:href="#icon-files" class="sprite-symbol-usage" /><use id="icon-files-pen-usage" xlink:href="#icon-files-pen" class="sprite-symbol-usage" /><use id="icon-home-usage" xlink:href="#icon-home" class="sprite-symbol-usage" /><use id="icon-konnectors-usage" xlink:href="#icon-konnectors" class="sprite-symbol-usage" /><use id="icon-konnectors-result-usage" xlink:href="#icon-konnectors-result" class="sprite-symbol-usage" /><use id="icon-permissions-usage" xlink:href="#icon-permissions" class="sprite-symbol-usage" /><use id="icon-photos-album-usage" xlink:href="#icon-photos-album" class="sprite-symbol-usage" /><use id="icon-profile-usage" xlink:href="#icon-profile" class="sprite-symbol-usage" /><use id="icon-settings-usage" xlink:href="#icon-settings" class="sprite-symbol-usage" /><use id="icon-shield-usage" xlink:href="#icon-shield" class="sprite-symbol-usage" /><use id="icon-sinister-usage" xlink:href="#icon-sinister" class="sprite-symbol-usage" /><use id="icon-triggers-usage" xlink:href="#icon-triggers" class="sprite-symbol-usage" /></svg>
+</symbol></defs><use id="icon-accounts-usage" xlink:href="#icon-accounts" class="sprite-symbol-usage" /><use id="icon-apps-usage" xlink:href="#icon-apps" class="sprite-symbol-usage" /><use id="icon-bank-accounts-usage" xlink:href="#icon-bank-accounts" class="sprite-symbol-usage" /><use id="icon-bank-groups-usage" xlink:href="#icon-bank-groups" class="sprite-symbol-usage" /><use id="icon-bank-operations-usage" xlink:href="#icon-bank-operations" class="sprite-symbol-usage" /><use id="icon-bill-usage" xlink:href="#icon-bill" class="sprite-symbol-usage" /><use id="icon-connected-clients-usage" xlink:href="#icon-connected-clients" class="sprite-symbol-usage" /><use id="icon-consumption-usage" xlink:href="#icon-consumption" class="sprite-symbol-usage" /><use id="icon-contacts-usage" xlink:href="#icon-contacts" class="sprite-symbol-usage" /><use id="icon-contacts-groups-usage" xlink:href="#icon-contacts-groups" class="sprite-symbol-usage" /><use id="icon-contract-usage" xlink:href="#icon-contract" class="sprite-symbol-usage" /><use id="icon-cozy-usage" xlink:href="#icon-cozy" class="sprite-symbol-usage" /><use id="icon-energybreakdown-usage" xlink:href="#icon-energybreakdown" class="sprite-symbol-usage" /><use id="icon-fallback-usage" xlink:href="#icon-fallback" class="sprite-symbol-usage" /><use id="icon-family-usage" xlink:href="#icon-family" class="sprite-symbol-usage" /><use id="icon-files-usage" xlink:href="#icon-files" class="sprite-symbol-usage" /><use id="icon-files-pen-usage" xlink:href="#icon-files-pen" class="sprite-symbol-usage" /><use id="icon-home-usage" xlink:href="#icon-home" class="sprite-symbol-usage" /><use id="icon-konnectors-usage" xlink:href="#icon-konnectors" class="sprite-symbol-usage" /><use id="icon-konnectors-result-usage" xlink:href="#icon-konnectors-result" class="sprite-symbol-usage" /><use id="icon-notifications-usage" xlink:href="#icon-notifications" class="sprite-symbol-usage" /><use id="icon-permissions-usage" xlink:href="#icon-permissions" class="sprite-symbol-usage" /><use id="icon-photos-album-usage" xlink:href="#icon-photos-album" class="sprite-symbol-usage" /><use id="icon-profile-usage" xlink:href="#icon-profile" class="sprite-symbol-usage" /><use id="icon-settings-usage" xlink:href="#icon-settings" class="sprite-symbol-usage" /><use id="icon-shield-usage" xlink:href="#icon-shield" class="sprite-symbol-usage" /><use id="icon-sinister-usage" xlink:href="#icon-sinister" class="sprite-symbol-usage" /><use id="icon-task-to-effectuate-usage" xlink:href="#icon-task-to-effectuate" class="sprite-symbol-usage" /><use id="icon-triggers-usage" xlink:href="#icon-triggers" class="sprite-symbol-usage" /></svg>

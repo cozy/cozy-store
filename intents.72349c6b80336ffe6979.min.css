@@ -2597,8 +2597,20 @@ body {
 .sto-perm-title[data-doctype^="io.cozy.bank.groups"]:before {
   background-image: url(sprite.svg#icon-bank-groups-usage);
 }
+.sto-perm-title[data-doctype^="io.cozy.bank.operations"]:before {
+  background-image: url(sprite.svg#icon-bank-operations-usage);
+}
+.sto-perm-title[data-doctype^="io.cozy.bank.settings"]:before {
+  background-image: url(sprite.svg#icon-settings-usage);
+}
 .sto-perm-title[data-doctype^="io.cozy.bills"]:before {
   background-image: url(sprite.svg#icon-bill-usage);
+}
+.sto-perm-title[data-doctype^="io.cozy.contacts"]:before {
+  background-image: url(sprite.svg#icon-contacts-usage);
+}
+.sto-perm-title[data-doctype^="io.cozy.contacts.groups"]:before {
+  background-image: url(sprite.svg#icon-contacts-groups-usage);
 }
 .sto-perm-title[data-doctype^="io.cozy.files"]:before {
   background-image: url(sprite.svg#icon-files-usage);
@@ -2609,8 +2621,17 @@ body {
 .sto-perm-title[data-doctype^="io.cozy.konnectors.result"]:before {
   background-image: url(sprite.svg#icon-konnectors-result-usage);
 }
+.sto-perm-title[data-doctype^="io.cozy.notifications"]:before {
+  background-image: url(sprite.svg#icon-notifications-usage);
+}
+.sto-perm-title[data-doctype^="io.cozy.oauth.clients"]:before {
+  background-image: url(sprite.svg#icon-connected-clients-usage);
+}
 .sto-perm-title[data-doctype^="io.cozy.photos.albums"]:before {
   background-image: url(sprite.svg#icon-photos-album-usage);
+}
+.sto-perm-title[data-doctype^="io.cozy.jobs"]:before {
+  background-image: url(sprite.svg#icon-task-to-effectuate-usage);
 }
 .sto-perm-title[data-doctype^="io.cozy.triggers"]:before {
   background-image: url(sprite.svg#icon-triggers-usage);
