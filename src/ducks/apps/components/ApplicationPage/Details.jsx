@@ -110,10 +110,7 @@ export class Details extends Component {
       categories &&
       !!categories.length &&
       categories.map(c => t(`app_categories.${c}`))
-    const developerName =
-      developer && developer.name === 'Cozy'
-        ? 'Cozy Cloud Inc.'
-        : developer.name
+    const developerName = developer && developer.name
     const shortVersion = version && version.match(/^(\d+\.\d+\.\d+)-.*$/)
     const displayedVersion =
       (shortVersion && shortVersion.length && shortVersion[1]) || version

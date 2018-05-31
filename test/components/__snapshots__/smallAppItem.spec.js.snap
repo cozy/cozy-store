@@ -28,7 +28,7 @@ exports[`SmallAppItem component should be rendered correctly an app 1`] = `
       <p
         className="sto-small-app-item-detail"
       >
-        Cozy Cloud Inc.
+        Cozy
       </p>
     </div>
     <div
