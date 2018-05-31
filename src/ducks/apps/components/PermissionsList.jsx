@@ -101,6 +101,7 @@ export const PermissionsList = ({ t, app, appName }) => {
             className="sto-perm-list-icon"
             icon={localAccessIcon}
             size="24"
+            color="#35CE68"
           />
           <p>
             {externalPermissions.length
