@@ -73,7 +73,12 @@ export class Discover extends Component {
         />
 
         {isFetching && (
-          <Spinner size="xxlarge" loadingType="appsFetching" middle />
+          <Spinner
+            className="sto-view-loading"
+            size="xxlarge"
+            loadingType="appsFetching"
+            middle
+          />
         )}
       </div>
     )
