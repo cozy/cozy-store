@@ -134,7 +134,7 @@ exports[`ApplicationPage header component should be rendered correctly provided 
           width="16px"
         />
          
-        Install on my Cozy
+        Install
       </span>
     </Link>
   </div>
