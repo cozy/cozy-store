@@ -2483,6 +2483,7 @@ body {
 
 .sto-perm-list-title p {
   margin: 0;
+  line-height: 1.5;
 }
 
 .sto-perm-list-icon {
@@ -2696,6 +2697,7 @@ body {
   -ms-flex-preferred-size: calc(100% - var(--item-margin) * 2);
       flex-basis: calc(100% - var(--item-margin) * 2);
   padding: var(--item-real-margin);
+  margin-bottom: 1rem;
 }
 
 .sto-small-app-item:hover {
