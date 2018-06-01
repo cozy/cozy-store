@@ -31,6 +31,16 @@ before_install:
 script:
 - yarn test
 - yarn build:browser
-after_success:
-- test $TRAVIS_BRANCH = "master" && yarn run deploy -- --branch=build
-- test $TRAVIS_BRANCH = "prod" && yarn run deploy -- --branch=latest
+deploy:
+  - provider: script
+    repo: cozy/cozy-store
+    skip-cleanup: true
+    script: yarn deploy --branch=build
+    on:
+      branch: master
+  - provider: script
+    repo: cozy/cozy-store
+    skip-cleanup: true
+    script: yarn deploy --branch=latest
+    on:
+      branch: prod
