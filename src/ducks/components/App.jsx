@@ -5,7 +5,7 @@ import { translate } from 'cozy-ui/react/I18n'
 
 import Sidebar from './Sidebar'
 
-import { fetchApps } from '../apps'
+import { initApp } from '../apps'
 import { Discover, MyApplications } from '../apps/Containers'
 
 import Alerter from 'cozy-ui/react/Alerter'
@@ -13,7 +13,7 @@ import Alerter from 'cozy-ui/react/Alerter'
 export class App extends Component {
   constructor(props) {
     super(props)
-    props.fetchApps()
+    props.initApp()
   }
 
   render() {
@@ -37,7 +37,7 @@ export class App extends Component {
 const mapStateToProps = () => ({})
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  fetchApps: () => dispatch(fetchApps(ownProps.lang))
+  initApp: () => dispatch(initApp(ownProps.lang))
 })
 
 export default withRouter(

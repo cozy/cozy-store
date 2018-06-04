@@ -280,6 +280,11 @@ export function getFormattedInstalledApp(response, collectLink) {
   })
 }
 
+// only on the app initialisation
+export function initApp(lang) {
+  return fetchApps(lang)
+}
+
 export function fetchLatestApp(slug, channel = DEFAULT_CHANNEL) {
   return async (dispatch, getState) => {
     dispatch({ type: FETCH_APP })
