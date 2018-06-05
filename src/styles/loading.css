@@ -1,0 +1,43 @@
+@keyframes placeHolderShimmer {
+  0% { background-position: -20rem 0; }
+  80% { background-position: 20rem 0; }
+  80.1% { background-position: -20rem 0; }
+  100% { background-position: -20rem 0; }
+}
+
+.sto-sections-placeholder {
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background-position: -20rem 0;
+  background-image: linear-gradient(to right, var(--pale-grey) 0%, #fcfcfc 50%, var(--pale-grey) 100%);
+  background-size: 20rem 8rem;
+  background-repeat: no-repeat;
+  background-color: var(--pale-grey);
+  border-radius: 0.15rem;
+  height: 0.75rem;
+  max-width: 100%;
+  position: relative;
+  margin: .1rem 0;
+}
+
+.sto-sections-title .sto-sections-placeholder {
+  animation-delay: 0.1s;
+}
+
+.sto-sections-subtitle .sto-sections-placeholder {
+  animation-delay: 0.5s;
+}
+
+.sto-small-app-item-icon .sto-sections-placeholder {
+  animation-delay: 0.7s;
+}
+
+.sto-small-app-item-desc .sto-sections-placeholder {
+  animation-delay: 1s;
+}
+
+.sto-sections.--loading .sto-small-app-item {
+  pointer-events:none;
+}
