@@ -12,8 +12,8 @@ Enzyme.configure({ adapter: new Adapter() })
 
 describe('App component only', () => {
   it('should be mounted correctly', () => {
-    const fetchApps = jest.fn()
-    const component = shallow(<App fetchApps={fetchApps} />).getElement()
+    const initApp = jest.fn()
+    const component = shallow(<App initApp={initApp} />).getElement()
     expect(component).toMatchSnapshot()
   })
 })

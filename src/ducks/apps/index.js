@@ -7,6 +7,7 @@ import constants from 'config/constants'
 import categories from 'config/categories'
 import { extend as extendI18n } from 'cozy-ui/react/I18n'
 import { NotUninstallableAppException } from '../../lib/exceptions'
+import realtime from 'cozy-realtime'
 
 const APP_STATE = {
   READY: 'ready',
@@ -25,11 +26,17 @@ export const REGISTRY_CHANNELS = {
   STABLE: 'stable'
 }
 
+const APPS_DOCTYPE = 'io.cozy.apps'
+const KONNECTORS_DOCTYPE = 'io.cozy.konnectors'
+
 const AUTHORIZED_CATEGORIES = categories
 
 const COLLECT_RELATED_PATH = constants.collect
 
 const DEFAULT_CHANNEL = constants.default.registry.channel
+
+// initial loading
+const LOADING_APP = 'LOADING_APP'
 
 const FETCH_APPS = 'FETCH_APPS'
 const FETCH_APPS_SUCCESS = 'FETCH_APPS_SUCCESS'
@@ -71,6 +78,7 @@ export const list = (state = [], action) => {
 
 export const isFetching = (state = false, action) => {
   switch (action.type) {
+    case LOADING_APP:
     case FETCH_APPS:
       return true
     case FETCH_APPS_SUCCESS:
@@ -282,7 +290,73 @@ export function getFormattedInstalledApp(response, collectLink) {
 
 // only on the app initialisation
 export function initApp(lang) {
-  return fetchApps(lang)
+  return async dispatch => {
+    dispatch({ type: LOADING_APP })
+    await dispatch(initializeRealtime())
+    return dispatch(fetchApps(lang))
+  }
+}
+
+function listenAppUpdate(appResponse) {
+  return async (dispatch, getState) => {
+    if (appResponse.state === APP_STATE.ERRORED) {
+      const err = new Error('Error when installing the application')
+      dispatch({ type: INSTALL_APP_FAILURE, error: err })
+      throw err
+    }
+    if (appResponse.state === APP_STATE.READY) {
+      // FIXME: hack to handle node type from stack for the konnectors
+      const route =
+        appResponse.type === APP_TYPE.KONNECTOR || appResponse.type === 'node'
+          ? 'konnectors'
+          : 'apps'
+      const appFromStack = await cozy.client.fetchJSON(
+        'GET',
+        `/${route}/${appResponse.slug}`
+      )
+      // TODO throw error if collect is not installed
+      const collectApp = getState().apps.list.find(a => a.slug === 'collect')
+      const collectLink = collectApp && collectApp.related
+      return getFormattedInstalledApp(appFromStack, collectLink).then(app => {
+        // add the installed app to the state apps list
+        const apps = getState().apps.list.map(a => {
+          if (a.slug === app.slug) {
+            return Object.assign({}, a, app, { installed: true })
+          }
+          return a
+        })
+        return dispatch({ type: INSTALL_APP_SUCCESS, apps })
+      })
+    }
+  }
+}
+
+function initializeRealtime() {
+  return async dispatch => {
+    realtime
+      .subscribeAll(cozy.client, APPS_DOCTYPE)
+      .then(subscription => {
+        // HACK: the stack creates twice instead of updating
+        subscription.onCreate(app => dispatch(listenAppUpdate(app)))
+      })
+      .catch(error => {
+        console.warn &&
+          console.warn(`Cannot initialize realtime for apps: ${error.message}`)
+      })
+
+    realtime
+      .subscribeAll(cozy.client, KONNECTORS_DOCTYPE)
+      .then(subscription => {
+        // HACK: the stack creates twice instead of updating
+        subscription.onCreate(app => dispatch(listenAppUpdate(app)))
+      })
+      .catch(error => {
+        console.warn &&
+          console.warn(
+            `Cannot initialize realtime for konnectors: ${error.message}`
+          )
+      })
+  }
 }
 
 export function fetchLatestApp(slug, channel = DEFAULT_CHANNEL) {
@@ -495,41 +569,12 @@ export function uninstallApp(slug, type) {
 }
 
 export function installApp(slug, type, source, isUpdate = false) {
-  return (dispatch, getState) => {
+  return dispatch => {
     dispatch({ type: INSTALL_APP })
     const verb = isUpdate ? 'PUT' : 'POST'
     const route = type === APP_TYPE.KONNECTOR ? 'konnectors' : 'apps'
     return cozy.client
       .fetchJSON(verb, `/${route}/${slug}?Source=${encodeURIComponent(source)}`)
-      .then(resp => {
-        // FIXME type konnector is missing from stack
-        resp.attributes.type = 'konnector'
-        return waitForAppReady(resp)
-      })
-      .then(appResponse => {
-        // TODO throw error if collect is not installed
-        const collectApp = getState().apps.list.find(a => a.slug === 'collect')
-        const collectLink = collectApp && collectApp.related
-        return getFormattedInstalledApp(appResponse, collectLink).then(app => {
-          // add the installed app to the state apps list
-          const apps = getState().apps.list.map(a => {
-            if (a.slug === slug) {
-              return Object.assign({}, a, app, { installed: true })
-            }
-            return a
-          })
-          dispatch({ type: INSTALL_APP_SUCCESS, apps })
-          return dispatch({
-            type: 'SEND_LOG_SUCCESS',
-            alert: {
-              message: `app_modal.install.message.${
-                isUpdate ? 'update' : 'install'
-              }_success`,
-              level: 'success'
-            }
-          })
-        })
-      })
       .catch(e => {
         dispatch({ type: INSTALL_APP_FAILURE, error: e })
         throw e
@@ -547,58 +592,4 @@ export function installAppFromRegistry(
     const source = `registry://${slug}/${channel}`
     return dispatch(installApp(slug, type, source, isUpdate))
   }
-}
-
-// monitor the status of the app and resolve when the app is ready
-function waitForAppReady(app, timeout = 30 * 1000) {
-  if (app.attributes.state === APP_STATE.READY) return app
-  return new Promise((resolve, reject) => {
-    let idTimeout
-    let idInterval
-
-    // FIXME: hack to handle node type from stack for the konnectors
-    const route =
-      app.attributes.type === APP_TYPE.KONNECTOR ||
-      app.attributes.type === 'node'
-        ? 'konnectors'
-        : 'apps'
-
-    idTimeout = setTimeout(() => {
-      clearInterval(idInterval)
-      resolve(app)
-    }, timeout)
-
-    idInterval = setInterval(() => {
-      cozy.client
-        .fetchJSON('GET', `/${route}/${app.attributes.slug}`)
-        .then(app => {
-          if (app.attributes.state === APP_STATE.ERRORED) {
-            if (idTimeout) {
-              clearTimeout(idTimeout)
-            }
-
-            clearInterval(idInterval)
-            reject(new Error('Error when installing the application'))
-          }
-
-          if (app.attributes.state === APP_STATE.READY) {
-            if (idTimeout) {
-              clearTimeout(idTimeout)
-            }
-
-            clearInterval(idInterval)
-            resolve(app)
-          }
-        })
-        .catch(error => {
-          if (error.status === 404) return // keep waiting
-          if (idTimeout) {
-            clearTimeout(idTimeout)
-          }
-
-          clearInterval(idInterval)
-          reject(error)
-        })
-    }, 1000)
-  })
 }

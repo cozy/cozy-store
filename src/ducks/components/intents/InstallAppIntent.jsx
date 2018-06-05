@@ -7,7 +7,7 @@ import IntentHeader from 'cozy-ui/react/IntentHeader'
 import Spinner from 'cozy-ui/react/Spinner'
 
 import {
-  fetchApps,
+  initApp,
   fetchInstalledApps,
   getAppBySlug,
   installAppFromRegistry
@@ -23,7 +23,7 @@ const errorKeys = {
 export class InstallAppIntent extends Component {
   constructor(props) {
     super(props)
-    props.fetchApps()
+    props.initApp()
   }
 
   installApp() {
@@ -35,11 +35,14 @@ export class InstallAppIntent extends Component {
     }
   }
 
-  onSuccess(app) {
-    this.props.onTerminate(app)
-    this.setState({
-      status: 'installed'
-    })
+  componentWillReceiveProps(nextProps) {
+    // on install success
+    if (this.props.isInstalling && !nextProps.isInstalling) {
+      this.props.onTerminate(nextProps.app)
+      this.setState({
+        status: 'installed'
+      })
+    }
   }
 
   render() {
@@ -86,7 +89,6 @@ export class InstallAppIntent extends Component {
                 installApp={() => this.installApp()}
                 isInstalling={isInstalling}
                 onCancel={onCancel}
-                onSuccess={app => this.onSuccess(app)}
               />
             )}
         </div>
@@ -104,7 +106,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  fetchApps: () => dispatch(fetchApps(ownProps.lang)),
+  initApp: () => dispatch(initApp(ownProps.lang)),
   fetchInstalledApps: () => dispatch(fetchInstalledApps(ownProps.lang)),
   installApp: (appSlug, appType, channel) =>
     dispatch(installAppFromRegistry(appSlug, appType, channel))

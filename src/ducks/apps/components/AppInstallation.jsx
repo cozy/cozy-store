@@ -10,16 +10,11 @@ import { translate } from 'cozy-ui/react/I18n'
 class AppInstallation extends Component {
   installApp() {
     this.setState({ error: null })
-    const { app, onError, onSuccess, channel } = this.props
-    this.props
-      .installApp(app.slug, app.type, channel)
-      .then(() => {
-        onSuccess(app)
-      })
-      .catch(error => {
-        if (onError) return onError(error)
-        throw error
-      })
+    const { app, onError, channel } = this.props
+    this.props.installApp(app.slug, app.type, channel).catch(error => {
+      if (onError) return onError(error)
+      throw error
+    })
   }
 
   render() {

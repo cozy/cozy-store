@@ -6,10 +6,10 @@ exports[`InstallModal component should be rendered correctly if app found 1`] = 
 >
   <Unknown
     closable={true}
+    dismissAction={[Function]}
     mobileFullscreen={true}
     overflowHidden={false}
     primaryType="regular"
-    secondaryAction={[Function]}
     secondaryType="secondary"
     size="small"
   >
@@ -45,7 +45,6 @@ exports[`InstallModal component should be rendered correctly if app found 1`] = 
       }
       isCanceling={false}
       onCancel={[Function]}
-      onSuccess={[Function]}
     />
   </Unknown>
 </div>
@@ -57,10 +56,10 @@ exports[`InstallModal component should be rendered correctly with also app in re
 >
   <Unknown
     closable={true}
+    dismissAction={[Function]}
     mobileFullscreen={true}
     overflowHidden={false}
     primaryType="regular"
-    secondaryAction={[Function]}
     secondaryType="secondary"
     size="small"
   >
@@ -96,7 +95,6 @@ exports[`InstallModal component should be rendered correctly with also app in re
       }
       isCanceling={false}
       onCancel={[Function]}
-      onSuccess={[Function]}
     />
   </Unknown>
 </div>
@@ -108,10 +106,10 @@ exports[`InstallModal component should not break the permissions part if no perm
 >
   <Unknown
     closable={true}
+    dismissAction={[Function]}
     mobileFullscreen={true}
     overflowHidden={false}
     primaryType="regular"
-    secondaryAction={[Function]}
     secondaryType="secondary"
     size="small"
   >
@@ -147,7 +145,6 @@ exports[`InstallModal component should not break the permissions part if no perm
       }
       isCanceling={false}
       onCancel={[Function]}
-      onSuccess={[Function]}
     />
   </Unknown>
 </div>
