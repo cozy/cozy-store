@@ -55,14 +55,12 @@ const INSTALL_APP = 'INSTALL_APP'
 const INSTALL_APP_SUCCESS = 'INSTALL_APP_SUCCESS'
 const INSTALL_APP_FAILURE = 'INSTALL_APP_FAILURE'
 
+const RECEIVE_APPS_ICON = 'RECEIVE_APPS_ICON'
+
 export const list = (state = [], action) => {
   switch (action.type) {
-    case FETCH_REGISTRY_APPS_SUCCESS:
-      return _sortAlphabetically(
-        _consolidateApps(state, action.apps, action.lang),
-        'slug'
-      )
     case FETCH_APP_SUCCESS:
+    case FETCH_REGISTRY_APPS_SUCCESS:
     case FETCH_APPS_SUCCESS:
       return _sortAlphabetically(
         _consolidateApps(state, action.apps, action.lang),
@@ -71,6 +69,14 @@ export const list = (state = [], action) => {
     case UNINSTALL_APP_SUCCESS:
     case INSTALL_APP_SUCCESS:
       return _sortAlphabetically(action.apps, 'slug')
+    case RECEIVE_APPS_ICON:
+      return state.map(app => {
+        if (action.iconsMap.has(app.slug)) {
+          app.icon = action.iconsMap.get(app.slug)
+          delete app.iconToLoad
+        }
+        return app
+      })
     default:
       return state
   }
@@ -258,33 +264,53 @@ export function getContext() {
         })
 }
 
-export function getFormattedInstalledApp(response, collectLink) {
+export function fetchIconsProgressively() {
+  return async (dispatch, getState) => {
+    const apps = getState().apps.list
+    const iconsMap = new Map() // slug: icon
+    apps.forEach(async (app, index) => {
+      const iconData = await _getIcon(app.iconToLoad)
+      iconsMap.set(app.slug, iconData)
+      if (iconsMap.size % 10 === 0 || index === apps.length - 1) {
+        dispatch({ type: RECEIVE_APPS_ICON, iconsMap })
+        iconsMap.clear()
+      }
+    })
+  }
+}
+
+export async function getFormattedInstalledApp(
+  response,
+  collectLink,
+  fetchIcon = true
+) {
   // FIXME retro-compatibility for old formatted manifest
   response.attributes = _sanitizeOldManifest(response.attributes)
 
-  return _getIcon(response.links.icon).then(iconData => {
-    const manifest = response.attributes
-    const openingLink =
-      response.attributes.type === APP_TYPE.KONNECTOR
-        ? `${collectLink}/${COLLECT_RELATED_PATH}/${manifest.slug}`
-        : response.links.related
-    const screensLinks =
-      manifest.screenshots &&
-      manifest.screenshots.map(name => {
-        const fileName = name.replace(/^.*[\\/]/, '')
-        return `${cozy.client._url}/registry/${manifest.slug}/${
-          manifest.version
-        }/screenshots/${fileName}`
-      })
-    return Object.assign({}, response.attributes, {
-      _id: response.id || response._id,
-      icon: iconData,
-      categories: _sanitizeCategories(manifest.categories),
-      installed: true,
-      related: openingLink,
-      screenshots: screensLinks,
-      uninstallable: !config.notRemovableApps.includes(response.attributes.slug)
+  let icon = response.links.icon
+  if (fetchIcon) icon = await _getIcon(icon)
+  const manifest = response.attributes
+  const openingLink =
+    response.attributes.type === APP_TYPE.KONNECTOR
+      ? `${collectLink}/${COLLECT_RELATED_PATH}/${manifest.slug}`
+      : response.links.related
+  const screensLinks =
+    manifest.screenshots &&
+    manifest.screenshots.map(name => {
+      const fileName = name.replace(/^.*[\\/]/, '')
+      return `${cozy.client._url}/registry/${manifest.slug}/${
+        manifest.version
+      }/screenshots/${fileName}`
     })
+  return Object.assign({}, response.attributes, {
+    _id: response.id || response._id,
+    // the icon fetching will done later with iconToLoad
+    ...(fetchIcon ? { icon } : { iconToLoad: icon }),
+    categories: _sanitizeCategories(manifest.categories),
+    installed: true,
+    related: openingLink,
+    screenshots: screensLinks,
+    uninstallable: !config.notRemovableApps.includes(response.attributes.slug)
   })
 }
 
@@ -369,7 +395,7 @@ export function fetchLatestApp(slug, channel = DEFAULT_CHANNEL) {
         error: new Error(`Application ${slug} not found.`)
       })
     }
-    return getFormattedRegistryApp(app, channel)
+    return getFormattedRegistryApp(app)
       .then(fetched => {
         // replace the new fetched app in the apps list
         return dispatch({
@@ -395,7 +421,7 @@ export function fetchLatestApp(slug, channel = DEFAULT_CHANNEL) {
   }
 }
 
-export function getFormattedRegistryApp(responseApp) {
+export async function getFormattedRegistryApp(responseApp, fetchIcon = true) {
   const version = responseApp.latest_version
   // FIXME retro-compatibility for old formatted manifest
   const manifest = _sanitizeOldManifest(version.manifest)
@@ -413,27 +439,28 @@ export function getFormattedRegistryApp(responseApp) {
       }/${versionFromRegistry}/screenshots/${fileName}`
     })
   const iconLink = `/registry/${manifest.slug}/${versionFromRegistry}/icon`
-  return _getIcon(iconLink).then(iconData => {
-    return Object.assign(
-      {},
-      {
-        versions: responseApp.versions
-      },
-      manifest,
-      {
-        icon: iconData,
-        version: versionFromRegistry,
-        type: version.type,
-        categories: _sanitizeCategories(manifest.categories),
-        uninstallable: !config.notRemovableApps.includes(manifest.slug),
-        isInRegistry: true,
-        // add screensLinks property only if it exists
-        ...(screensLinks ? { screenshots: screensLinks } : {}),
-        // add installed value only if not already provided
-        installed: responseApp.installed || false
-      }
-    )
-  })
+  let icon = iconLink
+  if (fetchIcon) icon = await _getIcon(icon)
+  return Object.assign(
+    {},
+    {
+      versions: responseApp.versions
+    },
+    manifest,
+    {
+      // the icon fetching will done later with iconToLoad
+      ...(fetchIcon ? { icon } : { iconToLoad: icon }),
+      version: versionFromRegistry,
+      type: version.type,
+      categories: _sanitizeCategories(manifest.categories),
+      uninstallable: !config.notRemovableApps.includes(manifest.slug),
+      isInRegistry: true,
+      // add screensLinks property only if it exists
+      ...(screensLinks ? { screenshots: screensLinks } : {}),
+      // add installed value only if not already provided
+      installed: responseApp.installed || false
+    }
+  )
 }
 
 export function fetchInstalledApps(lang) {
@@ -469,7 +496,7 @@ export function fetchInstalledApps(lang) {
       const installedApps = installedWebApps.concat(installedKonnectors)
       Promise.all(
         installedApps.map(app => {
-          return getFormattedInstalledApp(app, collectLink)
+          return getFormattedInstalledApp(app, collectLink, false)
         })
       ).then(apps => {
         return dispatch({ type: FETCH_APPS_SUCCESS, apps, lang })
@@ -493,7 +520,7 @@ export function fetchRegistryApps(lang, channel = DEFAULT_CHANNEL) {
         return Promise.all(
           apps.map(app => {
             if (!app.latest_version) return false // skip
-            return getFormattedRegistryApp(app, channel).catch(err => {
+            return getFormattedRegistryApp(app, false).catch(err => {
               console.warn(
                 `Something went wrong when trying to fetch more informations about ${
                   app.slug
@@ -514,10 +541,9 @@ export function fetchRegistryApps(lang, channel = DEFAULT_CHANNEL) {
 }
 
 export function fetchApps(lang) {
-  return dispatch => {
-    dispatch(fetchRegistryApps(lang)).then(() =>
-      dispatch(fetchInstalledApps(lang))
-    )
+  return async dispatch => {
+    await dispatch(fetchRegistryApps(lang))
+    return dispatch(fetchInstalledApps(lang))
   }
 }
 

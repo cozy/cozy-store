@@ -7,12 +7,14 @@ import { translate } from 'cozy-ui/react/I18n'
 
 import cozySmileIcon from 'assets/icons/icon-cozy-smile.svg'
 import defaultAppIcon from 'assets/icons/icon-cube.svg'
+import { Placeholder } from 'ducks/components/AppsLoading'
 
 import { APP_TYPE } from 'ducks/apps'
 
 export const Header = ({
   t,
   icon,
+  iconToLoad,
   slug,
   namePrefix,
   name,
@@ -29,7 +31,9 @@ export const Header = ({
   return (
     <div className="sto-app-header">
       <div className="sto-app-header-icon">
-        {icon ? (
+        {iconToLoad ? (
+          <Placeholder width="8rem" height="8.25rem" />
+        ) : icon ? (
           <img className="sto-app-icon" src={icon} alt={`${slug}-icon`} />
         ) : (
           <Icon

@@ -5,7 +5,7 @@ import { translate } from 'cozy-ui/react/I18n'
 
 import Sidebar from './Sidebar'
 
-import { initApp } from '../apps'
+import { initApp, fetchIconsProgressively } from '../apps'
 import { Discover, MyApplications } from '../apps/Containers'
 
 import Alerter from 'cozy-ui/react/Alerter'
@@ -13,7 +13,13 @@ import Alerter from 'cozy-ui/react/Alerter'
 export class App extends Component {
   constructor(props) {
     super(props)
-    props.initApp()
+    props.initApp() // fetch apps without icons
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.isFetching && !nextProps.isFetching) {
+      this.props.fetchIconsProgressively()
+    }
   }
 
   render() {
@@ -34,10 +40,13 @@ export class App extends Component {
   }
 }
 
-const mapStateToProps = () => ({})
+const mapStateToProps = state => ({
+  isFetching: state.apps.isFetching
+})
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  initApp: () => dispatch(initApp(ownProps.lang))
+  initApp: () => dispatch(initApp(ownProps.lang)),
+  fetchIconsProgressively: () => dispatch(fetchIconsProgressively())
 })
 
 export default withRouter(

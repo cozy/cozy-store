@@ -6,12 +6,14 @@ import { translate } from 'cozy-ui/react/I18n'
 import defaultAppIcon from '../../assets/icons/icon-cube.svg'
 import { Link } from 'react-router-dom'
 import Button from 'cozy-ui/react/Button'
+import { Placeholder } from './AppsLoading'
 
 export const SmallAppItem = ({
   t,
   slug,
   developer,
   icon,
+  iconToLoad,
   name,
   namePrefix,
   installed,
@@ -34,7 +36,9 @@ export const SmallAppItem = ({
       onClick={onClick}
       tabIndex={0}
     >
-      {icon ? (
+      {iconToLoad ? (
+        <Placeholder width="4rem" height="4rem" />
+      ) : icon ? (
         <img
           src={icon}
           alt={`${slug}-icon`}

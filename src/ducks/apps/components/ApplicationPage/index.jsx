@@ -66,7 +66,7 @@ export class ApplicationPage extends Component {
         </p>
       )
     }
-    const { icon, installed, related, slug, type } = app
+    const { icon, installed, related, slug, type, iconToLoad } = app
     const appName = getLocalizedAppProperty(app, 'name', lang)
     const namePrefix = getLocalizedAppProperty(app, 'name_prefix', lang)
     const appShortDesc = getLocalizedAppProperty(app, 'short_description', lang)
@@ -86,7 +86,8 @@ export class ApplicationPage extends Component {
     return (
       <div>
         {isMobile &&
-          icon && (
+          icon &&
+          !iconToLoad && (
             <BarCenter>
               <div className="sto-app-bar">
                 <img
@@ -102,6 +103,7 @@ export class ApplicationPage extends Component {
         <div className="sto-app">
           <Header
             icon={icon}
+            iconToLoad={iconToLoad}
             namePrefix={namePrefix}
             name={appName}
             type={type}

@@ -12,6 +12,7 @@ const _renderAppComponent = (app, lang, onAppClick) => {
       namePrefix={getLocalizedAppProperty(app, 'name_prefix', lang) || ''}
       editor={app.editor || ''}
       icon={app.icon}
+      iconToLoad={app.iconToLoad}
       name={getLocalizedAppProperty(app, 'name', lang)}
       installed={app.installed}
       onClick={() => onAppClick(app.slug)}

@@ -1,7 +1,6 @@
 import { connect } from 'react-redux'
 
 import {
-  fetchApps,
   fetchLatestApp,
   uninstallApp,
   getInstalledApps,
@@ -10,7 +9,6 @@ import {
 } from './index'
 
 import DiscoverComponent from './components/Discover'
-import { translate } from 'cozy-ui/react/I18n'
 import MyApplicationsComponent from './components/MyApplications'
 
 const mapStateToProps = state => ({
@@ -23,8 +21,7 @@ const mapStateToProps = state => ({
   fetchError: state.apps.fetchError
 })
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  fetchApps: () => dispatch(fetchApps(ownProps.lang)),
+const mapDispatchToProps = dispatch => ({
   installApp: (appSlug, appType, channel) =>
     dispatch(installAppFromRegistry(appSlug, appType, channel)),
   uninstallApp: (appSlug, appType) => dispatch(uninstallApp(appSlug, appType)),
@@ -33,17 +30,12 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchLatestApp: (slug, channel) => dispatch(fetchLatestApp(slug, channel))
 })
 
-// translate last to pass the lang property to fetchApps()
-export const Discover = translate()(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(DiscoverComponent)
-)
+export const Discover = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(DiscoverComponent)
 
-export const MyApplications = translate()(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(MyApplicationsComponent)
-)
+export const MyApplications = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MyApplicationsComponent)
