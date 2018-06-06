@@ -92,26 +92,4 @@ describe('InstallModal component', () => {
     expect(mockProps.history.push.mock.calls.length).toBe(1)
     expect(mockProps.history.push.mock.calls[0][0]).toBe(mockProps.parent)
   })
-
-  it('should call the correct props function on success and goToParent if it is a webapp', async () => {
-    const mockProps = getMockProps('photos')
-    const component = shallow(<InstallModal t={tMock} {...mockProps} />)
-    await component.instance().onSuccess(mockProps.app)
-    // goToParent should be called to return to the app page url
-    expect(mockProps.history.push.mock.calls.length).toBe(1)
-    expect(mockProps.history.push.mock.calls[0][0]).toBe(
-      `${mockProps.parent}/photos`
-    )
-  })
-
-  it('should call the correct props function on success and go to configure modal if it is a konnector', async () => {
-    const mockProps = getMockProps('konnector-bouilligue')
-    const component = shallow(<InstallModal t={tMock} {...mockProps} />)
-    await component.instance().onSuccess(mockProps.app)
-    // history.push should be called to go to the konnector configuration intent
-    expect(mockProps.history.push.mock.calls.length).toBe(1)
-    expect(mockProps.history.push.mock.calls[0][0]).toBe(
-      `${mockProps.parent}/konnector-bouilligue/configure`
-    )
-  })
 })

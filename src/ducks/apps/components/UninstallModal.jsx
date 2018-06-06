@@ -32,7 +32,7 @@ export class UninstallModal extends Component {
     if (app && app.slug) {
       history.push(`${parent}/${app.slug}`)
     } else {
-      history.push(`${parent}`)
+      history.push(parent)
     }
   }
 
@@ -47,7 +47,7 @@ export class UninstallModal extends Component {
       <div className="sto-modal--uninstall">
         <Modal
           title={t('app_modal.uninstall.title')}
-          secondaryAction={this.gotoParent}
+          dismissAction={this.gotoParent}
           mobileFullscreen
         >
           <ModalContent>

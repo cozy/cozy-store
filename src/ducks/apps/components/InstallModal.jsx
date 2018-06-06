@@ -6,8 +6,6 @@ import Modal from 'cozy-ui/react/Modal'
 import AppInstallation from './AppInstallation'
 import getChannel from 'lib/getChannelFromSource'
 
-import { APP_TYPE } from 'ducks/apps'
-
 export class InstallModal extends Component {
   constructor(props) {
     super(props)
@@ -35,17 +33,7 @@ export class InstallModal extends Component {
     if (app && app.slug) {
       history.push(`${parent}/${app.slug}`)
     } else {
-      history.push(`${parent}`)
-    }
-  }
-
-  onSuccess(app) {
-    const { history, parent } = this.props
-
-    if (app.type === APP_TYPE.KONNECTOR) {
-      history.push(`${parent}/${app.slug}/configure`)
-    } else {
-      this.gotoParent()
+      history.push(parent)
     }
   }
 
@@ -55,7 +43,7 @@ export class InstallModal extends Component {
     if (!app) return null
     return (
       <div className="sto-modal--install">
-        <Modal secondaryAction={this.gotoParent} mobileFullscreen>
+        <Modal dismissAction={this.gotoParent} mobileFullscreen>
           <AppInstallation
             app={app}
             installApp={installApp}
@@ -64,7 +52,6 @@ export class InstallModal extends Component {
             isInstalling={isInstalling}
             isCanceling={isCanceling}
             onCancel={() => this.gotoParent()}
-            onSuccess={app => this.onSuccess(app)}
           />
         </Modal>
       </div>

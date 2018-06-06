@@ -13,10 +13,8 @@ import getFilteredAppsFromSearch from 'lib/getFilteredAppsFromSearch'
 const { BarCenter } = cozy.bar
 
 export class Discover extends Component {
-  constructor(props, context) {
+  constructor(props) {
     super(props)
-    props.fetchApps(context.lang)
-
     this.onAppClick = this.onAppClick.bind(this)
   }
 
