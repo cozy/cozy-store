@@ -395,48 +395,45 @@ export function fetchLatestApp(slug, channel = DEFAULT_CHANNEL) {
   }
 }
 
-export function getFormattedRegistryApp(response, channel) {
-  return cozy.client
-    .fetchJSON('GET', `/registry/${response.slug}/${channel}/latest`)
-    .then(version => {
-      // FIXME retro-compatibility for old formatted manifest
-      const manifest = _sanitizeOldManifest(version.manifest)
-      // source is only used by the stack when installed
-      // so we removed it from the app manifest if present
-      if (manifest.source) delete manifest.source
+export function getFormattedRegistryApp(responseApp) {
+  const version = responseApp.latest_version
+  // FIXME retro-compatibility for old formatted manifest
+  const manifest = _sanitizeOldManifest(version.manifest)
+  // source is only used by the stack when installed
+  // so we removed it from the app manifest if present
+  if (manifest.source) delete manifest.source
 
-      const versionFromRegistry = version.version
-      const screensLinks =
-        manifest.screenshots &&
-        manifest.screenshots.map(name => {
-          const fileName = name.replace(/^.*[\\/]/, '')
-          return `${cozy.client._url}/registry/${
-            manifest.slug
-          }/${versionFromRegistry}/screenshots/${fileName}`
-        })
-      const iconLink = `/registry/${manifest.slug}/${versionFromRegistry}/icon`
-      return _getIcon(iconLink).then(iconData => {
-        return Object.assign(
-          {},
-          {
-            versions: response.versions
-          },
-          manifest,
-          {
-            icon: iconData,
-            version: versionFromRegistry,
-            type: version.type,
-            categories: _sanitizeCategories(manifest.categories),
-            uninstallable: !config.notRemovableApps.includes(manifest.slug),
-            isInRegistry: true,
-            // add screensLinks property only if it exists
-            ...(screensLinks ? { screenshots: screensLinks } : {}),
-            // add installed value only if not already provided
-            installed: response.installed || false
-          }
-        )
-      })
+  const versionFromRegistry = version.version
+  const screensLinks =
+    manifest.screenshots &&
+    manifest.screenshots.map(name => {
+      const fileName = name.replace(/^.*[\\/]/, '')
+      return `${cozy.client._url}/registry/${
+        manifest.slug
+      }/${versionFromRegistry}/screenshots/${fileName}`
     })
+  const iconLink = `/registry/${manifest.slug}/${versionFromRegistry}/icon`
+  return _getIcon(iconLink).then(iconData => {
+    return Object.assign(
+      {},
+      {
+        versions: responseApp.versions
+      },
+      manifest,
+      {
+        icon: iconData,
+        version: versionFromRegistry,
+        type: version.type,
+        categories: _sanitizeCategories(manifest.categories),
+        uninstallable: !config.notRemovableApps.includes(manifest.slug),
+        isInRegistry: true,
+        // add screensLinks property only if it exists
+        ...(screensLinks ? { screenshots: screensLinks } : {}),
+        // add installed value only if not already provided
+        installed: responseApp.installed || false
+      }
+    )
+  })
 }
 
 export function fetchInstalledApps(lang) {
@@ -488,28 +485,21 @@ export function fetchRegistryApps(lang, channel = DEFAULT_CHANNEL) {
   return dispatch => {
     dispatch({ type: FETCH_APPS })
     return cozy.client
-      .fetchJSON('GET', '/registry')
+      .fetchJSON('GET', `/registry?limit=150&channelLatestVersion=${channel}`)
       .then(response => {
         const apps = response.data
           .filter(app => !config.notDisplayedApps.includes(app.name))
           .filter(app => app.versions.dev && app.versions.dev.length) // only apps with versions available
         return Promise.all(
           apps.map(app => {
+            if (!app.latest_version) return false // skip
             return getFormattedRegistryApp(app, channel).catch(err => {
-              if (err.status === 404) {
-                console.warn(
-                  `No ${channel} version found for ${
-                    app.slug
-                  } from the registry.`
-                )
-              } else {
-                console.warn(
-                  `Something went wrong when trying to fetch more informations about ${
-                    app.slug
-                  } from the registry on ${channel} channel. ${err}`
-                )
-              }
-              return false // useful to skip in an array.map function
+              console.warn(
+                `Something went wrong when trying to fetch more informations about ${
+                  app.slug
+                } from the registry on ${channel} channel. ${err}`
+              )
+              return false // skip
             })
           })
         ).then(apps => {
