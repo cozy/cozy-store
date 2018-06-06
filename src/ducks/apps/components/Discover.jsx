@@ -6,7 +6,7 @@ import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
 
 import ApplicationRouting from './ApplicationRouting'
 import Sections from './Sections'
-import AppsLoading from './AppsLoading'
+import AppsLoading from 'ducks/components/AppsLoading'
 
 import getFilteredAppsFromSearch from 'lib/getFilteredAppsFromSearch'
 

@@ -2,11 +2,11 @@
 import React, { Component } from 'react'
 
 import { translate } from 'cozy-ui/react/I18n'
-import Spinner from 'cozy-ui/react/Spinner'
 import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
 
 import ApplicationRouting from './ApplicationRouting'
 import Sections from './Sections'
+import AppsLoading from 'ducks/components/AppsLoading'
 
 import getFilteredAppsFromSearch from 'lib/getFilteredAppsFromSearch'
 
@@ -68,14 +68,7 @@ export class MyApplications extends Component {
           parent="myapps"
         />
 
-        {isFetching && (
-          <Spinner
-            className="sto-view-loading"
-            size="xxlarge"
-            loadingType="appsFetching"
-            middle
-          />
-        )}
+        {isFetching && <AppsLoading />}
       </div>
     )
   }

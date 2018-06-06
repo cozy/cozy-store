@@ -4,15 +4,15 @@ import React, { Component } from 'react'
 // number = number of loading items per subsection
 const LOADING_SECTIONS = [[4, 4], [12, 8]]
 
-const Placeholder = ({ width, height, withMargin }) => {
+export const Placeholder = ({ width, height, withMargin }) => {
   const widthStyle = Array.isArray(width)
     ? `${Math.random() * (width[1] - width[0]) + width[0]}rem`
     : width
   const style = {
     width: widthStyle,
-    height
+    height,
+    margin: withMargin ? '.1rem 0' : '0'
   }
-  if (withMargin) style.margin = '.1rem 0'
   return <div className="sto-sections-placeholder" style={style} />
 }
 
