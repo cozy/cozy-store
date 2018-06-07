@@ -22,6 +22,7 @@ describe('AppsSection component', () => {
         lang="en"
         subtitle="Test Apps"
         apps={mockApps}
+        allApps={mockApps}
         onAppClick={mockOnAppClick}
         error={null}
       />
@@ -37,6 +38,7 @@ describe('AppsSection component', () => {
         lang="en"
         subtitle="Test Apps"
         apps={mockApps}
+        allApps={mockApps}
         onAppClick={mockOnAppClick}
         error={new Error('This is a test error')}
       />

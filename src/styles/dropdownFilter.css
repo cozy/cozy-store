@@ -1,0 +1,25 @@
+.sto-sections-dropdown {
+  position: absolute;
+  right: 2rem;
+  width: 20rem;
+}
+
+.sto-sections-dropdown .react-select__control {
+  padding: .2rem;
+}
+
+.sto-sections-dropdown-icon {
+  padding: 0 .5rem;
+}
+
+@media (max-width: 48rem) {
+  .sto-sections-dropdown {
+    position: static;
+    margin: auto;
+    width: calc(100%);
+  }
+
+  .sto-sections-dropdown .react-select__container {
+    max-width: none;
+  }
+}

@@ -4,6 +4,57 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
 <div
   className="sto-sections"
 >
+  <DropdownFilter
+    options={
+      Array [
+        Object {
+          "fixed": true,
+          "label": "All categories",
+          "value": "all",
+        },
+        Object {
+          "fixed": true,
+          "label": "Applications",
+          "value": "webapps",
+        },
+        Object {
+          "fixed": false,
+          "label": "Cozy",
+          "value": "cozy",
+        },
+        Object {
+          "fixed": false,
+          "label": "ISP",
+          "value": "isp",
+        },
+        Object {
+          "fixed": false,
+          "label": "Partners",
+          "value": "partners",
+        },
+        Object {
+          "fixed": true,
+          "label": "Services",
+          "value": "konnectors",
+        },
+        Object {
+          "fixed": false,
+          "label": "Telecom",
+          "value": "telecom",
+        },
+        Object {
+          "fixed": false,
+          "label": "Transportation",
+          "value": "transport",
+        },
+        Object {
+          "fixed": false,
+          "label": "Others",
+          "value": "others",
+        },
+      ]
+    }
+  />
   <div
     className="sto-sections-section"
   >
@@ -125,6 +176,36 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
         Array [
           Object {
             "categories": Array [
+              "partners",
+            ],
+            "icon": "<svg></svg>",
+            "isInRegistry": true,
+            "name": "Tasky",
+            "slug": "tasky",
+            "type": "webapp",
+            "uninstallable": true,
+            "versions": Object {
+              "beta": Array [
+                "1.0.0",
+              ],
+              "dev": Array [
+                "1.0.0",
+              ],
+              "stable": Array [
+                "1.0.0",
+              ],
+            },
+          },
+        ]
+      }
+      onAppClick={[MockFunction]}
+      subtitle="Partners"
+    />
+    <Wrapper
+      appsList={
+        Array [
+          Object {
+            "categories": Array [
               "others",
             ],
             "developer": Object {
@@ -152,36 +233,6 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
       }
       onAppClick={[MockFunction]}
       subtitle="Others"
-    />
-    <Wrapper
-      appsList={
-        Array [
-          Object {
-            "categories": Array [
-              "partners",
-            ],
-            "icon": "<svg></svg>",
-            "isInRegistry": true,
-            "name": "Tasky",
-            "slug": "tasky",
-            "type": "webapp",
-            "uninstallable": true,
-            "versions": Object {
-              "beta": Array [
-                "1.0.0",
-              ],
-              "dev": Array [
-                "1.0.0",
-              ],
-              "stable": Array [
-                "1.0.0",
-              ],
-            },
-          },
-        ]
-      }
-      onAppClick={[MockFunction]}
-      subtitle="Partners"
     />
   </div>
   <div

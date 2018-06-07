@@ -16,10 +16,16 @@ export class MyApplications extends Component {
   constructor(props) {
     super(props)
     this.onAppClick = this.onAppClick.bind(this)
+    this.pushQuery = this.pushQuery.bind(this)
   }
 
   onAppClick(appSlug) {
     this.props.history.push(`/myapps/${appSlug}`)
+  }
+
+  pushQuery(query) {
+    if (!query) return this.props.history.push('/myapps')
+    this.props.history.push(`/myapps?${query}`)
   }
 
   render() {
@@ -34,10 +40,8 @@ export class MyApplications extends Component {
       breakpoints = {}
     } = this.props
     const { isMobile } = breakpoints
-    const filteredApps = getFilteredAppsFromSearch(
-      installedApps,
-      location && location.search
-    )
+    const query = !!location && location.search
+    const filteredApps = getFilteredAppsFromSearch(installedApps, query)
     const title = <h2 className="sto-view-title">{t('myapps.title')}</h2>
     return (
       <div className="sto-myapps">
@@ -48,8 +52,11 @@ export class MyApplications extends Component {
               {!isFetching && (
                 <Sections
                   apps={filteredApps}
+                  allApps={installedApps}
                   error={fetchError}
                   onAppClick={this.onAppClick}
+                  pushQuery={this.pushQuery}
+                  query={query}
                 />
               )}
             </div>
