@@ -1,56 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`UninstallModal component should be rendered correctly if app not uninstallable 1`] = `
-<div
-  className="sto-modal--uninstall"
->
-  <Unknown
-    closable={true}
-    dismissAction={[Function]}
-    mobileFullscreen={true}
-    overflowHidden={false}
-    primaryType="regular"
-    secondaryType="secondary"
-    size="small"
-    title="Uninstall this application"
-  >
-    <ModalContent>
-      <div
-        className="sto-modal-content"
-      >
-        <ReactMarkdownWrapper
-          source="This application is a major part of the Cozy platform. In order to keep you a __minimum user experience quality__, it's not possible to uninstall it through the Store application."
-        />
-        <div
-          className="sto-modal-controls"
-        >
-          <button
-            className="c-btn c-btn--secondary"
-            onClick={[Function]}
-            role="button"
-          >
-            <span>
-              Cancel
-            </span>
-          </button>
-          <button
-            className="c-btn c-btn--danger c-btn--delete"
-            disabled={true}
-            onClick={[Function]}
-            role="button"
-          >
-            <span>
-              Uninstall
-            </span>
-          </button>
-        </div>
-      </div>
-    </ModalContent>
-  </Unknown>
-</div>
-`;
-
-exports[`UninstallModal component should be rendered correctly if app uninstallable 1`] = `
+exports[`UninstallModal component should be rendered correctly (app uninstallable) 1`] = `
 <div
   className="sto-modal--uninstall"
 >
@@ -85,7 +35,6 @@ exports[`UninstallModal component should be rendered correctly if app uninstalla
           </button>
           <button
             className="c-btn c-btn--danger c-btn--delete"
-            disabled={false}
             onClick={[Function]}
             role="button"
           >
@@ -100,7 +49,7 @@ exports[`UninstallModal component should be rendered correctly if app uninstalla
 </div>
 `;
 
-exports[`UninstallModal component should hanlde correctly error from props 1`] = `
+exports[`UninstallModal component should handle correctly error from props 1`] = `
 <div
   className="sto-modal--uninstall"
 >
@@ -140,7 +89,6 @@ exports[`UninstallModal component should hanlde correctly error from props 1`] =
           </button>
           <button
             className="c-btn c-btn--danger c-btn--delete"
-            disabled={false}
             onClick={[Function]}
             role="button"
           >

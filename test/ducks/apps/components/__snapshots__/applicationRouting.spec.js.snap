@@ -226,46 +226,38 @@ exports[`ApplicationRouting component with Modal should handle correctly if inst
   app={
     Object {
       "categories": Array [
-        "cozy",
+        "transport",
       ],
       "developer": Object {
         "name": "Cozy",
       },
-      "editor": "Cozy",
       "icon": "<svg></svg>",
       "installed": true,
       "isInRegistry": true,
-      "name": "Collect",
-      "name_prefix": "Cozy",
+      "name": "Trinlane",
       "permissions": Object {
         "mock": Object {
           "type": "io.mock.doctype",
         },
-        "mock2": Object {
-          "type": "io.mock.doctype2",
-        },
       },
-      "related": "http://collect.cozy.mock/",
-      "slug": "collect",
+      "slug": "konnector-trinlane",
       "tags": Array [
-        "konnector",
-        "collect",
-        "bills",
-        "providers",
+        "transport",
         "files",
+        "bills",
       ],
-      "type": "webapp",
-      "uninstallable": false,
-      "version": "3.0.0",
+      "type": "konnector",
+      "uninstallable": true,
+      "version": "0.1.0",
       "versions": Object {
         "beta": Array [
-          "3.0.0",
+          "0.1.0",
         ],
         "dev": Array [
-          "3.0.0",
+          "0.1.0",
         ],
         "stable": Array [
-          "3.0.0",
+          "0.1.0",
         ],
       },
     }
@@ -280,46 +272,38 @@ exports[`ApplicationRouting component with Modal should render correctly if apps
   app={
     Object {
       "categories": Array [
-        "cozy",
+        "transport",
       ],
       "developer": Object {
         "name": "Cozy",
       },
-      "editor": "Cozy",
       "icon": "<svg></svg>",
       "installed": true,
       "isInRegistry": true,
-      "name": "Collect",
-      "name_prefix": "Cozy",
+      "name": "Trinlane",
       "permissions": Object {
         "mock": Object {
           "type": "io.mock.doctype",
         },
-        "mock2": Object {
-          "type": "io.mock.doctype2",
-        },
       },
-      "related": "http://collect.cozy.mock/",
-      "slug": "collect",
+      "slug": "konnector-trinlane",
       "tags": Array [
-        "konnector",
-        "collect",
-        "bills",
-        "providers",
+        "transport",
         "files",
+        "bills",
       ],
-      "type": "webapp",
-      "uninstallable": false,
-      "version": "3.0.0",
+      "type": "konnector",
+      "uninstallable": true,
+      "version": "0.1.0",
       "versions": Object {
         "beta": Array [
-          "3.0.0",
+          "0.1.0",
         ],
         "dev": Array [
-          "3.0.0",
+          "0.1.0",
         ],
         "stable": Array [
-          "3.0.0",
+          "0.1.0",
         ],
       },
     }

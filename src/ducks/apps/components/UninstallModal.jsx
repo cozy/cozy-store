@@ -53,13 +53,9 @@ export class UninstallModal extends Component {
           <ModalContent>
             <div className="sto-modal-content">
               <ReactMarkdownWrapper
-                source={
-                  app.uninstallable
-                    ? t('app_modal.uninstall.description', {
-                        cozyName: cozy.client._url.replace(/^\/\//, '')
-                      })
-                    : t('app_modal.uninstall.uninstallable_description')
-                }
+                source={t('app_modal.uninstall.description', {
+                  cozyName: cozy.client._url.replace(/^\/\//, '')
+                })}
               />
               {uninstallError && (
                 <p className="u-error">
@@ -78,7 +74,6 @@ export class UninstallModal extends Component {
                 </button>
                 <button
                   role="button"
-                  disabled={!app.uninstallable}
                   className="c-btn c-btn--danger c-btn--delete"
                   onClick={this.uninstallApp}
                 >

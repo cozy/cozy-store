@@ -121,8 +121,8 @@ describe('ApplicationRouting component with Modal', () => {
     const routes = component.find(Route)
     expect(routes.length).toBe(TOTAL_ROUTES)
     const routeToModal = routes.getElements()[2]
-    // collect in mockApps is installed and isInRegistry
-    const routeProps = { match: { params: { appSlug: 'collect' } } }
+    // konnector-trinlane in mockApps is installed, uninstallable and isInRegistry
+    const routeProps = { match: { params: { appSlug: 'konnector-trinlane' } } }
     const resultComponent = routeToModal.props.render(routeProps)
     expect(resultComponent).toBeDefined()
     expect(resultComponent).toMatchSnapshot()
@@ -162,8 +162,8 @@ describe('ApplicationRouting component with Modal', () => {
     const routes = component.find(Route)
     expect(routes.length).toBe(TOTAL_ROUTES)
     const routeToModal = routes.getElements()[2]
-    // collect in mockApps is installed and isInRegistry
-    const routeProps = { match: { params: { appSlug: 'collect' } } }
+    // konnector-trinlane in mockApps is installed, uninstallable and isInRegistry
+    const routeProps = { match: { params: { appSlug: 'konnector-trinlane' } } }
     const resultComponent = routeToModal.props.render(routeProps)
     expect(resultComponent).toBeDefined()
     expect(resultComponent).toMatchSnapshot()

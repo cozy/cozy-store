@@ -53,14 +53,7 @@ describe('UninstallModal component', () => {
     }
   })
 
-  it('should be rendered correctly if app not uninstallable', () => {
-    const component = shallow(
-      <UninstallModal t={tMock} {...getMockProps('collect')} />
-    ).getElement()
-    expect(component).toMatchSnapshot()
-  })
-
-  it('should be rendered correctly if app uninstallable', () => {
+  it('should be rendered correctly (app uninstallable)', () => {
     const component = shallow(
       <UninstallModal t={tMock} {...getMockProps('photos')} />
     ).getElement()
@@ -76,7 +69,7 @@ describe('UninstallModal component', () => {
     expect(mockProps.history.push.mock.calls[0][0]).toBe(mockProps.parent)
   })
 
-  it('should hanlde correctly error from props', () => {
+  it('should handle correctly error from props', () => {
     const mockProps = getMockProps('photos', mockError)
     const component = shallow(<UninstallModal t={tMock} {...mockProps} />)
     expect(component.getElement()).toMatchSnapshot()

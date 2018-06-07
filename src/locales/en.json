@@ -39,7 +39,6 @@
     "uninstall": {
       "title": "Uninstall this application",
       "description": "This application is bound to be removed from your Cozy %{cozyName}. Are you sure to __remove this application definitively__?",
-      "uninstallable_description": "This application is a major part of the Cozy platform. In order to keep you a __minimum user experience quality__, it's not possible to uninstall it through the Store application.",
       "cancel": "Cancel",
       "uninstall": "Uninstall",
       "message": {
