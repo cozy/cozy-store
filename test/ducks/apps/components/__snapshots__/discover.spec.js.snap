@@ -9,6 +9,167 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
       className="sto-discover-sections"
     >
       <Wrapper
+        allApps={
+          Array [
+            Object {
+              "categories": Array [
+                "cozy",
+              ],
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "editor": "Cozy",
+              "icon": "<svg></svg>",
+              "installed": true,
+              "isInRegistry": true,
+              "name": "Collect",
+              "name_prefix": "Cozy",
+              "permissions": Object {
+                "mock": Object {
+                  "type": "io.mock.doctype",
+                },
+                "mock2": Object {
+                  "type": "io.mock.doctype2",
+                },
+              },
+              "related": "http://collect.cozy.mock/",
+              "slug": "collect",
+              "tags": Array [
+                "konnector",
+                "collect",
+                "bills",
+                "providers",
+                "files",
+              ],
+              "type": "webapp",
+              "uninstallable": false,
+              "version": "3.0.0",
+              "versions": Object {
+                "beta": Array [
+                  "3.0.0",
+                ],
+                "dev": Array [
+                  "3.0.0",
+                ],
+                "stable": Array [
+                  "3.0.0",
+                ],
+              },
+            },
+            Object {
+              "categories": Array [
+                "isp",
+                "telecom",
+              ],
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "icon": "<svg></svg>",
+              "isInRegistry": true,
+              "name": "Bouilligue",
+              "slug": "konnector-bouilligue",
+              "type": "konnector",
+              "uninstallable": true,
+              "versions": Object {
+                "beta": Array [
+                  "0.1.0",
+                ],
+                "dev": Array [
+                  "0.1.0",
+                ],
+                "stable": Array [
+                  "0.1.0",
+                ],
+              },
+            },
+            Object {
+              "categories": Array [
+                "transport",
+              ],
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "icon": "<svg></svg>",
+              "installed": true,
+              "isInRegistry": true,
+              "name": "Trinlane",
+              "permissions": Object {
+                "mock": Object {
+                  "type": "io.mock.doctype",
+                },
+              },
+              "slug": "konnector-trinlane",
+              "tags": Array [
+                "transport",
+                "files",
+                "bills",
+              ],
+              "type": "konnector",
+              "uninstallable": true,
+              "version": "0.1.0",
+              "versions": Object {
+                "beta": Array [
+                  "0.1.0",
+                ],
+                "dev": Array [
+                  "0.1.0",
+                ],
+                "stable": Array [
+                  "0.1.0",
+                ],
+              },
+            },
+            Object {
+              "categories": Array [
+                "cozy",
+              ],
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "editor": "Cozy",
+              "icon": "<svg></svg>",
+              "isInRegistry": true,
+              "name": "Photos",
+              "name_prefix": "Cozy",
+              "slug": "photos",
+              "type": "webapp",
+              "uninstallable": true,
+              "versions": Object {
+                "beta": Array [
+                  "3.0.0",
+                ],
+                "dev": Array [
+                  "3.0.0",
+                ],
+                "stable": Array [
+                  "3.0.0",
+                ],
+              },
+            },
+            Object {
+              "categories": Array [
+                "partners",
+              ],
+              "icon": "<svg></svg>",
+              "isInRegistry": true,
+              "name": "Tasky",
+              "slug": "tasky",
+              "type": "webapp",
+              "uninstallable": true,
+              "versions": Object {
+                "beta": Array [
+                  "1.0.0",
+                ],
+                "dev": Array [
+                  "1.0.0",
+                ],
+                "stable": Array [
+                  "1.0.0",
+                ],
+              },
+            },
+          ]
+        }
         apps={
           Array [
             Object {
@@ -172,6 +333,8 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
         }
         error={null}
         onAppClick={[Function]}
+        pushQuery={[Function]}
+        query={false}
       />
     </div>
   </div>
@@ -353,6 +516,167 @@ exports[`Discover component should be rendered correctly with apps and URL searc
       className="sto-discover-sections"
     >
       <Wrapper
+        allApps={
+          Array [
+            Object {
+              "categories": Array [
+                "cozy",
+              ],
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "editor": "Cozy",
+              "icon": "<svg></svg>",
+              "installed": true,
+              "isInRegistry": true,
+              "name": "Collect",
+              "name_prefix": "Cozy",
+              "permissions": Object {
+                "mock": Object {
+                  "type": "io.mock.doctype",
+                },
+                "mock2": Object {
+                  "type": "io.mock.doctype2",
+                },
+              },
+              "related": "http://collect.cozy.mock/",
+              "slug": "collect",
+              "tags": Array [
+                "konnector",
+                "collect",
+                "bills",
+                "providers",
+                "files",
+              ],
+              "type": "webapp",
+              "uninstallable": false,
+              "version": "3.0.0",
+              "versions": Object {
+                "beta": Array [
+                  "3.0.0",
+                ],
+                "dev": Array [
+                  "3.0.0",
+                ],
+                "stable": Array [
+                  "3.0.0",
+                ],
+              },
+            },
+            Object {
+              "categories": Array [
+                "isp",
+                "telecom",
+              ],
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "icon": "<svg></svg>",
+              "isInRegistry": true,
+              "name": "Bouilligue",
+              "slug": "konnector-bouilligue",
+              "type": "konnector",
+              "uninstallable": true,
+              "versions": Object {
+                "beta": Array [
+                  "0.1.0",
+                ],
+                "dev": Array [
+                  "0.1.0",
+                ],
+                "stable": Array [
+                  "0.1.0",
+                ],
+              },
+            },
+            Object {
+              "categories": Array [
+                "transport",
+              ],
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "icon": "<svg></svg>",
+              "installed": true,
+              "isInRegistry": true,
+              "name": "Trinlane",
+              "permissions": Object {
+                "mock": Object {
+                  "type": "io.mock.doctype",
+                },
+              },
+              "slug": "konnector-trinlane",
+              "tags": Array [
+                "transport",
+                "files",
+                "bills",
+              ],
+              "type": "konnector",
+              "uninstallable": true,
+              "version": "0.1.0",
+              "versions": Object {
+                "beta": Array [
+                  "0.1.0",
+                ],
+                "dev": Array [
+                  "0.1.0",
+                ],
+                "stable": Array [
+                  "0.1.0",
+                ],
+              },
+            },
+            Object {
+              "categories": Array [
+                "cozy",
+              ],
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "editor": "Cozy",
+              "icon": "<svg></svg>",
+              "isInRegistry": true,
+              "name": "Photos",
+              "name_prefix": "Cozy",
+              "slug": "photos",
+              "type": "webapp",
+              "uninstallable": true,
+              "versions": Object {
+                "beta": Array [
+                  "3.0.0",
+                ],
+                "dev": Array [
+                  "3.0.0",
+                ],
+                "stable": Array [
+                  "3.0.0",
+                ],
+              },
+            },
+            Object {
+              "categories": Array [
+                "partners",
+              ],
+              "icon": "<svg></svg>",
+              "isInRegistry": true,
+              "name": "Tasky",
+              "slug": "tasky",
+              "type": "webapp",
+              "uninstallable": true,
+              "versions": Object {
+                "beta": Array [
+                  "1.0.0",
+                ],
+                "dev": Array [
+                  "1.0.0",
+                ],
+                "stable": Array [
+                  "1.0.0",
+                ],
+              },
+            },
+          ]
+        }
         apps={
           Array [
             Object {
@@ -431,6 +755,8 @@ exports[`Discover component should be rendered correctly with apps and URL searc
         }
         error={null}
         onAppClick={[Function]}
+        pushQuery={[Function]}
+        query="?category=cozy"
       />
     </div>
   </div>
@@ -527,9 +853,12 @@ exports[`Discover component should display error from props correctly 1`] = `
       className="sto-discover-sections"
     >
       <Wrapper
+        allApps={Array []}
         apps={Array []}
         error={[Error: This is a test error]}
         onAppClick={[Function]}
+        pushQuery={[Function]}
+        query={false}
       />
     </div>
   </div>
@@ -750,6 +1079,167 @@ exports[`Discover component should use BarCenter from cozy-bar in mobile view on
       className="sto-discover-sections"
     >
       <Wrapper
+        allApps={
+          Array [
+            Object {
+              "categories": Array [
+                "cozy",
+              ],
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "editor": "Cozy",
+              "icon": "<svg></svg>",
+              "installed": true,
+              "isInRegistry": true,
+              "name": "Collect",
+              "name_prefix": "Cozy",
+              "permissions": Object {
+                "mock": Object {
+                  "type": "io.mock.doctype",
+                },
+                "mock2": Object {
+                  "type": "io.mock.doctype2",
+                },
+              },
+              "related": "http://collect.cozy.mock/",
+              "slug": "collect",
+              "tags": Array [
+                "konnector",
+                "collect",
+                "bills",
+                "providers",
+                "files",
+              ],
+              "type": "webapp",
+              "uninstallable": false,
+              "version": "3.0.0",
+              "versions": Object {
+                "beta": Array [
+                  "3.0.0",
+                ],
+                "dev": Array [
+                  "3.0.0",
+                ],
+                "stable": Array [
+                  "3.0.0",
+                ],
+              },
+            },
+            Object {
+              "categories": Array [
+                "isp",
+                "telecom",
+              ],
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "icon": "<svg></svg>",
+              "isInRegistry": true,
+              "name": "Bouilligue",
+              "slug": "konnector-bouilligue",
+              "type": "konnector",
+              "uninstallable": true,
+              "versions": Object {
+                "beta": Array [
+                  "0.1.0",
+                ],
+                "dev": Array [
+                  "0.1.0",
+                ],
+                "stable": Array [
+                  "0.1.0",
+                ],
+              },
+            },
+            Object {
+              "categories": Array [
+                "transport",
+              ],
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "icon": "<svg></svg>",
+              "installed": true,
+              "isInRegistry": true,
+              "name": "Trinlane",
+              "permissions": Object {
+                "mock": Object {
+                  "type": "io.mock.doctype",
+                },
+              },
+              "slug": "konnector-trinlane",
+              "tags": Array [
+                "transport",
+                "files",
+                "bills",
+              ],
+              "type": "konnector",
+              "uninstallable": true,
+              "version": "0.1.0",
+              "versions": Object {
+                "beta": Array [
+                  "0.1.0",
+                ],
+                "dev": Array [
+                  "0.1.0",
+                ],
+                "stable": Array [
+                  "0.1.0",
+                ],
+              },
+            },
+            Object {
+              "categories": Array [
+                "cozy",
+              ],
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "editor": "Cozy",
+              "icon": "<svg></svg>",
+              "isInRegistry": true,
+              "name": "Photos",
+              "name_prefix": "Cozy",
+              "slug": "photos",
+              "type": "webapp",
+              "uninstallable": true,
+              "versions": Object {
+                "beta": Array [
+                  "3.0.0",
+                ],
+                "dev": Array [
+                  "3.0.0",
+                ],
+                "stable": Array [
+                  "3.0.0",
+                ],
+              },
+            },
+            Object {
+              "categories": Array [
+                "partners",
+              ],
+              "icon": "<svg></svg>",
+              "isInRegistry": true,
+              "name": "Tasky",
+              "slug": "tasky",
+              "type": "webapp",
+              "uninstallable": true,
+              "versions": Object {
+                "beta": Array [
+                  "1.0.0",
+                ],
+                "dev": Array [
+                  "1.0.0",
+                ],
+                "stable": Array [
+                  "1.0.0",
+                ],
+              },
+            },
+          ]
+        }
         apps={
           Array [
             Object {
@@ -913,6 +1403,8 @@ exports[`Discover component should use BarCenter from cozy-bar in mobile view on
         }
         error={null}
         onAppClick={[Function]}
+        pushQuery={[Function]}
+        query={false}
       />
     </div>
   </div>

@@ -109,6 +109,9 @@
 
   "app_categories": {
     "list_separator": ", ",
+    "all": "All categories",
+    "webapps": "Applications",
+    "konnectors": "Services",
     "banking": "Banking",
     "cozy": "Cozy",
     "energy": "Energy",
