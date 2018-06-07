@@ -1140,6 +1140,19 @@ body{font:1em/1.5;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antia
       -ms-flex-pack: start;
           justify-content: flex-start;
 }
+.sto-sections-dropdown {
+  position: absolute;
+  right: 2rem;
+  width: 20rem;
+}
+
+.sto-sections-dropdown .react-select__control {
+  padding: .2rem;
+}
+
+.sto-sections-dropdown-icon {
+  padding: 0 .5rem;
+}
 .sto-sections-list {
   /* We differenciate the "real" margin from the "used" margin. The "used" margin
   allow to use a little higher value for flex-basis calculation. Firefox
@@ -2204,7 +2217,7 @@ body{font:1em/1.5;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antia
 @media (hover:none){.c-nav-item:hover::before{content:none}.c-table-row:hover,.c-table-row-head:hover{background-color:transparent}}
 @media not all and (pointer:fine){.c-nav-link:hover{color:#5d6165}}
 @media (max-width: 48rem){.sto-app-header .c-btn{width:100%;margin-right:0}.sto-app-header-description{text-align:center}.sto-app-header-title{text-align:center}.sto-app-header-icon{display:-webkit-box;display:-ms-flexbox;display:flex;margin:0;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.sto-app-icon{width:5rem}.sto-app-header{margin-top:.5rem;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}.sto-app-header-uninstall-button{margin-top:.8rem}.sto-app-details{-webkit-box-orient:vertical;-webkit-box-direction:reverse;-ms-flex-direction:column-reverse;flex-direction:column-reverse}.sto-app-descriptions,
-  .sto-app-additional-details{width:100%;padding-right:0}.sto-app-info-content{-webkit-box-align:end;-ms-flex-align:end;align-items:end}.sto-app-info-content--mobile-apps{-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:end}.c-modal-wrapper--UeRRs{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;padding:1.5rem}.c-modal-wrapper--UeRRs.c-modal-wrapper--fullscreen--2nJke{padding:0}.c-modal--97Ctb.c-modal--fullscreen--37HO-{height:100%;width:100%;border-radius:0}.c-modal--large-spacing--2uWw9 .c-modal-header--CNyQy{padding:calc(2rem - .3rem) 2rem 0 2rem}.c-modal--large-spacing--2uWw9 .c-modal-content--27Ex2{padding:0 2rem}.c-modal--large-spacing--2uWw9 .c-modal-content--27Ex2:last-child{padding-bottom:2rem}.c-modal-footer--button--2g_JX{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:reverse;-ms-flex-direction:column-reverse;flex-direction:column-reverse}.c-modal-footer--button--2g_JX button{width:100%;margin:0}.c-modal-footer--button--2g_JX button:not(:first-child){margin-bottom:0.25rem}.c-modal--large-spacing--2uWw9 .c-modal-close--ZBJ0A{top:1.3rem;right:1.5rem}}
+  .sto-app-additional-details{width:100%;padding-right:0}.sto-app-info-content{-webkit-box-align:end;-ms-flex-align:end;align-items:end}.sto-app-info-content--mobile-apps{-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:end}.sto-sections-dropdown{position:static;margin:auto;width:calc(100%)}.sto-sections-dropdown .react-select__container{max-width:none}.c-modal-wrapper--UeRRs{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;padding:1.5rem}.c-modal-wrapper--UeRRs.c-modal-wrapper--fullscreen--2nJke{padding:0}.c-modal--97Ctb.c-modal--fullscreen--37HO-{height:100%;width:100%;border-radius:0}.c-modal--large-spacing--2uWw9 .c-modal-header--CNyQy{padding:calc(2rem - .3rem) 2rem 0 2rem}.c-modal--large-spacing--2uWw9 .c-modal-content--27Ex2{padding:0 2rem}.c-modal--large-spacing--2uWw9 .c-modal-content--27Ex2:last-child{padding-bottom:2rem}.c-modal-footer--button--2g_JX{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:reverse;-ms-flex-direction:column-reverse;flex-direction:column-reverse}.c-modal-footer--button--2g_JX button{width:100%;margin:0}.c-modal-footer--button--2g_JX button:not(:first-child){margin-bottom:0.25rem}.c-modal--large-spacing--2uWw9 .c-modal-close--ZBJ0A{top:1.3rem;right:1.5rem}}
 @media (max-width: 63.9375rem){.sto-empty:before{width:5rem;height:4.375rem}.sto-empty h2{margin:2em 1.5em 0}.sto-empty p{margin:.5em 1.5em 0}[role=banner][role=banner]{position:fixed;top:0;left:0;width:100%;background-color:#fff;-webkit-box-sizing:border-box;box-sizing:border-box}.u-hide--mob{display:none !important}}
 @media (max-width: 48em){.sto-install{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}}
 @media (min-width: 25rem) and (max-width: 38rem){.sto-small-app-item{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}.sto-small-app-item-buttons{margin-left:.5rem}.sto-small-app-item-desc{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}.sto-small-app-item-desc .sto-small-app-item-button{-ms-flex-item-align:center;align-self:center}}

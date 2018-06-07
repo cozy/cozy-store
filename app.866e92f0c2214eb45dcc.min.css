@@ -1140,6 +1140,19 @@ body{font:1em/1.5;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antia
       -ms-flex-pack: start;
           justify-content: flex-start;
 }
+.sto-sections-dropdown {
+  position: absolute;
+  right: 2rem;
+  width: 20rem;
+}
+
+.sto-sections-dropdown .react-select__control {
+  padding: .2rem;
+}
+
+.sto-sections-dropdown-icon {
+  padding: 0 .5rem;
+}
 .sto-sections-list {
   /* We differenciate the "real" margin from the "used" margin. The "used" margin
   allow to use a little higher value for flex-basis calculation. Firefox
@@ -2142,6 +2155,38 @@ iframe {
 .checkbox--Q3jzD:checked + .label--3TGxL:before {
   left: 18px;
 }
+.select-control__input--3fXzP {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+.select-option--1TD9j {
+  display: block;
+  padding: 0.5rem;
+  border-left: 4px solid transparent;
+  color: #32363f;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  white-space: normal /* otherwise the tick can be wrongly placed in Firefox */;
+}
+.select-option--1TD9j:hover {
+  background-color: #f5f6f7;
+  cursor: pointer;
+}
+.select-option--focused--2HKhT {
+  background-color: #f5f6f7;
+}
+.select-option--selected--2TZCi {
+  background-color: #f5f6f7;
+  border-left-color: #297ef2;
+}
+.select-option__checkbox--32K64 {
+  margin-right: 0.5rem;
+  vertical-align: top;
+}
+.select-option--checkmark--2Q3Qk {
+  float: right;
+}
 @-webkit-keyframes spin--1ywvo {
   from {
     -webkit-transform: rotate(0deg);
@@ -2432,7 +2477,7 @@ iframe {
 @media (hover:none){.c-nav-item:hover::before{content:none}.c-table-row:hover,.c-table-row-head:hover{background-color:transparent}}
 @media not all and (pointer:fine){.c-nav-link:hover{color:#5d6165}}
 @media (max-width: 48rem){.sto-app-header .c-btn{width:100%;margin-right:0}.sto-app-header-description{text-align:center}.sto-app-header-title{text-align:center}.sto-app-header-icon{display:-webkit-box;display:-ms-flexbox;display:flex;margin:0;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.sto-app-icon{width:5rem}.sto-app-header{margin-top:.5rem;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}.sto-app-header-uninstall-button{margin-top:.8rem}.sto-app-details{-webkit-box-orient:vertical;-webkit-box-direction:reverse;-ms-flex-direction:column-reverse;flex-direction:column-reverse}.sto-app-descriptions,
-  .sto-app-additional-details{width:100%;padding-right:0}.sto-app-info-content{-webkit-box-align:end;-ms-flex-align:end;align-items:end}.sto-app-info-content--mobile-apps{-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:end}.c-modal-wrapper--UeRRs{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;padding:1.5rem}.c-modal-wrapper--UeRRs.c-modal-wrapper--fullscreen--2nJke{padding:0}.c-modal--97Ctb.c-modal--fullscreen--37HO-{height:100%;width:100%;border-radius:0}.c-modal--large-spacing--2uWw9 .c-modal-header--CNyQy{padding:calc(2rem - .3rem) 2rem 0 2rem}.c-modal--large-spacing--2uWw9 .c-modal-content--27Ex2{padding:0 2rem}.c-modal--large-spacing--2uWw9 .c-modal-content--27Ex2:last-child{padding-bottom:2rem}.c-modal-footer--button--2g_JX{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:reverse;-ms-flex-direction:column-reverse;flex-direction:column-reverse}.c-modal-footer--button--2g_JX button{width:100%;margin:0}.c-modal-footer--button--2g_JX button:not(:first-child){margin-bottom:0.25rem}.c-modal--large-spacing--2uWw9 .c-modal-close--ZBJ0A{top:1.3rem;right:1.5rem}.intentModal--25jqp{height:100%;width:100%}}
+  .sto-app-additional-details{width:100%;padding-right:0}.sto-app-info-content{-webkit-box-align:end;-ms-flex-align:end;align-items:end}.sto-app-info-content--mobile-apps{-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:end}.sto-sections-dropdown{position:static;margin:auto;width:calc(100%)}.sto-sections-dropdown .react-select__container{max-width:none}.c-modal-wrapper--UeRRs{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;padding:1.5rem}.c-modal-wrapper--UeRRs.c-modal-wrapper--fullscreen--2nJke{padding:0}.c-modal--97Ctb.c-modal--fullscreen--37HO-{height:100%;width:100%;border-radius:0}.c-modal--large-spacing--2uWw9 .c-modal-header--CNyQy{padding:calc(2rem - .3rem) 2rem 0 2rem}.c-modal--large-spacing--2uWw9 .c-modal-content--27Ex2{padding:0 2rem}.c-modal--large-spacing--2uWw9 .c-modal-content--27Ex2:last-child{padding-bottom:2rem}.c-modal-footer--button--2g_JX{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:reverse;-ms-flex-direction:column-reverse;flex-direction:column-reverse}.c-modal-footer--button--2g_JX button{width:100%;margin:0}.c-modal-footer--button--2g_JX button:not(:first-child){margin-bottom:0.25rem}.c-modal--large-spacing--2uWw9 .c-modal-close--ZBJ0A{top:1.3rem;right:1.5rem}.intentModal--25jqp{height:100%;width:100%}}
 @media (max-width: 63.9375rem){.sto-empty:before{width:5rem;height:4.375rem}.sto-empty h2{margin:2em 1.5em 0}.sto-empty p{margin:.5em 1.5em 0}[role=banner][role=banner]{position:fixed;top:0;left:0;width:100%;background-color:#fff;-webkit-box-sizing:border-box;box-sizing:border-box}.c-nav--2iqla{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-pack:distribute;justify-content:space-around;margin:0.3125rem 0 0.25rem;padding-right:0}.c-nav-item--3HJO0{margin:0 0.75rem;height:auto;display:block;-webkit-box-flex:0;-ms-flex:0 0 2.5rem;flex:0 0 2.5rem;padding-right:0}.c-nav-item--3HJO0:hover::before{content:none}.c-nav-item__icon--1DVY2{display:block;font-size:1.5rem;margin-right:0;text-align:center}.c-nav-item__icon--1DVY2 svg{width:1.5rem;height:1.5rem}.c-nav-item__text--1IMTK{display:block;text-align:center;white-space:nowrap}.c-nav-link--3aZyS{display:block;height:auto;padding:0;text-align:center;color:#5d6165;font-size:0.625rem;line-height:1;background-position:center top;background-size:1.5rem}.c-nav-link--3aZyS.active--3CjnL,
   .c-nav-link--3aZyS.is-active--1jrB6,
   .c-nav-link--3aZyS:hover{-webkit-box-shadow:none;box-shadow:none;font-weight:normal;color:#32363f}.u-hide--mob{display:none !important}}
