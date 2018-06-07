@@ -21,6 +21,7 @@ export const Header = ({
   type,
   description,
   installed,
+  uninstallable,
   installedAppLink,
   parent
 }) => {
@@ -65,6 +66,8 @@ export const Header = ({
             <Link
               to={`/${parent}/${slug}/manage`}
               className="c-btn c-btn--danger-outline sto-app-header-uninstall-button"
+              onClick={!uninstallable && (e => e.preventDefault())}
+              disabled={!uninstallable}
             >
               <span>
                 {isKonnector

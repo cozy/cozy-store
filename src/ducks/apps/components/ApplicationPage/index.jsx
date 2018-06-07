@@ -66,7 +66,15 @@ export class ApplicationPage extends Component {
         </p>
       )
     }
-    const { icon, installed, related, slug, type, iconToLoad } = app
+    const {
+      icon,
+      installed,
+      uninstallable,
+      related,
+      slug,
+      type,
+      iconToLoad
+    } = app
     const appName = getLocalizedAppProperty(app, 'name', lang)
     const namePrefix = getLocalizedAppProperty(app, 'name_prefix', lang)
     const appShortDesc = getLocalizedAppProperty(app, 'short_description', lang)
@@ -110,6 +118,7 @@ export class ApplicationPage extends Component {
             description={appShortDesc}
             installed={installed}
             installedAppLink={related}
+            uninstallable={uninstallable}
             parent={parent}
             slug={slug}
           />

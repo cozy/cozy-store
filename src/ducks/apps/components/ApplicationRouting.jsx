@@ -102,6 +102,8 @@ export class ApplicationRouting extends Component {
             const app = this.getAppFromMatchOrSlug(match)
             if (!app) return history.push(`/${parent}`)
             if (app && app.installed) {
+              if (!app.uninstallable)
+                return history.push(`/${parent}/${app.slug}`)
               return (
                 <UninstallModal
                   uninstallApp={uninstallApp}
