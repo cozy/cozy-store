@@ -119,10 +119,12 @@
     "host_provider": "Host",
     "insurance": "Insurance",
     "isp": "ISP",
+    "online_services": "Online services",
     "others": "Others",
     "mes_infos": "MesInfos experimentation",
     "partners": "Partners",
     "productivity": "Productivity",
+    "press": "Press",
     "ptnb": "PTNB experimentation",
     "public_service": "Public services",
     "shopping": "Shopping",
@@ -175,6 +177,10 @@
   },
 
   "doctypes": {
+    "com": {
+      "tricount.expenses": "Expenses Tricount",
+      "splitwise.expenses": "Expenses Splitwise"
+    },
     "io": {
       "cozy": {
         "accounts": "Login details",
@@ -190,6 +196,8 @@
         "jobs": "Jobs",
         "konnectors": "Connectors for importing data",
         "konnectors.result": "Connectors results",
+        "netflix.views": "Netflix history",
+        "netflix.opinions": "Netflix opinions",
         "notifications": "Notifications",
         "oauth.clients": "Connected devices",
         "permissions": "Delegating permissions",
