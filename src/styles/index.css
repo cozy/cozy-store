@@ -1,0 +1,21 @@
+@import '../../node_modules/cozy-ui/dist/cozy-ui.min.css';
+
+@import './application.css';
+@import './viewTitle.css';
+@import './empty.css';
+@import './install.css';
+@import './intents.css';
+@import './modal.css';
+@import './permissions.css';
+@import './sections.css';
+@import './smallAppItem.css';
+@import './loading.css';
+
+.blurry {
+    opacity: .7;
+    filter: blur(2px);
+}
+
+.sto-view-loading {
+    top: 45vh!important;
+}
