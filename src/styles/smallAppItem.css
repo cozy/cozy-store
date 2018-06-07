@@ -18,8 +18,8 @@
 }
 
 .sto-small-app-item:hover {
-  background: var(--pale-grey);
-  box-shadow: 0 0 0 0 var(--pale-grey);
+  background: var(--paleGrey);
+  box-shadow: 0 0 0 0 var(--paleGrey);
   cursor: pointer;
 }
 
@@ -57,7 +57,7 @@
 .sto-small-app-item-detail {
   margin: .2em 0;
   font-size: .8rem;
-  color: var(--cool-grey);
+  color: var(--coolGrey);
 }
 
 .sto-small-app-item-buttons {
@@ -70,7 +70,7 @@
 
 .sto-small-app-item-button-install,
 .sto-small-app-item-button-install:visited {
-  color: var(--dodger-blue);
+  color: var(--dodgerBlue);
   background: white;
   font-weight: 700;
 }
@@ -79,7 +79,7 @@
 .sto-small-app-item-button-install:focus,
 .sto-small-app-item-button-install:active {
   color: white;
-  background: var(--dodger-blue);
+  background: var(--dodgerBlue);
 }
 
 @media (min-width: 25rem) and (max-width: 38rem) {

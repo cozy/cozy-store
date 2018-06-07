@@ -139,7 +139,7 @@
 .sto-app-big-image {
   max-width: calc(100% / 2 - 2rem);
   border-radius: .2rem;
-  box-shadow: 0px 0px 20px -10px var(--charcoal-grey);
+  box-shadow: 0px 0px 20px -10px var(--charcoalGrey);
   cursor: pointer;
   object-fit: cover;
   max-height: 100%;
@@ -149,7 +149,7 @@
   max-width: 100%;
   border-radius: .2rem;
   margin-bottom: 1rem;
-  box-shadow: 0px 0px 20px -10px var(--charcoal-grey);
+  box-shadow: 0px 0px 20px -10px var(--charcoalGrey);
   cursor: pointer;
   object-fit: cover;
   max-height: calc((100% - 2rem) / 3 );
@@ -159,7 +159,7 @@
 .sto-app-big-image:hover,
 .sto-app-small-image:focus,
 .sto-app-big-image:focus {
-  box-shadow: 0px 0px 50px -20px var(--charcoal-grey);
+  box-shadow: 0px 0px 50px -20px var(--charcoalGrey);
 }
 
 .sto-app-small-image:last-child {
@@ -195,7 +195,7 @@
 }
 
 .sto-app-descriptions .md-title {
-  color: var(--slate-grey)
+  color: var(--slateGrey)
 }
 
 .sto-app-description {
@@ -222,7 +222,7 @@
   margin: .2rem 0 0;
   padding-left: 0;
   border: 0;
-  color: var(--dodger-blue);
+  color: var(--dodgerBlue);
   background-color: white;
   text-transform: uppercase;
   font-weight: 700;
@@ -248,7 +248,7 @@
   display: flex;
   flex-direction: column;
   width: 35%;
-  color: var(--cool-grey);
+  color: var(--coolGrey);
   line-height: 1.5rem;
 }
 
@@ -279,7 +279,7 @@
   margin-top: .5rem;
   display: inline-table;
   text-decoration: none;
-  color: var(--dodger-blue);
+  color: var(--dodgerBlue);
 }
 
 @media (max-width: 48rem) {
