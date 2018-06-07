@@ -14,28 +14,40 @@ const _getSortedByCategories = appsList => {
   }, {})
 }
 
+// alphabetically except for 'others' always at the end
+const _sortAlphabetically = (list, t) => {
+  return list.sort((a, b) => {
+    return (
+      (a === 'others' && 1) ||
+      (b === 'others' && -1) ||
+      t(`app_categories.${a}`) > t(`app_categories.${b}`)
+    )
+  })
+}
+
 export const Sections = ({ t, apps, error, onAppClick }) => {
   if (error) return <p className="u-error">{error.message}</p>
-  const konnectorsCategories = _getSortedByCategories(
+  const konnectorsList = _getSortedByCategories(
     apps.filter(a => a.type === APP_TYPE.KONNECTOR)
   )
-  const categoriesList = Object.keys(konnectorsCategories).sort((a, b) => {
-    // alphabetically except for 'others' always at the end
-    return (a === 'others' && 1) || (b === 'others' && -1) || a > b
-  })
-  const webAppsCategories = _getSortedByCategories(
+  const konnectorsCategories = _sortAlphabetically(
+    Object.keys(konnectorsList),
+    t
+  )
+  const webAppsList = _getSortedByCategories(
     apps.filter(a => a.type === APP_TYPE.WEBAPP)
   )
+  const webAppsCategories = _sortAlphabetically(Object.keys(webAppsList), t)
   return (
     <div className="sto-sections">
-      {!!Object.keys(webAppsCategories).length && (
+      {!!webAppsCategories.length && (
         <div className="sto-sections-section">
           <h2 className="sto-sections-title">{t('sections.applications')}</h2>
-          {Object.keys(webAppsCategories).map(cat => {
+          {webAppsCategories.map(cat => {
             return (
               <AppsSection
                 key={cat}
-                appsList={webAppsCategories[cat]}
+                appsList={webAppsList[cat]}
                 subtitle={t(`app_categories.${cat}`)}
                 onAppClick={onAppClick}
               />
@@ -43,14 +55,14 @@ export const Sections = ({ t, apps, error, onAppClick }) => {
           })}
         </div>
       )}
-      {!!categoriesList.length && (
+      {!!konnectorsCategories.length && (
         <div className="sto-sections-section">
           <h2 className="sto-sections-title">{t('sections.konnectors')}</h2>
-          {categoriesList.map(cat => {
+          {konnectorsCategories.map(cat => {
             return (
               <AppsSection
                 key={cat}
-                appsList={konnectorsCategories[cat]}
+                appsList={konnectorsList[cat]}
                 subtitle={t(`app_categories.${cat}`)}
                 onAppClick={onAppClick}
               />
