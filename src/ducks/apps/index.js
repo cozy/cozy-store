@@ -395,7 +395,7 @@ export function fetchLatestApp(slug, channel = DEFAULT_CHANNEL) {
         error: new Error(`Application ${slug} not found.`)
       })
     }
-    return getFormattedRegistryApp(app)
+    return getFormattedRegistryApp(app, true, channel)
       .then(fetched => {
         // replace the new fetched app in the apps list
         return dispatch({
@@ -421,8 +421,18 @@ export function fetchLatestApp(slug, channel = DEFAULT_CHANNEL) {
   }
 }
 
-export async function getFormattedRegistryApp(responseApp, fetchIcon = true) {
-  const version = responseApp.latest_version
+export async function getFormattedRegistryApp(
+  responseApp,
+  fetchIcon = true,
+  channel = DEFAULT_CHANNEL
+) {
+  let version = responseApp.latest_version
+  if (!version) {
+    version = await cozy.client.fetchJSON(
+      'GET',
+      `/registry/${responseApp.slug}/${channel}/latest`
+    )
+  }
   // FIXME retro-compatibility for old formatted manifest
   const manifest = _sanitizeOldManifest(version.manifest)
   // source is only used by the stack when installed
