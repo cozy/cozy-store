@@ -362,8 +362,9 @@ function initializeRealtime() {
     realtime
       .subscribeAll(cozy.client, APPS_DOCTYPE)
       .then(subscription => {
-        // HACK: the stack creates twice instead of updating
+        // HACK: the push CREATE at fisrt install
         subscription.onCreate(app => dispatch(onAppUpdate(app)))
+        subscription.onUpdate(app => dispatch(onAppUpdate(app)))
       })
       .catch(error => {
         console.warn &&
@@ -373,8 +374,9 @@ function initializeRealtime() {
     realtime
       .subscribeAll(cozy.client, KONNECTORS_DOCTYPE)
       .then(subscription => {
-        // HACK: the stack creates twice instead of updating
+        // HACK: the push CREATE at fisrt install
         subscription.onCreate(app => dispatch(onAppUpdate(app)))
+        subscription.onUpdate(app => dispatch(onAppUpdate(app)))
       })
       .catch(error => {
         console.warn &&
