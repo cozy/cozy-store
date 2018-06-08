@@ -48,6 +48,7 @@ const FETCH_APP_FAILURE = 'FETCH_APP_FAILURE'
 
 const FETCH_REGISTRY_APPS_SUCCESS = 'FETCH_REGISTRY_APPS_SUCCESS'
 
+const UNINSTALL_APP = 'UNINSTALL_APP'
 const UNINSTALL_APP_SUCCESS = 'UNINSTALL_APP_SUCCESS'
 const UNINSTALL_APP_FAILURE = 'UNINSTALL_APP_FAILURE'
 
@@ -119,6 +120,18 @@ export const isInstalling = (state = false, action) => {
   }
 }
 
+export const isUninstalling = (state = false, action) => {
+  switch (action.type) {
+    case UNINSTALL_APP:
+      return true
+    case UNINSTALL_APP_SUCCESS:
+    case UNINSTALL_APP_FAILURE:
+      return false
+    default:
+      return state
+  }
+}
+
 export const actionError = (state = null, action) => {
   switch (action.type) {
     case UNINSTALL_APP_FAILURE:
@@ -151,7 +164,8 @@ export const appsReducers = combineReducers({
   fetchError,
   isFetching,
   isAppFetching,
-  isInstalling
+  isInstalling,
+  isUninstalling
 })
 
 // Selectors
@@ -323,7 +337,7 @@ export function initApp(lang) {
   }
 }
 
-function listenAppUpdate(appResponse) {
+function onAppUpdate(appResponse) {
   return async (dispatch, getState) => {
     if (appResponse.state === APP_STATE.ERRORED) {
       const err = new Error('Error when installing the application')
@@ -357,13 +371,30 @@ function listenAppUpdate(appResponse) {
   }
 }
 
+function onAppDelete(appResponse) {
+  return async (dispatch, getState) => {
+    if (appResponse.state === APP_STATE.ERRORED) {
+      const err = new Error('Error when installing the application')
+      dispatch({ type: UNINSTALL_APP_FAILURE, error: err })
+      throw err
+    }
+    const apps = getState().apps.list.map(app => {
+      if (app.slug === appResponse.slug) app.installed = false
+      return app
+    })
+    return dispatch({ type: UNINSTALL_APP_SUCCESS, apps })
+  }
+}
+
 function initializeRealtime() {
   return async dispatch => {
     realtime
       .subscribeAll(cozy.client, APPS_DOCTYPE)
       .then(subscription => {
-        // HACK: the stack creates twice instead of updating
-        subscription.onCreate(app => dispatch(listenAppUpdate(app)))
+        // HACK: the push CREATE at fisrt install
+        subscription.onCreate(app => dispatch(onAppUpdate(app)))
+        subscription.onUpdate(app => dispatch(onAppUpdate(app)))
+        subscription.onDelete(app => dispatch(onAppDelete(app)))
       })
       .catch(error => {
         console.warn &&
@@ -373,8 +404,10 @@ function initializeRealtime() {
     realtime
       .subscribeAll(cozy.client, KONNECTORS_DOCTYPE)
       .then(subscription => {
-        // HACK: the stack creates twice instead of updating
-        subscription.onCreate(app => dispatch(listenAppUpdate(app)))
+        // HACK: the push CREATE at fisrt install
+        subscription.onCreate(app => dispatch(onAppUpdate(app)))
+        subscription.onUpdate(app => dispatch(onAppUpdate(app)))
+        subscription.onDelete(app => dispatch(onAppDelete(app)))
       })
       .catch(error => {
         console.warn &&
@@ -395,7 +428,7 @@ export function fetchLatestApp(slug, channel = DEFAULT_CHANNEL) {
         error: new Error(`Application ${slug} not found.`)
       })
     }
-    return getFormattedRegistryApp(app)
+    return getFormattedRegistryApp(app, true, channel)
       .then(fetched => {
         // replace the new fetched app in the apps list
         return dispatch({
@@ -421,8 +454,18 @@ export function fetchLatestApp(slug, channel = DEFAULT_CHANNEL) {
   }
 }
 
-export async function getFormattedRegistryApp(responseApp, fetchIcon = true) {
-  const version = responseApp.latest_version
+export async function getFormattedRegistryApp(
+  responseApp,
+  fetchIcon = true,
+  channel = DEFAULT_CHANNEL
+) {
+  let version = responseApp.latest_version
+  if (!version) {
+    version = await cozy.client.fetchJSON(
+      'GET',
+      `/registry/${responseApp.slug}/${channel}/latest`
+    )
+  }
   // FIXME retro-compatibility for old formatted manifest
   const manifest = _sanitizeOldManifest(version.manifest)
   // source is only used by the stack when installed
@@ -548,39 +591,21 @@ export function fetchApps(lang) {
 }
 
 export function uninstallApp(slug, type) {
-  return (dispatch, getState) => {
+  return dispatch => {
     if (
       config.notRemovableApps.includes(slug) ||
       config.notDisplayedApps.includes(slug)
     ) {
       const error = new NotUninstallableAppException()
       dispatch({ type: UNINSTALL_APP_FAILURE, error })
-      throw error
     }
+    dispatch({ type: UNINSTALL_APP })
     // FIXME: hack to handle node type from stack for the konnectors
     const route =
       type === APP_TYPE.KONNECTOR || type === 'node' ? 'konnectors' : 'apps'
-    return cozy.client
-      .fetchJSON('DELETE', `/${route}/${slug}`)
-      .then(() => {
-        // remove the app from the state apps list
-        const apps = getState().apps.list.map(app => {
-          if (app.slug === slug) app.installed = false
-          return app
-        })
-        dispatch({ type: UNINSTALL_APP_SUCCESS, apps })
-        return dispatch({
-          type: 'SEND_LOG_SUCCESS',
-          alert: {
-            message: 'app_modal.uninstall.message.success',
-            level: 'success'
-          }
-        })
-      })
-      .catch(e => {
-        dispatch({ type: UNINSTALL_APP_FAILURE, error: e })
-        throw e
-      })
+    return cozy.client.fetchJSON('DELETE', `/${route}/${slug}`).catch(e => {
+      dispatch({ type: UNINSTALL_APP_FAILURE, error: e })
+    })
   }
 }
 

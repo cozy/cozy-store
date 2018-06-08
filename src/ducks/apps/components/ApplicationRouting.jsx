@@ -31,6 +31,13 @@ export class ApplicationRouting extends Component {
       } else {
         return history.push(`/${parent}/${app.slug}`)
       }
+    } else if (this.props.isUninstalling && !nextProps.isUninstalling) {
+      const { history, location, parent } = this.props
+      const pathRegex = new RegExp(`^/${parent}/([^/]*)/.*`)
+      const matches = location.pathname.match(pathRegex)
+      if (!matches || matches.length < 1) return history.push(`/${parent}/`)
+      const app = this.getAppFromMatchOrSlug(null, matches[1])
+      return history.push(`/${parent}/${app.slug}`)
     }
   }
 
