@@ -37,6 +37,7 @@ export class Discover extends Component {
       isAppFetching,
       fetchError,
       isInstalling,
+      isUninstalling,
       actionError,
       breakpoints = {}
     } = this.props
@@ -69,6 +70,7 @@ export class Discover extends Component {
           isFetching={isFetching}
           isAppFetching={isAppFetching}
           isInstalling={isInstalling}
+          isUninstalling={isUninstalling}
           actionError={actionError}
           installApp={this.props.installApp}
           uninstallApp={this.props.uninstallApp}

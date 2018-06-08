@@ -19,12 +19,7 @@ export class UninstallModal extends Component {
   uninstallApp() {
     this.setState({ error: null })
     const { app } = this.props
-    this.props
-      .uninstallApp(app.slug, app.type)
-      .then(() => {
-        this.gotoParent()
-      })
-      .catch()
+    this.props.uninstallApp(app.slug, app.type)
   }
 
   gotoParent() {

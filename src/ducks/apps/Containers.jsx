@@ -17,6 +17,7 @@ const mapStateToProps = state => ({
   isFetching: state.apps.isFetching,
   isAppFetching: state.apps.isAppFetching,
   isInstalling: state.apps.isInstalling,
+  isUninstalling: state.apps.isUninstalling,
   actionError: state.apps.actionError,
   fetchError: state.apps.fetchError
 })
