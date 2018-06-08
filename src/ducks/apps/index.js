@@ -33,7 +33,10 @@ const AUTHORIZED_CATEGORIES = categories
 
 const COLLECT_RELATED_PATH = constants.collect
 
-const DEFAULT_CHANNEL = constants.default.registry.channel
+const DEFAULT_CHANNEL = (
+  localStorage.getItem('defaultRegistryChannel')
+  || constants.default.registry.channel
+)
 
 // initial loading
 const LOADING_APP = 'LOADING_APP'
