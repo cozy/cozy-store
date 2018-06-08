@@ -323,7 +323,7 @@ export function initApp(lang) {
   }
 }
 
-function listenAppUpdate(appResponse) {
+function onAppUpdate(appResponse) {
   return async (dispatch, getState) => {
     if (appResponse.state === APP_STATE.ERRORED) {
       const err = new Error('Error when installing the application')
@@ -363,7 +363,7 @@ function initializeRealtime() {
       .subscribeAll(cozy.client, APPS_DOCTYPE)
       .then(subscription => {
         // HACK: the stack creates twice instead of updating
-        subscription.onCreate(app => dispatch(listenAppUpdate(app)))
+        subscription.onCreate(app => dispatch(onAppUpdate(app)))
       })
       .catch(error => {
         console.warn &&
@@ -374,7 +374,7 @@ function initializeRealtime() {
       .subscribeAll(cozy.client, KONNECTORS_DOCTYPE)
       .then(subscription => {
         // HACK: the stack creates twice instead of updating
-        subscription.onCreate(app => dispatch(listenAppUpdate(app)))
+        subscription.onCreate(app => dispatch(onAppUpdate(app)))
       })
       .catch(error => {
         console.warn &&

@@ -23,10 +23,11 @@ export class InstallModal extends Component {
 
   async gotoParent() {
     const { app, parent, history, fetchApp } = this.props
+    const { previousChannel } = this.state
     // fetch previous channel if channel switch canceled
-    if (this.state.previousChannel && typeof fetchApp === 'function') {
+    if (previousChannel && typeof fetchApp === 'function') {
       this.setState(() => ({ isCanceling: true }))
-      await fetchApp(this.state.previousChannel)
+      await fetchApp(previousChannel)
       this.setState(() => ({ isCanceling: false }))
     }
 
