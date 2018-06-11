@@ -1291,7 +1291,7 @@ body{font:1em/1.5;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antia
   background-position: -20rem 0;
   background-image: -webkit-gradient(linear, left top, right top, from(var(--silver)), color-stop(50%, #fcfcfc), to(var(--silver)));
   background-image: linear-gradient(to right, var(--silver) 0%, #fcfcfc 50%, var(--silver) 100%);
-  background-size: 20rem 8rem;
+  background-size: 20rem 10rem;
   background-repeat: no-repeat;
   background-color: var(--silver);
   border-radius: 0.15rem;

@@ -17,8 +17,10 @@
   },
   "default_locale": "en",
   "locales": {
+    "de": {},
     "en": {},
     "fr": {},
+    "nl_NL": {},
     "pl": {}
   },
   "intents": [
@@ -76,8 +78,10 @@
     }
   },
   "langs": [
+    "de",
     "en",
     "fr",
+    "nl_NL",
     "pl"
   ]
 }
