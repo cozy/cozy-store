@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { SelectBoxWithFixedOptions } from 'cozy-ui/react/SelectBox'
+import SelectBox from 'cozy-ui/react/SelectBox'
 import Icon from 'cozy-ui/react/Icon'
 
 const SmallArrow = () => (
@@ -60,7 +60,7 @@ export class DropdownFilter extends Component {
     const defaultOption = this.getDefaultOption(options)
     return (
       <div className="sto-sections-dropdown">
-        <SelectBoxWithFixedOptions
+        <SelectBox
           options={options}
           onChange={this.onSelectChange}
           defaultValue={defaultOption}

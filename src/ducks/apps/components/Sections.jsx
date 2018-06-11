@@ -60,7 +60,6 @@ export class Sections extends Component {
       t
     ).map(cat => ({
       value: cat,
-      fixed: SPECIAL_SELECT_OPTIONS.includes(cat) ? true : false,
       label: t(`app_categories.${cat}`)
     }))
     return (

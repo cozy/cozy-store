@@ -8,47 +8,38 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
     options={
       Array [
         Object {
-          "fixed": true,
           "label": "All categories",
           "value": "all",
         },
         Object {
-          "fixed": true,
           "label": "Applications",
           "value": "webapps",
         },
         Object {
-          "fixed": false,
           "label": "Cozy",
           "value": "cozy",
         },
         Object {
-          "fixed": false,
           "label": "ISP",
           "value": "isp",
         },
         Object {
-          "fixed": false,
           "label": "Partners",
           "value": "partners",
         },
         Object {
-          "fixed": true,
           "label": "Services",
           "value": "konnectors",
         },
         Object {
-          "fixed": false,
           "label": "Telecom",
           "value": "telecom",
         },
         Object {
-          "fixed": false,
           "label": "Transportation",
           "value": "transport",
         },
         Object {
-          "fixed": false,
           "label": "Others",
           "value": "others",
         },
