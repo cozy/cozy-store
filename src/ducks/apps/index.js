@@ -282,12 +282,16 @@ export function fetchIconsProgressively() {
   return async (dispatch, getState) => {
     const apps = getState().apps.list
     const iconsMap = new Map() // slug: icon
-    apps.forEach(async (app, index) => {
+    let updateCounter = 0
+    apps.forEach(async app => {
       const iconData = await _getIcon(app.iconToLoad)
       iconsMap.set(app.slug, iconData)
-      if (iconsMap.size % 10 === 0 || index === apps.length - 1) {
-        dispatch({ type: RECEIVE_APPS_ICON, iconsMap })
-        iconsMap.clear()
+      updateCounter++
+      if (iconsMap.size % 10 === 0 || updateCounter === apps.length) {
+        const mapCopy = new Map(iconsMap)
+        await dispatch({ type: RECEIVE_APPS_ICON, iconsMap: mapCopy })
+        // clean already updated icons
+        mapCopy.forEach((v, k) => iconsMap.delete(k))
       }
     })
   }

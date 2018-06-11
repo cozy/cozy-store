@@ -12,7 +12,7 @@
   animation-timing-function: linear;
   background-position: -20rem 0;
   background-image: linear-gradient(to right, var(--silver) 0%, #fcfcfc 50%, var(--silver) 100%);
-  background-size: 20rem 8rem;
+  background-size: 20rem 10rem;
   background-repeat: no-repeat;
   background-color: var(--silver);
   border-radius: 0.15rem;
