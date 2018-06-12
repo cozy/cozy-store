@@ -206,8 +206,7 @@ exports[`ApplicationRouting component with IntentModal should handle correctly i
   closable={true}
   dismissAction={[Function]}
   doctype="io.cozy.accounts"
-  mobileFullScreen={true}
-  mobileFullscreen={false}
+  mobileFullscreen={true}
   onComplete={[Function]}
   options={
     Object {
