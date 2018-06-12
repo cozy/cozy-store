@@ -167,7 +167,7 @@ export class ApplicationRouting extends Component {
                   options={{ slug: app.slug }}
                   dismissAction={goToApp}
                   onComplete={goToApp}
-                  mobileFullScreen
+                  mobileFullscreen
                   overflowHidden
                   size="xlarge"
                 />
