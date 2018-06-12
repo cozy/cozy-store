@@ -562,7 +562,7 @@ export function fetchRegistryApps(lang, channel = DEFAULT_CHANNEL) {
       .fetchJSON('GET', `/registry?limit=150&channelLatestVersion=${channel}`)
       .then(response => {
         const apps = response.data
-          .filter(app => !config.notDisplayedApps.includes(app.name))
+          .filter(app => !config.notDisplayedApps.includes(app.slug))
           .filter(app => app.versions.dev && app.versions.dev.length) // only apps with versions available
         return Promise.all(
           apps.map(app => {
