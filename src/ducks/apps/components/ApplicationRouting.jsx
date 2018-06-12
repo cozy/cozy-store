@@ -22,6 +22,8 @@ export class ApplicationRouting extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    // don't react on error
+    if (nextProps.actionError) return
     // on install success
     if (this.props.isInstalling && !nextProps.isInstalling) {
       const { history, location, parent, t } = this.props
