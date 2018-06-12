@@ -1,21 +1,20 @@
 {
-  "name": "store",
+  "name": "Store",
   "name_prefix": "Cozy",
-  "slug": "app",
+  "slug": "store",
   "icon": "icon-store.svg",
   "editor": "Cozy",
   "description": "The apps store for Cozy V3",
   "categories": [
     "cozy"
   ],
-  "version": "3.0.0",
+  "version": "1.0.0",
   "licence": "AGPL-3.0",
   "source": "https://github.com/cozy/cozy-store.git@build",
   "developer": {
-    "name": "Cozy",
+    "name": "Cozy Cloud",
     "url": "https://cozy.io"
   },
-  "default_locale": "en",
   "locales": {
     "de": {},
     "en": {},
