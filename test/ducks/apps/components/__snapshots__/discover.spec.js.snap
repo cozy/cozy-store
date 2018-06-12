@@ -338,7 +338,7 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
       />
     </div>
   </div>
-  <withRouter(ApplicationRouting)
+  <withRouter(Wrapper)
     actionError={null}
     apps={
       Array [
@@ -760,7 +760,7 @@ exports[`Discover component should be rendered correctly with apps and URL searc
       />
     </div>
   </div>
-  <withRouter(ApplicationRouting)
+  <withRouter(Wrapper)
     actionError={null}
     apps={
       Array [
@@ -862,7 +862,7 @@ exports[`Discover component should display error from props correctly 1`] = `
       />
     </div>
   </div>
-  <withRouter(ApplicationRouting)
+  <withRouter(Wrapper)
     actionError={null}
     apps={Array []}
     isFetching={false}
@@ -875,7 +875,7 @@ exports[`Discover component should not render apps list if !match.isExact 1`] = 
 <div
   className="sto-discover"
 >
-  <withRouter(ApplicationRouting)
+  <withRouter(Wrapper)
     actionError={null}
     apps={
       Array [
@@ -1053,7 +1053,7 @@ exports[`Discover component should render correctly a spinner if apps is fetchin
       className="sto-discover-sections"
     />
   </div>
-  <withRouter(ApplicationRouting)
+  <withRouter(Wrapper)
     actionError={null}
     apps={Array []}
     isFetching={true}
@@ -1408,7 +1408,7 @@ exports[`Discover component should use BarCenter from cozy-bar in mobile view on
       />
     </div>
   </div>
-  <withRouter(ApplicationRouting)
+  <withRouter(Wrapper)
     actionError={null}
     apps={
       Array [

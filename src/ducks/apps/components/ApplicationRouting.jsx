@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { Route, withRouter } from 'react-router-dom'
 
 import IntentModal from 'cozy-ui/react/IntentModal'
+import { translate } from 'cozy-ui/react/I18n'
+import Alerter from 'cozy-ui/react/Alerter'
+
 import PermissionsModal from './PermissionsModal'
 import UninstallModal from './UninstallModal'
 import InstallModal from './InstallModal'
@@ -19,9 +22,11 @@ export class ApplicationRouting extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    // don't react on error
+    if (nextProps.actionError) return
     // on install success
     if (this.props.isInstalling && !nextProps.isInstalling) {
-      const { history, location, parent } = this.props
+      const { history, location, parent, t } = this.props
       const pathRegex = new RegExp(`^/${parent}/([^/]*)/.*`)
       const matches = location.pathname.match(pathRegex)
       if (!matches || matches.length < 1) return history.push(`/${parent}/`)
@@ -29,14 +34,20 @@ export class ApplicationRouting extends Component {
       if (app.type === APP_TYPE.KONNECTOR) {
         return history.push(`/${parent}/${app.slug}/configure`)
       } else {
+        Alerter.success(t('app_modal.install.message.install_success'), {
+          duration: 3000
+        })
         return history.push(`/${parent}/${app.slug}`)
       }
     } else if (this.props.isUninstalling && !nextProps.isUninstalling) {
-      const { history, location, parent } = this.props
+      const { history, location, parent, t } = this.props
       const pathRegex = new RegExp(`^/${parent}/([^/]*)/.*`)
       const matches = location.pathname.match(pathRegex)
       if (!matches || matches.length < 1) return history.push(`/${parent}/`)
       const app = this.getAppFromMatchOrSlug(null, matches[1])
+      Alerter.success(t('app_modal.uninstall.message.success'), {
+        duration: 3000
+      })
       return history.push(`/${parent}/${app.slug}`)
     }
   }
@@ -171,4 +182,4 @@ export class ApplicationRouting extends Component {
   }
 }
 
-export default withRouter(ApplicationRouting)
+export default withRouter(translate()(ApplicationRouting))
