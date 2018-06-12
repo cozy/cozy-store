@@ -315,7 +315,8 @@ export async function getFormattedInstalledApp(
   const screensLinks =
     manifest.screenshots &&
     manifest.screenshots.map(name => {
-      const fileName = name.replace(/^.*[\\/]/, '')
+      let fileName = name
+      if (fileName[0] === '/') fileName = fileName.slice(1)
       return `${cozy.client._url}/registry/${manifest.slug}/${
         manifest.version
       }/screenshots/${fileName}`
@@ -480,7 +481,8 @@ export async function getFormattedRegistryApp(
   const screensLinks =
     manifest.screenshots &&
     manifest.screenshots.map(name => {
-      const fileName = name.replace(/^.*[\\/]/, '')
+      let fileName = name
+      if (fileName[0] === '/') fileName = fileName.slice(1)
       return `${cozy.client._url}/registry/${
         manifest.slug
       }/${versionFromRegistry}/screenshots/${fileName}`
