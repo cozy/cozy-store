@@ -244,7 +244,7 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
       />
     </div>
   </div>
-  <withRouter(ApplicationRouting)
+  <withRouter(Wrapper)
     actionError={null}
     installedApps={
       Array [
@@ -574,7 +574,7 @@ exports[`MyApplications component should be rendered correctly with apps and URL
       />
     </div>
   </div>
-  <withRouter(ApplicationRouting)
+  <withRouter(Wrapper)
     actionError={null}
     installedApps={
       Array [
@@ -678,7 +678,7 @@ exports[`MyApplications component should display error from props correctly 1`] 
       />
     </div>
   </div>
-  <withRouter(ApplicationRouting)
+  <withRouter(Wrapper)
     actionError={null}
     installedApps={Array []}
     isFetching={false}
@@ -697,7 +697,7 @@ exports[`MyApplications component should render correctly a spinner if apps is f
       className="sto-myapps-sections"
     />
   </div>
-  <withRouter(ApplicationRouting)
+  <withRouter(Wrapper)
     actionError={null}
     installedApps={Array []}
     isFetching={true}
@@ -712,7 +712,7 @@ exports[`MyApplications component should render only routing if path not exactly
 <div
   className="sto-myapps"
 >
-  <withRouter(ApplicationRouting)
+  <withRouter(Wrapper)
     actionError={null}
     installedApps={
       Array [
@@ -1086,7 +1086,7 @@ exports[`MyApplications component should use BarCenter from cozy-bar in mobile v
       />
     </div>
   </div>
-  <withRouter(ApplicationRouting)
+  <withRouter(Wrapper)
     actionError={null}
     installedApps={
       Array [
