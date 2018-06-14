@@ -8238,9 +8238,9 @@ react-is@^16.4.0:
   version "16.4.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.4.0.tgz#cc9fdc855ac34d2e7d9d2eb7059bbc240d35ffcf"
 
-react-markdown@3.3.2:
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/react-markdown/-/react-markdown-3.3.2.tgz#35d305e8a29b640717b9dac4658a1caeafd44c94"
+react-markdown@3.3.3:
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/react-markdown/-/react-markdown-3.3.3.tgz#1e57e63e9f4e87d2919a51d77815b803f4b7b5d6"
   dependencies:
     prop-types "^15.6.1"
     remark-parse "^5.0.0"
