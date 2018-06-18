@@ -27,7 +27,7 @@ exports[`ApplicationPage details component should be rendered correctly provided
       <div
         className="sto-app-info-content"
       >
-        Cozy
+        The essentials
       </div>
     </div>
     <div
@@ -128,7 +128,7 @@ Enjoy features to grab your data in you Cozy :tada:"
       <div
         className="sto-app-info-content"
       >
-        Cozy
+        The essentials
       </div>
     </div>
     <div

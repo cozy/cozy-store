@@ -16,10 +16,6 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
           "value": "webapps",
         },
         Object {
-          "label": "Cozy",
-          "value": "cozy",
-        },
-        Object {
           "label": "ISP",
           "value": "isp",
         },
@@ -34,6 +30,10 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
         Object {
           "label": "Telecom",
           "value": "telecom",
+        },
+        Object {
+          "label": "The essentials",
+          "value": "cozy",
         },
         Object {
           "label": "Transportation",
@@ -54,6 +54,36 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
     >
       Applications
     </h2>
+    <Wrapper
+      appsList={
+        Array [
+          Object {
+            "categories": Array [
+              "partners",
+            ],
+            "icon": "<svg></svg>",
+            "isInRegistry": true,
+            "name": "Tasky",
+            "slug": "tasky",
+            "type": "webapp",
+            "uninstallable": true,
+            "versions": Object {
+              "beta": Array [
+                "1.0.0",
+              ],
+              "dev": Array [
+                "1.0.0",
+              ],
+              "stable": Array [
+                "1.0.0",
+              ],
+            },
+          },
+        ]
+      }
+      onAppClick={[MockFunction]}
+      subtitle="Partners"
+    />
     <Wrapper
       appsList={
         Array [
@@ -160,37 +190,7 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
         ]
       }
       onAppClick={[MockFunction]}
-      subtitle="Cozy"
-    />
-    <Wrapper
-      appsList={
-        Array [
-          Object {
-            "categories": Array [
-              "partners",
-            ],
-            "icon": "<svg></svg>",
-            "isInRegistry": true,
-            "name": "Tasky",
-            "slug": "tasky",
-            "type": "webapp",
-            "uninstallable": true,
-            "versions": Object {
-              "beta": Array [
-                "1.0.0",
-              ],
-              "dev": Array [
-                "1.0.0",
-              ],
-              "stable": Array [
-                "1.0.0",
-              ],
-            },
-          },
-        ]
-      }
-      onAppClick={[MockFunction]}
-      subtitle="Partners"
+      subtitle="The essentials"
     />
     <Wrapper
       appsList={
