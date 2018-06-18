@@ -178,7 +178,8 @@
   "doctypes": {
     "com": {
       "tricount.expenses": "Expenses Tricount",
-      "splitwise.expenses": "Expenses Splitwise"
+      "splitwise.expenses": "Expenses Splitwise",
+      "deezer.playlists": "Deezer playlists"
     },
     "io": {
       "cozy": {
