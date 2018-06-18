@@ -1,0 +1,32 @@
+import React from 'react'
+import voteIllustration from 'assets/icons/app-vote.svg'
+import Icon from 'cozy-ui/react/Icon'
+import { translate } from 'cozy-ui/react/I18n'
+import PopupOpener from 'cozy-ui/react/PopupOpener'
+
+const VOTING_LINK = 'https://framaforms.org/collect-1518082910'
+
+export const AppVote = ({ t }) => (
+  <PopupOpener
+    url={VOTING_LINK}
+    title="Cozy app voting"
+    height="700"
+    width="650"
+    className="sto-app-vote-wrapper"
+  >
+    <a className="sto-app-vote">
+      <Icon
+        icon={voteIllustration}
+        height="60"
+        width="55"
+        className="sto-app-vote-icon"
+      />
+      <strong>
+        <p>{t('app_vote.line1')}</p>
+        <p>{t('app_vote.line2')}</p>
+      </strong>
+    </a>
+  </PopupOpener>
+)
+
+export default translate()(AppVote)

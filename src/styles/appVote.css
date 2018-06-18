@@ -1,0 +1,27 @@
+.sto-app-vote-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.sto-app-vote {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 45rem;
+  justify-content: center;
+  align-items: center;
+  margin: -1rem 1rem 3rem 1rem;
+  border-radius: 2px;
+  border: 1px var(--silver) dashed;
+}
+
+.sto-app-vote:hover {
+  background-color: var(--paleGrey);
+  cursor: pointer;
+}
+
+.sto-app-vote-icon {
+  margin-right: 1rem;
+}

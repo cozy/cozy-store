@@ -101,6 +101,11 @@
     "konnectors": "Services"
   },
 
+  "app_vote": {
+    "line1": "You don't find what you want?",
+    "line2": "Tell us!"
+  },
+
   "app_item": {
     "open": "Open",
     "install": "Install"

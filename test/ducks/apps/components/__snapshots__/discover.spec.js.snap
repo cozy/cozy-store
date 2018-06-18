@@ -337,6 +337,7 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
         query={false}
       />
     </div>
+    <Wrapper />
   </div>
   <withRouter(Wrapper)
     actionError={null}
@@ -759,6 +760,7 @@ exports[`Discover component should be rendered correctly with apps and URL searc
         query="?category=cozy"
       />
     </div>
+    <Wrapper />
   </div>
   <withRouter(Wrapper)
     actionError={null}
@@ -861,6 +863,7 @@ exports[`Discover component should display error from props correctly 1`] = `
         query={false}
       />
     </div>
+    <Wrapper />
   </div>
   <withRouter(Wrapper)
     actionError={null}
@@ -1407,6 +1410,7 @@ exports[`Discover component should use BarCenter from cozy-bar in mobile view on
         query={false}
       />
     </div>
+    <Wrapper />
   </div>
   <withRouter(Wrapper)
     actionError={null}

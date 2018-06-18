@@ -7,6 +7,7 @@ import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
 import ApplicationRouting from './ApplicationRouting'
 import Sections from './Sections'
 import AppsLoading from 'ducks/components/AppsLoading'
+import AppVote from 'ducks/components/AppVote'
 
 import getFilteredAppsFromSearch from 'lib/getFilteredAppsFromSearch'
 
@@ -62,6 +63,7 @@ export class Discover extends Component {
                 />
               )}
             </div>
+            {!isFetching && <AppVote />}
           </div>
         ) : null}
 
