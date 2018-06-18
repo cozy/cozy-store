@@ -1,14 +1,13 @@
-.sto-install {
+.sto-install,
+.sto-install-content {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
-@media (max-width: 48em) {
-  .sto-install {
-    justify-content: center;
-  }
+.sto-install-content {
+  justify-content: space-between;
 }
 
 .sto-install-loading {
@@ -17,8 +16,18 @@
   justify-content: center;
 }
 
-.sto-install .sto-install-header {
-  padding-top: 2rem;
+.sto-install-content {
+  overflow-y: auto;
+}
+
+.sto-install-top {
+  flex-shrink: 1;
+  flex-grow: 1;
+}
+
+.sto-install-bottom {
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
 .sto-install-controls {
