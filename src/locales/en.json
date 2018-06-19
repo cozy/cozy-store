@@ -183,7 +183,8 @@
   "doctypes": {
     "com": {
       "tricount.expenses": "Expenses Tricount",
-      "splitwise.expenses": "Expenses Splitwise"
+      "splitwise.expenses": "Expenses Splitwise",
+      "unibet.bets": "Bets Unibet"
     },
     "io": {
       "cozy": {
