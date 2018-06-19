@@ -6,6 +6,8 @@ import Nav, { NavLink, NavItem, NavIcon, NavText } from 'cozy-ui/react/Nav'
 import discoverIcon from 'assets/icons/icon-compass.svg'
 import myAppsIcon from 'assets/icons/icon-cozy-smile.svg'
 
+import { SidebarCategories } from 'ducks/apps/Containers'
+
 export const Sidebar = ({ t }) => (
   <aside className="o-sidebar">
     <Nav>
@@ -19,6 +21,7 @@ export const Sidebar = ({ t }) => (
           <NavText>{t('nav.discover')}</NavText>
         </RouterLink>
       </NavItem>
+      <SidebarCategories parent="/discover" />
       <NavItem>
         <RouterLink
           to="/myapps"
@@ -29,6 +32,7 @@ export const Sidebar = ({ t }) => (
           <NavText>{t('nav.myapps')}</NavText>
         </RouterLink>
       </NavItem>
+      <SidebarCategories parent="/myapps" />
     </Nav>
   </aside>
 )

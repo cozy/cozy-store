@@ -3,10 +3,10 @@
   right: 2rem;
   width: 20rem;
 }
-
+/* 
 .sto-sections-dropdown .react-select__control {
   padding: .2rem;
-}
+} */
 
 .sto-sections-dropdown-icon {
   padding: 0 .5rem;
@@ -16,10 +16,10 @@
   .sto-sections-dropdown {
     position: static;
     margin: auto;
-    width: calc(100%);
+    width: 100%;
   }
 
-  .sto-sections-dropdown .react-select__container {
+  .sto-sections-dropdown > div {
     max-width: none;
   }
 }
