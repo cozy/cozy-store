@@ -39,56 +39,62 @@ class AppInstallation extends Component {
         <ModalHeader className="sto-install-header">
           <h2>{t('app_modal.install.title')}</h2>
         </ModalHeader>
-        {isFirstLoading ? (
-          <ModalContent>
-            <div className="sto-install-loading">
-              <Spinner size="xlarge" />
-            </div>
-          </ModalContent>
-        ) : (
-          <ModalContent>
-            {permissions && <PermissionsList app={app} appName={appName} />}
-            {fetchError && (
-              <p className="u-error">
-                {t('app_modal.install.message.version_error', {
-                  message: fetchError.message
-                })}
-              </p>
+        <div className="sto-install-content">
+          <div className="sto-install-top">
+            {isFirstLoading ? (
+              <ModalContent>
+                <div className="sto-install-loading">
+                  <Spinner size="xlarge" />
+                </div>
+              </ModalContent>
+            ) : (
+              <ModalContent>
+                {permissions && <PermissionsList app={app} appName={appName} />}
+                {fetchError && (
+                  <p className="u-error">
+                    {t('app_modal.install.message.version_error', {
+                      message: fetchError.message
+                    })}
+                  </p>
+                )}
+              </ModalContent>
             )}
-          </ModalContent>
-        )}
-        {!isFirstLoading &&
-          !fetchError && (
-            <ModalFooter>
-              {installError && (
-                <p className="u-error">
-                  {t('app_modal.install.message.install_error', {
-                    message: installError.message
-                  })}
-                </p>
+          </div>
+          <div className="sto-install-bottom">
+            {!isFirstLoading &&
+              !fetchError && (
+                <ModalFooter>
+                  {installError && (
+                    <p className="u-error">
+                      {t('app_modal.install.message.install_error', {
+                        message: installError.message
+                      })}
+                    </p>
+                  )}
+                  <div className="sto-install-controls">
+                    <button
+                      role="button"
+                      className="c-btn c-btn--secondary"
+                      onClick={onCancel}
+                      disabled={isInstalling || isCanceling}
+                      aria-busy={isCanceling}
+                    >
+                      <span>{t('app_modal.install.cancel')}</span>
+                    </button>
+                    <button
+                      role="button"
+                      disabled={isInstalling || isCanceling}
+                      aria-busy={isInstalling}
+                      className="c-btn c-btn--regular c-btn--download"
+                      onClick={() => this.installApp()}
+                    >
+                      <span>{t('app_modal.install.install')}</span>
+                    </button>
+                  </div>
+                </ModalFooter>
               )}
-              <div className="sto-install-controls">
-                <button
-                  role="button"
-                  className="c-btn c-btn--secondary"
-                  onClick={onCancel}
-                  disabled={isInstalling || isCanceling}
-                  aria-busy={isCanceling}
-                >
-                  <span>{t('app_modal.install.cancel')}</span>
-                </button>
-                <button
-                  role="button"
-                  disabled={isInstalling || isCanceling}
-                  aria-busy={isInstalling}
-                  className="c-btn c-btn--regular c-btn--download"
-                  onClick={() => this.installApp()}
-                >
-                  <span>{t('app_modal.install.install')}</span>
-                </button>
-              </div>
-            </ModalFooter>
-          )}
+          </div>
+        </div>
       </div>
     )
   }
