@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 
 import {
   fetchLatestApp,
@@ -10,6 +11,7 @@ import {
 
 import DiscoverComponent from './components/Discover'
 import MyApplicationsComponent from './components/MyApplications'
+import SidebarCategoriesComponent from './components/SidebarCategories'
 
 const mapStateToProps = state => ({
   apps: getRegistryApps(state),
@@ -40,3 +42,13 @@ export const MyApplications = connect(
   mapStateToProps,
   mapDispatchToProps
 )(MyApplicationsComponent)
+
+export const SidebarCategories = withRouter(
+  connect(
+    state => ({
+      apps: getRegistryApps(state),
+      installedApps: getInstalledApps(state)
+    }),
+    null
+  )(SidebarCategoriesComponent)
+)

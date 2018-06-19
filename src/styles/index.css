@@ -1,6 +1,7 @@
 @import '../../node_modules/cozy-ui/dist/cozy-ui.min.css';
 
 @import './application.css';
+@import './sidebar.css';
 @import './viewTitle.css';
 @import './empty.css';
 @import './install.css';

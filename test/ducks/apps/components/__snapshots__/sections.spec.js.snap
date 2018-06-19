@@ -4,48 +4,6 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
 <div
   className="sto-sections"
 >
-  <DropdownFilter
-    options={
-      Array [
-        Object {
-          "label": "All categories",
-          "value": "all",
-        },
-        Object {
-          "label": "Applications",
-          "value": "webapps",
-        },
-        Object {
-          "label": "ISP",
-          "value": "isp",
-        },
-        Object {
-          "label": "Partners",
-          "value": "partners",
-        },
-        Object {
-          "label": "Services",
-          "value": "konnectors",
-        },
-        Object {
-          "label": "Telecom",
-          "value": "telecom",
-        },
-        Object {
-          "label": "The essentials",
-          "value": "cozy",
-        },
-        Object {
-          "label": "Transportation",
-          "value": "transport",
-        },
-        Object {
-          "label": "Others",
-          "value": "others",
-        },
-      ]
-    }
-  />
   <div
     className="sto-sections-section"
   >
