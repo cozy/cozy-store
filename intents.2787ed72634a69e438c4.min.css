@@ -1348,6 +1348,49 @@ html{font-size:100%}body{font:100%/1.5;-moz-osx-font-smoothing:grayscale;-webkit
 .sto-sections.\--loading .sto-small-app-item {
   pointer-events:none;
 }
+.sto-app-vote-wrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.sto-app-vote {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  max-width: 45rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: -1rem 1rem 3rem 1rem;
+  border-radius: 2px;
+  border: 1px var(--silver) dashed;
+}
+
+.sto-app-vote:hover {
+  background-color: var(--paleGrey);
+  cursor: pointer;
+}
+
+.sto-app-vote-icon {
+  margin-right: 1rem;
+}
 .blurry {
     opacity: .7;
     -webkit-filter: blur(2px);
