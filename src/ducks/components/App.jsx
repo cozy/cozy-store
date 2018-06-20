@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
 import { translate } from 'cozy-ui/react/I18n'
 
+import IntentRedirect from './intents/IntentRedirect'
 import Sidebar from './Sidebar'
 
 import { initApp, fetchIconsProgressively } from '../apps'
@@ -29,6 +30,7 @@ export class App extends Component {
         <Sidebar />
         <main className="app-content">
           <Switch>
+            <Route path="/redirect" component={IntentRedirect} />
             <Route path="/discover" component={Discover} />
             <Route path="/myapps" component={MyApplications} />
             <Redirect exact from="/" to="/discover" />
