@@ -18,8 +18,8 @@
     {
       "action": "REDIRECT",
       "type": ["io.cozy.apps"],
-      "href": "/#/discover",
-      "data": ["type", "category", "doctype", "tag"]
+      "href": "/#/redirect",
+      "data": ["category", "doctype",  "slug", "tag", "type"]
     }, {
       "action": "INSTALL",
       "data": ["slug"],
