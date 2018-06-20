@@ -8,8 +8,10 @@ exports[`Apps Containers (connected components): Discover should be rendered cor
   fetchLatestApp={[Function]}
   installApp={[Function]}
   installedApps={Array []}
+  isAppFetching={undefined}
   isFetching={false}
   isInstalling={false}
+  isUninstalling={undefined}
   store={
     Object {
       "clearActions": [Function],
@@ -54,8 +56,10 @@ exports[`Apps Containers (connected components): MyApplications should be render
   fetchLatestApp={[Function]}
   installApp={[Function]}
   installedApps={Array []}
+  isAppFetching={undefined}
   isFetching={false}
   isInstalling={false}
+  isUninstalling={undefined}
   store={
     Object {
       "clearActions": [Function],
