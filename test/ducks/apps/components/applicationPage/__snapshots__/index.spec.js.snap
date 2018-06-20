@@ -8,6 +8,7 @@ exports[`ApplicationPage component should be rendered correctly with app infos f
     <Wrapper
       description="Gestionnaire de photos pour Cozy v3"
       icon="https://mockcozy.cc/registry/photos/icon"
+      iconToLoad={undefined}
       installed={false}
       installedAppLink={null}
       name="Photos"
@@ -15,6 +16,7 @@ exports[`ApplicationPage component should be rendered correctly with app infos f
       parent="/myapps"
       slug="photos"
       type="webapp"
+      uninstallable={undefined}
     />
     <withRouter(Wrapper)
       app={
@@ -181,11 +183,15 @@ exports[`ApplicationPage component should be rendered correctly with konnector i
     <Wrapper
       description="A konnector for trinlane"
       icon="https://mockcozy.cc/registry/konnector-trinlane/icon"
+      iconToLoad={undefined}
       installed={false}
+      installedAppLink={undefined}
       name="Trinlane"
+      namePrefix={undefined}
       parent="/myapps"
       slug="konnector-trinlane"
       type="konnector"
+      uninstallable={undefined}
     />
     <withRouter(Wrapper)
       app={
@@ -291,6 +297,8 @@ exports[`ApplicationPage component should be rendered correctly with konnector i
           "transport",
         ]
       }
+      changes={undefined}
+      description={undefined}
       developer={
         Object {
           "name": "Cozy",
@@ -303,9 +311,11 @@ exports[`ApplicationPage component should be rendered correctly with konnector i
           "en",
         ]
       }
+      mobileApps={undefined}
       parent="/myapps"
       slug="konnector-trinlane"
       source="https://github.com/cozy/cozy-konnector-trinlane.git@build"
+      version={undefined}
     />
   </div>
 </div>
@@ -319,6 +329,7 @@ exports[`ApplicationPage component should be rendered correctly with provided in
     <Wrapper
       description="Gestionnaire de photos pour Cozy v3"
       icon="https://mockcozy.cc/registry/photos/icon"
+      iconToLoad={undefined}
       installed={true}
       installedAppLink="https://photos.mockcozy.cc"
       name="Photos"
@@ -326,6 +337,7 @@ exports[`ApplicationPage component should be rendered correctly with provided in
       parent="/myapps"
       slug="photos"
       type="webapp"
+      uninstallable={undefined}
     />
     <withRouter(Wrapper)
       app={
@@ -492,11 +504,15 @@ exports[`ApplicationPage component should be rendered correctly with provided in
     <Wrapper
       description="A konnector for trinlane"
       icon="https://mockcozy.cc/registry/konnector-trinlane/icon"
+      iconToLoad={undefined}
       installed={true}
+      installedAppLink={undefined}
       name="Trinlane"
+      namePrefix={undefined}
       parent="/myapps"
       slug="konnector-trinlane"
       type="konnector"
+      uninstallable={undefined}
     />
     <withRouter(Wrapper)
       app={
@@ -602,6 +618,8 @@ exports[`ApplicationPage component should be rendered correctly with provided in
           "transport",
         ]
       }
+      changes={undefined}
+      description={undefined}
       developer={
         Object {
           "name": "Cozy",
@@ -614,9 +632,11 @@ exports[`ApplicationPage component should be rendered correctly with provided in
           "en",
         ]
       }
+      mobileApps={undefined}
       parent="/myapps"
       slug="konnector-trinlane"
       source="https://github.com/cozy/cozy-konnector-trinlane.git@build"
+      version={undefined}
     />
   </div>
 </div>

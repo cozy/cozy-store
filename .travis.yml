@@ -11,6 +11,8 @@ env:
   - CXX=g++-4.8
   - secure: UMe84F7f9T1pezGfYvqemKT628rSduOyMKDdhc2mGyJG7f8+2yZWLpDUdKO4fGzshC7GvJ9kPj0LtrxQ0tXZlCxoskxNf3rYhUlFv+xqowndaj4DNdKOvC0HLgHmxitWo8/vyJmM7b9EMJWY9/BGJhqy/ckc63hd5dOHHRj2pJxSbnkbjlhLebJ7+8rmSgyzxFYlW52A+4aV33Kv3F185FUVLHWMYhrlfmUg+u7VcY58jONsXRtvuNCGEbk/uI2k7C6wDh/6+rRFXXpyNzDwUvEbKCQtSJcngTC4yk979KjzZit0fwLBi5628jKg1QrDQDeF9Za13OC1jT380yv7eCBpaQoiwgcyFnLiEV4DZVw6WAp5TmtJX6uP7gM5cCuPFPy/i3rma9mHBZH+B3eOqt1IIjYf2XUnumMGgEBkpu9+Q6ROWuldx8Zfa4s0CXtOk7OzMG4HewX1WbK0+DLda4gF7oMVGPq401X4Z6UJHhDQd2V08HbzsamsQ58Q6ub7UvYssDyhq7ZPKdQhCcXo1niLsPN/REfehRvZOLD88M7FMsr1gEG0PxYp0bJxvn2fn+11B3gYIlYZf0INKB5Qkm+7Mu5va3iupex4wGNE3fapXBp3mXDJ6e/qzYhcgIlEESVg9qHATP/Vc3NZfXFq8CP309RjkAtxHu2bE/ZS4Rw=
   - secure: jYQ0y7bxmoO8eUJla36y1zrhtnxi0guSD4ufRQGnYmAlp7sWYeCBQj4ACXnIaTOwAhd2EpFUUp8BZ0z7W5sDUgOdYqAQe1eTe17kc2xJmDHMkW3INRYAW7LVgZTDmFLAmh5pXcdv0roGqB3KoU9PauhO8Q1h6IHwwbRslPngX2A2MYQLpobugmi0AxUff1C6bSP3rdO0GHbaAN6sYMtPzZRTeiRLaBCh3gbQhYVLFmfqVdYulHAS1TqaOGUpMEosfC+FIw/14b1u+pyWQHA5BSBrDDmqnHjcQZtugQNJP2Epw8UW1aVM1HwlU5fh3/Ru/LZ/+bDc/Xg26C+OKJzF5Loo8owdlFcPjh7/hnamARz8jhB2jCJzwpTtBeTkX6O9xVDoPcBnNypaf3Ck8glZ0xg9AbnpOwmy7KYbKffDe6uRq6whJEQOvgmdTYlFXWS1wY0IS2J2pPw9QaHmhM+eQNxS1mrL59CPsP9y+b58mNRPLMscE3RYn5un5xlRYQKbT1JUHh0eFmVlAciEl5U5t2FGccPwSUyPN9pM2yf/1jmyNq16sR8XCvMgzHXI2Hev8UumEq2qthQfZ6WfXQDSfJhgPCsCZq89IhxmzwOLACk7Tk/Bw4ryrSfldfGxpozuJmppQGRatPwaJToHKLg1CcoQ/6d5wxpViS68X1HrZWY=
+  # REGISTRY_TOKEN
+  - secure: s5dBg3GlV1cxAbSbKgLElPkTmGZCgbkK2PP92lszfTOHiPApClFhHQ+MNgx+oA3B4eJN0APECYfptXYpG1Spb6GfTKGyplL/bWU4VU61H98lrfyaVYKPGMA9Sil8pkHbrBIL/nTYDXqjsnoopKBfuNfSd5SrXdy14N8cRv9U2Vh7YF4bxYzIQXDzL9jlhVkkp8fBDykjgL4kR0Y3kMA3FeS4TMMEZsSrXvAs09UknG5PTF8Vq18bfLCePxSN3qq7VEAXN2b+9CAgV2vh3u7Ta2iTrANCpJzSbu+Rc+VtTYqrR/jitqDR3yNYx/y1xl6SipzbgTizDwKbDgyVe58KKaI+WNllN9APLVLx5y75yT6+PVaqbAqCwVRbwXwLVXd1uwBFqaoMMkH+CXfKaagCn1N8FI8EWeBZagCkTTrH+bGsKasxtQV/t5xW9i7F4wPvqv5gmSiYW5nJ8i6+a8dNRe0h9cfAHomO0uaMmrTxIrFIPt0aNLYHRGfXJaI9xZkH56CldyrjApKciViWLsDpEKaPOeErYR8jX0G2y28YZ5KGpsdP2OqwalfafbUBUXmiWhSgVx0OhFe0c45rSXPY1LIWaKrndfXc3U0uDjEzvRu9gYg1C/Xr5HcOk/gcNwe0B3dIDsnXQDhoSMQohRB0+8haBb3i25P+oTuqpJedZYo=
 addons:
   apt:
     sources:
@@ -35,12 +37,12 @@ deploy:
   - provider: script
     repo: cozy/cozy-store
     skip-cleanup: true
-    script: yarn deploy --branch=build
+    script: yarn deploy && yarn cozyPublish
     on:
       branch: master
   - provider: script
     repo: cozy/cozy-store
     skip-cleanup: true
-    script: yarn deploy --branch=latest
+    script: yarn deploy && yarn cozyPublish
     on:
-      branch: prod
+      tags: true
