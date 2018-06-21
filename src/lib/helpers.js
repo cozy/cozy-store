@@ -19,10 +19,10 @@ export const sortCategoriesAlphabetically = (list, t) => {
     return (
       (a === 'all' && -1) ||
       (b === 'all' && 1) ||
-      (a === 'webapps' && 1) ||
-      (b === 'webapps' && -1) ||
-      (a === 'konnectors' && 1) ||
-      (b === 'konnectors' && -1) ||
+      (a === 'webapps' && -1) ||
+      (b === 'webapps' && 1) ||
+      (a === 'konnectors' && -1) ||
+      (b === 'konnectors' && 1) ||
       (a === 'others' && 1) ||
       (b === 'others' && -1) ||
       t(`app_categories.${a}`) > t(`app_categories.${b}`)
@@ -32,7 +32,11 @@ export const sortCategoriesAlphabetically = (list, t) => {
 
 // get apps list as parameter and return all categories selection with the value and the label
 
-export const getCategoriesSelections = (apps, t) => {
+export const getCategoriesSelections = (
+  apps,
+  t,
+  extraOptions = SPECIAL_SELECT_OPTIONS
+) => {
   const allCategories = sortCategoriesAlphabetically(
     Object.keys(getAppsSortedByCategories(apps)),
     t
@@ -40,13 +44,12 @@ export const getCategoriesSelections = (apps, t) => {
   return sortCategoriesAlphabetically(
     [
       // merge and remove duplicates
-      ...new Set([...SPECIAL_SELECT_OPTIONS, ...allCategories])
+      ...new Set([...extraOptions, ...allCategories])
     ],
     t
   ).map(cat => ({
     value: cat,
-    label: t(`app_categories.${cat}`),
-    special: cat === 'webapps' || cat === 'konnectors'
+    label: t(`app_categories.${cat}`)
   }))
 }
 

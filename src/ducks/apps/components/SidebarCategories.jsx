@@ -50,10 +50,21 @@ export class SidebarCategories extends Component {
       default:
         return null // no list return nothing to the renderer
     }
-    const categoriesSelections = getCategoriesSelections(appsList, t)
+    let selections = [{ value: 'all', label: t('app_categories.all') }]
+    const webappsSelections = getCategoriesSelections(
+      appsList.filter(a => a.type === 'webapp'),
+      t,
+      ['webapps']
+    )
+    const konnectorsSelections = getCategoriesSelections(
+      appsList.filter(a => a.type === 'konnector'),
+      t,
+      ['konnectors']
+    )
+    selections = selections.concat(webappsSelections, konnectorsSelections)
     return (
       <ul className="sto-side-menu">
-        {categoriesSelections.map(cat => {
+        {selections.map(cat => {
           switch (cat.value) {
             case 'all':
               return renderLink(cat, parent)
