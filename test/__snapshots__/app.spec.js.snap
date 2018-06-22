@@ -1,16 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App component only should be mounted correctly 1`] = `
-<div
-  className="app-wrapper o-layout--2panes"
+<Layout
+  monoColumn={false}
 >
   <Alerter
     into="body"
   />
   <Wrapper />
-  <main
-    className="app-content"
-  >
+  <Main>
     <Switch>
       <Route
         component={[Function]}
@@ -36,6 +34,6 @@ exports[`App component only should be mounted correctly 1`] = `
         to="/discover"
       />
     </Switch>
-  </main>
-</div>
+  </Main>
+</Layout>
 `;

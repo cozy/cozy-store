@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 
 import { translate } from 'cozy-ui/react/I18n'
 import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
+import { Content } from 'cozy-ui/react/Layout'
 
 import ApplicationRouting from './ApplicationRouting'
 import Sections from './Sections'
@@ -47,7 +48,7 @@ export class Discover extends Component {
     const filteredApps = getFilteredAppsFromSearch(apps, query)
     const title = <h2 className="sto-view-title">{t('discover.title')}</h2>
     return (
-      <div className="sto-discover">
+      <Content className="sto-discover">
         {this.props.match.isExact ? (
           <div>
             {isMobile && <BarCenter>{title}</BarCenter>}
@@ -82,7 +83,7 @@ export class Discover extends Component {
         />
 
         {isFetching && <AppsLoading />}
-      </div>
+      </Content>
     )
   }
 }
