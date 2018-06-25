@@ -4,6 +4,7 @@ exports[`Apps Containers (connected components): Discover should be rendered cor
 <Wrapper
   actionError={null}
   apps={Array []}
+  f={undefined}
   fetchError={null}
   fetchLatestApp={[Function]}
   installApp={[Function]}
@@ -12,6 +13,7 @@ exports[`Apps Containers (connected components): Discover should be rendered cor
   isFetching={false}
   isInstalling={false}
   isUninstalling={undefined}
+  lang={undefined}
   store={
     Object {
       "clearActions": [Function],
@@ -43,6 +45,7 @@ exports[`Apps Containers (connected components): Discover should be rendered cor
       "unsubscribe": [Function],
     }
   }
+  t={undefined}
   uninstallApp={[Function]}
   updateApp={[Function]}
 />
@@ -52,6 +55,7 @@ exports[`Apps Containers (connected components): MyApplications should be render
 <Wrapper
   actionError={null}
   apps={Array []}
+  f={undefined}
   fetchError={null}
   fetchLatestApp={[Function]}
   installApp={[Function]}
@@ -60,6 +64,7 @@ exports[`Apps Containers (connected components): MyApplications should be render
   isFetching={false}
   isInstalling={false}
   isUninstalling={undefined}
+  lang={undefined}
   store={
     Object {
       "clearActions": [Function],
@@ -91,6 +96,7 @@ exports[`Apps Containers (connected components): MyApplications should be render
       "unsubscribe": [Function],
     }
   }
+  t={undefined}
   uninstallApp={[Function]}
   updateApp={[Function]}
 />
