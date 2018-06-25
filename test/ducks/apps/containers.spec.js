@@ -26,13 +26,17 @@ describe('Apps Containers (connected components):', () => {
 
   it('MyApplications should be rendered correctly at initial store', () => {
     const store = mockStore(initialState)
-    const component = shallow(<MyApplications store={store} />).getElement()
+    const component = shallow(<MyApplications store={store} />)
+      .dive()
+      .getElement()
     expect(component).toMatchSnapshot()
   })
 
   it('Discover should be rendered correctly at initial store', () => {
     const store = mockStore(initialState)
-    const component = shallow(<Discover store={store} />).getElement()
+    const component = shallow(<Discover store={store} />)
+      .dive()
+      .getElement()
     expect(component).toMatchSnapshot()
   })
 })

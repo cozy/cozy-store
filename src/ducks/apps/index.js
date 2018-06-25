@@ -423,22 +423,27 @@ function initializeRealtime() {
   }
 }
 
-export function fetchLatestApp(slug, channel = DEFAULT_CHANNEL) {
+export function fetchLatestApp(lang, slug, channel = DEFAULT_CHANNEL) {
   return async (dispatch, getState) => {
     dispatch({ type: FETCH_APP })
-    const app = getState().apps.list.find(a => a.slug === slug)
+    let app = getState().apps.list.find(a => a.slug === slug)
     if (!app) {
-      return dispatch({
-        type: FETCH_APP_FAILURE,
-        error: new Error(`Application ${slug} not found.`)
-      })
+      console.warn(`No application ${slug} found in app state.`)
+      app = await cozy.client.fetchJSON('GET', `/registry/${slug}`)
+      if (!app) {
+        return dispatch({
+          type: FETCH_APP_FAILURE,
+          error: new Error(`Application ${slug} not found.`)
+        })
+      }
     }
     return getFormattedRegistryApp(app, true, channel)
       .then(fetched => {
         // replace the new fetched app in the apps list
         return dispatch({
           type: FETCH_APP_SUCCESS,
-          apps: [fetched]
+          apps: [fetched],
+          lang
         })
       })
       .catch(err => {

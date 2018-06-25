@@ -7,15 +7,14 @@ import IntentHeader from 'cozy-ui/react/IntentHeader'
 import Spinner from 'cozy-ui/react/Spinner'
 
 import {
-  initApp,
-  fetchInstalledApps,
   getAppBySlug,
-  installAppFromRegistry
+  installAppFromRegistry,
+  fetchLatestApp
 } from '../../apps'
 
 const errorKeys = {
   alreadyInstalledError: 'intent.install.error.installed',
-  fetchError: 'intent.install.error.fetch.title',
+  fetchError: 'intent.install.error.fetch',
   installError: 'intent.install.error.install',
   appError: 'intent.install.error.unavailable'
 }
@@ -23,7 +22,7 @@ const errorKeys = {
 export class InstallAppIntent extends Component {
   constructor(props) {
     super(props)
-    props.initApp()
+    props.initAppIntent()
   }
 
   installApp() {
@@ -52,6 +51,7 @@ export class InstallAppIntent extends Component {
       fetchError,
       installError,
       isFetching,
+      isAppFetching,
       isInstalling,
       onCancel,
       t
@@ -59,7 +59,8 @@ export class InstallAppIntent extends Component {
 
     const { status } = this.state
 
-    const isReady = !fetchError && !isFetching
+    const fetching = isFetching || isAppFetching
+    const isReady = !fetchError && !fetching && !isAppFetching
     const isInstalled = status === 'installed'
 
     const appError = isReady && !app
@@ -79,7 +80,7 @@ export class InstallAppIntent extends Component {
           appIcon={`../${appData.cozyIconPath}`}
         />
         <div className="coz-intent-content">
-          {isFetching && <Spinner size="xxlarge" />}
+          {fetching && <Spinner size="xxlarge" />}
           {error && <div className="coz-error">{error.message}</div>}
           {isReady &&
             !isInstalled &&
@@ -99,6 +100,7 @@ export class InstallAppIntent extends Component {
 
 const mapStateToProps = (state, ownProps) => ({
   isFetching: state.apps.isFetching,
+  isAppFetching: state.apps.isAppFetching,
   isInstalling: state.apps.isInstalling,
   installError: state.apps.actionError,
   fetchError: state.apps.fetchError,
@@ -106,8 +108,8 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  initApp: () => dispatch(initApp(ownProps.lang)),
-  fetchInstalledApps: () => dispatch(fetchInstalledApps(ownProps.lang)),
+  initAppIntent: () =>
+    dispatch(fetchLatestApp(ownProps.lang, ownProps.data.slug)),
   installApp: (appSlug, appType, channel) =>
     dispatch(installAppFromRegistry(appSlug, appType, channel))
 })

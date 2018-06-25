@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
+import { translate } from 'cozy-ui/react/I18n'
 
 import {
   fetchLatestApp,
@@ -24,24 +25,29 @@ const mapStateToProps = state => ({
   fetchError: state.apps.fetchError
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
   installApp: (appSlug, appType, channel) =>
     dispatch(installAppFromRegistry(appSlug, appType, channel)),
   uninstallApp: (appSlug, appType) => dispatch(uninstallApp(appSlug, appType)),
   updateApp: (appSlug, appType, channel) =>
     dispatch(installAppFromRegistry(appSlug, appType, channel, true)),
-  fetchLatestApp: (slug, channel) => dispatch(fetchLatestApp(slug, channel))
+  fetchLatestApp: (slug, channel) =>
+    dispatch(fetchLatestApp(ownProps.lang, slug, channel))
 })
 
-export const Discover = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(DiscoverComponent)
+export const Discover = translate()(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(DiscoverComponent)
+)
 
-export const MyApplications = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MyApplicationsComponent)
+export const MyApplications = translate()(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(MyApplicationsComponent)
+)
 
 export const SidebarCategories = withRouter(
   connect(
