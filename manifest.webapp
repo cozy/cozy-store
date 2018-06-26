@@ -6,7 +6,7 @@
   "editor": "Cozy",
   "description": "The apps store for Cozy V3",
   "categories": ["cozy"],
-  "version": "1.0.4",
+  "version": "1.0.5",
   "licence": "AGPL-3.0",
   "source": "https://github.com/cozy/cozy-store.git@build",
   "developer": {
