@@ -6,11 +6,7 @@ import AppInstallation from '../../apps/components/AppInstallation'
 import IntentHeader from 'cozy-ui/react/IntentHeader'
 import Spinner from 'cozy-ui/react/Spinner'
 
-import {
-  getAppBySlug,
-  installAppFromRegistry,
-  fetchLatestApp
-} from '../../apps'
+import { getAppBySlug, installAppFromRegistry, initAppIntent } from '../../apps'
 
 const errorKeys = {
   alreadyInstalledError: 'intent.install.error.installed',
@@ -108,8 +104,9 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  initAppIntent: () =>
-    dispatch(fetchLatestApp(ownProps.lang, ownProps.data.slug)),
+  initAppIntent: () => {
+    dispatch(initAppIntent(ownProps.lang, ownProps.data.slug))
+  },
   installApp: (appSlug, appType, channel) =>
     dispatch(installAppFromRegistry(appSlug, appType, channel))
 })
