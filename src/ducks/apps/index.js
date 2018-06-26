@@ -37,6 +37,7 @@ const DEFAULT_CHANNEL = constants.default.registry.channel
 
 // initial loading
 const LOADING_APP = 'LOADING_APP'
+const LOADING_APP_INTENT = 'LOADING_APP_INTENT'
 
 const FETCH_APPS = 'FETCH_APPS'
 const FETCH_APPS_SUCCESS = 'FETCH_APPS_SUCCESS'
@@ -98,6 +99,7 @@ export const isFetching = (state = false, action) => {
 
 export const isAppFetching = (state = false, action) => {
   switch (action.type) {
+    case LOADING_APP_INTENT:
     case FETCH_APP:
       return true
     case FETCH_APP_SUCCESS:
@@ -339,6 +341,15 @@ export function initApp(lang) {
     dispatch({ type: LOADING_APP })
     await dispatch(initializeRealtime())
     return dispatch(fetchApps(lang))
+  }
+}
+
+// only on the app install intent initialisation
+export function initAppIntent(lang, slug) {
+  return async dispatch => {
+    dispatch({ type: LOADING_APP_INTENT })
+    await dispatch(initializeRealtime())
+    return dispatch(fetchLatestApp(lang, slug))
   }
 }
 
