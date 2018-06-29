@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MyApplications component should be rendered correctly if apps uninstalled 1`] = `
-<div
+<Content
   className="sto-myapps"
 >
   <div>
@@ -368,11 +368,11 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
     uninstallApp={[MockFunction]}
     updateApp={undefined}
   />
-</div>
+</Content>
 `;
 
 exports[`MyApplications component should be rendered correctly with apps and URL search params 1`] = `
-<div
+<Content
   className="sto-myapps"
 >
   <div>
@@ -665,11 +665,11 @@ exports[`MyApplications component should be rendered correctly with apps and URL
     uninstallApp={[MockFunction]}
     updateApp={undefined}
   />
-</div>
+</Content>
 `;
 
 exports[`MyApplications component should display error from props correctly 1`] = `
-<div
+<Content
   className="sto-myapps"
 >
   <div>
@@ -697,11 +697,11 @@ exports[`MyApplications component should display error from props correctly 1`] 
     uninstallApp={[MockFunction]}
     updateApp={undefined}
   />
-</div>
+</Content>
 `;
 
 exports[`MyApplications component should render correctly a spinner if apps is fetching 1`] = `
-<div
+<Content
   className="sto-myapps"
 >
   <div>
@@ -721,11 +721,11 @@ exports[`MyApplications component should render correctly a spinner if apps is f
     updateApp={undefined}
   />
   <AppsLoading />
-</div>
+</Content>
 `;
 
 exports[`MyApplications component should render only routing if path not exactly match /myapps 1`] = `
-<div
+<Content
   className="sto-myapps"
 >
   <withRouter(Wrapper)
@@ -852,11 +852,11 @@ exports[`MyApplications component should render only routing if path not exactly
     uninstallApp={[MockFunction]}
     updateApp={undefined}
   />
-</div>
+</Content>
 `;
 
 exports[`MyApplications component should use BarCenter from cozy-bar in mobile view only 1`] = `
-<div
+<Content
   className="sto-myapps"
 >
   <div>
@@ -1230,5 +1230,5 @@ exports[`MyApplications component should use BarCenter from cozy-bar in mobile v
     uninstallApp={[MockFunction]}
     updateApp={undefined}
   />
-</div>
+</Content>
 `;

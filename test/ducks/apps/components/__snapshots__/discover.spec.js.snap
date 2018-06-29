@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Discover component should be rendered correctly with apps 1`] = `
-<div
+<Content
   className="sto-discover"
 >
   <div>
@@ -512,11 +512,11 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
     uninstallApp={undefined}
     updateApp={undefined}
   />
-</div>
+</Content>
 `;
 
 exports[`Discover component should be rendered correctly with apps and URL search params 1`] = `
-<div
+<Content
   className="sto-discover"
 >
   <div>
@@ -857,11 +857,11 @@ exports[`Discover component should be rendered correctly with apps and URL searc
     uninstallApp={undefined}
     updateApp={undefined}
   />
-</div>
+</Content>
 `;
 
 exports[`Discover component should display error from props correctly 1`] = `
-<div
+<Content
   className="sto-discover"
 >
   <div>
@@ -892,11 +892,11 @@ exports[`Discover component should display error from props correctly 1`] = `
     uninstallApp={undefined}
     updateApp={undefined}
   />
-</div>
+</Content>
 `;
 
 exports[`Discover component should not render apps list if !match.isExact 1`] = `
-<div
+<Content
   className="sto-discover"
 >
   <withRouter(Wrapper)
@@ -1072,11 +1072,11 @@ exports[`Discover component should not render apps list if !match.isExact 1`] = 
     uninstallApp={undefined}
     updateApp={undefined}
   />
-</div>
+</Content>
 `;
 
 exports[`Discover component should render correctly a spinner if apps is fetching 1`] = `
-<div
+<Content
   className="sto-discover"
 >
   <div>
@@ -1098,11 +1098,11 @@ exports[`Discover component should render correctly a spinner if apps is fetchin
     updateApp={undefined}
   />
   <AppsLoading />
-</div>
+</Content>
 `;
 
 exports[`Discover component should use BarCenter from cozy-bar in mobile view only 1`] = `
-<div
+<Content
   className="sto-discover"
 >
   <div>
@@ -1620,5 +1620,5 @@ exports[`Discover component should use BarCenter from cozy-bar in mobile view on
     uninstallApp={undefined}
     updateApp={undefined}
   />
-</div>
+</Content>
 `;

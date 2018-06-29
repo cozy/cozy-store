@@ -9,6 +9,7 @@ import Sidebar from './Sidebar'
 import { initApp, fetchIconsProgressively } from '../apps'
 import { Discover, MyApplications } from '../apps/Containers'
 
+import { Layout, Main } from 'cozy-ui/react/Layout'
 import Alerter from 'cozy-ui/react/Alerter'
 
 export class App extends Component {
@@ -25,10 +26,10 @@ export class App extends Component {
 
   render() {
     return (
-      <div className="app-wrapper o-layout--2panes">
+      <Layout>
         <Alerter />
         <Sidebar />
-        <main className="app-content">
+        <Main>
           <Switch>
             <Route path="/redirect" component={IntentRedirect} />
             <Route path="/discover" component={Discover} />
@@ -36,8 +37,8 @@ export class App extends Component {
             <Redirect exact from="/" to="/discover" />
             <Redirect from="*" to="/discover" />
           </Switch>
-        </main>
-      </div>
+        </Main>
+      </Layout>
     )
   }
 }
