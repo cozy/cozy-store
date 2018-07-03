@@ -1,9 +1,11 @@
 /* global cozy */
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import { translate } from 'cozy-ui/react/I18n'
 import Spinner from 'cozy-ui/react/Spinner'
 import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
+import Button from 'cozy-ui/react/Button'
 
 import Header from './Header'
 import Gallery from './Gallery'
@@ -109,6 +111,14 @@ export class ApplicationPage extends Component {
             </BarCenter>
           )}
         <div className="sto-app">
+          <Button
+            icon="back"
+            tag={Link}
+            to={`${parent}`}
+            className="sto-app-back"
+            label={t('app_page.back')}
+            subtle
+          />
           <Header
             icon={icon}
             iconToLoad={iconToLoad}
