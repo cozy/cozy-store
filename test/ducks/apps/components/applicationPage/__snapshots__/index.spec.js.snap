@@ -5,6 +5,14 @@ exports[`ApplicationPage component should be rendered correctly with app infos f
   <div
     className="sto-app"
   >
+    <DefaultButton
+      className="sto-app-back"
+      icon="back"
+      label="Back to the list"
+      subtle={true}
+      tag={[Function]}
+      to="/myapps"
+    />
     <Wrapper
       description="Gestionnaire de photos pour Cozy v3"
       icon="https://mockcozy.cc/registry/photos/icon"
@@ -180,6 +188,14 @@ exports[`ApplicationPage component should be rendered correctly with konnector i
   <div
     className="sto-app"
   >
+    <DefaultButton
+      className="sto-app-back"
+      icon="back"
+      label="Back to the list"
+      subtle={true}
+      tag={[Function]}
+      to="/myapps"
+    />
     <Wrapper
       description="A konnector for trinlane"
       icon="https://mockcozy.cc/registry/konnector-trinlane/icon"
@@ -326,6 +342,14 @@ exports[`ApplicationPage component should be rendered correctly with provided in
   <div
     className="sto-app"
   >
+    <DefaultButton
+      className="sto-app-back"
+      icon="back"
+      label="Back to the list"
+      subtle={true}
+      tag={[Function]}
+      to="/myapps"
+    />
     <Wrapper
       description="Gestionnaire de photos pour Cozy v3"
       icon="https://mockcozy.cc/registry/photos/icon"
@@ -501,6 +525,14 @@ exports[`ApplicationPage component should be rendered correctly with provided in
   <div
     className="sto-app"
   >
+    <DefaultButton
+      className="sto-app-back"
+      icon="back"
+      label="Back to the list"
+      subtle={true}
+      tag={[Function]}
+      to="/myapps"
+    />
     <Wrapper
       description="A konnector for trinlane"
       icon="https://mockcozy.cc/registry/konnector-trinlane/icon"
