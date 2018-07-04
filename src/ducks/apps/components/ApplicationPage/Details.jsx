@@ -233,6 +233,7 @@ export class Details extends Component {
                         className="sto-app-info-content-icon"
                         href={isValidUrl(a.url) ? a.url : null}
                         target="_blank"
+                        rel="noopener noreferrer"
                         key={a.type}
                       >
                         <Icon icon={icon.default} width="24px" height="24px" />
@@ -259,6 +260,7 @@ export class Details extends Component {
                     href={developer.url}
                     className="sto-app-developer-link"
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
                     {developer.url}
                   </a>

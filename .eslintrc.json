@@ -1,6 +1,7 @@
 {
   "extends": ["cozy-app/react"],
   "rules": {
-    "no-console":1
+    "no-console":1,
+    "react/no-deprecated":1
   }
 }

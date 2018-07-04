@@ -1,6 +1,4 @@
 /* global cozy */
-import 'babel-polyfill'
-
 import 'styles'
 
 import { Provider } from 'react-redux'
