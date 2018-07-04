@@ -16,11 +16,7 @@
     "url": "https://cozy.io"
   },
   "locales": {
-    "de": {},
-    "en": {},
-    "fr": {},
-    "nl_NL": {},
-    "pl": {}
+    "en": {}
   },
   "intents": [
     {
@@ -78,10 +74,6 @@
     }
   },
   "langs": [
-    "de",
-    "en",
-    "fr",
-    "nl_NL",
-    "pl"
+    "en"
   ]
 }
