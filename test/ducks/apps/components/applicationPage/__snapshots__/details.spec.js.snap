@@ -177,6 +177,7 @@ Enjoy features to grab your data in you Cozy :tada:"
         <a
           className="sto-app-info-content-icon"
           href={null}
+          rel="noopener noreferrer"
           target="_blank"
         >
           <Icon
@@ -189,6 +190,7 @@ Enjoy features to grab your data in you Cozy :tada:"
         <a
           className="sto-app-info-content-icon"
           href="https://mock.app"
+          rel="noopener noreferrer"
           target="_blank"
         >
           <Icon
@@ -222,6 +224,7 @@ Enjoy features to grab your data in you Cozy :tada:"
         <a
           className="sto-app-developer-link"
           href="https://cozy.io"
+          rel="noopener noreferrer"
           target="_blank"
         >
           https://cozy.io
@@ -313,6 +316,7 @@ exports[`ApplicationPage details component should be rendered correctly with pro
         <a
           className="sto-app-developer-link"
           href="https://cozy.io"
+          rel="noopener noreferrer"
           target="_blank"
         >
           https://cozy.io

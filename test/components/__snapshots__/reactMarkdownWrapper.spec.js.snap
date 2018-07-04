@@ -53,6 +53,7 @@ exports[`ReactMarkdownWrapper component should have correct heading renderer opt
 exports[`ReactMarkdownWrapper component should have correct link renderer options 1`] = `
 <a
   href="#"
+  rel="noopener noreferrer"
   target="_blank"
 >
   <div />

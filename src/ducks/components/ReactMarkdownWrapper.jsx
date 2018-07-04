@@ -13,7 +13,7 @@ const parseTitles = props => {
 }
 
 const parseLinks = props => (
-  <a href={props.href} target="_blank">
+  <a href={props.href} target="_blank" rel="noopener noreferrer">
     {props.children}
   </a>
 )
