@@ -5,7 +5,7 @@
 .sto-app-back {
   display: flex;
   align-items: center;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   text-decoration: none;
   color: var(--slateGrey)!important;
 }
