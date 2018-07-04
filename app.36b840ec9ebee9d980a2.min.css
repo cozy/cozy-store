@@ -466,7 +466,7 @@ html{font-size:100%}body{font:100%/1.5;-moz-osx-font-smoothing:grayscale;-webkit
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   text-decoration: none;
   color: var(--slateGrey)!important;
 }
