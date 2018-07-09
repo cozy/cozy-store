@@ -7,7 +7,6 @@ import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
 import { tMock } from '../jestLib/I18n'
-import { Link } from 'react-router-dom'
 import { SmallAppItem } from '../../src/ducks/components/SmallAppItem'
 
 Enzyme.configure({ adapter: new Adapter() })
@@ -91,32 +90,5 @@ describe('SmallAppItem component', () => {
       .find('div.sto-small-app-item')
       .simulate('keydown', { keyCode: 13 })
     expect(appMock.onClick.mock.calls.length).toBe(1)
-  })
-
-  it('should redirect correctly to the app if installed', () => {
-    window.location.assign = jest.fn()
-    const mockEventStopPropagation = jest.fn()
-    const component = shallow(<SmallAppItem t={tMock} {...appMock2} />)
-    component
-      .find('.sto-small-app-item-button')
-      .simulate('click', { stopPropagation: mockEventStopPropagation })
-    expect(window.location.assign.mock.calls.length).toBe(1)
-    expect(window.location.assign.mock.calls[0][0]).toBe(
-      appMock2.installedAppLink
-    )
-    expect(mockEventStopPropagation.mock.calls.length).toBe(1)
-  })
-
-  it('should open the app installing modal if not installed', () => {
-    const mockEventStopPropagation = jest.fn()
-    const component = shallow(<SmallAppItem t={tMock} {...appMock} />)
-    const linkComponent = component.find(Link)
-    expect(linkComponent.getElement().props.to).toBe(
-      `/discover/${appMock.slug}/manage`
-    )
-    linkComponent.simulate('click', {
-      stopPropagation: mockEventStopPropagation
-    })
-    expect(mockEventStopPropagation.mock.calls.length).toBe(1)
   })
 })

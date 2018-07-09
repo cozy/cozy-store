@@ -1097,7 +1097,7 @@ exports[`Discover component should render correctly a spinner if apps is fetchin
     uninstallApp={undefined}
     updateApp={undefined}
   />
-  <AppsLoading />
+  <Aware />
 </Content>
 `;
 
