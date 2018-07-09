@@ -1,4 +1,4 @@
-const SPECIAL_SELECT_OPTIONS = ['all', 'webapps', 'konnectors']
+const SPECIAL_SELECT_OPTIONS = ['all', 'konnectors']
 
 // take a list of apps as parameters and returned them sorted
 // by categories in a dictionnary with the category slug as property
@@ -37,6 +37,7 @@ export const getCategoriesSelections = (
   t,
   extraOptions = SPECIAL_SELECT_OPTIONS
 ) => {
+  if (!apps.length) return []
   const allCategories = sortCategoriesAlphabetically(
     Object.keys(getAppsSortedByCategories(apps)),
     t

@@ -28,31 +28,26 @@ export class DropdownFilter extends Component {
         return pushQuery()
       case 'konnectors':
         return pushQuery('type=konnector')
-      case 'webapps':
-        return pushQuery('type=webapp')
       default:
         return pushQuery(`category=${option.value}`)
     }
   }
 
   getDefaultOption(options = []) {
-    const queryElements = this.props.query.match(/^\?([^=]*)=([^&/]*).*/)
-    if (!queryElements) return options.find(op => op.value === 'all')
-    switch (queryElements[2]) {
-      case 'webapp':
-        return options.find(op => op.value === 'webapps')
-      case 'konnector':
-        return options.find(op => op.value === 'konnectors')
-      default: {
-        const defaultOp = options.find(op => op.value === queryElements[2])
-        if (defaultOp) {
-          return defaultOp
-        } else {
-          console.error('No default option for select found')
-          return null
-        }
-      }
+    const params = new URLSearchParams(this.props.query)
+    const findOption = value => options.find(op => op.value === value)
+    const typeParam = params.get('type')
+    const categoryParam = params.get('category')
+    let option
+    if (typeParam === 'konnector' && !categoryParam) {
+      option = findOption('konnectors')
+    } else if (!typeParam) {
+      if (!categoryParam) return findOption('all')
+      option = findOption(categoryParam)
     }
+    if (option) return option
+    console.error('No default option for select found')
+    return null
   }
 
   render() {

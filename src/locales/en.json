@@ -1,6 +1,6 @@
 {
   "discover": {
-    "title": "All",
+    "title": "Applications",
     "get_started": "Get started with Cozy"
   },
   "intent": {
@@ -24,7 +24,7 @@
     "title": "My Applications"
   },
   "nav": {
-    "discover": "All",
+    "discover": "Applications",
     "myapps": "My Applications"
   },
   "soon": {
@@ -115,7 +115,6 @@
   "app_categories": {
     "list_separator": ", ",
     "all": "All categories",
-    "webapps": "Applications",
     "konnectors": "Services",
     "banking": "Banking",
     "cozy": "The essentials",
