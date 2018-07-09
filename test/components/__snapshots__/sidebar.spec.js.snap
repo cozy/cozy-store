@@ -16,7 +16,7 @@ exports[`Sidebar component should be rendered correctly 1`] = `
           icon="test-file-stub"
         />
         <NavText>
-          All
+          Applications
         </NavText>
       </NavLink>
     </NavItem>

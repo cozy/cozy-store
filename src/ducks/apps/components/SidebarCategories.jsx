@@ -50,40 +50,47 @@ export class SidebarCategories extends Component {
       default:
         return null // no list return nothing to the renderer
     }
-    let selections = [{ value: 'all', label: t('app_categories.all') }]
-    const webappsSelections = getCategoriesSelections(
+    const konnectorsList = appsList.filter(a => a.type === 'konnector')
+    const webappsCategories = getCategoriesSelections(
       appsList.filter(a => a.type === 'webapp'),
       t,
-      ['webapps']
+      konnectorsList.length ? ['konnectors'] : []
     )
-    const konnectorsSelections = getCategoriesSelections(
-      appsList.filter(a => a.type === 'konnector'),
-      t,
-      ['konnectors']
-    )
-    selections = selections.concat(webappsSelections, konnectorsSelections)
-    return (
-      <ul className="sto-side-menu">
-        {selections.map(cat => {
-          switch (cat.value) {
-            case 'all':
-              return renderLink(cat, parent)
-            case 'konnectors': {
-              const path = `${parent}?type=konnector`
-              return renderLink(cat, path)
-            }
-            case 'webapps': {
-              const path = `${parent}?type=webapp`
-              return renderLink(cat, path)
-            }
-            default: {
-              const path = `${parent}?category=${cat.value}`
-              return renderLink(cat, path, true)
-            }
+    const konnectorsCategories = getCategoriesSelections(konnectorsList, t, [])
+
+    // compute sidebar categories links
+    const linksArray = webappsCategories.reduce((all, current) => {
+      switch (current.value) {
+        case 'konnectors': {
+          all.push(renderLink(current, `${parent}?type=konnector`))
+          for (const kCategory of konnectorsCategories) {
+            all.push(
+              renderLink(
+                kCategory,
+                `${parent}?type=konnector&category=${kCategory.value}`,
+                true
+              )
+            )
           }
-        })}
-      </ul>
-    )
+          return all
+        }
+        case 'webapps': {
+          all.push(renderLink(current, `${parent}?type=webapp`))
+          return all
+        }
+        default: {
+          all.push(
+            renderLink(
+              current,
+              `${parent}?type=webapp&category=${current.value}`
+            )
+          )
+          return all
+        }
+      }
+    }, [])
+
+    return <ul className="sto-side-menu">{linksArray}</ul>
   }
 }
 
