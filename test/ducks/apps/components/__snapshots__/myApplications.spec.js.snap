@@ -720,7 +720,7 @@ exports[`MyApplications component should render correctly a spinner if apps is f
     uninstallApp={[MockFunction]}
     updateApp={undefined}
   />
-  <AppsLoading />
+  <Aware />
 </Content>
 `;
 

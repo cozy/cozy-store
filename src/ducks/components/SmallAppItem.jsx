@@ -4,8 +4,6 @@ import Icon from 'cozy-ui/react/Icon'
 import { translate } from 'cozy-ui/react/I18n'
 
 import defaultAppIcon from '../../assets/icons/icon-cube.svg'
-import { Link } from 'react-router-dom'
-import Button from 'cozy-ui/react/Button'
 import { Placeholder } from './AppsLoading'
 
 export const SmallAppItem = ({
@@ -17,15 +15,8 @@ export const SmallAppItem = ({
   name,
   namePrefix,
   installed,
-  onClick,
-  installedAppLink
+  onClick
 }) => {
-  const onShortcutAppButton = (e, link) => {
-    // prevent from opening parent SmallAppItem link
-    // which will lead to the application main page
-    e.stopPropagation()
-    if (link) window.location.assign(link)
-  }
   return (
     // HACK a11y
     // `onKeyDown={(e) => e.keyCode === 13 ? onClick() : null`
@@ -36,51 +27,37 @@ export const SmallAppItem = ({
       onClick={onClick}
       tabIndex={0}
     >
-      {iconToLoad ? (
-        <Placeholder width="4rem" height="4rem" />
-      ) : icon ? (
-        <img
-          src={icon}
-          alt={`${slug}-icon`}
-          width="64"
-          height="64"
-          className="sto-small-app-item-icon"
-        />
-      ) : (
-        <Icon
-          className="sto-small-app-item-icon--default blurry"
-          width="48"
-          height="64"
-          icon={defaultAppIcon}
-          color="#95999D"
-        />
-      )}
+      <div className="sto-small-app-item-icon-wrapper">
+        {iconToLoad ? (
+          <div className="sto-small-app-item-icon">
+            <Placeholder width="3rem" height="3rem" />
+          </div>
+        ) : icon ? (
+          <img
+            src={icon}
+            alt={`${slug}-icon`}
+            width="64"
+            height="64"
+            className="sto-small-app-item-icon"
+          />
+        ) : (
+          <Icon
+            className="sto-small-app-item-icon sto-small-app-item-icon--default blurry"
+            width="48"
+            height="64"
+            icon={defaultAppIcon}
+            color="#95999D"
+          />
+        )}
+      </div>
       <div className="sto-small-app-item-desc">
-        <div className="sto-small-app-item-text">
-          <h4 className="sto-small-app-item-title">
-            {namePrefix ? `${namePrefix} ${name}` : name}
-          </h4>
-          <p className="sto-small-app-item-detail">{developer.name}</p>
-        </div>
-        <div className="sto-small-app-item-buttons">
-          {installed ? (
-            <Button
-              onClick={e => onShortcutAppButton(e, installedAppLink)}
-              label={t('app_item.open')}
-              theme="secondary"
-              className="sto-small-app-item-button"
-              size="tiny"
-            />
-          ) : (
-            <Link
-              to={`/discover/${slug}/manage`}
-              onClick={e => onShortcutAppButton(e)}
-              className="c-btn c-btn--regular c-btn--tiny sto-small-app-item-button sto-small-app-item-button-install"
-            >
-              <span>{t('app_item.install')}</span>
-            </Link>
-          )}
-        </div>
+        <h4 className="sto-small-app-item-title">
+          {namePrefix ? `${namePrefix} ${name}` : name}
+        </h4>
+        <p className="sto-small-app-item-developer">{developer.name}</p>
+        {installed && (
+          <p className="sto-small-app-item-status">{t('app_item.installed')}</p>
+        )}
       </div>
     </div>
   )

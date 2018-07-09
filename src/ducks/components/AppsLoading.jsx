@@ -1,41 +1,55 @@
 import React, { Component } from 'react'
+import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
 
 // subarray = sections, array of subsections
 // number = number of loading items per subsection
-const LOADING_SECTIONS = [[4, 4], [12, 8]]
+const LOADING_SECTIONS = [[5, 3, 9], [12, 8]]
 
-export const Placeholder = ({ width, height, withMargin }) => {
+export const Placeholder = ({ width, height, autoMargin }) => {
   const widthStyle = Array.isArray(width)
     ? `${Math.random() * (width[1] - width[0]) + width[0]}rem`
     : width
   const style = {
     width: widthStyle,
-    height,
-    margin: withMargin ? '.1rem 0' : '0'
+    height
   }
+  if (autoMargin) style.margin = 'auto'
   return <div className="sto-sections-placeholder" style={style} />
 }
 
-const LoadingAppsComponents = ({ count, subKey }) => {
+const LoadingAppsComponents = ({ count, subKey, breakpoints = {} }) => {
   let loadingApps = []
+  const { isMobile } = breakpoints
+  const iconSize = isMobile ? '2.5rem' : '3rem'
+  const widthMax = isMobile ? 5 : 8
   for (let i = 1; i <= count; i++) {
     loadingApps.push(
       <div className="sto-small-app-item" key={`${subKey}-${i}`}>
-        <div className="sto-small-app-item-icon">
-          <Placeholder width="4rem" height="4rem" />
+        <div className="sto-small-app-item-icon-wrapper">
+          <div className="sto-small-app-item-icon">
+            <Placeholder width={iconSize} height={iconSize} autoMargin />
+          </div>
         </div>
         <div className="sto-small-app-item-desc">
-          <div className="sto-small-app-item-text">
-            <h4 className="sto-small-app-item-title">
-              <Placeholder width={[4, 8]} height="1.1rem" withMargin />
-            </h4>
-            <p className="sto-small-app-item-detail">
-              <Placeholder width={[3, 5]} height=".75rem" withMargin />
+          <h4 className="sto-small-app-item-title">
+            <Placeholder
+              width={[4, widthMax]}
+              height={isMobile ? '.8rem' : '1.1rem'}
+              autoMargin
+            />
+          </h4>
+          <p className="sto-small-app-item-developer">
+            <Placeholder width={[4, widthMax]} height=".8rem" autoMargin />
+          </p>
+          {!!Math.round(Math.random()) && (
+            <p className="sto-small-app-item-status">
+              <Placeholder
+                width="4rem"
+                height={isMobile ? '.6rem' : '.8rem'}
+                autoMargin
+              />
             </p>
-          </div>
-          <div className="sto-small-app-item-buttons">
-            <Placeholder width="5rem" height="1.3rem" withMargin />
-          </div>
+          )}
         </div>
       </div>
     )
@@ -49,6 +63,7 @@ export class AppsLoading extends Component {
   }
 
   render() {
+    const { breakpoints } = this.props
     return (
       <div className="sto-sections --loading">
         {LOADING_SECTIONS.map((subsection, subIndex) => {
@@ -66,6 +81,7 @@ export class AppsLoading extends Component {
                     <LoadingAppsComponents
                       count={subsectionCount}
                       subKey={`${subIndex}-${i}`}
+                      breakpoints={breakpoints}
                     />
                   </div>
                 )
@@ -78,4 +94,4 @@ export class AppsLoading extends Component {
   }
 }
 
-export default AppsLoading
+export default withBreakpoints()(AppsLoading)

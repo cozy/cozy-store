@@ -108,8 +108,7 @@
   },
 
   "app_item": {
-    "open": "Open",
-    "install": "Install"
+    "installed": "Installed"
   },
 
   "app_categories": {

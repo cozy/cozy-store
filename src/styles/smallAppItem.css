@@ -1,137 +1,127 @@
 .sto-sections-list {
-  /* We differenciate the "real" margin from the "used" margin. The "used" margin
-  allow to use a little higher value for flex-basis calculation. Firefox
-  and Chrome are behaving well but IE11 need it. */
-  --item-margin: .8em;
-  --item-real-margin: .7em
+  --item-size: 8rem;
+  --item-mobile-size: 5rem;
 }
 
 .sto-small-app-item {
   position: relative;
   display: flex;
-  flex-direction: row;
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: calc(100% - var(--item-margin) * 2);
-  padding: var(--item-real-margin);
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: var(--item-size);
+  height: var(--item-size);
+  align-items: center;
+  justify-content: start;
+  background: white;
+  box-shadow: none;
+  border-radius: 4px;
+  border: solid 1px var(--silver);
+  padding: calc(.75rem / 2 - 1px);
   margin-bottom: 1rem;
+  margin-right: 1rem;
+  overflow: hidden;
+  transition: .15s ease all;
+}
+
+.sto-small-app-item:last-child {
+  margin-right: 0;
 }
 
 .sto-small-app-item:hover {
-  background: var(--paleGrey);
-  box-shadow: 0 0 0 0 var(--paleGrey);
+  box-shadow: 0 4px 12px 0 #00000020;
   cursor: pointer;
+  transform: scale(1.1);
+  transition: .15s ease all;
+}
+
+.sto-small-app-item-icon-wrapper {
+  margin-top: .25rem;
+  margin-bottom: .25rem;
 }
 
 .sto-small-app-item-icon {
-  height: 100%;
   object-fit: contain;
+  max-width: 3rem;
+  max-height: 3rem;
 }
 
 .sto-small-app-item-icon--default {
   height: 100%;
-  width: 3em;
   padding: 0 .5em;
 }
 
 .sto-small-app-item-desc {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
+  align-items: center;
   height: 100%;
-  margin-left: 1em;
+  margin-top: .5rem;
+  text-align: center;
 }
 
-.sto-small-app-item-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.sto-small-app-item-title, .sto-small-app-item-detail {
-  flex: 0 1;
-  width: 100%;
+.sto-small-app-item-title, .sto-small-app-item-developer, .sto-small-app-item-status {
+  display: block;
+  width: var(--item-size);
   margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
-.sto-small-app-item-detail {
-  margin: .2em 0;
-  font-size: .8rem;
+.sto-small-app-item-title {
+  height: 1.5rem;
+}
+
+.sto-small-app-item-developer {
+  height: 1rem;
+  font-size: 12px;
+  color: var(--slateGrey);
+}
+
+.sto-small-app-item-status {
+  margin-top: .5rem;
+  height: 1rem;
+  font-size: 12px;
   color: var(--coolGrey);
 }
 
-.sto-small-app-item-buttons {
-  display: flex;
-}
-
-.sto-small-app-item-desc .sto-small-app-item-button {
-  margin-left: 0;
-}
-
-.sto-small-app-item-button-install,
-.sto-small-app-item-button-install:visited {
-  color: var(--dodgerBlue);
-  background: white;
-  font-weight: 700;
-}
-
-.sto-small-app-item-button-install:hover,
-.sto-small-app-item-button-install:focus,
-.sto-small-app-item-button-install:active {
-  color: white;
-  background: var(--dodgerBlue);
-}
-
-@media (min-width: 25rem) and (max-width: 38rem) {
+@media (max-width: 64rem) {
   .sto-small-app-item {
-    justify-content: space-between;
+    flex-basis: var(--item-mobile-size);
+    height: var(--item-mobile-size);
   }
-  .sto-small-app-item-buttons {
-    margin-left: .5rem;
+
+  .sto-small-app-item-developer {
+    display: none;
   }
+
+  .sto-small-app-item-title, .sto-small-app-item-developer, .sto-small-app-item-status {
+    width: var(--item-mobile-size);
+  }
+
+  .sto-small-app-item-icon-wrapper {
+    margin-bottom: 0;
+  }
+
+  .sto-small-app-item-icon {
+    height: 2.5rem;
+    max-width: 2.5rem;
+    max-height: 2.5rem;
+  }
+
   .sto-small-app-item-desc {
-    flex-direction: row;
-    flex-grow: 1;
-    justify-content: space-between;
+    margin-top: .125rem;
   }
 
-  .sto-small-app-item-desc .sto-small-app-item-button {
-    align-self: center;
+  .sto-small-app-item-title {
+    height: 1rem;
+    font-weight: normal;
+    font-size: 12px;
   }
-}
 
-@media (min-width: 38rem) {
-  .sto-small-app-item {
-    flex-grow: 0;
-  }
-}
-
-@media (min-width: 38rem) {
-  .sto-small-app-item {
-    flex-basis: calc(50% - var(--item-margin) * 2);
-  }
-}
-
-@media (min-width: 70rem) {
-  .sto-small-app-item {
-    flex-basis: calc(33.333% - var(--item-margin) * 2);
-  }
-}
-
-@media (min-width: 90rem) {
-  .sto-small-app-item {
-    flex-basis: calc(25% - var(--item-margin) * 2);
-  }
-}
-
-@media (min-width: 112rem) {
-  .sto-small-app-item {
-    flex-basis: calc(20% - var(--item-margin) * 2);
-  }
-}
-
-@media (min-width: 128rem) {
-  .sto-small-app-item {
-    flex-basis: calc(16.666% - var(--item-margin) * 2);
+  .sto-small-app-item-status {
+    margin-top: .125rem;
   }
 }

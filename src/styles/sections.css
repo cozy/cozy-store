@@ -16,3 +16,9 @@
   flex-wrap: wrap;
   justify-content: flex-start;
 }
+
+@media (min-width: 48rem) {
+  .sto-sections-title:first-child {
+    margin-top: 0;
+  }
+}

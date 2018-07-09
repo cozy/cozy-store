@@ -41,3 +41,7 @@
 .sto-sections.--loading .sto-small-app-item {
   pointer-events:none;
 }
+
+.sto-sections.--loading .sto-small-app-item-icon-wrapper {
+  margin-bottom: .25rem;
+}

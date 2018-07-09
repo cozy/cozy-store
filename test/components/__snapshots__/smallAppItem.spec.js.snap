@@ -7,44 +7,30 @@ exports[`SmallAppItem component should be rendered correctly an app 1`] = `
   onKeyDown={[Function]}
   tabIndex={0}
 >
-  <img
-    alt="test-icon"
-    className="sto-small-app-item-icon"
-    height="64"
-    src="<svg></svg>"
-    width="64"
-  />
+  <div
+    className="sto-small-app-item-icon-wrapper"
+  >
+    <img
+      alt="test-icon"
+      className="sto-small-app-item-icon"
+      height="64"
+      src="<svg></svg>"
+      width="64"
+    />
+  </div>
   <div
     className="sto-small-app-item-desc"
   >
-    <div
-      className="sto-small-app-item-text"
+    <h4
+      className="sto-small-app-item-title"
     >
-      <h4
-        className="sto-small-app-item-title"
-      >
-        Cozy Test
-      </h4>
-      <p
-        className="sto-small-app-item-detail"
-      >
-        Cozy
-      </p>
-    </div>
-    <div
-      className="sto-small-app-item-buttons"
+      Cozy Test
+    </h4>
+    <p
+      className="sto-small-app-item-developer"
     >
-      <Link
-        className="c-btn c-btn--regular c-btn--tiny sto-small-app-item-button sto-small-app-item-button-install"
-        onClick={[Function]}
-        replace={false}
-        to="/discover/test/manage"
-      >
-        <span>
-          Install
-        </span>
-      </Link>
-    </div>
+      Cozy
+    </p>
   </div>
 </div>
 `;
@@ -56,41 +42,35 @@ exports[`SmallAppItem component should be rendered correctly an installed app 1`
   onKeyDown={[Function]}
   tabIndex={0}
 >
-  <img
-    alt="test2-icon"
-    className="sto-small-app-item-icon"
-    height="64"
-    src="<svg></svg>"
-    width="64"
-  />
+  <div
+    className="sto-small-app-item-icon-wrapper"
+  >
+    <img
+      alt="test2-icon"
+      className="sto-small-app-item-icon"
+      height="64"
+      src="<svg></svg>"
+      width="64"
+    />
+  </div>
   <div
     className="sto-small-app-item-desc"
   >
-    <div
-      className="sto-small-app-item-text"
+    <h4
+      className="sto-small-app-item-title"
     >
-      <h4
-        className="sto-small-app-item-title"
-      >
-        Test2
-      </h4>
-      <p
-        className="sto-small-app-item-detail"
-      >
-        Naming me
-      </p>
-    </div>
-    <div
-      className="sto-small-app-item-buttons"
+      Test2
+    </h4>
+    <p
+      className="sto-small-app-item-developer"
     >
-      <DefaultButton
-        className="sto-small-app-item-button"
-        label="Open"
-        onClick={[Function]}
-        size="tiny"
-        theme="secondary"
-      />
-    </div>
+      Naming me
+    </p>
+    <p
+      className="sto-small-app-item-status"
+    >
+      Installed
+    </p>
   </div>
 </div>
 `;
@@ -102,42 +82,36 @@ exports[`SmallAppItem component should be rendered correctly an installed app wi
   onKeyDown={[Function]}
   tabIndex={0}
 >
-  <Icon
-    className="sto-small-app-item-icon--default blurry"
-    color="#95999D"
-    height="64"
-    icon="test-file-stub"
-    spin={false}
-    width="48"
-  />
+  <div
+    className="sto-small-app-item-icon-wrapper"
+  >
+    <Icon
+      className="sto-small-app-item-icon sto-small-app-item-icon--default blurry"
+      color="#95999D"
+      height="64"
+      icon="test-file-stub"
+      spin={false}
+      width="48"
+    />
+  </div>
   <div
     className="sto-small-app-item-desc"
   >
-    <div
-      className="sto-small-app-item-text"
+    <h4
+      className="sto-small-app-item-title"
     >
-      <h4
-        className="sto-small-app-item-title"
-      >
-        Cozy Test2
-      </h4>
-      <p
-        className="sto-small-app-item-detail"
-      >
-        Naming me
-      </p>
-    </div>
-    <div
-      className="sto-small-app-item-buttons"
+      Cozy Test2
+    </h4>
+    <p
+      className="sto-small-app-item-developer"
     >
-      <DefaultButton
-        className="sto-small-app-item-button"
-        label="Open"
-        onClick={[Function]}
-        size="tiny"
-        theme="secondary"
-      />
-    </div>
+      Naming me
+    </p>
+    <p
+      className="sto-small-app-item-status"
+    >
+      Installed
+    </p>
   </div>
 </div>
 `;
