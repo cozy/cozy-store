@@ -1278,7 +1278,9 @@ html{font-size:100%}body{font:100%/1.5;-moz-osx-font-smoothing:grayscale;-webkit
   margin-right: 0;
 }
 
-.sto-small-app-item:hover {
+.sto-small-app-item:hover,
+.sto-small-app-item:active,
+.sto-small-app-item:focus {
   -webkit-box-shadow: 0 4px 12px 0 #00000020;
           box-shadow: 0 4px 12px 0 #00000020;
   cursor: pointer;
@@ -1334,7 +1336,7 @@ html{font-size:100%}body{font:100%/1.5;-moz-osx-font-smoothing:grayscale;-webkit
 }
 
 .sto-small-app-item-title {
-  height: 1.5rem;
+  height: 1.25rem;
 }
 
 .sto-small-app-item-developer {
@@ -1447,7 +1449,9 @@ html{font-size:100%}body{font:100%/1.5;-moz-osx-font-smoothing:grayscale;-webkit
   border: 1px var(--silver) dashed;
 }
 
-.sto-app-vote:hover {
+.sto-app-vote:hover,
+.sto-app-vote:active,
+.sto-app-vote:focus {
   background-color: var(--paleGrey);
   cursor: pointer;
 }
