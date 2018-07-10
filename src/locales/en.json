@@ -184,6 +184,11 @@
       "tricount.expenses": "Expenses Tricount",
       "splitwise.expenses": "Expenses Splitwise"
     },
+    "cc": {
+      "cozycloud": {
+        "sentry": "The application logs"
+      }
+    },
     "io": {
       "cozy": {
         "accounts": "Login details",
