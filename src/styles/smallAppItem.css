@@ -28,7 +28,9 @@
   margin-right: 0;
 }
 
-.sto-small-app-item:hover {
+.sto-small-app-item:hover,
+.sto-small-app-item:active,
+.sto-small-app-item:focus {
   box-shadow: 0 4px 12px 0 #00000020;
   cursor: pointer;
   transform: scale(1.1);
@@ -71,7 +73,7 @@
 }
 
 .sto-small-app-item-title {
-  height: 1.5rem;
+  height: 1.25rem;
 }
 
 .sto-small-app-item-developer {
