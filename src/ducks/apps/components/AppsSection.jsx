@@ -34,7 +34,7 @@ export const AppsSection = ({
   const { isMobile } = breakpoints
   return (
     <div className="sto-sections-apps">
-      {subtitle && <h3 className="sto-sections-subtitle">{subtitle}</h3>}
+      {subtitle}
       {appsList &&
         !!appsList.length && (
           <div className="sto-sections-list">

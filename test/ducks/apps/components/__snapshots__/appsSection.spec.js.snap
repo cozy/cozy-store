@@ -4,9 +4,7 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
 <div
   className="sto-sections-apps"
 >
-  <h3
-    className="sto-sections-subtitle"
-  >
+  <h3>
     Test Apps
   </h3>
   <div
