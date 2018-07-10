@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import SelectBox from 'cozy-ui/react/SelectBox'
 import Icon from 'cozy-ui/react/Icon'
+import { APP_TYPE } from 'ducks/apps'
 
 const SmallArrow = () => (
   <Icon
@@ -12,6 +13,14 @@ const SmallArrow = () => (
     height={16}
   />
 )
+
+function findOption(value, type, optionsList) {
+  if (type) {
+    return optionsList.find(op => op.value === value && op.type === type)
+  } else {
+    return optionsList.find(op => op.value === value)
+  }
+}
 
 export class DropdownFilter extends Component {
   constructor(props) {
@@ -27,24 +36,23 @@ export class DropdownFilter extends Component {
       case 'all':
         return pushQuery()
       case 'konnectors':
-        return pushQuery('type=konnector')
+        return pushQuery(`type=${APP_TYPE.KONNECTOR}`)
       default:
-        return pushQuery(`category=${option.value}`)
+        return pushQuery(`type=${option.type}&category=${option.value}`)
     }
   }
 
   getDefaultOption(options = []) {
     const params = new URLSearchParams(this.props.query)
-    const findOption = value => options.find(op => op.value === value)
     const typeParam = params.get('type')
     const categoryParam = params.get('category')
     let option
-    if (typeParam === 'konnector' && !categoryParam) {
-      option = findOption('konnectors')
-    } else if (!typeParam) {
-      if (!categoryParam) return findOption('all')
-      option = findOption(categoryParam)
+    if (typeParam === APP_TYPE.KONNECTOR && !categoryParam) {
+      return findOption('konnectors', null, options)
+    } else if (!typeParam && !categoryParam) {
+      return findOption('all', null, options)
     }
+    option = findOption(categoryParam, typeParam, options)
     if (option) return option
     console.error('No default option for select found')
     return null

@@ -26,6 +26,7 @@ export class Sections extends Component {
     const { isMobile, isTablet } = breakpoints
 
     if (error) return <p className="u-error">{error.message}</p>
+
     const konnectorsList = getAppsSortedByCategories(
       apps.filter(a => a.type === APP_TYPE.KONNECTOR)
     )
@@ -33,6 +34,7 @@ export class Sections extends Component {
       Object.keys(konnectorsList),
       t
     )
+
     const webAppsList = getAppsSortedByCategories(
       apps.filter(a => a.type === APP_TYPE.WEBAPP)
     )
@@ -41,7 +43,7 @@ export class Sections extends Component {
       t
     )
 
-    const selectOptions = getCategoriesSelections(allApps, t)
+    const selectOptions = getCategoriesSelections(allApps, t, true)
 
     return (
       <div className="sto-sections">
