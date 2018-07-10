@@ -26,6 +26,7 @@ export class Sections extends Component {
     const { isMobile, isTablet } = breakpoints
 
     if (error) return <p className="u-error">{error.message}</p>
+
     const konnectorsList = getAppsSortedByCategories(
       apps.filter(a => a.type === APP_TYPE.KONNECTOR)
     )
@@ -33,6 +34,7 @@ export class Sections extends Component {
       Object.keys(konnectorsList),
       t
     )
+
     const webAppsList = getAppsSortedByCategories(
       apps.filter(a => a.type === APP_TYPE.WEBAPP)
     )
@@ -41,7 +43,7 @@ export class Sections extends Component {
       t
     )
 
-    const selectOptions = getCategoriesSelections(allApps, t)
+    const selectOptions = getCategoriesSelections(allApps, t, true)
 
     return (
       <div className="sto-sections">
@@ -52,36 +54,52 @@ export class Sections extends Component {
             pushQuery={pushQuery}
           />
         )}
-        {!!webAppsCategories.length && (
-          <div className="sto-sections-section">
-            <h2 className="sto-sections-title">{t('sections.applications')}</h2>
-            {webAppsCategories.map(cat => {
-              return (
-                <AppsSection
-                  key={cat}
-                  appsList={webAppsList[cat]}
-                  subtitle={t(`app_categories.${cat}`)}
-                  onAppClick={onAppClick}
-                />
-              )
-            })}
-          </div>
+        {!isMobile && (
+          <h1 className="sto-sections-title u-title-h1">
+            {t('sections.applications')}
+          </h1>
         )}
-        {!!konnectorsCategories.length && (
-          <div className="sto-sections-section">
-            <h2 className="sto-sections-title">{t('sections.konnectors')}</h2>
-            {konnectorsCategories.map(cat => {
-              return (
-                <AppsSection
-                  key={cat}
-                  appsList={konnectorsList[cat]}
-                  subtitle={t(`app_categories.${cat}`)}
-                  onAppClick={onAppClick}
-                />
-              )
-            })}
-          </div>
-        )}
+        <div className="sto-sections-section">
+          {!!webAppsCategories.length && (
+            <div>
+              {webAppsCategories.map(cat => {
+                return (
+                  <AppsSection
+                    key={cat}
+                    appsList={webAppsList[cat]}
+                    subtitle={
+                      <h2 className="sto-sections-subtitle u-title-h2">
+                        {t(`app_categories.${cat}`)}
+                      </h2>
+                    }
+                    onAppClick={onAppClick}
+                  />
+                )
+              })}
+            </div>
+          )}
+          {!!konnectorsCategories.length && (
+            <div>
+              <h2 className="sto-sections-subtitle u-title-h2">
+                {t('sections.konnectors')}
+              </h2>
+              {konnectorsCategories.map(cat => {
+                return (
+                  <AppsSection
+                    key={cat}
+                    appsList={konnectorsList[cat]}
+                    subtitle={
+                      <h3 className="sto-sections-subtitle-secondary">
+                        {t(`app_categories.${cat}`)}
+                      </h3>
+                    }
+                    onAppClick={onAppClick}
+                  />
+                )
+              })}
+            </div>
+          )}
+        </div>
       </div>
     )
   }

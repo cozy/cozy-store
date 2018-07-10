@@ -8,10 +8,10 @@ import { getCategoriesSelections } from 'lib/helpers'
 const getActiveChecker = path => (match, location) =>
   `${location.pathname}${location.search}` === path
 
-const renderLink = (cat, path, isSecondary) => (
+const renderLink = (cat, path) => (
   <li key={cat.value}>
     <RouterLink
-      className={`sto-side-menu-item${isSecondary ? ' --secondary' : ''}`}
+      className={`sto-side-menu-item${cat.secondary ? ' --secondary' : ''}`}
       to={path}
       activeClassName="active"
       isActive={getActiveChecker(path)}
@@ -50,45 +50,20 @@ export class SidebarCategories extends Component {
       default:
         return null // no list return nothing to the renderer
     }
-    const konnectorsList = appsList.filter(a => a.type === 'konnector')
-    const webappsCategories = getCategoriesSelections(
-      appsList.filter(a => a.type === 'webapp'),
-      t,
-      konnectorsList.length ? ['konnectors'] : []
-    )
-    const konnectorsCategories = getCategoriesSelections(konnectorsList, t, [])
+
+    const categories = getCategoriesSelections(appsList, t)
 
     // compute sidebar categories links
-    const linksArray = webappsCategories.reduce((all, current) => {
-      switch (current.value) {
-        case 'konnectors': {
-          all.push(renderLink(current, `${parent}?type=konnector`))
-          for (const kCategory of konnectorsCategories) {
-            all.push(
-              renderLink(
-                kCategory,
-                `${parent}?type=konnector&category=${kCategory.value}`,
-                true
-              )
-            )
-          }
-          return all
-        }
-        case 'webapps': {
-          all.push(renderLink(current, `${parent}?type=webapp`))
-          return all
-        }
-        default: {
-          all.push(
-            renderLink(
-              current,
-              `${parent}?type=webapp&category=${current.value}`
-            )
-          )
-          return all
-        }
+    const linksArray = categories.map(cat => {
+      if (cat.value === 'konnectors') {
+        return renderLink(cat, `${parent}?type=konnector`)
+      } else {
+        return renderLink(
+          cat,
+          `${parent}?type=${cat.type}&category=${cat.value}`
+        )
       }
-    }, [])
+    })
 
     return <ul className="sto-side-menu">{linksArray}</ul>
   }

@@ -15,7 +15,8 @@ export const SmallAppItem = ({
   name,
   namePrefix,
   installed,
-  onClick
+  onClick,
+  isMobile
 }) => {
   return (
     // HACK a11y
@@ -30,7 +31,10 @@ export const SmallAppItem = ({
       <div className="sto-small-app-item-icon-wrapper">
         {iconToLoad ? (
           <div className="sto-small-app-item-icon">
-            <Placeholder width="3rem" height="3rem" />
+            <Placeholder
+              width={isMobile ? '2.5rem' : '3rem'}
+              height={isMobile ? '2.5rem' : '3rem'}
+            />
           </div>
         ) : icon ? (
           <img

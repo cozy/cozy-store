@@ -4,307 +4,343 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
 <div
   className="sto-sections"
 >
+  <h1
+    className="sto-sections-title u-title-h1"
+  >
+    Applications
+  </h1>
   <div
     className="sto-sections-section"
   >
-    <h2
-      className="sto-sections-title"
-    >
-      Applications
-    </h2>
-    <Wrapper
-      appsList={
-        Array [
-          Object {
-            "categories": Array [
-              "partners",
-            ],
-            "icon": "<svg></svg>",
-            "isInRegistry": true,
-            "name": "Tasky",
-            "slug": "tasky",
-            "type": "webapp",
-            "uninstallable": true,
-            "versions": Object {
-              "beta": Array [
-                "1.0.0",
+    <div>
+      <Wrapper
+        appsList={
+          Array [
+            Object {
+              "categories": Array [
+                "partners",
               ],
-              "dev": Array [
-                "1.0.0",
-              ],
-              "stable": Array [
-                "1.0.0",
-              ],
-            },
-          },
-        ]
-      }
-      onAppClick={[MockFunction]}
-      subtitle="Partners"
-    />
-    <Wrapper
-      appsList={
-        Array [
-          Object {
-            "categories": Array [
-              "cozy",
-            ],
-            "developer": Object {
-              "name": "Cozy",
-            },
-            "editor": "Cozy",
-            "icon": "<svg></svg>",
-            "installed": true,
-            "isInRegistry": true,
-            "name": "Collect",
-            "name_prefix": "Cozy",
-            "permissions": Object {
-              "mock": Object {
-                "type": "io.mock.doctype",
-              },
-              "mock2": Object {
-                "type": "io.mock.doctype2",
+              "icon": "<svg></svg>",
+              "isInRegistry": true,
+              "name": "Tasky",
+              "slug": "tasky",
+              "type": "webapp",
+              "uninstallable": true,
+              "versions": Object {
+                "beta": Array [
+                  "1.0.0",
+                ],
+                "dev": Array [
+                  "1.0.0",
+                ],
+                "stable": Array [
+                  "1.0.0",
+                ],
               },
             },
-            "related": "http://collect.cozy.mock/",
-            "slug": "collect",
-            "tags": Array [
-              "konnector",
-              "collect",
-              "bills",
-              "providers",
-              "files",
-            ],
-            "type": "webapp",
-            "uninstallable": false,
-            "version": "3.0.0",
-            "versions": Object {
-              "beta": Array [
-                "3.0.0",
+          ]
+        }
+        onAppClick={[MockFunction]}
+        subtitle={
+          <h2
+            className="sto-sections-subtitle u-title-h2"
+          >
+            Partners
+          </h2>
+        }
+      />
+      <Wrapper
+        appsList={
+          Array [
+            Object {
+              "categories": Array [
+                "cozy",
               ],
-              "dev": Array [
-                "3.0.0",
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "editor": "Cozy",
+              "icon": "<svg></svg>",
+              "installed": true,
+              "isInRegistry": true,
+              "name": "Collect",
+              "name_prefix": "Cozy",
+              "permissions": Object {
+                "mock": Object {
+                  "type": "io.mock.doctype",
+                },
+                "mock2": Object {
+                  "type": "io.mock.doctype2",
+                },
+              },
+              "related": "http://collect.cozy.mock/",
+              "slug": "collect",
+              "tags": Array [
+                "konnector",
+                "collect",
+                "bills",
+                "providers",
+                "files",
               ],
-              "stable": Array [
-                "3.0.0",
-              ],
-            },
-          },
-          Object {
-            "categories": Array [
-              "cozy",
-            ],
-            "developer": Object {
-              "name": "Cozy",
-            },
-            "editor": "Cozy",
-            "icon": "<svg></svg>",
-            "installed": true,
-            "name": "Drive",
-            "name_prefix": "Cozy",
-            "permissions": Object {
-              "mock2": Object {
-                "type": "io.mock.doctype2",
+              "type": "webapp",
+              "uninstallable": false,
+              "version": "3.0.0",
+              "versions": Object {
+                "beta": Array [
+                  "3.0.0",
+                ],
+                "dev": Array [
+                  "3.0.0",
+                ],
+                "stable": Array [
+                  "3.0.0",
+                ],
               },
             },
-            "related": "http://drive.cozy.mock/",
-            "slug": "drive",
-            "tags": Array [
-              "search",
-              "files",
-              "folders",
-            ],
-            "type": "webapp",
-            "uninstallable": false,
-            "version": "3.0.0-beta89bnhj3993",
-          },
-          Object {
-            "categories": Array [
-              "cozy",
-            ],
-            "developer": Object {
-              "name": "Cozy",
-            },
-            "editor": "Cozy",
-            "icon": "<svg></svg>",
-            "isInRegistry": true,
-            "name": "Photos",
-            "name_prefix": "Cozy",
-            "slug": "photos",
-            "type": "webapp",
-            "uninstallable": true,
-            "versions": Object {
-              "beta": Array [
-                "3.0.0",
+            Object {
+              "categories": Array [
+                "cozy",
               ],
-              "dev": Array [
-                "3.0.0",
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "editor": "Cozy",
+              "icon": "<svg></svg>",
+              "installed": true,
+              "name": "Drive",
+              "name_prefix": "Cozy",
+              "permissions": Object {
+                "mock2": Object {
+                  "type": "io.mock.doctype2",
+                },
+              },
+              "related": "http://drive.cozy.mock/",
+              "slug": "drive",
+              "tags": Array [
+                "search",
+                "files",
+                "folders",
               ],
-              "stable": Array [
-                "3.0.0",
+              "type": "webapp",
+              "uninstallable": false,
+              "version": "3.0.0-beta89bnhj3993",
+            },
+            Object {
+              "categories": Array [
+                "cozy",
               ],
-            },
-          },
-        ]
-      }
-      onAppClick={[MockFunction]}
-      subtitle="The essentials"
-    />
-    <Wrapper
-      appsList={
-        Array [
-          Object {
-            "categories": Array [
-              "others",
-            ],
-            "developer": Object {
-              "name": "Cozy",
-            },
-            "editor": "Cozy",
-            "icon": "<svg></svg>",
-            "isInRegistry": true,
-            "locales": Object {
-              "name": "For Dev Only",
-            },
-            "name": "DevOnly",
-            "slug": "devonly",
-            "type": "webapp",
-            "uninstallable": true,
-            "versions": Object {
-              "beta": Array [],
-              "dev": Array [
-                "1.0.0-betaojdkehy989ekhflldh",
-              ],
-              "stable": Array [],
-            },
-          },
-        ]
-      }
-      onAppClick={[MockFunction]}
-      subtitle="Others"
-    />
-  </div>
-  <div
-    className="sto-sections-section"
-  >
-    <h2
-      className="sto-sections-title"
-    >
-      Services
-    </h2>
-    <Wrapper
-      appsList={
-        Array [
-          Object {
-            "categories": Array [
-              "isp",
-              "telecom",
-            ],
-            "developer": Object {
-              "name": "Cozy",
-            },
-            "icon": "<svg></svg>",
-            "isInRegistry": true,
-            "name": "Bouilligue",
-            "slug": "konnector-bouilligue",
-            "type": "konnector",
-            "uninstallable": true,
-            "versions": Object {
-              "beta": Array [
-                "0.1.0",
-              ],
-              "dev": Array [
-                "0.1.0",
-              ],
-              "stable": Array [
-                "0.1.0",
-              ],
-            },
-          },
-        ]
-      }
-      onAppClick={[MockFunction]}
-      subtitle="ISP"
-    />
-    <Wrapper
-      appsList={
-        Array [
-          Object {
-            "categories": Array [
-              "isp",
-              "telecom",
-            ],
-            "developer": Object {
-              "name": "Cozy",
-            },
-            "icon": "<svg></svg>",
-            "isInRegistry": true,
-            "name": "Bouilligue",
-            "slug": "konnector-bouilligue",
-            "type": "konnector",
-            "uninstallable": true,
-            "versions": Object {
-              "beta": Array [
-                "0.1.0",
-              ],
-              "dev": Array [
-                "0.1.0",
-              ],
-              "stable": Array [
-                "0.1.0",
-              ],
-            },
-          },
-        ]
-      }
-      onAppClick={[MockFunction]}
-      subtitle="Telecom"
-    />
-    <Wrapper
-      appsList={
-        Array [
-          Object {
-            "categories": Array [
-              "transport",
-            ],
-            "developer": Object {
-              "name": "Cozy",
-            },
-            "icon": "<svg></svg>",
-            "installed": true,
-            "isInRegistry": true,
-            "name": "Trinlane",
-            "permissions": Object {
-              "mock": Object {
-                "type": "io.mock.doctype",
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "editor": "Cozy",
+              "icon": "<svg></svg>",
+              "isInRegistry": true,
+              "name": "Photos",
+              "name_prefix": "Cozy",
+              "slug": "photos",
+              "type": "webapp",
+              "uninstallable": true,
+              "versions": Object {
+                "beta": Array [
+                  "3.0.0",
+                ],
+                "dev": Array [
+                  "3.0.0",
+                ],
+                "stable": Array [
+                  "3.0.0",
+                ],
               },
             },
-            "slug": "konnector-trinlane",
-            "tags": Array [
-              "transport",
-              "files",
-              "bills",
-            ],
-            "type": "konnector",
-            "uninstallable": true,
-            "version": "0.1.0",
-            "versions": Object {
-              "beta": Array [
-                "0.1.0",
+          ]
+        }
+        onAppClick={[MockFunction]}
+        subtitle={
+          <h2
+            className="sto-sections-subtitle u-title-h2"
+          >
+            The essentials
+          </h2>
+        }
+      />
+      <Wrapper
+        appsList={
+          Array [
+            Object {
+              "categories": Array [
+                "others",
               ],
-              "dev": Array [
-                "0.1.0",
-              ],
-              "stable": Array [
-                "0.1.0",
-              ],
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "editor": "Cozy",
+              "icon": "<svg></svg>",
+              "isInRegistry": true,
+              "locales": Object {
+                "name": "For Dev Only",
+              },
+              "name": "DevOnly",
+              "slug": "devonly",
+              "type": "webapp",
+              "uninstallable": true,
+              "versions": Object {
+                "beta": Array [],
+                "dev": Array [
+                  "1.0.0-betaojdkehy989ekhflldh",
+                ],
+                "stable": Array [],
+              },
             },
-          },
-        ]
-      }
-      onAppClick={[MockFunction]}
-      subtitle="Transportation"
-    />
+          ]
+        }
+        onAppClick={[MockFunction]}
+        subtitle={
+          <h2
+            className="sto-sections-subtitle u-title-h2"
+          >
+            Others
+          </h2>
+        }
+      />
+    </div>
+    <div>
+      <h2
+        className="sto-sections-subtitle u-title-h2"
+      >
+        Services
+      </h2>
+      <Wrapper
+        appsList={
+          Array [
+            Object {
+              "categories": Array [
+                "isp",
+                "telecom",
+              ],
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "icon": "<svg></svg>",
+              "isInRegistry": true,
+              "name": "Bouilligue",
+              "slug": "konnector-bouilligue",
+              "type": "konnector",
+              "uninstallable": true,
+              "versions": Object {
+                "beta": Array [
+                  "0.1.0",
+                ],
+                "dev": Array [
+                  "0.1.0",
+                ],
+                "stable": Array [
+                  "0.1.0",
+                ],
+              },
+            },
+          ]
+        }
+        onAppClick={[MockFunction]}
+        subtitle={
+          <h3
+            className="sto-sections-subtitle-secondary"
+          >
+            ISP
+          </h3>
+        }
+      />
+      <Wrapper
+        appsList={
+          Array [
+            Object {
+              "categories": Array [
+                "isp",
+                "telecom",
+              ],
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "icon": "<svg></svg>",
+              "isInRegistry": true,
+              "name": "Bouilligue",
+              "slug": "konnector-bouilligue",
+              "type": "konnector",
+              "uninstallable": true,
+              "versions": Object {
+                "beta": Array [
+                  "0.1.0",
+                ],
+                "dev": Array [
+                  "0.1.0",
+                ],
+                "stable": Array [
+                  "0.1.0",
+                ],
+              },
+            },
+          ]
+        }
+        onAppClick={[MockFunction]}
+        subtitle={
+          <h3
+            className="sto-sections-subtitle-secondary"
+          >
+            Telecom
+          </h3>
+        }
+      />
+      <Wrapper
+        appsList={
+          Array [
+            Object {
+              "categories": Array [
+                "transport",
+              ],
+              "developer": Object {
+                "name": "Cozy",
+              },
+              "icon": "<svg></svg>",
+              "installed": true,
+              "isInRegistry": true,
+              "name": "Trinlane",
+              "permissions": Object {
+                "mock": Object {
+                  "type": "io.mock.doctype",
+                },
+              },
+              "slug": "konnector-trinlane",
+              "tags": Array [
+                "transport",
+                "files",
+                "bills",
+              ],
+              "type": "konnector",
+              "uninstallable": true,
+              "version": "0.1.0",
+              "versions": Object {
+                "beta": Array [
+                  "0.1.0",
+                ],
+                "dev": Array [
+                  "0.1.0",
+                ],
+                "stable": Array [
+                  "0.1.0",
+                ],
+              },
+            },
+          ]
+        }
+        onAppClick={[MockFunction]}
+        subtitle={
+          <h3
+            className="sto-sections-subtitle-secondary"
+          >
+            Transportation
+          </h3>
+        }
+      />
+    </div>
   </div>
 </div>
 `;

@@ -21,7 +21,7 @@ describe('AppsSection component', () => {
       <AppsSection
         t={tMock}
         lang="en"
-        subtitle="Test Apps"
+        subtitle={<h3>Test Apps</h3>}
         appsList={mockApps}
         onAppClick={mockOnAppClick}
       />
@@ -35,7 +35,7 @@ describe('AppsSection component', () => {
       <AppsSection
         t={tMock}
         lang="en"
-        subtitle="Test Apps"
+        subtitle={<h3>Test Apps</h3>}
         appsList={mockApps}
         onAppClick={mockOnAppClick}
       />

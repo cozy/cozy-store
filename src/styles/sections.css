@@ -17,6 +17,12 @@
   justify-content: flex-start;
 }
 
+.sto-sections-subtitle-secondary {
+  font-size: 13px;
+  color: var(--coolGrey);
+  text-transform: uppercase;
+}
+
 @media (min-width: 48rem) {
   .sto-sections-title:first-child {
     margin-top: 0;

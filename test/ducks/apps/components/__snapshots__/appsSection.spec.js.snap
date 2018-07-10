@@ -4,9 +4,7 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
 <div
   className="sto-sections-apps"
 >
-  <h3
-    className="sto-sections-subtitle"
-  >
+  <h3>
     Test Apps
   </h3>
   <div
@@ -23,6 +21,7 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
       iconToLoad={undefined}
       installed={true}
       installedAppLink="http://collect.cozy.mock/"
+      isMobile={undefined}
       name="Collect"
       namePrefix="Cozy"
       onClick={[Function]}
@@ -39,6 +38,7 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
       iconToLoad={undefined}
       installed={undefined}
       installedAppLink={undefined}
+      isMobile={undefined}
       name="DevOnly"
       namePrefix=""
       onClick={[Function]}
@@ -55,6 +55,7 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
       iconToLoad={undefined}
       installed={true}
       installedAppLink="http://drive.cozy.mock/"
+      isMobile={undefined}
       name="Drive"
       namePrefix="Cozy"
       onClick={[Function]}
@@ -71,6 +72,7 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
       iconToLoad={undefined}
       installed={undefined}
       installedAppLink={undefined}
+      isMobile={undefined}
       name="Bouilligue"
       namePrefix=""
       onClick={[Function]}
@@ -87,6 +89,7 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
       iconToLoad={undefined}
       installed={true}
       installedAppLink={undefined}
+      isMobile={undefined}
       name="Trinlane"
       namePrefix=""
       onClick={[Function]}
@@ -103,6 +106,7 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
       iconToLoad={undefined}
       installed={undefined}
       installedAppLink={undefined}
+      isMobile={undefined}
       name="Photos"
       namePrefix="Cozy"
       onClick={[Function]}
@@ -115,6 +119,7 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
       iconToLoad={undefined}
       installed={undefined}
       installedAppLink={undefined}
+      isMobile={undefined}
       name="Tasky"
       namePrefix=""
       onClick={[Function]}
