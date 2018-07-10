@@ -29,7 +29,7 @@ exports[`SmallAppItem component should be rendered correctly an app 1`] = `
     <p
       className="sto-small-app-item-developer"
     >
-      Cozy
+      By Cozy
     </p>
   </div>
 </div>
@@ -64,7 +64,7 @@ exports[`SmallAppItem component should be rendered correctly an installed app 1`
     <p
       className="sto-small-app-item-developer"
     >
-      Naming me
+      By Naming me
     </p>
     <p
       className="sto-small-app-item-status"
@@ -105,7 +105,7 @@ exports[`SmallAppItem component should be rendered correctly an installed app wi
     <p
       className="sto-small-app-item-developer"
     >
-      Naming me
+      By Naming me
     </p>
     <p
       className="sto-small-app-item-status"

@@ -17,7 +17,9 @@
   border: 1px var(--silver) dashed;
 }
 
-.sto-app-vote:hover {
+.sto-app-vote:hover,
+.sto-app-vote:active,
+.sto-app-vote:focus {
   background-color: var(--paleGrey);
   cursor: pointer;
 }

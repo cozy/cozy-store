@@ -108,6 +108,7 @@
   },
 
   "app_item": {
+    "by": "By",
     "installed": "Installed"
   },
 
