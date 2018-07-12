@@ -195,6 +195,7 @@
         "accounts": "Login details",
         "apps": "List of installed applications",
         "bank.accounts": "Banking accounts",
+        "bank.balancehistories": "Bank balances",
         "bank.groups": "Banking groups",
         "bank.operations": "Bank operations",
         "bank.settings": "Banks app settings",
