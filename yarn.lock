@@ -2116,9 +2116,9 @@ cozy-scripts@0.10.2:
     webpack-merge "4.1.3"
     write-file-webpack-plugin "4.3.2"
 
-cozy-ui@10.2.0:
-  version "10.2.0"
-  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-10.2.0.tgz#4e608e338d3787640e6bc4f2167e06af83e0ccc5"
+cozy-ui@10.2.1:
+  version "10.2.1"
+  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-10.2.1.tgz#df1e4990c1bb80391d99ac6fb2dbf3c493fbad8a"
   dependencies:
     babel-preset-cozy-app "^0.3.1"
     classnames "^2.2.5"
@@ -9688,9 +9688,9 @@ url-parse@^1.1.8, url-parse@~1.4.0:
     querystringify "^2.0.0"
     requires-port "^1.0.0"
 
-url-search-params-polyfill@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/url-search-params-polyfill/-/url-search-params-polyfill-4.0.0.tgz#9f51d499c500d84b43d940677f3f7ac756410167"
+url-search-params-polyfill@4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/url-search-params-polyfill/-/url-search-params-polyfill-4.0.1.tgz#4eda68a5689eda19aff2287e65d98d6fb5f6bc11"
 
 url-slug@2.0.0:
   version "2.0.0"

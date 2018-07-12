@@ -62,7 +62,7 @@
     "cozy-bar": "5.0.8",
     "cozy-client-js": "0.11.0",
     "cozy-realtime": "1.0.0",
-    "cozy-ui": "10.2.0",
+    "cozy-ui": "10.2.1",
     "emoji-js": "3.4.1",
     "preact": "8.2.9",
     "preact-compat": "3.18.0",
@@ -70,6 +70,6 @@
     "react-router-dom": "4.2.2",
     "redux": "3.7.2",
     "redux-raven-middleware": "1.2.0",
-    "url-search-params-polyfill": "4.0.0"
+    "url-search-params-polyfill": "4.0.1"
   }
 }
