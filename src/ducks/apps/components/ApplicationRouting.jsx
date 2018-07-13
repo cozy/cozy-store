@@ -169,7 +169,8 @@ export class ApplicationRouting extends Component {
                   onComplete={goToApp}
                   mobileFullscreen
                   overflowHidden
-                  size="xlarge"
+                  size="small"
+                  height="35rem"
                 />
               )
             } else {
