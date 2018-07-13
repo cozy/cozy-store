@@ -214,6 +214,7 @@ exports[`ApplicationRouting component with IntentModal should handle correctly i
   closable={true}
   dismissAction={[Function]}
   doctype="io.cozy.accounts"
+  height="35rem"
   mobileFullscreen={true}
   onComplete={[Function]}
   options={
@@ -224,7 +225,7 @@ exports[`ApplicationRouting component with IntentModal should handle correctly i
   overflowHidden={true}
   primaryType="regular"
   secondaryType="secondary"
-  size="xlarge"
+  size="small"
 />
 `;
 
