@@ -29,26 +29,26 @@ export class ApplicationRouting extends Component {
       const { history, location, parent, t } = this.props
       const pathRegex = new RegExp(`^/${parent}/([^/]*)/.*`)
       const matches = location.pathname.match(pathRegex)
-      if (!matches || matches.length < 1) return history.push(`/${parent}/`)
+      if (!matches || matches.length < 1) return history.replace(`/${parent}/`)
       const app = this.getAppFromMatchOrSlug(null, matches[1])
       if (app.type === APP_TYPE.KONNECTOR) {
-        return history.push(`/${parent}/${app.slug}/configure`)
+        return history.replace(`/${parent}/${app.slug}/configure`)
       } else {
         Alerter.success(t('app_modal.install.message.install_success'), {
           duration: 3000
         })
-        return history.push(`/${parent}/${app.slug}`)
+        return history.replace(`/${parent}/${app.slug}`)
       }
     } else if (this.props.isUninstalling && !nextProps.isUninstalling) {
       const { history, location, parent, t } = this.props
       const pathRegex = new RegExp(`^/${parent}/([^/]*)/.*`)
       const matches = location.pathname.match(pathRegex)
-      if (!matches || matches.length < 1) return history.push(`/${parent}/`)
+      if (!matches || matches.length < 1) return history.replace(`/${parent}/`)
       const app = this.getAppFromMatchOrSlug(null, matches[1])
       Alerter.success(t('app_modal.uninstall.message.success'), {
         duration: 3000
       })
-      return history.push(`/${parent}/${app.slug}`)
+      return history.replace(`/${parent}/${app.slug}`)
     }
   }
 
@@ -81,7 +81,7 @@ export class ApplicationRouting extends Component {
           render={({ match }) => {
             if (isFetching) return
             const app = this.getAppFromMatchOrSlug(match)
-            if (!app) return history.push(`/${parent}`)
+            if (!app) return history.replace(`/${parent}`)
             return <ApplicationPage app={app} parent={parent} />
           }}
         />
@@ -90,13 +90,13 @@ export class ApplicationRouting extends Component {
           render={({ match }) => {
             if (isFetching) return
             const app = this.getAppFromMatchOrSlug(match)
-            if (!app || !app.isInRegistry) return history.push(`/${parent}`)
+            if (!app || !app.isInRegistry) return history.replace(`/${parent}`)
             const channel = match.params.channel
             const isChannelAvailable = Object.values(
               REGISTRY_CHANNELS
             ).includes(channel)
             if (!isChannelAvailable) {
-              return history.push(`/${parent}/${app.slug}/manage`)
+              return history.replace(`/${parent}/${app.slug}/manage`)
             }
             return (
               <InstallModal
@@ -118,10 +118,10 @@ export class ApplicationRouting extends Component {
           render={({ match }) => {
             if (isFetching) return
             const app = this.getAppFromMatchOrSlug(match)
-            if (!app) return history.push(`/${parent}`)
+            if (!app) return history.replace(`/${parent}`)
             if (app && app.installed) {
               if (!app.uninstallable)
-                return history.push(`/${parent}/${app.slug}`)
+                return history.replace(`/${parent}/${app.slug}`)
               return (
                 <UninstallModal
                   uninstallApp={uninstallApp}
@@ -148,7 +148,7 @@ export class ApplicationRouting extends Component {
           render={({ match }) => {
             if (isFetching) return
             const app = this.getAppFromMatchOrSlug(match)
-            if (!app) return history.push(`/${parent}`)
+            if (!app) return history.replace(`/${parent}`)
             return <PermissionsModal app={app} parent={`/${parent}`} />
           }}
         />
@@ -157,8 +157,8 @@ export class ApplicationRouting extends Component {
           render={({ match }) => {
             if (isFetching) return
             const app = this.getAppFromMatchOrSlug(match)
-            if (!app) return history.push(`/${parent}`)
-            const goToApp = () => history.push(`/${parent}/${app.slug}`)
+            if (!app) return history.replace(`/${parent}`)
+            const goToApp = () => history.replace(`/${parent}/${app.slug}`)
             if (app && app.installed && app.type === APP_TYPE.KONNECTOR) {
               return (
                 <IntentModal
