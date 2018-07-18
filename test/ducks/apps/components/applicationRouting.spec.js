@@ -27,7 +27,7 @@ const getMockProps = (
   installedApps,
   isFetching,
   parent,
-  history: { push: jest.fn() },
+  history: { push: jest.fn(), replace: jest.fn() },
   uninstallApp: jest.fn().mockName('mockUninstallApp'),
   installApp: jest.fn().mockName('mockInstallApp'),
   updateApp: jest.fn().mockName('mockUpdateApp')
@@ -72,8 +72,8 @@ describe('ApplicationRouting component with ApplicationPage', () => {
     // collect in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'mock' } } }
     const resultComponent = routeToAppPage.props.render(routeProps)
-    expect(mockProps.history.push.mock.calls.length).toBe(1)
-    expect(mockProps.history.push.mock.calls[0][0]).toBe(`/${parent}`)
+    expect(mockProps.history.replace.mock.calls.length).toBe(1)
+    expect(mockProps.history.replace.mock.calls[0][0]).toBe(`/${parent}`)
     expect(resultComponent).toBeUndefined()
   })
 
@@ -151,8 +151,8 @@ describe('ApplicationRouting component with Modal', () => {
     // collect in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'mock' } } }
     const resultComponent = routeToModal.props.render(routeProps)
-    expect(mockProps.history.push.mock.calls.length).toBe(1)
-    expect(mockProps.history.push.mock.calls[0][0]).toBe(`/${parent}`)
+    expect(mockProps.history.replace.mock.calls.length).toBe(1)
+    expect(mockProps.history.replace.mock.calls[0][0]).toBe(`/${parent}`)
     expect(resultComponent).toBeUndefined()
   })
 
@@ -236,8 +236,8 @@ describe('ApplicationRouting component with Channel install', () => {
       match: { params: { appSlug: 'mock', channel: 'beta' } }
     }
     const resultComponent = routeToModal.props.render(routeProps)
-    expect(mockProps.history.push.mock.calls.length).toBe(1)
-    expect(mockProps.history.push.mock.calls[0][0]).toBe(`/${parent}`)
+    expect(mockProps.history.replace.mock.calls.length).toBe(1)
+    expect(mockProps.history.replace.mock.calls[0][0]).toBe(`/${parent}`)
     expect(resultComponent).toBeUndefined()
   })
 
@@ -253,8 +253,8 @@ describe('ApplicationRouting component with Channel install', () => {
       match: { params: { appSlug: 'drive', channel: 'beta' } }
     }
     const resultComponent = routeToModal.props.render(routeProps)
-    expect(mockProps.history.push.mock.calls.length).toBe(1)
-    expect(mockProps.history.push.mock.calls[0][0]).toBe(`/${parent}`)
+    expect(mockProps.history.replace.mock.calls.length).toBe(1)
+    expect(mockProps.history.replace.mock.calls[0][0]).toBe(`/${parent}`)
     expect(resultComponent).toBeUndefined()
   })
 
@@ -270,8 +270,8 @@ describe('ApplicationRouting component with Channel install', () => {
       match: { params: { appSlug: 'collect', channel: 'mock' } }
     }
     const resultComponent = routeToModal.props.render(routeProps)
-    expect(mockProps.history.push.mock.calls.length).toBe(1)
-    expect(mockProps.history.push.mock.calls[0][0]).toBe(
+    expect(mockProps.history.replace.mock.calls.length).toBe(1)
+    expect(mockProps.history.replace.mock.calls[0][0]).toBe(
       `/${parent}/collect/manage`
     )
     expect(resultComponent).toBeUndefined()
@@ -342,8 +342,8 @@ describe('ApplicationRouting component with IntentModal', () => {
     // konnector-trinlane in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'mock' } } }
     const resultComponent = routeToModal.props.render(routeProps)
-    expect(mockProps.history.push.mock.calls.length).toBe(1)
-    expect(mockProps.history.push.mock.calls[0][0]).toBe(`/${parent}`)
+    expect(mockProps.history.replace.mock.calls.length).toBe(1)
+    expect(mockProps.history.replace.mock.calls[0][0]).toBe(`/${parent}`)
     expect(resultComponent).toBeUndefined()
   })
 
