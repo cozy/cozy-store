@@ -187,6 +187,7 @@
     },
     "cc": {
       "cozycloud": {
+        "autocategorization": "Categorization model enrichment file",
         "sentry": "The application logs"
       }
     },
