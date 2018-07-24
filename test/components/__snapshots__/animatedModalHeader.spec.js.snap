@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AnimatedModalHeader component should be rendered correctly if icon 1`] = `
+<AnimatedContentHeader
+  activeClassName="sto-animated-header--active"
+  className="sto-animated-header"
+>
+  <img
+    alt="collect-icon"
+    className="sto-animated-header-icon"
+    height="56"
+    src="icon.svg"
+    width="56"
+  />
+  <Icon
+    className="sto-animated-header-exchange"
+    color="#95999D"
+    icon="exchange"
+    spin={false}
+  />
+  <Icon
+    className="sto-animated-header-icon"
+    height="56"
+    icon="test-file-stub"
+    spin={false}
+    width="56"
+  />
+</AnimatedContentHeader>
+`;
+
+exports[`AnimatedModalHeader component should handle correctly if icon is loading 1`] = `
+<AnimatedContentHeader
+  activeClassName="sto-animated-header--active"
+  className="sto-animated-header"
+>
+  <div
+    className="sto-animated-header-icon"
+  >
+    <Placeholder
+      height="3.5rem"
+      width="3.5rem"
+    />
+  </div>
+  <Icon
+    className="sto-animated-header-exchange"
+    color="#95999D"
+    icon="exchange"
+    spin={false}
+  />
+  <Icon
+    className="sto-animated-header-icon"
+    height="56"
+    icon="test-file-stub"
+    spin={false}
+    width="56"
+  />
+</AnimatedContentHeader>
+`;
+
+exports[`AnimatedModalHeader component should return default icon if no app icon provided 1`] = `
+<AnimatedContentHeader
+  activeClassName="sto-animated-header--active"
+  className="sto-animated-header"
+>
+  <Icon
+    className="sto-animated-header-icon blurry"
+    color="#95999D"
+    height="64"
+    icon="test-file-stub"
+    spin={false}
+    width="48"
+  />
+  <Icon
+    className="sto-animated-header-exchange"
+    color="#95999D"
+    icon="exchange"
+    spin={false}
+  />
+  <Icon
+    className="sto-animated-header-icon"
+    height="56"
+    icon="test-file-stub"
+    spin={false}
+    width="56"
+  />
+</AnimatedContentHeader>
+`;
