@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 
-import { ModalContent, ModalHeader, ModalFooter } from 'cozy-ui/react/Modal'
+import { ModalContent, ModalFooter } from 'cozy-ui/react/Modal'
 import Spinner from 'cozy-ui/react/Spinner'
 
 import PermissionsList from './PermissionsList'
 import { getLocalizedAppProperty } from 'ducks/apps'
 import { translate } from 'cozy-ui/react/I18n'
+import AnimatedModalHeader from 'ducks/components/AnimatedModalHeader'
 
 class AppInstallation extends Component {
   installApp() {
@@ -33,12 +34,14 @@ class AppInstallation extends Component {
     const appName = getLocalizedAppProperty(app, 'name', lang)
     const permissions = app.permissions || {}
     const isFirstLoading = isFetching && !isCanceling
+    // this part must not be wrapped in a component
+    // so we get the content using it as a function
+    const animatedHeader = AnimatedModalHeader({
+      app
+    })
 
     return (
       <div className="sto-install">
-        <ModalHeader className="sto-install-header">
-          <h2>{t('app_modal.install.title')}</h2>
-        </ModalHeader>
         <div className="sto-install-content">
           <div className="sto-install-top">
             {isFirstLoading ? (
@@ -49,6 +52,7 @@ class AppInstallation extends Component {
               </ModalContent>
             ) : (
               <ModalContent>
+                {animatedHeader}
                 {permissions && <PermissionsList app={app} appName={appName} />}
                 {fetchError && (
                   <p className="u-error">
