@@ -2,6 +2,7 @@
   "name": "Store",
   "name_prefix": "Cozy",
   "slug": "store",
+  "type": "webapp",
   "icon": "icon-store.svg",
   "editor": "Cozy",
   "description": "The apps store for Cozy V3",
