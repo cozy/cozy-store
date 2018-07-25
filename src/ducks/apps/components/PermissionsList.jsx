@@ -99,11 +99,7 @@ export const PermissionsList = ({ t, app, appName }) => {
             color="#35CE68"
           />
           <p>
-            {externalPermissions.length
-              ? t('permissions.description.internal', { name: developerName })
-              : t('permissions.description.only_internal', {
-                  name: developerName
-                })}
+            {t('permissions.description.internal', { name: developerName })}
           </p>
         </div>
       )}

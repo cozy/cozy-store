@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { translate } from 'cozy-ui/react/I18n'
 
-import AppInstallation from '../../apps/components/AppInstallation'
-import IntentHeader from 'cozy-ui/react/IntentHeader'
+import InstallModalContent from 'ducks/apps/components/Install/InstallModalContent'
+import InstallModalFooter from 'ducks/apps/components/Install/InstallModalFooter'
 import Spinner from 'cozy-ui/react/Spinner'
 
 import { getAppBySlug, installAppFromRegistry, initAppIntent } from '../../apps'
@@ -43,13 +43,11 @@ export class InstallAppIntent extends Component {
   render() {
     const {
       app,
-      appData,
       fetchError,
       installError,
       isFetching,
       isAppFetching,
       isInstalling,
-      onCancel,
       t
     } = this.props
 
@@ -68,28 +66,34 @@ export class InstallAppIntent extends Component {
     )
     const error = !!errorKey && new Error(t(errorKey))
 
-    return (
-      <div className="coz-intent-wrapper">
-        <IntentHeader
-          appEditor={appData.cozyAppEditor}
-          appName={appData.cozyAppName}
-          appIcon={`../${appData.cozyIconPath}`}
-        />
-        <div className="coz-intent-content">
-          {fetching && <Spinner size="xxlarge" />}
-          {error && <div className="coz-error">{error.message}</div>}
-          {isReady &&
-            !isInstalled &&
-            !error && (
-              <AppInstallation
-                app={app}
-                installApp={() => this.installApp()}
-                isInstalling={isInstalling}
-                onCancel={onCancel}
-              />
-            )}
+    if (fetching)
+      return (
+        <div className="sto-intent-content sto-intent-content--loading">
+          <Spinner size="xxlarge" />
         </div>
-      </div>
+      )
+
+    if (error)
+      return (
+        <div className="sto-intent-content">
+          <div className="u-pomegranate">{error.message}</div>
+        </div>
+      )
+
+    return (
+      isReady &&
+      !isInstalled &&
+      !error && (
+        <div className="sto-intent-content">
+          <InstallModalContent app={app} isFetching={isAppFetching} />
+          <InstallModalFooter
+            app={app}
+            installApp={() => this.installApp}
+            isFetching={isAppFetching}
+            isInstalling={isInstalling}
+          />
+        </div>
+      )
     )
   }
 }

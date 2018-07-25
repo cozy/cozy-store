@@ -7,7 +7,7 @@ import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
 import { tMock } from '../../../jestLib/I18n'
-import { InstallModal } from 'ducks/apps/components/InstallModal'
+import { Install } from 'ducks/apps/components/Install'
 
 import mockApps from '../_mockApps'
 import mockAppVersion from '../_mockPhotosRegistryVersion'
@@ -49,7 +49,7 @@ const getMockProps = (slug, fromRegistry = null) => ({
   }
 })
 
-describe('InstallModal component', () => {
+describe('Install modal component', () => {
   beforeAll(() => {
     // define global mock url
     global.cozy = {
@@ -61,31 +61,27 @@ describe('InstallModal component', () => {
 
   it('should be rendered correctly if app found', () => {
     const component = shallow(
-      <InstallModal t={tMock} {...getMockProps('photos')} />
+      <Install t={tMock} {...getMockProps('photos')} />
     ).getElement()
     expect(component).toMatchSnapshot()
   })
 
   it('should be rendered correctly with also app in registry', () => {
     const mockProps = getMockProps('photos', null, null, mockAppVersion)
-    const component = shallow(
-      <InstallModal t={tMock} {...mockProps} />
-    ).getElement()
+    const component = shallow(<Install t={tMock} {...mockProps} />).getElement()
     expect(component).toMatchSnapshot()
   })
 
   it('should not break the permissions part if no permissions property found in manifest', () => {
     const mockProps = getMockProps('photos', null, null, mockAppVersion)
     delete mockProps.app.permissions
-    const component = shallow(
-      <InstallModal t={tMock} {...mockProps} />
-    ).getElement()
+    const component = shallow(<Install t={tMock} {...mockProps} />).getElement()
     expect(component).toMatchSnapshot()
   })
 
   it('should go to parent if app not found', () => {
     const mockProps = getMockProps('unknown')
-    const component = shallow(<InstallModal t={tMock} {...mockProps} />)
+    const component = shallow(<Install t={tMock} {...mockProps} />)
     component.setProps(mockProps)
     expect(component.type()).toBe(null)
     // goToParent should be called once to go to the parent view

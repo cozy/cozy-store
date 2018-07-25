@@ -26,6 +26,8 @@ export const REGISTRY_CHANNELS = {
   STABLE: 'stable'
 }
 
+const LABELS = ['A', 'B', 'C', 'D', 'E', 'F']
+
 const APPS_DOCTYPE = 'io.cozy.apps'
 const KONNECTORS_DOCTYPE = 'io.cozy.konnectors'
 
@@ -531,6 +533,12 @@ export async function getFormattedRegistryApp(
   const iconLink = `/registry/${manifest.slug}/${versionFromRegistry}/icon`
   let icon = iconLink
   if (fetchIcon) icon = await _getIcon(icon)
+  const label =
+    Number.isInteger(responseApp.label) &&
+    responseApp.label <= 5 &&
+    responseApp.label >= 0
+      ? LABELS[label]
+      : null
   return Object.assign(
     {},
     {
@@ -542,6 +550,7 @@ export async function getFormattedRegistryApp(
       ...(fetchIcon ? { icon } : { iconToLoad: icon }),
       version: versionFromRegistry,
       type: version.type,
+      label,
       categories: _sanitizeCategories(manifest.categories),
       uninstallable: !config.notRemovableApps.includes(manifest.slug),
       isInRegistry: true,
