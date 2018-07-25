@@ -60,6 +60,7 @@
   margin-left: 0;
   margin-right: .5rem;
   font-weight: 700;
+  align-items: center;
 }
 
 .sto-app-icon {
@@ -72,9 +73,9 @@
   padding: 1rem .5rem;
 }
 
-.sto-app-icon--button {
+.sto-app-install-button-icon {
   position: relative;
-  left: -.35rem;
+  top: -.05rem;
 }
 
 @media (max-width: 48rem) {
