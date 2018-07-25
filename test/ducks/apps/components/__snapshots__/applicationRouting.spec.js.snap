@@ -107,7 +107,7 @@ exports[`ApplicationRouting component with ApplicationPage should render correct
 `;
 
 exports[`ApplicationRouting component with Channel install should handle correctly if installed app found 1`] = `
-<withRouter(InstallModal)
+<withRouter(Install)
   app={
     Object {
       "categories": Array [
@@ -167,7 +167,7 @@ exports[`ApplicationRouting component with Channel install should handle correct
 `;
 
 exports[`ApplicationRouting component with Channel install should render correctly if uninstalled app found 1`] = `
-<withRouter(InstallModal)
+<withRouter(Install)
   app={
     Object {
       "categories": Array [
@@ -324,7 +324,7 @@ exports[`ApplicationRouting component with Modal should render correctly if apps
 `;
 
 exports[`ApplicationRouting component with Modal should render correctly if uninstalled app found 1`] = `
-<withRouter(InstallModal)
+<withRouter(Install)
   app={
     Object {
       "categories": Array [

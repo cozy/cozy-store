@@ -1,3 +1,26 @@
+.sto-modal-title {
+  text-align: center;
+}
+
+.sto-animated-header-exchange {
+  margin: 0 1rem;
+}
+
+.sto-animated-header-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.sto-animated-header--active .sto-animated-header-exchange {
+  margin: .5rem;
+}
+
+.sto-animated-header--active .sto-animated-header-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+
 .sto-modal--uninstall .sto-modal-controls {
   display: flex;
   justify-content: flex-end;

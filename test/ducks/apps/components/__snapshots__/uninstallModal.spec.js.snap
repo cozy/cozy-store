@@ -12,9 +12,31 @@ exports[`UninstallModal component should be rendered correctly (app uninstallabl
     primaryType="regular"
     secondaryType="secondary"
     size="small"
-    title="Uninstall this application"
   >
     <ModalContent>
+      <AnimatedContentHeader
+        activeClassName="sto-animated-header--active"
+        className="sto-animated-header"
+      >
+        <img
+          alt="photos-icon"
+          className="sto-animated-header-icon"
+          src="<svg></svg>"
+        />
+        <Icon
+          className="sto-animated-header-exchange"
+          color="#95999D"
+          icon="exchange"
+          spin={false}
+        />
+        <Icon
+          className="sto-animated-header-icon"
+          height="56"
+          icon="test-file-stub"
+          spin={false}
+          width="56"
+        />
+      </AnimatedContentHeader>
       <div
         className="sto-modal-content"
       >
@@ -61,9 +83,31 @@ exports[`UninstallModal component should handle correctly error from props 1`] =
     primaryType="regular"
     secondaryType="secondary"
     size="small"
-    title="Uninstall this application"
   >
     <ModalContent>
+      <AnimatedContentHeader
+        activeClassName="sto-animated-header--active"
+        className="sto-animated-header"
+      >
+        <img
+          alt="photos-icon"
+          className="sto-animated-header-icon"
+          src="<svg></svg>"
+        />
+        <Icon
+          className="sto-animated-header-exchange"
+          color="#95999D"
+          icon="exchange"
+          spin={false}
+        />
+        <Icon
+          className="sto-animated-header-icon"
+          height="56"
+          icon="test-file-stub"
+          spin={false}
+          width="56"
+        />
+      </AnimatedContentHeader>
       <div
         className="sto-modal-content"
       >
