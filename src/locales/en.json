@@ -47,17 +47,59 @@
       }
     },
     "install": {
-      "title": "Data usage",
-      "cancel": "Cancel",
-      "install": "Install",
+      "title": "Data access requirements",
+      "install": "Accept and continue",
       "message": {
         "install_success": "The application has correctly been installed.",
         "version_error": "Something went wrong when fetching the application informations. Reason: %{message}",
         "install_error": "Something went wrong when installing the application on your Cozy. Reason: %{message}"
+      },
+      "accordions": {
+        "title1": "Details",
+        "title2": "Data Technical Sheet"
       }
+    }
+  },
+
+  "permissions": {
+    "linxo": "Display your banking accounts in your Cozy, thanks to the secured connexion to your bank by our partner Linxo ([linxo.com](https://linxo.com))",
+    "reason": "**Reason: **",
+    "developer_default": "The developer of this application",
+    "description": {
+      "internal": "Data can be accessed but neither shared nor transmitted outside your Cozy:",
+      "external": "Data shared with a third party:",
+      "nothing": "%{appName} doesn't require any data access to work correctly on your Cozy."
+    }
+  },
+
+  "label": {
+    "legend": {
+      "low_level": "Data access = 0",
+      "high_level": "Data access = high level"
     },
-    "permissions": {
-      "title": "Permissions"
+    "A": {
+      "description": "__Index A:__ You are technically the only one who can consult the data of this service, even the administrators of your Cozy have no way to access it.",
+      "details": "The encryption technology makes you the only one allowed of accessing or transferring data to third parties. You have the key (=your password) to decrypt this content.  \nSo what happens if you lose that key? Cozy Cloud offers you a recovery service thanks to the third parties that you trust. __[Learn more.]()__"
+    },
+    "B": {
+      "description": "__Index B:__ This service is developed by your hosting provider Cozy Cloud, which undertakes that no data will be shared / transmitted to a third party.",
+      "details": "You enter the login and password of your %{appName} account  in order that your Cozy can retrieve the personal data stored by %{appName}.  \nThe login and password as well as the recovered data will transit directly from the %{appName} site to your Cozy.  \nThere is no way a third party can access to your data."
+    },
+    "C": {
+      "description": "__Index C:__ No data will come out of your Cozy, the developer of this service is committed and can be auditable anytime.",
+      "details": "You enter the login and password of your %{appName} account  in order that your Cozy can retrieve the personal data stored by %{appName}.  \nThis password and data will pass directly from the %{appName} service to your Cozy and will not be made accessible from anyone but yourself. The developer's commitment is auditable because the code is open source. __[Learn more.]()__"
+    },
+    "D": {
+      "description": "__Index D:__ Some data are shared but only to provide you this service.",
+      "details": "Your password will be sent to Linxo, partner of Cozy Cloud.  \nLinxo works with your bank to download your bank statements and send them to your Cozy every day.  \nCozy and Linxo undertake not to reuse them for any purpose other than this service."
+    },
+    "E": {
+      "description": "__Index E:__ No personal data will be used for any other purpose other than directly providing this service, its developer has contractually committed to Cozy Cloud.",
+      "details": "Data will be transferred from your Cozy to the SI of %{appName} which undertakes not to use them or transfer them for any other purpose than to provide you this service: those data will not be sold to third parties for other uses."
+    },
+    "F": {
+      "description": "__Index F:__ The developer of this application asks you under your consent to provide some data from your Cozy in exchange for its service.",
+      "details": "Please consult and validate the Terms of Service %{vendorLink} developed by %{appName} __[here]()__"
     }
   },
 
@@ -238,32 +280,6 @@
           "insuranceclaim": "Insurance claims (Maif)"
         }
       }
-    }
-  },
-
-  "HiddenInstallerView": {
-    "title": "Application installation",
-    "install_error": "An error occured while installing %{slug}",
-    "update_error": "An error occured while updating %{slug}",
-    "conflict": "An application with the same slug already exists. Please change it.",
-    "update": "Update",
-    "konnector": "Konnector",
-    "slug": "Slug",
-    "source": "Source",
-    "source_examples": "#### Source documentation: \n* `registry://`: to install an application from __the instance registries__ \n* `git://` or `git+ssh://`: to install an application from __a git repository__ \n* `http://` or `https://`: to install an application from __an http(s) server (via a tarball)__ \n#### Source examples: \n* `registry://drive/stable`, `registry://drive/beta`, or `registry://drive/dev` \n* `git://github.com/cozy/cozy-collect.git#build` \n* `https://github.com/cozy/cozy-collect/archive/v3.0.3.tar.gz` \n#### [Link to complete cozy-stack docs](https://cozy.github.io/cozy-stack/apps.html#sources)",
-    "source_placeholder": "See examples above",
-    "install": "Install"
-  },
-
-  "permissions": {
-    "linxo": "Display your banking accounts in your Cozy, thanks to the secured connexion to your bank by our partner Linxo ([linxo.com](https://linxo.com))",
-    "reason": "**Reason: **",
-    "developer_default": "The developer of this application",
-    "description": {
-      "only_internal": "%{name} commits to not giving the data used by the application:",
-      "internal": "%{name} commits to not giving the other data used by the application:",
-      "external": "%{name} commits to giving only the following data:",
-      "nothing": "%{appName} doesn't require any data access to work correctly on your Cozy."
     }
   }
 }
