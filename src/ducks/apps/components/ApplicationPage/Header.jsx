@@ -70,6 +70,13 @@ export const Header = ({ t, app, namePrefix, name, description, parent }) => {
             disabled={!!isUnderMaintenance(app)}
             onClick={isUnderMaintenance(app) ? e => e.preventDefault() : null}
           >
+            <Icon
+              icon={cozySmileIcon}
+              color="#FFFFFF"
+              width="16px"
+              height="16px"
+              className="sto-app-install-button-icon"
+            />
             <span>
               <Icon
                 icon={cozySmileIcon}
