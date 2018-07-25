@@ -31,16 +31,15 @@ exports[`ApplicationPage header component should be rendered correctly provided 
       replace={false}
       to="//myapps/photos/manage"
     >
+      <Icon
+        className="sto-app-install-button-icon"
+        color="#FFFFFF"
+        height="16px"
+        icon="test-file-stub"
+        spin={false}
+        width="16px"
+      />
       <span>
-        <Icon
-          className="sto-app-icon--button"
-          color="#FFFFFF"
-          height="16px"
-          icon="test-file-stub"
-          spin={false}
-          width="16px"
-        />
-         
         Install
       </span>
     </Link>
@@ -82,16 +81,15 @@ exports[`ApplicationPage header component should be rendered correctly provided 
       replace={false}
       to="//myapps/photos/manage"
     >
+      <Icon
+        className="sto-app-install-button-icon"
+        color="#FFFFFF"
+        height="16px"
+        icon="test-file-stub"
+        spin={false}
+        width="16px"
+      />
       <span>
-        <Icon
-          className="sto-app-icon--button"
-          color="#FFFFFF"
-          height="16px"
-          icon="test-file-stub"
-          spin={false}
-          width="16px"
-        />
-         
         Install
       </span>
     </Link>
@@ -130,16 +128,15 @@ exports[`ApplicationPage header component should be rendered correctly provided 
       replace={false}
       to="//myapps/konnector-trinlane/manage"
     >
+      <Icon
+        className="sto-app-install-button-icon"
+        color="#FFFFFF"
+        height="16px"
+        icon="test-file-stub"
+        spin={false}
+        width="16px"
+      />
       <span>
-        <Icon
-          className="sto-app-icon--button"
-          color="#FFFFFF"
-          height="16px"
-          icon="test-file-stub"
-          spin={false}
-          width="16px"
-        />
-         
         Install
       </span>
     </Link>
