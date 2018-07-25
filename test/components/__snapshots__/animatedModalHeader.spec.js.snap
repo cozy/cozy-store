@@ -8,9 +8,7 @@ exports[`AnimatedModalHeader component should be rendered correctly if icon 1`] 
   <img
     alt="collect-icon"
     className="sto-animated-header-icon"
-    height="56"
     src="icon.svg"
-    width="56"
   />
   <Icon
     className="sto-animated-header-exchange"
