@@ -81,14 +81,14 @@ export const Header = ({
             to={`/${parent}/${slug}/manage`}
             className="c-btn c-btn--regular"
           >
+            <Icon
+              icon={cozySmileIcon}
+              color="#FFFFFF"
+              width="16px"
+              height="16px"
+              className="sto-app-install-button-icon"
+            />
             <span>
-              <Icon
-                icon={cozySmileIcon}
-                color="#FFFFFF"
-                width="16px"
-                height="16px"
-                className="sto-app-icon--button"
-              />{' '}
               {isKonnector
                 ? t('app_page.konnector.install')
                 : t('app_page.webapp.install')}
