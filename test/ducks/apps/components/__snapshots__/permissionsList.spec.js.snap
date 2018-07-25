@@ -16,7 +16,7 @@ exports[`PermissionsList component should be rendered correctly with konnector p
       spin={false}
     />
     <p>
-      Cozy commits to not giving the data used by the application:
+      Data can be accessed but neither shared nor transmitted outside your Cozy:
     </p>
   </div>
   <ul
@@ -75,7 +75,7 @@ exports[`PermissionsList component should be rendered correctly with permissions
       spin={false}
     />
     <p>
-      Cozy commits to not giving the data used by the application:
+      Data can be accessed but neither shared nor transmitted outside your Cozy:
     </p>
   </div>
   <ul
