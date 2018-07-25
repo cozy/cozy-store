@@ -47,12 +47,11 @@ class IntentHandler extends Component {
           action === intent.attributes.action && type === intent.attributes.type
         )
       })
-
     return (
-      <div className="coz-intent">
+      <div className="sto-intent">
         {status === 'creating' && <Spinner size="xxlarge" />}
         {error && (
-          <div className="coz-error coz-intent-error">
+          <div className="u-pomegranate">
             <p>{t('intent.service.creation.error.title')}</p>
             <p>{error.message}</p>
           </div>

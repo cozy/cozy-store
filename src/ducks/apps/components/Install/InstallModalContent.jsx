@@ -19,13 +19,13 @@ class InstallModalContent extends Component {
     })
 
     return isFirstLoading ? (
-      <ModalContent>
+      <ModalContent className="sto-modal-content">
         <div className="sto-install-loading">
           <Spinner size="xlarge" />
         </div>
       </ModalContent>
     ) : (
-      <ModalContent>
+      <ModalContent className="sto-modal-content">
         {animatedHeader}
         <SubTitle className="sto-modal-title">
           {t('app_modal.install.title')}
