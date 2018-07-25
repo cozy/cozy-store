@@ -3,10 +3,12 @@ import { withRouter } from 'react-router'
 
 import Modal from 'cozy-ui/react/Modal'
 
-import AppInstallation from './AppInstallation'
 import getChannel from 'lib/getChannelFromSource'
 
-export class InstallModal extends Component {
+import InstallModalContent from './InstallModalContent'
+import InstallModalFooter from './InstallModalFooter'
+
+export class Install extends Component {
   constructor(props) {
     super(props)
     this.gotoParent = this.gotoParent.bind(this)
@@ -45,14 +47,18 @@ export class InstallModal extends Component {
     return (
       <div className="sto-modal--install">
         <Modal dismissAction={this.gotoParent} mobileFullscreen>
-          <AppInstallation
+          <InstallModalContent
+            app={app}
+            isFetching={isAppFetching}
+            isCanceling={isCanceling}
+          />
+          <InstallModalFooter
             app={app}
             installApp={installApp}
             isFetching={isAppFetching}
             channel={channel}
             isInstalling={isInstalling}
             isCanceling={isCanceling}
-            onCancel={() => this.gotoParent()}
           />
         </Modal>
       </div>
@@ -60,4 +66,4 @@ export class InstallModal extends Component {
   }
 }
 
-export default withRouter(InstallModal)
+export default withRouter(Install)

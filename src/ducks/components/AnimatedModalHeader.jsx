@@ -25,8 +25,6 @@ export const AnimatedModalHeader = ({ app }) => (
       <img
         src={app.icon}
         alt={`${app.slug}-icon`}
-        width="56"
-        height="56"
         className="sto-animated-header-icon"
       />
     ) : (
