@@ -22,3 +22,7 @@
 .sto-view-loading {
     top: 45vh!important;
 }
+
+.sto-link-text {
+  color: var(--dodgerBlue)
+}
