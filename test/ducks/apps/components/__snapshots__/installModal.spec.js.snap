@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InstallModal component should be rendered correctly if app found 1`] = `
+exports[`Install modal component should be rendered correctly if app found 1`] = `
 <div
   className="sto-modal--install"
 >
@@ -44,13 +44,49 @@ exports[`InstallModal component should be rendered correctly if app found 1`] = 
         }
       }
       isCanceling={false}
-      onCancel={[Function]}
+      isFetching={undefined}
+    />
+    <Wrapper
+      app={
+        Object {
+          "categories": Array [
+            "cozy",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "editor": "Cozy",
+          "icon": "<svg></svg>",
+          "isInRegistry": true,
+          "name": "Photos",
+          "name_prefix": "Cozy",
+          "slug": "photos",
+          "type": "webapp",
+          "uninstallable": true,
+          "versions": Object {
+            "beta": Array [
+              "3.0.0",
+            ],
+            "dev": Array [
+              "3.0.0",
+            ],
+            "stable": Array [
+              "3.0.0",
+            ],
+          },
+        }
+      }
+      channel={undefined}
+      installApp={undefined}
+      isCanceling={false}
+      isFetching={undefined}
+      isInstalling={undefined}
     />
   </Unknown>
 </div>
 `;
 
-exports[`InstallModal component should be rendered correctly with also app in registry 1`] = `
+exports[`Install modal component should be rendered correctly with also app in registry 1`] = `
 <div
   className="sto-modal--install"
 >
@@ -94,13 +130,49 @@ exports[`InstallModal component should be rendered correctly with also app in re
         }
       }
       isCanceling={false}
-      onCancel={[Function]}
+      isFetching={undefined}
+    />
+    <Wrapper
+      app={
+        Object {
+          "categories": Array [
+            "cozy",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "editor": "Cozy",
+          "icon": "<svg></svg>",
+          "isInRegistry": true,
+          "name": "Photos",
+          "name_prefix": "Cozy",
+          "slug": "photos",
+          "type": "webapp",
+          "uninstallable": true,
+          "versions": Object {
+            "beta": Array [
+              "3.0.0",
+            ],
+            "dev": Array [
+              "3.0.0",
+            ],
+            "stable": Array [
+              "3.0.0",
+            ],
+          },
+        }
+      }
+      channel={undefined}
+      installApp={undefined}
+      isCanceling={false}
+      isFetching={undefined}
+      isInstalling={undefined}
     />
   </Unknown>
 </div>
 `;
 
-exports[`InstallModal component should not break the permissions part if no permissions property found in manifest 1`] = `
+exports[`Install modal component should not break the permissions part if no permissions property found in manifest 1`] = `
 <div
   className="sto-modal--install"
 >
@@ -144,7 +216,43 @@ exports[`InstallModal component should not break the permissions part if no perm
         }
       }
       isCanceling={false}
-      onCancel={[Function]}
+      isFetching={undefined}
+    />
+    <Wrapper
+      app={
+        Object {
+          "categories": Array [
+            "cozy",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "editor": "Cozy",
+          "icon": "<svg></svg>",
+          "isInRegistry": true,
+          "name": "Photos",
+          "name_prefix": "Cozy",
+          "slug": "photos",
+          "type": "webapp",
+          "uninstallable": true,
+          "versions": Object {
+            "beta": Array [
+              "3.0.0",
+            ],
+            "dev": Array [
+              "3.0.0",
+            ],
+            "stable": Array [
+              "3.0.0",
+            ],
+          },
+        }
+      }
+      channel={undefined}
+      installApp={undefined}
+      isCanceling={false}
+      isFetching={undefined}
+      isInstalling={undefined}
     />
   </Unknown>
 </div>
