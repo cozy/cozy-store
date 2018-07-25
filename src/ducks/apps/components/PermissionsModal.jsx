@@ -4,7 +4,7 @@ import Modal, { ModalContent } from 'cozy-ui/react/Modal'
 import { translate } from 'cozy-ui/react/I18n'
 
 import { withRouter } from 'react-router-dom'
-import PermissionsList from './PermissionsList'
+import TransparencyLabel from './TransparencyLabel'
 import AnimatedModalHeader from 'ducks/components/AnimatedModalHeader'
 
 export class PermissionsModal extends Component {
@@ -28,7 +28,7 @@ export class PermissionsModal extends Component {
       <Modal secondaryAction={() => this.gotoParent()} mobileFullscreen>
         <ModalContent>
           {animatedHeader}
-          <PermissionsList app={app} />
+          <TransparencyLabel app={app} />
         </ModalContent>
       </Modal>
     )

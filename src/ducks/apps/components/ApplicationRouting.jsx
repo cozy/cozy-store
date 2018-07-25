@@ -7,7 +7,7 @@ import Alerter from 'cozy-ui/react/Alerter'
 
 import PermissionsModal from './PermissionsModal'
 import UninstallModal from './UninstallModal'
-import InstallModal from './InstallModal'
+import Install from './Install'
 import ApplicationPage from './ApplicationPage'
 
 import { APP_TYPE, REGISTRY_CHANNELS } from 'ducks/apps'
@@ -99,7 +99,7 @@ export class ApplicationRouting extends Component {
               return history.replace(`/${parent}/${app.slug}/manage`)
             }
             return (
-              <InstallModal
+              <Install
                 installApp={app.installed ? updateApp : installApp}
                 parent={`/${parent}`}
                 fetchApp={chan => fetchLatestApp(app.slug, chan)}
@@ -132,7 +132,7 @@ export class ApplicationRouting extends Component {
               )
             } else {
               return (
-                <InstallModal
+                <Install
                   installApp={installApp}
                   parent={`/${parent}`}
                   installError={actionError}
