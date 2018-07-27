@@ -21,15 +21,6 @@ export class InstallAppIntent extends Component {
     props.initAppIntent()
   }
 
-  installApp() {
-    const { app, data, isInstalling, isFetching, fetchError } = this.props
-    const isReady = !isInstalling && !isFetching && !fetchError
-
-    if (isReady) {
-      return this.props.installApp(data.slug, app.type)
-    }
-  }
-
   componentWillReceiveProps(nextProps) {
     // on install success
     if (this.props.isInstalling && !nextProps.isInstalling) {
@@ -48,7 +39,8 @@ export class InstallAppIntent extends Component {
       isFetching,
       isAppFetching,
       isInstalling,
-      t
+      t,
+      installApp
     } = this.props
 
     const { status } = this.state
@@ -88,7 +80,7 @@ export class InstallAppIntent extends Component {
           <InstallModalContent app={app} isFetching={isAppFetching} />
           <InstallModalFooter
             app={app}
-            installApp={() => this.installApp}
+            installApp={installApp}
             isFetching={isAppFetching}
             isInstalling={isInstalling}
           />
