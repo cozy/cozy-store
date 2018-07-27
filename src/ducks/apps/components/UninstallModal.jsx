@@ -7,7 +7,6 @@ import { translate } from 'cozy-ui/react/I18n'
 import Modal, { ModalContent } from 'cozy-ui/react/Modal'
 
 import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
-import AnimatedModalHeader from 'ducks/components/AnimatedModalHeader'
 
 export class UninstallModal extends Component {
   constructor(props) {
@@ -39,14 +38,14 @@ export class UninstallModal extends Component {
       this.gotoParent()
       return null
     }
-    const animatedHeader = AnimatedModalHeader({
-      app
-    })
     return (
       <div className="sto-modal--uninstall">
-        <Modal dismissAction={this.gotoParent} mobileFullscreen>
+        <Modal
+          dismissAction={this.gotoParent}
+          mobileFullscreen
+          title={t('app_modal.uninstall.title')}
+        >
           <ModalContent>
-            {animatedHeader}
             <div className="sto-modal-content">
               <ReactMarkdownWrapper
                 source={t('app_modal.uninstall.description', {
