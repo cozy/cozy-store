@@ -62,6 +62,7 @@
   },
 
   "permissions": {
+    "title": "Data access requirements",
     "linxo": "Display your banking accounts in your Cozy, thanks to the secured connexion to your bank by our partner Linxo ([linxo.com](https://linxo.com))",
     "reason": "**Reason: **",
     "developer_default": "The developer of this application",
@@ -79,7 +80,7 @@
     },
     "A": {
       "description": "__Index A:__ You are technically the only one who can consult the data of this service, even the administrators of your Cozy have no way to access it.",
-      "details": "The encryption technology makes you the only one allowed of accessing or transferring data to third parties. You have the key (=your password) to decrypt this content.  \nSo what happens if you lose that key? Cozy Cloud offers you a recovery service thanks to the third parties that you trust. __[Learn more.]()__"
+      "details": "The encryption technology makes you the only one allowed of accessing or transferring data to third parties. You have the key (your password) to decrypt this content.  \nSo what happens if you lose that key? Cozy Cloud offers you a recovery service thanks to the third parties that you trust."
     },
     "B": {
       "description": "__Index B:__ This service is developed by your hosting provider Cozy Cloud, which undertakes that no data will be shared / transmitted to a third party.",
@@ -87,7 +88,7 @@
     },
     "C": {
       "description": "__Index C:__ No data will come out of your Cozy, the developer of this service is committed and can be auditable anytime.",
-      "details": "You enter the login and password of your %{appName} account  in order that your Cozy can retrieve the personal data stored by %{appName}.  \nThis password and data will pass directly from the %{appName} service to your Cozy and will not be made accessible from anyone but yourself. The developer's commitment is auditable because the code is open source. __[Learn more.]()__"
+      "details": "You enter the login and password of your %{appName} account  in order that your Cozy can retrieve the personal data stored by %{appName}.  \nThis password and data will pass directly from the %{appName} service to your Cozy and will not be made accessible from anyone but yourself. The developer's commitment is auditable because the code is open source."
     },
     "D": {
       "description": "__Index D:__ Some data are shared but only to provide you this service.",
@@ -99,7 +100,7 @@
     },
     "F": {
       "description": "__Index F:__ The developer of this application asks you under your consent to provide some data from your Cozy in exchange for its service.",
-      "details": "Please consult and validate the Terms of Service %{vendorLink} developed by %{appName} __[here]()__"
+      "details": "Please consult and validate the Terms of Service %{vendorLink} developed by %{appName} __[here](%{vendorLink})__"
     }
   },
 
