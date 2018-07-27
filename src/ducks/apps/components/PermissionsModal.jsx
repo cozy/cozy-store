@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import Modal, { ModalContent } from 'cozy-ui/react/Modal'
 import { translate } from 'cozy-ui/react/I18n'
+import { SubTitle } from 'cozy-ui/react/Text'
 
 import { withRouter } from 'react-router-dom'
 import TransparencyLabel from './TransparencyLabel'
@@ -18,7 +19,7 @@ export class PermissionsModal extends Component {
   }
 
   render(props) {
-    const { app } = props
+    const { t, app } = props
     // this part must not be wrapped in a component
     // so we get the content using it as a function
     const animatedHeader = AnimatedModalHeader({
@@ -28,6 +29,9 @@ export class PermissionsModal extends Component {
       <Modal secondaryAction={() => this.gotoParent()} mobileFullscreen>
         <ModalContent>
           {animatedHeader}
+          <SubTitle className="sto-modal-title">
+            {t('permissions.title')}
+          </SubTitle>
           <TransparencyLabel app={app} />
         </ModalContent>
       </Modal>
