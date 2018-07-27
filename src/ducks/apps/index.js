@@ -544,7 +544,7 @@ export async function getFormattedRegistryApp(
     Number.isInteger(responseApp.label) &&
     responseApp.label <= 5 &&
     responseApp.label >= 0
-      ? LABELS[label]
+      ? LABELS[responseApp.label]
       : null
   return Object.assign(
     {},
