@@ -8,6 +8,7 @@ import { Content } from 'cozy-ui/react/Layout'
 import ApplicationRouting from './ApplicationRouting'
 import Sections from './Sections'
 import AppsLoading from 'ducks/components/AppsLoading'
+import ScrollToTop from 'ducks/components/ScrollToTop'
 
 import getFilteredAppsFromSearch from 'lib/getFilteredAppsFromSearch'
 
@@ -45,39 +46,41 @@ export class MyApplications extends Component {
     const filteredApps = getFilteredAppsFromSearch(installedApps, query)
     const title = <h2 className="sto-view-title">{t('myapps.title')}</h2>
     return (
-      <Content className="sto-myapps">
-        {this.props.match.isExact ? (
-          <div>
-            {isMobile && <BarCenter>{title}</BarCenter>}
-            <div className="sto-myapps-sections">
-              {!isFetching && (
-                <Sections
-                  apps={filteredApps}
-                  allApps={installedApps}
-                  error={fetchError}
-                  onAppClick={this.onAppClick}
-                  pushQuery={this.pushQuery}
-                  query={query}
-                />
-              )}
+      <ScrollToTop target={this.container}>
+        <Content className="sto-myapps" ref={div => (this.container = div)}>
+          {this.props.match.isExact ? (
+            <div>
+              {isMobile && <BarCenter>{title}</BarCenter>}
+              <div className="sto-myapps-sections">
+                {!isFetching && (
+                  <Sections
+                    apps={filteredApps}
+                    allApps={installedApps}
+                    error={fetchError}
+                    onAppClick={this.onAppClick}
+                    pushQuery={this.pushQuery}
+                    query={query}
+                  />
+                )}
+              </div>
             </div>
-          </div>
-        ) : null}
+          ) : null}
 
-        <ApplicationRouting
-          installedApps={filteredApps}
-          isFetching={isFetching}
-          isAppFetching={isAppFetching}
-          actionError={actionError}
-          installApp={this.props.installApp}
-          uninstallApp={this.props.uninstallApp}
-          updateApp={this.props.updateApp}
-          fetchLatestApp={this.props.fetchLatestApp}
-          parent="myapps"
-        />
+          <ApplicationRouting
+            installedApps={filteredApps}
+            isFetching={isFetching}
+            isAppFetching={isAppFetching}
+            actionError={actionError}
+            installApp={this.props.installApp}
+            uninstallApp={this.props.uninstallApp}
+            updateApp={this.props.updateApp}
+            fetchLatestApp={this.props.fetchLatestApp}
+            parent="myapps"
+          />
 
-        {isFetching && <AppsLoading />}
-      </Content>
+          {isFetching && <AppsLoading />}
+        </Content>
+      </ScrollToTop>
     )
   }
 }
