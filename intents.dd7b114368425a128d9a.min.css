@@ -1789,6 +1789,7 @@ div[role=application] {
   display: block;
   width: 2.5rem;
   height: 2.5rem;
+  z-index: 1;
 }
 .c-modal--small-spacing--3aGFQ .c-modal-close--ZBJ0A {
   top: 1rem;
