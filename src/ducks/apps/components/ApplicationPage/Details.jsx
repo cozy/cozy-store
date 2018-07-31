@@ -247,6 +247,7 @@ export class Details extends Component {
           <div>
             <Button
               label={t('app_page.permissions.button.label')}
+              className="sto-app-permissions-button"
               onClick={() => this.onShowPermissions()}
               subtle
             />

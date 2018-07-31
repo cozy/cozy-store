@@ -289,6 +289,11 @@
   width: 35%;
 }
 
+.sto-app-additional-details .sto-app-permissions-button {
+  margin-top: .5rem;
+  margin-bottom: 1.5rem;
+}
+
 .sto-app-info {
   display: flex;
   flex-direction: row;
