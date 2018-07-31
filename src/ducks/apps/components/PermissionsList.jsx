@@ -34,7 +34,7 @@ export const Permission = ({ description, label, type, t }) => (
 
 const LocalizedPermission = ({ slug, name, t, type }) => (
   <Permission
-    description={tOrNothing(t, `${slug}.permissions.${name}.description`)}
+    description={tOrNothing(t, `apps.${slug}.permissions.${name}.description`)}
     label={t(`doctypes.${type}`)}
     type={type}
     t={t}
