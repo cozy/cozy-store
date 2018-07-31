@@ -19,6 +19,7 @@ exports[`ApplicationPage component should be rendered correctly with app infos f
       iconToLoad={undefined}
       installed={false}
       installedAppLink={null}
+      maintenance={undefined}
       name="Photos"
       namePrefix="Cozy"
       parent="/myapps"
@@ -182,6 +183,7 @@ exports[`ApplicationPage component should be rendered correctly with konnector i
       iconToLoad={undefined}
       installed={false}
       installedAppLink={undefined}
+      maintenance={undefined}
       name="Trinlane"
       namePrefix={undefined}
       parent="/myapps"
@@ -316,6 +318,7 @@ exports[`ApplicationPage component should be rendered correctly with provided in
       iconToLoad={undefined}
       installed={true}
       installedAppLink="https://photos.mockcozy.cc"
+      maintenance={undefined}
       name="Photos"
       namePrefix="Cozy"
       parent="/myapps"
@@ -479,6 +482,7 @@ exports[`ApplicationPage component should be rendered correctly with provided in
       iconToLoad={undefined}
       installed={true}
       installedAppLink={undefined}
+      maintenance={undefined}
       name="Trinlane"
       namePrefix={undefined}
       parent="/myapps"

@@ -21,6 +21,7 @@ export const Header = ({
   type,
   description,
   installed,
+  maintenance,
   uninstallable,
   installedAppLink,
   parent
@@ -80,6 +81,7 @@ export const Header = ({
           <Link
             to={`/${parent}/${slug}/manage`}
             className="c-btn c-btn--regular"
+            disabled={maintenance}
           >
             <Icon
               icon={cozySmileIcon}

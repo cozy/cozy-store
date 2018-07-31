@@ -71,6 +71,7 @@ export class ApplicationPage extends Component {
     const {
       icon,
       installed,
+      maintenance,
       uninstallable,
       related,
       slug,
@@ -131,6 +132,7 @@ export class ApplicationPage extends Component {
             uninstallable={uninstallable}
             parent={parent}
             slug={slug}
+            maintenance={maintenance}
           />
           {app.screenshots &&
             !!app.screenshots.length && (
