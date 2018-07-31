@@ -15,6 +15,7 @@ export const SmallAppItem = ({
   name,
   namePrefix,
   installed,
+  maintenance,
   onClick,
   isMobile
 }) => {
@@ -61,9 +62,17 @@ export const SmallAppItem = ({
         <p className="sto-small-app-item-developer">
           {`${t('app_item.by')} ${developer.name}`}
         </p>
-        {installed && (
-          <p className="sto-small-app-item-status">{t('app_item.installed')}</p>
+        {maintenance && (
+          <p className="sto-small-app-item-status">
+            {t('app_item.maintenance')}
+          </p>
         )}
+        {installed &&
+          !maintenance && (
+            <p className="sto-small-app-item-status">
+              {t('app_item.installed')}
+            </p>
+          )}
       </div>
     </div>
   )

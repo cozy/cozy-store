@@ -16,6 +16,7 @@ const _renderAppComponent = (app, lang, onAppClick, isMobile) => {
       iconToLoad={app.iconToLoad}
       name={getLocalizedAppProperty(app, 'name', lang)}
       installed={app.installed}
+      maintenance={app.maintenance}
       onClick={() => onAppClick(app.slug)}
       installedAppLink={app.related}
       key={app.slug}

@@ -493,6 +493,21 @@ export async function getFormattedRegistryApp(
   // so we removed it from the app manifest if present
   if (manifest.source) delete manifest.source
 
+  // handle locales with maintenance status and messages
+  let appLocales = manifest.locales
+  let maintenance = null
+  if (responseApp.maintenance_activated) {
+    maintenance = Object.assign({}, responseApp.maintenance_options)
+    if (maintenance.messages) {
+      for (let lang in maintenance.messages) {
+        if (appLocales[lang]) {
+          appLocales[lang].maintenance = maintenance.messages[lang]
+        }
+      }
+      delete maintenance.messages
+    }
+  }
+
   const versionFromRegistry = version.version
   const screensLinks =
     manifest.screenshots &&
@@ -520,6 +535,8 @@ export async function getFormattedRegistryApp(
       categories: _sanitizeCategories(manifest.categories),
       uninstallable: !config.notRemovableApps.includes(manifest.slug),
       isInRegistry: true,
+      // handle maintenance status
+      ...(maintenance ? { maintenance } : {}),
       // add screensLinks property only if it exists
       ...(screensLinks ? { screenshots: screensLinks } : {}),
       // add installed value only if not already provided
