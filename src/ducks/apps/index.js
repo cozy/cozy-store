@@ -233,12 +233,29 @@ function _consolidateApps(stateApps, newAppsInfos, lang) {
   const apps = new Map()
   stateApps.forEach(app => apps.set(app.slug, app))
   newAppsInfos.forEach(app => {
-    if (app.locales && app.locales[lang]) {
-      extendI18n({ [app.slug]: app.locales[lang] })
-    }
     const appFromState = apps.get(app.slug)
+    // handle maintenance locales
+    let appLocales = app.locales
+    if (appLocales && appFromState && appFromState.locales) {
+      for (let lang in appFromState.locales) {
+        appLocales[lang] = Object.assign(
+          {},
+          appFromState.locales[lang],
+          app.locales[lang]
+        )
+      }
+    }
+    if (appLocales && appLocales[lang]) {
+      // access app locales from 'apps.slug.[...]'
+      extendI18n({ apps: { [app.slug]: appLocales[lang] } })
+    }
     if (appFromState) {
-      apps.set(app.slug, Object.assign({}, appFromState, app))
+      apps.set(
+        app.slug,
+        Object.assign({}, appFromState, app, {
+          locales: appLocales
+        })
+      )
     } else {
       apps.set(app.slug, app)
     }

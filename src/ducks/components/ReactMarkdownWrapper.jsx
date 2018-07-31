@@ -28,13 +28,16 @@ export const reactMarkdownRendererOptions = {
   heading: parseTitles
 }
 
-export const ReactMarkdownWrapper = ({ source, parseEmoji, className }) => (
-  <ReactMarkdown
-    source={parseEmoji ? emojiParser.replace_colons(source) : source}
-    renderers={reactMarkdownRendererOptions}
-    className={className}
-    escapeHtml={false}
-  />
-)
+export const ReactMarkdownWrapper = ({ source, parseEmoji, className }) => {
+  if (!source) return null
+  return (
+    <ReactMarkdown
+      source={parseEmoji ? emojiParser.replace_colons(source) : source}
+      renderers={reactMarkdownRendererOptions}
+      className={className}
+      escapeHtml={false}
+    />
+  )
+}
 
 export default ReactMarkdownWrapper

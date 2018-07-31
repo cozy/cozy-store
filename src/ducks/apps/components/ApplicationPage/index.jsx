@@ -140,14 +140,8 @@ export class ApplicationPage extends Component {
             app={app}
             description={appLongDesc}
             changes={appChanges}
-            categories={app.categories}
-            langs={app.langs}
-            developer={app.developer}
             mobileApps={mobileApps}
             parent={parent}
-            slug={slug}
-            source={app.source}
-            version={app.version}
           />
         </div>
       </div>
