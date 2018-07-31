@@ -22,14 +22,16 @@ const getAppProps = () => {
     t: tMock,
     description: appManifest.locales.en.long_description,
     changes: appManifest.locales.en.changes,
-    categories: appManifest.categories,
-    langs: appManifest.langs,
-    version: '0.1.0-dev123',
+    app: {
+      categories: appManifest.categories,
+      langs: appManifest.langs,
+      version: '0.1.0-dev123',
+      developer: appManifest.developer
+    },
     mobileApps: [
       { type: 'ios', url: '' },
       { type: 'android', url: 'https://mock.app' }
-    ],
-    developer: appManifest.developer
+    ]
   }
 }
 
@@ -38,9 +40,11 @@ const getKonnectorProps = () => {
     t: tMock,
     description: konnectorManifest.locales.en.long_description,
     changes: konnectorManifest.locales.en.changes,
-    categories: konnectorManifest.categories,
-    langs: konnectorManifest.langs,
-    developer: konnectorManifest.developer
+    app: {
+      categories: konnectorManifest.categories,
+      langs: konnectorManifest.langs,
+      developer: konnectorManifest.developer
+    }
   }
 }
 
