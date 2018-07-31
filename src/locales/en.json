@@ -152,7 +152,8 @@
 
   "app_item": {
     "by": "By",
-    "installed": "Installed"
+    "installed": "Installed",
+    "maintenance": "In maintenance"
   },
 
   "app_categories": {
