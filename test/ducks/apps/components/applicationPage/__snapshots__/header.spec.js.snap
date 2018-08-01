@@ -27,6 +27,7 @@ exports[`ApplicationPage header component should be rendered correctly provided 
     <Link
       className="c-btn c-btn--regular"
       disabled={undefined}
+      onClick={null}
       replace={false}
       to="//myapps/photos/manage"
     >
@@ -77,6 +78,7 @@ exports[`ApplicationPage header component should be rendered correctly provided 
     <Link
       className="c-btn c-btn--regular"
       disabled={undefined}
+      onClick={null}
       replace={false}
       to="//myapps/photos/manage"
     >
@@ -124,6 +126,7 @@ exports[`ApplicationPage header component should be rendered correctly provided 
     <Link
       className="c-btn c-btn--regular"
       disabled={undefined}
+      onClick={null}
       replace={false}
       to="//myapps/konnector-trinlane/manage"
     >

@@ -158,6 +158,7 @@ Enjoy features to grab your data in you Cozy :tada:"
           },
         ]
       }
+      name="Photos"
       parent="/myapps"
     />
   </div>
@@ -293,6 +294,7 @@ exports[`ApplicationPage component should be rendered correctly with konnector i
       changes={undefined}
       description={undefined}
       mobileApps={undefined}
+      name="Trinlane"
       parent="/myapps"
     />
   </div>
@@ -457,6 +459,7 @@ Enjoy features to grab your data in you Cozy :tada:"
           },
         ]
       }
+      name="Photos"
       parent="/myapps"
     />
   </div>
@@ -592,6 +595,7 @@ exports[`ApplicationPage component should be rendered correctly with provided in
       changes={undefined}
       description={undefined}
       mobileApps={undefined}
+      name="Trinlane"
       parent="/myapps"
     />
   </div>

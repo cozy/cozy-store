@@ -140,6 +140,7 @@ export class ApplicationPage extends Component {
             )}
           <Details
             app={app}
+            name={appName}
             description={appLongDesc}
             changes={appChanges}
             mobileApps={mobileApps}
