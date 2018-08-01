@@ -86,7 +86,7 @@ export class Details extends Component {
   }
 
   render() {
-    const { t, app, name, description, changes, mobileApps } = this.props
+    const { t, app, description, changes, mobileApps } = this.props
     const {
       lessDescription,
       lessChanges,
@@ -117,7 +117,7 @@ export class Details extends Component {
     return (
       <div className="sto-app-details">
         <div className="sto-app-descriptions">
-          {maintenance && <Maintenance slug={slug} name={name} />}
+          {maintenance && <Maintenance slug={slug} />}
           {description && (
             <div className="sto-app-description">
               <h3 className="u-title-h3">{t('app_page.description')}</h3>
