@@ -8,17 +8,13 @@ import { Placeholder } from './AppsLoading'
 
 export const SmallAppItem = ({
   t,
-  slug,
-  developer,
-  icon,
-  iconToLoad,
+  app,
   name,
   namePrefix,
-  installed,
-  maintenance,
   onClick,
   isMobile
 }) => {
+  const { slug, developer = {}, icon, iconToLoad, installed, maintenance } = app
   return (
     // HACK a11y
     // `onKeyDown={(e) => e.keyCode === 13 ? onClick() : null`

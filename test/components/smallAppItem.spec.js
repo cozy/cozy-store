@@ -55,27 +55,33 @@ const appMockWithoutIcon = {
 describe('SmallAppItem component', () => {
   it('should be rendered correctly an app', () => {
     const component = shallow(
-      <SmallAppItem t={tMock} {...appMock} />
+      <SmallAppItem t={tMock} {...appMock} app={appMock} />
     ).getElement()
     expect(component).toMatchSnapshot()
   })
 
   it('should be rendered correctly an installed app', () => {
     const component = shallow(
-      <SmallAppItem t={tMock} {...appMock2} />
+      <SmallAppItem t={tMock} {...appMock2} app={appMock2} />
     ).getElement()
     expect(component).toMatchSnapshot()
   })
 
   it('should be rendered correctly an installed app without icon provided', () => {
     const component = shallow(
-      <SmallAppItem t={tMock} {...appMockWithoutIcon} />
+      <SmallAppItem
+        t={tMock}
+        {...appMockWithoutIcon}
+        app={appMockWithoutIcon}
+      />
     ).getElement()
     expect(component).toMatchSnapshot()
   })
 
   it('should not call onClick when Enter is not pressed', () => {
-    const component = shallow(<SmallAppItem t={tMock} {...appMock} />)
+    const component = shallow(
+      <SmallAppItem t={tMock} {...appMock} app={appMock} />
+    )
     expect(component.find('div.sto-small-app-item').length).toBe(1)
     component
       .find('div.sto-small-app-item')
@@ -84,7 +90,9 @@ describe('SmallAppItem component', () => {
   })
 
   it('should call onClick when Enter is pressed', () => {
-    const component = shallow(<SmallAppItem t={tMock} {...appMock} />)
+    const component = shallow(
+      <SmallAppItem t={tMock} {...appMock} app={appMock} />
+    )
     expect(component.find('div.sto-small-app-item').length).toBe(1)
     component
       .find('div.sto-small-app-item')
