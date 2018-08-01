@@ -79,7 +79,7 @@
       "uninstall": "Uninstall"
     },
     "maintenance": "What happens?",
-    "interrupted": "%{appName} doesn't allow your Cozy to access your data",
+    "interrupted": "Service interrupted",
     "description": "Description",
     "changes": "What's New?",
     "infos": {
