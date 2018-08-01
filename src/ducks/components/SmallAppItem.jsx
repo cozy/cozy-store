@@ -8,16 +8,13 @@ import { Placeholder } from './AppsLoading'
 
 export const SmallAppItem = ({
   t,
-  slug,
-  developer,
-  icon,
-  iconToLoad,
+  app,
   name,
   namePrefix,
-  installed,
   onClick,
   isMobile
 }) => {
+  const { slug, developer = {}, icon, iconToLoad, installed, maintenance } = app
   return (
     // HACK a11y
     // `onKeyDown={(e) => e.keyCode === 13 ? onClick() : null`
@@ -61,9 +58,17 @@ export const SmallAppItem = ({
         <p className="sto-small-app-item-developer">
           {`${t('app_item.by')} ${developer.name}`}
         </p>
-        {installed && (
-          <p className="sto-small-app-item-status">{t('app_item.installed')}</p>
+        {maintenance && (
+          <p className="sto-small-app-item-status">
+            {t('app_item.maintenance')}
+          </p>
         )}
+        {installed &&
+          !maintenance && (
+            <p className="sto-small-app-item-status">
+              {t('app_item.installed')}
+            </p>
+          )}
       </div>
     </div>
   )

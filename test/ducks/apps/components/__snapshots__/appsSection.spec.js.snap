@@ -11,119 +11,270 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
     className="sto-sections-list"
   >
     <Wrapper
-      developer={
+      app={
         Object {
-          "name": "Cozy",
+          "categories": Array [
+            "cozy",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "editor": "Cozy",
+          "icon": "<svg></svg>",
+          "installed": true,
+          "isInRegistry": true,
+          "name": "Collect",
+          "name_prefix": "Cozy",
+          "permissions": Object {
+            "mock": Object {
+              "type": "io.mock.doctype",
+            },
+            "mock2": Object {
+              "type": "io.mock.doctype2",
+            },
+          },
+          "related": "http://collect.cozy.mock/",
+          "slug": "collect",
+          "tags": Array [
+            "konnector",
+            "collect",
+            "bills",
+            "providers",
+            "files",
+          ],
+          "type": "webapp",
+          "uninstallable": false,
+          "version": "3.0.0",
+          "versions": Object {
+            "beta": Array [
+              "3.0.0",
+            ],
+            "dev": Array [
+              "3.0.0",
+            ],
+            "stable": Array [
+              "3.0.0",
+            ],
+          },
         }
       }
-      editor="Cozy"
-      icon="<svg></svg>"
-      iconToLoad={undefined}
-      installed={true}
-      installedAppLink="http://collect.cozy.mock/"
       isMobile={undefined}
       name="Collect"
       namePrefix="Cozy"
       onClick={[Function]}
-      slug="collect"
     />
     <Wrapper
-      developer={
+      app={
         Object {
-          "name": "Cozy",
+          "categories": Array [
+            "others",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "editor": "Cozy",
+          "icon": "<svg></svg>",
+          "isInRegistry": true,
+          "locales": Object {
+            "name": "For Dev Only",
+          },
+          "name": "DevOnly",
+          "slug": "devonly",
+          "type": "webapp",
+          "uninstallable": true,
+          "versions": Object {
+            "beta": Array [],
+            "dev": Array [
+              "1.0.0-betaojdkehy989ekhflldh",
+            ],
+            "stable": Array [],
+          },
         }
       }
-      editor="Cozy"
-      icon="<svg></svg>"
-      iconToLoad={undefined}
-      installed={undefined}
-      installedAppLink={undefined}
       isMobile={undefined}
       name="DevOnly"
       namePrefix=""
       onClick={[Function]}
-      slug="devonly"
     />
     <Wrapper
-      developer={
+      app={
         Object {
-          "name": "Cozy",
+          "categories": Array [
+            "cozy",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "editor": "Cozy",
+          "icon": "<svg></svg>",
+          "installed": true,
+          "name": "Drive",
+          "name_prefix": "Cozy",
+          "permissions": Object {
+            "mock2": Object {
+              "type": "io.mock.doctype2",
+            },
+          },
+          "related": "http://drive.cozy.mock/",
+          "slug": "drive",
+          "tags": Array [
+            "search",
+            "files",
+            "folders",
+          ],
+          "type": "webapp",
+          "uninstallable": false,
+          "version": "3.0.0-beta89bnhj3993",
         }
       }
-      editor="Cozy"
-      icon="<svg></svg>"
-      iconToLoad={undefined}
-      installed={true}
-      installedAppLink="http://drive.cozy.mock/"
       isMobile={undefined}
       name="Drive"
       namePrefix="Cozy"
       onClick={[Function]}
-      slug="drive"
     />
     <Wrapper
-      developer={
+      app={
         Object {
-          "name": "Cozy",
+          "categories": Array [
+            "isp",
+            "telecom",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "icon": "<svg></svg>",
+          "isInRegistry": true,
+          "name": "Bouilligue",
+          "slug": "konnector-bouilligue",
+          "type": "konnector",
+          "uninstallable": true,
+          "versions": Object {
+            "beta": Array [
+              "0.1.0",
+            ],
+            "dev": Array [
+              "0.1.0",
+            ],
+            "stable": Array [
+              "0.1.0",
+            ],
+          },
         }
       }
-      editor=""
-      icon="<svg></svg>"
-      iconToLoad={undefined}
-      installed={undefined}
-      installedAppLink={undefined}
       isMobile={undefined}
       name="Bouilligue"
       namePrefix=""
       onClick={[Function]}
-      slug="konnector-bouilligue"
     />
     <Wrapper
-      developer={
+      app={
         Object {
-          "name": "Cozy",
+          "categories": Array [
+            "transport",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "icon": "<svg></svg>",
+          "installed": true,
+          "isInRegistry": true,
+          "name": "Trinlane",
+          "permissions": Object {
+            "mock": Object {
+              "type": "io.mock.doctype",
+            },
+          },
+          "slug": "konnector-trinlane",
+          "tags": Array [
+            "transport",
+            "files",
+            "bills",
+          ],
+          "type": "konnector",
+          "uninstallable": true,
+          "version": "0.1.0",
+          "versions": Object {
+            "beta": Array [
+              "0.1.0",
+            ],
+            "dev": Array [
+              "0.1.0",
+            ],
+            "stable": Array [
+              "0.1.0",
+            ],
+          },
         }
       }
-      editor=""
-      icon="<svg></svg>"
-      iconToLoad={undefined}
-      installed={true}
-      installedAppLink={undefined}
       isMobile={undefined}
       name="Trinlane"
       namePrefix=""
       onClick={[Function]}
-      slug="konnector-trinlane"
     />
     <Wrapper
-      developer={
+      app={
         Object {
-          "name": "Cozy",
+          "categories": Array [
+            "cozy",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "editor": "Cozy",
+          "icon": "<svg></svg>",
+          "isInRegistry": true,
+          "name": "Photos",
+          "name_prefix": "Cozy",
+          "slug": "photos",
+          "type": "webapp",
+          "uninstallable": true,
+          "versions": Object {
+            "beta": Array [
+              "3.0.0",
+            ],
+            "dev": Array [
+              "3.0.0",
+            ],
+            "stable": Array [
+              "3.0.0",
+            ],
+          },
         }
       }
-      editor="Cozy"
-      icon="<svg></svg>"
-      iconToLoad={undefined}
-      installed={undefined}
-      installedAppLink={undefined}
       isMobile={undefined}
       name="Photos"
       namePrefix="Cozy"
       onClick={[Function]}
-      slug="photos"
     />
     <Wrapper
-      developer={Object {}}
-      editor=""
-      icon="<svg></svg>"
-      iconToLoad={undefined}
-      installed={undefined}
-      installedAppLink={undefined}
+      app={
+        Object {
+          "categories": Array [
+            "partners",
+          ],
+          "icon": "<svg></svg>",
+          "isInRegistry": true,
+          "name": "Tasky",
+          "slug": "tasky",
+          "type": "webapp",
+          "uninstallable": true,
+          "versions": Object {
+            "beta": Array [
+              "1.0.0",
+            ],
+            "dev": Array [
+              "1.0.0",
+            ],
+            "stable": Array [
+              "1.0.0",
+            ],
+          },
+        }
+      }
       isMobile={undefined}
       name="Tasky"
       namePrefix=""
       onClick={[Function]}
-      slug="tasky"
     />
   </div>
 </div>

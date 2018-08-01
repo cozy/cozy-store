@@ -8,16 +8,10 @@ import { getLocalizedAppProperty } from 'ducks/apps'
 const _renderAppComponent = (app, lang, onAppClick, isMobile) => {
   return (
     <SmallAppItem
-      slug={app.slug}
-      developer={app.developer || {}}
+      app={app}
       namePrefix={getLocalizedAppProperty(app, 'name_prefix', lang) || ''}
-      editor={app.editor || ''}
-      icon={app.icon}
-      iconToLoad={app.iconToLoad}
       name={getLocalizedAppProperty(app, 'name', lang)}
-      installed={app.installed}
       onClick={() => onAppClick(app.slug)}
-      installedAppLink={app.related}
       key={app.slug}
       isMobile={isMobile}
     />

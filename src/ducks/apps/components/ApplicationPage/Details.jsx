@@ -7,6 +7,8 @@ import { Button } from 'cozy-ui/react/Button'
 import Icon from 'cozy-ui/react/Icon'
 import Toggle from 'cozy-ui/react/Toggle'
 
+import Maintenance from './Maintenance'
+
 import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
 import { getContext, REGISTRY_CHANNELS } from 'ducks/apps'
 import getChannel from 'lib/getChannelFromSource'
@@ -39,8 +41,8 @@ const isLessButtonNeeded = (/* text = '' */) => {
 export class Details extends Component {
   constructor(props) {
     super(props)
-    const { changes, description, source } = this.props
-    const appChannel = getChannel(source)
+    const { changes, description, app } = this.props
+    const appChannel = getChannel(app.source)
     this.state = {
       lessDescription: isLessButtonNeeded(description),
       lessChanges: isLessButtonNeeded(changes),
@@ -62,8 +64,8 @@ export class Details extends Component {
   }
 
   toggleChannels() {
-    const { source } = this.props
-    if (!getChannel(source))
+    const { app } = this.props
+    if (!getChannel(app.source))
       console.warn("This application don't use the registry")
     if (!this.state.displayBetaChannel) {
       this.setState(() => ({ displayBetaChannel: true }))
@@ -78,30 +80,28 @@ export class Details extends Component {
   }
 
   onUpdateChannel(checked, channel) {
-    const { slug, history, parent } = this.props
+    const { app, history, parent } = this.props
     const targetChannel = checked ? channel : REGISTRY_CHANNELS.STABLE
-    history.push(`/${parent}/${slug}/channel/${targetChannel}`)
+    history.push(`/${parent}/${app.slug}/channel/${targetChannel}`)
   }
 
   render() {
-    const {
-      t,
-      slug,
-      source,
-      description,
-      changes,
-      categories,
-      langs,
-      mobileApps,
-      developer,
-      version
-    } = this.props
+    const { t, app, description, changes, mobileApps } = this.props
     const {
       lessDescription,
       lessChanges,
       displayBetaChannel,
       displayDevChannel
     } = this.state
+    const {
+      source,
+      slug,
+      langs,
+      categories,
+      developer,
+      version,
+      maintenance
+    } = app
     const appChannel = getChannel(source)
     const isBeta = appChannel === REGISTRY_CHANNELS.BETA
     const isDev = appChannel === REGISTRY_CHANNELS.DEV
@@ -117,9 +117,10 @@ export class Details extends Component {
     return (
       <div className="sto-app-details">
         <div className="sto-app-descriptions">
+          {maintenance && <Maintenance slug={slug} />}
           {description && (
             <div className="sto-app-description">
-              <h3>{t('app_page.description')}</h3>
+              <h3 className="u-title-h3">{t('app_page.description')}</h3>
               <ReactMarkdownWrapper
                 source={description}
                 className={lessDescription ? 'sto-app-description--less' : ''}
@@ -138,7 +139,7 @@ export class Details extends Component {
           )}
           {changes && (
             <div className="sto-app-changes">
-              <h3>{t('app_page.changes')}</h3>
+              <h3 className="u-title-h3">{t('app_page.changes')}</h3>
               <ReactMarkdownWrapper
                 source={changes}
                 className={lessChanges ? 'sto-app-changes--less' : ''}
@@ -157,7 +158,7 @@ export class Details extends Component {
           )}
         </div>
         <div className="sto-app-additional-details">
-          <h3>{t('app_page.infos.title')}</h3>
+          <h3 className="u-title-h3">{t('app_page.infos.title')}</h3>
           <div className="sto-app-info">
             <div className="sto-app-info-header">
               {t('app_page.infos.categories')}
@@ -246,13 +247,14 @@ export class Details extends Component {
           <div>
             <Button
               label={t('app_page.permissions.button.label')}
+              className="sto-app-permissions-button"
               onClick={() => this.onShowPermissions()}
               subtle
             />
           </div>
           {developerName && (
             <div>
-              <h3>{t('app_page.developer_infos')}</h3>
+              <h3 className="u-title-h3">{t('app_page.developer_infos')}</h3>
               <div className="sto-app-developer-infos">
                 <span>{developerName}</span>
                 {isValidUrl(developer.url) && (

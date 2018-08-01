@@ -231,12 +231,29 @@ function _consolidateApps(stateApps, newAppsInfos, lang) {
   const apps = new Map()
   stateApps.forEach(app => apps.set(app.slug, app))
   newAppsInfos.forEach(app => {
-    if (app.locales && app.locales[lang]) {
-      extendI18n({ [app.slug]: app.locales[lang] })
-    }
     const appFromState = apps.get(app.slug)
+    // handle maintenance locales
+    let appLocales = app.locales
+    if (appLocales && appFromState && appFromState.locales) {
+      for (let lang in appFromState.locales) {
+        appLocales[lang] = Object.assign(
+          {},
+          appFromState.locales[lang],
+          app.locales[lang]
+        )
+      }
+    }
+    if (appLocales && appLocales[lang]) {
+      // access app locales from 'apps.slug.[...]'
+      extendI18n({ apps: { [app.slug]: appLocales[lang] } })
+    }
     if (appFromState) {
-      apps.set(app.slug, Object.assign({}, appFromState, app))
+      apps.set(
+        app.slug,
+        Object.assign({}, appFromState, app, {
+          locales: appLocales
+        })
+      )
     } else {
       apps.set(app.slug, app)
     }
@@ -493,6 +510,21 @@ export async function getFormattedRegistryApp(
   // so we removed it from the app manifest if present
   if (manifest.source) delete manifest.source
 
+  // handle locales with maintenance status and messages
+  let appLocales = manifest.locales
+  let maintenance = null
+  if (responseApp.maintenance_activated) {
+    maintenance = Object.assign({}, responseApp.maintenance_options)
+    if (maintenance.messages) {
+      for (let lang in maintenance.messages) {
+        if (appLocales[lang]) {
+          appLocales[lang].maintenance = maintenance.messages[lang]
+        }
+      }
+      delete maintenance.messages
+    }
+  }
+
   const versionFromRegistry = version.version
   const screensLinks =
     manifest.screenshots &&
@@ -520,6 +552,8 @@ export async function getFormattedRegistryApp(
       categories: _sanitizeCategories(manifest.categories),
       uninstallable: !config.notRemovableApps.includes(manifest.slug),
       isInRegistry: true,
+      // handle maintenance status
+      ...(maintenance ? { maintenance } : {}),
       // add screensLinks property only if it exists
       ...(screensLinks ? { screenshots: screensLinks } : {}),
       // add installed value only if not already provided

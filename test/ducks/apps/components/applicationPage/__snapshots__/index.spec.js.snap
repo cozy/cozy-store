@@ -19,6 +19,7 @@ exports[`ApplicationPage component should be rendered correctly with app infos f
       iconToLoad={undefined}
       installed={false}
       installedAppLink={null}
+      maintenance={undefined}
       name="Photos"
       namePrefix="Cozy"
       parent="/myapps"
@@ -139,29 +140,12 @@ Gestionnaire de photos pour Cozy v3 :tada:",
           "version": "3.0.0",
         }
       }
-      categories={
-        Array [
-          "cozy",
-        ]
-      }
       changes="### NEW!!!
 
  Now on the cozy-store :tada"
       description="### Features
 
 Enjoy features to grab your data in you Cozy :tada:"
-      developer={
-        Object {
-          "name": "Cozy",
-          "url": "https://cozy.io",
-        }
-      }
-      langs={
-        Array [
-          "en",
-          "fr",
-        ]
-      }
       mobileApps={
         Array [
           Object {
@@ -175,9 +159,6 @@ Enjoy features to grab your data in you Cozy :tada:"
         ]
       }
       parent="/myapps"
-      slug="photos"
-      source="https://github.com/cozy/cozy-drive.git@build-photos"
-      version="3.0.0"
     />
   </div>
 </div>
@@ -202,6 +183,7 @@ exports[`ApplicationPage component should be rendered correctly with konnector i
       iconToLoad={undefined}
       installed={false}
       installedAppLink={undefined}
+      maintenance={undefined}
       name="Trinlane"
       namePrefix={undefined}
       parent="/myapps"
@@ -308,30 +290,10 @@ exports[`ApplicationPage component should be rendered correctly with konnector i
           "vendorLink": "www.trinlane.fr",
         }
       }
-      categories={
-        Array [
-          "transport",
-        ]
-      }
       changes={undefined}
       description={undefined}
-      developer={
-        Object {
-          "name": "Cozy",
-          "url": "https://cozy.io",
-        }
-      }
-      langs={
-        Array [
-          "fr",
-          "en",
-        ]
-      }
       mobileApps={undefined}
       parent="/myapps"
-      slug="konnector-trinlane"
-      source="https://github.com/cozy/cozy-konnector-trinlane.git@build"
-      version={undefined}
     />
   </div>
 </div>
@@ -356,6 +318,7 @@ exports[`ApplicationPage component should be rendered correctly with provided in
       iconToLoad={undefined}
       installed={true}
       installedAppLink="https://photos.mockcozy.cc"
+      maintenance={undefined}
       name="Photos"
       namePrefix="Cozy"
       parent="/myapps"
@@ -476,29 +439,12 @@ Gestionnaire de photos pour Cozy v3 :tada:",
           "version": "3.0.0",
         }
       }
-      categories={
-        Array [
-          "cozy",
-        ]
-      }
       changes="### NEW!!!
 
  Now on the cozy-store :tada"
       description="### Features
 
 Enjoy features to grab your data in you Cozy :tada:"
-      developer={
-        Object {
-          "name": "Cozy",
-          "url": "https://cozy.io",
-        }
-      }
-      langs={
-        Array [
-          "en",
-          "fr",
-        ]
-      }
       mobileApps={
         Array [
           Object {
@@ -512,9 +458,6 @@ Enjoy features to grab your data in you Cozy :tada:"
         ]
       }
       parent="/myapps"
-      slug="photos"
-      source="https://github.com/cozy/cozy-drive.git@build-photos"
-      version="3.0.0"
     />
   </div>
 </div>
@@ -539,6 +482,7 @@ exports[`ApplicationPage component should be rendered correctly with provided in
       iconToLoad={undefined}
       installed={true}
       installedAppLink={undefined}
+      maintenance={undefined}
       name="Trinlane"
       namePrefix={undefined}
       parent="/myapps"
@@ -645,30 +589,10 @@ exports[`ApplicationPage component should be rendered correctly with provided in
           "vendorLink": "www.trinlane.fr",
         }
       }
-      categories={
-        Array [
-          "transport",
-        ]
-      }
       changes={undefined}
       description={undefined}
-      developer={
-        Object {
-          "name": "Cozy",
-          "url": "https://cozy.io",
-        }
-      }
-      langs={
-        Array [
-          "fr",
-          "en",
-        ]
-      }
       mobileApps={undefined}
       parent="/myapps"
-      slug="konnector-trinlane"
-      source="https://github.com/cozy/cozy-konnector-trinlane.git@build"
-      version={undefined}
     />
   </div>
 </div>

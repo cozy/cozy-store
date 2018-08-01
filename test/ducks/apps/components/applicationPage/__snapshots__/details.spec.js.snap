@@ -13,7 +13,9 @@ exports[`ApplicationPage details component should be rendered correctly provided
   <div
     className="sto-app-additional-details"
   >
-    <h3>
+    <h3
+      className="u-title-h3"
+    >
       Informations
     </h3>
     <div
@@ -44,7 +46,7 @@ exports[`ApplicationPage details component should be rendered correctly provided
         <span
           onDoubleClick={[Function]}
         >
-          Unknown
+          0.1.0
         </span>
       </div>
     </div>
@@ -59,17 +61,40 @@ exports[`ApplicationPage details component should be rendered correctly provided
       <div
         className="sto-app-info-content"
       >
-        
+        English, French
       </div>
     </div>
     <div>
       <Button
+        className="sto-app-permissions-button"
         label="Show permissions"
         onClick={[Function]}
         subtle={true}
         tag="button"
         type="submit"
       />
+    </div>
+    <div>
+      <h3
+        className="u-title-h3"
+      >
+        Developer Details
+      </h3>
+      <div
+        className="sto-app-developer-infos"
+      >
+        <span>
+          Cozy
+        </span>
+        <a
+          className="sto-app-developer-link"
+          href="https://cozy.io"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          https://cozy.io
+        </a>
+      </div>
     </div>
   </div>
 </div>
@@ -85,7 +110,9 @@ exports[`ApplicationPage details component should be rendered correctly with pro
     <div
       className="sto-app-description"
     >
-      <h3>
+      <h3
+        className="u-title-h3"
+      >
         Description
       </h3>
       <ReactMarkdownWrapper
@@ -99,7 +126,9 @@ Enjoy features to grab your data in you Cozy :tada:"
     <div
       className="sto-app-changes"
     >
-      <h3>
+      <h3
+        className="u-title-h3"
+      >
         What's New?
       </h3>
       <ReactMarkdownWrapper
@@ -114,7 +143,9 @@ Enjoy features to grab your data in you Cozy :tada:"
   <div
     className="sto-app-additional-details"
   >
-    <h3>
+    <h3
+      className="u-title-h3"
+    >
       Informations
     </h3>
     <div
@@ -204,6 +235,7 @@ Enjoy features to grab your data in you Cozy :tada:"
     </div>
     <div>
       <Button
+        className="sto-app-permissions-button"
         label="Show permissions"
         onClick={[Function]}
         subtle={true}
@@ -212,7 +244,9 @@ Enjoy features to grab your data in you Cozy :tada:"
       />
     </div>
     <div>
-      <h3>
+      <h3
+        className="u-title-h3"
+      >
         Developer Details
       </h3>
       <div
@@ -245,7 +279,9 @@ exports[`ApplicationPage details component should be rendered correctly with pro
   <div
     className="sto-app-additional-details"
   >
-    <h3>
+    <h3
+      className="u-title-h3"
+    >
       Informations
     </h3>
     <div
@@ -296,6 +332,7 @@ exports[`ApplicationPage details component should be rendered correctly with pro
     </div>
     <div>
       <Button
+        className="sto-app-permissions-button"
         label="Show permissions"
         onClick={[Function]}
         subtle={true}
@@ -304,7 +341,9 @@ exports[`ApplicationPage details component should be rendered correctly with pro
       />
     </div>
     <div>
-      <h3>
+      <h3
+        className="u-title-h3"
+      >
         Developer Details
       </h3>
       <div
