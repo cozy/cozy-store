@@ -1,0 +1,401 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoadingAppsComponents component should be rendered correctly 1`] = `
+<div
+  className="sto-sections-list"
+>
+  <div
+    className="sto-small-app-item"
+  >
+    <div
+      className="sto-small-app-item-icon-wrapper"
+    >
+      <div
+        className="sto-small-app-item-icon"
+      >
+        <Placeholder
+          autoMargin={true}
+          height="3rem"
+          width="3rem"
+        />
+      </div>
+    </div>
+    <div
+      className="sto-small-app-item-desc"
+    >
+      <h4
+        className="sto-small-app-item-title"
+      >
+        <Placeholder
+          autoMargin={true}
+          height="1.1rem"
+          width={
+            Array [
+              4,
+              8,
+            ]
+          }
+        />
+      </h4>
+      <p
+        className="sto-small-app-item-developer"
+      >
+        <Placeholder
+          autoMargin={true}
+          height=".8rem"
+          width={
+            Array [
+              4,
+              8,
+            ]
+          }
+        />
+      </p>
+      <p
+        className="sto-small-app-item-status"
+      >
+        <Placeholder
+          autoMargin={true}
+          height=".8rem"
+          width="4rem"
+        />
+      </p>
+    </div>
+  </div>
+  <div
+    className="sto-small-app-item"
+  >
+    <div
+      className="sto-small-app-item-icon-wrapper"
+    >
+      <div
+        className="sto-small-app-item-icon"
+      >
+        <Placeholder
+          autoMargin={true}
+          height="3rem"
+          width="3rem"
+        />
+      </div>
+    </div>
+    <div
+      className="sto-small-app-item-desc"
+    >
+      <h4
+        className="sto-small-app-item-title"
+      >
+        <Placeholder
+          autoMargin={true}
+          height="1.1rem"
+          width={
+            Array [
+              4,
+              8,
+            ]
+          }
+        />
+      </h4>
+      <p
+        className="sto-small-app-item-developer"
+      >
+        <Placeholder
+          autoMargin={true}
+          height=".8rem"
+          width={
+            Array [
+              4,
+              8,
+            ]
+          }
+        />
+      </p>
+      <p
+        className="sto-small-app-item-status"
+      >
+        <Placeholder
+          autoMargin={true}
+          height=".8rem"
+          width="4rem"
+        />
+      </p>
+    </div>
+  </div>
+  <div
+    className="sto-small-app-item"
+  >
+    <div
+      className="sto-small-app-item-icon-wrapper"
+    >
+      <div
+        className="sto-small-app-item-icon"
+      >
+        <Placeholder
+          autoMargin={true}
+          height="3rem"
+          width="3rem"
+        />
+      </div>
+    </div>
+    <div
+      className="sto-small-app-item-desc"
+    >
+      <h4
+        className="sto-small-app-item-title"
+      >
+        <Placeholder
+          autoMargin={true}
+          height="1.1rem"
+          width={
+            Array [
+              4,
+              8,
+            ]
+          }
+        />
+      </h4>
+      <p
+        className="sto-small-app-item-developer"
+      >
+        <Placeholder
+          autoMargin={true}
+          height=".8rem"
+          width={
+            Array [
+              4,
+              8,
+            ]
+          }
+        />
+      </p>
+      <p
+        className="sto-small-app-item-status"
+      >
+        <Placeholder
+          autoMargin={true}
+          height=".8rem"
+          width="4rem"
+        />
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`LoadingAppsComponents component should be rendered correctly if isMobile 1`] = `
+<div
+  className="sto-sections-list"
+>
+  <div
+    className="sto-small-app-item"
+  >
+    <div
+      className="sto-small-app-item-icon-wrapper"
+    >
+      <div
+        className="sto-small-app-item-icon"
+      >
+        <Placeholder
+          autoMargin={true}
+          height="2.5rem"
+          width="2.5rem"
+        />
+      </div>
+    </div>
+    <div
+      className="sto-small-app-item-desc"
+    >
+      <h4
+        className="sto-small-app-item-title"
+      >
+        <Placeholder
+          autoMargin={true}
+          height=".8rem"
+          width={
+            Array [
+              4,
+              5,
+            ]
+          }
+        />
+      </h4>
+      <p
+        className="sto-small-app-item-developer"
+      >
+        <Placeholder
+          autoMargin={true}
+          height=".8rem"
+          width={
+            Array [
+              4,
+              5,
+            ]
+          }
+        />
+      </p>
+      <p
+        className="sto-small-app-item-status"
+      >
+        <Placeholder
+          autoMargin={true}
+          height=".6rem"
+          width="4rem"
+        />
+      </p>
+    </div>
+  </div>
+  <div
+    className="sto-small-app-item"
+  >
+    <div
+      className="sto-small-app-item-icon-wrapper"
+    >
+      <div
+        className="sto-small-app-item-icon"
+      >
+        <Placeholder
+          autoMargin={true}
+          height="2.5rem"
+          width="2.5rem"
+        />
+      </div>
+    </div>
+    <div
+      className="sto-small-app-item-desc"
+    >
+      <h4
+        className="sto-small-app-item-title"
+      >
+        <Placeholder
+          autoMargin={true}
+          height=".8rem"
+          width={
+            Array [
+              4,
+              5,
+            ]
+          }
+        />
+      </h4>
+      <p
+        className="sto-small-app-item-developer"
+      >
+        <Placeholder
+          autoMargin={true}
+          height=".8rem"
+          width={
+            Array [
+              4,
+              5,
+            ]
+          }
+        />
+      </p>
+      <p
+        className="sto-small-app-item-status"
+      >
+        <Placeholder
+          autoMargin={true}
+          height=".6rem"
+          width="4rem"
+        />
+      </p>
+    </div>
+  </div>
+  <div
+    className="sto-small-app-item"
+  >
+    <div
+      className="sto-small-app-item-icon-wrapper"
+    >
+      <div
+        className="sto-small-app-item-icon"
+      >
+        <Placeholder
+          autoMargin={true}
+          height="2.5rem"
+          width="2.5rem"
+        />
+      </div>
+    </div>
+    <div
+      className="sto-small-app-item-desc"
+    >
+      <h4
+        className="sto-small-app-item-title"
+      >
+        <Placeholder
+          autoMargin={true}
+          height=".8rem"
+          width={
+            Array [
+              4,
+              5,
+            ]
+          }
+        />
+      </h4>
+      <p
+        className="sto-small-app-item-developer"
+      >
+        <Placeholder
+          autoMargin={true}
+          height=".8rem"
+          width={
+            Array [
+              4,
+              5,
+            ]
+          }
+        />
+      </p>
+      <p
+        className="sto-small-app-item-status"
+      >
+        <Placeholder
+          autoMargin={true}
+          height=".6rem"
+          width="4rem"
+        />
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Placeholder component should be rendered correctly 1`] = `
+<div
+  className="sto-sections-placeholder"
+  style={
+    Object {
+      "height": "3rem",
+      "width": "5rem",
+    }
+  }
+/>
+`;
+
+exports[`Placeholder component should be rendered correctly with autoMargin option 1`] = `
+<div
+  className="sto-sections-placeholder"
+  style={
+    Object {
+      "height": "3rem",
+      "margin": "auto",
+      "width": "5rem",
+    }
+  }
+/>
+`;
+
+exports[`Placeholder component should be rendered correctly with interval of widths 1`] = `
+<div
+  className="sto-sections-placeholder"
+  style={
+    Object {
+      "height": "3rem",
+      "margin": "auto",
+      "width": "5rem",
+    }
+  }
+/>
+`;

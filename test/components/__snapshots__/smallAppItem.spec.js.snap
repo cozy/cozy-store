@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SmallAppItem component should be rendered correctly an app 1`] = `
+exports[`SmallAppItem component should render correctly an app 1`] = `
 <div
   className="sto-small-app-item"
   onClick={[MockFunction]}
@@ -35,7 +35,159 @@ exports[`SmallAppItem component should be rendered correctly an app 1`] = `
 </div>
 `;
 
-exports[`SmallAppItem component should be rendered correctly an installed app 1`] = `
+exports[`SmallAppItem component should render correctly an app in maintenance 1`] = `
+<div
+  className="sto-small-app-item"
+  onClick={[MockFunction]}
+  onKeyDown={[Function]}
+  tabIndex={0}
+>
+  <div
+    className="sto-small-app-item-icon-wrapper"
+  >
+    <img
+      alt="test2-icon"
+      className="sto-small-app-item-icon"
+      height="64"
+      src="<svg></svg>"
+      width="64"
+    />
+  </div>
+  <div
+    className="sto-small-app-item-desc"
+  >
+    <h4
+      className="sto-small-app-item-title"
+    >
+      Test2
+    </h4>
+    <p
+      className="sto-small-app-item-developer"
+    >
+      By Naming me
+    </p>
+    <p
+      className="sto-small-app-item-status"
+    >
+      In maintenance
+    </p>
+  </div>
+</div>
+`;
+
+exports[`SmallAppItem component should render correctly an app with iconToLoad (icon being fetching) 1`] = `
+<div
+  className="sto-small-app-item"
+  onClick={[MockFunction]}
+  onKeyDown={[Function]}
+  tabIndex={0}
+>
+  <div
+    className="sto-small-app-item-icon-wrapper"
+  >
+    <div
+      className="sto-small-app-item-icon"
+    >
+      <Placeholder
+        height="3rem"
+        width="3rem"
+      />
+    </div>
+  </div>
+  <div
+    className="sto-small-app-item-desc"
+  >
+    <h4
+      className="sto-small-app-item-title"
+    >
+      Test2
+    </h4>
+    <p
+      className="sto-small-app-item-developer"
+    >
+      By Naming me
+    </p>
+    <p
+      className="sto-small-app-item-status"
+    >
+      Installed
+    </p>
+  </div>
+</div>
+`;
+
+exports[`SmallAppItem component should render correctly an app with iconToLoad if isMobile 1`] = `
+<div
+  className="sto-small-app-item"
+  onClick={[MockFunction]}
+  onKeyDown={[Function]}
+  tabIndex={0}
+>
+  <div
+    className="sto-small-app-item-icon-wrapper"
+  >
+    <div
+      className="sto-small-app-item-icon"
+    >
+      <Placeholder
+        height="2.5rem"
+        width="2.5rem"
+      />
+    </div>
+  </div>
+  <div
+    className="sto-small-app-item-desc"
+  >
+    <h4
+      className="sto-small-app-item-title"
+    >
+      Test2
+    </h4>
+    <p
+      className="sto-small-app-item-developer"
+    >
+      By Naming me
+    </p>
+    <p
+      className="sto-small-app-item-status"
+    >
+      Installed
+    </p>
+  </div>
+</div>
+`;
+
+exports[`SmallAppItem component should render correctly an app without developer property 1`] = `
+<div
+  className="sto-small-app-item"
+  onClick={[MockFunction]}
+  onKeyDown={[Function]}
+  tabIndex={0}
+>
+  <div
+    className="sto-small-app-item-icon-wrapper"
+  >
+    <img
+      alt="test-icon"
+      className="sto-small-app-item-icon"
+      height="64"
+      src="<svg></svg>"
+      width="64"
+    />
+  </div>
+  <div
+    className="sto-small-app-item-desc"
+  >
+    <h4
+      className="sto-small-app-item-title"
+    >
+      Cozy Test
+    </h4>
+  </div>
+</div>
+`;
+
+exports[`SmallAppItem component should render correctly an installed app 1`] = `
 <div
   className="sto-small-app-item"
   onClick={[MockFunction]}
@@ -75,7 +227,7 @@ exports[`SmallAppItem component should be rendered correctly an installed app 1`
 </div>
 `;
 
-exports[`SmallAppItem component should be rendered correctly an installed app without icon provided 1`] = `
+exports[`SmallAppItem component should render correctly an installed app without icon provided 1`] = `
 <div
   className="sto-small-app-item"
   onClick={[MockFunction]}
@@ -100,17 +252,12 @@ exports[`SmallAppItem component should be rendered correctly an installed app wi
     <h4
       className="sto-small-app-item-title"
     >
-      Cozy Test2
+      Cozy Test
     </h4>
     <p
       className="sto-small-app-item-developer"
     >
-      By Naming me
-    </p>
-    <p
-      className="sto-small-app-item-status"
-    >
-      Installed
+      By Cozy
     </p>
   </div>
 </div>

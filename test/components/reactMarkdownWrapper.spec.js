@@ -8,7 +8,7 @@ import Adapter from 'enzyme-adapter-react-16'
 
 import ReactMarkdownWrapper, {
   reactMarkdownRendererOptions
-} from '../../src/ducks/components/ReactMarkdownWrapper'
+} from 'ducks/components/ReactMarkdownWrapper'
 
 Enzyme.configure({ adapter: new Adapter() })
 
@@ -26,6 +26,10 @@ describe('ReactMarkdownWrapper component', () => {
         parseEmoji
       />
     ).getElement()
+    expect(component).toMatchSnapshot()
+  })
+  it('should not render if no source provided', () => {
+    const component = shallow(<ReactMarkdownWrapper />).getElement()
     expect(component).toMatchSnapshot()
   })
   it('should have correct link renderer options', () => {
