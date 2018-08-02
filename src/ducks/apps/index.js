@@ -187,13 +187,6 @@ export function getRegistryApps(state) {
     .filter(app => Array.isArray(app.versions.stable) && !!app.versions.stable)
 }
 
-export function getLocalizedAppProperty(app, property, lang) {
-  if (app.locales && app.locales[lang] && app.locales[lang][property]) {
-    return app.locales[lang][property]
-  }
-  return app[property]
-}
-
 function _sortAlphabetically(array, property) {
   return array.sort((a, b) => a[property] > b[property])
 }
@@ -235,11 +228,11 @@ function _consolidateApps(stateApps, newAppsInfos, lang) {
     // handle maintenance locales
     let appLocales = app.locales
     if (appLocales && appFromState && appFromState.locales) {
-      for (let lang in appFromState.locales) {
-        appLocales[lang] = Object.assign(
+      for (let locale in appFromState.locales) {
+        appLocales[locale] = Object.assign(
           {},
-          appFromState.locales[lang],
-          app.locales[lang]
+          appFromState.locales[locale],
+          app.locales[locale]
         )
       }
     }

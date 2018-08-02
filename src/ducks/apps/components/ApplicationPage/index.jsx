@@ -10,7 +10,6 @@ import Button from 'cozy-ui/react/Button'
 import Header from './Header'
 import Gallery from './Gallery'
 import Details from './Details'
-import { getLocalizedAppProperty } from 'ducks/apps'
 
 const MOBILE_PLATFORMS = ['ios', 'android']
 const isMobilePlatform = name => MOBILE_PLATFORMS.includes(name)
@@ -43,7 +42,6 @@ export class ApplicationPage extends Component {
   render() {
     const {
       t,
-      lang,
       parent,
       app,
       isFetching,
@@ -78,11 +76,17 @@ export class ApplicationPage extends Component {
       type,
       iconToLoad
     } = app
-    const appName = getLocalizedAppProperty(app, 'name', lang)
-    const namePrefix = getLocalizedAppProperty(app, 'name_prefix', lang)
-    const appShortDesc = getLocalizedAppProperty(app, 'short_description', lang)
-    const appLongDesc = getLocalizedAppProperty(app, 'long_description', lang)
-    const appChanges = getLocalizedAppProperty(app, 'changes', lang)
+    const appName = t(`apps.${app.slug}.name`, { _: app.name })
+    const namePrefix = t(`apps.${app.slug}.name_prefix`, {
+      _: app.name_prefix || ''
+    })
+    const appShortDesc = t(`apps.${app.slug}.short_description`, {
+      _: app.short_description || ''
+    })
+    const appLongDesc = t(`apps.${app.slug}.long_description`, {
+      _: app.long_description || ''
+    })
+    const appChanges = t(`apps.${app.slug}.changes`, { _: '' })
     const mobileApps =
       app.platforms &&
       !!app.platforms.length &&
