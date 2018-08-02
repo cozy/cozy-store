@@ -9,11 +9,6 @@ import externalIcon from 'assets/icons/icon-cloud-out-cozy.svg'
 
 import LINXO_CONNECTORS from 'config/linxo.json'
 
-const tOrNothing = (t, key, options) => {
-  const translated = t(key, options)
-  return translated === key ? '' : translated
-}
-
 export const Permission = ({ description, label, type, t }) => (
   <li key={type} className="sto-perm-list-item">
     <div className="sto-perm-label">
@@ -32,9 +27,9 @@ export const Permission = ({ description, label, type, t }) => (
   </li>
 )
 
-const LocalizedPermission = ({ slug, name, t, type }) => (
+const LocalizedPermission = ({ t, slug, name, type }) => (
   <Permission
-    description={tOrNothing(t, `apps.${slug}.permissions.${name}.description`)}
+    description={t(`apps.${slug}.permissions.${name}.description`, { _: '' })}
     label={t(`doctypes.${type}`)}
     type={type}
     t={t}

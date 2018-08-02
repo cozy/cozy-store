@@ -4,7 +4,6 @@ import { ModalContent, ModalHeader, ModalFooter } from 'cozy-ui/react/Modal'
 import Spinner from 'cozy-ui/react/Spinner'
 
 import PermissionsList from './PermissionsList'
-import { getLocalizedAppProperty } from 'ducks/apps'
 import { translate } from 'cozy-ui/react/I18n'
 
 class AppInstallation extends Component {
@@ -25,12 +24,13 @@ class AppInstallation extends Component {
       isFetching,
       isInstalling,
       isCanceling,
-      lang,
       onCancel,
       t
     } = this.props
 
-    const appName = getLocalizedAppProperty(app, 'name', lang)
+    const appName = t(`apps.${app.slug}.name`, {
+      _: app.name
+    })
     const permissions = app.permissions || {}
     const isFirstLoading = isFetching && !isCanceling
 

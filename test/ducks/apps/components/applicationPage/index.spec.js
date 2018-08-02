@@ -6,6 +6,7 @@ import React from 'react'
 import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
+import { extend as extendI18n } from 'cozy-ui/react/I18n'
 import { tMock } from '../../../../jestLib/I18n'
 import { ApplicationPage } from 'ducks/apps/components/ApplicationPage'
 
@@ -19,6 +20,8 @@ const konnectorManifest = mockKonnector.manifest
 const mockError = new Error('This is a test error')
 
 const getAppProps = (installed, related) => {
+  // set app locales from manifest
+  extendI18n({ apps: { [appManifest.slug]: appManifest.locales.en } })
   return {
     lang: 'en',
     app: Object.assign({}, appManifest, {
@@ -31,6 +34,10 @@ const getAppProps = (installed, related) => {
 }
 
 const getKonnectorProps = installed => {
+  // set app locales from manifest
+  extendI18n({
+    apps: { [konnectorManifest.slug]: konnectorManifest.locales.en }
+  })
   return {
     lang: 'en',
     app: Object.assign({}, konnectorManifest, {
