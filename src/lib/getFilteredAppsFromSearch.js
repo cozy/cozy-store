@@ -1,6 +1,6 @@
 import 'url-search-params-polyfill'
 
-const getDoctypesList = (permsObj = {}) => {
+const getDoctypesList = permsObj => {
   const doctypes = []
   for (let p in permsObj) {
     if (permsObj[p].type) doctypes.push(permsObj[p].type)
@@ -8,7 +8,7 @@ const getDoctypesList = (permsObj = {}) => {
   return doctypes
 }
 
-const getFilteredAppsFromSearch = (apps = [], search = '') => {
+const getFilteredAppsFromSearch = (apps, search = '') => {
   let filteredApps = apps
   /* global URLSearchParams */
   const params = new URLSearchParams(search)

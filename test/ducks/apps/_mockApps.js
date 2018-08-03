@@ -1,5 +1,5 @@
 // ALPHABETICALLY SORTED
-export default [
+export const apps = [
   {
     slug: 'collect',
     name: 'Collect',
@@ -139,3 +139,5 @@ export default [
     isInRegistry: true
   }
 ]
+
+export default apps
