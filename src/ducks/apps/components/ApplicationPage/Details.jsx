@@ -20,32 +20,12 @@ const isValidUrl = url => {
   )
 }
 
-const isLessButtonNeeded = (/* text = '' */) => {
-  // Temporary disbable the less behaviour
-  return false
-  // const screenWidth = window.innerWidth || 0
-  // const textNewLinesCount = text.split(/\r\n|\r|\n/).length
-  // if (screenWidth <= 768) {
-  //   return text.length > 350 || textNewLinesCount > 7
-  // } else if (screenWidth <= 1024) {
-  //   return text.length > 220 || textNewLinesCount > 7
-  // } else if (screenWidth <= 1440) {
-  //   return text.length > 350 || textNewLinesCount > 7
-  // } else if (screenWidth <= 2400) {
-  //   return text.length > 500 || textNewLinesCount > 7
-  // } else {
-  //   return false
-  // }
-}
-
 export class Details extends Component {
   constructor(props) {
     super(props)
-    const { changes, description, app } = this.props
+    const { app } = this.props
     const appChannel = getChannel(app.source)
     this.state = {
-      lessDescription: isLessButtonNeeded(description),
-      lessChanges: isLessButtonNeeded(changes),
       displayBetaChannel: appChannel === REGISTRY_CHANNELS.BETA,
       displayDevChannel: appChannel === REGISTRY_CHANNELS.DEV
     }
@@ -57,10 +37,6 @@ export class Details extends Component {
   onShowPermissions() {
     const { app, parent } = this.props
     this.props.history.push(`/${parent}/${app.slug}/permissions`)
-  }
-
-  toggleDisplayMore(type) {
-    this.setState({ [`less${type}`]: false })
   }
 
   toggleChannels() {
@@ -87,12 +63,7 @@ export class Details extends Component {
 
   render() {
     const { t, app, description, changes, mobileApps } = this.props
-    const {
-      lessDescription,
-      lessChanges,
-      displayBetaChannel,
-      displayDevChannel
-    } = this.state
+    const { displayBetaChannel, displayDevChannel } = this.state
     const {
       source,
       slug,
@@ -121,39 +92,13 @@ export class Details extends Component {
           {description && (
             <div className="sto-app-description">
               <h3 className="u-title-h3">{t('app_page.description')}</h3>
-              <ReactMarkdownWrapper
-                source={description}
-                className={lessDescription ? 'sto-app-description--less' : ''}
-                parseEmoji
-              />
-              {lessDescription && (
-                <button
-                  type="button"
-                  className="sto-details-display-more"
-                  onClick={() => this.toggleDisplayMore('Description')}
-                >
-                  {t('app_page.more')}
-                </button>
-              )}
+              <ReactMarkdownWrapper source={description} parseEmoji />
             </div>
           )}
           {changes && (
             <div className="sto-app-changes">
               <h3 className="u-title-h3">{t('app_page.changes')}</h3>
-              <ReactMarkdownWrapper
-                source={changes}
-                className={lessChanges ? 'sto-app-changes--less' : ''}
-                parseEmoji
-              />
-              {lessChanges && (
-                <button
-                  type="button"
-                  className="sto-details-display-more"
-                  onClick={() => this.toggleDisplayMore('Changes')}
-                >
-                  {t('app_page.more')}
-                </button>
-              )}
+              <ReactMarkdownWrapper source={changes} parseEmoji />
             </div>
           )}
         </div>
