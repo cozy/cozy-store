@@ -4,7 +4,6 @@ import { translate } from 'cozy-ui/react/I18n'
 import { Caption } from 'cozy-ui/react/Text'
 import Accordion, { AccordionItem } from 'cozy-ui/react/Accordion'
 
-import { getLocalizedAppProperty } from 'ducks/apps'
 import PermissionsList from './PermissionsList'
 import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
 
@@ -24,9 +23,9 @@ const labelImages = {
   F: labelImage_F
 }
 
-export const TransparencyLabel = ({ t, app, lang }) => {
+export const TransparencyLabel = ({ t, app }) => {
   const label = app.label || 'C' // default label
-  const appName = getLocalizedAppProperty(app, 'name', lang)
+  const appName = t(`apps.${app.slug}.name`, { _: app.name || app.slug })
   return (
     <div>
       <div className="sto-transparency-label-wrapper">
