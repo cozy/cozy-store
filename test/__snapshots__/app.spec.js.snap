@@ -37,3 +37,41 @@ exports[`App component only should be mounted correctly 1`] = `
   </Main>
 </Layout>
 `;
+
+exports[`App component only should fetch app icons after first fetching 1`] = `
+<Layout
+  monoColumn={false}
+>
+  <Alerter
+    into="body"
+  />
+  <Wrapper />
+  <Main>
+    <Switch>
+      <Route
+        component={[Function]}
+        path="/redirect"
+      />
+      <Route
+        component={[Function]}
+        path="/discover"
+      />
+      <Route
+        component={[Function]}
+        path="/myapps"
+      />
+      <Redirect
+        exact={true}
+        from="/"
+        push={false}
+        to="/discover"
+      />
+      <Redirect
+        from="*"
+        push={false}
+        to="/discover"
+      />
+    </Switch>
+  </Main>
+</Layout>
+`;

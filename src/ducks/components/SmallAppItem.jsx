@@ -55,9 +55,11 @@ export const SmallAppItem = ({
         <h4 className="sto-small-app-item-title">
           {namePrefix ? `${namePrefix} ${name}` : name}
         </h4>
-        <p className="sto-small-app-item-developer">
-          {`${t('app_item.by')} ${developer.name}`}
-        </p>
+        {developer.name && (
+          <p className="sto-small-app-item-developer">
+            {`${t('app_item.by')} ${developer.name}`}
+          </p>
+        )}
         {maintenance && (
           <p className="sto-small-app-item-status">
             {t('app_item.maintenance')}

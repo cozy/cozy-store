@@ -17,7 +17,7 @@ export const Placeholder = ({ width, height, autoMargin }) => {
   return <div className="sto-sections-placeholder" style={style} />
 }
 
-const LoadingAppsComponents = ({ count, subKey, breakpoints = {} }) => {
+export const LoadingAppsComponents = ({ count, subKey, breakpoints = {} }) => {
   let loadingApps = []
   const { isMobile } = breakpoints
   const iconSize = isMobile ? '2.5rem' : '3rem'

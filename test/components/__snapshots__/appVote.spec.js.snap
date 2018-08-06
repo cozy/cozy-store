@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppVote component should be rendered correctly 1`] = `
+<PopupOpener
+  className="sto-app-vote-wrapper"
+  height="700"
+  title="Cozy app voting"
+  url="https://framaforms.org/collect-1518082910"
+  width="650"
+>
+  <a
+    className="sto-app-vote"
+  >
+    <Icon
+      className="sto-app-vote-icon"
+      height="60"
+      icon="test-file-stub"
+      spin={false}
+      width="55"
+    />
+    <strong>
+      <p>
+        You don't find what you want?
+      </p>
+      <p>
+        Tell us!
+      </p>
+    </strong>
+  </a>
+</PopupOpener>
+`;

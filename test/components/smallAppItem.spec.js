@@ -7,7 +7,7 @@ import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
 import { tMock } from '../jestLib/I18n'
-import { SmallAppItem } from '../../src/ducks/components/SmallAppItem'
+import { SmallAppItem } from 'ducks/components/SmallAppItem'
 
 Enzyme.configure({ adapter: new Adapter() })
 
@@ -38,36 +38,66 @@ const appMock2 = {
   onClick: jest.fn()
 }
 
-const appMockWithoutIcon = {
-  slug: 'test2',
-  editor: '',
-  namePrefix: 'Cozy',
-  developer: {
-    name: 'Naming me'
-  },
-  icon: '',
-  name: 'Test2',
-  version: '3.0.3-beta7483',
-  installed: true,
-  onClick: jest.fn()
-}
-
 describe('SmallAppItem component', () => {
-  it('should be rendered correctly an app', () => {
+  it('should render correctly an app', () => {
     const component = shallow(
       <SmallAppItem t={tMock} {...appMock} app={appMock} />
     ).getElement()
     expect(component).toMatchSnapshot()
   })
 
-  it('should be rendered correctly an installed app', () => {
+  it('should render correctly an app without developer property', () => {
+    const appMockWithoutDevelopper = Object.assign({}, appMock)
+    delete appMockWithoutDevelopper.developer
+    const component = shallow(
+      <SmallAppItem
+        t={tMock}
+        {...appMockWithoutDevelopper}
+        app={appMockWithoutDevelopper}
+      />
+    ).getElement()
+    expect(component).toMatchSnapshot()
+  })
+
+  it('should render correctly an app in maintenance', () => {
+    const appInMaintenance = Object.assign({}, appMock2, {
+      maintenance: { maintenance_options: {} }
+    })
+    const component = shallow(
+      <SmallAppItem t={tMock} {...appInMaintenance} app={appInMaintenance} />
+    ).getElement()
+    expect(component).toMatchSnapshot()
+  })
+
+  it('should render correctly an app with iconToLoad (icon being fetching)', () => {
+    const appIconToLoad = Object.assign({}, appMock2, {
+      iconToLoad: true
+    })
+    const component = shallow(
+      <SmallAppItem t={tMock} {...appIconToLoad} app={appIconToLoad} />
+    ).getElement()
+    expect(component).toMatchSnapshot()
+  })
+
+  it('should render correctly an app with iconToLoad if isMobile', () => {
+    const appIconToLoad = Object.assign({}, appMock2, {
+      iconToLoad: true
+    })
+    const component = shallow(
+      <SmallAppItem t={tMock} {...appIconToLoad} app={appIconToLoad} isMobile />
+    ).getElement()
+    expect(component).toMatchSnapshot()
+  })
+
+  it('should render correctly an installed app', () => {
     const component = shallow(
       <SmallAppItem t={tMock} {...appMock2} app={appMock2} />
     ).getElement()
     expect(component).toMatchSnapshot()
   })
 
-  it('should be rendered correctly an installed app without icon provided', () => {
+  it('should render correctly an installed app without icon provided', () => {
+    const appMockWithoutIcon = Object.assign({}, appMock, { icon: '' })
     const component = shallow(
       <SmallAppItem
         t={tMock}

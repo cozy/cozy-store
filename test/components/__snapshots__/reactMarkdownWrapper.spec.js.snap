@@ -59,3 +59,5 @@ exports[`ReactMarkdownWrapper component should have correct link renderer option
   <div />
 </a>
 `;
+
+exports[`ReactMarkdownWrapper component should not render if no source provided 1`] = `null`;

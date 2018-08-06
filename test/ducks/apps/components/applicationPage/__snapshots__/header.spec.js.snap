@@ -26,7 +26,7 @@ exports[`ApplicationPage header component should be rendered correctly provided 
     />
     <Link
       className="c-btn c-btn--regular"
-      disabled={undefined}
+      disabled={false}
       onClick={null}
       replace={false}
       to="//myapps/photos/manage"
@@ -77,7 +77,7 @@ exports[`ApplicationPage header component should be rendered correctly provided 
     />
     <Link
       className="c-btn c-btn--regular"
-      disabled={undefined}
+      disabled={false}
       onClick={null}
       replace={false}
       to="//myapps/photos/manage"
@@ -125,10 +125,152 @@ exports[`ApplicationPage header component should be rendered correctly provided 
     />
     <Link
       className="c-btn c-btn--regular"
-      disabled={undefined}
+      disabled={false}
       onClick={null}
       replace={false}
       to="//myapps/konnector-trinlane/manage"
+    >
+      <span>
+        <Icon
+          className="sto-app-icon--button"
+          color="#FFFFFF"
+          height="16px"
+          icon="test-file-stub"
+          spin={false}
+          width="16px"
+        />
+         
+        Install
+      </span>
+    </Link>
+  </div>
+</div>
+`;
+
+exports[`ApplicationPage header component should disable the install button if maintenance 1`] = `
+<div
+  className="sto-app-header"
+>
+  <div
+    className="sto-app-header-icon"
+  >
+    <img
+      alt="photos-icon"
+      className="sto-app-icon"
+      src="https://mockcozy.cc/registry/photos/3.0.0/icon.svg"
+    />
+  </div>
+  <div
+    className="sto-app-header-content"
+  >
+    <h2
+      className="sto-app-header-title"
+    >
+      Photos
+    </h2>
+    <p
+      className="sto-app-header-description"
+    />
+    <Link
+      className="c-btn c-btn--regular"
+      disabled={true}
+      onClick={[Function]}
+      replace={false}
+      to="//discover/photos/manage"
+    >
+      <span>
+        <Icon
+          className="sto-app-icon--button"
+          color="#FFFFFF"
+          height="16px"
+          icon="test-file-stub"
+          spin={false}
+          width="16px"
+        />
+         
+        Install
+      </span>
+    </Link>
+  </div>
+</div>
+`;
+
+exports[`ApplicationPage header component should disable the uninstall button for installed app if not uninstallable 1`] = `
+<div
+  className="sto-app-header"
+>
+  <div
+    className="sto-app-header-icon"
+  >
+    <img
+      alt="photos-icon"
+      className="sto-app-icon"
+      src="<svg></svg>"
+    />
+  </div>
+  <div
+    className="sto-app-header-content"
+  >
+    <h2
+      className="sto-app-header-title"
+    >
+      Photos
+    </h2>
+    <p
+      className="sto-app-header-description"
+    />
+    <div>
+      <DefaultButton
+        className="c-btn"
+        icon="openwith"
+        label="Open"
+        onClick={[Function]}
+      />
+      <Link
+        className="c-btn c-btn--danger-outline sto-app-header-uninstall-button"
+        disabled={true}
+        onClick={[Function]}
+        replace={false}
+        to="//discover/photos/manage"
+      >
+        <span>
+          Uninstall
+        </span>
+      </Link>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ApplicationPage header component should display a placeholder if app icon is still fetching 1`] = `
+<div
+  className="sto-app-header"
+>
+  <div
+    className="sto-app-header-icon"
+  >
+    <Placeholder
+      height="8.25rem"
+      width="8rem"
+    />
+  </div>
+  <div
+    className="sto-app-header-content"
+  >
+    <h2
+      className="sto-app-header-title"
+    >
+      Photos
+    </h2>
+    <p
+      className="sto-app-header-description"
+    />
+    <Link
+      className="c-btn c-btn--regular"
+      disabled={false}
+      onClick={null}
+      replace={false}
+      to="//discover/photos/manage"
     >
       <span>
         <Icon

@@ -81,7 +81,7 @@ export const Header = ({
           <Link
             to={`/${parent}/${slug}/manage`}
             className="c-btn c-btn--regular"
-            disabled={maintenance}
+            disabled={!!maintenance}
             onClick={maintenance ? e => e.preventDefault() : null}
           >
             <span>

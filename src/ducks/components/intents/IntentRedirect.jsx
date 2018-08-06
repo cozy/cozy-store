@@ -1,7 +1,7 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
 
-const IntentRedirect = ({ location }) => {
+export const IntentRedirect = ({ location }) => {
   const queryString = !!location && location.search
   const query =
     queryString &&

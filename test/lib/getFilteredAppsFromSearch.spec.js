@@ -36,4 +36,78 @@ describe('getFilteredAppsFromSearch library', () => {
       )
     ).toMatchSnapshot()
   })
+
+  it('should not throw error if search is not provided', () => {
+    expect(getFilteredAppsFromSearch(mockApps)).toMatchSnapshot()
+  })
+
+  it('should not throw error if app with malformed permission and search on doctype', () => {
+    const malFormedPermApp = {
+      slug: 'collect',
+      name: 'Collect',
+      editor: 'Cozy',
+      name_prefix: 'Cozy',
+      categories: ['cozy'],
+      developer: { name: 'Cozy' },
+      type: 'webapp',
+      icon: '<svg></svg>',
+      permissions: {
+        mock: {
+          // NO TYPE = malformed
+          description: 'io.mock.doctype'
+        },
+        mock2: {
+          type: 'io.mock.doctype2'
+        }
+      },
+      tags: ['konnector', 'collect', 'bills', 'providers', 'files'],
+      version: '3.0.0',
+      versions: {
+        stable: ['3.0.0'],
+        beta: ['3.0.0'],
+        dev: ['3.0.0']
+      },
+      uninstallable: false,
+      installed: true,
+      isInRegistry: true,
+      related: 'http://collect.cozy.mock/'
+    }
+    expect(
+      getFilteredAppsFromSearch([malFormedPermApp], '?doctype=io.mock.doctype')
+    ).toMatchSnapshot()
+  })
+
+  it('should not throw error if app with no categories and search on category', () => {
+    const appWithoutCategories = {
+      slug: 'collect',
+      name: 'Collect',
+      editor: 'Cozy',
+      name_prefix: 'Cozy',
+      developer: { name: 'Cozy' },
+      type: 'webapp',
+      icon: '<svg></svg>',
+      permissions: {
+        mock: {
+          type: 'io.mock.doctype'
+        },
+        mock2: {
+          type: 'io.mock.doctype2'
+        }
+      },
+      tags: ['konnector', 'collect', 'bills', 'providers', 'files'],
+      version: '3.0.0',
+      versions: {
+        stable: ['3.0.0'],
+        beta: ['3.0.0'],
+        dev: ['3.0.0']
+      },
+      uninstallable: false,
+      installed: true,
+      isInRegistry: true,
+      related: 'http://collect.cozy.mock/'
+    }
+    expect(
+      getFilteredAppsFromSearch([appWithoutCategories], '?category=cozy')
+    ).toMatchSnapshot()
+  })
 })
