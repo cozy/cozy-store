@@ -179,16 +179,15 @@ exports[`ApplicationPage header component should disable the install button if m
       replace={false}
       to="//discover/photos/install"
     >
+      <Icon
+        className="sto-app-install-button-icon"
+        color="#FFFFFF"
+        height="16px"
+        icon="test-file-stub"
+        spin={false}
+        width="16px"
+      />
       <span>
-        <Icon
-          className="sto-app-icon--button"
-          color="#FFFFFF"
-          height="16px"
-          icon="test-file-stub"
-          spin={false}
-          width="16px"
-        />
-         
         Install
       </span>
     </Link>
@@ -271,16 +270,15 @@ exports[`ApplicationPage header component should display a placeholder if app ic
       replace={false}
       to="//discover/photos/install"
     >
+      <Icon
+        className="sto-app-install-button-icon"
+        color="#FFFFFF"
+        height="16px"
+        icon="test-file-stub"
+        spin={false}
+        width="16px"
+      />
       <span>
-        <Icon
-          className="sto-app-icon--button"
-          color="#FFFFFF"
-          height="16px"
-          icon="test-file-stub"
-          spin={false}
-          width="16px"
-        />
-         
         Install
       </span>
     </Link>
