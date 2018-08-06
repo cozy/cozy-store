@@ -29,7 +29,7 @@ export const sortCategoriesAlphabetically = (list, t) => {
 // get apps list as parameter and return all categories selection with the value and the label
 
 export const getCategoriesSelections = (apps, t, includeAll = false) => {
-  if (!apps.length) return []
+  if (!apps || !apps.length) return []
   let appsCategories = includeAll
     ? [
         {

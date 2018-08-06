@@ -20,7 +20,7 @@ exports[`Sidebar component should be rendered correctly 1`] = `
         </NavText>
       </NavLink>
     </NavItem>
-    <withRouter(Connect(Wrapper))
+    <withRouter(Connect(withRouter(Wrapper)))
       parent="/discover"
     />
     <NavItem>
@@ -38,7 +38,7 @@ exports[`Sidebar component should be rendered correctly 1`] = `
         </NavText>
       </NavLink>
     </NavItem>
-    <withRouter(Connect(Wrapper))
+    <withRouter(Connect(withRouter(Wrapper)))
       parent="/myapps"
     />
   </Nav>
