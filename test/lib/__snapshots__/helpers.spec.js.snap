@@ -299,6 +299,8 @@ Array [
 ]
 `;
 
+exports[`getCategoriesSelections helper should return an empty list if empty apps list provided 1`] = `Array []`;
+
 exports[`getCategoriesSelections helper should return an empty list if no apps provided 1`] = `Array []`;
 
 exports[`getCategoriesSelections helper should return include the all categories if includeAll option true 1`] = `

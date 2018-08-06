@@ -41,7 +41,11 @@ describe('getCategoriesSelections helper', () => {
     expect(getCategoriesSelections(mockApps, tMock, true)).toMatchSnapshot()
   })
 
-  it('should return an empty list if no apps provided', () => {
+  it('should return an empty list if empty apps list provided', () => {
     expect(getCategoriesSelections([], tMock)).toMatchSnapshot()
+  })
+
+  it('should return an empty list if no apps provided', () => {
+    expect(getCategoriesSelections(null, tMock)).toMatchSnapshot()
   })
 })
