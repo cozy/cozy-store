@@ -2680,6 +2680,7 @@ iframe {
   transition: transform 0.2s ease-out, opacity 0.2s ease-out;
   transition: transform 0.2s ease-out, opacity 0.2s ease-out, -webkit-transform 0.2s ease-out;
   cursor: pointer;
+  pointer-events: none;
 }
 .c-alert-wrapper--3hp30 {
   display: -webkit-inline-box;
@@ -2700,6 +2701,7 @@ iframe {
           box-shadow: 0 0.375rem 1.125rem 0 rgba(50,54,63,0.23);
   background-color: #35ce68;
   padding: 0.813rem 1rem;
+  pointer-events: auto;
 }
 .c-alert-wrapper--3hp30 p {
   margin: 0;
