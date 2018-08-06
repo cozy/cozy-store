@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Maintenance component should be rendered correctly 1`] = `
+<div
+  className="sto-app-maintenance"
+>
+  <div
+    className="sto-app-maintenance-header"
+  >
+    <img
+      className="sto-app-maintenance-header-image"
+      src="test-file-stub"
+    />
+    <h3
+      className="u-title-h3"
+    >
+      Service interrupted
+    </h3>
+    <p
+      className="sto-app-maintenance-header-desc"
+    >
+      Test mock maintenance
+    </p>
+  </div>
+  <div
+    className="sto-app-maintenance-desc"
+  >
+    <h3
+      className="u-title-h3"
+    >
+      What happens?
+    </h3>
+    <ReactMarkdownWrapper
+      parseEmoji={true}
+      source="long message to test mock maintenance"
+    />
+  </div>
+</div>
+`;

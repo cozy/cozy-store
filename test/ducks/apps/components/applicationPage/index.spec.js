@@ -81,6 +81,46 @@ describe('ApplicationPage component', () => {
     expect(component).toMatchSnapshot()
   })
 
+  it('should be rendered correctly with app with screenshots', () => {
+    const props = getAppProps(false)
+    props.app.screenshots = ['<svg></svg>']
+    const component = shallow(
+      <ApplicationPage t={tMock} {...props} />
+    ).getElement()
+    expect(component).toMatchSnapshot()
+  })
+
+  it('should be rendered correctly without app descriptions', () => {
+    const props = getKonnectorProps(false)
+    if (props.app.short_description) delete props.app.short_description
+    if (props.app.long_description) delete props.app.long_description
+    const component = shallow(
+      <ApplicationPage t={tMock} {...props} />
+    ).getElement()
+    expect(component).toMatchSnapshot()
+  })
+
+  it('should render correctly on mobile with the scroll feature', () => {
+    const props = getAppProps(false, null)
+    props.breakpoints = {
+      isMobile: true
+    }
+    const wrapper = shallow(<ApplicationPage t={tMock} {...props} />)
+    expect(wrapper.getElement()).toMatchSnapshot()
+    // should not throw error at initial state
+    expect(wrapper.state('displayBarIcon')).toBe(false)
+    wrapper.instance().handleScroll()
+    expect(wrapper.state('displayBarIcon')).toBe(false)
+    // simulate scroll
+    window.scrollY = 150
+    wrapper.instance().handleScroll()
+    expect(wrapper.state('displayBarIcon')).toBe(true)
+    expect(wrapper.getElement()).toMatchSnapshot()
+    window.scrollY = 20
+    wrapper.instance().handleScroll()
+    expect(wrapper.state('displayBarIcon')).toBe(false)
+  })
+
   it('should render correctly a spinner if isFetching', () => {
     const props = getAppProps(false, null)
     const component = shallow(
