@@ -7,6 +7,7 @@ import getChannel from 'lib/getChannelFromSource'
 
 import InstallModalContent from './InstallModalContent'
 import InstallModalFooter from './InstallModalFooter'
+import TransparencyModal from '../TransparencyModal'
 
 export class Install extends Component {
   constructor(props) {
@@ -41,9 +42,20 @@ export class Install extends Component {
   }
 
   render() {
-    const { app, installApp, isInstalling, channel, isAppFetching } = this.props
+    const {
+      app,
+      installApp,
+      isInstalling,
+      channel,
+      isAppFetching,
+      match,
+      location
+    } = this.props
     const { isCanceling } = this.state
     if (!app) return null
+    if (!match.isExact && location.pathname === `${match.url}/transparency`) {
+      return <TransparencyModal />
+    }
     return (
       <div className="sto-modal--install">
         <Modal dismissAction={this.gotoParent} mobileFullscreen>
