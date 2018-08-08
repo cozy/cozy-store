@@ -2,7 +2,9 @@ import React from 'react'
 // import Icon from 'cozy-ui/react/Icon'
 import { translate } from 'cozy-ui/react/I18n'
 import { Caption } from 'cozy-ui/react/Text'
+import Icon from 'cozy-ui/react/Icon'
 import Accordion, { AccordionItem } from 'cozy-ui/react/Accordion'
+import { withRouter } from 'react-router-dom'
 
 import PermissionsList from './PermissionsList'
 import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
@@ -23,13 +25,23 @@ const labelImages = {
   F: labelImage_F
 }
 
-export const TransparencyLabel = ({ t, app }) => {
+export const TransparencyLabel = ({ t, app, history, match }) => {
   const label = app.label || 'C' // default label
   const appName = t(`apps.${app.slug}.name`, { _: app.name || app.slug })
+
+  const onLabelClick = () => {
+    history.replace(`${match.url}/transparency`)
+  }
+
   return (
     <div>
       <div className="sto-transparency-label-wrapper">
-        <div className="sto-transparency-label">
+        <button
+          className="sto-no-styles-button sto-transparency-label"
+          tabIndex="1"
+          onClick={onLabelClick}
+        >
+          <Icon icon="help" className="sto-transparency-label-help" />
           <Caption>{t('label.legend.low_level')}</Caption>
           <img
             className="sto-transparency-label-image"
@@ -40,7 +52,7 @@ export const TransparencyLabel = ({ t, app }) => {
             className="sto-transparency-label-desc"
             source={t(`label.${label}.description`)}
           />
-        </div>
+        </button>
       </div>
       <Accordion>
         <AccordionItem label={t('app_modal.install.accordions.title1')}>
@@ -59,4 +71,4 @@ export const TransparencyLabel = ({ t, app }) => {
   )
 }
 
-export default translate()(TransparencyLabel)
+export default withRouter(translate()(TransparencyLabel))
