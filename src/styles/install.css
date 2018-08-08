@@ -39,29 +39,3 @@
   flex-grow: 0;
   font-weight: bold;
 }
-
-/* Transparency label */
-.sto-transparency-label-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.sto-transparency-label {
-  max-width: 18rem;
-  border-radius: 3px;
-  border: solid 1px var(--silver);
-  padding: .5rem;
-  margin: 1rem 0 .5rem 0;
-}
-
-.sto-transparency-label-image {
-  padding: .25rem 2rem 0 0;
-}
-
-.sto-transparency-label-desc > p {
-  font-size: .875rem;
-  line-height: 1.5;
-  color: var(--charcoalGrey);
-  margin-bottom: 0;
-}

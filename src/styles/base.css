@@ -1,0 +1,29 @@
+.sto-no-styles-button {
+  background: none;
+  border: none;
+  border-radius: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.blurry {
+    opacity: .7;
+    filter: blur(2px);
+}
+
+.sto-view-loading {
+    top: 45vh!important;
+}
+
+.sto-link-text, .sto-link-text:visited {
+  color: var(--dodgerBlue);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.sto-link-text:hover,
+.sto-link-text:focus,
+.sto-link-text:active  {
+  text-decoration: underline;
+}
