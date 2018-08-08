@@ -2682,6 +2682,10 @@ iframe {
   cursor: pointer;
   pointer-events: none;
 }
+.has-modal .c-alert--3aE8a {
+  z-index: 80;
+  bottom: 0;
+}
 .c-alert-wrapper--3hp30 {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
