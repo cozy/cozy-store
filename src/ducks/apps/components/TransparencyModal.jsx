@@ -14,7 +14,7 @@ import { withRouter } from 'react-router-dom'
 import labelExplain from 'assets/label/_explain.svg'
 import backIcon from 'assets/icons/icon-arrow-left.svg'
 
-const mdParseParagraphs = props => (
+export const mdParseParagraphs = props => (
   <p className="sto-transparency-notice-text">{props.children}</p>
 )
 
@@ -22,7 +22,7 @@ const mdOptions = Object.assign({}, reactMarkdownRendererOptions, {
   paragraph: mdParseParagraphs
 })
 
-const LabelItem = ({ t, label }) => (
+export const LabelItem = ({ t, label }) => (
   <div className="sto-transparency-notice-label">
     <span className={`sto-transparency-notice-label-pin --${label}`} />
     <ReactMarkdownWrapper
