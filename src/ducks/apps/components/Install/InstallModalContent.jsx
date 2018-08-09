@@ -8,7 +8,7 @@ import { SubTitle } from 'cozy-ui/react/Text'
 import AnimatedModalHeader from 'ducks/components/AnimatedModalHeader'
 import TransparencyLabel from '../TransparencyLabel'
 
-class InstallModalContent extends Component {
+export class InstallModalContent extends Component {
   render() {
     const { app, fetchError, isFetching, isCanceling, t } = this.props
     const isFirstLoading = isFetching && !isCanceling
