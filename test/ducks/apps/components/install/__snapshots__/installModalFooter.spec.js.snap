@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InstallModalFooter modal component should be rendered correctly 1`] = `
+<ModalFooter>
+  <div
+    className="sto-install-controls"
+  >
+    <button
+      aria-busy={undefined}
+      className="c-btn c-btn--regular c-btn--download"
+      disabled={undefined}
+      onClick={[Function]}
+      role="button"
+    >
+      <Icon
+        className="sto-app-install-button-icon"
+        color="#FFFFFF"
+        height="16px"
+        icon="test-file-stub"
+        spin={false}
+        width="16px"
+      />
+      <span>
+        Accept and continue
+      </span>
+    </button>
+  </div>
+</ModalFooter>
+`;
+
+exports[`InstallModalFooter modal component should display error if installError 1`] = `
+<ModalFooter>
+  <p
+    className="u-error"
+  >
+    Something went wrong when installing the application on your Cozy. Reason: Install mock error
+  </p>
+  <div
+    className="sto-install-controls"
+  >
+    <button
+      aria-busy={undefined}
+      className="c-btn c-btn--regular c-btn--download"
+      disabled={undefined}
+      onClick={[Function]}
+      role="button"
+    >
+      <Icon
+        className="sto-app-install-button-icon"
+        color="#FFFFFF"
+        height="16px"
+        icon="test-file-stub"
+        spin={false}
+        width="16px"
+      />
+      <span>
+        Accept and continue
+      </span>
+    </button>
+  </div>
+</ModalFooter>
+`;
+
+exports[`InstallModalFooter modal component should handle error when installApp 1`] = `
+Array [
+  "photos",
+  "webapp",
+  "beta",
+]
+`;
+
+exports[`InstallModalFooter modal component should handle error when installApp 2`] = `
+Array [
+  "photos",
+  "webapp",
+  "beta",
+]
+`;
+
+exports[`InstallModalFooter modal component should have install button busy if isFetching but during a cancel (isCanceling) 1`] = `
+<ModalFooter>
+  <div
+    className="sto-install-controls"
+  >
+    <button
+      aria-busy={undefined}
+      className="c-btn c-btn--regular c-btn--download"
+      disabled={true}
+      onClick={[Function]}
+      role="button"
+    >
+      <Icon
+        className="sto-app-install-button-icon"
+        color="#FFFFFF"
+        height="16px"
+        icon="test-file-stub"
+        spin={false}
+        width="16px"
+      />
+      <span>
+        Accept and continue
+      </span>
+    </button>
+  </div>
+</ModalFooter>
+`;
+
+exports[`InstallModalFooter modal component should have install button busy if isInstalling 1`] = `
+<ModalFooter>
+  <div
+    className="sto-install-controls"
+  >
+    <button
+      aria-busy={true}
+      className="c-btn c-btn--regular c-btn--download"
+      disabled={true}
+      onClick={[Function]}
+      role="button"
+    >
+      <Icon
+        className="sto-app-install-button-icon"
+        color="#FFFFFF"
+        height="16px"
+        icon="test-file-stub"
+        spin={false}
+        width="16px"
+      />
+      <span>
+        Accept and continue
+      </span>
+    </button>
+  </div>
+</ModalFooter>
+`;
+
+exports[`InstallModalFooter modal component should installApp on install button click 1`] = `
+Array [
+  "photos",
+  "webapp",
+  "beta",
+]
+`;
+
+exports[`InstallModalFooter modal component should return nothing if isFetching 1`] = `null`;
