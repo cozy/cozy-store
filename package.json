@@ -36,7 +36,7 @@
   "devDependencies": {
     "babel-polyfill": "6.26.0",
     "babel-preset-cozy-app": "1.1.0",
-    "cozy-scripts": "0.10.3",
+    "cozy-scripts": "0.10.4",
     "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "1.2.0",
     "eslint": "5.2.0",
