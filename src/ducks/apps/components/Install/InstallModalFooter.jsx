@@ -7,7 +7,7 @@ import Icon from 'cozy-ui/react/Icon'
 
 import cozySmileIcon from 'assets/icons/icon-cozy-smile.svg'
 
-class InstallModalFooter extends Component {
+export class InstallModalFooter extends Component {
   installApp() {
     this.setState({ error: null })
     const { app, onError, channel } = this.props

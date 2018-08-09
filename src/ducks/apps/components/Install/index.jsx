@@ -12,11 +12,11 @@ import TransparencyModal from '../TransparencyModal'
 export class Install extends Component {
   constructor(props) {
     super(props)
-    this.gotoParent = this.gotoParent.bind(this)
     this.state = {
       previousChannel: props.channel ? getChannel(props.app.source) : null,
       isCanceling: false
     }
+    this.gotoParent = this.gotoParent.bind(this)
     if (typeof props.fetchApp === 'function') props.fetchApp(props.channel)
   }
 
@@ -35,9 +35,9 @@ export class Install extends Component {
     }
 
     if (app && app.slug) {
-      history.push(`${parent}/${app.slug}`)
+      history.replace(`${parent}/${app.slug}`)
     } else {
-      history.push(parent)
+      history.replace(parent)
     }
   }
 

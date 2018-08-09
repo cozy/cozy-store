@@ -11,7 +11,7 @@ export const Photos = {
     icon: 'https://mockcozy.cc/registry/photos/3.0.0/icon.svg',
     short_description: 'Photos manager for Cozy v3',
     categories: ['cozy'],
-    source: 'https://github.com/cozy/cozy-drive.git@build-photos',
+    source: 'registry://photos/stable',
     editor: 'Cozy',
     developer: {
       name: 'Cozy',
