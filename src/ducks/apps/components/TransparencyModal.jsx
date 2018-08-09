@@ -51,9 +51,11 @@ export const TransparencyModal = ({ t, match, history }) => {
       </ModalHeader>
       <ModalContent className="sto-transparency-notice">
         <p className="sto-transparency-notice-desc">{t('label.notice.desc')}</p>
-        <Caption>{t('label.legend.low_level')}</Caption>
-        <img className="sto-transparency-notice-image" src={labelExplain} />
-        <Caption>{t('label.legend.high_level')}</Caption>
+        <div className="sto-transparency-notice-illu">
+          <Caption>{t('label.legend.low_level')}</Caption>
+          <img className="sto-transparency-notice-image" src={labelExplain} />
+          <Caption>{t('label.legend.high_level')}</Caption>
+        </div>
         <Label className="sto-transparency-notice-definition">
           {t('label.notice.definition')}
         </Label>
