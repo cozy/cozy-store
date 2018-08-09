@@ -1,0 +1,173 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TransparencyLabel component should be rendered correctly 1`] = `
+<div>
+  <div
+    className="sto-transparency-label-wrapper"
+  >
+    <button
+      className="sto-no-styles-button sto-transparency-label"
+      onClick={[Function]}
+      tabIndex="1"
+    >
+      <Icon
+        className="sto-transparency-label-help"
+        icon="help"
+        spin={false}
+      />
+      <Unknown
+        ellipsis={false}
+        tag="div"
+      >
+        Data access = 0
+      </Unknown>
+      <img
+        className="sto-transparency-label-image"
+        src="test-file-stub"
+      />
+      <Unknown
+        ellipsis={false}
+        tag="div"
+      >
+        Data access = high level
+      </Unknown>
+      <ReactMarkdownWrapper
+        className="sto-transparency-label-desc"
+        source="__Index C:__ No data will come out of your Cozy, the developer of this service is committed and can be auditable anytime."
+      />
+    </button>
+  </div>
+  <Accordion>
+    <AccordionItem
+      label="Details"
+    >
+      <ReactMarkdownWrapper
+        source="You enter the login and password of your photos account  in order that your Cozy can retrieve the personal data stored by photos.  
+This password and data will pass directly from the photos service to your Cozy and will not be made accessible from anyone but yourself. The developer's commitment is auditable because the code is open source."
+      />
+    </AccordionItem>
+    <AccordionItem
+      label="Data Technical Sheet"
+    >
+      <Wrapper
+        app={
+          Object {
+            "editor": "Cozy",
+            "manifest": Object {
+              "categories": Array [
+                "cozy",
+              ],
+              "developer": Object {
+                "name": "Cozy",
+                "url": "https://cozy.io",
+              },
+              "editor": "Cozy",
+              "icon": "https://mockcozy.cc/registry/photos/3.0.0/icon.svg",
+              "langs": Array [
+                "en",
+                "fr",
+              ],
+              "licence": "AGPL-3.0",
+              "locales": Object {
+                "en": Object {
+                  "changes": "### NEW!!!
+
+ Now on the cozy-store :tada",
+                  "long_description": "### Features
+
+Enjoy features to grab your data in you Cozy :tada:",
+                  "short_description": "Gestionnaire de photos pour Cozy v3",
+                },
+                "fr": Object {
+                  "long_description": "### Photos
+
+Gestionnaire de photos pour Cozy v3 :tada:",
+                  "short_description": "Gestionnaire de photos pour Cozy v3",
+                },
+              },
+              "name": "Photos",
+              "name_prefix": "Cozy",
+              "permissions": Object {
+                "albums": Object {
+                  "description": "Required to manage photos albums",
+                  "methods": Array [
+                    "GET",
+                    "POST",
+                    "PUT",
+                  ],
+                  "type": "io.cozy.photos.albums",
+                },
+                "apps": Object {
+                  "description": "Required by the cozy-bar to display the icons of the apps",
+                  "type": "io.cozy.apps",
+                  "verbs": Array [
+                    "GET",
+                  ],
+                },
+                "contacts": Object {
+                  "description": "Required to to share photos with your contacts",
+                  "methods": Array [
+                    "GET",
+                    "POST",
+                  ],
+                  "type": "io.cozy.contacts",
+                },
+                "files": Object {
+                  "description": "Required for photo access",
+                  "methods": Array [
+                    "GET",
+                    "POST",
+                    "PUT",
+                  ],
+                  "type": "io.cozy.files",
+                },
+                "settings": Object {
+                  "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
+                  "type": "io.cozy.settings",
+                  "verbs": Array [
+                    "GET",
+                  ],
+                },
+              },
+              "platforms": Array [
+                Object {
+                  "type": "ios",
+                  "url": "",
+                },
+                Object {
+                  "type": "linux",
+                  "url": "",
+                },
+                Object {
+                  "type": "android",
+                  "url": "https://mock.app",
+                },
+              ],
+              "routes": Object {
+                "/": Object {
+                  "folder": "/",
+                  "index": "index.html",
+                  "public": false,
+                },
+                "/public": Object {
+                  "folder": "/public",
+                  "index": "index.html",
+                  "public": true,
+                },
+              },
+              "short_description": "Photos manager for Cozy v3",
+              "slug": "photos",
+              "source": "registry://photos/stable",
+              "type": "webapp",
+              "version": "3.0.0",
+            },
+            "slug": "photos",
+            "type": "webapp",
+            "version": "3.0.0",
+          }
+        }
+      />
+    </AccordionItem>
+  </Accordion>
+</div>
+`;

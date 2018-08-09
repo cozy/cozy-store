@@ -1,0 +1,251 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LabelItem component should label item A correctly 1`] = `
+<div
+  className="sto-transparency-notice-label"
+>
+  <span
+    className="sto-transparency-notice-label-pin --A"
+  />
+  <ReactMarkdownWrapper
+    renderersOptions={
+      Object {
+        "heading": [Function],
+        "link": [Function],
+        "paragraph": [Function],
+      }
+    }
+    source="__A:__ You are technically the only one who can consult the data of this service, even the administrators of your Cozy have no way to access it."
+  />
+</div>
+`;
+
+exports[`LabelItem component should label item B correctly 1`] = `
+<div
+  className="sto-transparency-notice-label"
+>
+  <span
+    className="sto-transparency-notice-label-pin --B"
+  />
+  <ReactMarkdownWrapper
+    renderersOptions={
+      Object {
+        "heading": [Function],
+        "link": [Function],
+        "paragraph": [Function],
+      }
+    }
+    source="__B:__ This service is developed by your hosting provider Cozy Cloud, which undertakes that no data will be shared / transmitted to a third party."
+  />
+</div>
+`;
+
+exports[`LabelItem component should label item C correctly 1`] = `
+<div
+  className="sto-transparency-notice-label"
+>
+  <span
+    className="sto-transparency-notice-label-pin --C"
+  />
+  <ReactMarkdownWrapper
+    renderersOptions={
+      Object {
+        "heading": [Function],
+        "link": [Function],
+        "paragraph": [Function],
+      }
+    }
+    source="__C:__ No data will come out of your Cozy, the developer of this service is committed and can be auditable anytime."
+  />
+</div>
+`;
+
+exports[`LabelItem component should label item D correctly 1`] = `
+<div
+  className="sto-transparency-notice-label"
+>
+  <span
+    className="sto-transparency-notice-label-pin --D"
+  />
+  <ReactMarkdownWrapper
+    renderersOptions={
+      Object {
+        "heading": [Function],
+        "link": [Function],
+        "paragraph": [Function],
+      }
+    }
+    source="__D:__ Some data are shared but only [to provide you this service.](#)"
+  />
+</div>
+`;
+
+exports[`LabelItem component should label item E correctly 1`] = `
+<div
+  className="sto-transparency-notice-label"
+>
+  <span
+    className="sto-transparency-notice-label-pin --E"
+  />
+  <ReactMarkdownWrapper
+    renderersOptions={
+      Object {
+        "heading": [Function],
+        "link": [Function],
+        "paragraph": [Function],
+      }
+    }
+    source="__E:__ No personal data will be used for purposes other than directly providing this service, [its developer has contractually committed](#) to Cozy Cloud. "
+  />
+</div>
+`;
+
+exports[`LabelItem component should label item F correctly 1`] = `
+<div
+  className="sto-transparency-notice-label"
+>
+  <span
+    className="sto-transparency-notice-label-pin --F"
+  />
+  <ReactMarkdownWrapper
+    renderersOptions={
+      Object {
+        "heading": [Function],
+        "link": [Function],
+        "paragraph": [Function],
+      }
+    }
+    source="__F:__ The developer of this application asks you under your consent to provide some data from your Cozy in exchange for its service."
+  />
+</div>
+`;
+
+exports[`TransparencyModal component should be rendered correctly 1`] = `
+<Unknown
+  className="sto-transparency-notice-modal"
+  closable={false}
+  mobileFullscreen={true}
+  overflowHidden={false}
+  primaryType="regular"
+  secondaryType="secondary"
+  size="small"
+  spacing="small"
+>
+  <ModalHeader
+    className="sto-transparency-notice-header"
+  >
+    <button
+      className="sto-no-styles-button"
+      onClick={[Function]}
+      tabIndex="1"
+    >
+      <Icon
+        height="24px"
+        icon="test-file-stub"
+        spin={false}
+        width="24px"
+      />
+    </button>
+    <h2
+      className="u-title-h2"
+    >
+      Data Access Index
+    </h2>
+  </ModalHeader>
+  <ModalContent
+    className="sto-transparency-notice"
+  >
+    <p
+      className="sto-transparency-notice-desc"
+    >
+      Cozy Cloud scans all the applications and services in its store; you know what level of trust you can place in the services.
+    </p>
+    <div
+      className="sto-transparency-notice-illu"
+    >
+      <Unknown
+        ellipsis={false}
+        tag="div"
+      >
+        Data access = 0
+      </Unknown>
+      <img
+        className="sto-transparency-notice-image"
+        src="test-file-stub"
+      />
+      <Unknown
+        ellipsis={false}
+        tag="div"
+      >
+        Data access = high level
+      </Unknown>
+    </div>
+    <Label
+      className="sto-transparency-notice-definition"
+      error={false}
+    >
+      Definition
+    </Label>
+    <Unknown
+      className="sto-transparency-notice-subtitle"
+      ellipsis={false}
+      tag="div"
+    >
+      No data will come out of your Cozy
+    </Unknown>
+    <LabelItem
+      label="A"
+      t={[Function]}
+    />
+    <LabelItem
+      label="B"
+      t={[Function]}
+    />
+    <LabelItem
+      label="C"
+      t={[Function]}
+    />
+    <Unknown
+      className="sto-transparency-notice-subtitle"
+      ellipsis={false}
+      tag="div"
+    >
+      Shared with Cozy Cloud and its partners
+    </Unknown>
+    <LabelItem
+      label="D"
+      t={[Function]}
+    />
+    <Unknown
+      className="sto-transparency-notice-subtitle"
+      ellipsis={false}
+      tag="div"
+    >
+      To partners and third parties
+    </Unknown>
+    <LabelItem
+      label="E"
+      t={[Function]}
+    />
+    <LabelItem
+      label="F"
+      t={[Function]}
+    />
+    <DefaultButton
+      className="sto-transparency-notice-more-button"
+      href="#"
+      icon="openwith"
+      label="Learn more about the Data Access Index "
+      subtle={true}
+    />
+  </ModalContent>
+</Unknown>
+`;
+
+exports[`mdParseParagraphs function wrap paragraphs correctly 1`] = `
+<p
+  className="sto-transparency-notice-text"
+>
+  A text wrapped in a p element
+</p>
+`;
