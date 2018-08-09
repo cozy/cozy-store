@@ -6,6 +6,7 @@ import { SubTitle } from 'cozy-ui/react/Text'
 
 import { withRouter } from 'react-router-dom'
 import TransparencyLabel from './TransparencyLabel'
+import TransparencyModal from './TransparencyModal'
 import AnimatedModalHeader from 'ducks/components/AnimatedModalHeader'
 
 export class PermissionsModal extends Component {
@@ -18,13 +19,16 @@ export class PermissionsModal extends Component {
     }
   }
 
-  render(props) {
-    const { t, app } = props
+  render() {
+    const { t, app, match, location } = this.props
     // this part must not be wrapped in a component
     // so we get the content using it as a function
     const animatedHeader = AnimatedModalHeader({
       app
     })
+    if (!match.isExact && location.pathname === `${match.url}/transparency`) {
+      return <TransparencyModal />
+    }
     return (
       <Modal secondaryAction={() => this.gotoParent()} mobileFullscreen>
         <ModalContent>

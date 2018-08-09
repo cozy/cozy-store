@@ -7,15 +7,16 @@ import getChannel from 'lib/getChannelFromSource'
 
 import InstallModalContent from './InstallModalContent'
 import InstallModalFooter from './InstallModalFooter'
+import TransparencyModal from '../TransparencyModal'
 
 export class Install extends Component {
   constructor(props) {
     super(props)
-    this.gotoParent = this.gotoParent.bind(this)
     this.state = {
       previousChannel: props.channel ? getChannel(props.app.source) : null,
       isCanceling: false
     }
+    this.gotoParent = this.gotoParent.bind(this)
     if (typeof props.fetchApp === 'function') props.fetchApp(props.channel)
   }
 
@@ -34,16 +35,27 @@ export class Install extends Component {
     }
 
     if (app && app.slug) {
-      history.push(`${parent}/${app.slug}`)
+      history.replace(`${parent}/${app.slug}`)
     } else {
-      history.push(parent)
+      history.replace(parent)
     }
   }
 
   render() {
-    const { app, installApp, isInstalling, channel, isAppFetching } = this.props
+    const {
+      app,
+      installApp,
+      isInstalling,
+      channel,
+      isAppFetching,
+      match,
+      location
+    } = this.props
     const { isCanceling } = this.state
     if (!app) return null
+    if (!match.isExact && location.pathname === `${match.url}/transparency`) {
+      return <TransparencyModal />
+    }
     return (
       <div className="sto-modal--install">
         <Modal dismissAction={this.gotoParent} mobileFullscreen>

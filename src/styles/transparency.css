@@ -1,0 +1,131 @@
+.sto-transparency-label-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.sto-transparency-label {
+  position: relative;
+  max-width: 18rem;
+  border-radius: 3px;
+  border: solid 1px var(--silver);
+  padding: .5rem;
+  margin: 1rem 0 .5rem 0;
+  text-align: left;
+}
+
+.sto-transparency-label-image {
+  padding: .25rem 2rem 0 0;
+}
+
+.sto-transparency-label-desc > p {
+  font-size: .875rem;
+  line-height: 1.5;
+  color: var(--charcoalGrey);
+  margin-bottom: 0;
+}
+
+.sto-transparency-label-help {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  right: .5rem;
+  fill: var(--slateGrey);
+}
+
+/* NOTICE */
+
+.sto-transparency-notice-modal .sto-transparency-notice-header {
+  display: flex;
+  flex-direction: row;
+  padding-top: .5rem !important;
+  align-items: center;
+}
+
+.sto-transparency-notice-header .u-title-h2 {
+  margin-left: .5rem;
+}
+
+.sto-transparency-notice, .sto-transparency-notice .sto-transparency-notice-subtitle {
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+.sto-transparency-notice .sto-transparency-notice-definition {
+  padding: 0;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.sto-transparency-notice-desc {
+  margin-top: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.sto-transparency-notice-illu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sto-transparency-notice .sto-transparency-notice-subtitle {
+  margin-top: .5rem;
+}
+
+.sto-transparency-notice-definition + .sto-transparency-notice-subtitle {
+  margin-top: .2rem;
+}
+
+.sto-transparency-notice-text {
+  margin: 0;
+}
+
+.sto-transparency-notice-image {
+  height: 8rem;
+}
+
+.sto-transparency-notice-label {
+  display: flex;
+  flex-direction: row;
+  margin-top: .1rem;
+}
+
+.sto-transparency-notice-label-pin {
+  width: .25rem;
+  height: 1rem;
+  border-radius: .25rem;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-top: .2rem;
+  margin-right: .25rem;
+  background-color: black;
+}
+
+.--A {
+  background-color: #0045a6;
+}
+
+.--B {
+  background-color: var(--dodgerBlue);
+}
+
+.--C {
+  background-color: #72a9f2;
+}
+
+.--D {
+  background-color: #a2c5f2;
+}
+
+.--E {
+  background-color: #bdd4f2;
+}
+
+.--F {
+  background-color: #dfe7f2;
+}
+
+.sto-transparency-notice .sto-transparency-notice-more-button {
+  margin-bottom: 1.5rem;
+}

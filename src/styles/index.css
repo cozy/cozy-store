@@ -1,10 +1,12 @@
 @import '../../node_modules/cozy-ui/dist/cozy-ui.min.css';
 
+@import './base.css';
 @import './application.css';
 @import './sidebar.css';
 @import './viewTitle.css';
 @import './empty.css';
 @import './install.css';
+@import './transparency.css';
 @import './intents.css';
 @import './modal.css';
 @import './permissions.css';
@@ -13,16 +15,3 @@
 @import './smallAppItem.css';
 @import './loading.css';
 @import './appVote.css';
-
-.blurry {
-    opacity: .7;
-    filter: blur(2px);
-}
-
-.sto-view-loading {
-    top: 45vh!important;
-}
-
-.sto-link-text {
-  color: var(--dodgerBlue)
-}
