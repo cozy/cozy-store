@@ -2062,9 +2062,9 @@ cozy-client-js@^0.3.19:
   version "0.3.21"
   resolved "https://registry.yarnpkg.com/cozy-client-js/-/cozy-client-js-0.3.21.tgz#d27d0288077ce95139333c41dfb537b8584ff254"
 
-cozy-realtime@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/cozy-realtime/-/cozy-realtime-1.1.1.tgz#bd61e972ffafb92147ba5ff64834f8e0e12520bb"
+cozy-realtime@1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/cozy-realtime/-/cozy-realtime-1.1.2.tgz#c5385f05fddcb6da026691bbd0d2afad3a7ce95a"
 
 cozy-scripts@0.10.3:
   version "0.10.3"
