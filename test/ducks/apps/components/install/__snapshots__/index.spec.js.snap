@@ -1,0 +1,423 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Install component should be rendered correctly if this is the transparency modal 1`] = `<withRouter(Wrapper) />`;
+
+exports[`Install component should be rendered correctly with provided app 1`] = `
+<div
+  className="sto-modal--install"
+>
+  <Unknown
+    closable={true}
+    dismissAction={[Function]}
+    mobileFullscreen={true}
+    overflowHidden={false}
+    primaryType="regular"
+    secondaryType="secondary"
+    size="small"
+  >
+    <Wrapper
+      app={
+        Object {
+          "categories": Array [
+            "cozy",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+            "url": "https://cozy.io",
+          },
+          "editor": "Cozy",
+          "icon": "https://mockcozy.cc/registry/photos/icon",
+          "installed": undefined,
+          "langs": Array [
+            "en",
+            "fr",
+          ],
+          "licence": "AGPL-3.0",
+          "locales": Object {
+            "en": Object {
+              "changes": "### NEW!!!
+
+ Now on the cozy-store :tada",
+              "long_description": "### Features
+
+Enjoy features to grab your data in you Cozy :tada:",
+              "short_description": "Gestionnaire de photos pour Cozy v3",
+            },
+            "fr": Object {
+              "long_description": "### Photos
+
+Gestionnaire de photos pour Cozy v3 :tada:",
+              "short_description": "Gestionnaire de photos pour Cozy v3",
+            },
+          },
+          "name": "Photos",
+          "name_prefix": "Cozy",
+          "permissions": Object {
+            "albums": Object {
+              "description": "Required to manage photos albums",
+              "methods": Array [
+                "GET",
+                "POST",
+                "PUT",
+              ],
+              "type": "io.cozy.photos.albums",
+            },
+            "apps": Object {
+              "description": "Required by the cozy-bar to display the icons of the apps",
+              "type": "io.cozy.apps",
+              "verbs": Array [
+                "GET",
+              ],
+            },
+            "contacts": Object {
+              "description": "Required to to share photos with your contacts",
+              "methods": Array [
+                "GET",
+                "POST",
+              ],
+              "type": "io.cozy.contacts",
+            },
+            "files": Object {
+              "description": "Required for photo access",
+              "methods": Array [
+                "GET",
+                "POST",
+                "PUT",
+              ],
+              "type": "io.cozy.files",
+            },
+            "settings": Object {
+              "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
+              "type": "io.cozy.settings",
+              "verbs": Array [
+                "GET",
+              ],
+            },
+          },
+          "platforms": Array [
+            Object {
+              "type": "ios",
+              "url": "",
+            },
+            Object {
+              "type": "linux",
+              "url": "",
+            },
+            Object {
+              "type": "android",
+              "url": "https://mock.app",
+            },
+          ],
+          "related": undefined,
+          "routes": Object {
+            "/": Object {
+              "folder": "/",
+              "index": "index.html",
+              "public": false,
+            },
+            "/public": Object {
+              "folder": "/public",
+              "index": "index.html",
+              "public": true,
+            },
+          },
+          "short_description": "Photos manager for Cozy v3",
+          "slug": "photos",
+          "source": "registry://photos/stable",
+          "type": "webapp",
+          "version": "3.0.0",
+        }
+      }
+      isCanceling={false}
+      isFetching={undefined}
+    />
+    <Wrapper
+      app={
+        Object {
+          "categories": Array [
+            "cozy",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+            "url": "https://cozy.io",
+          },
+          "editor": "Cozy",
+          "icon": "https://mockcozy.cc/registry/photos/icon",
+          "installed": undefined,
+          "langs": Array [
+            "en",
+            "fr",
+          ],
+          "licence": "AGPL-3.0",
+          "locales": Object {
+            "en": Object {
+              "changes": "### NEW!!!
+
+ Now on the cozy-store :tada",
+              "long_description": "### Features
+
+Enjoy features to grab your data in you Cozy :tada:",
+              "short_description": "Gestionnaire de photos pour Cozy v3",
+            },
+            "fr": Object {
+              "long_description": "### Photos
+
+Gestionnaire de photos pour Cozy v3 :tada:",
+              "short_description": "Gestionnaire de photos pour Cozy v3",
+            },
+          },
+          "name": "Photos",
+          "name_prefix": "Cozy",
+          "permissions": Object {
+            "albums": Object {
+              "description": "Required to manage photos albums",
+              "methods": Array [
+                "GET",
+                "POST",
+                "PUT",
+              ],
+              "type": "io.cozy.photos.albums",
+            },
+            "apps": Object {
+              "description": "Required by the cozy-bar to display the icons of the apps",
+              "type": "io.cozy.apps",
+              "verbs": Array [
+                "GET",
+              ],
+            },
+            "contacts": Object {
+              "description": "Required to to share photos with your contacts",
+              "methods": Array [
+                "GET",
+                "POST",
+              ],
+              "type": "io.cozy.contacts",
+            },
+            "files": Object {
+              "description": "Required for photo access",
+              "methods": Array [
+                "GET",
+                "POST",
+                "PUT",
+              ],
+              "type": "io.cozy.files",
+            },
+            "settings": Object {
+              "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
+              "type": "io.cozy.settings",
+              "verbs": Array [
+                "GET",
+              ],
+            },
+          },
+          "platforms": Array [
+            Object {
+              "type": "ios",
+              "url": "",
+            },
+            Object {
+              "type": "linux",
+              "url": "",
+            },
+            Object {
+              "type": "android",
+              "url": "https://mock.app",
+            },
+          ],
+          "related": undefined,
+          "routes": Object {
+            "/": Object {
+              "folder": "/",
+              "index": "index.html",
+              "public": false,
+            },
+            "/public": Object {
+              "folder": "/public",
+              "index": "index.html",
+              "public": true,
+            },
+          },
+          "short_description": "Photos manager for Cozy v3",
+          "slug": "photos",
+          "source": "registry://photos/stable",
+          "type": "webapp",
+          "version": "3.0.0",
+        }
+      }
+      channel={undefined}
+      installApp={undefined}
+      isCanceling={false}
+      isFetching={undefined}
+      isInstalling={undefined}
+    />
+  </Unknown>
+</div>
+`;
+
+exports[`Install component should not break the permissions part if no permissions property found in manifest 1`] = `
+<div
+  className="sto-modal--install"
+>
+  <Unknown
+    closable={true}
+    dismissAction={[Function]}
+    mobileFullscreen={true}
+    overflowHidden={false}
+    primaryType="regular"
+    secondaryType="secondary"
+    size="small"
+  >
+    <Wrapper
+      app={
+        Object {
+          "categories": Array [
+            "cozy",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+            "url": "https://cozy.io",
+          },
+          "editor": "Cozy",
+          "icon": "https://mockcozy.cc/registry/photos/icon",
+          "installed": null,
+          "langs": Array [
+            "en",
+            "fr",
+          ],
+          "licence": "AGPL-3.0",
+          "locales": Object {
+            "en": Object {
+              "changes": "### NEW!!!
+
+ Now on the cozy-store :tada",
+              "long_description": "### Features
+
+Enjoy features to grab your data in you Cozy :tada:",
+              "short_description": "Gestionnaire de photos pour Cozy v3",
+            },
+            "fr": Object {
+              "long_description": "### Photos
+
+Gestionnaire de photos pour Cozy v3 :tada:",
+              "short_description": "Gestionnaire de photos pour Cozy v3",
+            },
+          },
+          "name": "Photos",
+          "name_prefix": "Cozy",
+          "platforms": Array [
+            Object {
+              "type": "ios",
+              "url": "",
+            },
+            Object {
+              "type": "linux",
+              "url": "",
+            },
+            Object {
+              "type": "android",
+              "url": "https://mock.app",
+            },
+          ],
+          "related": null,
+          "routes": Object {
+            "/": Object {
+              "folder": "/",
+              "index": "index.html",
+              "public": false,
+            },
+            "/public": Object {
+              "folder": "/public",
+              "index": "index.html",
+              "public": true,
+            },
+          },
+          "short_description": "Photos manager for Cozy v3",
+          "slug": "photos",
+          "source": "registry://photos/stable",
+          "type": "webapp",
+          "version": "3.0.0",
+        }
+      }
+      isCanceling={false}
+      isFetching={undefined}
+    />
+    <Wrapper
+      app={
+        Object {
+          "categories": Array [
+            "cozy",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+            "url": "https://cozy.io",
+          },
+          "editor": "Cozy",
+          "icon": "https://mockcozy.cc/registry/photos/icon",
+          "installed": null,
+          "langs": Array [
+            "en",
+            "fr",
+          ],
+          "licence": "AGPL-3.0",
+          "locales": Object {
+            "en": Object {
+              "changes": "### NEW!!!
+
+ Now on the cozy-store :tada",
+              "long_description": "### Features
+
+Enjoy features to grab your data in you Cozy :tada:",
+              "short_description": "Gestionnaire de photos pour Cozy v3",
+            },
+            "fr": Object {
+              "long_description": "### Photos
+
+Gestionnaire de photos pour Cozy v3 :tada:",
+              "short_description": "Gestionnaire de photos pour Cozy v3",
+            },
+          },
+          "name": "Photos",
+          "name_prefix": "Cozy",
+          "platforms": Array [
+            Object {
+              "type": "ios",
+              "url": "",
+            },
+            Object {
+              "type": "linux",
+              "url": "",
+            },
+            Object {
+              "type": "android",
+              "url": "https://mock.app",
+            },
+          ],
+          "related": null,
+          "routes": Object {
+            "/": Object {
+              "folder": "/",
+              "index": "index.html",
+              "public": false,
+            },
+            "/public": Object {
+              "folder": "/public",
+              "index": "index.html",
+              "public": true,
+            },
+          },
+          "short_description": "Photos manager for Cozy v3",
+          "slug": "photos",
+          "source": "registry://photos/stable",
+          "type": "webapp",
+          "version": "3.0.0",
+        }
+      }
+      channel={undefined}
+      installApp={undefined}
+      isCanceling={false}
+      isFetching={undefined}
+      isInstalling={undefined}
+    />
+  </Unknown>
+</div>
+`;

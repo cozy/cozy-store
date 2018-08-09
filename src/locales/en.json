@@ -101,6 +101,26 @@
     "F": {
       "description": "__Index F:__ The developer of this application asks you under your consent to provide some data from your Cozy in exchange for its service.",
       "details": "Please consult and validate the Terms of Service %{vendorLink} developed by %{appName} __[here](%{vendorLink})__"
+    },
+    "notice": {
+      "title": "Data Access Index",
+      "desc": "Cozy Cloud scans all the applications and services in its store; you know what level of trust you can place in the services.",
+      "definition": "Definition",
+      "subtitles": {
+        "no_out": "No data will come out of your Cozy",
+        "cozy": "Shared with Cozy Cloud and its partners",
+        "out": "To partners and third parties"
+      },
+      "labels": {
+        "A": "__A:__ You are technically the only one who can consult the data of this service, even the administrators of your Cozy have no way to access it.",
+        "B": "__B:__ This service is developed by your hosting provider Cozy Cloud, which undertakes that no data will be shared / transmitted to a third party.",
+        "C": "__C:__ No data will come out of your Cozy, the developer of this service is committed and can be auditable anytime.",
+        "D": "__D:__ Some data are shared but only [to provide you this service.](#)",
+        "E": "__E:__ No personal data will be used for purposes other than directly providing this service, [its developer has contractually committed](#) to Cozy Cloud. ",
+        "F": "__F:__ The developer of this application asks you under your consent to provide some data from your Cozy in exchange for its service."
+      },
+      "link_text": "Learn more about the Data Access Index ",
+      "link": "#"
     }
   },
 
