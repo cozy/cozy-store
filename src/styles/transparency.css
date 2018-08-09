@@ -63,6 +63,12 @@
   line-height: 1.5;
 }
 
+.sto-transparency-notice-illu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .sto-transparency-notice .sto-transparency-notice-subtitle {
   margin-top: .5rem;
 }
