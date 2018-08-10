@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Discover component should be rendered correctly with apps 1`] = `
-<withRouter(ScrollToTop)
-  target={undefined}
->
+<withRouter(ScrollToTop)>
   <Content
     className="sto-discover"
   >
@@ -505,24 +503,15 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
           },
         ]
       }
-      fetchLatestApp={undefined}
-      installApp={undefined}
-      isAppFetching={undefined}
       isFetching={false}
-      isInstalling={undefined}
-      isUninstalling={undefined}
       parent="discover"
-      uninstallApp={undefined}
-      updateApp={undefined}
     />
   </Content>
 </withRouter(ScrollToTop)>
 `;
 
 exports[`Discover component should be rendered correctly with apps and URL search params 1`] = `
-<withRouter(ScrollToTop)
-  target={undefined}
->
+<withRouter(ScrollToTop)>
   <Content
     className="sto-discover"
   >
@@ -854,24 +843,15 @@ exports[`Discover component should be rendered correctly with apps and URL searc
           },
         ]
       }
-      fetchLatestApp={undefined}
-      installApp={undefined}
-      isAppFetching={undefined}
       isFetching={false}
-      isInstalling={undefined}
-      isUninstalling={undefined}
       parent="discover"
-      uninstallApp={undefined}
-      updateApp={undefined}
     />
   </Content>
 </withRouter(ScrollToTop)>
 `;
 
 exports[`Discover component should display error from props correctly 1`] = `
-<withRouter(ScrollToTop)
-  target={undefined}
->
+<withRouter(ScrollToTop)>
   <Content
     className="sto-discover"
   >
@@ -893,24 +873,15 @@ exports[`Discover component should display error from props correctly 1`] = `
     <withRouter(Wrapper)
       actionError={null}
       apps={Array []}
-      fetchLatestApp={undefined}
-      installApp={undefined}
-      isAppFetching={undefined}
       isFetching={false}
-      isInstalling={undefined}
-      isUninstalling={undefined}
       parent="discover"
-      uninstallApp={undefined}
-      updateApp={undefined}
     />
   </Content>
 </withRouter(ScrollToTop)>
 `;
 
 exports[`Discover component should not render apps list if !match.isExact 1`] = `
-<withRouter(ScrollToTop)
-  target={undefined}
->
+<withRouter(ScrollToTop)>
   <Content
     className="sto-discover"
   >
@@ -1077,24 +1048,15 @@ exports[`Discover component should not render apps list if !match.isExact 1`] = 
           },
         ]
       }
-      fetchLatestApp={undefined}
-      installApp={undefined}
-      isAppFetching={undefined}
       isFetching={false}
-      isInstalling={undefined}
-      isUninstalling={undefined}
       parent="discover"
-      uninstallApp={undefined}
-      updateApp={undefined}
     />
   </Content>
 </withRouter(ScrollToTop)>
 `;
 
 exports[`Discover component should render correctly a spinner if apps is fetching 1`] = `
-<withRouter(ScrollToTop)
-  target={undefined}
->
+<withRouter(ScrollToTop)>
   <Content
     className="sto-discover"
   >
@@ -1106,15 +1068,8 @@ exports[`Discover component should render correctly a spinner if apps is fetchin
     <withRouter(Wrapper)
       actionError={null}
       apps={Array []}
-      fetchLatestApp={undefined}
-      installApp={undefined}
-      isAppFetching={undefined}
       isFetching={true}
-      isInstalling={undefined}
-      isUninstalling={undefined}
       parent="discover"
-      uninstallApp={undefined}
-      updateApp={undefined}
     />
     <Aware />
   </Content>
@@ -1122,9 +1077,7 @@ exports[`Discover component should render correctly a spinner if apps is fetchin
 `;
 
 exports[`Discover component should use BarCenter from cozy-bar in mobile view only 1`] = `
-<withRouter(ScrollToTop)
-  target={undefined}
->
+<withRouter(ScrollToTop)>
   <Content
     className="sto-discover"
   >
@@ -1633,15 +1586,8 @@ exports[`Discover component should use BarCenter from cozy-bar in mobile view on
           },
         ]
       }
-      fetchLatestApp={undefined}
-      installApp={undefined}
-      isAppFetching={undefined}
       isFetching={false}
-      isInstalling={undefined}
-      isUninstalling={undefined}
       parent="discover"
-      uninstallApp={undefined}
-      updateApp={undefined}
     />
   </Content>
 </withRouter(ScrollToTop)>

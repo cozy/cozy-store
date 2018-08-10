@@ -16,16 +16,13 @@ exports[`ApplicationPage component should be rendered correctly with app infos f
     <Wrapper
       description="Gestionnaire de photos pour Cozy v3"
       icon="https://mockcozy.cc/registry/photos/icon"
-      iconToLoad={undefined}
       installed={false}
       installedAppLink={null}
-      maintenance={undefined}
       name="Photos"
       namePrefix="Cozy"
       parent="/myapps"
       slug="photos"
       type="webapp"
-      uninstallable={undefined}
     />
     <withRouter(Wrapper)
       app={
@@ -180,16 +177,12 @@ exports[`ApplicationPage component should be rendered correctly with app with sc
     <Wrapper
       description="Gestionnaire de photos pour Cozy v3"
       icon="https://mockcozy.cc/registry/photos/icon"
-      iconToLoad={undefined}
       installed={false}
-      installedAppLink={undefined}
-      maintenance={undefined}
       name="Photos"
       namePrefix="Cozy"
       parent="/myapps"
       slug="photos"
       type="webapp"
-      uninstallable={undefined}
     />
     <Wrapper
       images={
@@ -355,16 +348,12 @@ exports[`ApplicationPage component should be rendered correctly with konnector i
     <Wrapper
       description="A konnector for trinlane"
       icon="https://mockcozy.cc/registry/konnector-trinlane/icon"
-      iconToLoad={undefined}
       installed={false}
-      installedAppLink={undefined}
-      maintenance={undefined}
       name="Trinlane"
       namePrefix=""
       parent="/myapps"
       slug="konnector-trinlane"
       type="konnector"
-      uninstallable={undefined}
     />
     <withRouter(Wrapper)
       app={
@@ -467,7 +456,6 @@ exports[`ApplicationPage component should be rendered correctly with konnector i
       }
       changes=""
       description=""
-      mobileApps={undefined}
       parent="/myapps"
     />
   </div>
@@ -490,16 +478,13 @@ exports[`ApplicationPage component should be rendered correctly with provided in
     <Wrapper
       description="Gestionnaire de photos pour Cozy v3"
       icon="https://mockcozy.cc/registry/photos/icon"
-      iconToLoad={undefined}
       installed={true}
       installedAppLink="https://photos.mockcozy.cc"
-      maintenance={undefined}
       name="Photos"
       namePrefix="Cozy"
       parent="/myapps"
       slug="photos"
       type="webapp"
-      uninstallable={undefined}
     />
     <withRouter(Wrapper)
       app={
@@ -654,16 +639,12 @@ exports[`ApplicationPage component should be rendered correctly with provided in
     <Wrapper
       description="A konnector for trinlane"
       icon="https://mockcozy.cc/registry/konnector-trinlane/icon"
-      iconToLoad={undefined}
       installed={true}
-      installedAppLink={undefined}
-      maintenance={undefined}
       name="Trinlane"
       namePrefix=""
       parent="/myapps"
       slug="konnector-trinlane"
       type="konnector"
-      uninstallable={undefined}
     />
     <withRouter(Wrapper)
       app={
@@ -766,7 +747,6 @@ exports[`ApplicationPage component should be rendered correctly with provided in
       }
       changes=""
       description=""
-      mobileApps={undefined}
       parent="/myapps"
     />
   </div>
@@ -789,16 +769,12 @@ exports[`ApplicationPage component should be rendered correctly without app desc
     <Wrapper
       description=""
       icon="https://mockcozy.cc/registry/konnector-trinlane/icon"
-      iconToLoad={undefined}
       installed={false}
-      installedAppLink={undefined}
-      maintenance={undefined}
       name="Trinlane"
       namePrefix=""
       parent="/myapps"
       slug="konnector-trinlane"
       type="konnector"
-      uninstallable={undefined}
     />
     <withRouter(Wrapper)
       app={
@@ -900,7 +876,6 @@ exports[`ApplicationPage component should be rendered correctly without app desc
       }
       changes=""
       description=""
-      mobileApps={undefined}
       parent="/myapps"
     />
   </div>
@@ -954,16 +929,13 @@ exports[`ApplicationPage component should render correctly on mobile with the sc
     <Wrapper
       description="Gestionnaire de photos pour Cozy v3"
       icon="https://mockcozy.cc/registry/photos/icon"
-      iconToLoad={undefined}
       installed={false}
       installedAppLink={null}
-      maintenance={undefined}
       name="Photos"
       namePrefix="Cozy"
       parent="/myapps"
       slug="photos"
       type="webapp"
-      uninstallable={undefined}
     />
     <withRouter(Wrapper)
       app={
@@ -1129,16 +1101,13 @@ exports[`ApplicationPage component should render correctly on mobile with the sc
     <Wrapper
       description="Gestionnaire de photos pour Cozy v3"
       icon="https://mockcozy.cc/registry/photos/icon"
-      iconToLoad={undefined}
       installed={false}
       installedAppLink={null}
-      maintenance={undefined}
       name="Photos"
       namePrefix="Cozy"
       parent="/myapps"
       slug="photos"
       type="webapp"
-      uninstallable={undefined}
     />
     <withRouter(Wrapper)
       app={
