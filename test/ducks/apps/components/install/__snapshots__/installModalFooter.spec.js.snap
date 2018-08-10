@@ -6,9 +6,7 @@ exports[`InstallModalFooter modal component should be rendered correctly 1`] = `
     className="sto-install-controls"
   >
     <button
-      aria-busy={undefined}
       className="c-btn c-btn--regular c-btn--download"
-      disabled={undefined}
       onClick={[Function]}
       role="button"
     >
@@ -39,9 +37,7 @@ exports[`InstallModalFooter modal component should display error if installError
     className="sto-install-controls"
   >
     <button
-      aria-busy={undefined}
       className="c-btn c-btn--regular c-btn--download"
-      disabled={undefined}
       onClick={[Function]}
       role="button"
     >
@@ -83,7 +79,6 @@ exports[`InstallModalFooter modal component should have install button busy if i
     className="sto-install-controls"
   >
     <button
-      aria-busy={undefined}
       className="c-btn c-btn--regular c-btn--download"
       disabled={true}
       onClick={[Function]}

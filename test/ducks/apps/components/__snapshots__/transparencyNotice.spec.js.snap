@@ -163,22 +163,22 @@ exports[`TransparencyModal component should be rendered correctly 1`] = `
     <div
       className="sto-transparency-notice-illu"
     >
-      <Unknown
+      <Caption
         ellipsis={false}
         tag="div"
       >
         Data access = 0
-      </Unknown>
+      </Caption>
       <img
         className="sto-transparency-notice-image"
         src="test-file-stub"
       />
-      <Unknown
+      <Caption
         ellipsis={false}
         tag="div"
       >
         Data access = high level
-      </Unknown>
+      </Caption>
     </div>
     <Label
       className="sto-transparency-notice-definition"
@@ -186,13 +186,13 @@ exports[`TransparencyModal component should be rendered correctly 1`] = `
     >
       Definition
     </Label>
-    <Unknown
+    <Bold
       className="sto-transparency-notice-subtitle"
       ellipsis={false}
       tag="div"
     >
       No data will come out of your Cozy
-    </Unknown>
+    </Bold>
     <LabelItem
       label="A"
       t={[Function]}
@@ -205,24 +205,24 @@ exports[`TransparencyModal component should be rendered correctly 1`] = `
       label="C"
       t={[Function]}
     />
-    <Unknown
+    <Bold
       className="sto-transparency-notice-subtitle"
       ellipsis={false}
       tag="div"
     >
       Shared with Cozy Cloud and its partners
-    </Unknown>
+    </Bold>
     <LabelItem
       label="D"
       t={[Function]}
     />
-    <Unknown
+    <Bold
       className="sto-transparency-notice-subtitle"
       ellipsis={false}
       tag="div"
     >
       To partners and third parties
-    </Unknown>
+    </Bold>
     <LabelItem
       label="E"
       t={[Function]}

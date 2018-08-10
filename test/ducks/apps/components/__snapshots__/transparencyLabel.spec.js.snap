@@ -15,22 +15,22 @@ exports[`TransparencyLabel component should be rendered correctly 1`] = `
         icon="help"
         spin={false}
       />
-      <Unknown
+      <Caption
         ellipsis={false}
         tag="div"
       >
         Data access = 0
-      </Unknown>
+      </Caption>
       <img
         className="sto-transparency-label-image"
         src="test-file-stub"
       />
-      <Unknown
+      <Caption
         ellipsis={false}
         tag="div"
       >
         Data access = high level
-      </Unknown>
+      </Caption>
       <ReactMarkdownWrapper
         className="sto-transparency-label-desc"
         source="__Index C:__ No data will come out of your Cozy, the developer of this service is committed and can be auditable anytime."

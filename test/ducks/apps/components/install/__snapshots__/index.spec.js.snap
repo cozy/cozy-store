@@ -129,7 +129,6 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         }
       }
       isCanceling={false}
-      isFetching={undefined}
     />
     <Wrapper
       app={
@@ -244,11 +243,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
           "version": "3.0.0",
         }
       }
-      channel={undefined}
-      installApp={undefined}
       isCanceling={false}
-      isFetching={undefined}
-      isInstalling={undefined}
     />
   </Unknown>
 </div>
@@ -339,7 +334,6 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         }
       }
       isCanceling={false}
-      isFetching={undefined}
     />
     <Wrapper
       app={
@@ -412,11 +406,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
           "version": "3.0.0",
         }
       }
-      channel={undefined}
-      installApp={undefined}
       isCanceling={false}
-      isFetching={undefined}
-      isInstalling={undefined}
     />
   </Unknown>
 </div>

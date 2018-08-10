@@ -30,13 +30,13 @@ exports[`InstallModalContent modal component should be rendered correctly 1`] = 
       width="56"
     />
   </AnimatedContentHeader>
-  <Unknown
+  <SubTitle
     className="sto-modal-title"
     ellipsis={false}
     tag="div"
   >
     Data access requirements
-  </Unknown>
+  </SubTitle>
   <withRouter(Wrapper)
     app={
       Object {
@@ -188,13 +188,13 @@ exports[`InstallModalContent modal component should display error if fetchError 
       width="56"
     />
   </AnimatedContentHeader>
-  <Unknown
+  <SubTitle
     className="sto-modal-title"
     ellipsis={false}
     tag="div"
   >
     Data access requirements
-  </Unknown>
+  </SubTitle>
   <withRouter(Wrapper)
     app={
       Object {
@@ -351,13 +351,13 @@ exports[`InstallModalContent modal component should have install button busy if 
       width="56"
     />
   </AnimatedContentHeader>
-  <Unknown
+  <SubTitle
     className="sto-modal-title"
     ellipsis={false}
     tag="div"
   >
     Data access requirements
-  </Unknown>
+  </SubTitle>
   <withRouter(Wrapper)
     app={
       Object {
@@ -509,13 +509,13 @@ exports[`InstallModalContent modal component should not display spinner if isFet
       width="56"
     />
   </AnimatedContentHeader>
-  <Unknown
+  <SubTitle
     className="sto-modal-title"
     ellipsis={false}
     tag="div"
   >
     Data access requirements
-  </Unknown>
+  </SubTitle>
   <withRouter(Wrapper)
     app={
       Object {
