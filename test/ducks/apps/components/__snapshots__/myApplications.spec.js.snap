@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MyApplications component should be rendered correctly if apps uninstalled 1`] = `
-<withRouter(ScrollToTop)
-  target={undefined}
->
+<withRouter(ScrollToTop)>
   <Content
     className="sto-myapps"
   >
@@ -249,8 +247,6 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
     </div>
     <withRouter(Wrapper)
       actionError={null}
-      fetchLatestApp={undefined}
-      installApp={undefined}
       installedApps={
         Array [
           Object {
@@ -365,20 +361,16 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
           },
         ]
       }
-      isAppFetching={undefined}
       isFetching={false}
       parent="myapps"
       uninstallApp={[MockFunction]}
-      updateApp={undefined}
     />
   </Content>
 </withRouter(ScrollToTop)>
 `;
 
 exports[`MyApplications component should be rendered correctly with apps and URL search params 1`] = `
-<withRouter(ScrollToTop)
-  target={undefined}
->
+<withRouter(ScrollToTop)>
   <Content
     className="sto-myapps"
   >
@@ -587,8 +579,6 @@ exports[`MyApplications component should be rendered correctly with apps and URL
     </div>
     <withRouter(Wrapper)
       actionError={null}
-      fetchLatestApp={undefined}
-      installApp={undefined}
       installedApps={
         Array [
           Object {
@@ -666,20 +656,16 @@ exports[`MyApplications component should be rendered correctly with apps and URL
           },
         ]
       }
-      isAppFetching={undefined}
       isFetching={false}
       parent="myapps"
       uninstallApp={[MockFunction]}
-      updateApp={undefined}
     />
   </Content>
 </withRouter(ScrollToTop)>
 `;
 
 exports[`MyApplications component should display error from props correctly 1`] = `
-<withRouter(ScrollToTop)
-  target={undefined}
->
+<withRouter(ScrollToTop)>
   <Content
     className="sto-myapps"
   >
@@ -699,23 +685,17 @@ exports[`MyApplications component should display error from props correctly 1`] 
     </div>
     <withRouter(Wrapper)
       actionError={null}
-      fetchLatestApp={undefined}
-      installApp={undefined}
       installedApps={Array []}
-      isAppFetching={undefined}
       isFetching={false}
       parent="myapps"
       uninstallApp={[MockFunction]}
-      updateApp={undefined}
     />
   </Content>
 </withRouter(ScrollToTop)>
 `;
 
 exports[`MyApplications component should render correctly a spinner if apps is fetching 1`] = `
-<withRouter(ScrollToTop)
-  target={undefined}
->
+<withRouter(ScrollToTop)>
   <Content
     className="sto-myapps"
   >
@@ -726,14 +706,10 @@ exports[`MyApplications component should render correctly a spinner if apps is f
     </div>
     <withRouter(Wrapper)
       actionError={null}
-      fetchLatestApp={undefined}
-      installApp={undefined}
       installedApps={Array []}
-      isAppFetching={undefined}
       isFetching={true}
       parent="myapps"
       uninstallApp={[MockFunction]}
-      updateApp={undefined}
     />
     <Aware />
   </Content>
@@ -741,16 +717,12 @@ exports[`MyApplications component should render correctly a spinner if apps is f
 `;
 
 exports[`MyApplications component should render only routing if path not exactly match /myapps 1`] = `
-<withRouter(ScrollToTop)
-  target={undefined}
->
+<withRouter(ScrollToTop)>
   <Content
     className="sto-myapps"
   >
     <withRouter(Wrapper)
       actionError={null}
-      fetchLatestApp={undefined}
-      installApp={undefined}
       installedApps={
         Array [
           Object {
@@ -865,20 +837,16 @@ exports[`MyApplications component should render only routing if path not exactly
           },
         ]
       }
-      isAppFetching={undefined}
       isFetching={false}
       parent="myapps"
       uninstallApp={[MockFunction]}
-      updateApp={undefined}
     />
   </Content>
 </withRouter(ScrollToTop)>
 `;
 
 exports[`MyApplications component should use BarCenter from cozy-bar in mobile view only 1`] = `
-<withRouter(ScrollToTop)
-  target={undefined}
->
+<withRouter(ScrollToTop)>
   <Content
     className="sto-myapps"
   >
@@ -1131,8 +1099,6 @@ exports[`MyApplications component should use BarCenter from cozy-bar in mobile v
     </div>
     <withRouter(Wrapper)
       actionError={null}
-      fetchLatestApp={undefined}
-      installApp={undefined}
       installedApps={
         Array [
           Object {
@@ -1247,11 +1213,9 @@ exports[`MyApplications component should use BarCenter from cozy-bar in mobile v
           },
         ]
       }
-      isAppFetching={undefined}
       isFetching={false}
       parent="myapps"
       uninstallApp={[MockFunction]}
-      updateApp={undefined}
     />
   </Content>
 </withRouter(ScrollToTop)>

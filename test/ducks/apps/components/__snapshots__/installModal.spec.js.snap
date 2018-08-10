@@ -43,11 +43,7 @@ exports[`InstallModal component should be rendered correctly if app found 1`] = 
           },
         }
       }
-      channel={undefined}
-      installApp={undefined}
       isCanceling={false}
-      isFetching={undefined}
-      isInstalling={undefined}
       onCancel={[Function]}
     />
   </Unknown>
@@ -97,11 +93,7 @@ exports[`InstallModal component should be rendered correctly with also app in re
           },
         }
       }
-      channel={undefined}
-      installApp={undefined}
       isCanceling={false}
-      isFetching={undefined}
-      isInstalling={undefined}
       onCancel={[Function]}
     />
   </Unknown>
@@ -151,11 +143,7 @@ exports[`InstallModal component should not break the permissions part if no perm
           },
         }
       }
-      channel={undefined}
-      installApp={undefined}
       isCanceling={false}
-      isFetching={undefined}
-      isInstalling={undefined}
       onCancel={[Function]}
     />
   </Unknown>
