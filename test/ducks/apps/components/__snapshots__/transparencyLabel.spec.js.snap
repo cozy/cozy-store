@@ -33,7 +33,7 @@ exports[`TransparencyLabel component should be rendered correctly 1`] = `
       </Caption>
       <ReactMarkdownWrapper
         className="sto-transparency-label-desc"
-        source="__Index C:__ No data will come out of your Cozy, the developer of this service is committed and can be auditable anytime."
+        source="__Index C:__ No data will come out of your Cozy, the developer of this service is committed."
       />
     </button>
   </div>
@@ -42,8 +42,8 @@ exports[`TransparencyLabel component should be rendered correctly 1`] = `
       label="Details"
     >
       <ReactMarkdownWrapper
-        source="You enter the login and password of your photos account  in order that your Cozy can retrieve the personal data stored by photos.  
-This password and data will pass directly from the photos service to your Cozy and will not be made accessible from anyone but yourself. The developer's commitment is auditable because the code is open source."
+        source="You enter the login and password of your photos account in order that your Cozy can retrieve the personal data stored by photos.  
+This password and data will pass directly from the photos service to your Cozy and will not be made accessible from anyone but yourself."
       />
     </AccordionItem>
     <AccordionItem

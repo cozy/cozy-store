@@ -55,7 +55,7 @@ exports[`LabelItem component should label item C correctly 1`] = `
         "paragraph": [Function],
       }
     }
-    source="__C:__ No data will come out of your Cozy, the developer of this service is committed and can be auditable anytime."
+    source="__C:__ No data will come out of your Cozy, the developer of this service is committed."
   />
 </div>
 `;
@@ -233,7 +233,7 @@ exports[`TransparencyModal component should be rendered correctly 1`] = `
     />
     <DefaultButton
       className="sto-transparency-notice-more-button"
-      href="#"
+      href="https://help.cozy.io/article/256-personal-data-protection?utm_source=cozy"
       icon="openwith"
       label="Learn more about the Data Access Index "
       subtle={true}
