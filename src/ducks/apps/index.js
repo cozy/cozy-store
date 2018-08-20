@@ -413,9 +413,15 @@ function onAppDelete(appResponse) {
 }
 
 function initializeRealtime() {
+  const config = {
+    token: cozy.client._token.token,
+    // cozy-realtime expect an URL with an https protocol,
+    // see https://github.com/cozy/cozy-libs/blob/master/packages/realtime/src/index.js#L52
+    url: `${window.location.protocol}${cozy.client._url}`
+  }
   return async dispatch => {
     realtime
-      .subscribeAll(cozy.client, APPS_DOCTYPE)
+      .subscribeAll(config, APPS_DOCTYPE)
       .then(subscription => {
         // HACK: the push CREATE at fisrt install
         subscription.onCreate(app => dispatch(onAppUpdate(app)))
