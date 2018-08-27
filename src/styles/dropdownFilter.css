@@ -3,10 +3,6 @@
   right: 2rem;
   width: 20rem;
 }
-/* 
-.sto-sections-dropdown .react-select__control {
-  padding: .2rem;
-} */
 
 .sto-sections-dropdown-icon {
   padding: 0 .5rem;
@@ -14,9 +10,21 @@
 
 @media (max-width: 48rem) {
   .sto-sections-dropdown {
-    position: static;
-    margin: auto;
-    width: 100%;
+    position: fixed;
+    right: 0;
+    top: calc(3rem - 1px);
+    width: calc(100%);
+    z-index: 21;
+  }
+
+  .sto-sections-dropdown .sto-sections-select__control {
+    padding: .5rem .5rem .5rem .2rem;
+    border-radius: 0;
+    box-shadow: 0 2px 5px -4px #555555;
+  }
+
+  .sto-sections-dropdown .sto-sections-select__menu {
+    top: 2rem;
   }
 
   .sto-sections-dropdown > div {

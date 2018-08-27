@@ -23,6 +23,13 @@
   text-transform: uppercase;
 }
 
+@media (max-width: 48rem) {
+  /* Add margin for the top dropdown filter */
+  .sto-sections {
+    margin-top: 4rem;
+  }
+}
+
 @media (min-width: 48rem) {
   .sto-sections-title:first-child {
     margin-top: 0;

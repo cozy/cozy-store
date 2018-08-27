@@ -64,6 +64,7 @@ export class DropdownFilter extends Component {
     return (
       <div className="sto-sections-dropdown">
         <SelectBox
+          classNamePrefix="sto-sections-select"
           options={options}
           onChange={this.onSelectChange}
           defaultValue={defaultOption}
