@@ -1,5 +1,5 @@
 .sto-sections {
-  margin: 2rem 2.5rem 0 2.5rem;
+  margin: 2rem .5rem 0 2rem;
 }
 
 .sto-sections-section {
@@ -28,10 +28,9 @@
   .sto-sections {
     margin-top: 4rem;
   }
-}
 
-@media (min-width: 48rem) {
-  .sto-sections-title:first-child {
-    margin-top: 0;
+  .sto-sections {
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 }
