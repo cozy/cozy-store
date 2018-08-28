@@ -1,6 +1,6 @@
 .sto-sections-list {
   --item-size: 8rem;
-  --item-mobile-size: 5rem;
+  --item-mobile-height: 3rem;
 }
 
 .sto-small-app-item {
@@ -19,13 +19,9 @@
   border: solid 1px var(--silver);
   padding: calc(.75rem / 2 - 1px);
   margin-bottom: 1rem;
-  margin-right: 1rem;
+  margin-right: .75rem;
   overflow: hidden;
   transition: .15s ease all;
-}
-
-.sto-small-app-item:last-child {
-  margin-right: 0;
 }
 
 .sto-small-app-item:hover,
@@ -58,7 +54,6 @@
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  height: 100%;
   margin-top: .5rem;
   text-align: center;
 }
@@ -89,18 +84,25 @@
   color: var(--coolGrey);
 }
 
-@media (max-width: 64rem) {
+@media (min-width: 1041px) {
   .sto-small-app-item {
-    flex-basis: var(--item-mobile-size);
-    height: var(--item-mobile-size);
+    margin-right: 1rem;
+  }
+}
+
+@media (max-width: 48rem) {
+  .sto-sections-list {
+    display: flex;
+    justify-content: space-between;
   }
 
-  .sto-small-app-item-developer {
-    display: none;
-  }
-
-  .sto-small-app-item-title, .sto-small-app-item-developer, .sto-small-app-item-status {
-    width: var(--item-mobile-size);
+  .sto-small-app-item {
+    flex-basis: calc(50% - 1rem);
+    flex-direction: row;
+    height: var(--item-mobile-height);
+    justify-content: flex-start;
+    margin-right: 0;
+    margin-bottom: .5rem;
   }
 
   .sto-small-app-item-icon-wrapper {
@@ -108,6 +110,7 @@
   }
 
   .sto-small-app-item-icon {
+    margin-left: .5rem;
     height: 2.5rem;
     max-width: 2.5rem;
     max-height: 2.5rem;
@@ -115,6 +118,11 @@
 
   .sto-small-app-item-desc {
     margin-top: .125rem;
+    margin-left: .5rem;
+    justify-content: center;
+    text-align: left;
+    /* 4rem for icon and margins */
+    width: calc(100% - 4rem);
   }
 
   .sto-small-app-item-title {
@@ -123,7 +131,21 @@
     font-size: 12px;
   }
 
+  .sto-small-app-item-title, .sto-small-app-item-developer, .sto-small-app-item-status {
+    width: 100%;
+  }
+
+  .sto-small-app-item-developer {
+    display: none;
+  }
+
   .sto-small-app-item-status {
     margin-top: .125rem;
+  }
+}
+
+@media (max-width: 32rem) {
+  .sto-small-app-item {
+    flex-basis: calc(100% - .75rem);
   }
 }
