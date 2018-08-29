@@ -429,12 +429,12 @@ function initializeRealtime() {
         subscription.onDelete(app => dispatch(onAppDelete(app)))
       })
       .catch(error => {
-        console.warn &&
-          console.warn(`Cannot initialize realtime for apps: ${error.message}`)
+        // eslint-disable-next-line no-console
+        console.warn(`Cannot initialize realtime for apps: ${error.message}`)
       })
 
     realtime
-      .subscribeAll(cozy.client, KONNECTORS_DOCTYPE)
+      .subscribeAll(config, KONNECTORS_DOCTYPE)
       .then(subscription => {
         // HACK: the push CREATE at fisrt install
         subscription.onCreate(app => dispatch(onAppUpdate(app)))
@@ -442,10 +442,10 @@ function initializeRealtime() {
         subscription.onDelete(app => dispatch(onAppDelete(app)))
       })
       .catch(error => {
-        console.warn &&
-          console.warn(
-            `Cannot initialize realtime for konnectors: ${error.message}`
-          )
+        // eslint-disable-next-line no-console
+        console.warn(
+          `Cannot initialize realtime for konnectors: ${error.message}`
+        )
       })
   }
 }
@@ -455,6 +455,7 @@ export function fetchLatestApp(lang, slug, channel = DEFAULT_CHANNEL) {
     dispatch({ type: FETCH_APP })
     let app = getState().apps.list.find(a => a.slug === slug)
     if (!app) {
+      // eslint-disable-next-line no-console
       console.warn(`No application ${slug} found in app state.`)
       app = await cozy.client.fetchJSON('GET', `/registry/${slug}`)
       if (!app) {
