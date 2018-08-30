@@ -60,7 +60,7 @@
   "dependencies": {
     "cozy-bar": "5.2.0",
     "cozy-client-js": "0.12.0",
-    "cozy-realtime": "1.1.4",
+    "cozy-realtime": "1.1.5",
     "cozy-ui": "10.8.1",
     "emoji-js": "3.4.1",
     "preact": "8.3.1",
