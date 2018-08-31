@@ -5,12 +5,22 @@ import Spinner from 'cozy-ui/react/Spinner'
 
 import PermissionsList from './PermissionsList'
 import { translate } from 'cozy-ui/react/I18n'
+import { APP_STATUS, getCurrentStatus } from 'ducks/apps/appStatus'
 
 class AppInstallation extends Component {
-  installApp() {
+  installApp = () => {
     this.setState({ error: null })
     const { app, onError, channel } = this.props
     this.props.installApp(app.slug, app.type, channel).catch(error => {
+      if (onError) return onError(error)
+      throw error
+    })
+  }
+
+  updateApp = () => {
+    this.setState({ error: null })
+    const { app, onError, channel } = this.props
+    this.props.updateApp(app.slug, app.type, channel, true).catch(error => {
       if (onError) return onError(error)
       throw error
     })
@@ -27,6 +37,7 @@ class AppInstallation extends Component {
       onCancel,
       t
     } = this.props
+    const isUpdate = getCurrentStatus(app) === APP_STATUS.UPDATE
 
     const appName = t(`apps.${app.slug}.name`, {
       _: app.name
@@ -86,9 +97,13 @@ class AppInstallation extends Component {
                       disabled={isInstalling || isCanceling}
                       aria-busy={isInstalling}
                       className="c-btn c-btn--regular c-btn--download"
-                      onClick={() => this.installApp()}
+                      onClick={isUpdate ? this.updateApp : this.installApp}
                     >
-                      <span>{t('app_modal.install.install')}</span>
+                      <span>
+                        {isUpdate
+                          ? t('app_modal.install.update')
+                          : t('app_modal.install.install')}
+                      </span>
                     </button>
                   </div>
                 </ModalFooter>

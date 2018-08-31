@@ -119,7 +119,7 @@ export class ApplicationRouting extends Component {
             if (isFetching) return
             const app = this.getAppFromMatchOrSlug(match)
             if (!app) return history.replace(`/${parent}`)
-            if (app && app.installed) {
+            if (app && app.installed && !app.availableVersion) {
               if (!app.uninstallable)
                 return history.replace(`/${parent}/${app.slug}`)
               return (

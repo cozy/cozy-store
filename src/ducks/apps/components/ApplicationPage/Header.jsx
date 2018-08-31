@@ -10,22 +10,13 @@ import defaultAppIcon from 'assets/icons/icon-cube.svg'
 import { Placeholder } from 'ducks/components/AppsLoading'
 
 import { APP_TYPE } from 'ducks/apps'
+import { APP_STATUS, getCurrentStatus } from 'ducks/apps/appStatus'
 
-export const Header = ({
-  t,
-  icon,
-  iconToLoad,
-  slug,
-  namePrefix,
-  name,
-  type,
-  description,
-  installed,
-  maintenance,
-  uninstallable,
-  installedAppLink,
-  parent
-}) => {
+const { MAINTENANCE, UPDATE, INSTALLED } = APP_STATUS
+
+export const Header = ({ t, app, namePrefix, name, description, parent }) => {
+  const { slug, icon, iconToLoad, type, related, uninstallable } = app
+  const currentStatus = getCurrentStatus(app)
   const openApp = link => {
     window.location.assign(link)
   }
@@ -52,10 +43,10 @@ export const Header = ({
           {namePrefix ? `${namePrefix} ${name}` : name}
         </h2>
         <p className="sto-app-header-description">{description}</p>
-        {installed ? (
+        {currentStatus === INSTALLED ? (
           <div>
             <Button
-              onClick={() => openApp(installedAppLink)}
+              onClick={() => openApp(related)}
               className="c-btn"
               icon="openwith"
               label={
@@ -70,19 +61,17 @@ export const Header = ({
               onClick={!uninstallable && (e => e.preventDefault())}
               disabled={!uninstallable}
             >
-              <span>
-                {isKonnector
-                  ? t('app_page.konnector.uninstall')
-                  : t('app_page.webapp.uninstall')}
-              </span>
+              <span>{t('app_page.uninstall')}</span>
             </Link>
           </div>
         ) : (
           <Link
             to={`/${parent}/${slug}/manage`}
             className="c-btn c-btn--regular"
-            disabled={!!maintenance}
-            onClick={maintenance ? e => e.preventDefault() : null}
+            disabled={!!currentStatus === MAINTENANCE}
+            onClick={
+              currentStatus === MAINTENANCE ? e => e.preventDefault() : null
+            }
           >
             <span>
               <Icon
@@ -92,9 +81,9 @@ export const Header = ({
                 height="16px"
                 className="sto-app-icon--button"
               />{' '}
-              {isKonnector
-                ? t('app_page.konnector.install')
-                : t('app_page.webapp.install')}
+              {currentStatus === UPDATE
+                ? t('app_page.update')
+                : t('app_page.install')}
             </span>
           </Link>
         )}
