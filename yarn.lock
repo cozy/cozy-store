@@ -2073,9 +2073,9 @@ cozy-device-helper@^1.4.4:
   dependencies:
     lodash "4.17.10"
 
-cozy-realtime@1.1.4:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/cozy-realtime/-/cozy-realtime-1.1.4.tgz#a4d686d0c6ebcb1abc56abf70fe521b1cd6fd2e6"
+cozy-realtime@1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/cozy-realtime/-/cozy-realtime-1.1.5.tgz#18fbdc1e260166ee387ee4908cecdf5b8b3e726f"
 
 cozy-scripts@0.10.5:
   version "0.10.5"
