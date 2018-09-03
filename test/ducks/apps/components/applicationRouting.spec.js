@@ -3,15 +3,12 @@
 /* eslint-env jest */
 
 import React from 'react'
-import Enzyme, { shallow } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import { shallow } from 'enzyme'
 import { Route } from 'react-router-dom'
 
 import { ApplicationRouting } from 'ducks/apps/components/ApplicationRouting'
 
 import mockApps from '../_mockApps'
-
-Enzyme.configure({ adapter: new Adapter() })
 
 // const mockRegistyApps = mockApps.filter(app => app.isInRegistry).filter(app =>
 // (Array.isArray(app.versions.stable) && !!app.versions.stable.length))

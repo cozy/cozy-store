@@ -4,8 +4,7 @@
 /* global cozy */
 
 import React from 'react'
-import Enzyme, { shallow } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import { shallow } from 'enzyme'
 
 import { tMock } from '../../../jestLib/I18n'
 import { Discover } from 'ducks/apps/components/Discover'
@@ -13,8 +12,6 @@ import { Discover } from 'ducks/apps/components/Discover'
 import mockApps from '../_mockApps'
 
 const { BarCenter } = cozy.bar
-
-Enzyme.configure({ adapter: new Adapter() })
 
 const mockError = new Error('This is a test error')
 
