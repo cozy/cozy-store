@@ -15,7 +15,15 @@ import { APP_STATUS, getCurrentStatus } from 'ducks/apps/appStatus'
 const { MAINTENANCE, UPDATE, INSTALLED } = APP_STATUS
 
 export const Header = ({ t, app, namePrefix, name, description, parent }) => {
-  const { slug, icon, iconToLoad, type, related, uninstallable } = app
+  const {
+    slug,
+    icon,
+    iconToLoad,
+    installed,
+    type,
+    related,
+    uninstallable
+  } = app
   const currentStatus = getCurrentStatus(app)
   const openApp = link => {
     window.location.assign(link)
@@ -44,29 +52,19 @@ export const Header = ({ t, app, namePrefix, name, description, parent }) => {
         </h2>
         <p className="sto-app-header-description">{description}</p>
         {currentStatus === INSTALLED ? (
-          <div>
-            <Button
-              onClick={() => openApp(related)}
-              className="c-btn"
-              icon="openwith"
-              label={
-                isKonnector
-                  ? t('app_page.konnector.open')
-                  : t('app_page.webapp.open')
-              }
-            />
-            <Link
-              to={`/${parent}/${slug}/manage`}
-              className="c-btn c-btn--danger-outline sto-app-header-uninstall-button"
-              onClick={!uninstallable && (e => e.preventDefault())}
-              disabled={!uninstallable}
-            >
-              <span>{t('app_page.uninstall')}</span>
-            </Link>
-          </div>
+          <Button
+            onClick={() => openApp(related)}
+            className="c-btn"
+            icon="openwith"
+            label={
+              isKonnector
+                ? t('app_page.konnector.open')
+                : t('app_page.webapp.open')
+            }
+          />
         ) : (
           <Link
-            to={`/${parent}/${slug}/manage`}
+            to={`/${parent}/${slug}/install`}
             className="c-btn c-btn--regular"
             disabled={!!currentStatus === MAINTENANCE}
             onClick={
@@ -85,6 +83,16 @@ export const Header = ({ t, app, namePrefix, name, description, parent }) => {
                 ? t('app_page.update')
                 : t('app_page.install')}
             </span>
+          </Link>
+        )}
+        {installed && (
+          <Link
+            to={`/${parent}/${slug}/uninstall`}
+            className="c-btn c-btn--danger-outline sto-app-header-uninstall-button"
+            onClick={!uninstallable && (e => e.preventDefault())}
+            disabled={!uninstallable}
+          >
+            <span>{t('app_page.uninstall')}</span>
           </Link>
         )}
       </div>

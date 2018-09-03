@@ -28,7 +28,7 @@ const ChannelRoute = ({
         channel
       )
       if (!isChannelAvailable) {
-        return redirectTo(`/${parent}/${app.slug}/manage`)
+        return redirectTo(`/${parent}/${app.slug}`)
       }
       return (
         <InstallModal

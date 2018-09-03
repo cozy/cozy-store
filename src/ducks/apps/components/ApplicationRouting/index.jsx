@@ -1,16 +1,15 @@
 import React, { Component } from 'react'
-import { Route, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 import { translate } from 'cozy-ui/react/I18n'
 import Alerter from 'cozy-ui/react/Alerter'
-
-import UninstallModal from '../UninstallModal'
-import InstallModal from '../InstallModal'
 
 import AppRoute from './AppRoute'
 import ChannelRoute from './ChannelRoute'
 import PermissionsRoute from './PermissionsRoute'
 import ConfigureRoute from './ConfigureRoute'
+import InstallRoute from './InstallRoute'
+import UninstallRoute from './UninstallRoute'
 
 import { APP_TYPE } from 'ducks/apps'
 
@@ -62,7 +61,7 @@ export class ApplicationRouting extends Component {
   }
 
   redirectTo = target => {
-    return history.replace(target)
+    return this.props.history.replace(target)
   }
 
   render() {
@@ -75,7 +74,6 @@ export class ApplicationRouting extends Component {
       isAppFetching,
       isInstalling,
       parent,
-      history,
       actionError,
       fetchError
     } = this.props
@@ -100,35 +98,22 @@ export class ApplicationRouting extends Component {
           redirectTo={this.redirectTo}
           updateApp={updateApp}
         />
-        <Route
-          path={`/${parent}/:appSlug/manage`}
-          render={({ match }) => {
-            if (isFetching) return
-            const app = this.getAppFromMatchOrSlug(match)
-            if (!app) return history.replace(`/${parent}`)
-            if (app && app.installed && !app.availableVersion) {
-              if (!app.uninstallable)
-                return history.replace(`/${parent}/${app.slug}`)
-              return (
-                <UninstallModal
-                  uninstallApp={uninstallApp}
-                  parent={`/${parent}`}
-                  uninstallError={actionError}
-                  app={app}
-                />
-              )
-            } else {
-              return (
-                <InstallModal
-                  installApp={installApp}
-                  parent={`/${parent}`}
-                  installError={actionError}
-                  app={app}
-                  isInstalling={isInstalling}
-                />
-              )
-            }
-          }}
+        <InstallRoute
+          actionError={actionError}
+          getApp={this.getAppFromMatchOrSlug}
+          installApp={installApp}
+          isFetching={isFetching}
+          isInstalling={isInstalling}
+          parent={parent}
+          redirectTo={this.redirectTo}
+        />
+        <UninstallRoute
+          actionError={actionError}
+          getApp={this.getAppFromMatchOrSlug}
+          isFetching={isFetching}
+          parent={parent}
+          redirectTo={this.redirectTo}
+          uninstallApp={uninstallApp}
         />
         <PermissionsRoute
           getApp={this.getAppFromMatchOrSlug}
