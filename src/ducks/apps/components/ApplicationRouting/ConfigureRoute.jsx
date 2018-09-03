@@ -4,14 +4,14 @@ import { Route } from 'react-router-dom'
 import IntentModal from 'cozy-ui/react/IntentModal'
 import { APP_TYPE } from 'ducks/apps'
 
-const ConfigureRoute = ({ getApp, isFetching, parent, redirectTo }) => (
+export const ConfigureRoute = ({ getApp, isFetching, parent, redirectTo }) => (
   <Route
     path={`/${parent}/:appSlug/configure`}
     render={({ match }) => {
       if (isFetching) return
       const app = getApp(match)
       if (!app) return redirectTo(`/${parent}`)
-      const goToApp = () => history.replace(`/${parent}/${app.slug}`)
+      const goToApp = () => redirectTo(`/${parent}/${app.slug}`)
       if (app && app.installed && app.type === APP_TYPE.KONNECTOR) {
         return (
           <IntentModal

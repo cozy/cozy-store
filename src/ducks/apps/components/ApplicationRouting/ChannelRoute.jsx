@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom'
 import InstallModal from '../InstallModal'
 import { REGISTRY_CHANNELS } from 'ducks/apps'
 
-const ChannelRoute = ({
+export const ChannelRoute = ({
   actionError,
   fetchError,
   fetchLatestApp,
@@ -30,11 +30,12 @@ const ChannelRoute = ({
       if (!isChannelAvailable) {
         return redirectTo(`/${parent}/${app.slug}`)
       }
+      const fetchApp = chan => fetchLatestApp(app.slug, chan)
       return (
         <InstallModal
           installApp={app.installed ? updateApp : installApp}
           parent={`/${parent}`}
-          fetchApp={chan => fetchLatestApp(app.slug, chan)}
+          fetchApp={fetchApp}
           isAppFetching={isAppFetching}
           installError={actionError}
           fetchError={fetchError}

@@ -135,6 +135,8 @@ export const apps = [
       beta: ['1.0.0'],
       dev: ['1.0.0']
     },
+    installed: true,
+    availableVersion: true,
     uninstallable: true,
     isInRegistry: true
   }

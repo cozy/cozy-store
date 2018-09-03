@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom'
 
 import ApplicationPage from '../ApplicationPage'
 
-const AppRoute = ({ parent, getApp, isFetching, redirectTo }) => (
+export const AppRoute = ({ parent, getApp, isFetching, redirectTo }) => (
   <Route
     path={`/${parent}/:appSlug`}
     render={({ match }) => {

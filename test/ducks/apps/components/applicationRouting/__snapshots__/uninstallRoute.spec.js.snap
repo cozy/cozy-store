@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UninstallRoute component should display uninstall modal if installed app found 1`] = `
+<Wrapper
+  app={
+    Object {
+      "availableVersion": true,
+      "categories": Array [
+        "partners",
+      ],
+      "icon": "<svg></svg>",
+      "installed": true,
+      "isInRegistry": true,
+      "name": "Tasky",
+      "slug": "tasky",
+      "type": "webapp",
+      "uninstallable": true,
+      "versions": Object {
+        "beta": Array [
+          "1.0.0",
+        ],
+        "dev": Array [
+          "1.0.0",
+        ],
+        "stable": Array [
+          "1.0.0",
+        ],
+      },
+    }
+  }
+  parent="/myapps"
+/>
+`;

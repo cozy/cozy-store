@@ -3,7 +3,12 @@ import { Route } from 'react-router-dom'
 
 import PermissionsModal from '../PermissionsModal'
 
-const PermissionsRoute = ({ getApp, isFetching, parent, redirectTo }) => (
+export const PermissionsRoute = ({
+  getApp,
+  isFetching,
+  parent,
+  redirectTo
+}) => (
   <Route
     path={`/${parent}/:appSlug/permissions`}
     render={({ match }) => {

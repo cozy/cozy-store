@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom'
 
 import InstallModal from '../InstallModal'
 
-const InstallRoute = ({
+export const InstallRoute = ({
   actionError,
   getApp,
   installApp,

@@ -148,10 +148,12 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
                 },
               },
               Object {
+                "availableVersion": true,
                 "categories": Array [
                   "partners",
                 ],
                 "icon": "<svg></svg>",
+                "installed": true,
                 "isInRegistry": true,
                 "name": "Tasky",
                 "slug": "tasky",
@@ -309,10 +311,12 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
                 },
               },
               Object {
+                "availableVersion": true,
                 "categories": Array [
                   "partners",
                 ],
                 "icon": "<svg></svg>",
+                "installed": true,
                 "isInRegistry": true,
                 "name": "Tasky",
                 "slug": "tasky",
@@ -480,10 +484,12 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
             },
           },
           Object {
+            "availableVersion": true,
             "categories": Array [
               "partners",
             ],
             "icon": "<svg></svg>",
+            "installed": true,
             "isInRegistry": true,
             "name": "Tasky",
             "slug": "tasky",
@@ -658,10 +664,12 @@ exports[`Discover component should be rendered correctly with apps and URL searc
                 },
               },
               Object {
+                "availableVersion": true,
                 "categories": Array [
                   "partners",
                 ],
                 "icon": "<svg></svg>",
+                "installed": true,
                 "isInRegistry": true,
                 "name": "Tasky",
                 "slug": "tasky",
@@ -1025,10 +1033,12 @@ exports[`Discover component should not render apps list if !match.isExact 1`] = 
             },
           },
           Object {
+            "availableVersion": true,
             "categories": Array [
               "partners",
             ],
             "icon": "<svg></svg>",
+            "installed": true,
             "isInRegistry": true,
             "name": "Tasky",
             "slug": "tasky",
@@ -1231,10 +1241,12 @@ exports[`Discover component should use BarCenter from cozy-bar in mobile view on
                 },
               },
               Object {
+                "availableVersion": true,
                 "categories": Array [
                   "partners",
                 ],
                 "icon": "<svg></svg>",
+                "installed": true,
                 "isInRegistry": true,
                 "name": "Tasky",
                 "slug": "tasky",
@@ -1392,10 +1404,12 @@ exports[`Discover component should use BarCenter from cozy-bar in mobile view on
                 },
               },
               Object {
+                "availableVersion": true,
                 "categories": Array [
                   "partners",
                 ],
                 "icon": "<svg></svg>",
+                "installed": true,
                 "isInRegistry": true,
                 "name": "Tasky",
                 "slug": "tasky",
@@ -1563,10 +1577,12 @@ exports[`Discover component should use BarCenter from cozy-bar in mobile view on
             },
           },
           Object {
+            "availableVersion": true,
             "categories": Array [
               "partners",
             ],
             "icon": "<svg></svg>",
+            "installed": true,
             "isInRegistry": true,
             "name": "Tasky",
             "slug": "tasky",
