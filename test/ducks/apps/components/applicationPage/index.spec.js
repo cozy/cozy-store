@@ -3,8 +3,7 @@
 /* eslint-env jest */
 
 import React from 'react'
-import Enzyme, { shallow } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import { shallow } from 'enzyme'
 
 import { extend as extendI18n } from 'cozy-ui/react/I18n'
 import { tMock } from '../../../../jestLib/I18n'
@@ -12,8 +11,6 @@ import { ApplicationPage } from 'ducks/apps/components/ApplicationPage'
 
 import mockApp from '../../_mockPhotosRegistryVersion'
 import mockKonnector from '../../_mockPKonnectorTrinlaneRegistryVersion'
-
-Enzyme.configure({ adapter: new Adapter() })
 
 const appManifest = mockApp.manifest
 const konnectorManifest = mockKonnector.manifest

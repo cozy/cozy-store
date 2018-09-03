@@ -3,16 +3,13 @@
 /* eslint-env jest */
 
 import React from 'react'
-import Enzyme, { shallow } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import { shallow } from 'enzyme'
 
 import {
   AppsLoading,
   LoadingAppsComponents,
   Placeholder
 } from 'ducks/components/AppsLoading'
-
-Enzyme.configure({ adapter: new Adapter() })
 
 global.Math.random = () => 1 // remove random for testing
 

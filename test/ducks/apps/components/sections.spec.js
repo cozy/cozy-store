@@ -3,15 +3,12 @@
 /* eslint-env jest */
 
 import React from 'react'
-import Enzyme, { shallow } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import { shallow } from 'enzyme'
 
 import { tMock } from '../../../jestLib/I18n'
 import { Sections } from 'ducks/apps/components/Sections'
 
 import mockApps from '../_mockApps'
-
-Enzyme.configure({ adapter: new Adapter() })
 
 describe('AppsSection component', () => {
   it('should be rendered correctly with apps list, subtitle and onAppClick', () => {

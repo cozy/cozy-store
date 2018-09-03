@@ -3,8 +3,7 @@
 /* eslint-env jest */
 
 import React from 'react'
-import Enzyme, { shallow } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import { shallow } from 'enzyme'
 
 import Button from 'cozy-ui/react/Button'
 import { Link } from 'react-router-dom'
@@ -14,8 +13,6 @@ import { Header } from 'ducks/apps/components/ApplicationPage/Header'
 
 import mockApp from '../../_mockPhotosRegistryVersion'
 import mockKonnector from '../../_mockPKonnectorTrinlaneRegistryVersion'
-
-Enzyme.configure({ adapter: new Adapter() })
 
 window.location.assign = jest.fn()
 
