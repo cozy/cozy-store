@@ -6,8 +6,10 @@
   "icon": "icon-store.svg",
   "editor": "Cozy",
   "description": "The apps store for Cozy V3",
-  "categories": ["cozy"],
-  "version": "1.0.8",
+  "categories": [
+    "cozy"
+  ],
+  "version": "1.1.0",
   "licence": "AGPL-3.0",
   "source": "https://github.com/cozy/cozy-store.git@build",
   "developer": {
@@ -18,12 +20,23 @@
   "intents": [
     {
       "action": "REDIRECT",
-      "type": ["io.cozy.apps"],
+      "type": [
+        "io.cozy.apps"
+      ],
       "href": "/#/redirect",
-      "data": ["category", "doctype",  "slug", "tag", "type"]
-    }, {
+      "data": [
+        "category",
+        "doctype",
+        "slug",
+        "tag",
+        "type"
+      ]
+    },
+    {
       "action": "INSTALL",
-      "data": ["slug"],
+      "data": [
+        "slug"
+      ],
       "href": "/intents",
       "type": [
         "io.cozy.apps"
@@ -54,7 +67,9 @@
     "settings": {
       "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
       "type": "io.cozy.settings",
-      "verbs": ["GET"]
+      "verbs": [
+        "GET"
+      ]
     }
   }
 }
