@@ -12,6 +12,7 @@ import Maintenance from './Maintenance'
 import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
 import { getContext, REGISTRY_CHANNELS } from 'ducks/apps'
 import getChannel from 'lib/getChannelFromSource'
+import { isUnderMaintenance } from 'ducks/apps/appStatus'
 
 const isValidUrl = url => {
   if (!url) return null
@@ -64,15 +65,7 @@ export class Details extends Component {
   render() {
     const { t, app, description, changes, mobileApps } = this.props
     const { displayBetaChannel, displayDevChannel } = this.state
-    const {
-      source,
-      slug,
-      langs,
-      categories,
-      developer,
-      version,
-      maintenance
-    } = app
+    const { source, slug, langs, categories, developer, version } = app
     const appChannel = getChannel(source)
     const isBeta = appChannel === REGISTRY_CHANNELS.BETA
     const isDev = appChannel === REGISTRY_CHANNELS.DEV
@@ -88,7 +81,7 @@ export class Details extends Component {
     return (
       <div className="sto-app-details">
         <div className="sto-app-descriptions">
-          {maintenance && <Maintenance slug={slug} />}
+          {isUnderMaintenance(app) && <Maintenance slug={slug} />}
           {description && (
             <div className="sto-app-description">
               <h3 className="u-title-h3">{t('app_page.description')}</h3>

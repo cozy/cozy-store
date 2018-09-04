@@ -10,9 +10,11 @@ import defaultAppIcon from 'assets/icons/icon-cube.svg'
 import { Placeholder } from 'ducks/components/AppsLoading'
 
 import { APP_TYPE } from 'ducks/apps'
-import { APP_STATUS, getCurrentStatus } from 'ducks/apps/appStatus'
-
-const { MAINTENANCE, UPDATE, INSTALLED } = APP_STATUS
+import {
+  hasPendingUpdate,
+  isUnderMaintenance,
+  isInstalledAndNothingToReport
+} from 'ducks/apps/appStatus'
 
 export const Header = ({ t, app, namePrefix, name, description, parent }) => {
   const {
@@ -24,7 +26,6 @@ export const Header = ({ t, app, namePrefix, name, description, parent }) => {
     related,
     uninstallable
   } = app
-  const currentStatus = getCurrentStatus(app)
   const openApp = link => {
     window.location.assign(link)
   }
@@ -51,7 +52,7 @@ export const Header = ({ t, app, namePrefix, name, description, parent }) => {
           {namePrefix ? `${namePrefix} ${name}` : name}
         </h2>
         <p className="sto-app-header-description">{description}</p>
-        {currentStatus === INSTALLED ? (
+        {isInstalledAndNothingToReport(app) ? (
           <Button
             onClick={() => openApp(related)}
             className="c-btn"
@@ -66,10 +67,8 @@ export const Header = ({ t, app, namePrefix, name, description, parent }) => {
           <Link
             to={`/${parent}/${slug}/install`}
             className="c-btn c-btn--regular"
-            disabled={!!currentStatus === MAINTENANCE}
-            onClick={
-              currentStatus === MAINTENANCE ? e => e.preventDefault() : null
-            }
+            disabled={!!isUnderMaintenance(app)}
+            onClick={isUnderMaintenance(app) ? e => e.preventDefault() : null}
           >
             <span>
               <Icon
@@ -79,7 +78,7 @@ export const Header = ({ t, app, namePrefix, name, description, parent }) => {
                 height="16px"
                 className="sto-app-icon--button"
               />{' '}
-              {currentStatus === UPDATE
+              {hasPendingUpdate(app)
                 ? t('app_page.update')
                 : t('app_page.install')}
             </span>

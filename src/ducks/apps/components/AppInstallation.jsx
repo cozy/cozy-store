@@ -5,7 +5,7 @@ import Spinner from 'cozy-ui/react/Spinner'
 
 import PermissionsList from './PermissionsList'
 import { translate } from 'cozy-ui/react/I18n'
-import { APP_STATUS, getCurrentStatus } from 'ducks/apps/appStatus'
+import { hasPendingUpdate } from 'ducks/apps/appStatus'
 
 class AppInstallation extends Component {
   installApp = () => {
@@ -37,8 +37,6 @@ class AppInstallation extends Component {
       onCancel,
       t
     } = this.props
-    const isUpdate = getCurrentStatus(app) === APP_STATUS.UPDATE
-
     const appName = t(`apps.${app.slug}.name`, {
       _: app.name
     })
@@ -97,10 +95,12 @@ class AppInstallation extends Component {
                       disabled={isInstalling || isCanceling}
                       aria-busy={isInstalling}
                       className="c-btn c-btn--regular c-btn--download"
-                      onClick={isUpdate ? this.updateApp : this.installApp}
+                      onClick={
+                        hasPendingUpdate(app) ? this.updateApp : this.installApp
+                      }
                     >
                       <span>
-                        {isUpdate
+                        {hasPendingUpdate(app)
                           ? t('app_modal.install.update')
                           : t('app_modal.install.install')}
                       </span>

@@ -177,7 +177,7 @@ exports[`ApplicationPage header component should disable the install button if m
     />
     <Link
       className="c-btn c-btn--regular"
-      disabled={false}
+      disabled={true}
       onClick={[Function]}
       replace={false}
       to="//discover/photos/install"

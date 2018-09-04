@@ -5,7 +5,7 @@ import { translate } from 'cozy-ui/react/I18n'
 
 import defaultAppIcon from 'assets/icons/icon-cube.svg'
 import { Placeholder } from './AppsLoading'
-import { getCurrentStatus } from 'ducks/apps/appStatus'
+import { getCurrentStatusLabel } from 'ducks/apps/appStatus'
 
 export const SmallAppItem = ({
   t,
@@ -16,7 +16,7 @@ export const SmallAppItem = ({
   isMobile
 }) => {
   const { slug, developer = {}, icon, iconToLoad } = app
-  const statusToDisplay = getCurrentStatus(app)
+  const statusToDisplay = getCurrentStatusLabel(app)
 
   return (
     // HACK a11y
