@@ -4,8 +4,9 @@
     "collect"
   ],
   "notDisplayedApps": [
+    "home",
+    "onboarding",
     "settings",
-    "store",
-    "onboarding"
+    "store"
   ]
 }
