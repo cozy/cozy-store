@@ -7,7 +7,7 @@ import PermissionsList from './PermissionsList'
 import { translate } from 'cozy-ui/react/I18n'
 
 class AppInstallation extends Component {
-  installApp() {
+  installApp = () => {
     this.setState({ error: null })
     const { app, onError, channel } = this.props
     this.props.installApp(app.slug, app.type, channel).catch(error => {
