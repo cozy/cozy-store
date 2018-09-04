@@ -64,7 +64,7 @@
   "app_page": {
     "back": "Back to the list",
     "konnector": {
-      "open": "Open with Collect",
+      "open": "Open",
       "install": "Install",
       "uninstall": "Uninstall"
     },
