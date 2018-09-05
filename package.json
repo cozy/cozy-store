@@ -37,7 +37,7 @@
     "babel-preset-cozy-app": "1.1.1",
     "cozy-scripts": "0.10.5",
     "enzyme": "3.3.0",
-    "enzyme-adapter-react-16": "1.4.0",
+    "enzyme-adapter-react-16": "1.5.0",
     "eslint": "5.4.0",
     "eslint-config-cozy-app": "1.1.1",
     "eslint-plugin-prettier": "2.6.2",
