@@ -1,3 +1,4 @@
+/* global cozy */
 import React from 'react'
 import { Link } from 'react-router-dom'
 
@@ -8,6 +9,7 @@ import { translate } from 'cozy-ui/react/I18n'
 import cozySmileIcon from 'assets/icons/icon-cozy-smile.svg'
 import defaultAppIcon from 'assets/icons/icon-cube.svg'
 import { Placeholder } from 'ducks/components/AppsLoading'
+import AsyncButton from 'ducks/components/AsyncButton'
 
 import { APP_TYPE } from 'ducks/apps'
 import {
@@ -53,16 +55,25 @@ export const Header = ({ t, app, namePrefix, name, description, parent }) => {
         </h2>
         <p className="sto-app-header-description">{description}</p>
         {isInstalledAndNothingToReport(app) ? (
-          <Button
-            onClick={() => openApp(related)}
-            className="c-btn"
-            icon="openwith"
-            label={
-              isKonnector
-                ? t('app_page.konnector.open')
-                : t('app_page.webapp.open')
-            }
-          />
+          isKonnector ? (
+            <AsyncButton
+              asyncAction={() =>
+                cozy.client.intents.redirect('io.cozy.accounts', {
+                  konnector: app.slug
+                })
+              }
+              className="c-btn"
+              icon="openwith"
+              label={t('app_page.konnector.open')}
+            />
+          ) : (
+            <Button
+              onClick={() => openApp(related)}
+              className="c-btn"
+              icon="openwith"
+              label={t('app_page.webapp.open')}
+            />
+          )
         ) : (
           <Link
             to={`/${parent}/${slug}/install`}

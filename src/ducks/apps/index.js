@@ -31,8 +31,6 @@ const KONNECTORS_DOCTYPE = 'io.cozy.konnectors'
 
 const AUTHORIZED_CATEGORIES = categories
 
-const COLLECT_RELATED_PATH = constants.collect
-
 const DEFAULT_CHANNEL = constants.default.registry.channel
 
 // initial loading
@@ -312,19 +310,12 @@ export function fetchIconsProgressively() {
   }
 }
 
-export async function getFormattedInstalledApp(
-  response,
-  collectLink,
-  fetchIcon = true
-) {
+export async function getFormattedInstalledApp(response, fetchIcon = true) {
   const appAttributes = _sanitizeManifest(response.attributes)
 
   let icon = response.links.icon
   if (fetchIcon) icon = await _getIcon(icon)
-  const openingLink =
-    appAttributes.type === APP_TYPE.KONNECTOR
-      ? `${collectLink}/${COLLECT_RELATED_PATH}/${appAttributes.slug}`
-      : response.links.related
+  const openingLink = response.links.related
   const screensLinks =
     appAttributes.screenshots &&
     appAttributes.screenshots.map(name => {
@@ -381,10 +372,7 @@ function onAppUpdate(appResponse) {
         'GET',
         `/${route}/${appResponse.slug}`
       )
-      // TODO throw error if collect is not installed
-      const collectApp = getState().apps.list.find(a => a.slug === 'collect')
-      const collectLink = collectApp && collectApp.related
-      return getFormattedInstalledApp(appFromStack, collectLink).then(app => {
+      return getFormattedInstalledApp(appFromStack).then(app => {
         // add the installed app to the state apps list
         const apps = getState().apps.list.map(a => {
           if (a.slug === app.slug) {
