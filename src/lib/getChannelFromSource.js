@@ -1,10 +1,14 @@
 import { REGISTRY_CHANNELS } from 'ducks/apps'
 
+const VALID_CHANNELS = Object.values(REGISTRY_CHANNELS)
+
 const getChannelFromSource = source => {
   const registrySourcePattern = /^registry:\/\/(.*)\/(.*)/
   const matches = source && source.match(registrySourcePattern)
   if (matches && matches.length && matches.length > 2) {
-    return REGISTRY_CHANNELS.hasOwnProperty(matches[2]) ? matches[2] : null
+    const channel = matches[2]
+    if (VALID_CHANNELS.includes(channel)) return channel
+    return null
   } else {
     return null
   }

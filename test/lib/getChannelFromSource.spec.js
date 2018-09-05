@@ -7,7 +7,8 @@ import { REGISTRY_CHANNELS } from 'ducks/apps'
 
 describe('getChannelFromSource library', () => {
   it('should find all registry channels correctly', () => {
-    for (let channel in REGISTRY_CHANNELS) {
+    for (let prop in REGISTRY_CHANNELS) {
+      const channel = REGISTRY_CHANNELS[prop]
       expect(getChannelFromSource(`registry://mockApp/${channel}`)).toBe(
         channel
       )
