@@ -48,7 +48,7 @@
     "prettier": "1.14.2",
     "react": "16.4.2",
     "react-dom": "16.4.2",
-    "react-markdown": "3.5.0",
+    "react-markdown": "3.6.0",
     "react-test-renderer": "16.4.2",
     "redux-logger": "3.0.6",
     "redux-mock-store": "1.5.3",
