@@ -1,0 +1,700 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApplicationRouting main component should render routes components correctly if app found 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ApplicationRouting
+    apps={
+      Array [
+        Object {
+          "categories": Array [
+            "cozy",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "editor": "Cozy",
+          "icon": "<svg></svg>",
+          "installed": true,
+          "isInRegistry": true,
+          "name": "Collect",
+          "name_prefix": "Cozy",
+          "permissions": Object {
+            "mock": Object {
+              "type": "io.mock.doctype",
+            },
+            "mock2": Object {
+              "type": "io.mock.doctype2",
+            },
+          },
+          "related": "http://collect.cozy.mock/",
+          "slug": "collect",
+          "tags": Array [
+            "konnector",
+            "collect",
+            "bills",
+            "providers",
+            "files",
+          ],
+          "type": "webapp",
+          "uninstallable": false,
+          "version": "3.0.0",
+          "versions": Object {
+            "beta": Array [
+              "3.0.0",
+            ],
+            "dev": Array [
+              "3.0.0",
+            ],
+            "stable": Array [
+              "3.0.0",
+            ],
+          },
+        },
+        Object {
+          "categories": Array [
+            "others",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "editor": "Cozy",
+          "icon": "<svg></svg>",
+          "isInRegistry": true,
+          "locales": Object {
+            "name": "For Dev Only",
+          },
+          "name": "DevOnly",
+          "slug": "devonly",
+          "type": "webapp",
+          "uninstallable": true,
+          "versions": Object {
+            "beta": Array [],
+            "dev": Array [
+              "1.0.0-betaojdkehy989ekhflldh",
+            ],
+            "stable": Array [],
+          },
+        },
+        Object {
+          "categories": Array [
+            "cozy",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "editor": "Cozy",
+          "icon": "<svg></svg>",
+          "installed": true,
+          "name": "Drive",
+          "name_prefix": "Cozy",
+          "permissions": Object {
+            "mock2": Object {
+              "type": "io.mock.doctype2",
+            },
+          },
+          "related": "http://drive.cozy.mock/",
+          "slug": "drive",
+          "tags": Array [
+            "search",
+            "files",
+            "folders",
+          ],
+          "type": "webapp",
+          "uninstallable": false,
+          "version": "3.0.0-beta89bnhj3993",
+        },
+        Object {
+          "categories": Array [
+            "isp",
+            "telecom",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "icon": "<svg></svg>",
+          "isInRegistry": true,
+          "name": "Bouilligue",
+          "slug": "konnector-bouilligue",
+          "type": "konnector",
+          "uninstallable": true,
+          "versions": Object {
+            "beta": Array [
+              "0.1.0",
+            ],
+            "dev": Array [
+              "0.1.0",
+            ],
+            "stable": Array [
+              "0.1.0",
+            ],
+          },
+        },
+        Object {
+          "categories": Array [
+            "transport",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "icon": "<svg></svg>",
+          "installed": true,
+          "isInRegistry": true,
+          "name": "Trinlane",
+          "permissions": Object {
+            "mock": Object {
+              "type": "io.mock.doctype",
+            },
+          },
+          "slug": "konnector-trinlane",
+          "tags": Array [
+            "transport",
+            "files",
+            "bills",
+          ],
+          "type": "konnector",
+          "uninstallable": true,
+          "version": "0.1.0",
+          "versions": Object {
+            "beta": Array [
+              "0.1.0",
+            ],
+            "dev": Array [
+              "0.1.0",
+            ],
+            "stable": Array [
+              "0.1.0",
+            ],
+          },
+        },
+        Object {
+          "categories": Array [
+            "cozy",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "editor": "Cozy",
+          "icon": "<svg></svg>",
+          "isInRegistry": true,
+          "name": "Photos",
+          "name_prefix": "Cozy",
+          "slug": "photos",
+          "type": "webapp",
+          "uninstallable": true,
+          "versions": Object {
+            "beta": Array [
+              "3.0.0",
+            ],
+            "dev": Array [
+              "3.0.0",
+            ],
+            "stable": Array [
+              "3.0.0",
+            ],
+          },
+        },
+        Object {
+          "availableVersion": true,
+          "categories": Array [
+            "partners",
+          ],
+          "icon": "<svg></svg>",
+          "installed": true,
+          "isInRegistry": true,
+          "name": "Tasky",
+          "slug": "tasky",
+          "type": "webapp",
+          "uninstallable": true,
+          "versions": Object {
+            "beta": Array [
+              "1.0.0",
+            ],
+            "dev": Array [
+              "1.0.0",
+            ],
+            "stable": Array [
+              "1.0.0",
+            ],
+          },
+        },
+      ]
+    }
+    history={
+      Object {
+        "push": [MockFunction],
+        "replace": [MockFunction],
+      }
+    }
+    installApp={[MockFunction mockInstallApp]}
+    installedApps={
+      Array [
+        Object {
+          "categories": Array [
+            "cozy",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "editor": "Cozy",
+          "icon": "<svg></svg>",
+          "installed": true,
+          "isInRegistry": true,
+          "name": "Collect",
+          "name_prefix": "Cozy",
+          "permissions": Object {
+            "mock": Object {
+              "type": "io.mock.doctype",
+            },
+            "mock2": Object {
+              "type": "io.mock.doctype2",
+            },
+          },
+          "related": "http://collect.cozy.mock/",
+          "slug": "collect",
+          "tags": Array [
+            "konnector",
+            "collect",
+            "bills",
+            "providers",
+            "files",
+          ],
+          "type": "webapp",
+          "uninstallable": false,
+          "version": "3.0.0",
+          "versions": Object {
+            "beta": Array [
+              "3.0.0",
+            ],
+            "dev": Array [
+              "3.0.0",
+            ],
+            "stable": Array [
+              "3.0.0",
+            ],
+          },
+        },
+        Object {
+          "categories": Array [
+            "cozy",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "editor": "Cozy",
+          "icon": "<svg></svg>",
+          "installed": true,
+          "name": "Drive",
+          "name_prefix": "Cozy",
+          "permissions": Object {
+            "mock2": Object {
+              "type": "io.mock.doctype2",
+            },
+          },
+          "related": "http://drive.cozy.mock/",
+          "slug": "drive",
+          "tags": Array [
+            "search",
+            "files",
+            "folders",
+          ],
+          "type": "webapp",
+          "uninstallable": false,
+          "version": "3.0.0-beta89bnhj3993",
+        },
+        Object {
+          "categories": Array [
+            "transport",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "icon": "<svg></svg>",
+          "installed": true,
+          "isInRegistry": true,
+          "name": "Trinlane",
+          "permissions": Object {
+            "mock": Object {
+              "type": "io.mock.doctype",
+            },
+          },
+          "slug": "konnector-trinlane",
+          "tags": Array [
+            "transport",
+            "files",
+            "bills",
+          ],
+          "type": "konnector",
+          "uninstallable": true,
+          "version": "0.1.0",
+          "versions": Object {
+            "beta": Array [
+              "0.1.0",
+            ],
+            "dev": Array [
+              "0.1.0",
+            ],
+            "stable": Array [
+              "0.1.0",
+            ],
+          },
+        },
+        Object {
+          "availableVersion": true,
+          "categories": Array [
+            "partners",
+          ],
+          "icon": "<svg></svg>",
+          "installed": true,
+          "isInRegistry": true,
+          "name": "Tasky",
+          "slug": "tasky",
+          "type": "webapp",
+          "uninstallable": true,
+          "versions": Object {
+            "beta": Array [
+              "1.0.0",
+            ],
+            "dev": Array [
+              "1.0.0",
+            ],
+            "stable": Array [
+              "1.0.0",
+            ],
+          },
+        },
+      ]
+    }
+    isFetching={false}
+    parent="myapps"
+    uninstallApp={[MockFunction mockUninstallApp]}
+    updateApp={[MockFunction mockUpdateApp]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <AppRoute
+          getApp={[Function]}
+          isFetching={false}
+          parent="myapps"
+          redirectTo={[Function]}
+        />,
+        <ChannelRoute
+          getApp={[Function]}
+          installApp={[MockFunction mockInstallApp]}
+          isFetching={false}
+          parent="myapps"
+          redirectTo={[Function]}
+          updateApp={[MockFunction mockUpdateApp]}
+        />,
+        <InstallRoute
+          getApp={[Function]}
+          installApp={[MockFunction mockInstallApp]}
+          isFetching={false}
+          parent="myapps"
+          redirectTo={[Function]}
+        />,
+        <UninstallRoute
+          getApp={[Function]}
+          isFetching={false}
+          parent="myapps"
+          redirectTo={[Function]}
+          uninstallApp={[MockFunction mockUninstallApp]}
+        />,
+        <PermissionsRoute
+          getApp={[Function]}
+          isFetching={false}
+          parent="myapps"
+          redirectTo={[Function]}
+        />,
+        <ConfigureRoute
+          getApp={[Function]}
+          isFetching={false}
+          parent="myapps"
+          redirectTo={[Function]}
+        />,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "getApp": [Function],
+          "isFetching": false,
+          "parent": "myapps",
+          "redirectTo": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "actionError": undefined,
+          "fetchError": undefined,
+          "fetchLatestApp": undefined,
+          "getApp": [Function],
+          "installApp": [MockFunction mockInstallApp],
+          "isAppFetching": undefined,
+          "isFetching": false,
+          "isInstalling": undefined,
+          "parent": "myapps",
+          "redirectTo": [Function],
+          "updateApp": [MockFunction mockUpdateApp],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "actionError": undefined,
+          "getApp": [Function],
+          "installApp": [MockFunction mockInstallApp],
+          "isFetching": false,
+          "isInstalling": undefined,
+          "parent": "myapps",
+          "redirectTo": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "actionError": undefined,
+          "getApp": [Function],
+          "isFetching": false,
+          "parent": "myapps",
+          "redirectTo": [Function],
+          "uninstallApp": [MockFunction mockUninstallApp],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "getApp": [Function],
+          "isFetching": false,
+          "parent": "myapps",
+          "redirectTo": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "getApp": [Function],
+          "isFetching": false,
+          "parent": "myapps",
+          "redirectTo": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <AppRoute
+            getApp={[Function]}
+            isFetching={false}
+            parent="myapps"
+            redirectTo={[Function]}
+          />,
+          <ChannelRoute
+            getApp={[Function]}
+            installApp={[MockFunction mockInstallApp]}
+            isFetching={false}
+            parent="myapps"
+            redirectTo={[Function]}
+            updateApp={[MockFunction mockUpdateApp]}
+          />,
+          <InstallRoute
+            getApp={[Function]}
+            installApp={[MockFunction mockInstallApp]}
+            isFetching={false}
+            parent="myapps"
+            redirectTo={[Function]}
+          />,
+          <UninstallRoute
+            getApp={[Function]}
+            isFetching={false}
+            parent="myapps"
+            redirectTo={[Function]}
+            uninstallApp={[MockFunction mockUninstallApp]}
+          />,
+          <PermissionsRoute
+            getApp={[Function]}
+            isFetching={false}
+            parent="myapps"
+            redirectTo={[Function]}
+          />,
+          <ConfigureRoute
+            getApp={[Function]}
+            isFetching={false}
+            parent="myapps"
+            redirectTo={[Function]}
+          />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "getApp": [Function],
+            "isFetching": false,
+            "parent": "myapps",
+            "redirectTo": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "actionError": undefined,
+            "fetchError": undefined,
+            "fetchLatestApp": undefined,
+            "getApp": [Function],
+            "installApp": [MockFunction mockInstallApp],
+            "isAppFetching": undefined,
+            "isFetching": false,
+            "isInstalling": undefined,
+            "parent": "myapps",
+            "redirectTo": [Function],
+            "updateApp": [MockFunction mockUpdateApp],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "actionError": undefined,
+            "getApp": [Function],
+            "installApp": [MockFunction mockInstallApp],
+            "isFetching": false,
+            "isInstalling": undefined,
+            "parent": "myapps",
+            "redirectTo": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "actionError": undefined,
+            "getApp": [Function],
+            "isFetching": false,
+            "parent": "myapps",
+            "redirectTo": [Function],
+            "uninstallApp": [MockFunction mockUninstallApp],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "getApp": [Function],
+            "isFetching": false,
+            "parent": "myapps",
+            "redirectTo": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "getApp": [Function],
+            "isFetching": false,
+            "parent": "myapps",
+            "redirectTo": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

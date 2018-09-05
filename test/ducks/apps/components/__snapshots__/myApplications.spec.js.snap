@@ -122,6 +122,30 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
                   ],
                 },
               },
+              Object {
+                "availableVersion": true,
+                "categories": Array [
+                  "partners",
+                ],
+                "icon": "<svg></svg>",
+                "installed": true,
+                "isInRegistry": true,
+                "name": "Tasky",
+                "slug": "tasky",
+                "type": "webapp",
+                "uninstallable": true,
+                "versions": Object {
+                  "beta": Array [
+                    "1.0.0",
+                  ],
+                  "dev": Array [
+                    "1.0.0",
+                  ],
+                  "stable": Array [
+                    "1.0.0",
+                  ],
+                },
+              },
             ]
           }
           apps={
@@ -233,6 +257,30 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
                   ],
                   "stable": Array [
                     "0.1.0",
+                  ],
+                },
+              },
+              Object {
+                "availableVersion": true,
+                "categories": Array [
+                  "partners",
+                ],
+                "icon": "<svg></svg>",
+                "installed": true,
+                "isInRegistry": true,
+                "name": "Tasky",
+                "slug": "tasky",
+                "type": "webapp",
+                "uninstallable": true,
+                "versions": Object {
+                  "beta": Array [
+                    "1.0.0",
+                  ],
+                  "dev": Array [
+                    "1.0.0",
+                  ],
+                  "stable": Array [
+                    "1.0.0",
                   ],
                 },
               },
@@ -356,6 +404,30 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
               ],
               "stable": Array [
                 "0.1.0",
+              ],
+            },
+          },
+          Object {
+            "availableVersion": true,
+            "categories": Array [
+              "partners",
+            ],
+            "icon": "<svg></svg>",
+            "installed": true,
+            "isInRegistry": true,
+            "name": "Tasky",
+            "slug": "tasky",
+            "type": "webapp",
+            "uninstallable": true,
+            "versions": Object {
+              "beta": Array [
+                "1.0.0",
+              ],
+              "dev": Array [
+                "1.0.0",
+              ],
+              "stable": Array [
+                "1.0.0",
               ],
             },
           },
@@ -488,6 +560,30 @@ exports[`MyApplications component should be rendered correctly with apps and URL
                   ],
                   "stable": Array [
                     "0.1.0",
+                  ],
+                },
+              },
+              Object {
+                "availableVersion": true,
+                "categories": Array [
+                  "partners",
+                ],
+                "icon": "<svg></svg>",
+                "installed": true,
+                "isInRegistry": true,
+                "name": "Tasky",
+                "slug": "tasky",
+                "type": "webapp",
+                "uninstallable": true,
+                "versions": Object {
+                  "beta": Array [
+                    "1.0.0",
+                  ],
+                  "dev": Array [
+                    "1.0.0",
+                  ],
+                  "stable": Array [
+                    "1.0.0",
                   ],
                 },
               },
@@ -835,6 +931,30 @@ exports[`MyApplications component should render only routing if path not exactly
               ],
             },
           },
+          Object {
+            "availableVersion": true,
+            "categories": Array [
+              "partners",
+            ],
+            "icon": "<svg></svg>",
+            "installed": true,
+            "isInRegistry": true,
+            "name": "Tasky",
+            "slug": "tasky",
+            "type": "webapp",
+            "uninstallable": true,
+            "versions": Object {
+              "beta": Array [
+                "1.0.0",
+              ],
+              "dev": Array [
+                "1.0.0",
+              ],
+              "stable": Array [
+                "1.0.0",
+              ],
+            },
+          },
         ]
       }
       isFetching={false}
@@ -974,6 +1094,30 @@ exports[`MyApplications component should use BarCenter from cozy-bar in mobile v
                   ],
                 },
               },
+              Object {
+                "availableVersion": true,
+                "categories": Array [
+                  "partners",
+                ],
+                "icon": "<svg></svg>",
+                "installed": true,
+                "isInRegistry": true,
+                "name": "Tasky",
+                "slug": "tasky",
+                "type": "webapp",
+                "uninstallable": true,
+                "versions": Object {
+                  "beta": Array [
+                    "1.0.0",
+                  ],
+                  "dev": Array [
+                    "1.0.0",
+                  ],
+                  "stable": Array [
+                    "1.0.0",
+                  ],
+                },
+              },
             ]
           }
           apps={
@@ -1085,6 +1229,30 @@ exports[`MyApplications component should use BarCenter from cozy-bar in mobile v
                   ],
                   "stable": Array [
                     "0.1.0",
+                  ],
+                },
+              },
+              Object {
+                "availableVersion": true,
+                "categories": Array [
+                  "partners",
+                ],
+                "icon": "<svg></svg>",
+                "installed": true,
+                "isInRegistry": true,
+                "name": "Tasky",
+                "slug": "tasky",
+                "type": "webapp",
+                "uninstallable": true,
+                "versions": Object {
+                  "beta": Array [
+                    "1.0.0",
+                  ],
+                  "dev": Array [
+                    "1.0.0",
+                  ],
+                  "stable": Array [
+                    "1.0.0",
                   ],
                 },
               },
@@ -1208,6 +1376,30 @@ exports[`MyApplications component should use BarCenter from cozy-bar in mobile v
               ],
               "stable": Array [
                 "0.1.0",
+              ],
+            },
+          },
+          Object {
+            "availableVersion": true,
+            "categories": Array [
+              "partners",
+            ],
+            "icon": "<svg></svg>",
+            "installed": true,
+            "isInRegistry": true,
+            "name": "Tasky",
+            "slug": "tasky",
+            "type": "webapp",
+            "uninstallable": true,
+            "versions": Object {
+              "beta": Array [
+                "1.0.0",
+              ],
+              "dev": Array [
+                "1.0.0",
+              ],
+              "stable": Array [
+                "1.0.0",
               ],
             },
           },

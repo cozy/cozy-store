@@ -243,10 +243,12 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
     <Wrapper
       app={
         Object {
+          "availableVersion": true,
           "categories": Array [
             "partners",
           ],
           "icon": "<svg></svg>",
+          "installed": true,
           "isInRegistry": true,
           "name": "Tasky",
           "slug": "tasky",

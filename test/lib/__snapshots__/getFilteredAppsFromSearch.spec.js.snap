@@ -398,10 +398,12 @@ Array [
     },
   },
   Object {
+    "availableVersion": true,
     "categories": Array [
       "partners",
     ],
     "icon": "<svg></svg>",
+    "installed": true,
     "isInRegistry": true,
     "name": "Tasky",
     "slug": "tasky",
@@ -659,10 +661,12 @@ Array [
     },
   },
   Object {
+    "availableVersion": true,
     "categories": Array [
       "partners",
     ],
     "icon": "<svg></svg>",
+    "installed": true,
     "isInRegistry": true,
     "name": "Tasky",
     "slug": "tasky",

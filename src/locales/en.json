@@ -50,6 +50,7 @@
       "title": "Data usage",
       "cancel": "Cancel",
       "install": "Install",
+      "update": "Update",
       "message": {
         "install_success": "The application has correctly been installed.",
         "version_error": "Something went wrong when fetching the application informations. Reason: %{message}",
@@ -63,6 +64,9 @@
 
   "app_page": {
     "back": "Back to the list",
+    "install": "Install",
+    "uninstall": "Uninstall",
+    "update": "Update",
     "konnector": {
       "open": "Open",
       "install": "Install",
@@ -74,9 +78,7 @@
       }
     },
     "webapp": {
-      "open": "Open",
-      "install": "Install",
-      "uninstall": "Uninstall"
+      "open": "Open"
     },
     "maintenance": "What happens?",
     "interrupted": "Service interrupted",
@@ -112,7 +114,8 @@
   "app_item": {
     "by": "By",
     "installed": "Installed",
-    "maintenance": "In maintenance"
+    "maintenance": "In maintenance",
+    "update": "Update"
   },
 
   "app_categories": {

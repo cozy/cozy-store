@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConfigureRoute component should display intent modal if konnector found 1`] = `
+<Modal
+  className="intentModal"
+  closable={true}
+  crossClassName="intentModal__cross"
+  dismissAction={[Function]}
+  height="35rem"
+  mobileFullscreen={true}
+  overflowHidden={true}
+  primaryType="regular"
+  secondaryType="secondary"
+  size="small"
+>
+  <IntentIframe
+    action="CREATE"
+    data={
+      Object {
+        "slug": "konnector-trinlane",
+      }
+    }
+    onCancel={[Function]}
+    onTerminate={[Function]}
+    type="io.cozy.accounts"
+  />
+</Modal>
+`;

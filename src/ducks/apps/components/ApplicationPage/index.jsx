@@ -66,16 +66,7 @@ export class ApplicationPage extends Component {
         </p>
       )
     }
-    const {
-      icon,
-      installed,
-      maintenance,
-      uninstallable,
-      related,
-      slug,
-      type,
-      iconToLoad
-    } = app
+    const { icon, slug, iconToLoad } = app
     const appName = t(`apps.${app.slug}.name`, { _: app.name })
     const namePrefix = t(`apps.${app.slug}.name_prefix`, {
       _: app.name_prefix || ''
@@ -125,18 +116,11 @@ export class ApplicationPage extends Component {
             subtle
           />
           <Header
-            icon={icon}
-            iconToLoad={iconToLoad}
+            app={app}
             namePrefix={namePrefix}
             name={appName}
-            type={type}
             description={appShortDesc}
-            installed={installed}
-            installedAppLink={related}
-            uninstallable={uninstallable}
             parent={parent}
-            slug={slug}
-            maintenance={maintenance}
           />
           {app.screenshots &&
             !!app.screenshots.length && (

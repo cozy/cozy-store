@@ -7,10 +7,13 @@ exports[`ApplicationPage header component should be rendered correctly provided 
   <div
     className="sto-app-header-icon"
   >
-    <img
-      alt="photos-icon"
-      className="sto-app-icon"
-      src="https://mockcozy.cc/registry/photos/3.0.0/icon.svg"
+    <Icon
+      className="sto-app-icon--default blurry"
+      color="#95999D"
+      height="88px"
+      icon="test-file-stub"
+      spin={false}
+      width="88px"
     />
   </div>
   <div
@@ -19,7 +22,7 @@ exports[`ApplicationPage header component should be rendered correctly provided 
     <h2
       className="sto-app-header-title"
     >
-      Cozy Photos
+      Cozy undefined
     </h2>
     <p
       className="sto-app-header-description"
@@ -29,7 +32,7 @@ exports[`ApplicationPage header component should be rendered correctly provided 
       disabled={false}
       onClick={null}
       replace={false}
-      to="//myapps/photos/manage"
+      to="//myapps/photos/install"
     >
       <span>
         <Icon
@@ -80,7 +83,7 @@ exports[`ApplicationPage header component should be rendered correctly provided 
       disabled={false}
       onClick={null}
       replace={false}
-      to="//myapps/photos/manage"
+      to="//myapps/photos/install"
     >
       <span>
         <Icon
@@ -106,10 +109,13 @@ exports[`ApplicationPage header component should be rendered correctly provided 
   <div
     className="sto-app-header-icon"
   >
-    <img
-      alt="konnector-trinlane-icon"
-      className="sto-app-icon"
-      src="https://mockcozy.cc/registry/konnector-trinlane/0.1.0/icon.svg"
+    <Icon
+      className="sto-app-icon--default blurry"
+      color="#95999D"
+      height="88px"
+      icon="test-file-stub"
+      spin={false}
+      width="88px"
     />
   </div>
   <div
@@ -117,9 +123,7 @@ exports[`ApplicationPage header component should be rendered correctly provided 
   >
     <h2
       className="sto-app-header-title"
-    >
-      Trinlane
-    </h2>
+    />
     <p
       className="sto-app-header-description"
     />
@@ -128,7 +132,7 @@ exports[`ApplicationPage header component should be rendered correctly provided 
       disabled={false}
       onClick={null}
       replace={false}
-      to="//myapps/konnector-trinlane/manage"
+      to="//myapps/konnector-trinlane/install"
     >
       <span>
         <Icon
@@ -176,7 +180,7 @@ exports[`ApplicationPage header component should disable the install button if m
       disabled={true}
       onClick={[Function]}
       replace={false}
-      to="//discover/photos/manage"
+      to="//discover/photos/install"
     >
       <span>
         <Icon
@@ -219,25 +223,23 @@ exports[`ApplicationPage header component should disable the uninstall button fo
     <p
       className="sto-app-header-description"
     />
-    <div>
-      <DefaultButton
-        className="c-btn"
-        icon="openwith"
-        label="Open"
-        onClick={[Function]}
-      />
-      <Link
-        className="c-btn c-btn--danger-outline sto-app-header-uninstall-button"
-        disabled={true}
-        onClick={[Function]}
-        replace={false}
-        to="//discover/photos/manage"
-      >
-        <span>
-          Uninstall
-        </span>
-      </Link>
-    </div>
+    <DefaultButton
+      className="c-btn"
+      icon="openwith"
+      label="Open"
+      onClick={[Function]}
+    />
+    <Link
+      className="c-btn c-btn--danger-outline sto-app-header-uninstall-button"
+      disabled={true}
+      onClick={[Function]}
+      replace={false}
+      to="//discover/photos/uninstall"
+    >
+      <span>
+        Uninstall
+      </span>
+    </Link>
   </div>
 </div>
 `;
@@ -270,7 +272,7 @@ exports[`ApplicationPage header component should display a placeholder if app ic
       disabled={false}
       onClick={null}
       replace={false}
-      to="//discover/photos/manage"
+      to="//discover/photos/install"
     >
       <span>
         <Icon

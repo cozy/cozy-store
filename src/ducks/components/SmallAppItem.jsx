@@ -3,8 +3,9 @@ import React from 'react'
 import Icon from 'cozy-ui/react/Icon'
 import { translate } from 'cozy-ui/react/I18n'
 
-import defaultAppIcon from '../../assets/icons/icon-cube.svg'
+import defaultAppIcon from 'assets/icons/icon-cube.svg'
 import { Placeholder } from './AppsLoading'
+import { getCurrentStatusLabel } from 'ducks/apps/appStatus'
 
 export const SmallAppItem = ({
   t,
@@ -14,7 +15,9 @@ export const SmallAppItem = ({
   onClick,
   isMobile
 }) => {
-  const { slug, developer = {}, icon, iconToLoad, installed, maintenance } = app
+  const { slug, developer = {}, icon, iconToLoad } = app
+  const statusToDisplay = getCurrentStatusLabel(app)
+
   return (
     // HACK a11y
     // `onKeyDown={(e) => e.keyCode === 13 ? onClick() : null`
@@ -60,17 +63,11 @@ export const SmallAppItem = ({
             {`${t('app_item.by')} ${developer.name}`}
           </p>
         )}
-        {maintenance && (
+        {statusToDisplay && (
           <p className="sto-small-app-item-status">
-            {t('app_item.maintenance')}
+            {t(`app_item.${statusToDisplay}`)}
           </p>
         )}
-        {installed &&
-          !maintenance && (
-            <p className="sto-small-app-item-status">
-              {t('app_item.installed')}
-            </p>
-          )}
       </div>
     </div>
   )

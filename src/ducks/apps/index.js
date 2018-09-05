@@ -254,12 +254,15 @@ function _consolidateApps(stateApps, newAppsInfos, lang) {
   return Array.from(apps.values()).filter(app => app)
 }
 
-// FIXME retro-compatibility for old formatted manifest
-function _sanitizeOldManifest(app) {
+function _sanitizeManifest(app) {
+  // FIXME retro-compatibility for old formatted manifest
+  const sanitized = Object.assign({}, app)
   if (!app.categories && app.category && typeof app.category === 'string')
-    app.categories = [app.category]
-  if (typeof app.name === 'object') app.name = app.name.en
-  return app
+    sanitized.categories = [app.category]
+  if (typeof app.name === 'object') sanitized.name = app.name.en
+  sanitized.availableVersion = app.available_version
+  delete sanitized.available_version
+  return sanitized
 }
 
 // check authorized categories and add default 'others'
@@ -314,34 +317,32 @@ export async function getFormattedInstalledApp(
   collectLink,
   fetchIcon = true
 ) {
-  // FIXME retro-compatibility for old formatted manifest
-  response.attributes = _sanitizeOldManifest(response.attributes)
+  const appAttributes = _sanitizeManifest(response.attributes)
 
   let icon = response.links.icon
   if (fetchIcon) icon = await _getIcon(icon)
-  const manifest = response.attributes
   const openingLink =
-    response.attributes.type === APP_TYPE.KONNECTOR
-      ? `${collectLink}/${COLLECT_RELATED_PATH}/${manifest.slug}`
+    appAttributes.type === APP_TYPE.KONNECTOR
+      ? `${collectLink}/${COLLECT_RELATED_PATH}/${appAttributes.slug}`
       : response.links.related
   const screensLinks =
-    manifest.screenshots &&
-    manifest.screenshots.map(name => {
+    appAttributes.screenshots &&
+    appAttributes.screenshots.map(name => {
       let fileName = name
       if (fileName[0] === '/') fileName = fileName.slice(1)
-      return `${cozy.client._url}/registry/${manifest.slug}/${
-        manifest.version
+      return `${cozy.client._url}/registry/${appAttributes.slug}/${
+        appAttributes.version
       }/screenshots/${fileName}`
     })
-  return Object.assign({}, response.attributes, {
+  return Object.assign({}, appAttributes, {
     _id: response.id || response._id,
     // the icon fetching will done later with iconToLoad
     ...(fetchIcon ? { icon } : { iconToLoad: icon }),
-    categories: _sanitizeCategories(manifest.categories),
+    categories: _sanitizeCategories(appAttributes.categories),
     installed: true,
     related: openingLink,
     screenshots: screensLinks,
-    uninstallable: !config.notRemovableApps.includes(response.attributes.slug)
+    uninstallable: !config.notRemovableApps.includes(appAttributes.slug)
   })
 }
 
@@ -504,8 +505,7 @@ export async function getFormattedRegistryApp(
       `/registry/${responseApp.slug}/${channel}/latest`
     )
   }
-  // FIXME retro-compatibility for old formatted manifest
-  const manifest = _sanitizeOldManifest(version.manifest)
+  const manifest = _sanitizeManifest(version.manifest)
   // source is only used by the stack when installed
   // so we removed it from the app manifest if present
   if (manifest.source) delete manifest.source
@@ -665,13 +665,25 @@ export function uninstallApp(slug, type) {
   }
 }
 
-export function installApp(slug, type, source, isUpdate = false) {
+export function installApp(
+  slug,
+  type,
+  source,
+  isUpdate = false,
+  permissionsAcked = false
+) {
   return dispatch => {
+    const args = {}
+    if (permissionsAcked) args.PermissionsAcked = permissionsAcked
+    if (source) args.Source = source
+    const queryString = Object.keys(args)
+      .map(k => k + '=' + args[k])
+      .join('&')
     dispatch({ type: INSTALL_APP })
     const verb = isUpdate ? 'PUT' : 'POST'
     const route = type === APP_TYPE.KONNECTOR ? 'konnectors' : 'apps'
     return cozy.client
-      .fetchJSON(verb, `/${route}/${slug}?Source=${encodeURIComponent(source)}`)
+      .fetchJSON(verb, `/${route}/${slug}?${queryString}`)
       .catch(e => {
         dispatch({ type: INSTALL_APP_FAILURE, error: e })
         throw e
@@ -683,10 +695,11 @@ export function installAppFromRegistry(
   slug,
   type,
   channel = DEFAULT_CHANNEL,
-  isUpdate = false
+  isUpdate = false,
+  permissionsAcked = false
 ) {
   return dispatch => {
     const source = `registry://${slug}/${channel}`
-    return dispatch(installApp(slug, type, source, isUpdate))
+    return dispatch(installApp(slug, type, source, isUpdate, permissionsAcked))
   }
 }
