@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 
-import InstallModal from '../InstallModal'
+import Install from '../Install'
 
 export const InstallRoute = ({
   actionError,
@@ -23,7 +23,7 @@ export const InstallRoute = ({
         return redirectTo(`/${parent}`)
       } else {
         return (
-          <InstallModal
+          <Install
             installApp={installApp}
             parent={`/${parent}`}
             installError={actionError}

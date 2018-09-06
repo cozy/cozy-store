@@ -4,6 +4,7 @@ import { ModalFooter } from 'cozy-ui/react/Modal'
 
 import { translate } from 'cozy-ui/react/I18n'
 import Icon from 'cozy-ui/react/Icon'
+import { hasPendingUpdate } from 'ducks/apps/appStatus'
 
 import cozySmileIcon from 'assets/icons/icon-cozy-smile.svg'
 
@@ -19,6 +20,7 @@ export class InstallModalFooter extends Component {
 
   render() {
     const {
+      app,
       fetchError,
       installError,
       isFetching,
@@ -54,7 +56,11 @@ export class InstallModalFooter extends Component {
                 height="16px"
                 className="sto-app-install-button-icon"
               />
-              <span>{t('app_modal.install.install')}</span>
+              <span>
+                {hasPendingUpdate(app)
+                  ? t('app_modal.install.update')
+                  : t('app_modal.install.install')}
+              </span>
             </button>
           </div>
         </ModalFooter>

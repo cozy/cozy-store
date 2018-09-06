@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 
-import InstallModal from '../InstallModal'
+import Install from '../Install'
 import { REGISTRY_CHANNELS } from 'ducks/apps'
 
 export const ChannelRoute = ({
@@ -32,7 +32,7 @@ export const ChannelRoute = ({
       }
       const fetchApp = chan => fetchLatestApp(app.slug, chan)
       return (
-        <InstallModal
+        <Install
           installApp={app.installed ? updateApp : installApp}
           parent={`/${parent}`}
           fetchApp={fetchApp}

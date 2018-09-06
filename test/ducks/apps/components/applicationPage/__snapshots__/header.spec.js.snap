@@ -35,12 +35,12 @@ exports[`ApplicationPage header component should be rendered correctly provided 
       to="//myapps/photos/install"
     >
       <Icon
-        className="sto-app-install-button-icon"
+        className="sto-app-icon--button"
         color="#FFFFFF"
-        height="16px"
+        height="24px"
         icon="test-file-stub"
         spin={false}
-        width="16px"
+        width="24px"
       />
       <span>
         Install
@@ -85,12 +85,12 @@ exports[`ApplicationPage header component should be rendered correctly provided 
       to="//myapps/photos/install"
     >
       <Icon
-        className="sto-app-install-button-icon"
+        className="sto-app-icon--button"
         color="#FFFFFF"
-        height="16px"
+        height="24px"
         icon="test-file-stub"
         spin={false}
-        width="16px"
+        width="24px"
       />
       <span>
         Install
@@ -133,12 +133,12 @@ exports[`ApplicationPage header component should be rendered correctly provided 
       to="//myapps/konnector-trinlane/install"
     >
       <Icon
-        className="sto-app-install-button-icon"
+        className="sto-app-icon--button"
         color="#FFFFFF"
-        height="16px"
+        height="24px"
         icon="test-file-stub"
         spin={false}
-        width="16px"
+        width="24px"
       />
       <span>
         Install
@@ -180,12 +180,12 @@ exports[`ApplicationPage header component should disable the install button if m
       to="//discover/photos/install"
     >
       <Icon
-        className="sto-app-install-button-icon"
+        className="sto-app-icon--button"
         color="#FFFFFF"
-        height="16px"
+        height="24px"
         icon="test-file-stub"
         spin={false}
-        width="16px"
+        width="24px"
       />
       <span>
         Install
@@ -271,12 +271,12 @@ exports[`ApplicationPage header component should display a placeholder if app ic
       to="//discover/photos/install"
     >
       <Icon
-        className="sto-app-install-button-icon"
+        className="sto-app-icon--button"
         color="#FFFFFF"
-        height="16px"
+        height="24px"
         icon="test-file-stub"
         spin={false}
-        width="16px"
+        width="24px"
       />
       <span>
         Install

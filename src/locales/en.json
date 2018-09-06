@@ -49,6 +49,7 @@
     "install": {
       "title": "Data access requirements",
       "install": "Accept and continue",
+      "update": "Accept and continue",
       "message": {
         "install_success": "The application has correctly been installed.",
         "version_error": "Something went wrong when fetching the application informations. Reason: %{message}",

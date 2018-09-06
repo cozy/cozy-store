@@ -73,18 +73,11 @@ export const Header = ({ t, app, namePrefix, name, description, parent }) => {
             <Icon
               icon={cozySmileIcon}
               color="#FFFFFF"
-              width="16px"
-              height="16px"
-              className="sto-app-install-button-icon"
+              width="24px"
+              height="24px"
+              className="sto-app-icon--button"
             />
             <span>
-              <Icon
-                icon={cozySmileIcon}
-                color="#FFFFFF"
-                width="16px"
-                height="16px"
-                className="sto-app-icon--button"
-              />{' '}
               {hasPendingUpdate(app)
                 ? t('app_page.update')
                 : t('app_page.install')}

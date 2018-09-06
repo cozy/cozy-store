@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ChannelRoute component should display install modal if app found and in the registry and installed 1`] = `
-<withRouter(InstallModal)
+<withRouter(Install)
   app={
     Object {
       "categories": Array [
@@ -56,7 +56,7 @@ exports[`ChannelRoute component should display install modal if app found and in
 `;
 
 exports[`ChannelRoute component should display install modal if app found and in the registry even if not installed 1`] = `
-<withRouter(InstallModal)
+<withRouter(Install)
   app={
     Object {
       "categories": Array [
