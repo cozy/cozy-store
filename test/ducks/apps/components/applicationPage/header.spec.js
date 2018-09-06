@@ -83,25 +83,6 @@ describe('ApplicationPage header component', () => {
     expect(window.location.assign.mock.calls[0][0]).toBe('#')
   })
 
-  it('should handle the click on open installed konnector button', () => {
-    const appProps = Object.assign({}, mockKonnector.manifest)
-    appProps.installed = true
-    appProps.icon = '<svg></svg>'
-    appProps.related = '#'
-    const wrapper = shallow(
-      <Header
-        t={tMock}
-        parent="/myapps"
-        app={appProps}
-        name={appProps.name}
-        description={appProps.description}
-      />
-    )
-    wrapper.find(Button).simulate('click')
-    expect(window.location.assign.mock.calls.length).toBe(1)
-    expect(window.location.assign.mock.calls[0][0]).toBe('#')
-  })
-
   it('should disable the install button if maintenance', () => {
     const appProps = Object.assign({}, mockApp.manifest)
     appProps.maintenance = {}
