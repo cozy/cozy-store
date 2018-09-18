@@ -106,6 +106,7 @@ export class ApplicationRouting extends Component {
           isInstalling={isInstalling}
           parent={parent}
           redirectTo={this.redirectTo}
+          updateApp={updateApp}
         />
         <UninstallRoute
           actionError={actionError}

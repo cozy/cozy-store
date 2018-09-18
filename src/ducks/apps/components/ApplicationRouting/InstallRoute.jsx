@@ -10,7 +10,8 @@ export const InstallRoute = ({
   isFetching,
   isInstalling,
   parent,
-  redirectTo
+  redirectTo,
+  updateApp
 }) => (
   <Route
     path={`/${parent}/:appSlug/install`}
@@ -24,7 +25,7 @@ export const InstallRoute = ({
       } else {
         return (
           <InstallModal
-            installApp={installApp}
+            installApp={app.installed ? updateApp : installApp}
             parent={`/${parent}`}
             installError={actionError}
             app={app}
