@@ -17,15 +17,6 @@ class AppInstallation extends Component {
     })
   }
 
-  updateApp = () => {
-    this.setState({ error: null })
-    const { app, onError, channel } = this.props
-    this.props.updateApp(app.slug, app.type, channel, true).catch(error => {
-      if (onError) return onError(error)
-      throw error
-    })
-  }
-
   render() {
     const {
       app,
@@ -95,9 +86,7 @@ class AppInstallation extends Component {
                       disabled={isInstalling || isCanceling}
                       aria-busy={isInstalling}
                       className="c-btn c-btn--regular c-btn--download"
-                      onClick={
-                        hasPendingUpdate(app) ? this.updateApp : this.installApp
-                      }
+                      onClick={this.installApp}
                     >
                       <span>
                         {hasPendingUpdate(app)

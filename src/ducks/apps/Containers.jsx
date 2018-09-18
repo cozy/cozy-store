@@ -29,7 +29,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   installApp: (appSlug, appType, channel) =>
     dispatch(installAppFromRegistry(appSlug, appType, channel)),
   uninstallApp: (appSlug, appType) => dispatch(uninstallApp(appSlug, appType)),
-  updateApp: (appSlug, appType, channel, permissionsAcked) =>
+  updateApp: (appSlug, appType, channel, permissionsAcked = true) =>
     dispatch(
       installAppFromRegistry(appSlug, appType, channel, true, permissionsAcked)
     ),
