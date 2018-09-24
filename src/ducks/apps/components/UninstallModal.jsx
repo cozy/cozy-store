@@ -32,7 +32,7 @@ export class UninstallModal extends Component {
   }
 
   render() {
-    const { t, app, uninstallError } = this.props
+    const { t, app, uninstallError, isUninstalling } = this.props
     // if app not found, return to parent
     if (!app) {
       this.gotoParent()
@@ -71,6 +71,8 @@ export class UninstallModal extends Component {
                   role="button"
                   className="c-btn c-btn--danger c-btn--delete"
                   onClick={this.uninstallApp}
+                  disabled={isUninstalling}
+                  aria-busy={isUninstalling}
                 >
                   <span>{t('app_modal.uninstall.uninstall')}</span>
                 </button>

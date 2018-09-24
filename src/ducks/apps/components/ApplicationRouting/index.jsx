@@ -73,6 +73,7 @@ export class ApplicationRouting extends Component {
       isFetching,
       isAppFetching,
       isInstalling,
+      isUninstalling,
       parent,
       actionError,
       fetchError
@@ -111,6 +112,7 @@ export class ApplicationRouting extends Component {
           actionError={actionError}
           getApp={this.getAppFromMatchOrSlug}
           isFetching={isFetching}
+          isUninstalling={isUninstalling}
           parent={parent}
           redirectTo={this.redirectTo}
           uninstallApp={uninstallApp}
