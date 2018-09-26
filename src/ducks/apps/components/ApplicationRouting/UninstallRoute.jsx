@@ -7,6 +7,7 @@ export const UninstallRoute = ({
   actionError,
   getApp,
   isFetching,
+  isUninstalling,
   parent,
   redirectTo,
   uninstallApp
@@ -22,6 +23,7 @@ export const UninstallRoute = ({
         return (
           <UninstallModal
             uninstallApp={uninstallApp}
+            isUninstalling={isUninstalling}
             parent={`/${parent}`}
             uninstallError={actionError}
             app={app}
