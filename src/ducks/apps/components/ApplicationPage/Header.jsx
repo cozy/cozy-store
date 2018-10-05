@@ -98,7 +98,7 @@ export const Header = ({ t, app, namePrefix, name, description, parent }) => {
         {installed && (
           <Link
             to={`/${parent}/${slug}/uninstall`}
-            className="c-btn c-btn--danger-outline sto-app-header-uninstall-button"
+            className="c-btn c-btn--secondary sto-app-header-uninstall-button"
             onClick={!uninstallable && (e => e.preventDefault())}
             disabled={!uninstallable}
           >
