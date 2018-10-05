@@ -105,6 +105,15 @@
     margin-bottom: .5rem;
   }
 
+  .sto-small-app-item:hover,
+  .sto-small-app-item:active,
+  .sto-small-app-item:focus {
+    box-shadow: 0 4px 12px 0 #00000020;
+    cursor: pointer;
+    transform: scale(1.01);
+    transition: .15s ease all;
+  }
+
   .sto-small-app-item-icon-wrapper {
     margin-bottom: 0;
   }
