@@ -8,7 +8,6 @@ export class ScrollToTop extends Component {
   componentDidUpdate(prevProps) {
     if (this.props.location !== prevProps.location) {
       if (!this.props.breakpoints.isDesktop) {
-        // on mobile we scroll on <html />
         document.documentElement.scrollTo(0, 0)
       } else {
         const domNode = this.props.target && this.props.target.getDOMNode()
