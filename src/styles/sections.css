@@ -7,7 +7,6 @@
 }
 
 .sto-sections-apps {
-  margin-top: 2rem;
   margin-bottom: 1rem;
 }
 
@@ -15,6 +14,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+}
+
+.sto-sections-subtitle {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .sto-sections-subtitle-secondary {
