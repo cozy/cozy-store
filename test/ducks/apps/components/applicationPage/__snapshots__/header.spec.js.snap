@@ -230,7 +230,7 @@ exports[`ApplicationPage header component should disable the uninstall button fo
       onClick={[Function]}
     />
     <Link
-      className="c-btn c-btn--danger-outline sto-app-header-uninstall-button"
+      className="c-btn c-btn--secondary sto-app-header-uninstall-button"
       disabled={true}
       onClick={[Function]}
       replace={false}

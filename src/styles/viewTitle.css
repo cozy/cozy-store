@@ -5,6 +5,10 @@
   align-self: center;
 }
 
+[role=banner] .sto-view-title {
+  font-size: 16pt;
+}
+
 .sto-discover .sto-view-title,
 .sto-myapps .sto-view-title {
   padding: 0 0 1rem 2.5rem;
