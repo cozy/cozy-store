@@ -3,6 +3,7 @@ import { REGISTRY_CHANNELS } from 'ducks/apps'
 const VALID_CHANNELS = Object.values(REGISTRY_CHANNELS)
 
 const getChannelFromSource = source => {
+  // TODO: Throw an error if source is not defined
   const registrySourcePattern = /^registry:\/\/(.*)\/(.*)/
   const matches = source && source.match(registrySourcePattern)
   if (matches && matches.length && matches.length > 2) {

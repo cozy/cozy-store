@@ -5,7 +5,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import { tMock } from '../../../jestLib/I18n'
 import { InstallModal } from 'ducks/apps/components/InstallModal'
 
 import mockApps from '../_mockApps'
@@ -28,7 +27,9 @@ const getMockProps = (slug, fromRegistry = null) => ({
         mockApps.find(a => a.slug === slug)
       )
     : mockApps.find(a => a.slug === slug),
+  dismissAction: jest.fn(),
   parent: '/discover',
+  onAlreadyInstalled: jest.fn(),
   onSuccess: jest.fn(app => {
     if (app.slug === 'photos' || app.slug === 'konnector-bouilligue') {
       return sinon
@@ -58,35 +59,28 @@ describe('InstallModal component', () => {
 
   it('should be rendered correctly if app found', () => {
     const component = shallow(
-      <InstallModal t={tMock} {...getMockProps('photos')} />
+      <InstallModal {...getMockProps('photos')} />
     ).getElement()
     expect(component).toMatchSnapshot()
   })
 
   it('should be rendered correctly with also app in registry', () => {
     const mockProps = getMockProps('photos', null, null, mockAppVersion)
-    const component = shallow(
-      <InstallModal t={tMock} {...mockProps} />
-    ).getElement()
+    const component = shallow(<InstallModal {...mockProps} />).getElement()
     expect(component).toMatchSnapshot()
   })
 
   it('should not break the permissions part if no permissions property found in manifest', () => {
     const mockProps = getMockProps('photos', null, null, mockAppVersion)
     delete mockProps.app.permissions
-    const component = shallow(
-      <InstallModal t={tMock} {...mockProps} />
-    ).getElement()
+    const component = shallow(<InstallModal {...mockProps} />).getElement()
     expect(component).toMatchSnapshot()
   })
 
-  it('should go to parent if app not found', () => {
-    const mockProps = getMockProps('unknown')
-    const component = shallow(<InstallModal t={tMock} {...mockProps} />)
-    component.setProps(mockProps)
-    expect(component.type()).toBe(null)
-    // goToParent should be called once to go to the parent view
-    expect(mockProps.history.push.mock.calls.length).toBe(1)
-    expect(mockProps.history.push.mock.calls[0][0]).toBe(mockProps.parent)
+  it('calls onAlreadyInstalled', () => {
+    const mockProps = getMockProps('photos', null, null, mockAppVersion)
+    mockProps.app.installed = true
+    shallow(<InstallModal {...mockProps} />)
+    expect(mockProps.onAlreadyInstalled.call.length).toBe(1)
   })
 })

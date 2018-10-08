@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConfigureModal component renders 1`] = `
+<IntentModal
+  action="CREATE"
+  closable={true}
+  dismissAction={[MockFunction]}
+  doctype="io.cozy.accounts"
+  height="35rem"
+  mobileFullscreen={true}
+  onComplete={[MockFunction]}
+  options={
+    Object {
+      "slug": "trinlane",
+    }
+  }
+  overflowHidden={true}
+  primaryType="regular"
+  secondaryType="secondary"
+  size="small"
+/>
+`;

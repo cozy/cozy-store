@@ -11,35 +11,11 @@ import ConfigureRoute from './ConfigureRoute'
 import InstallRoute from './InstallRoute'
 import UninstallRoute from './UninstallRoute'
 
-import { APP_TYPE } from 'ducks/apps'
-
 export class ApplicationRouting extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      isInstallSuccess: false
-    }
-  }
-
   componentWillReceiveProps(nextProps) {
     // don't react on error
     if (nextProps.actionError) return
-    // on install success
-    if (this.props.isInstalling && !nextProps.isInstalling) {
-      const { location, parent, t } = this.props
-      const pathRegex = new RegExp(`^/${parent}/([^/]*)/.*`)
-      const matches = location.pathname.match(pathRegex)
-      if (!matches || matches.length < 1) return this.redirectTo(`/${parent}/`)
-      const app = this.getAppFromMatchOrSlug(null, matches[1])
-      if (app.type === APP_TYPE.KONNECTOR) {
-        return this.redirectTo(`/${parent}/${app.slug}/configure`)
-      } else {
-        Alerter.success(t('app_modal.install.message.install_success'), {
-          duration: 3000
-        })
-        return this.redirectTo(`/${parent}/${app.slug}`)
-      }
-    } else if (this.props.isUninstalling && !nextProps.isUninstalling) {
+    if (this.props.isUninstalling && !nextProps.isUninstalling) {
       const { location, parent, t } = this.props
       const pathRegex = new RegExp(`^/${parent}/([^/]*)/.*`)
       const matches = location.pathname.match(pathRegex)

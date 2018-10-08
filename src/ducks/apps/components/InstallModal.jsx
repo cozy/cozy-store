@@ -1,58 +1,39 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router'
-
+import PropTypes from 'prop-types'
 import Modal from 'cozy-ui/react/Modal'
 
 import AppInstallation from './AppInstallation'
-import getChannel from 'lib/getChannelFromSource'
 
 export class InstallModal extends Component {
   constructor(props) {
     super(props)
-    this.gotoParent = this.gotoParent.bind(this)
-    this.state = {
-      previousChannel: props.channel ? getChannel(props.app.source) : null,
-      isCanceling: false
-    }
-    if (typeof props.fetchApp === 'function') props.fetchApp(props.channel)
-  }
+    const { app, onAlreadyInstalled } = this.props
 
-  componentWillReceiveProps(nextProps) {
-    if (!nextProps.app) this.gotoParent()
-  }
-
-  async gotoParent() {
-    const { app, parent, history, fetchApp } = this.props
-    const { previousChannel } = this.state
-    // fetch previous channel if channel switch canceled
-    if (previousChannel && typeof fetchApp === 'function') {
-      this.setState(() => ({ isCanceling: true }))
-      await fetchApp(previousChannel)
-      this.setState(() => ({ isCanceling: false }))
-    }
-
-    if (app && app.slug) {
-      history.push(`${parent}/${app.slug}`)
-    } else {
-      history.push(parent)
+    if (app.installed) {
+      onAlreadyInstalled()
     }
   }
 
   render() {
-    const { app, installApp, isInstalling, channel, isAppFetching } = this.props
-    const { isCanceling } = this.state
+    const {
+      app,
+      dismissAction,
+      isInstalling,
+      onSuccess,
+      channel,
+      isAppFetching
+    } = this.props
     if (!app) return null
     return (
       <div className="sto-modal--install">
-        <Modal dismissAction={this.gotoParent} mobileFullscreen>
+        <Modal dismissAction={dismissAction} mobileFullscreen>
           <AppInstallation
-            app={app}
-            installApp={installApp}
+            appSlug={app.slug}
             isFetching={isAppFetching}
             channel={channel}
             isInstalling={isInstalling}
-            isCanceling={isCanceling}
-            onCancel={() => this.gotoParent()}
+            onCancel={dismissAction}
+            onSuccess={onSuccess}
           />
         </Modal>
       </div>
@@ -60,4 +41,11 @@ export class InstallModal extends Component {
   }
 }
 
-export default withRouter(InstallModal)
+InstallModal.propTypes = {
+  app: PropTypes.object.isRequired,
+  dismissAction: PropTypes.func.isRequired,
+  onAlreadyInstalled: PropTypes.func.isRequired,
+  onSuccess: PropTypes.func.isRequired
+}
+
+export default InstallModal
