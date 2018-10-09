@@ -7,29 +7,26 @@ export const UninstallRoute = ({
   actionError,
   getApp,
   isFetching,
-  isUninstalling,
   parent,
-  redirectTo,
-  uninstallApp
+  redirectTo
 }) => (
   <Route
     path={`/${parent}/:appSlug/uninstall`}
     render={({ match }) => {
       if (isFetching) return
+      const parentPath = `/${parent}`
       const app = getApp(match)
-      if (!app || !app.installed || !app.uninstallable) {
-        return redirectTo(`/${parent}`)
-      } else {
-        return (
-          <UninstallModal
-            uninstallApp={uninstallApp}
-            isUninstalling={isUninstalling}
-            parent={`/${parent}`}
-            uninstallError={actionError}
-            app={app}
-          />
-        )
-      }
+      if (!app) return redirectTo(parentPath)
+      const appPath = `${parentPath}/${app.slug}`
+      return (
+        <UninstallModal
+          appSlug={app.slug}
+          dismissAction={() => redirectTo(appPath)}
+          onNotInstalled={() => redirectTo(appPath)}
+          onSuccess={() => redirectTo(appPath)}
+          uninstallError={actionError}
+        />
+      )
     }}
   />
 )

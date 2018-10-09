@@ -37,6 +37,7 @@ const getMockProps = (slug, uninstallError = null) => ({
   history: {
     push: jest.fn()
   },
+  onNotInstalled: jest.fn(),
   uninstallError
 })
 
@@ -57,36 +58,16 @@ describe('UninstallModal component', () => {
     expect(component).toMatchSnapshot()
   })
 
-  it('should go to parent if app not found', () => {
-    const mockProps = getMockProps('unknown')
-    const component = shallow(<UninstallModal t={tMock} {...mockProps} />)
-    expect(component.type()).toBe(null)
-    // goToParent should be called once to go to the parent view
-    expect(mockProps.history.push.mock.calls.length).toBe(1)
-    expect(mockProps.history.push.mock.calls[0][0]).toBe(mockProps.parent)
+  it('calls onNotInstalled', () => {
+    const props = getMockProps('photos')
+    props.installed = false
+    shallow(<UninstallModal t={tMock} {...props} />)
+    expect(props.onNotInstalled.mock.calls.length).toBe(1)
   })
 
   it('should handle correctly error from props', () => {
     const mockProps = getMockProps('photos', mockError)
     const component = shallow(<UninstallModal t={tMock} {...mockProps} />)
     expect(component.getElement()).toMatchSnapshot()
-  })
-
-  it('should handle uninstall app', async () => {
-    const mockProps = getMockProps('photos')
-    const component = shallow(<UninstallModal t={tMock} {...mockProps} />)
-    await component.instance().uninstallApp()
-    // uninstallApp from props should be called once
-    expect(mockProps.uninstallApp.mock.calls.length).toBe(1)
-    expect(mockProps.uninstallApp.mock.calls[0][0]).toBe('photos')
-  })
-
-  it('should handle error from uninstall', async () => {
-    const mockProps = getMockProps('drive')
-    const component = shallow(<UninstallModal t={tMock} {...mockProps} />)
-    await component.instance().uninstallApp()
-    // uninstallApp from props should be called once
-    expect(mockProps.uninstallApp.mock.calls.length).toBe(1)
-    expect(mockProps.uninstallApp.mock.calls[0][0]).toBe('drive')
   })
 })

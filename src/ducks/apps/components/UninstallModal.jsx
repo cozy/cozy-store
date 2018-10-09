@@ -1,9 +1,12 @@
 /* global cozy */
-
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
+import PropTypes from 'prop-types'
 
 import { translate } from 'cozy-ui/react/I18n'
+import Alerter from 'cozy-ui/react/Alerter'
+import { getAppBySlug, uninstallApp } from 'ducks/apps'
 import Modal, { ModalContent } from 'cozy-ui/react/Modal'
 
 import ReactMarkdownWrapper from '../../components/ReactMarkdownWrapper'
@@ -12,37 +15,37 @@ export class UninstallModal extends Component {
   constructor(props) {
     super(props)
 
-    this.gotoParent = this.gotoParent.bind(this)
-    this.uninstallApp = this.uninstallApp.bind(this)
+    const { app, onNotInstalled } = props
+    if (app && !app.installed) {
+      onNotInstalled()
+    }
   }
 
-  uninstallApp() {
-    this.setState({ error: null })
-    const { app } = this.props
-    this.props.uninstallApp(app.slug, app.type)
-  }
-
-  gotoParent() {
-    const { app, parent, history } = this.props
-    if (app && app.slug) {
-      history.push(`${parent}/${app.slug}`)
-    } else {
-      history.push(parent)
+  componentDidUpdate = prevProps => {
+    const { app, onSuccess, t } = this.props
+    const haveJustBeenUninstalled = prevProps.app.installed && !app.installed
+    if (haveJustBeenUninstalled) {
+      Alerter.success(t('app_modal.uninstall.message.success'), {
+        duration: 3000
+      })
+      onSuccess()
     }
   }
 
   render() {
-    const { t, app, uninstallError, isUninstalling } = this.props
-    // if app not found, return to parent
-    if (!app) {
-      this.gotoParent()
-      return null
-    }
+    const {
+      app,
+      isUninstalling,
+      dismissAction,
+      t,
+      uninstallApp,
+      uninstallError
+    } = this.props
     return (
       <div className="sto-modal--uninstall">
         <Modal
           title={t('app_modal.uninstall.title')}
-          dismissAction={this.gotoParent}
+          dismissAction={dismissAction}
           mobileFullscreen
         >
           <ModalContent>
@@ -63,16 +66,16 @@ export class UninstallModal extends Component {
                 <button
                   role="button"
                   className="c-btn c-btn--secondary"
-                  onClick={this.gotoParent}
+                  onClick={dismissAction}
                 >
                   <span>{t('app_modal.uninstall.cancel')}</span>
                 </button>
                 <button
+                  busy={isUninstalling}
+                  disabled={isUninstalling}
                   role="button"
                   className="c-btn c-btn--danger c-btn--delete"
-                  onClick={this.uninstallApp}
-                  disabled={isUninstalling}
-                  aria-busy={isUninstalling}
+                  onClick={() => uninstallApp(app)}
                 >
                   <span>{t('app_modal.uninstall.uninstall')}</span>
                 </button>
@@ -85,4 +88,25 @@ export class UninstallModal extends Component {
   }
 }
 
-export default translate()(withRouter(UninstallModal))
+UninstallModal.propTypes = {
+  app: PropTypes.object.isRequired,
+  dismissAction: PropTypes.func.isRequired,
+  onNotInstalled: PropTypes.func.isRequired,
+  onSuccess: PropTypes.func.isRequired
+}
+
+const mapStateToProps = (state, ownProps) => ({
+  app: getAppBySlug(state, ownProps.appSlug),
+  isUninstalling: state.apps.isUninstalling
+})
+
+const mapDispatchToProps = dispatch => ({
+  uninstallApp: app => {
+    return dispatch(uninstallApp(app.slug, app.type))
+  }
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(translate()(withRouter(UninstallModal)))

@@ -47,7 +47,7 @@ const fetchAppsErrorAction = {
 }
 
 const uninstallAppSuccessAction = {
-  apps: mockApps,
+  slug: 'collect',
   type: 'UNINSTALL_APP_SUCCESS'
 }
 
@@ -79,7 +79,7 @@ describe('Apps ducks reducers', () => {
     expect(list([], installAppAction)).toEqual([])
     expect(list([], installAppErrorAction)).toEqual([])
     expect(list([], installAppSuccessAction)).toEqual(mockApps)
-    expect(list([], uninstallAppSuccessAction)).toEqual(mockApps)
+    expect(list(mockApps, uninstallAppSuccessAction)).toMatchSnapshot()
     expect(list([], uninstallAppErrorAction)).toEqual([])
     // with apps already in state, collect is installed and isInRegistry
     expect(
