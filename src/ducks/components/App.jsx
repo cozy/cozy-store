@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { hot } from 'react-hot-loader'
+
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
 import { translate } from 'cozy-ui/react/I18n'
 
@@ -52,11 +54,13 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchIconsProgressively: () => dispatch(fetchIconsProgressively())
 })
 
-export default withRouter(
-  translate()(
-    connect(
-      mapStateToProps,
-      mapDispatchToProps
-    )(App)
+export default hot(module)(
+  withRouter(
+    translate()(
+      connect(
+        mapStateToProps,
+        mapDispatchToProps
+      )(App)
+    )
   )
 )

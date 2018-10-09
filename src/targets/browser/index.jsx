@@ -1,4 +1,4 @@
-/* global cozy, __DEVELOPMENT__ */
+/* global cozy */
 
 import 'styles'
 
@@ -7,26 +7,11 @@ import { render } from 'react-dom'
 
 import store from 'lib/store'
 
-if (__DEVELOPMENT__) {
-  // Enables React dev tools for Preact
-  // Cannot use import as we are in a condition
-  require('preact/devtools')
-
-  // Export React to window for the devtools
-  window.React = React
-}
-
 const renderApp = function(lang) {
   const Root = require('ducks/components/Root').default
   render(
     <Root store={store} lang={lang} />,
     document.querySelector('[role=application]')
-  )
-}
-
-if (module.hot) {
-  module.hot.accept('ducks/components/Root', () =>
-    requestAnimationFrame(renderApp)
   )
 }
 
