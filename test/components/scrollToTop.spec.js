@@ -8,7 +8,6 @@ import { shallow } from 'enzyme'
 import { ScrollToTop } from 'ducks/components/ScrollToTop'
 
 const mockNode = document.createElement('div')
-mockNode.scrollTo = jest.fn()
 const mockRef = {
   getDOMNode: () => mockNode
 }
@@ -19,10 +18,10 @@ const getBreakpoints = (isDesktop = true) => ({
 describe('ScrollToTop component', () => {
   beforeEach(() => {
     jest.resetAllMocks()
+    mockNode.scrollTop = null
   })
 
   it('should call scrollTo of the target on update with location change', () => {
-    expect(mockNode.scrollTo.mock.calls.length).toBe(0)
     const wrapper = shallow(
       <ScrollToTop
         breakpoints={getBreakpoints()}
@@ -30,14 +29,13 @@ describe('ScrollToTop component', () => {
         location={'/myapps'}
       />
     )
+    mockNode.scrollTop = 200
+    expect(mockNode.scrollTop).toBe(200)
     wrapper.setProps({ location: '/discover' })
-    expect(mockNode.scrollTo.mock.calls.length).toBe(1)
-    expect(mockNode.scrollTo.mock.calls[0][0]).toBe(0)
-    expect(mockNode.scrollTo.mock.calls[0][1]).toBe(0)
+    expect(mockNode.scrollTop).toBe(0)
   })
 
   it('should not call scrollTo of the target on update without location change', () => {
-    expect(mockNode.scrollTo.mock.calls.length).toBe(0)
     const wrapper = shallow(
       <ScrollToTop
         breakpoints={getBreakpoints()}
@@ -46,13 +44,13 @@ describe('ScrollToTop component', () => {
         mockProp="1"
       />
     )
+    mockNode.scrollTop = 200
+    expect(mockNode.scrollTop).toBe(200)
     wrapper.setProps({ mockProp: '2' })
-    expect(mockNode.scrollTo.mock.calls.length).toBe(0)
+    expect(mockNode.scrollTop).toBe(200)
   })
 
   it('should call scrollTo of the documentElement if this not desktop view', () => {
-    document.documentElement.scrollTo = jest.fn()
-    expect(document.documentElement.scrollTo.mock.calls.length).toBe(0)
     const wrapper = shallow(
       <ScrollToTop
         breakpoints={getBreakpoints(false)}
@@ -60,9 +58,12 @@ describe('ScrollToTop component', () => {
         location={'/myapps'}
       />
     )
+    document.documentElement.scrollTop = 200
+    document.body.scrollTop = 200
+    expect(document.documentElement.scrollTop).toBe(200)
+    expect(document.body.scrollTop).toBe(200)
     wrapper.setProps({ location: '/discover' })
-    expect(document.documentElement.scrollTo.mock.calls.length).toBe(1)
-    expect(document.documentElement.scrollTo.mock.calls[0][0]).toBe(0)
-    expect(document.documentElement.scrollTo.mock.calls[0][1]).toBe(0)
+    expect(document.documentElement.scrollTop).toBe(0)
+    expect(document.body.scrollTop).toBe(0)
   })
 })
