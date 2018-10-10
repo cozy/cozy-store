@@ -31,15 +31,12 @@ exports[`UninstallModal component should be rendered correctly (app uninstallabl
               Cancel
             </span>
           </button>
-          <button
-            className="c-btn c-btn--danger c-btn--delete"
+          <DefaultButton
+            icon="delete"
+            label="Uninstall"
             onClick={[Function]}
-            role="button"
-          >
-            <span>
-              Uninstall
-            </span>
-          </button>
+            theme="danger"
+          />
         </div>
       </div>
     </ModalContent>
@@ -83,15 +80,12 @@ exports[`UninstallModal component should handle correctly error from props 1`] =
               Cancel
             </span>
           </button>
-          <button
-            className="c-btn c-btn--danger c-btn--delete"
+          <DefaultButton
+            icon="delete"
+            label="Uninstall"
             onClick={[Function]}
-            role="button"
-          >
-            <span>
-              Uninstall
-            </span>
-          </button>
+            theme="danger"
+          />
         </div>
       </div>
     </ModalContent>
