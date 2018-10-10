@@ -8,10 +8,11 @@ export class ScrollToTop extends Component {
   componentDidUpdate(prevProps) {
     if (this.props.location !== prevProps.location) {
       if (!this.props.breakpoints.isDesktop) {
-        document.documentElement.scrollTo(0, 0)
+        document.documentElement.scrollTop = 0
+        document.body.scrollTop = 0 // safari
       } else {
         const domNode = this.props.target && this.props.target.getDOMNode()
-        domNode.scrollTo(0, 0)
+        domNode.scrollTop = 0
       }
     }
   }
