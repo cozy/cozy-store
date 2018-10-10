@@ -16,8 +16,8 @@ export class PermissionsModal extends Component {
     }
   }
 
-  render(props) {
-    const { t, app } = props
+  render() {
+    const { t, app } = this.props
     return (
       <Modal secondaryAction={() => this.gotoParent()} mobileFullscreen>
         <ModalHeader className="sto-install-header">
