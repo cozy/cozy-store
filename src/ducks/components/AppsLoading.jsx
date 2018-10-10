@@ -14,7 +14,7 @@ export const Placeholder = ({ width, height, autoMargin }) => {
     height
   }
   if (autoMargin) style.margin = 'auto'
-  return <div className="sto-sections-placeholder" style={style} />
+  return <span className="sto-sections-placeholder" style={style} />
 }
 
 export const LoadingAppsComponents = ({ count, subKey, breakpoints = {} }) => {
