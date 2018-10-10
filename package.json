@@ -17,7 +17,7 @@
     "standalone": "yarn standalone:browser",
     "standalone:browser": "cozy-scripts standalone --hot --browser",
     "standalone:mobile": "cozy-scripts standalone --hot --mobile",
-    "cozyPublish": "cozy-scripts publish --token $REGISTRY_TOKEN --prepublish downcloud --postpublish rundeck,mattermost",
+    "cozyPublish": "cozy-scripts publish --token $REGISTRY_TOKEN --prepublish downcloud --postpublish mattermost",
     "pretest": "yarn lint",
     "test": "cozy-scripts test --verbose --coverage",
     "stack:docker": "docker run --rm -it -p 8080:8080 -v \"$(pwd)/build\":/data/cozy-app/app cozy/cozy-app-dev"
