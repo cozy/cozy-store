@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import { findDOMNode } from 'react-dom'
 import { withRouter } from 'react-router'
 import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
 
@@ -11,7 +12,8 @@ export class ScrollToTop extends Component {
         document.documentElement.scrollTop = 0
         document.body.scrollTop = 0 // safari
       } else {
-        const domNode = this.props.target && this.props.target.getDOMNode()
+        // eslint-disable-next-line react/no-find-dom-node
+        const domNode = this.props.target && findDOMNode(this.props.target)
         domNode.scrollTop = 0
       }
     }
