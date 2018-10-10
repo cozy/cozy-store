@@ -13,7 +13,7 @@ export const UninstallRoute = ({
   <Route
     path={`/${parent}/:appSlug/uninstall`}
     render={({ match }) => {
-      if (isFetching) return
+      if (isFetching) return null
       const parentPath = `/${parent}`
       const app = getApp(match)
       if (!app) return redirectTo(parentPath)

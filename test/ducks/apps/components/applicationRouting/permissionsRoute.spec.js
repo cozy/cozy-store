@@ -16,7 +16,7 @@ const getProps = (isFetching = false, getApp = getAppMock) => ({
   isFetching,
   parent: 'myapps',
   getApp,
-  redirectTo: jest.fn()
+  redirectTo: jest.fn(() => null)
 })
 
 describe('PermissionsRoute component', () => {
@@ -37,7 +37,7 @@ describe('PermissionsRoute component', () => {
     // collect in mockApps is installed and isInRegistry
     const routeProps = { match: { params: { appSlug: 'collect' } } }
     const resultComponent = route.props.render(routeProps)
-    expect(resultComponent).toBeUndefined()
+    expect(resultComponent).toBe(null)
   })
 
   it('should redirectTo parent if no app found', () => {
@@ -48,6 +48,6 @@ describe('PermissionsRoute component', () => {
     const resultComponent = route.props.render(routeProps)
     expect(props.redirectTo.mock.calls.length).toBe(1)
     expect(props.redirectTo.mock.calls[0][0]).toBe(`/${props.parent}`)
-    expect(resultComponent).toBeUndefined()
+    expect(resultComponent).toBe(null)
   })
 })

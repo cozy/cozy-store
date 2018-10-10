@@ -7,7 +7,7 @@ export const ConfigureRoute = ({ getApp, isFetching, parent, redirectTo }) => (
   <Route
     path={`/${parent}/:appSlug/configure`}
     render={({ match }) => {
-      if (isFetching) return
+      if (isFetching) return null
       const app = getApp(match)
       if (!app) return redirectTo(`/${parent}`)
       const appPath = `/${parent}/${app.slug}`
