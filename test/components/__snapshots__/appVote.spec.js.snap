@@ -3,10 +3,10 @@
 exports[`AppVote component should be rendered correctly 1`] = `
 <PopupOpener
   className="sto-app-vote-wrapper"
-  height="700"
+  height={700}
   title="Cozy app voting"
   url="https://framaforms.org/collect-1518082910"
-  width="650"
+  width={650}
 >
   <div
     className="sto-app-vote"
