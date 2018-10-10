@@ -1,8 +1,7 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 
-import IntentModal from 'cozy-ui/react/IntentModal'
-import { APP_TYPE } from 'ducks/apps'
+import ConfigureModal from '../ConfigureModal'
 
 export const ConfigureRoute = ({ getApp, isFetching, parent, redirectTo }) => (
   <Route
@@ -11,24 +10,17 @@ export const ConfigureRoute = ({ getApp, isFetching, parent, redirectTo }) => (
       if (isFetching) return
       const app = getApp(match)
       if (!app) return redirectTo(`/${parent}`)
-      const goToApp = () => redirectTo(`/${parent}/${app.slug}`)
-      if (app && app.installed && app.type === APP_TYPE.KONNECTOR) {
-        return (
-          <IntentModal
-            action="CREATE"
-            doctype="io.cozy.accounts"
-            options={{ slug: app.slug }}
-            dismissAction={goToApp}
-            onComplete={goToApp}
-            mobileFullscreen
-            overflowHidden
-            size="small"
-            height="35rem"
-          />
-        )
-      } else {
-        return goToApp()
-      }
+      const appPath = `/${parent}/${app.slug}`
+      const redirectToApp = () => redirectTo(appPath)
+      return (
+        <ConfigureModal
+          appSlug={app.slug}
+          dismissAction={redirectToApp}
+          onNotInstalled={redirectToApp}
+          onSuccess={redirectToApp}
+          onWebApp={redirectToApp}
+        />
+      )
     }}
   />
 )

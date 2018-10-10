@@ -50,28 +50,4 @@ describe('UninstallRoute component', () => {
     expect(props.redirectTo.mock.calls[0][0]).toBe(`/${props.parent}`)
     expect(resultComponent).toBeUndefined()
   })
-
-  it('should redirectTo parent if app found but not uninstallable', () => {
-    const props = getProps(false, jest.fn())
-    const component = shallow(<UninstallRoute {...props} />)
-    const route = component.find(Route).getElement()
-    // drive in mockApps is installed and not uninstallable
-    const routeProps = { match: { params: { appSlug: 'drive' } } }
-    const resultComponent = route.props.render(routeProps)
-    expect(props.redirectTo.mock.calls.length).toBe(1)
-    expect(props.redirectTo.mock.calls[0][0]).toBe(`/${props.parent}`)
-    expect(resultComponent).toBeUndefined()
-  })
-
-  it('should redirectTo parent if app found but not installed', () => {
-    const props = getProps()
-    const component = shallow(<UninstallRoute {...props} />)
-    const route = component.find(Route).getElement()
-    // drive in mockApps is not installed
-    const routeProps = { match: { params: { appSlug: 'drive' } } }
-    const resultComponent = route.props.render(routeProps)
-    expect(props.redirectTo.mock.calls.length).toBe(1)
-    expect(props.redirectTo.mock.calls[0][0]).toBe(`/${props.parent}`)
-    expect(resultComponent).toBeUndefined()
-  })
 })

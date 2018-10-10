@@ -3,6 +3,8 @@ import { Route } from 'react-router-dom'
 
 import InstallModal from '../InstallModal'
 
+import { APP_TYPE } from 'ducks/apps'
+
 export const InstallRoute = ({
   actionError,
   getApp,
@@ -18,21 +20,28 @@ export const InstallRoute = ({
     render={({ match }) => {
       if (isFetching) return
       const app = getApp(match)
-      if (!app || (app.installed && !app.availableVersion)) {
-        // not existing or already installed with the
-        // latest version
+
+      if (!app) {
         return redirectTo(`/${parent}`)
-      } else {
-        return (
-          <InstallModal
-            installApp={app.installed ? updateApp : installApp}
-            parent={`/${parent}`}
-            installError={actionError}
-            app={app}
-            isInstalling={isInstalling}
-          />
-        )
       }
+
+      const appPath = `/${parent}/${(app && app.slug) || ''}`
+      const configurePath = `${appPath}/configure`
+      return (
+        <InstallModal
+          app={app}
+          installApp={app.installed ? updateApp : installApp}
+          installError={actionError}
+          isInstalling={isInstalling}
+          onAlreadyInstalled={() => redirectTo(appPath)}
+          dismissAction={() => redirectTo(appPath)}
+          onSuccess={() => {
+            app.type === APP_TYPE.KONNECTOR
+              ? redirectTo(configurePath)
+              : redirectTo(appPath)
+          }}
+        />
+      )
     }}
   />
 )

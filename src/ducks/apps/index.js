@@ -67,6 +67,9 @@ export const list = (state = [], action) => {
         'slug'
       )
     case UNINSTALL_APP_SUCCESS:
+      return state.map(
+        app => (app.slug === action.slug ? { ...app, installed: false } : app)
+      )
     case INSTALL_APP_SUCCESS:
       return _sortAlphabetically(action.apps, 'slug')
     case RECEIVE_APPS_ICON:
@@ -387,17 +390,14 @@ function onAppUpdate(appResponse) {
 }
 
 function onAppDelete(appResponse) {
-  return async (dispatch, getState) => {
+  return async dispatch => {
     if (appResponse.state === APP_STATE.ERRORED) {
       const err = new Error('Error when installing the application')
       dispatch({ type: UNINSTALL_APP_FAILURE, error: err })
       throw err
     }
-    const apps = getState().apps.list.map(app => {
-      if (app.slug === appResponse.slug) app.installed = false
-      return app
-    })
-    return dispatch({ type: UNINSTALL_APP_SUCCESS, apps })
+    const { slug } = appResponse
+    return dispatch({ type: UNINSTALL_APP_SUCCESS, slug })
   }
 }
 

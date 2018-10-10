@@ -412,7 +412,6 @@ ShallowWrapper {
           isFetching={false}
           parent="myapps"
           redirectTo={[Function]}
-          uninstallApp={[MockFunction mockUninstallApp]}
         />,
         <PermissionsRoute
           getApp={[Function]}
@@ -494,7 +493,6 @@ ShallowWrapper {
           "isUninstalling": undefined,
           "parent": "myapps",
           "redirectTo": [Function],
-          "uninstallApp": [MockFunction mockUninstallApp],
         },
         "ref": null,
         "rendered": null,
@@ -565,7 +563,6 @@ ShallowWrapper {
             isFetching={false}
             parent="myapps"
             redirectTo={[Function]}
-            uninstallApp={[MockFunction mockUninstallApp]}
           />,
           <PermissionsRoute
             getApp={[Function]}
@@ -647,7 +644,6 @@ ShallowWrapper {
             "isUninstalling": undefined,
             "parent": "myapps",
             "redirectTo": [Function],
-            "uninstallApp": [MockFunction mockUninstallApp],
           },
           "ref": null,
           "rendered": null,

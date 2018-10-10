@@ -6,7 +6,6 @@ exports[`UninstallModal component should be rendered correctly (app uninstallabl
 >
   <Unknown
     closable={true}
-    dismissAction={[Function]}
     mobileFullscreen={true}
     overflowHidden={false}
     primaryType="regular"
@@ -26,7 +25,6 @@ exports[`UninstallModal component should be rendered correctly (app uninstallabl
         >
           <button
             className="c-btn c-btn--secondary"
-            onClick={[Function]}
             role="button"
           >
             <span>
@@ -55,7 +53,6 @@ exports[`UninstallModal component should handle correctly error from props 1`] =
 >
   <Unknown
     closable={true}
-    dismissAction={[Function]}
     mobileFullscreen={true}
     overflowHidden={false}
     primaryType="regular"
@@ -80,7 +77,6 @@ exports[`UninstallModal component should handle correctly error from props 1`] =
         >
           <button
             className="c-btn c-btn--secondary"
-            onClick={[Function]}
             role="button"
           >
             <span>

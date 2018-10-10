@@ -1,93 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ChannelRoute component should display install modal if app found and in the registry and installed 1`] = `
-<withRouter(InstallModal)
-  app={
-    Object {
-      "categories": Array [
-        "cozy",
-      ],
-      "developer": Object {
-        "name": "Cozy",
-      },
-      "editor": "Cozy",
-      "icon": "<svg></svg>",
-      "installed": true,
-      "isInRegistry": true,
-      "name": "Collect",
-      "name_prefix": "Cozy",
-      "permissions": Object {
-        "mock": Object {
-          "type": "io.mock.doctype",
-        },
-        "mock2": Object {
-          "type": "io.mock.doctype2",
-        },
-      },
-      "related": "http://collect.cozy.mock/",
-      "slug": "collect",
-      "tags": Array [
-        "konnector",
-        "collect",
-        "bills",
-        "providers",
-        "files",
-      ],
-      "type": "webapp",
-      "uninstallable": false,
-      "version": "3.0.0",
-      "versions": Object {
-        "beta": Array [
-          "3.0.0",
-        ],
-        "dev": Array [
-          "3.0.0",
-        ],
-        "stable": Array [
-          "3.0.0",
-        ],
-      },
-    }
-  }
+<Connect(ChannelModal)
+  appSlug="collect"
   channel="beta"
+  dismissAction={[Function]}
   fetchApp={[Function]}
-  parent="/myapps"
+  onCurrentChannel={[Function]}
+  onNotInstalled={[Function]}
+  onSuccess={[Function]}
 />
 `;
 
 exports[`ChannelRoute component should display install modal if app found and in the registry even if not installed 1`] = `
-<withRouter(InstallModal)
-  app={
-    Object {
-      "categories": Array [
-        "cozy",
-      ],
-      "developer": Object {
-        "name": "Cozy",
-      },
-      "editor": "Cozy",
-      "icon": "<svg></svg>",
-      "isInRegistry": true,
-      "name": "Photos",
-      "name_prefix": "Cozy",
-      "slug": "photos",
-      "type": "webapp",
-      "uninstallable": true,
-      "versions": Object {
-        "beta": Array [
-          "3.0.0",
-        ],
-        "dev": Array [
-          "3.0.0",
-        ],
-        "stable": Array [
-          "3.0.0",
-        ],
-      },
-    }
-  }
+<Connect(ChannelModal)
+  appSlug="photos"
   channel="beta"
+  dismissAction={[Function]}
   fetchApp={[Function]}
-  parent="/myapps"
+  onCurrentChannel={[Function]}
+  onNotInstalled={[Function]}
+  onSuccess={[Function]}
 />
 `;

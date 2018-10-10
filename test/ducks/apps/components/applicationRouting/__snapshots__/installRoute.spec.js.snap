@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InstallRoute component should display install modal if app found in the registry but not installed 1`] = `
-<withRouter(InstallModal)
+<InstallModal
   app={
     Object {
       "categories": Array [
@@ -31,12 +31,14 @@ exports[`InstallRoute component should display install modal if app found in the
       },
     }
   }
-  parent="/myapps"
+  dismissAction={[Function]}
+  onAlreadyInstalled={[Function]}
+  onSuccess={[Function]}
 />
 `;
 
 exports[`InstallRoute component should display install modal if app found in the registry installed but with available version 1`] = `
-<withRouter(InstallModal)
+<InstallModal
   app={
     Object {
       "availableVersion": true,
@@ -63,6 +65,8 @@ exports[`InstallRoute component should display install modal if app found in the
       },
     }
   }
-  parent="/myapps"
+  dismissAction={[Function]}
+  onAlreadyInstalled={[Function]}
+  onSuccess={[Function]}
 />
 `;
