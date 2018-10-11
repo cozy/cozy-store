@@ -44,6 +44,12 @@
   transition: .1s ease;
 }
 
+/* FIXME overwrite cozy-ui from cozy-bar styles */
+.sto-app-back [aria-hidden=true] {
+  display: block;
+  visibility: visible;
+}
+
 /*********************/
 /**      HEADER     **/
 /*********************/
