@@ -18,7 +18,7 @@ export const InstallRoute = ({
   <Route
     path={`/${parent}/:appSlug/install`}
     render={({ match }) => {
-      if (isFetching) return
+      if (isFetching) return null
       const app = getApp(match)
 
       if (!app) {

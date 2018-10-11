@@ -8,9 +8,9 @@ import { shallow } from 'enzyme'
 import { ScrollToTop } from 'ducks/components/ScrollToTop'
 
 const mockNode = document.createElement('div')
-const mockRef = {
-  getDOMNode: () => mockNode
-}
+jest.mock('react-dom', () => ({
+  findDOMNode: () => mockNode
+}))
 const getBreakpoints = (isDesktop = true) => ({
   isDesktop
 })
@@ -25,7 +25,7 @@ describe('ScrollToTop component', () => {
     const wrapper = shallow(
       <ScrollToTop
         breakpoints={getBreakpoints()}
-        target={mockRef}
+        target={mockNode}
         location={'/myapps'}
       />
     )
@@ -39,7 +39,7 @@ describe('ScrollToTop component', () => {
     const wrapper = shallow(
       <ScrollToTop
         breakpoints={getBreakpoints()}
-        target={mockRef}
+        target={mockNode}
         location={'/myapps'}
         mockProp="1"
       />
@@ -54,7 +54,7 @@ describe('ScrollToTop component', () => {
     const wrapper = shallow(
       <ScrollToTop
         breakpoints={getBreakpoints(false)}
-        target={mockRef}
+        target={mockNode}
         location={'/myapps'}
       />
     )

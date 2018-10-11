@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 
 import { translate } from 'cozy-ui/react/I18n'
 import Alerter from 'cozy-ui/react/Alerter'
+import Button from 'cozy-ui/react/Button'
 import { getAppBySlug, uninstallApp } from 'ducks/apps'
 import Modal, { ModalContent } from 'cozy-ui/react/Modal'
 
@@ -70,15 +71,14 @@ export class UninstallModal extends Component {
                 >
                   <span>{t('app_modal.uninstall.cancel')}</span>
                 </button>
-                <button
+                <Button
                   busy={isUninstalling}
                   disabled={isUninstalling}
-                  role="button"
-                  className="c-btn c-btn--danger c-btn--delete"
+                  theme="danger"
+                  icon="delete"
                   onClick={() => uninstallApp(app)}
-                >
-                  <span>{t('app_modal.uninstall.uninstall')}</span>
-                </button>
+                  label={t('app_modal.uninstall.uninstall')}
+                />
               </div>
             </div>
           </ModalContent>

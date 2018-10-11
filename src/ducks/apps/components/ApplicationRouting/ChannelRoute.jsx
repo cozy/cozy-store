@@ -18,7 +18,7 @@ export const ChannelRoute = ({
   <Route
     path={`/${parent}/:appSlug/channel/:channel`}
     render={({ match }) => {
-      if (isFetching) return
+      if (isFetching) return null
       const app = getApp(match)
       const appPath = `/${parent}/${(app && app.slug) || ''}`
       if (!app || !app.isInRegistry) return redirectTo(`/${parent}`)

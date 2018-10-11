@@ -9,7 +9,7 @@ const getActiveChecker = path => (match, location) =>
   `${location.pathname}${location.search}` === path
 
 const renderLink = (cat, path) => (
-  <li key={cat.value}>
+  <li key={path}>
     <RouterLink
       className={`sto-side-menu-item${cat.secondary ? ' --secondary' : ''}`}
       to={path}

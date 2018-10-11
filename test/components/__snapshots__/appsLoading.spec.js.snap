@@ -363,7 +363,7 @@ exports[`LoadingAppsComponents component should be rendered correctly if isMobil
 `;
 
 exports[`Placeholder component should be rendered correctly 1`] = `
-<div
+<span
   className="sto-sections-placeholder"
   style={
     Object {
@@ -375,7 +375,7 @@ exports[`Placeholder component should be rendered correctly 1`] = `
 `;
 
 exports[`Placeholder component should be rendered correctly with autoMargin option 1`] = `
-<div
+<span
   className="sto-sections-placeholder"
   style={
     Object {
@@ -388,7 +388,7 @@ exports[`Placeholder component should be rendered correctly with autoMargin opti
 `;
 
 exports[`Placeholder component should be rendered correctly with interval of widths 1`] = `
-<div
+<span
   className="sto-sections-placeholder"
   style={
     Object {

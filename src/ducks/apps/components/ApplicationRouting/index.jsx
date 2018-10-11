@@ -20,7 +20,8 @@ export class ApplicationRouting extends Component {
   }
 
   redirectTo = target => {
-    return this.props.history.replace(target)
+    this.props.history.replace(target)
+    return null
   }
 
   render() {

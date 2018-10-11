@@ -10,11 +10,11 @@ export const AppVote = ({ t }) => (
   <PopupOpener
     url={VOTING_LINK}
     title="Cozy app voting"
-    height="700"
-    width="650"
+    height={700}
+    width={650}
     className="sto-app-vote-wrapper"
   >
-    <a className="sto-app-vote">
+    <div className="sto-app-vote">
       <Icon
         icon={voteIllustration}
         height="60"
@@ -25,7 +25,7 @@ export const AppVote = ({ t }) => (
         <p>{t('app_vote.line1')}</p>
         <p>{t('app_vote.line2')}</p>
       </strong>
-    </a>
+    </div>
   </PopupOpener>
 )
 
