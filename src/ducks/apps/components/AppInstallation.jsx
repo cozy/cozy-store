@@ -8,9 +8,10 @@ import Spinner from 'cozy-ui/react/Spinner'
 
 import PermissionsList from './PermissionsList'
 import { translate } from 'cozy-ui/react/I18n'
+import Alerter from 'cozy-ui/react/Alerter'
 import { hasPendingUpdate } from 'ducks/apps/appStatus'
 
-import { getAppBySlug, installAppFromRegistry } from 'ducks/apps'
+import { APP_TYPE, getAppBySlug, installAppFromRegistry } from 'ducks/apps'
 
 class AppInstallation extends Component {
   installApp = async () => {
@@ -25,7 +26,7 @@ class AppInstallation extends Component {
   }
 
   componentDidUpdate = prevProps => {
-    const { app, channel, onSuccess } = this.props
+    const { app, channel, onSuccess, t } = this.props
     const justInstalled =
       prevProps.app && !prevProps.app.installed && app.installed
     const justSwitchedChannel =
@@ -34,8 +35,13 @@ class AppInstallation extends Component {
       prevProps.app.source &&
       getChannel(prevProps.app.source) === channel
     const succeed = justInstalled || justSwitchedChannel
-    if (succeed && typeof onSuccess === 'function') {
-      onSuccess()
+    if (succeed) {
+      if (app.type === APP_TYPE.WEBAPP) {
+        Alerter.success(t('app_modal.install.message.install_success'), {
+          duration: 3000
+        })
+      }
+      if (typeof onSuccess === 'function') onSuccess()
     }
   }
 
