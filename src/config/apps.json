@@ -1,9 +1,9 @@
 {
   "notRemovableApps": [
-    "drive",
-    "collect"
+    "drive"
   ],
   "notDisplayedApps": [
+    "collect",
     "home",
     "onboarding",
     "settings",
