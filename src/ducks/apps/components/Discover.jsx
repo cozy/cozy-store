@@ -51,24 +51,22 @@ export class Discover extends Component {
     return (
       <ScrollToTop target={this.container}>
         <Content className="sto-discover" ref={div => (this.container = div)}>
-          {this.props.match.isExact ? (
-            <div>
-              {isMobile && <BarCenter>{title}</BarCenter>}
-              <div className="sto-discover-sections">
-                {!isFetching && (
-                  <Sections
-                    apps={filteredApps}
-                    allApps={apps}
-                    error={fetchError}
-                    onAppClick={this.onAppClick}
-                    pushQuery={this.pushQuery}
-                    query={query}
-                  />
-                )}
-              </div>
-              {!isFetching && <AppVote />}
+          <div className="sto-list-container">
+            {isMobile && <BarCenter>{title}</BarCenter>}
+            <div className="sto-discover-sections">
+              {!isFetching && (
+                <Sections
+                  apps={filteredApps}
+                  allApps={apps}
+                  error={fetchError}
+                  onAppClick={this.onAppClick}
+                  pushQuery={this.pushQuery}
+                  query={query}
+                />
+              )}
             </div>
-          ) : null}
+            {!isFetching && <AppVote />}
+          </div>
 
           <ApplicationRouting
             apps={filteredApps}

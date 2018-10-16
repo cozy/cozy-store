@@ -11,6 +11,11 @@ import Header from './Header'
 import Gallery from './Gallery'
 import Details from './Details'
 
+import {
+  preventBackgroundScroll,
+  unpreventBackgroundScroll
+} from 'lib/scrollHelpers.js'
+
 const MOBILE_PLATFORMS = ['ios', 'android']
 const isMobilePlatform = name => MOBILE_PLATFORMS.includes(name)
 
@@ -24,10 +29,12 @@ export class ApplicationPage extends Component {
   }
 
   componentDidMount() {
+    preventBackgroundScroll()
     window.addEventListener('scroll', this.handleScroll, { passive: true })
   }
 
   componentWillUnmount() {
+    unpreventBackgroundScroll()
     window.removeEventListener('scroll', this.handleScroll)
   }
 
@@ -90,7 +97,7 @@ export class ApplicationPage extends Component {
         return mobilePlatforms
       }, [])
     return (
-      <div>
+      <div className="sto-modal-page-app">
         {isMobile &&
           icon &&
           !iconToLoad && (

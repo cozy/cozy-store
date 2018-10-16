@@ -48,23 +48,21 @@ export class MyApplications extends Component {
     return (
       <ScrollToTop target={this.container}>
         <Content className="sto-myapps" ref={div => (this.container = div)}>
-          {this.props.match.isExact ? (
-            <div>
-              {isMobile && <BarCenter>{title}</BarCenter>}
-              <div className="sto-myapps-sections">
-                {!isFetching && (
-                  <Sections
-                    apps={filteredApps}
-                    allApps={installedApps}
-                    error={fetchError}
-                    onAppClick={this.onAppClick}
-                    pushQuery={this.pushQuery}
-                    query={query}
-                  />
-                )}
-              </div>
+          <div className="sto-list-container">
+            {isMobile && <BarCenter>{title}</BarCenter>}
+            <div className="sto-myapps-sections">
+              {!isFetching && (
+                <Sections
+                  apps={filteredApps}
+                  allApps={installedApps}
+                  error={fetchError}
+                  onAppClick={this.onAppClick}
+                  pushQuery={this.pushQuery}
+                  query={query}
+                />
+              )}
             </div>
-          ) : null}
+          </div>
 
           <ApplicationRouting
             installedApps={filteredApps}

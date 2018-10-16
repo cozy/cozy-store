@@ -1,5 +1,13 @@
 .sto-app {
   margin: auto 1.7em;
+  height: 100vh;
+  background-color: white;
+}
+
+@media (max-width: 48rem) {
+  .sto-app {
+    height: 100%; /* Safer on mobile than 100vh */
+  }
 }
 
 .sto-app .u-title-h3 {
@@ -49,6 +57,46 @@
   display: block;
   visibility: visible;
 }
+
+main > [role=main].sto-discover,
+main > [role=main].sto-myapps {
+  height: 100vh;
+  overflow: hidden;
+}
+
+@media (max-width: 48rem) {
+  main > [role=main].sto-discover,
+  main > [role=main].sto-myapps {
+    height: 100%;
+  }
+}
+
+.sto-list-container {
+  overflow-y: auto;
+}
+
+.sto-modal-page {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: white;
+  overflow-y: auto;
+  z-index: 21;
+}
+
+
+@media (max-width: 48rem) {
+  .sto-modal-page {
+    position: fixed;
+    top: 3rem;
+    max-height: calc(100% - 6rem);
+  }
+
+  .sto-modal-page-app {
+    height: calc(100vh - 6rem)
+  }
+}
+
 
 /*********************/
 /**      HEADER     **/
