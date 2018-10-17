@@ -1,6 +1,6 @@
 {
   "name": "cozy-store",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "main": "src/index.jsx",
   "scripts": {
     "tx": "tx pull --all || true",
