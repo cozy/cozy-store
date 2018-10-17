@@ -1,4 +1,15 @@
 .sto-modal--uninstall .sto-modal-controls {
   display: flex;
   justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+.sto-uninstall-desc-konnector {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.sto-uninstall-desc-konnector .sto-uninstall-desc-icon {
+  margin-right: .5rem;
 }

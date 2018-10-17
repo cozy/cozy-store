@@ -11,7 +11,7 @@ exports[`UninstallModal component should be rendered correctly (app uninstallabl
     primaryType="regular"
     secondaryType="secondary"
     size="small"
-    title="Uninstall this application"
+    title="Uninstall the application"
   >
     <ModalContent>
       <div
@@ -55,7 +55,7 @@ exports[`UninstallModal component should handle correctly error from props 1`] =
     primaryType="regular"
     secondaryType="secondary"
     size="small"
-    title="Uninstall this application"
+    title="Uninstall the application"
   >
     <ModalContent>
       <div
