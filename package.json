@@ -61,6 +61,7 @@
     "cozy-realtime": "1.2.0",
     "cozy-ui": "13.0.0",
     "emoji-js": "3.4.1",
+    "eslint-config-prettier": "3.1.0",
     "prop-types": "15.6.2",
     "react-redux": "5.0.7",
     "react-router-dom": "4.3.1",
