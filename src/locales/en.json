@@ -37,12 +37,8 @@
 
   "app_modal": {
     "uninstall": {
-      "title": "Uninstall the application",
-      "desc": {
-        "webapp": "This application is bound to be removed from your Cozy %{cozyName}. Are you sure to __remove this application definitively__?",
-        "konnector1": "Your data from this provider will no longer be synchronized with your Cozy.",
-        "konnector2": "Your credentials will be removed from your Cozy."
-      },
+      "title": "Uninstall this application",
+      "description": "This application is bound to be removed from your Cozy %{cozyName}. Are you sure to __remove this application definitively__?",
       "cancel": "Cancel",
       "uninstall": "Uninstall",
       "message": {
