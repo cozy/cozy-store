@@ -15,7 +15,7 @@
 }
 
 .sto-app-back {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   margin-top: 1.5rem;
   text-decoration: none;
