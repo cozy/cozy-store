@@ -7,12 +7,10 @@ import PropTypes from 'prop-types'
 import { translate } from 'cozy-ui/react/I18n'
 import Alerter from 'cozy-ui/react/Alerter'
 import Button from 'cozy-ui/react/Button'
-import { APP_TYPE, getAppBySlug, uninstallApp } from 'ducks/apps'
+import { getAppBySlug, uninstallApp } from 'ducks/apps'
 import Modal, { ModalContent } from 'cozy-ui/react/Modal'
-import Icon from 'cozy-ui/react/Icon'
 
 import ReactMarkdownWrapper from '../../components/ReactMarkdownWrapper'
-import unlinkIcon from 'assets/icons/icon-unlink.svg'
 
 export class UninstallModal extends Component {
   constructor(props) {
@@ -53,32 +51,11 @@ export class UninstallModal extends Component {
         >
           <ModalContent>
             <div className="sto-modal-content">
-              {app.type === APP_TYPE.KONNECTOR ? (
-                <div>
-                  <p className="sto-uninstall-desc-konnector">
-                    <Icon
-                      className="sto-uninstall-desc-icon"
-                      icon={unlinkIcon}
-                      color="var(--coolGrey)"
-                    />
-                    {t('app_modal.uninstall.desc.konnector1')}
-                  </p>
-                  <p className="sto-uninstall-desc-konnector">
-                    <Icon
-                      className="sto-uninstall-desc-icon"
-                      icon="delete"
-                      color="var(--coolGrey)"
-                    />
-                    {t('app_modal.uninstall.desc.konnector2')}
-                  </p>
-                </div>
-              ) : (
-                <ReactMarkdownWrapper
-                  source={t('app_modal.uninstall.desc.webapp', {
-                    cozyName: cozy.client._url.replace(/^\/\//, '')
-                  })}
-                />
-              )}
+              <ReactMarkdownWrapper
+                source={t('app_modal.uninstall.description', {
+                  cozyName: cozy.client._url.replace(/^\/\//, '')
+                })}
+              />
               {uninstallError && (
                 <p className="u-error">
                   {t('app_modal.uninstall.message.error', {
