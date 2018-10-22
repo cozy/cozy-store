@@ -38,7 +38,7 @@ export class ApplicationRouting extends Component {
       fetchError
     } = this.props
     return (
-      <div>
+      <div className="sto-modal-page">
         <AppRoute
           getApp={this.getAppFromMatchOrSlug}
           isFetching={isFetching}

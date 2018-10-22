@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ApplicationPage component should be rendered correctly with app infos from registry (not installed) 1`] = `
-<div>
+<div
+  className="sto-modal-page-app"
+>
   <div
     className="sto-app"
   >
@@ -269,7 +271,9 @@ Enjoy features to grab your data in you Cozy :tada:"
 `;
 
 exports[`ApplicationPage component should be rendered correctly with app with screenshots 1`] = `
-<div>
+<div
+  className="sto-modal-page-app"
+>
   <div
     className="sto-app"
   >
@@ -551,7 +555,9 @@ Enjoy features to grab your data in you Cozy :tada:"
 `;
 
 exports[`ApplicationPage component should be rendered correctly with konnector infos from registry (not installed) 1`] = `
-<div>
+<div
+  className="sto-modal-page-app"
+>
   <div
     className="sto-app"
   >
@@ -775,7 +781,9 @@ exports[`ApplicationPage component should be rendered correctly with konnector i
 `;
 
 exports[`ApplicationPage component should be rendered correctly with provided installed app 1`] = `
-<div>
+<div
+  className="sto-modal-page-app"
+>
   <div
     className="sto-app"
   >
@@ -1043,7 +1051,9 @@ Enjoy features to grab your data in you Cozy :tada:"
 `;
 
 exports[`ApplicationPage component should be rendered correctly with provided installed konnector 1`] = `
-<div>
+<div
+  className="sto-modal-page-app"
+>
   <div
     className="sto-app"
   >
@@ -1267,7 +1277,9 @@ exports[`ApplicationPage component should be rendered correctly with provided in
 `;
 
 exports[`ApplicationPage component should be rendered correctly without app descriptions 1`] = `
-<div>
+<div
+  className="sto-modal-page-app"
+>
   <div
     className="sto-app"
   >
@@ -1509,7 +1521,9 @@ exports[`ApplicationPage component should render correctly an error message if f
 `;
 
 exports[`ApplicationPage component should render correctly on mobile with the scroll feature 1`] = `
-<div>
+<div
+  className="sto-modal-page-app"
+>
   <BarCenter>
     <div
       className="sto-app-bar"
@@ -1788,7 +1802,9 @@ Enjoy features to grab your data in you Cozy :tada:"
 `;
 
 exports[`ApplicationPage component should render correctly on mobile with the scroll feature 2`] = `
-<div>
+<div
+  className="sto-modal-page-app"
+>
   <BarCenter>
     <div
       className="sto-app-bar"

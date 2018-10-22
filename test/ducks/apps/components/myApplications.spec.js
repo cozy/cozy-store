@@ -86,16 +86,6 @@ describe('MyApplications component', () => {
     )
   })
 
-  it('should render only routing if path not exactly match /myapps', () => {
-    const mockProps = getMockProps(mockInstalledApps, false, null, {
-      isExact: false
-    })
-    const component = shallow(
-      <MyApplications t={tMock} {...mockProps} />
-    ).getElement()
-    expect(component).toMatchSnapshot()
-  })
-
   it('should use BarCenter from cozy-bar in mobile view only', () => {
     const mockProps = getMockProps()
     const component = shallow(<MyApplications t={tMock} {...mockProps} />)

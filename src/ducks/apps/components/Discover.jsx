@@ -9,7 +9,6 @@ import ApplicationRouting from './ApplicationRouting'
 import Sections from './Sections'
 import AppsLoading from 'ducks/components/AppsLoading'
 import AppVote from 'ducks/components/AppVote'
-import ScrollToTop from 'ducks/components/ScrollToTop'
 
 import getFilteredAppsFromSearch from 'lib/getFilteredAppsFromSearch'
 
@@ -49,44 +48,40 @@ export class Discover extends Component {
     const filteredApps = getFilteredAppsFromSearch(apps, query)
     const title = <h2 className="sto-view-title">{t('discover.title')}</h2>
     return (
-      <ScrollToTop target={this.container}>
-        <Content className="sto-discover" ref={div => (this.container = div)}>
-          {this.props.match.isExact ? (
-            <div>
-              {isMobile && <BarCenter>{title}</BarCenter>}
-              <div className="sto-discover-sections">
-                {!isFetching && (
-                  <Sections
-                    apps={filteredApps}
-                    allApps={apps}
-                    error={fetchError}
-                    onAppClick={this.onAppClick}
-                    pushQuery={this.pushQuery}
-                    query={query}
-                  />
-                )}
-              </div>
-              {!isFetching && <AppVote />}
-            </div>
-          ) : null}
+      <Content className="sto-discover">
+        <div className="sto-list-container">
+          {isMobile && <BarCenter>{title}</BarCenter>}
+          <div className="sto-discover-sections">
+            {!isFetching && (
+              <Sections
+                apps={filteredApps}
+                allApps={apps}
+                error={fetchError}
+                onAppClick={this.onAppClick}
+                pushQuery={this.pushQuery}
+                query={query}
+              />
+            )}
+          </div>
+          {!isFetching && <AppVote />}
+        </div>
 
-          <ApplicationRouting
-            apps={filteredApps}
-            isFetching={isFetching}
-            isAppFetching={isAppFetching}
-            isInstalling={isInstalling}
-            isUninstalling={isUninstalling}
-            actionError={actionError}
-            installApp={this.props.installApp}
-            uninstallApp={this.props.uninstallApp}
-            updateApp={this.props.updateApp}
-            fetchLatestApp={this.props.fetchLatestApp}
-            parent="discover"
-          />
+        <ApplicationRouting
+          apps={filteredApps}
+          isFetching={isFetching}
+          isAppFetching={isAppFetching}
+          isInstalling={isInstalling}
+          isUninstalling={isUninstalling}
+          actionError={actionError}
+          installApp={this.props.installApp}
+          uninstallApp={this.props.uninstallApp}
+          updateApp={this.props.updateApp}
+          fetchLatestApp={this.props.fetchLatestApp}
+          parent="discover"
+        />
 
-          {isFetching && <AppsLoading />}
-        </Content>
-      </ScrollToTop>
+        {isFetching && <AppsLoading />}
+      </Content>
     )
   }
 }
