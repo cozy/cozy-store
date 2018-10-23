@@ -146,8 +146,16 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  installApp: (appSlug, appType, channel, isUpdate) =>
-    dispatch(installAppFromRegistry(appSlug, appType, channel, isUpdate))
+  installApp: (appSlug, appType, channel, isUpdate, permissionsAcked) =>
+    dispatch(
+      installAppFromRegistry(
+        appSlug,
+        appType,
+        channel,
+        isUpdate,
+        permissionsAcked
+      )
+    )
 })
 
 export default connect(
