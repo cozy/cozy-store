@@ -27,8 +27,6 @@ export class ApplicationRouting extends Component {
   render() {
     const {
       fetchLatestApp,
-      installApp,
-      updateApp,
       isFetching,
       isAppFetching,
       isInstalling,
@@ -50,23 +48,19 @@ export class ApplicationRouting extends Component {
           fetchError={fetchError}
           fetchLatestApp={fetchLatestApp}
           getApp={this.getAppFromMatchOrSlug}
-          installApp={installApp}
           isAppFetching={isAppFetching}
           isFetching={isFetching}
           isInstalling={isInstalling}
           parent={parent}
           redirectTo={this.redirectTo}
-          updateApp={updateApp}
         />
         <InstallRoute
           actionError={actionError}
           getApp={this.getAppFromMatchOrSlug}
-          installApp={installApp}
           isFetching={isFetching}
           isInstalling={isInstalling}
           parent={parent}
           redirectTo={this.redirectTo}
-          updateApp={updateApp}
         />
         <UninstallRoute
           actionError={actionError}
