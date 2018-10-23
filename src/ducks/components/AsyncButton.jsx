@@ -32,9 +32,11 @@ class AsyncButton extends Component {
     const isWorking = status === WORKING
     return (
       <Button
-        {...this.props}
         busy={isWorking}
+        className={this.props.className}
         disabled={isWorking || !isFunctional}
+        icon={this.props.icon}
+        label={this.props.label}
         onClick={this.asyncAction}
       />
     )
