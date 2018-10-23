@@ -3,13 +3,14 @@ import PropTypes from 'prop-types'
 import Modal from 'cozy-ui/react/Modal'
 
 import AppInstallation from './AppInstallation'
+import { hasPendingUpdate } from 'ducks/apps/appStatus'
 
 export class InstallModal extends Component {
   constructor(props) {
     super(props)
     const { app, onAlreadyInstalled } = this.props
 
-    if (app.installed) {
+    if (app.installed && !hasPendingUpdate(app)) {
       onAlreadyInstalled()
     }
   }
