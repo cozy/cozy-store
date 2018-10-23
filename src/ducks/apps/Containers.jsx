@@ -6,8 +6,7 @@ import {
   fetchLatestApp,
   uninstallApp,
   getInstalledApps,
-  getRegistryApps,
-  installAppFromRegistry
+  getRegistryApps
 } from './index'
 
 import DiscoverComponent from './components/Discover'
@@ -26,13 +25,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  installApp: (appSlug, appType, channel) =>
-    dispatch(installAppFromRegistry(appSlug, appType, channel)),
   uninstallApp: (appSlug, appType) => dispatch(uninstallApp(appSlug, appType)),
-  updateApp: (appSlug, appType, channel, permissionsAcked = true) =>
-    dispatch(
-      installAppFromRegistry(appSlug, appType, channel, true, permissionsAcked)
-    ),
   fetchLatestApp: (slug, channel) =>
     dispatch(fetchLatestApp(ownProps.lang, slug, channel))
 })
