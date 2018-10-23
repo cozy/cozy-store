@@ -18,7 +18,13 @@ class AppInstallation extends Component {
     this.setState({ error: null })
     const { app, channel, installApp, onError } = this.props
     try {
-      await installApp(app.slug, app.type, channel, app.installed)
+      await installApp(
+        app.slug,
+        app.type,
+        channel,
+        app.installed,
+        hasPendingUpdate(app)
+      )
     } catch (error) {
       if (onError) return onError(error)
       throw error
