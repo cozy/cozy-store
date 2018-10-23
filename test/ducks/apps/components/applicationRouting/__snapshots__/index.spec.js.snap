@@ -393,19 +393,15 @@ ShallowWrapper {
         />,
         <ChannelRoute
           getApp={[Function]}
-          installApp={[MockFunction mockInstallApp]}
           isFetching={false}
           parent="myapps"
           redirectTo={[Function]}
-          updateApp={[MockFunction mockUpdateApp]}
         />,
         <InstallRoute
           getApp={[Function]}
-          installApp={[MockFunction mockInstallApp]}
           isFetching={false}
           parent="myapps"
           redirectTo={[Function]}
-          updateApp={[MockFunction mockUpdateApp]}
         />,
         <UninstallRoute
           getApp={[Function]}
@@ -452,13 +448,11 @@ ShallowWrapper {
           "fetchError": undefined,
           "fetchLatestApp": undefined,
           "getApp": [Function],
-          "installApp": [MockFunction mockInstallApp],
           "isAppFetching": undefined,
           "isFetching": false,
           "isInstalling": undefined,
           "parent": "myapps",
           "redirectTo": [Function],
-          "updateApp": [MockFunction mockUpdateApp],
         },
         "ref": null,
         "rendered": null,
@@ -471,12 +465,10 @@ ShallowWrapper {
         "props": Object {
           "actionError": undefined,
           "getApp": [Function],
-          "installApp": [MockFunction mockInstallApp],
           "isFetching": false,
           "isInstalling": undefined,
           "parent": "myapps",
           "redirectTo": [Function],
-          "updateApp": [MockFunction mockUpdateApp],
         },
         "ref": null,
         "rendered": null,
@@ -544,19 +536,15 @@ ShallowWrapper {
           />,
           <ChannelRoute
             getApp={[Function]}
-            installApp={[MockFunction mockInstallApp]}
             isFetching={false}
             parent="myapps"
             redirectTo={[Function]}
-            updateApp={[MockFunction mockUpdateApp]}
           />,
           <InstallRoute
             getApp={[Function]}
-            installApp={[MockFunction mockInstallApp]}
             isFetching={false}
             parent="myapps"
             redirectTo={[Function]}
-            updateApp={[MockFunction mockUpdateApp]}
           />,
           <UninstallRoute
             getApp={[Function]}
@@ -603,13 +591,11 @@ ShallowWrapper {
             "fetchError": undefined,
             "fetchLatestApp": undefined,
             "getApp": [Function],
-            "installApp": [MockFunction mockInstallApp],
             "isAppFetching": undefined,
             "isFetching": false,
             "isInstalling": undefined,
             "parent": "myapps",
             "redirectTo": [Function],
-            "updateApp": [MockFunction mockUpdateApp],
           },
           "ref": null,
           "rendered": null,
@@ -622,12 +608,10 @@ ShallowWrapper {
           "props": Object {
             "actionError": undefined,
             "getApp": [Function],
-            "installApp": [MockFunction mockInstallApp],
             "isFetching": false,
             "isInstalling": undefined,
             "parent": "myapps",
             "redirectTo": [Function],
-            "updateApp": [MockFunction mockUpdateApp],
           },
           "ref": null,
           "rendered": null,

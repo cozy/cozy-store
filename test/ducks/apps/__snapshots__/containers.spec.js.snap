@@ -6,7 +6,6 @@ exports[`Apps Containers (connected components): Discover should be rendered cor
   apps={Array []}
   fetchError={null}
   fetchLatestApp={[Function]}
-  installApp={[Function]}
   installedApps={Array []}
   isFetching={false}
   isInstalling={false}
@@ -42,7 +41,6 @@ exports[`Apps Containers (connected components): Discover should be rendered cor
     }
   }
   uninstallApp={[Function]}
-  updateApp={[Function]}
 />
 `;
 
@@ -52,7 +50,6 @@ exports[`Apps Containers (connected components): MyApplications should be render
   apps={Array []}
   fetchError={null}
   fetchLatestApp={[Function]}
-  installApp={[Function]}
   installedApps={Array []}
   isFetching={false}
   isInstalling={false}
@@ -88,6 +85,5 @@ exports[`Apps Containers (connected components): MyApplications should be render
     }
   }
   uninstallApp={[Function]}
-  updateApp={[Function]}
 />
 `;
