@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
+import { PropTypes } from 'react-proptypes'
 
 import getChannel from 'lib/getChannelFromSource'
 import { ModalContent, ModalHeader, ModalFooter } from 'cozy-ui/react/Modal'
@@ -136,6 +137,10 @@ class AppInstallation extends Component {
       </div>
     )
   }
+}
+
+AppInstallation.propTypes = {
+  appSlug: PropTypes.string.isRequired
 }
 
 const mapStateToProps = (state, ownProps) => ({
