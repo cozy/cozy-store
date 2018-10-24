@@ -86,7 +86,7 @@ export class InstallAppIntent extends Component {
             !isInstalled &&
             !error && (
               <AppInstallation
-                app={app}
+                appSlug={app.slug}
                 installApp={() => this.installApp()}
                 isInstalling={isInstalling}
                 onCancel={onCancel}
