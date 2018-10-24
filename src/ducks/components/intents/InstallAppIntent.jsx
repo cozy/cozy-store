@@ -16,6 +16,10 @@ const errorKeys = {
 }
 
 export class InstallAppIntent extends Component {
+  state = {
+    status: ''
+  }
+
   constructor(props) {
     super(props)
     props.initAppIntent()
