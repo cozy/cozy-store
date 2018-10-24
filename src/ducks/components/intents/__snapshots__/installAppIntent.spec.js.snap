@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InstallAppIntent component should be rendered correctly 1`] = `
+<div
+  className="coz-intent-wrapper"
+>
+  <IntentHeader
+    appEditor="Cozy"
+    appIcon="..//path/to/icon"
+    appName="Drive"
+  />
+  <div
+    className="coz-intent-content"
+  >
+    <Connect(Wrapper)
+      appSlug="drive"
+      installApp={[Function]}
+    />
+  </div>
+</div>
+`;

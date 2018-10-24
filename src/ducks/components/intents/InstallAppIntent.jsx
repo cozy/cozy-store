@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { translate } from 'cozy-ui/react/I18n'
 
-import AppInstallation from '../../apps/components/AppInstallation'
+import AppInstallation from 'ducks/apps/components/AppInstallation'
 import IntentHeader from 'cozy-ui/react/IntentHeader'
 import Spinner from 'cozy-ui/react/Spinner'
 
