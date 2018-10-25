@@ -261,8 +261,7 @@ function _sanitizeManifest(app) {
   if (!app.categories && app.category && typeof app.category === 'string')
     sanitized.categories = [app.category]
   if (typeof app.name === 'object') sanitized.name = app.name.en
-  sanitized.availableVersion = app.available_version || false
-  delete sanitized.available_version
+  sanitized.availableVersion = app.available_version
   return sanitized
 }
 

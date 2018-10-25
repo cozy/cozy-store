@@ -8,15 +8,8 @@ import { hasPendingUpdate } from 'ducks/apps/appStatus'
 export class InstallModal extends Component {
   constructor(props) {
     super(props)
-    this.handleIfInstalled(props)
-  }
+    const { app, onAlreadyInstalled } = this.props
 
-  componentDidUpdate() {
-    this.handleIfInstalled(this.props)
-  }
-
-  handleIfInstalled(props) {
-    const { app, onAlreadyInstalled } = props
     if (app.installed && !hasPendingUpdate(app)) {
       onAlreadyInstalled()
     }
