@@ -10,12 +10,23 @@ exports[`SmallAppItem component should render correctly an app 1`] = `
   <div
     className="sto-small-app-item-icon-wrapper"
   >
-    <img
-      alt="test-icon"
+    <AppIcon
+      app={
+        Object {
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "editor": "cozy",
+          "icon": "<svg></svg>",
+          "name": "Test",
+          "namePrefix": "Cozy",
+          "onClick": [MockFunction],
+          "slug": "test",
+          "version": "3.0.3",
+        }
+      }
       className="sto-small-app-item-icon"
-      height="64"
-      src="<svg></svg>"
-      width="64"
+      fetchIcon={[Function]}
     />
   </div>
   <div
@@ -45,12 +56,27 @@ exports[`SmallAppItem component should render correctly an app in maintenance 1`
   <div
     className="sto-small-app-item-icon-wrapper"
   >
-    <img
-      alt="test2-icon"
+    <AppIcon
+      app={
+        Object {
+          "developer": Object {
+            "name": "Naming me",
+          },
+          "editor": "",
+          "icon": "<svg></svg>",
+          "installed": true,
+          "installedAppLink": "test2.cozy.mock",
+          "maintenance": Object {
+            "maintenance_options": Object {},
+          },
+          "name": "Test2",
+          "onClick": [MockFunction],
+          "slug": "test2",
+          "version": "3.0.3-beta7483",
+        }
+      }
       className="sto-small-app-item-icon"
-      height="64"
-      src="<svg></svg>"
-      width="64"
+      fetchIcon={[Function]}
     />
   </div>
   <div
@@ -85,14 +111,26 @@ exports[`SmallAppItem component should render correctly an app with iconToLoad (
   <div
     className="sto-small-app-item-icon-wrapper"
   >
-    <div
+    <AppIcon
+      app={
+        Object {
+          "developer": Object {
+            "name": "Naming me",
+          },
+          "editor": "",
+          "icon": "<svg></svg>",
+          "iconToLoad": true,
+          "installed": true,
+          "installedAppLink": "test2.cozy.mock",
+          "name": "Test2",
+          "onClick": [MockFunction],
+          "slug": "test2",
+          "version": "3.0.3-beta7483",
+        }
+      }
       className="sto-small-app-item-icon"
-    >
-      <Placeholder
-        height="3rem"
-        width="3rem"
-      />
-    </div>
+      fetchIcon={[Function]}
+    />
   </div>
   <div
     className="sto-small-app-item-desc"
@@ -126,14 +164,26 @@ exports[`SmallAppItem component should render correctly an app with iconToLoad i
   <div
     className="sto-small-app-item-icon-wrapper"
   >
-    <div
+    <AppIcon
+      app={
+        Object {
+          "developer": Object {
+            "name": "Naming me",
+          },
+          "editor": "",
+          "icon": "<svg></svg>",
+          "iconToLoad": true,
+          "installed": true,
+          "installedAppLink": "test2.cozy.mock",
+          "name": "Test2",
+          "onClick": [MockFunction],
+          "slug": "test2",
+          "version": "3.0.3-beta7483",
+        }
+      }
       className="sto-small-app-item-icon"
-    >
-      <Placeholder
-        height="2.5rem"
-        width="2.5rem"
-      />
-    </div>
+      fetchIcon={[Function]}
+    />
   </div>
   <div
     className="sto-small-app-item-desc"
@@ -167,12 +217,20 @@ exports[`SmallAppItem component should render correctly an app without developer
   <div
     className="sto-small-app-item-icon-wrapper"
   >
-    <img
-      alt="test-icon"
+    <AppIcon
+      app={
+        Object {
+          "editor": "cozy",
+          "icon": "<svg></svg>",
+          "name": "Test",
+          "namePrefix": "Cozy",
+          "onClick": [MockFunction],
+          "slug": "test",
+          "version": "3.0.3",
+        }
+      }
       className="sto-small-app-item-icon"
-      height="64"
-      src="<svg></svg>"
-      width="64"
+      fetchIcon={[Function]}
     />
   </div>
   <div
@@ -197,12 +255,24 @@ exports[`SmallAppItem component should render correctly an installed app 1`] = `
   <div
     className="sto-small-app-item-icon-wrapper"
   >
-    <img
-      alt="test2-icon"
+    <AppIcon
+      app={
+        Object {
+          "developer": Object {
+            "name": "Naming me",
+          },
+          "editor": "",
+          "icon": "<svg></svg>",
+          "installed": true,
+          "installedAppLink": "test2.cozy.mock",
+          "name": "Test2",
+          "onClick": [MockFunction],
+          "slug": "test2",
+          "version": "3.0.3-beta7483",
+        }
+      }
       className="sto-small-app-item-icon"
-      height="64"
-      src="<svg></svg>"
-      width="64"
+      fetchIcon={[Function]}
     />
   </div>
   <div
@@ -237,13 +307,23 @@ exports[`SmallAppItem component should render correctly an installed app without
   <div
     className="sto-small-app-item-icon-wrapper"
   >
-    <Icon
-      className="sto-small-app-item-icon sto-small-app-item-icon--default blurry"
-      color="#95999D"
-      height="64"
-      icon="test-file-stub"
-      spin={false}
-      width="48"
+    <AppIcon
+      app={
+        Object {
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "editor": "cozy",
+          "icon": "",
+          "name": "Test",
+          "namePrefix": "Cozy",
+          "onClick": [MockFunction],
+          "slug": "test",
+          "version": "3.0.3",
+        }
+      }
+      className="sto-small-app-item-icon"
+      fetchIcon={[Function]}
     />
   </div>
   <div

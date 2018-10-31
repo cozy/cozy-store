@@ -2,16 +2,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import Icon from 'cozy-ui/react/Icon'
+import AppIcon from 'cozy-ui/react/AppIcon'
 import Button from 'cozy-ui/react/Button'
+import Icon from 'cozy-ui/react/Icon'
 import { translate } from 'cozy-ui/react/I18n'
 
 import cozySmileIcon from 'assets/icons/icon-cozy-smile.svg'
-import defaultAppIcon from 'assets/icons/icon-cube.svg'
-import { Placeholder } from 'ducks/components/AppsLoading'
 import AsyncButton from 'ducks/components/AsyncButton'
 
-import { APP_TYPE } from 'ducks/apps'
+import { APP_TYPE, fetchIcon } from 'ducks/apps'
 import {
   hasPendingUpdate,
   isUnderMaintenance,
@@ -19,15 +18,7 @@ import {
 } from 'ducks/apps/appStatus'
 
 export const Header = ({ t, app, namePrefix, name, description, parent }) => {
-  const {
-    slug,
-    icon,
-    iconToLoad,
-    installed,
-    type,
-    related,
-    uninstallable
-  } = app
+  const { slug, installed, type, related, uninstallable } = app
   const openApp = link => {
     window.location.assign(link)
   }
@@ -35,19 +26,11 @@ export const Header = ({ t, app, namePrefix, name, description, parent }) => {
   return (
     <div className="sto-app-header">
       <div className="sto-app-header-icon">
-        {iconToLoad ? (
-          <Placeholder width="8rem" height="8.25rem" />
-        ) : icon ? (
-          <img className="sto-app-icon" src={icon} alt={`${slug}-icon`} />
-        ) : (
-          <Icon
-            className="sto-app-icon--default blurry"
-            icon={defaultAppIcon}
-            height="88px"
-            width="88px"
-            color="#95999D"
-          />
-        )}
+        <AppIcon
+          app={app}
+          className="sto-app-icon"
+          fetchIcon={fetchIcon(cozy.client, app)}
+        />
       </div>
       <div className="sto-app-header-content">
         <h2 className="sto-app-header-title">

@@ -1,23 +1,15 @@
+/* global cozy */
 import React from 'react'
 
-import Icon from 'cozy-ui/react/Icon'
+import AppIcon from 'cozy-ui/react/AppIcon'
 import { translate } from 'cozy-ui/react/I18n'
 
-import defaultAppIcon from 'assets/icons/icon-cube.svg'
-import { Placeholder } from './AppsLoading'
+import { fetchIcon } from 'ducks/apps'
 import { getCurrentStatusLabel } from 'ducks/apps/appStatus'
 
-export const SmallAppItem = ({
-  t,
-  app,
-  name,
-  namePrefix,
-  onClick,
-  isMobile
-}) => {
-  const { slug, developer = {}, icon, iconToLoad } = app
+export const SmallAppItem = ({ t, app, name, namePrefix, onClick }) => {
+  const { developer = {} } = app
   const statusToDisplay = getCurrentStatusLabel(app)
-
   return (
     // HACK a11y
     // `onKeyDown={(e) => e.keyCode === 13 ? onClick() : null`
@@ -29,30 +21,11 @@ export const SmallAppItem = ({
       tabIndex={0}
     >
       <div className="sto-small-app-item-icon-wrapper">
-        {iconToLoad ? (
-          <div className="sto-small-app-item-icon">
-            <Placeholder
-              width={isMobile ? '2.5rem' : '3rem'}
-              height={isMobile ? '2.5rem' : '3rem'}
-            />
-          </div>
-        ) : icon ? (
-          <img
-            src={icon}
-            alt={`${slug}-icon`}
-            width="64"
-            height="64"
-            className="sto-small-app-item-icon"
-          />
-        ) : (
-          <Icon
-            className="sto-small-app-item-icon sto-small-app-item-icon--default blurry"
-            width="48"
-            height="64"
-            icon={defaultAppIcon}
-            color="#95999D"
-          />
-        )}
+        <AppIcon
+          app={app}
+          className="sto-small-app-item-icon"
+          fetchIcon={fetchIcon(cozy.client, app)}
+        />
       </div>
       <div className="sto-small-app-item-desc">
         <h4 className="sto-small-app-item-title">
