@@ -192,33 +192,59 @@ function _sortAlphabetically(array, property) {
   return array.sort((a, b) => a[property] > b[property])
 }
 
-/* Only for the icon fetching */
-const root = document.querySelector('[role=application]')
-const data = root && root.dataset
-const COZY_TOKEN = data && data.cozyToken
-const COZY_DOMAIN = data && `//${data.cozyDomain}`
-/* Only for the icon fetching */
+const mimeTypes = {
+  gif: 'image/gif',
+  ico: 'image/vnd.microsoft.icon',
+  jpeg: 'image/jpeg',
+  jpg: 'image/jpeg',
+  png: 'image/png',
+  svg: 'image/svg+xml'
+}
 
-async function _getIcon(url) {
-  if (!url) return ''
+export const fetchIcon = (cozyClient, app = {}) => async url => {
   let icon
   try {
-    const resp = await fetch(`${COZY_DOMAIN}${url}`, {
-      method: 'GET',
-      credentials: 'include',
-      headers: {
-        Authorization: `Bearer ${COZY_TOKEN}`
-      }
-    })
+    const resp = await cozyClient.fetch('GET', url)
     if (!resp.ok)
-      throw new Error(`Error while fetching icon: ${resp.statusText}: ${url}`)
+      throw new Error(`Error while fetching icon ${resp.statusText}: ${url}`)
     icon = await resp.blob()
-  } catch (e) {
-    return ''
+  } catch (error) {
+    throw error
   }
-  // check if MIME type is an image
-  if (!icon.type.match(/^image\/.*$/)) return ''
-  return URL.createObjectURL(icon)
+  if (!icon.type) {
+    // iOS10 does not set correctly mime type for images, so we assume
+    // that an empty mime type could mean that the app is running on iOS10.
+    // For regular images like jpeg, png or gif it still works well in the
+    // Safari browser but not for SVG.
+    // So let's set a mime type manually. We cannot always set it to
+    // image/svg+xml and must guess the mime type based on the icon attribute
+    // from app/manifest
+    // See https://stackoverflow.com/questions/38318411/uiwebview-on-ios-10-beta-not-loading-any-svg-images
+    if (!app.icon) {
+      throw new Error(`${app.name}: Cannot detect mime type for icon ${url}`)
+    }
+
+    const extension = app.icon.split('.').pop()
+
+    if (!extension) {
+      throw new Error(
+        `${app.name}: Unable to detect icon mime type from extension (${
+          app.icon
+        })`
+      )
+    }
+
+    if (!mimeTypes[extension]) {
+      throw new Error(`${app.name}: 'Unexpected icon extension (${app.icon})`)
+    }
+
+    icon = new Blob([icon], { type: mimeTypes[extension] })
+  }
+
+  if (icon.type.match(/^image\/.*$/)) {
+    return URL.createObjectURL(icon)
+  }
+  throw new Error(`${app.name}: icon ${url} is not an image.`)
 }
 
 function _consolidateApps(stateApps, newAppsInfos, lang) {
@@ -294,30 +320,9 @@ export function getContext() {
         })
 }
 
-export function fetchIconsProgressively() {
-  return async (dispatch, getState) => {
-    const apps = getState().apps.list
-    const iconsMap = new Map() // slug: icon
-    let updateCounter = 0
-    apps.forEach(async app => {
-      const iconData = await _getIcon(app.iconToLoad)
-      iconsMap.set(app.slug, iconData)
-      updateCounter++
-      if (iconsMap.size % 10 === 0 || updateCounter === apps.length) {
-        const mapCopy = new Map(iconsMap)
-        await dispatch({ type: RECEIVE_APPS_ICON, iconsMap: mapCopy })
-        // clean already updated icons
-        mapCopy.forEach((v, k) => iconsMap.delete(k))
-      }
-    })
-  }
-}
-
-export async function getFormattedInstalledApp(response, fetchIcon = true) {
+export async function getFormattedInstalledApp(response) {
   const appAttributes = _sanitizeManifest(response.attributes)
 
-  let icon = response.links.icon
-  if (fetchIcon) icon = await _getIcon(icon)
   const openingLink = response.links.related
   const screensLinks =
     appAttributes.screenshots &&
@@ -330,11 +335,10 @@ export async function getFormattedInstalledApp(response, fetchIcon = true) {
     })
   return Object.assign({}, appAttributes, {
     _id: response.id || response._id,
-    // the icon fetching will done later with iconToLoad
-    ...(fetchIcon ? { icon } : { iconToLoad: icon }),
     categories: _sanitizeCategories(appAttributes.categories),
     installed: true,
     related: openingLink,
+    links: response.links,
     screenshots: screensLinks,
     uninstallable: !config.notRemovableApps.includes(appAttributes.slug)
   })
@@ -483,7 +487,6 @@ export function fetchLatestApp(lang, slug, channel = DEFAULT_CHANNEL) {
 
 export async function getFormattedRegistryApp(
   responseApp,
-  fetchIcon = true,
   channel = DEFAULT_CHANNEL
 ) {
   let version = responseApp.latest_version
@@ -525,7 +528,6 @@ export async function getFormattedRegistryApp(
     })
   const iconLink = `/registry/${manifest.slug}/${versionFromRegistry}/icon`
   let icon = iconLink
-  if (fetchIcon) icon = await _getIcon(icon)
   return Object.assign(
     {},
     {
@@ -538,6 +540,7 @@ export async function getFormattedRegistryApp(
       version: versionFromRegistry,
       type: version.type,
       categories: _sanitizeCategories(manifest.categories),
+      links: { icon: iconLink },
       uninstallable: !config.notRemovableApps.includes(manifest.slug),
       isInRegistry: true,
       // handle maintenance status

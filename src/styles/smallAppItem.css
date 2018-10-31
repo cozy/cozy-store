@@ -37,12 +37,14 @@
 .sto-small-app-item-icon-wrapper {
   margin-top: .25rem;
   margin-bottom: .25rem;
+  width: 3rem;
+  height: 3rem;
 }
 
-.sto-small-app-item-icon {
+.sto-small-app-item-icon-wrapper .sto-small-app-item-icon {
   object-fit: contain;
   max-width: 3rem;
-  max-height: 3rem;
+  width: auto;
 }
 
 .sto-small-app-item-icon--default {
