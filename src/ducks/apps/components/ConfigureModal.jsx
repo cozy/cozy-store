@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import IntentModal from 'cozy-ui/react/IntentModal'
+import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
 
 import { getAppBySlug } from 'ducks/apps'
 
@@ -22,7 +23,8 @@ export class ConfigureModal extends Component {
   }
 
   render() {
-    const { app, dismissAction, onSuccess } = this.props
+    const { app, dismissAction, onSuccess, breakpoints = {} } = this.props
+    const { isMobile } = breakpoints
     return (
       <IntentModal
         action="CREATE"
@@ -33,7 +35,7 @@ export class ConfigureModal extends Component {
         mobileFullscreen
         overflowHidden
         size="small"
-        height="35rem"
+        height={!isMobile && '35rem'}
       />
     )
   }
@@ -51,4 +53,4 @@ const mapStateToProps = (state, ownProps) => ({
   app: getAppBySlug(state, ownProps.appSlug)
 })
 
-export default connect(mapStateToProps)(ConfigureModal)
+export default connect(mapStateToProps)(withBreakpoints()(ConfigureModal))
