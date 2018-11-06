@@ -4,6 +4,7 @@
 }
 
 .sto-small-app-item {
+  box-sizing: content-box;
   position: relative;
   display: flex;
   flex-direction: column;

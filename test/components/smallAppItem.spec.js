@@ -104,26 +104,4 @@ describe('SmallAppItem component', () => {
     ).getElement()
     expect(component).toMatchSnapshot()
   })
-
-  it('should not call onClick when Enter is not pressed', () => {
-    const component = shallow(
-      <SmallAppItem t={tMock} {...appMock} app={appMock} />
-    )
-    expect(component.find('div.sto-small-app-item').length).toBe(1)
-    component
-      .find('div.sto-small-app-item')
-      .simulate('keydown', { keyCode: 98 })
-    expect(appMock.onClick.mock.calls.length).toBe(0)
-  })
-
-  it('should call onClick when Enter is pressed', () => {
-    const component = shallow(
-      <SmallAppItem t={tMock} {...appMock} app={appMock} />
-    )
-    expect(component.find('div.sto-small-app-item').length).toBe(1)
-    component
-      .find('div.sto-small-app-item')
-      .simulate('keydown', { keyCode: 13 })
-    expect(appMock.onClick.mock.calls.length).toBe(1)
-  })
 })

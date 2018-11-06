@@ -19,15 +19,7 @@ export const SmallAppItem = ({
   const statusToDisplay = getCurrentStatusLabel(app)
 
   return (
-    // HACK a11y
-    // `onKeyDown={(e) => e.keyCode === 13 ? onClick() : null`
-    // This syntax make the div accessible.
-    <div
-      className="sto-small-app-item"
-      onKeyDown={e => (e.keyCode === 13 ? onClick() : null)}
-      onClick={onClick}
-      tabIndex={0}
-    >
+    <button type="button" className="sto-small-app-item" onClick={onClick}>
       <div className="sto-small-app-item-icon-wrapper">
         {iconToLoad ? (
           <div className="sto-small-app-item-icon">
@@ -43,6 +35,8 @@ export const SmallAppItem = ({
             width="64"
             height="64"
             className="sto-small-app-item-icon"
+            aria-hidden={true}
+            focusable={false}
           />
         ) : (
           <Icon
@@ -51,6 +45,8 @@ export const SmallAppItem = ({
             height="64"
             icon={defaultAppIcon}
             color="#95999D"
+            aria-hidden={true}
+            focusable={false}
           />
         )}
       </div>
@@ -69,7 +65,7 @@ export const SmallAppItem = ({
           </p>
         )}
       </div>
-    </div>
+    </button>
   )
 }
 
