@@ -81,7 +81,6 @@ main > [role=main].sto-myapps {
   width: 100%;
   background: white;
   overflow-y: auto;
-  z-index: 21;
 }
 
 
