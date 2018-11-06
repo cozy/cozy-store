@@ -2820,9 +2820,9 @@ cozy-scripts@1.1.0:
     webpack-merge "4.1.4"
     write-file-webpack-plugin "4.4.1"
 
-cozy-ui@13.2.1:
-  version "13.2.1"
-  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-13.2.1.tgz#82c4426b145a3aa775d3756eab653b4f27980b2d"
+cozy-ui@14.3.4:
+  version "14.3.4"
+  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-14.3.4.tgz#45b45d7b4d614bb28d02bafddd36f3caa7e4bc35"
   dependencies:
     babel-preset-cozy-app "^0.3.1"
     body-scroll-lock "^2.5.8"
