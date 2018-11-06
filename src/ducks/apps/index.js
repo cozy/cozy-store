@@ -599,11 +599,11 @@ export function fetchRegistryApps(lang, channel = DEFAULT_CHANNEL) {
   return dispatch => {
     dispatch({ type: FETCH_APPS })
     return cozy.client
-      .fetchJSON('GET', `/registry?limit=150&channelLatestVersion=${channel}`)
+      .fetchJSON('GET', `/registry?limit=150&versionsChannel=${channel}`)
       .then(response => {
         const apps = response.data
           .filter(app => !config.notDisplayedApps.includes(app.slug))
-          .filter(app => app.versions.dev && app.versions.dev.length) // only apps with versions available
+          .filter(app => app.versions[channel] && app.versions[channel].length) // only apps with versions available
         return Promise.all(
           apps.map(app => {
             if (!app.latest_version) return false // skip
