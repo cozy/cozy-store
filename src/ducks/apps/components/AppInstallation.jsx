@@ -14,7 +14,7 @@ import { hasPendingUpdate } from 'ducks/apps/appStatus'
 
 import { APP_TYPE, getAppBySlug, installAppFromRegistry } from 'ducks/apps'
 
-class AppInstallation extends Component {
+export class AppInstallation extends Component {
   installApp = async () => {
     this.setState({ error: null })
     const { app, channel, installApp, onError } = this.props
