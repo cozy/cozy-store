@@ -1,18 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SmallAppItem component should render correctly an app 1`] = `
-<div
+<button
   className="sto-small-app-item"
   onClick={[MockFunction]}
-  onKeyDown={[Function]}
-  tabIndex={0}
+  type="button"
 >
   <div
     className="sto-small-app-item-icon-wrapper"
   >
     <img
       alt="test-icon"
+      aria-hidden={true}
       className="sto-small-app-item-icon"
+      focusable={false}
       height="64"
       src="<svg></svg>"
       width="64"
@@ -32,22 +33,23 @@ exports[`SmallAppItem component should render correctly an app 1`] = `
       By Cozy
     </p>
   </div>
-</div>
+</button>
 `;
 
 exports[`SmallAppItem component should render correctly an app in maintenance 1`] = `
-<div
+<button
   className="sto-small-app-item"
   onClick={[MockFunction]}
-  onKeyDown={[Function]}
-  tabIndex={0}
+  type="button"
 >
   <div
     className="sto-small-app-item-icon-wrapper"
   >
     <img
       alt="test2-icon"
+      aria-hidden={true}
       className="sto-small-app-item-icon"
+      focusable={false}
       height="64"
       src="<svg></svg>"
       width="64"
@@ -72,15 +74,14 @@ exports[`SmallAppItem component should render correctly an app in maintenance 1`
       In maintenance
     </p>
   </div>
-</div>
+</button>
 `;
 
 exports[`SmallAppItem component should render correctly an app with iconToLoad (icon being fetching) 1`] = `
-<div
+<button
   className="sto-small-app-item"
   onClick={[MockFunction]}
-  onKeyDown={[Function]}
-  tabIndex={0}
+  type="button"
 >
   <div
     className="sto-small-app-item-icon-wrapper"
@@ -113,15 +114,14 @@ exports[`SmallAppItem component should render correctly an app with iconToLoad (
       Installed
     </p>
   </div>
-</div>
+</button>
 `;
 
 exports[`SmallAppItem component should render correctly an app with iconToLoad if isMobile 1`] = `
-<div
+<button
   className="sto-small-app-item"
   onClick={[MockFunction]}
-  onKeyDown={[Function]}
-  tabIndex={0}
+  type="button"
 >
   <div
     className="sto-small-app-item-icon-wrapper"
@@ -154,22 +154,23 @@ exports[`SmallAppItem component should render correctly an app with iconToLoad i
       Installed
     </p>
   </div>
-</div>
+</button>
 `;
 
 exports[`SmallAppItem component should render correctly an app without developer property 1`] = `
-<div
+<button
   className="sto-small-app-item"
   onClick={[MockFunction]}
-  onKeyDown={[Function]}
-  tabIndex={0}
+  type="button"
 >
   <div
     className="sto-small-app-item-icon-wrapper"
   >
     <img
       alt="test-icon"
+      aria-hidden={true}
       className="sto-small-app-item-icon"
+      focusable={false}
       height="64"
       src="<svg></svg>"
       width="64"
@@ -184,22 +185,23 @@ exports[`SmallAppItem component should render correctly an app without developer
       Cozy Test
     </h4>
   </div>
-</div>
+</button>
 `;
 
 exports[`SmallAppItem component should render correctly an installed app 1`] = `
-<div
+<button
   className="sto-small-app-item"
   onClick={[MockFunction]}
-  onKeyDown={[Function]}
-  tabIndex={0}
+  type="button"
 >
   <div
     className="sto-small-app-item-icon-wrapper"
   >
     <img
       alt="test2-icon"
+      aria-hidden={true}
       className="sto-small-app-item-icon"
+      focusable={false}
       height="64"
       src="<svg></svg>"
       width="64"
@@ -224,22 +226,23 @@ exports[`SmallAppItem component should render correctly an installed app 1`] = `
       Installed
     </p>
   </div>
-</div>
+</button>
 `;
 
 exports[`SmallAppItem component should render correctly an installed app without icon provided 1`] = `
-<div
+<button
   className="sto-small-app-item"
   onClick={[MockFunction]}
-  onKeyDown={[Function]}
-  tabIndex={0}
+  type="button"
 >
   <div
     className="sto-small-app-item-icon-wrapper"
   >
     <Icon
+      aria-hidden={true}
       className="sto-small-app-item-icon sto-small-app-item-icon--default blurry"
       color="#95999D"
+      focusable={false}
       height="64"
       icon="test-file-stub"
       spin={false}
@@ -260,5 +263,5 @@ exports[`SmallAppItem component should render correctly an installed app without
       By Cozy
     </p>
   </div>
-</div>
+</button>
 `;

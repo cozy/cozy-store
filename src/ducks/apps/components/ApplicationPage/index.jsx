@@ -6,6 +6,7 @@ import { translate } from 'cozy-ui/react/I18n'
 import Spinner from 'cozy-ui/react/Spinner'
 import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
 import Button from 'cozy-ui/react/Button'
+import FocusTrap from 'focus-trap-react'
 
 import Header from './Header'
 import Gallery from './Gallery'
@@ -24,8 +25,7 @@ const { BarCenter } = cozy.bar
 export class ApplicationPage extends Component {
   constructor(props) {
     super(props)
-    this.state = { displayBarIcon: false }
-    this.handleScroll = this.handleScroll.bind(this)
+    this.state = { displayBarIcon: false, activeTrap: true }
   }
 
   componentDidMount() {
@@ -38,7 +38,15 @@ export class ApplicationPage extends Component {
     window.removeEventListener('scroll', this.handleScroll)
   }
 
-  handleScroll() {
+  mountTrap = () => {
+    this.setState({ activeTrap: true })
+  }
+
+  unmountTrap = () => {
+    this.setState({ activeTrap: false })
+  }
+
+  handleScroll = () => {
     if (!this.state.displayBarIcon && window.scrollY > 100) {
       this.setState(() => ({ displayBarIcon: true }))
     } else if (this.state.displayBarIcon && window.scrollY < 100) {
@@ -97,51 +105,58 @@ export class ApplicationPage extends Component {
         return mobilePlatforms
       }, [])
     return (
-      <div className="sto-modal-page-app">
-        {isMobile &&
-          icon &&
-          !iconToLoad && (
-            <BarCenter>
-              <div className="sto-app-bar">
-                <img
-                  className={`sto-app-bar-icon ${
-                    !displayBarIcon ? 'sto-app-bar-icon--hidden' : ''
-                  }`}
-                  src={icon}
-                  alt={`${slug}-icon`}
-                />
-              </div>
-            </BarCenter>
-          )}
-        <div className="sto-app">
-          <Button
-            icon="back"
-            tag={Link}
-            to={`${parent}`}
-            className="sto-app-back"
-            label={t('app_page.back')}
-            subtle
-          />
-          <Header
-            app={app}
-            namePrefix={namePrefix}
-            name={appName}
-            description={appShortDesc}
-            parent={parent}
-          />
-          {app.screenshots &&
-            !!app.screenshots.length && (
-              <Gallery slug={slug} images={app.screenshots} />
+      <FocusTrap
+        focusTrapOptions={{
+          onDeactivate: this.unmountTrap
+        }}
+      >
+        <div className="sto-modal-page-app">
+          {isMobile &&
+            icon &&
+            !iconToLoad && (
+              <BarCenter>
+                <div className="sto-app-bar">
+                  <img
+                    className={`sto-app-bar-icon ${
+                      !displayBarIcon ? 'sto-app-bar-icon--hidden' : ''
+                    }`}
+                    src={icon}
+                    alt={`${slug}-icon`}
+                  />
+                </div>
+              </BarCenter>
             )}
-          <Details
-            app={app}
-            description={appLongDesc}
-            changes={appChanges}
-            mobileApps={mobileApps}
-            parent={parent}
-          />
+          <div className="sto-app">
+            <Button
+              icon="back"
+              tag={Link}
+              to={`${parent}`}
+              onClick={this.unmountTrap}
+              className="sto-app-back"
+              label={t('app_page.back')}
+              subtle
+            />
+            <Header
+              app={app}
+              namePrefix={namePrefix}
+              name={appName}
+              description={appShortDesc}
+              parent={parent}
+            />
+            {app.screenshots &&
+              !!app.screenshots.length && (
+                <Gallery slug={slug} images={app.screenshots} />
+              )}
+            <Details
+              app={app}
+              description={appLongDesc}
+              changes={appChanges}
+              mobileApps={mobileApps}
+              parent={parent}
+            />
+          </div>
         </div>
-      </div>
+      </FocusTrap>
     )
   }
 }
