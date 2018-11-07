@@ -59,7 +59,7 @@
   },
   "dependencies": {
     "cozy-bar": "6.1.2",
-    "cozy-client-js": "0.13.0",
+    "cozy-client-js": "0.14.2",
     "cozy-realtime": "1.1.6",
     "cozy-ui": "13.2.1",
     "emoji-js": "3.4.1",
