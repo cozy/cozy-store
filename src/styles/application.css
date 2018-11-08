@@ -2,6 +2,7 @@
   margin: auto 1.7em;
   height: 100vh;
   background-color: white;
+  max-width: 75rem;
 }
 
 @media (max-width: 48rem) {
