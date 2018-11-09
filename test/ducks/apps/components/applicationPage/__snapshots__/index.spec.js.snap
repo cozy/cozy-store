@@ -6,6 +6,7 @@ exports[`ApplicationPage component should be rendered correctly with app infos f
   active={true}
   focusTrapOptions={
     Object {
+      "clickOutsideDeactivates": true,
       "onDeactivate": [Function],
     }
   }
@@ -289,6 +290,7 @@ exports[`ApplicationPage component should be rendered correctly with app with sc
   active={true}
   focusTrapOptions={
     Object {
+      "clickOutsideDeactivates": true,
       "onDeactivate": [Function],
     }
   }
@@ -586,6 +588,7 @@ exports[`ApplicationPage component should be rendered correctly with konnector i
   active={true}
   focusTrapOptions={
     Object {
+      "clickOutsideDeactivates": true,
       "onDeactivate": [Function],
     }
   }
@@ -825,6 +828,7 @@ exports[`ApplicationPage component should be rendered correctly with provided in
   active={true}
   focusTrapOptions={
     Object {
+      "clickOutsideDeactivates": true,
       "onDeactivate": [Function],
     }
   }
@@ -1108,6 +1112,7 @@ exports[`ApplicationPage component should be rendered correctly with provided in
   active={true}
   focusTrapOptions={
     Object {
+      "clickOutsideDeactivates": true,
       "onDeactivate": [Function],
     }
   }
@@ -1347,6 +1352,7 @@ exports[`ApplicationPage component should be rendered correctly without app desc
   active={true}
   focusTrapOptions={
     Object {
+      "clickOutsideDeactivates": true,
       "onDeactivate": [Function],
     }
   }
@@ -1604,6 +1610,7 @@ exports[`ApplicationPage component should render correctly on mobile with the sc
   active={true}
   focusTrapOptions={
     Object {
+      "clickOutsideDeactivates": true,
       "onDeactivate": [Function],
     }
   }
@@ -1898,6 +1905,7 @@ exports[`ApplicationPage component should render correctly on mobile with the sc
   active={true}
   focusTrapOptions={
     Object {
+      "clickOutsideDeactivates": true,
       "onDeactivate": [Function],
     }
   }
