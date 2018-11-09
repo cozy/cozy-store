@@ -62,5 +62,6 @@ exports[`AppRoute component should display app page if app found 1`] = `
     }
   }
   parent="myapps"
+  pauseFocusTrap={true}
 />
 `;

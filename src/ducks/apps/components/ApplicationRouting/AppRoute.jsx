@@ -10,7 +10,13 @@ export const AppRoute = ({ parent, getApp, isFetching, redirectTo }) => (
       if (isFetching) return null
       const app = getApp(match)
       if (!app) return redirectTo(`/${parent}`)
-      return <ApplicationPage app={app} parent={parent} />
+      return (
+        <ApplicationPage
+          app={app}
+          parent={parent}
+          pauseFocusTrap={!match.isExact}
+        />
+      )
     }}
   />
 )

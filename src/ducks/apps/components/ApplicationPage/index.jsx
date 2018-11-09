@@ -61,7 +61,8 @@ export class ApplicationPage extends Component {
       app,
       isFetching,
       fetchError,
-      breakpoints = {}
+      breakpoints = {},
+      pauseFocusTrap
     } = this.props
     const { displayBarIcon } = this.state
     const { isMobile } = breakpoints
@@ -107,8 +108,10 @@ export class ApplicationPage extends Component {
     return (
       <FocusTrap
         focusTrapOptions={{
-          onDeactivate: this.unmountTrap
+          onDeactivate: this.unmountTrap,
+          clickOutsideDeactivates: true
         }}
+        paused={pauseFocusTrap}
       >
         <div className="sto-modal-page-app">
           {isMobile &&
