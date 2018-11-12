@@ -192,6 +192,13 @@ function _sortAlphabetically(array, property) {
   return array.sort((a, b) => a[property] > b[property])
 }
 
+/* Only for the icon fetching */
+const root = document.querySelector('[role=application]')
+const data = root && root.dataset
+const COZY_TOKEN = data && data.cozyToken
+const COZY_DOMAIN = data && `//${data.cozyDomain}`
+/* Only for the icon fetching */
+
 const mimeTypes = {
   gif: 'image/gif',
   ico: 'image/vnd.microsoft.icon',
@@ -201,10 +208,16 @@ const mimeTypes = {
   svg: 'image/svg+xml'
 }
 
-export const fetchIcon = (cozyClient, app = {}) => async url => {
+export const fetchIcon = (app = {}) => async url => {
   let icon
   try {
-    const resp = await cozyClient.fetch('GET', url)
+    const resp = await fetch(`${COZY_DOMAIN}${url}`, {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        Authorization: `Bearer ${COZY_TOKEN}`
+      }
+    })
     if (!resp.ok)
       throw new Error(`Error while fetching icon ${resp.statusText}: ${url}`)
     icon = await resp.blob()

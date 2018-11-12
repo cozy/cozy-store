@@ -1,4 +1,3 @@
-/* global cozy */
 import React from 'react'
 
 import AppIcon from 'cozy-ui/react/AppIcon'
@@ -24,7 +23,7 @@ export const SmallAppItem = ({ t, app, name, namePrefix, onClick }) => {
         <AppIcon
           app={app}
           className="sto-small-app-item-icon"
-          fetchIcon={fetchIcon(cozy.client, app)}
+          fetchIcon={fetchIcon(app)}
         />
       </div>
       <div className="sto-small-app-item-desc">
