@@ -29,7 +29,7 @@ export const Header = ({ t, app, namePrefix, name, description, parent }) => {
         <AppIcon
           app={app}
           className="sto-app-icon"
-          fetchIcon={fetchIcon(cozy.client, app)}
+          fetchIcon={fetchIcon(app)}
         />
       </div>
       <div className="sto-app-header-content">
