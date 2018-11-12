@@ -85,10 +85,16 @@ main > [role=main].sto-myapps {
 
 
 @media (max-width: 48rem) {
+  .has-modal .sto-modal-page {
+    position: absolute;
+    z-index: auto;
+  }
+
   .sto-modal-page {
     position: fixed;
     top: 3rem;
     max-height: calc(100% - 6rem);
+    z-index: 1;
   }
 
   .sto-modal-page-app {

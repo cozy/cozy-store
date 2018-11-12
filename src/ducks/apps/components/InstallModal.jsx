@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Modal from 'cozy-ui/react/Modal'
+import FocusTrap from 'focus-trap-react'
 
 import AppInstallation from './AppInstallation'
 
@@ -9,9 +10,19 @@ export class InstallModal extends Component {
     super(props)
     const { app, onAlreadyInstalled } = this.props
 
+    this.state = { activeTrap: true }
+
     if (app.installed) {
       onAlreadyInstalled()
     }
+  }
+
+  mountTrap = () => {
+    this.setState({ activeTrap: true })
+  }
+
+  unmountTrap = () => {
+    this.setState({ activeTrap: false })
   }
 
   render() {
@@ -26,16 +37,23 @@ export class InstallModal extends Component {
     if (!app) return null
     return (
       <div className="sto-modal--install">
-        <Modal dismissAction={dismissAction} mobileFullscreen>
-          <AppInstallation
-            appSlug={app.slug}
-            isFetching={isAppFetching}
-            channel={channel}
-            isInstalling={isInstalling}
-            onCancel={dismissAction}
-            onSuccess={onSuccess}
-          />
-        </Modal>
+        <FocusTrap
+          focusTrapOptions={{
+            onDeactivate: this.unmountTrap,
+            clickOutsideDeactivates: true
+          }}
+        >
+          <Modal dismissAction={dismissAction} mobileFullscreen>
+            <AppInstallation
+              appSlug={app.slug}
+              isFetching={isAppFetching}
+              channel={channel}
+              isInstalling={isInstalling}
+              onCancel={dismissAction}
+              onSuccess={onSuccess}
+            />
+          </Modal>
+        </FocusTrap>
       </div>
     )
   }

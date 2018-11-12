@@ -13,6 +13,7 @@ import { Discover, MyApplications } from '../apps/Containers'
 
 import { Layout, Main } from 'cozy-ui/react/Layout'
 import Alerter from 'cozy-ui/react/Alerter'
+import { IconSprite } from 'cozy-ui/transpiled/react'
 
 export class App extends Component {
   constructor(props) {
@@ -40,6 +41,7 @@ export class App extends Component {
             <Redirect from="*" to="/discover" />
           </Switch>
         </Main>
+        <IconSprite />
       </Layout>
     )
   }
