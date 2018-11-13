@@ -233,22 +233,31 @@ export const fetchIcon = (app = {}) => async url => {
     // image/svg+xml and must guess the mime type based on the icon attribute
     // from app/manifest
     // See https://stackoverflow.com/questions/38318411/uiwebview-on-ios-10-beta-not-loading-any-svg-images
-    if (!app.icon) {
+
+    const manifestIcon =
+      (app.latest_version &&
+        app.latest_version.manifest &&
+        app.latest_version.manifest.icon) ||
+      app.icon
+
+    if (!manifestIcon) {
       throw new Error(`${app.name}: Cannot detect mime type for icon ${url}`)
     }
 
-    const extension = app.icon.split('.').pop()
+    const extension = manifestIcon.split('.').pop()
 
     if (!extension) {
       throw new Error(
-        `${app.name}: Unable to detect icon mime type from extension (${
-          app.icon
-        })`
+        `${
+          app.name
+        }: Unable to detect icon mime type from extension (${manifestIcon})`
       )
     }
 
     if (!mimeTypes[extension]) {
-      throw new Error(`${app.name}: 'Unexpected icon extension (${app.icon})`)
+      throw new Error(
+        `${app.name}: 'Unexpected icon extension (${manifestIcon})`
+      )
     }
 
     icon = new Blob([icon], { type: mimeTypes[extension] })
@@ -540,7 +549,6 @@ export async function getFormattedRegistryApp(
       }/${versionFromRegistry}/screenshots/${fileName}`
     })
   const iconLink = `/registry/${manifest.slug}/${versionFromRegistry}/icon`
-  let icon = iconLink
   return Object.assign(
     {},
     {
@@ -548,8 +556,6 @@ export async function getFormattedRegistryApp(
     },
     manifest,
     {
-      // the icon fetching will done later with iconToLoad
-      ...(fetchIcon ? { icon } : { iconToLoad: icon }),
       version: versionFromRegistry,
       type: version.type,
       categories: _sanitizeCategories(manifest.categories),
