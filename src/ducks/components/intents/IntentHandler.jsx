@@ -61,6 +61,7 @@ class IntentHandler extends Component {
           // In the future, we may switch here between available intents
           React.cloneElement(child, {
             appData: appData,
+            compose: service.compose,
             data: service.getData(),
             intent: service.getIntent(),
             onCancel: () => service.cancel(),
