@@ -34,13 +34,25 @@ export class InstallAppIntent extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  async componentWillReceiveProps(nextProps) {
     // on install success
     if (this.props.isInstalling && !nextProps.isInstalling) {
-      this.props.onTerminate(nextProps.app)
       this.setState({
         status: 'installed'
       })
+
+      const { app, compose, data, onTerminate } = this.props
+      const configure = typeof data.configure === 'undefined' || data.configure
+
+      if (app.type === 'konnector' && configure) {
+        await compose(
+          'CREATE',
+          'io.cozy.accounts',
+          { slug: app.slug }
+        )
+      }
+
+      onTerminate(nextProps.app)
     }
   }
 
