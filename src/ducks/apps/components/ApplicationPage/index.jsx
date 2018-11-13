@@ -30,12 +30,20 @@ export class ApplicationPage extends Component {
 
   componentDidMount() {
     preventBackgroundScroll()
-    window.addEventListener('scroll', this.handleScroll, { passive: true })
+    const { mainPageRef } = this.props
+    if (mainPageRef && mainPageRef.current) {
+      mainPageRef.current.addEventListener('scroll', this.handleScroll, {
+        passive: true
+      })
+    }
   }
 
   componentWillUnmount() {
     unpreventBackgroundScroll()
-    window.removeEventListener('scroll', this.handleScroll)
+    const { mainPageRef } = this.props
+    if (mainPageRef && mainPageRef.current) {
+      mainPageRef.current.removeEventListener('scroll', this.handleScroll)
+    }
   }
 
   mountTrap = () => {
@@ -47,9 +55,15 @@ export class ApplicationPage extends Component {
   }
 
   handleScroll = () => {
-    if (!this.state.displayBarIcon && window.scrollY > 100) {
+    if (
+      !this.state.displayBarIcon &&
+      this.props.mainPageRef.current.scrollTop > 100
+    ) {
       this.setState(() => ({ displayBarIcon: true }))
-    } else if (this.state.displayBarIcon && window.scrollY < 100) {
+    } else if (
+      this.state.displayBarIcon &&
+      this.props.mainPageRef.current.scrollTop < 100
+    ) {
       this.setState(() => ({ displayBarIcon: false }))
     }
   }

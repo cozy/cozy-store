@@ -17,6 +17,9 @@ const konnectorManifest = mockKonnector.manifest
 const mockError = new Error('This is a test error')
 
 const getAppProps = (installed, related) => {
+  // create a mock ref
+  const mockRef = React.createRef()
+  mockRef.current = document.createElement('div')
   // set app locales from manifest
   extendI18n({ apps: { [appManifest.slug]: appManifest.locales.en } })
   return {
@@ -26,11 +29,15 @@ const getAppProps = (installed, related) => {
       icon: 'https://mockcozy.cc/registry/photos/icon',
       related
     }),
-    parent: '/myapps'
+    parent: '/myapps',
+    mainPageRef: mockRef
   }
 }
 
 const getKonnectorProps = installed => {
+  // create a mock ref
+  const mockRef = React.createRef()
+  mockRef.current = document.createElement('div')
   // set app locales from manifest
   extendI18n({
     apps: { [konnectorManifest.slug]: konnectorManifest.locales.en }
@@ -41,7 +48,8 @@ const getKonnectorProps = installed => {
       installed,
       icon: 'https://mockcozy.cc/registry/konnector-trinlane/icon'
     }),
-    parent: '/myapps'
+    parent: '/myapps',
+    mainPageRef: mockRef
   }
 }
 
@@ -109,11 +117,11 @@ describe('ApplicationPage component', () => {
     wrapper.instance().handleScroll()
     expect(wrapper.state('displayBarIcon')).toBe(false)
     // simulate scroll
-    window.scrollY = 150
+    props.mainPageRef.current.scrollTop = 150
     wrapper.instance().handleScroll()
     expect(wrapper.state('displayBarIcon')).toBe(true)
     expect(wrapper.getElement()).toMatchSnapshot()
-    window.scrollY = 20
+    props.mainPageRef.current.scrollTop = 20
     wrapper.instance().handleScroll()
     expect(wrapper.state('displayBarIcon')).toBe(false)
   })

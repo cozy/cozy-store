@@ -388,6 +388,11 @@ ShallowWrapper {
         <AppRoute
           getApp={[Function]}
           isFetching={false}
+          mainPageRef={
+            Object {
+              "current": null,
+            }
+          }
           parent="myapps"
           redirectTo={[Function]}
         />,
@@ -424,7 +429,9 @@ ShallowWrapper {
       ],
       "className": "sto-modal-page",
     },
-    "ref": null,
+    "ref": Object {
+      "current": null,
+    },
     "rendered": Array [
       Object {
         "instance": null,
@@ -433,6 +440,9 @@ ShallowWrapper {
         "props": Object {
           "getApp": [Function],
           "isFetching": false,
+          "mainPageRef": Object {
+            "current": null,
+          },
           "parent": "myapps",
           "redirectTo": [Function],
         },
@@ -532,6 +542,11 @@ ShallowWrapper {
           <AppRoute
             getApp={[Function]}
             isFetching={false}
+            mainPageRef={
+              Object {
+                "current": null,
+              }
+            }
             parent="myapps"
             redirectTo={[Function]}
           />,
@@ -568,7 +583,9 @@ ShallowWrapper {
         ],
         "className": "sto-modal-page",
       },
-      "ref": null,
+      "ref": Object {
+        "current": null,
+      },
       "rendered": Array [
         Object {
           "instance": null,
@@ -577,6 +594,9 @@ ShallowWrapper {
           "props": Object {
             "getApp": [Function],
             "isFetching": false,
+            "mainPageRef": Object {
+              "current": null,
+            },
             "parent": "myapps",
             "redirectTo": [Function],
           },

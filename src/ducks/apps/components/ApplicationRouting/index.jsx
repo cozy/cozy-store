@@ -11,6 +11,8 @@ import InstallRoute from './InstallRoute'
 import UninstallRoute from './UninstallRoute'
 
 export class ApplicationRouting extends Component {
+  mainPage = React.createRef()
+
   getAppFromMatchOrSlug = (match, slug) => {
     const appsArray = this.props.apps || this.props.installedApps || []
     const appSlug = slug || (match && match.params && match.params.appSlug)
@@ -36,12 +38,13 @@ export class ApplicationRouting extends Component {
       fetchError
     } = this.props
     return (
-      <div className="sto-modal-page">
+      <div className="sto-modal-page" ref={this.mainPage}>
         <AppRoute
           getApp={this.getAppFromMatchOrSlug}
           isFetching={isFetching}
           parent={parent}
           redirectTo={this.redirectTo}
+          mainPageRef={this.mainPage}
         />
         <ChannelRoute
           actionError={actionError}
