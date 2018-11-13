@@ -3,7 +3,13 @@ import { Route } from 'react-router-dom'
 
 import ApplicationPage from '../ApplicationPage'
 
-export const AppRoute = ({ parent, getApp, isFetching, redirectTo }) => (
+export const AppRoute = ({
+  parent,
+  getApp,
+  isFetching,
+  mainPageRef,
+  redirectTo
+}) => (
   <Route
     path={`/${parent}/:appSlug`}
     render={({ match }) => {
@@ -15,6 +21,7 @@ export const AppRoute = ({ parent, getApp, isFetching, redirectTo }) => (
           app={app}
           parent={parent}
           pauseFocusTrap={!match.isExact}
+          mainPageRef={mainPageRef}
         />
       )
     }}
