@@ -14,7 +14,7 @@
     right: 0;
     top: calc(3rem - 1px);
     width: calc(100%);
-    z-index: 21;
+    z-index: 1;
   }
 
   .sto-sections-dropdown .sto-sections-select__control {

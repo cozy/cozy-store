@@ -35,6 +35,7 @@ exports[`App component only should be mounted correctly 1`] = `
       />
     </Switch>
   </Main>
+  <IconSprite />
 </Layout>
 `;
 
@@ -73,5 +74,6 @@ exports[`App component only should fetch app icons after first fetching 1`] = `
       />
     </Switch>
   </Main>
+  <IconSprite />
 </Layout>
 `;

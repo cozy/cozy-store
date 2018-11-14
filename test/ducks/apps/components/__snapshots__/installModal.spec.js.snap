@@ -4,21 +4,34 @@ exports[`InstallModal component should be rendered correctly if app found 1`] = 
 <div
   className="sto-modal--install"
 >
-  <Unknown
-    closable={true}
-    dismissAction={[MockFunction]}
-    mobileFullscreen={true}
-    overflowHidden={false}
-    primaryType="regular"
-    secondaryType="secondary"
-    size="small"
+  <FocusTrap
+    _createFocusTrap={[Function]}
+    active={true}
+    focusTrapOptions={
+      Object {
+        "clickOutsideDeactivates": true,
+        "onDeactivate": [Function],
+      }
+    }
+    paused={false}
+    tag="div"
   >
-    <Connect(Wrapper)
-      appSlug="photos"
-      onCancel={[MockFunction]}
-      onSuccess={[MockFunction]}
-    />
-  </Unknown>
+    <Unknown
+      closable={true}
+      dismissAction={[MockFunction]}
+      mobileFullscreen={true}
+      overflowHidden={false}
+      primaryType="regular"
+      secondaryType="secondary"
+      size="small"
+    >
+      <Connect(Wrapper)
+        appSlug="photos"
+        onCancel={[MockFunction]}
+        onSuccess={[MockFunction]}
+      />
+    </Unknown>
+  </FocusTrap>
 </div>
 `;
 
@@ -26,21 +39,34 @@ exports[`InstallModal component should be rendered correctly with also app in re
 <div
   className="sto-modal--install"
 >
-  <Unknown
-    closable={true}
-    dismissAction={[MockFunction]}
-    mobileFullscreen={true}
-    overflowHidden={false}
-    primaryType="regular"
-    secondaryType="secondary"
-    size="small"
+  <FocusTrap
+    _createFocusTrap={[Function]}
+    active={true}
+    focusTrapOptions={
+      Object {
+        "clickOutsideDeactivates": true,
+        "onDeactivate": [Function],
+      }
+    }
+    paused={false}
+    tag="div"
   >
-    <Connect(Wrapper)
-      appSlug="photos"
-      onCancel={[MockFunction]}
-      onSuccess={[MockFunction]}
-    />
-  </Unknown>
+    <Unknown
+      closable={true}
+      dismissAction={[MockFunction]}
+      mobileFullscreen={true}
+      overflowHidden={false}
+      primaryType="regular"
+      secondaryType="secondary"
+      size="small"
+    >
+      <Connect(Wrapper)
+        appSlug="photos"
+        onCancel={[MockFunction]}
+        onSuccess={[MockFunction]}
+      />
+    </Unknown>
+  </FocusTrap>
 </div>
 `;
 
@@ -48,20 +74,33 @@ exports[`InstallModal component should not break the permissions part if no perm
 <div
   className="sto-modal--install"
 >
-  <Unknown
-    closable={true}
-    dismissAction={[MockFunction]}
-    mobileFullscreen={true}
-    overflowHidden={false}
-    primaryType="regular"
-    secondaryType="secondary"
-    size="small"
+  <FocusTrap
+    _createFocusTrap={[Function]}
+    active={true}
+    focusTrapOptions={
+      Object {
+        "clickOutsideDeactivates": true,
+        "onDeactivate": [Function],
+      }
+    }
+    paused={false}
+    tag="div"
   >
-    <Connect(Wrapper)
-      appSlug="photos"
-      onCancel={[MockFunction]}
-      onSuccess={[MockFunction]}
-    />
-  </Unknown>
+    <Unknown
+      closable={true}
+      dismissAction={[MockFunction]}
+      mobileFullscreen={true}
+      overflowHidden={false}
+      primaryType="regular"
+      secondaryType="secondary"
+      size="small"
+    >
+      <Connect(Wrapper)
+        appSlug="photos"
+        onCancel={[MockFunction]}
+        onSuccess={[MockFunction]}
+      />
+    </Unknown>
+  </FocusTrap>
 </div>
 `;

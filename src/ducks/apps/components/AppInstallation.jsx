@@ -4,20 +4,19 @@ import { connect } from 'react-redux'
 import { PropTypes } from 'react-proptypes'
 
 import getChannel from 'lib/getChannelFromSource'
-import { ModalContent, ModalHeader, ModalFooter } from 'cozy-ui/react/Modal'
+import { ModalDescription, ModalHeader, ModalFooter } from 'cozy-ui/react/Modal'
 import Spinner from 'cozy-ui/react/Spinner'
 
 import PermissionsList from './PermissionsList'
 import { translate } from 'cozy-ui/react/I18n'
 import Alerter from 'cozy-ui/react/Alerter'
 import { hasPendingUpdate } from 'ducks/apps/appStatus'
-import FocusTrap from 'focus-trap-react'
 
 import { APP_TYPE, getAppBySlug, installAppFromRegistry } from 'ducks/apps'
 
 export class AppInstallation extends Component {
   installApp = async () => {
-    this.setState({ error: null, activeTrap: true })
+    this.setState({ error: null })
     const { app, channel, installApp, onError } = this.props
     try {
       await installApp(app.slug, app.type, channel, app.installed)
@@ -47,14 +46,6 @@ export class AppInstallation extends Component {
     }
   }
 
-  mountTrap = () => {
-    this.setState({ activeTrap: true })
-  }
-
-  unmountTrap = () => {
-    this.setState({ activeTrap: false })
-  }
-
   render() {
     const {
       app,
@@ -73,80 +64,63 @@ export class AppInstallation extends Component {
     const isFirstLoading = isFetching && !isCanceling
 
     return (
-      <FocusTrap
-        focusTrapOptions={{
-          onDeactivate: this.unmountTrap,
-          clickOutsideDeactivates: true
-        }}
-      >
-        <div className="sto-install">
-          <ModalHeader className="sto-install-header">
-            <h2>{t('app_modal.install.title')}</h2>
-          </ModalHeader>
-          <div className="sto-install-content">
-            <div className="sto-install-top">
-              {isFirstLoading ? (
-                <ModalContent>
-                  <div className="sto-install-loading">
-                    <Spinner size="xlarge" />
-                  </div>
-                </ModalContent>
-              ) : (
-                <ModalContent>
-                  {permissions && (
-                    <PermissionsList app={app} appName={appName} />
-                  )}
-                  {fetchError && (
-                    <p className="u-error">
-                      {t('app_modal.install.message.version_error', {
-                        message: fetchError.message
-                      })}
-                    </p>
-                  )}
-                </ModalContent>
+      <React.Fragment>
+        <ModalHeader title={t('app_modal.install.title')} />
+        {isFirstLoading ? (
+          <ModalDescription>
+            <div className="sto-install-loading">
+              <Spinner size="xlarge" />
+            </div>
+          </ModalDescription>
+        ) : (
+          <ModalDescription>
+            {permissions && <PermissionsList app={app} appName={appName} />}
+            {fetchError && (
+              <p className="u-error">
+                {t('app_modal.install.message.version_error', {
+                  message: fetchError.message
+                })}
+              </p>
+            )}
+          </ModalDescription>
+        )}
+        {!isFirstLoading &&
+          !fetchError && (
+            <ModalFooter>
+              {installError && (
+                <p className="u-error">
+                  {t('app_modal.install.message.install_error', {
+                    message: installError.message
+                  })}
+                </p>
               )}
-            </div>
-            <div className="sto-install-bottom">
-              {!isFirstLoading &&
-                !fetchError && (
-                  <ModalFooter>
-                    {installError && (
-                      <p className="u-error">
-                        {t('app_modal.install.message.install_error', {
-                          message: installError.message
-                        })}
-                      </p>
-                    )}
-                    <div className="sto-install-controls">
-                      <button
-                        role="button"
-                        className="c-btn c-btn--secondary"
-                        onClick={onCancel}
-                        disabled={isInstalling || isCanceling}
-                        aria-busy={isCanceling}
-                      >
-                        <span>{t('app_modal.install.cancel')}</span>
-                      </button>
-                      <button
-                        role="button"
-                        disabled={isInstalling || isCanceling}
-                        aria-busy={isInstalling}
-                        className="c-btn c-btn--regular c-btn--download"
-                        onClick={this.installApp}
-                      >
-                        <span>
-                          {hasPendingUpdate(app)
-                            ? t('app_modal.install.update')
-                            : t('app_modal.install.install')}
-                        </span>
-                      </button>
-                    </div>
-                  </ModalFooter>
-                )}
-            </div>
-          </div>
-        </div>
-      </FocusTrap>
+              <div className="sto-install-controls">
+                <button
+                  role="button"
+                  className="c-btn c-btn--secondary"
+                  onClick={onCancel}
+                  disabled={isInstalling || isCanceling}
+                  aria-busy={isCanceling}
+                >
+                  <span>{t('app_modal.install.cancel')}</span>
+                </button>
+                <button
+                  role="button"
+                  disabled={isInstalling || isCanceling}
+                  aria-busy={isInstalling}
+                  className="c-btn c-btn--regular c-btn--download"
+                  onClick={this.installApp}
+                >
+                  <span>
+                    {hasPendingUpdate(app)
+                      ? t('app_modal.install.update')
+                      : t('app_modal.install.install')}
+                  </span>
+                </button>
+              </div>
+            </ModalFooter>
+          )}
+      </React.Fragment>
     )
   }
 }
