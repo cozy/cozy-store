@@ -3,12 +3,12 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 import { translate } from 'cozy-ui/react/I18n'
-import Spinner from 'cozy-ui/react/Spinner'
 import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
 import Button from 'cozy-ui/react/Button'
 import FocusTrap from 'focus-trap-react'
 import AppIcon from 'cozy-ui/react/AppIcon'
 
+import ApplicationPageLoading from 'ducks/components/ApplicationPageLoading'
 import Header from './Header'
 import Gallery from './Gallery'
 import Details from './Details'
@@ -74,21 +74,20 @@ export class ApplicationPage extends Component {
     const {
       t,
       parent,
-      app,
+      matchRoute,
       isFetching,
       fetchError,
       breakpoints = {},
-      pauseFocusTrap
+      pauseFocusTrap,
+      getApp,
+      redirectTo
     } = this.props
+    if (isFetching) return <ApplicationPageLoading />
+    const app = getApp(matchRoute)
+    if (!app) return redirectTo(`/${parent}`)
+
     const { displayBarIcon } = this.state
     const { isMobile } = breakpoints
-    if (isFetching) {
-      return (
-        <div className="sto-app">
-          <Spinner size="xxlarge" loadingType="appsFetching" middle />
-        </div>
-      )
-    }
     if (fetchError) {
       return (
         <p className="u-error">

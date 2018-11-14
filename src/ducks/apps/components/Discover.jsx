@@ -41,14 +41,17 @@ export class Discover extends Component {
       isInstalling,
       isUninstalling,
       actionError,
-      breakpoints = {}
+      breakpoints = {},
+      match
     } = this.props
+    const { isExact } = match
     const { isMobile } = breakpoints
     const query = !!location && location.search
     const filteredApps = getFilteredAppsFromSearch(apps, query)
     const title = <h2 className="sto-view-title">{t('discover.title')}</h2>
     return (
       <Content className="sto-discover">
+        {isExact && isFetching && <AppsLoading />}
         <div className="sto-list-container">
           {isMobile && <BarCenter>{title}</BarCenter>}
           <div className="sto-discover-sections">
@@ -77,8 +80,6 @@ export class Discover extends Component {
           fetchLatestApp={this.props.fetchLatestApp}
           parent="discover"
         />
-
-        {isFetching && <AppsLoading />}
       </Content>
     )
   }

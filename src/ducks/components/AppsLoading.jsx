@@ -1,21 +1,10 @@
 import React, { Component } from 'react'
 import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
+import Placeholder from './Placeholder'
 
 // subarray = sections, array of subsections
 // number = number of loading items per subsection
 const LOADING_SECTIONS = [[5, 3, 9], [12, 8]]
-
-export const Placeholder = ({ width, height, autoMargin }) => {
-  const widthStyle = Array.isArray(width)
-    ? `${Math.random() * (width[1] - width[0]) + width[0]}rem`
-    : width
-  const style = {
-    width: widthStyle,
-    height
-  }
-  if (autoMargin) style.margin = 'auto'
-  return <span className="sto-sections-placeholder" style={style} />
-}
 
 export const LoadingAppsComponents = ({ count, subKey, breakpoints = {} }) => {
   let loadingApps = []

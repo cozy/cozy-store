@@ -13,7 +13,7 @@
   animation-timing-function: linear;
   background-position: -20rem 0;
   background-image: linear-gradient(to right, var(--silver) 0%, #fcfcfc 50%, var(--silver) 100%);
-  background-size: 20rem 10rem;
+  background-size: 20rem 20rem;
   background-repeat: no-repeat;
   background-color: var(--silver);
   border-radius: 0.15rem;
@@ -45,4 +45,48 @@
 
 .sto-sections.--loading .sto-small-app-item-icon-wrapper {
   margin-bottom: .25rem;
+}
+
+.sto-sections-placeholder.c-btn {
+  border: none;
+  display: inline-block;
+}
+
+.sto-sections-placeholder.text-placeholder {
+  line-height: 1.5rem;
+  height: .75rem;
+}
+
+.grp-placeholder span {
+  margin: 1rem 0;
+}
+
+.sto-app-additional-details.grp-placeholder > * {
+  margin: 0.8rem 0;
+}
+
+.sto-app-images .sto-sections-placeholder {
+  margin: 0 0.5rem 0 0;
+}
+
+.app-page-loading {
+  margin-top: 2rem;
+}
+
+.app-page-loading .sto-app-small-images .sto-sections-placeholder:first-child {
+  margin: 0;
+}
+
+.app-page-loading .sto-app-small-images .sto-sections-placeholder {
+  margin: 0.5rem 0 0;
+}
+
+@media (max-width: 48rem) {
+ .app-page-loading .sto-app-header-content * {
+    margin: 1rem auto;
+  }
+}
+
+.app-page-loading h2.sto-app-header-title {
+	margin-bottom: 2rem;
 }

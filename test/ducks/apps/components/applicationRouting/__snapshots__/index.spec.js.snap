@@ -385,16 +385,9 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <AppRoute
-          getApp={[Function]}
-          isFetching={false}
-          mainPageRef={
-            Object {
-              "current": null,
-            }
-          }
-          parent="myapps"
-          redirectTo={[Function]}
+        <Route
+          path="/myapps/:appSlug"
+          render={[Function]}
         />,
         <ChannelRoute
           getApp={[Function]}
@@ -436,15 +429,10 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {
-          "getApp": [Function],
-          "isFetching": false,
-          "mainPageRef": Object {
-            "current": null,
-          },
-          "parent": "myapps",
-          "redirectTo": [Function],
+          "path": "/myapps/:appSlug",
+          "render": [Function],
         },
         "ref": null,
         "rendered": null,
@@ -539,16 +527,9 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <AppRoute
-            getApp={[Function]}
-            isFetching={false}
-            mainPageRef={
-              Object {
-                "current": null,
-              }
-            }
-            parent="myapps"
-            redirectTo={[Function]}
+          <Route
+            path="/myapps/:appSlug"
+            render={[Function]}
           />,
           <ChannelRoute
             getApp={[Function]}
@@ -590,15 +571,10 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "function",
+          "nodeType": "class",
           "props": Object {
-            "getApp": [Function],
-            "isFetching": false,
-            "mainPageRef": Object {
-              "current": null,
-            },
-            "parent": "myapps",
-            "redirectTo": [Function],
+            "path": "/myapps/:appSlug",
+            "render": [Function],
           },
           "ref": null,
           "rendered": null,

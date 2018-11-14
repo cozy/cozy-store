@@ -892,6 +892,7 @@ exports[`Discover component should render correctly a spinner if apps is fetchin
 <Content
   className="sto-discover"
 >
+  <Aware />
   <div
     className="sto-list-container"
   >
@@ -905,7 +906,6 @@ exports[`Discover component should render correctly a spinner if apps is fetchin
     isFetching={true}
     parent="discover"
   />
-  <Aware />
 </Content>
 `;
 

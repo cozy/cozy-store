@@ -794,6 +794,7 @@ exports[`MyApplications component should render correctly a spinner if apps is f
 <Content
   className="sto-myapps"
 >
+  <Aware />
   <div
     className="sto-list-container"
   >
@@ -808,7 +809,6 @@ exports[`MyApplications component should render correctly a spinner if apps is f
     parent="myapps"
     uninstallApp={[MockFunction]}
   />
-  <Aware />
 </Content>
 `;
 

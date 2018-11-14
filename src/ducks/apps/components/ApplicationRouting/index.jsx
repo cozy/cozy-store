@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Route } from 'react-router-dom'
 
 import { translate } from 'cozy-ui/react/I18n'
 
-import AppRoute from './AppRoute'
 import ChannelRoute from './ChannelRoute'
 import PermissionsRoute from './PermissionsRoute'
 import ConfigureRoute from './ConfigureRoute'
 import InstallRoute from './InstallRoute'
 import UninstallRoute from './UninstallRoute'
+import ApplicationPage from '../ApplicationPage'
 
 export class ApplicationRouting extends Component {
   mainPage = React.createRef()
@@ -39,12 +39,21 @@ export class ApplicationRouting extends Component {
     } = this.props
     return (
       <div className="sto-modal-page" ref={this.mainPage}>
-        <AppRoute
-          getApp={this.getAppFromMatchOrSlug}
-          isFetching={isFetching}
-          parent={parent}
-          redirectTo={this.redirectTo}
-          mainPageRef={this.mainPage}
+        <Route
+          path={`/${parent}/:appSlug`}
+          render={({ match }) => {
+            return (
+              <ApplicationPage
+                matchRoute={match}
+                parent={parent}
+                pauseFocusTrap={!match.isExact}
+                isFetching={isFetching}
+                getApp={this.getAppFromMatchOrSlug}
+                redirectTo={this.redirectTo}
+                mainPageRef={this.mainPage}
+              />
+            )
+          }}
         />
         <ChannelRoute
           actionError={actionError}
