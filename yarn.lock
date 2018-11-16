@@ -3398,7 +3398,7 @@ cozy-scripts@1.1.2:
     webpack-dev-server "3.1.10"
     webpack-merge "4.1.4"
 
-cozy-ui@^15.3.1:
+cozy-ui@15.3.1:
   version "15.3.1"
   resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-15.3.1.tgz#09a7e18531c29d9f2f971625d7840e625c6307c3"
   integrity sha512-KQoBp6zPstIR0Q7akAVXPsz3Obp8biUrrMcgj+o8D1PTra4Bi2+K7vhpiNXeEipUvpmGEqcpcsgrHkW87iYUkA==
@@ -9818,19 +9818,7 @@ react-dom@16.6.1:
     prop-types "^15.6.2"
     scheduler "^0.11.0"
 
-react-hot-loader@4.3.12:
-  version "4.3.12"
-  resolved "https://registry.yarnpkg.com/react-hot-loader/-/react-hot-loader-4.3.12.tgz#0d56688884e7330c63a00a17217866280616b07a"
-  integrity sha512-GMM4TsqUVss2QPe+Y33NlgydA5/+7tAVQxR0rZqWvBpapM8JhD7p6ymMwSZzr5yxjoXXlK/6P6qNQBOqm1dqdg==
-  dependencies:
-    fast-levenshtein "^2.0.6"
-    global "^4.3.0"
-    hoist-non-react-statics "^2.5.0"
-    prop-types "^15.6.1"
-    react-lifecycles-compat "^3.0.4"
-    shallowequal "^1.0.2"
-
-react-hot-loader@^4.3.11:
+react-hot-loader@4.3.12, react-hot-loader@^4.3.11:
   version "4.3.12"
   resolved "https://registry.yarnpkg.com/react-hot-loader/-/react-hot-loader-4.3.12.tgz#0d56688884e7330c63a00a17217866280616b07a"
   integrity sha512-GMM4TsqUVss2QPe+Y33NlgydA5/+7tAVQxR0rZqWvBpapM8JhD7p6ymMwSZzr5yxjoXXlK/6P6qNQBOqm1dqdg==
