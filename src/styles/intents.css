@@ -23,9 +23,13 @@
 .coz-intent,
 .coz-intent-content {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
 }
+
+.coz-intent-content [class^='c-modal-footer'] {
+  margin-top: auto;
+}
+
 
 .coz-error {
     font-size: 1.5em;
