@@ -12,3 +12,7 @@
 .sto-install-controls .c-btn {
   flex-grow: 1;
 }
+
+.sto-install-footer {
+  margin-top: auto;
+}

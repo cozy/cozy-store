@@ -86,7 +86,7 @@ export class AppInstallation extends Component {
         )}
         {!isFirstLoading &&
           !fetchError && (
-            <ModalFooter>
+            <ModalFooter className="sto-install-footer">
               {installError && (
                 <p className="u-error">
                   {t('app_modal.install.message.install_error', {
