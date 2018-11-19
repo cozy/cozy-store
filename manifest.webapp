@@ -1,0 +1,88 @@
+{
+  "name": "Store",
+  "name_prefix": "Cozy",
+  "slug": "store",
+  "type": "webapp",
+  "icon": "icon-store.svg",
+  "editor": "Cozy",
+  "description": "The apps store for Cozy V3",
+  "categories": [
+    "cozy"
+  ],
+  "version": "1.2.5",
+  "licence": "AGPL-3.0",
+  "source": "https://github.com/cozy/cozy-store.git@build",
+  "developer": {
+    "name": "Cozy Cloud",
+    "url": "https://cozy.io"
+  },
+  "locales": {
+    "de": {},
+    "en": {},
+    "fr": {},
+    "nl_NL": {},
+    "pl": {}
+  },
+  "intents": [
+    {
+      "action": "REDIRECT",
+      "type": [
+        "io.cozy.apps"
+      ],
+      "href": "/#/redirect",
+      "data": [
+        "category",
+        "doctype",
+        "slug",
+        "tag",
+        "type"
+      ]
+    },
+    {
+      "action": "INSTALL",
+      "data": [
+        "slug"
+      ],
+      "href": "/intents",
+      "type": [
+        "io.cozy.apps"
+      ]
+    }
+  ],
+  "routes": {
+    "/": {
+      "folder": "/",
+      "index": "index.html",
+      "public": false
+    },
+    "/intents": {
+      "folder": "/intents",
+      "index": "index.html",
+      "public": false
+    }
+  },
+  "permissions": {
+    "apps": {
+      "description": "Required to manage applications",
+      "type": "io.cozy.apps"
+    },
+    "konnectors": {
+      "description": "Required to manage konnectors",
+      "type": "io.cozy.konnectors"
+    },
+    "settings": {
+      "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
+      "type": "io.cozy.settings",
+      "verbs": [
+        "GET"
+      ]
+    }
+  },
+  "langs": [
+    "de",
+    "en",
+    "fr",
+    "nl_NL",
+    "pl"
+  ]
+}
