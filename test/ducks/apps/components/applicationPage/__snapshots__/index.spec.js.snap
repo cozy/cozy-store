@@ -1624,10 +1624,121 @@ exports[`ApplicationPage component should render correctly on mobile with the sc
       <div
         className="sto-app-bar"
       >
-        <img
-          alt="photos-icon"
+        <AppIcon
+          app={
+            Object {
+              "categories": Array [
+                "cozy",
+              ],
+              "developer": Object {
+                "name": "Cozy",
+                "url": "https://cozy.io",
+              },
+              "editor": "Cozy",
+              "icon": "https://mockcozy.cc/registry/photos/icon",
+              "installed": false,
+              "langs": Array [
+                "en",
+                "fr",
+              ],
+              "licence": "AGPL-3.0",
+              "locales": Object {
+                "en": Object {
+                  "changes": "### NEW!!!
+
+ Now on the cozy-store :tada",
+                  "long_description": "### Features
+
+Enjoy features to grab your data in you Cozy :tada:",
+                  "short_description": "Gestionnaire de photos pour Cozy v3",
+                },
+                "fr": Object {
+                  "long_description": "### Photos
+
+Gestionnaire de photos pour Cozy v3 :tada:",
+                  "short_description": "Gestionnaire de photos pour Cozy v3",
+                },
+              },
+              "name": "Photos",
+              "name_prefix": "Cozy",
+              "permissions": Object {
+                "albums": Object {
+                  "description": "Required to manage photos albums",
+                  "methods": Array [
+                    "GET",
+                    "POST",
+                    "PUT",
+                  ],
+                  "type": "io.cozy.photos.albums",
+                },
+                "apps": Object {
+                  "description": "Required by the cozy-bar to display the icons of the apps",
+                  "type": "io.cozy.apps",
+                  "verbs": Array [
+                    "GET",
+                  ],
+                },
+                "contacts": Object {
+                  "description": "Required to to share photos with your contacts",
+                  "methods": Array [
+                    "GET",
+                    "POST",
+                  ],
+                  "type": "io.cozy.contacts",
+                },
+                "files": Object {
+                  "description": "Required for photo access",
+                  "methods": Array [
+                    "GET",
+                    "POST",
+                    "PUT",
+                  ],
+                  "type": "io.cozy.files",
+                },
+                "settings": Object {
+                  "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
+                  "type": "io.cozy.settings",
+                  "verbs": Array [
+                    "GET",
+                  ],
+                },
+              },
+              "platforms": Array [
+                Object {
+                  "type": "ios",
+                  "url": "",
+                },
+                Object {
+                  "type": "linux",
+                  "url": "",
+                },
+                Object {
+                  "type": "android",
+                  "url": "https://mock.app",
+                },
+              ],
+              "related": null,
+              "routes": Object {
+                "/": Object {
+                  "folder": "/",
+                  "index": "index.html",
+                  "public": false,
+                },
+                "/public": Object {
+                  "folder": "/public",
+                  "index": "index.html",
+                  "public": true,
+                },
+              },
+              "short_description": "Photos manager for Cozy v3",
+              "slug": "photos",
+              "source": "https://github.com/cozy/cozy-drive.git@build-photos",
+              "type": "webapp",
+              "version": "3.0.0",
+            }
+          }
           className="sto-app-bar-icon sto-app-bar-icon--hidden"
-          src="https://mockcozy.cc/registry/photos/icon"
+          fetchIcon={[Function]}
         />
       </div>
     </BarCenter>
@@ -1919,10 +2030,121 @@ exports[`ApplicationPage component should render correctly on mobile with the sc
       <div
         className="sto-app-bar"
       >
-        <img
-          alt="photos-icon"
+        <AppIcon
+          app={
+            Object {
+              "categories": Array [
+                "cozy",
+              ],
+              "developer": Object {
+                "name": "Cozy",
+                "url": "https://cozy.io",
+              },
+              "editor": "Cozy",
+              "icon": "https://mockcozy.cc/registry/photos/icon",
+              "installed": false,
+              "langs": Array [
+                "en",
+                "fr",
+              ],
+              "licence": "AGPL-3.0",
+              "locales": Object {
+                "en": Object {
+                  "changes": "### NEW!!!
+
+ Now on the cozy-store :tada",
+                  "long_description": "### Features
+
+Enjoy features to grab your data in you Cozy :tada:",
+                  "short_description": "Gestionnaire de photos pour Cozy v3",
+                },
+                "fr": Object {
+                  "long_description": "### Photos
+
+Gestionnaire de photos pour Cozy v3 :tada:",
+                  "short_description": "Gestionnaire de photos pour Cozy v3",
+                },
+              },
+              "name": "Photos",
+              "name_prefix": "Cozy",
+              "permissions": Object {
+                "albums": Object {
+                  "description": "Required to manage photos albums",
+                  "methods": Array [
+                    "GET",
+                    "POST",
+                    "PUT",
+                  ],
+                  "type": "io.cozy.photos.albums",
+                },
+                "apps": Object {
+                  "description": "Required by the cozy-bar to display the icons of the apps",
+                  "type": "io.cozy.apps",
+                  "verbs": Array [
+                    "GET",
+                  ],
+                },
+                "contacts": Object {
+                  "description": "Required to to share photos with your contacts",
+                  "methods": Array [
+                    "GET",
+                    "POST",
+                  ],
+                  "type": "io.cozy.contacts",
+                },
+                "files": Object {
+                  "description": "Required for photo access",
+                  "methods": Array [
+                    "GET",
+                    "POST",
+                    "PUT",
+                  ],
+                  "type": "io.cozy.files",
+                },
+                "settings": Object {
+                  "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
+                  "type": "io.cozy.settings",
+                  "verbs": Array [
+                    "GET",
+                  ],
+                },
+              },
+              "platforms": Array [
+                Object {
+                  "type": "ios",
+                  "url": "",
+                },
+                Object {
+                  "type": "linux",
+                  "url": "",
+                },
+                Object {
+                  "type": "android",
+                  "url": "https://mock.app",
+                },
+              ],
+              "related": null,
+              "routes": Object {
+                "/": Object {
+                  "folder": "/",
+                  "index": "index.html",
+                  "public": false,
+                },
+                "/public": Object {
+                  "folder": "/public",
+                  "index": "index.html",
+                  "public": true,
+                },
+              },
+              "short_description": "Photos manager for Cozy v3",
+              "slug": "photos",
+              "source": "https://github.com/cozy/cozy-drive.git@build-photos",
+              "type": "webapp",
+              "version": "3.0.0",
+            }
+          }
           className="sto-app-bar-icon sto-app-bar-icon--hidden"
-          src="https://mockcozy.cc/registry/photos/icon"
+          fetchIcon={[Function]}
         />
       </div>
     </BarCenter>

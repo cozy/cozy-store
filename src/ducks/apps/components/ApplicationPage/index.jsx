@@ -7,6 +7,7 @@ import Spinner from 'cozy-ui/react/Spinner'
 import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
 import Button from 'cozy-ui/react/Button'
 import FocusTrap from 'focus-trap-react'
+import AppIcon from 'cozy-ui/react/AppIcon'
 
 import Header from './Header'
 import Gallery from './Gallery'
@@ -16,6 +17,7 @@ import {
   preventBackgroundScroll,
   unpreventBackgroundScroll
 } from 'lib/scrollHelpers.js'
+import { fetchIcon } from 'ducks/apps'
 
 const MOBILE_PLATFORMS = ['ios', 'android']
 const isMobilePlatform = name => MOBILE_PLATFORMS.includes(name)
@@ -133,12 +135,12 @@ export class ApplicationPage extends Component {
             !iconToLoad && (
               <BarCenter>
                 <div className="sto-app-bar">
-                  <img
+                  <AppIcon
+                    app={app}
                     className={`sto-app-bar-icon ${
                       !displayBarIcon ? 'sto-app-bar-icon--hidden' : ''
                     }`}
-                    src={icon}
-                    alt={`${slug}-icon`}
+                    fetchIcon={fetchIcon(app)}
                   />
                 </div>
               </BarCenter>
@@ -148,9 +150,9 @@ export class ApplicationPage extends Component {
               icon="back"
               tag={Link}
               to={`${parent}`}
-              onClick={this.unmountTrap}
               className="sto-app-back"
               label={t('app_page.back')}
+              onClick={this.unmountTrap}
               subtle
             />
             <Header
