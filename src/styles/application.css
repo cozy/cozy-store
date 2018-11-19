@@ -65,7 +65,7 @@ main > [role=main].sto-myapps {
   overflow: hidden;
 }
 
-@media (max-width: 48rem) {
+@media (max-width: 64rem) {
   main > [role=main].sto-discover,
   main > [role=main].sto-myapps {
     height: 100%;
@@ -85,7 +85,7 @@ main > [role=main].sto-myapps {
 }
 
 
-@media (max-width: 48rem) {
+@media (max-width: 64rem) {
   .has-modal .sto-modal-page {
     position: absolute;
     z-index: auto;
