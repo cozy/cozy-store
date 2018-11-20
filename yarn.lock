@@ -2975,9 +2975,9 @@ cozy-scripts@1.1.2:
     webpack-dev-server "3.1.10"
     webpack-merge "4.1.4"
 
-cozy-ui@15.3.1:
-  version "15.3.1"
-  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-15.3.1.tgz#09a7e18531c29d9f2f971625d7840e625c6307c3"
+cozy-ui@15.5.0:
+  version "15.5.0"
+  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-15.5.0.tgz#786092c1c65b2e8d875ec475c634d3de899c9dd4"
   dependencies:
     babel-cli "^6.26.0"
     babel-plugin-css-modules-transform "^1.5.0"
