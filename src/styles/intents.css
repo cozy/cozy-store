@@ -27,6 +27,11 @@
 }
 
 .coz-error {
-    font-size: 1.5em;
-    color: red;
+  font-size: 1.5em;
+  color: red;
+}
+
+.coz-intent-wrapper .coz-error {
+  margin-top: 3rem;
+  text-align: center;
 }

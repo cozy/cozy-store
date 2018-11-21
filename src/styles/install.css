@@ -16,3 +16,14 @@
 .sto-install-footer {
   margin-top: auto;
 }
+
+.sto-install-success-header {
+  display: flex;
+  justify-content: center;
+}
+
+.sto-install-success-content {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+}

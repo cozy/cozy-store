@@ -3,10 +3,16 @@ import { connect } from 'react-redux'
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 
 import AppInstallation from 'ducks/apps/components/AppInstallation'
+import InstallSuccess from 'ducks/apps/components/InstallSuccess'
 import IntentHeader from 'cozy-ui/transpiled/react/IntentHeader'
 import Spinner from 'cozy-ui/transpiled/react/Spinner'
 
-import { getAppBySlug, installAppFromRegistry, initAppIntent } from '../../apps'
+import {
+  APP_TYPE,
+  getAppBySlug,
+  installAppFromRegistry,
+  initAppIntent
+} from 'ducks/apps'
 
 const errorKeys = {
   alreadyInstalledError: 'intent.install.error.installed',
@@ -17,12 +23,12 @@ const errorKeys = {
 
 export class InstallAppIntent extends Component {
   state = {
-    status: ''
+    hasWebappSucceed: false,
+    hasKonnectorSucceed: false
   }
 
-  constructor(props) {
-    super(props)
-    props.initAppIntent()
+  componentDidMount() {
+    this.props.initAppIntent()
   }
 
   installApp() {
@@ -34,17 +40,20 @@ export class InstallAppIntent extends Component {
     }
   }
 
-  async componentWillReceiveProps(nextProps) {
+  async componentDidUpdate(prevProps) {
     // on install success
-    if (this.props.isInstalling && !nextProps.isInstalling) {
-      this.setState({
-        status: 'installed'
-      })
+    const { hasWebappSucceed, hasKonnectorSucceed } = this.state
+    const hasSucceed = hasWebappSucceed || hasKonnectorSucceed
+    if (
+      !hasSucceed &&
+      ((prevProps.app && prevProps.app.installed) ||
+        (this.props.app && this.props.app.installed))
+    ) {
+      const { app, compose, data } = this.props
+      const enableConfiguration =
+        data && (typeof data.configure === 'undefined' || data.configure)
 
-      const { app, compose, data, onTerminate } = this.props
-      const configure = typeof data.configure === 'undefined' || data.configure
-
-      if (app.type === 'konnector' && configure) {
+      if (app.type === APP_TYPE.KONNECTOR && enableConfiguration) {
         await compose(
           'CREATE',
           'io.cozy.accounts',
@@ -52,8 +61,27 @@ export class InstallAppIntent extends Component {
         )
       }
 
-      onTerminate(nextProps.app)
+      this.onSuccess(enableConfiguration)
     }
+  }
+
+  onSuccess = enableConfiguration => {
+    const { app, onTerminate } = this.props
+    if (app.type === APP_TYPE.WEBAPP || !enableConfiguration) {
+      this.setState(() => ({
+        hasWebappSucceed: true
+      }))
+    } else {
+      this.setState(() => ({
+        hasKonnectorSucceed: true
+      }))
+      onTerminate(this.props.app)
+    }
+  }
+
+  handleTerminate = () => {
+    const { onTerminate, app } = this.props
+    onTerminate(app)
   }
 
   render() {
@@ -68,12 +96,11 @@ export class InstallAppIntent extends Component {
       onCancel,
       t
     } = this.props
-
-    const { status } = this.state
+    const { hasWebappSucceed } = this.state
 
     const fetching = isFetching || isAppFetching
     const isReady = !fetchError && !fetching && !isAppFetching
-    const isInstalled = status === 'installed'
+    const isInstalled = app && app.installed
 
     const appError = isReady && !app
     const alreadyInstalledError = !isInstalled && app && app.installed
@@ -83,7 +110,7 @@ export class InstallAppIntent extends Component {
       null
     )
     const error = !!errorKey && new Error(t(errorKey))
-
+    const isReadyWithoutErrors = isReady && !error
     return (
       <div className="coz-intent-wrapper">
         <IntentHeader
@@ -94,16 +121,19 @@ export class InstallAppIntent extends Component {
         <div className="coz-intent-content">
           {fetching && <Spinner size="xxlarge" />}
           {error && <div className="coz-error">{error.message}</div>}
-          {isReady &&
-            !isInstalled &&
-            !error && (
+          {isReadyWithoutErrors &&
+            (!isInstalled ? (
               <AppInstallation
                 appSlug={app.slug}
                 installApp={() => this.installApp()}
                 isInstalling={isInstalling}
                 onCancel={onCancel}
               />
-            )}
+            ) : (
+              hasWebappSucceed && (
+                <InstallSuccess app={app} onTerminate={this.handleTerminate} />
+              )
+            ))}
         </div>
       </div>
     )
