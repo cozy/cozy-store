@@ -3,9 +3,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import AppIcon from 'cozy-ui/react/AppIcon'
-import Button from 'cozy-ui/react/Button'
-import Icon from 'cozy-ui/react/Icon'
-import { translate } from 'cozy-ui/react/I18n'
+import Button from 'cozy-ui/transpiled/react/Button'
+import Icon from 'cozy-ui/transpiled/react/Icon'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
 
 import cozySmileIcon from 'assets/icons/icon-cozy-smile.svg'
 import AsyncButton from 'ducks/components/AsyncButton'

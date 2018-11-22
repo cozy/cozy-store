@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 
-import { translate } from 'cozy-ui/react/I18n'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
 
-import { Button } from 'cozy-ui/react/Button'
-import Icon from 'cozy-ui/react/Icon'
-import Toggle from 'cozy-ui/react/Toggle'
+import { Button } from 'cozy-ui/transpiled/react/Button'
+import Icon from 'cozy-ui/transpiled/react/Icon'
+import Toggle from 'cozy-ui/transpiled/react/Toggle'
 
 import Maintenance from './Maintenance'
 

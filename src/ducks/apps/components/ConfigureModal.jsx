@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import IntentModal from 'cozy-ui/react/IntentModal'
-import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
+import IntentModal from 'cozy-ui/transpiled/react/IntentModal'
+import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 
 import { getAppBySlug } from 'ducks/apps'
 
