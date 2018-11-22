@@ -10,7 +10,7 @@ import { translate } from 'cozy-ui/react/I18n'
 import cozySmileIcon from 'assets/icons/icon-cozy-smile.svg'
 import AsyncButton from 'ducks/components/AsyncButton'
 
-import { APP_TYPE, fetchIcon } from 'ducks/apps'
+import { APP_TYPE, getAppIconProps } from 'ducks/apps'
 import {
   hasPendingUpdate,
   isUnderMaintenance,
@@ -26,11 +26,7 @@ export const Header = ({ t, app, namePrefix, name, description, parent }) => {
   return (
     <div className="sto-app-header">
       <div className="sto-app-header-icon">
-        <AppIcon
-          app={app}
-          className="sto-app-icon"
-          fetchIcon={fetchIcon(app)}
-        />
+        <AppIcon app={app} className="sto-app-icon" {...getAppIconProps()} />
       </div>
       <div className="sto-app-header-content">
         <h2 className="sto-app-header-title">

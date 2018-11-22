@@ -17,7 +17,7 @@ import {
   preventBackgroundScroll,
   unpreventBackgroundScroll
 } from 'lib/scrollHelpers.js'
-import { fetchIcon } from 'ducks/apps'
+import { getAppIconProps } from 'ducks/apps'
 
 const MOBILE_PLATFORMS = ['ios', 'android']
 const isMobilePlatform = name => MOBILE_PLATFORMS.includes(name)
@@ -140,7 +140,7 @@ export class ApplicationPage extends Component {
                     className={`sto-app-bar-icon ${
                       !displayBarIcon ? 'sto-app-bar-icon--hidden' : ''
                     }`}
-                    fetchIcon={fetchIcon(app)}
+                    {...getAppIconProps()}
                   />
                 </div>
               </BarCenter>
