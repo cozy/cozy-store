@@ -118,6 +118,7 @@ main > [role=main].sto-myapps {
 .sto-app-header-icon {
   margin-top: 0.7em;
   margin-right: 1.7em;
+  height: 8rem; /* Keep icon height during load on mobile */
 }
 
 .sto-app-header-content .c-btn {
