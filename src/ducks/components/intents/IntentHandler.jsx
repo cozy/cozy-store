@@ -3,6 +3,10 @@ import { translate } from 'cozy-ui/react/I18n'
 
 import Spinner from 'cozy-ui/react/Spinner'
 
+const CREATING = 'creating'
+const CREATED = 'created'
+const ERRORED = 'errored'
+
 class IntentHandler extends Component {
   constructor(props) {
     super(props)
@@ -10,7 +14,7 @@ class IntentHandler extends Component {
     this.state = {
       error: null,
       service: null,
-      status: 'creating'
+      status: CREATING
     }
 
     props.intents
@@ -23,14 +27,14 @@ class IntentHandler extends Component {
       // })
       .then(service =>
         this.setState({
-          status: 'created',
+          status: CREATED,
           service: service
         })
       )
       .catch(error =>
         this.setState({
           error: error,
-          status: 'errored'
+          status: ERRORED
         })
       )
   }
@@ -50,7 +54,7 @@ class IntentHandler extends Component {
 
     return (
       <div className="coz-intent">
-        {status === 'creating' && <Spinner size="xxlarge" />}
+        {status === CREATING && <Spinner size="xxlarge" />}
         {error && (
           <div className="coz-error coz-intent-error">
             <p>{t('intent.service.creation.error.title')}</p>
