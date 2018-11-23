@@ -16,25 +16,28 @@ const appManifest = mockApp.manifest
 const konnectorManifest = mockKonnector.manifest
 const mockError = new Error('This is a test error')
 
-const getAppProps = (installed, related) => {
+const getAppProps = (installed, related, screenshots = []) => {
   // create a mock ref
   const mockRef = React.createRef()
   mockRef.current = document.createElement('div')
   // set app locales from manifest
   extendI18n({ apps: { [appManifest.slug]: appManifest.locales.en } })
   return {
-    lang: 'en',
-    app: Object.assign({}, appManifest, {
+    getApp: () => ({
+      ...appManifest,
       installed,
       icon: 'https://mockcozy.cc/registry/photos/icon',
-      related
+      related,
+      screenshots
     }),
+    lang: 'en',
+    mainPageRef: mockRef,
     parent: '/myapps',
-    mainPageRef: mockRef
+    redirectTo: jest.fn()
   }
 }
 
-const getKonnectorProps = installed => {
+const getKonnectorProps = (installed, keepDescription = true) => {
   // create a mock ref
   const mockRef = React.createRef()
   mockRef.current = document.createElement('div')
@@ -42,9 +45,15 @@ const getKonnectorProps = installed => {
   extendI18n({
     apps: { [konnectorManifest.slug]: konnectorManifest.locales.en }
   })
+  const manifest = { ...konnectorManifest }
+  if (!keepDescription) {
+    delete manifest.short_description
+    delete manifest.long_description
+  }
   return {
     lang: 'en',
-    app: Object.assign({}, konnectorManifest, {
+    getApp: () => ({
+      ...manifest,
       installed,
       icon: 'https://mockcozy.cc/registry/konnector-trinlane/icon'
     }),
@@ -87,8 +96,7 @@ describe('ApplicationPage component', () => {
   })
 
   it('should be rendered correctly with app with screenshots', () => {
-    const props = getAppProps(false)
-    props.app.screenshots = ['<svg></svg>']
+    const props = getAppProps(false, undefined, ['<svg></svg>'])
     const component = shallow(
       <ApplicationPage t={tMock} {...props} />
     ).getElement()
@@ -96,9 +104,7 @@ describe('ApplicationPage component', () => {
   })
 
   it('should be rendered correctly without app descriptions', () => {
-    const props = getKonnectorProps(false)
-    if (props.app.short_description) delete props.app.short_description
-    if (props.app.long_description) delete props.app.long_description
+    const props = getKonnectorProps(false, false)
     const component = shallow(
       <ApplicationPage t={tMock} {...props} />
     ).getElement()

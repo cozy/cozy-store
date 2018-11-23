@@ -134,6 +134,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
                 "public": true,
               },
             },
+            "screenshots": Array [],
             "short_description": "Photos manager for Cozy v3",
             "slug": "photos",
             "source": "https://github.com/cozy/cozy-drive.git@build-photos",
@@ -252,6 +253,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
                 "public": true,
               },
             },
+            "screenshots": Array [],
             "short_description": "Photos manager for Cozy v3",
             "slug": "photos",
             "source": "https://github.com/cozy/cozy-drive.git@build-photos",
@@ -956,6 +958,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
                 "public": true,
               },
             },
+            "screenshots": Array [],
             "short_description": "Photos manager for Cozy v3",
             "slug": "photos",
             "source": "https://github.com/cozy/cozy-drive.git@build-photos",
@@ -1074,6 +1077,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
                 "public": true,
               },
             },
+            "screenshots": Array [],
             "short_description": "Photos manager for Cozy v3",
             "slug": "photos",
             "source": "https://github.com/cozy/cozy-drive.git@build-photos",
@@ -1584,17 +1588,7 @@ exports[`ApplicationPage component should be rendered correctly without app desc
 </FocusTrap>
 `;
 
-exports[`ApplicationPage component should render correctly a spinner if isFetching 1`] = `
-<div
-  className="sto-app"
->
-  <Wrapper
-    loadingType="appsFetching"
-    middle={true}
-    size="xxlarge"
-  />
-</div>
-`;
+exports[`ApplicationPage component should render correctly a spinner if isFetching 1`] = `<Aware />`;
 
 exports[`ApplicationPage component should render correctly an error message if fetchError 1`] = `
 <p
@@ -1730,6 +1724,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
                   "public": true,
                 },
               },
+              "screenshots": Array [],
               "short_description": "Photos manager for Cozy v3",
               "slug": "photos",
               "source": "https://github.com/cozy/cozy-drive.git@build-photos",
@@ -1861,6 +1856,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
                 "public": true,
               },
             },
+            "screenshots": Array [],
             "short_description": "Photos manager for Cozy v3",
             "slug": "photos",
             "source": "https://github.com/cozy/cozy-drive.git@build-photos",
@@ -1979,6 +1975,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
                 "public": true,
               },
             },
+            "screenshots": Array [],
             "short_description": "Photos manager for Cozy v3",
             "slug": "photos",
             "source": "https://github.com/cozy/cozy-drive.git@build-photos",
@@ -2137,6 +2134,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
                   "public": true,
                 },
               },
+              "screenshots": Array [],
               "short_description": "Photos manager for Cozy v3",
               "slug": "photos",
               "source": "https://github.com/cozy/cozy-drive.git@build-photos",
@@ -2268,6 +2266,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
                 "public": true,
               },
             },
+            "screenshots": Array [],
             "short_description": "Photos manager for Cozy v3",
             "slug": "photos",
             "source": "https://github.com/cozy/cozy-drive.git@build-photos",
@@ -2386,6 +2385,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
                 "public": true,
               },
             },
+            "screenshots": Array [],
             "short_description": "Photos manager for Cozy v3",
             "slug": "photos",
             "source": "https://github.com/cozy/cozy-drive.git@build-photos",

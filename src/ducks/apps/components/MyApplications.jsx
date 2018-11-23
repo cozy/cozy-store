@@ -38,14 +38,17 @@ export class MyApplications extends Component {
       isAppFetching,
       fetchError,
       actionError,
-      breakpoints = {}
+      breakpoints = {},
+      match
     } = this.props
+    const { isExact } = match
     const { isMobile } = breakpoints
     const query = !!location && location.search
     const filteredApps = getFilteredAppsFromSearch(installedApps, query)
     const title = <h2 className="sto-view-title">{t('myapps.title')}</h2>
     return (
       <Content className="sto-myapps">
+        {isExact && isFetching && <AppsLoading />}
         <div className="sto-list-container">
           {isMobile && <BarCenter>{title}</BarCenter>}
           <div className="sto-myapps-sections">
@@ -71,8 +74,6 @@ export class MyApplications extends Component {
           fetchLatestApp={this.props.fetchLatestApp}
           parent="myapps"
         />
-
-        {isFetching && <AppsLoading />}
       </Content>
     )
   }
