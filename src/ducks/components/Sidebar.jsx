@@ -1,12 +1,7 @@
 import React from 'react'
-import { translate } from 'cozy-ui/transpiled/react/I18n'
+import { translate } from 'cozy-ui/react/I18n'
 import { NavLink as RouterLink } from 'react-router-dom'
-import Nav, {
-  NavLink,
-  NavItem,
-  NavIcon,
-  NavText
-} from 'cozy-ui/transpiled/react/Nav'
+import Nav, { NavLink, NavItem, NavIcon, NavText } from 'cozy-ui/react/Nav'
 
 import discoverIcon from 'assets/icons/icon-compass.svg'
 import myAppsIcon from 'assets/icons/icon-cozy-smile.svg'

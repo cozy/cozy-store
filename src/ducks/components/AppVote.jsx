@@ -1,8 +1,8 @@
 import React from 'react'
 import voteIllustration from 'assets/icons/app-vote.svg'
-import Icon from 'cozy-ui/transpiled/react/Icon'
-import { translate } from 'cozy-ui/transpiled/react/I18n'
-import PopupOpener from 'cozy-ui/transpiled/react/PopupOpener'
+import Icon from 'cozy-ui/react/Icon'
+import { translate } from 'cozy-ui/react/I18n'
+import PopupOpener from 'cozy-ui/react/PopupOpener'
 
 const VOTING_LINK = 'https://framaforms.org/collect-1518082910'
 

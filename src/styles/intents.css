@@ -15,6 +15,11 @@
   height: calc(100% - 3rem);
 }
 
+.coz-intent-content.--loading {
+  align-items: center;
+  justify-content: center;
+}
+
 .coz-intent-content .sto-install {
   justify-content: center;
   width: 32rem;
@@ -27,6 +32,11 @@
 }
 
 .coz-error {
-    font-size: 1.5em;
-    color: red;
+  font-size: 1.5em;
+  color: red;
+}
+
+.coz-intent-wrapper .coz-error {
+  margin-top: 3rem;
+  text-align: center;
 }

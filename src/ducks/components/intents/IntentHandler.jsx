@@ -1,7 +1,7 @@
 import React, { Children, Component } from 'react'
-import { translate } from 'cozy-ui/transpiled/react/I18n'
+import { translate } from 'cozy-ui/react/I18n'
 
-import Spinner from 'cozy-ui/transpiled/react/Spinner'
+import Spinner from 'cozy-ui/react/Spinner'
 
 class IntentHandler extends Component {
   constructor(props) {

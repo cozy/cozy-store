@@ -4,11 +4,11 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import PropTypes from 'prop-types'
 
-import { translate } from 'cozy-ui/transpiled/react/I18n'
-import Alerter from 'cozy-ui/transpiled/react/Alerter'
-import Button from 'cozy-ui/transpiled/react/Button'
+import { translate } from 'cozy-ui/react/I18n'
+import Alerter from 'cozy-ui/react/Alerter'
+import Button from 'cozy-ui/react/Button'
 import { getAppBySlug, uninstallApp } from 'ducks/apps'
-import Modal, { ModalContent } from 'cozy-ui/transpiled/react/Modal'
+import Modal, { ModalContent } from 'cozy-ui/react/Modal'
 
 import ReactMarkdownWrapper from '../../components/ReactMarkdownWrapper'
 

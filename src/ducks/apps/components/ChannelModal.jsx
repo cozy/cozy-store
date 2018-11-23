@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Modal from 'cozy-ui/transpiled/react/Modal'
+import Modal from 'cozy-ui/react/Modal'
 import FocusTrap from 'focus-trap-react'
 import PropTypes from 'prop-types'
 

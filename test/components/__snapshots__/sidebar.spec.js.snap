@@ -7,9 +7,9 @@ exports[`Sidebar component should be rendered correctly 1`] = `
   <Nav>
     <NavItem>
       <NavLink
-        activeClassName="styles__is-active___2D0jN"
+        activeClassName="is-active"
         aria-current="page"
-        className="styles__c-nav-link___3mK6W"
+        className="c-nav-link"
         to="/discover"
       >
         <NavIcon
@@ -25,9 +25,9 @@ exports[`Sidebar component should be rendered correctly 1`] = `
     />
     <NavItem>
       <NavLink
-        activeClassName="styles__is-active___2D0jN"
+        activeClassName="is-active"
         aria-current="page"
-        className="styles__c-nav-link___3mK6W"
+        className="c-nav-link"
         to="/myapps"
       >
         <NavIcon

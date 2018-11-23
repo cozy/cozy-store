@@ -6,7 +6,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import store from 'lib/store'
 
-import I18n from 'cozy-ui/transpiled/react/I18n'
+import I18n from 'cozy-ui/react/I18n'
 import IntentHandler from '../../ducks/components/intents/IntentHandler'
 import InstallAppIntent from '../../ducks/components/intents/InstallAppIntent'
 

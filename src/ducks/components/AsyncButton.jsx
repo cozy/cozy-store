@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import Button from 'cozy-ui/transpiled/react/Button'
+import Button from 'cozy-ui/react/Button'
 
 const IDLE = 'idle'
 const WORKING = 'working'

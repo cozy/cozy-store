@@ -5,7 +5,7 @@ import { combineReducers } from 'redux'
 import config from 'config/apps'
 import constants from 'config/constants'
 import categories from 'config/categories'
-import { extend as extendI18n } from 'cozy-ui/transpiled/react/I18n'
+import { extend as extendI18n } from 'cozy-ui/react/I18n'
 import { NotUninstallableAppException } from '../../lib/exceptions'
 import realtime from 'cozy-realtime'
 
@@ -45,6 +45,7 @@ const FETCH_APP = 'FETCH_APP'
 const FETCH_APP_SUCCESS = 'FETCH_APP_SUCCESS'
 const FETCH_APP_FAILURE = 'FETCH_APP_FAILURE'
 
+const FETCH_REGISTRY_APP_SUCCESS = 'FETCH_REGISTRY_APP_SUCCESS'
 const FETCH_REGISTRY_APPS_SUCCESS = 'FETCH_REGISTRY_APPS_SUCCESS'
 
 const UNINSTALL_APP = 'UNINSTALL_APP'
@@ -60,6 +61,7 @@ const RECEIVE_APPS_ICON = 'RECEIVE_APPS_ICON'
 export const list = (state = [], action) => {
   switch (action.type) {
     case FETCH_APP_SUCCESS:
+    case FETCH_REGISTRY_APP_SUCCESS:
     case FETCH_REGISTRY_APPS_SUCCESS:
     case FETCH_APPS_SUCCESS:
       return _sortAlphabetically(
@@ -314,7 +316,7 @@ export function initAppIntent(lang, slug) {
   return async dispatch => {
     dispatch({ type: LOADING_APP_INTENT })
     await dispatch(initializeRealtime())
-    return dispatch(fetchLatestApp(lang, slug))
+    return await dispatch(fetchLatestApp(lang, slug))
   }
 }
 
@@ -399,45 +401,69 @@ function initializeRealtime() {
   }
 }
 
+async function _getInstalledInfos(app) {
+  try {
+    let installedApp = await cozy.client.fetchJSON(
+      'GET',
+      `/${app.type === APP_TYPE.WEBAPP ? 'apps' : 'konnectors'}/${app.slug}`
+    )
+    return !!installedApp
+  } catch (e) {
+    return false
+  }
+}
+
 export function fetchLatestApp(lang, slug, channel = DEFAULT_CHANNEL) {
-  return async (dispatch, getState) => {
+  return async dispatch => {
     dispatch({ type: FETCH_APP })
+    let app = await dispatch(fetchRegistryApp(lang, slug, channel))
+    app.installed = await _getInstalledInfos(app)
+    return dispatch({
+      type: FETCH_APP_SUCCESS,
+      apps: [app],
+      lang
+    })
+  }
+}
+
+export function fetchRegistryApp(lang, slug, channel = DEFAULT_CHANNEL) {
+  return async (dispatch, getState) => {
     let app = getState().apps.list.find(a => a.slug === slug)
-    if (!app) {
-      // eslint-disable-next-line no-console
-      console.warn(`No application ${slug} found in app state.`)
+    try {
       app = await cozy.client.fetchJSON('GET', `/registry/${slug}`)
-      if (!app) {
-        return dispatch({
-          type: FETCH_APP_FAILURE,
-          error: new Error(`Application ${slug} not found.`)
-        })
+    } catch (err) {
+      let errorMessage = `Error while getting the application with slug: ${slug}`
+      if (err.status === 404) {
+        errorMessage = `Application ${slug} not found in the registry.`
       }
+      return dispatch({
+        type: FETCH_APP_FAILURE,
+        error: new Error(errorMessage)
+      })
     }
-    return getFormattedRegistryApp(app, channel)
-      .then(fetched => {
-        // replace the new fetched app in the apps list
-        return dispatch({
-          type: FETCH_APP_SUCCESS,
-          apps: [fetched],
-          lang
-        })
+    try {
+      const formattedApp = await getFormattedRegistryApp(app, channel)
+      dispatch({
+        type: FETCH_REGISTRY_APP_SUCCESS,
+        apps: [formattedApp],
+        lang
       })
-      .catch(err => {
-        if (err.status === 404) {
-          console.warn(
-            `No ${channel} version found for ${app.slug} from the registry.`
-          )
-        } else {
-          console.warn(
-            `Something went wrong when trying to fetch more informations about ${
-              app.slug
-            } from the registry on ${channel} channel. ${err}`
-          )
-        }
-        dispatch({ type: FETCH_APP_FAILURE, error: err })
-        throw err
-      })
+      return formattedApp
+    } catch (err) {
+      if (err.status === 404) {
+        // eslint-disable-next-line no-console
+        console.warn(
+          `No ${channel} version found for ${slug} from the registry.`
+        )
+      } else {
+        // eslint-disable-next-line no-console
+        console.warn(
+          `Something went wrong when trying to fetch more informations about ${slug} from the registry on ${channel} channel. ${err}`
+        )
+      }
+      dispatch({ type: FETCH_APP_FAILURE, error: err })
+      throw err
+    }
   }
 }
 
@@ -513,7 +539,7 @@ export function fetchInstalledApps(lang) {
       let installedWebApps = await cozy.client.fetchJSON('GET', '/apps/')
       installedWebApps = installedWebApps.map(w => {
         // FIXME type konnector is missing from stack
-        w.attributes.type = 'webapp'
+        w.attributes.type = APP_TYPE.WEBAPP
         return w
       })
       // TODO throw error if collect is not installed
@@ -530,7 +556,7 @@ export function fetchInstalledApps(lang) {
       )
       installedKonnectors = installedKonnectors.map(k => {
         // FIXME type konnector is missing from stack
-        k.attributes.type = 'konnector'
+        k.attributes.type = APP_TYPE.KONNECTOR
         return k
       })
       installedKonnectors = installedKonnectors.filter(

@@ -3,9 +3,9 @@
 import React from 'react'
 import { mount, shallow } from 'enzyme'
 
-import { InstallAppIntent } from './InstallAppIntent'
-import AppInstallation from '../../apps/components/AppInstallation'
-jest.mock('../../apps/components/AppInstallation')
+import { InstallAppIntent } from 'ducks/components/intents/InstallAppIntent'
+import AppInstallation from 'ducks/apps/components/AppInstallation'
+jest.mock('ducks/apps/components/AppInstallation')
 
 describe('InstallAppIntent component', () => {
   const props = {

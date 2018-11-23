@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 
-import { translate } from 'cozy-ui/transpiled/react/I18n'
+import { translate } from 'cozy-ui/react/I18n'
 
 import AppRoute from './AppRoute'
 import ChannelRoute from './ChannelRoute'

@@ -10,7 +10,9 @@
         "install": "An error occured during installation",
         "installed": "Application is already installed",
         "unavailable": "Application is not available"
-      }
+      },
+      "success": "The application %{appName} is correctly installed.",
+      "terminate": "Got it!"
     },
     "service": {
       "creation": {
