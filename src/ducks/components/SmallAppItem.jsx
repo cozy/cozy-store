@@ -1,9 +1,9 @@
 import React from 'react'
 
 import AppIcon from 'cozy-ui/react/AppIcon'
-import { translate } from 'cozy-ui/react/I18n'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
 
-import { fetchIcon } from 'ducks/apps'
+import { getAppIconProps } from 'ducks/apps'
 import { getCurrentStatusLabel } from 'ducks/apps/appStatus'
 
 export const SmallAppItem = ({ t, app, name, namePrefix, onClick }) => {
@@ -15,7 +15,7 @@ export const SmallAppItem = ({ t, app, name, namePrefix, onClick }) => {
         <AppIcon
           app={app}
           className="sto-small-app-item-icon"
-          fetchIcon={fetchIcon(app)}
+          {...getAppIconProps()}
         />
       </div>
       <div className="sto-small-app-item-desc">

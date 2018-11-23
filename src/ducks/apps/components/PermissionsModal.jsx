@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 
-import Modal, { ModalContent, ModalHeader } from 'cozy-ui/react/Modal'
-import { translate } from 'cozy-ui/react/I18n'
+import Modal, {
+  ModalContent,
+  ModalHeader
+} from 'cozy-ui/transpiled/react/Modal'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
 
 import { withRouter } from 'react-router-dom'
 import PermissionsList from './PermissionsList'

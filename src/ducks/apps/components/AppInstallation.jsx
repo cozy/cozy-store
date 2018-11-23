@@ -4,12 +4,16 @@ import { connect } from 'react-redux'
 import { PropTypes } from 'react-proptypes'
 
 import getChannel from 'lib/getChannelFromSource'
-import { ModalDescription, ModalHeader, ModalFooter } from 'cozy-ui/react/Modal'
-import Spinner from 'cozy-ui/react/Spinner'
+import {
+  ModalDescription,
+  ModalHeader,
+  ModalFooter
+} from 'cozy-ui/transpiled/react/Modal'
+import Spinner from 'cozy-ui/transpiled/react/Spinner'
 
 import PermissionsList from './PermissionsList'
-import { translate } from 'cozy-ui/react/I18n'
-import Alerter from 'cozy-ui/react/Alerter'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
+import Alerter from 'cozy-ui/transpiled/react/Alerter'
 import { hasPendingUpdate } from 'ducks/apps/appStatus'
 
 import { APP_TYPE, getAppBySlug, installAppFromRegistry } from 'ducks/apps'

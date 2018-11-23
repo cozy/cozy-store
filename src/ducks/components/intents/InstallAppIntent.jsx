@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { translate } from 'cozy-ui/react/I18n'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
 
 import AppInstallation from 'ducks/apps/components/AppInstallation'
-import IntentHeader from 'cozy-ui/react/IntentHeader'
-import Spinner from 'cozy-ui/react/Spinner'
+import IntentHeader from 'cozy-ui/transpiled/react/IntentHeader'
+import Spinner from 'cozy-ui/transpiled/react/Spinner'
 
 import { getAppBySlug, installAppFromRegistry, initAppIntent } from '../../apps'
 

@@ -2,10 +2,10 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import { translate } from 'cozy-ui/react/I18n'
-import Spinner from 'cozy-ui/react/Spinner'
-import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
-import Button from 'cozy-ui/react/Button'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
+import Spinner from 'cozy-ui/transpiled/react/Spinner'
+import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
+import Button from 'cozy-ui/transpiled/react/Button'
 import FocusTrap from 'focus-trap-react'
 import AppIcon from 'cozy-ui/react/AppIcon'
 
@@ -17,7 +17,7 @@ import {
   preventBackgroundScroll,
   unpreventBackgroundScroll
 } from 'lib/scrollHelpers.js'
-import { fetchIcon } from 'ducks/apps'
+import { getAppIconProps } from 'ducks/apps'
 
 const MOBILE_PLATFORMS = ['ios', 'android']
 const isMobilePlatform = name => MOBILE_PLATFORMS.includes(name)
@@ -140,7 +140,7 @@ export class ApplicationPage extends Component {
                     className={`sto-app-bar-icon ${
                       !displayBarIcon ? 'sto-app-bar-icon--hidden' : ''
                     }`}
-                    fetchIcon={fetchIcon(app)}
+                    {...getAppIconProps()}
                   />
                 </div>
               </BarCenter>
