@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { hot } from 'react-hot-loader'
 
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
-import { translate } from 'cozy-ui/transpiled/react/I18n'
+import { translate } from 'cozy-ui/react/I18n'
 
 import IntentRedirect from './intents/IntentRedirect'
 import Sidebar from './Sidebar'
@@ -11,9 +11,9 @@ import Sidebar from './Sidebar'
 import { initApp } from '../apps'
 import { Discover, MyApplications } from '../apps/Containers'
 
-import { Layout, Main } from 'cozy-ui/transpiled/react/Layout'
-import Alerter from 'cozy-ui/transpiled/react/Alerter'
-import { IconSprite } from 'cozy-ui/transpiled/react'
+import { Layout, Main } from 'cozy-ui/react/Layout'
+import Alerter from 'cozy-ui/react/Alerter'
+import { IconSprite } from 'cozy-ui/react'
 
 export class App extends Component {
   constructor(props) {

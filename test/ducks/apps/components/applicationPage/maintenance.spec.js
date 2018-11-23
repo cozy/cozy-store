@@ -6,7 +6,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 
 import { tMock } from '../../../../jestLib/I18n'
-import { extend as extendI18n } from 'cozy-ui/transpiled/react/I18n'
+import { extend as extendI18n } from 'cozy-ui/react/I18n'
 import { Maintenance } from 'ducks/apps/components/ApplicationPage/Maintenance'
 
 import mockKonnector from '../../_mockPKonnectorTrinlaneRegistryVersion'

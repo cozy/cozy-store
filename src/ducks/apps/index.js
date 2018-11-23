@@ -5,7 +5,7 @@ import { combineReducers } from 'redux'
 import config from 'config/apps'
 import constants from 'config/constants'
 import categories from 'config/categories'
-import { extend as extendI18n } from 'cozy-ui/transpiled/react/I18n'
+import { extend as extendI18n } from 'cozy-ui/react/I18n'
 import { NotUninstallableAppException } from '../../lib/exceptions'
 import realtime from 'cozy-realtime'
 

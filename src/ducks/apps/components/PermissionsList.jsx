@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { translate } from 'cozy-ui/transpiled/react/I18n'
-import Icon from 'cozy-ui/transpiled/react/Icon'
+import { translate } from 'cozy-ui/react/I18n'
+import Icon from 'cozy-ui/react/Icon'
 import ReactMarkdownWrapper from '../../components/ReactMarkdownWrapper'
 
 import localAccessIcon from 'assets/icons/icon-cloud-in-cozy.svg'

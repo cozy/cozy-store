@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 
-import { ModalContent, ModalHeader } from 'cozy-ui/transpiled/react/Modal'
-import { translate } from 'cozy-ui/transpiled/react/I18n'
+import { ModalContent, ModalHeader } from 'cozy-ui/react/Modal'
+import { translate } from 'cozy-ui/react/I18n'
 import Button from 'cozy-ui/react/Button'
 import AppIcon from 'cozy-ui/react/AppIcon'
 import { getAppIconProps } from 'ducks/apps'

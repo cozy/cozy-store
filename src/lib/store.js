@@ -7,7 +7,7 @@ import {
   shouldEnableTracking,
   getTracker,
   createTrackerMiddleware
-} from 'cozy-ui/transpiled/react/helpers/tracker'
+} from 'cozy-ui/react/helpers/tracker'
 
 const loggerMiddleware = createLogger()
 

@@ -5,7 +5,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import { extend as extendI18n } from 'cozy-ui/transpiled/react/I18n'
+import { extend as extendI18n } from 'cozy-ui/react/I18n'
 import { tMock } from '../../../../jestLib/I18n'
 import { ApplicationPage } from 'ducks/apps/components/ApplicationPage'
 

@@ -5,7 +5,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import Button from 'cozy-ui/transpiled/react/Button'
+import Button from 'cozy-ui/react/Button'
 import { Link } from 'react-router-dom'
 
 import { tMock } from '../../../../jestLib/I18n'
