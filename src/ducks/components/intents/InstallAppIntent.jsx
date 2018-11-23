@@ -118,8 +118,8 @@ export class InstallAppIntent extends Component {
           appName={appData.cozyAppName}
           appIcon={`../${appData.cozyIconPath}`}
         />
-        <div className="coz-intent-content">
-          {fetching && <Spinner size="xxlarge" />}
+        <div className={`coz-intent-content${fetching ? ' --loading' : ''}`}>
+          {fetching && <Spinner size="xxlarge" noMargin />}
           {error && <div className="coz-error">{error.message}</div>}
           {isReadyWithoutErrors &&
             (!isInstalled ? (

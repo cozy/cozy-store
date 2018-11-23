@@ -15,6 +15,11 @@
   height: calc(100% - 3rem);
 }
 
+.coz-intent-content.--loading {
+  align-items: center;
+  justify-content: center;
+}
+
 .coz-intent-content .sto-install {
   justify-content: center;
   width: 32rem;
