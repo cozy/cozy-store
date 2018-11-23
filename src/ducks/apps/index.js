@@ -480,7 +480,7 @@ export function fetchLatestApp(lang, slug, channel = DEFAULT_CHANNEL) {
         })
       }
     }
-    return getFormattedRegistryApp(app, true, channel)
+    return getFormattedRegistryApp(app, channel)
       .then(fetched => {
         // replace the new fetched app in the apps list
         return dispatch({
@@ -629,7 +629,7 @@ export function fetchRegistryApps(lang, channel = DEFAULT_CHANNEL) {
         return Promise.all(
           apps.map(app => {
             if (!app.latest_version) return false // skip
-            return getFormattedRegistryApp(app, false).catch(err => {
+            return getFormattedRegistryApp(app).catch(err => {
               console.warn(
                 `Something went wrong when trying to fetch more informations about ${
                   app.slug
