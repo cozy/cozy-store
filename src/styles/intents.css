@@ -15,6 +15,7 @@
   height: calc(100% - 3rem);
 }
 
+.coz-intent.--loading,
 .coz-intent-content.--loading {
   align-items: center;
   justify-content: center;

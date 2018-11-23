@@ -43,6 +43,7 @@ class IntentHandler extends Component {
     const { appData, children, t } = this.props
     const { error, service, status } = this.state
     const intent = service && service.getIntent()
+    const isCreating = status === CREATING
     const child =
       intent &&
       Children.toArray(children).find(child => {
@@ -53,8 +54,8 @@ class IntentHandler extends Component {
       })
 
     return (
-      <div className="coz-intent">
-        {status === CREATING && <Spinner size="xxlarge" />}
+      <div className={`coz-intent${isCreating ? ' --loading' : ''}`}>
+        {isCreating && <Spinner size="xxlarge" />}
         {error && (
           <div className="coz-error coz-intent-error">
             <p>{t('intent.service.creation.error.title')}</p>
