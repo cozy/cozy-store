@@ -125,7 +125,8 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         }
       }
       className="sto-app-icon"
-      fetchIcon={[Function]}
+      domain={null}
+      secure={false}
     />
   </div>
   <div
@@ -282,7 +283,8 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         }
       }
       className="sto-app-icon"
-      fetchIcon={[Function]}
+      domain={null}
+      secure={false}
     />
   </div>
   <div
@@ -432,7 +434,8 @@ exports[`ApplicationPage header component should be rendered correctly provided 
         }
       }
       className="sto-app-icon"
-      fetchIcon={[Function]}
+      domain={null}
+      secure={false}
     />
   </div>
   <div
@@ -588,7 +591,8 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         }
       }
       className="sto-app-icon"
-      fetchIcon={[Function]}
+      domain={null}
+      secure={false}
     />
   </div>
   <div
@@ -747,7 +751,8 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         }
       }
       className="sto-app-icon"
-      fetchIcon={[Function]}
+      domain={null}
+      secure={false}
     />
   </div>
   <div
@@ -902,7 +907,8 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         }
       }
       className="sto-app-icon"
-      fetchIcon={[Function]}
+      domain={null}
+      secure={false}
     />
   </div>
   <div

@@ -25,7 +25,8 @@ exports[`SmallAppItem component should render correctly an app 1`] = `
         }
       }
       className="sto-small-app-item-icon"
-      fetchIcon={[Function]}
+      domain={null}
+      secure={false}
     />
   </div>
   <div
@@ -74,7 +75,8 @@ exports[`SmallAppItem component should render correctly an app in maintenance 1`
         }
       }
       className="sto-small-app-item-icon"
-      fetchIcon={[Function]}
+      domain={null}
+      secure={false}
     />
   </div>
   <div
@@ -126,7 +128,8 @@ exports[`SmallAppItem component should render correctly an app with iconToLoad (
         }
       }
       className="sto-small-app-item-icon"
-      fetchIcon={[Function]}
+      domain={null}
+      secure={false}
     />
   </div>
   <div
@@ -178,7 +181,8 @@ exports[`SmallAppItem component should render correctly an app with iconToLoad i
         }
       }
       className="sto-small-app-item-icon"
-      fetchIcon={[Function]}
+      domain={null}
+      secure={false}
     />
   </div>
   <div
@@ -225,7 +229,8 @@ exports[`SmallAppItem component should render correctly an app without developer
         }
       }
       className="sto-small-app-item-icon"
-      fetchIcon={[Function]}
+      domain={null}
+      secure={false}
     />
   </div>
   <div
@@ -266,7 +271,8 @@ exports[`SmallAppItem component should render correctly an installed app 1`] = `
         }
       }
       className="sto-small-app-item-icon"
-      fetchIcon={[Function]}
+      domain={null}
+      secure={false}
     />
   </div>
   <div
@@ -316,7 +322,8 @@ exports[`SmallAppItem component should render correctly an installed app without
         }
       }
       className="sto-small-app-item-icon"
-      fetchIcon={[Function]}
+      domain={null}
+      secure={false}
     />
   </div>
   <div
