@@ -45,7 +45,6 @@ const FETCH_APP = 'FETCH_APP'
 const FETCH_APP_SUCCESS = 'FETCH_APP_SUCCESS'
 const FETCH_APP_FAILURE = 'FETCH_APP_FAILURE'
 
-const FETCH_REGISTRY_APP_SUCCESS = 'FETCH_REGISTRY_APP_SUCCESS'
 const FETCH_REGISTRY_APPS_SUCCESS = 'FETCH_REGISTRY_APPS_SUCCESS'
 
 const UNINSTALL_APP = 'UNINSTALL_APP'
@@ -61,7 +60,6 @@ const RECEIVE_APPS_ICON = 'RECEIVE_APPS_ICON'
 export const list = (state = [], action) => {
   switch (action.type) {
     case FETCH_APP_SUCCESS:
-    case FETCH_REGISTRY_APP_SUCCESS:
     case FETCH_REGISTRY_APPS_SUCCESS:
     case FETCH_APPS_SUCCESS:
       return _sortAlphabetically(
@@ -414,20 +412,8 @@ async function _getInstalledInfos(app) {
 }
 
 export function fetchLatestApp(lang, slug, channel = DEFAULT_CHANNEL) {
-  return async dispatch => {
-    dispatch({ type: FETCH_APP })
-    let app = await dispatch(fetchRegistryApp(lang, slug, channel))
-    app.installed = await _getInstalledInfos(app)
-    return dispatch({
-      type: FETCH_APP_SUCCESS,
-      apps: [app],
-      lang
-    })
-  }
-}
-
-export function fetchRegistryApp(lang, slug, channel = DEFAULT_CHANNEL) {
   return async (dispatch, getState) => {
+    dispatch({ type: FETCH_APP })
     let app = getState().apps.list.find(a => a.slug === slug)
     try {
       app = await cozy.client.fetchJSON('GET', `/registry/${slug}`)
@@ -443,8 +429,9 @@ export function fetchRegistryApp(lang, slug, channel = DEFAULT_CHANNEL) {
     }
     try {
       const formattedApp = await getFormattedRegistryApp(app, channel)
+      formattedApp.installed = await _getInstalledInfos(app)
       dispatch({
-        type: FETCH_REGISTRY_APP_SUCCESS,
+        type: FETCH_APP_SUCCESS,
         apps: [formattedApp],
         lang
       })
