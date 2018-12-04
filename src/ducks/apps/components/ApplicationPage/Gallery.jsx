@@ -76,6 +76,7 @@ export class Gallery extends Component {
           <Modal
             title={t('app_page.preview')}
             secondaryAction={this.onClose}
+            size="xxlarge"
             mobileFullscreen
           >
             <ModalContent>

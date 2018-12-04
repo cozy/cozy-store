@@ -192,7 +192,7 @@ exports[`ApplicationPage gallery component should open a modal and handle onClos
     primaryType="regular"
     secondaryAction={[Function]}
     secondaryType="secondary"
-    size="small"
+    size="xxlarge"
     title="Preview"
   >
     <ModalContent>
@@ -249,7 +249,7 @@ exports[`ApplicationPage gallery component should open a modal on image click 1`
     primaryType="regular"
     secondaryAction={[Function]}
     secondaryType="secondary"
-    size="small"
+    size="xxlarge"
     title="Preview"
   >
     <ModalContent>
