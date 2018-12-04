@@ -36,6 +36,13 @@ export class ChannelModal extends Component {
     if (typeof fetchApp === 'function') fetchApp(channel)
   }
 
+  componentDidUpdate = () => {
+    const { app, channel, onCurrentChannel } = this.props
+    if (getChannel(app.source) === channel) {
+      onCurrentChannel()
+    }
+  }
+
   async dismiss() {
     const { dismissAction, fetchApp } = this.props
     const { previousChannel } = this.state
