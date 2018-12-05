@@ -7,6 +7,7 @@ import { shallow } from 'enzyme'
 
 import { tMock } from '../../../../jestLib/I18n'
 import { Details } from 'ducks/apps/components/ApplicationPage/Details'
+import { REGISTRY_CHANNELS } from 'ducks/apps'
 
 import mockApp from '../../_mockPhotosRegistryVersion'
 import mockKonnector from '../../_mockPKonnectorTrinlaneRegistryVersion'
@@ -17,6 +18,7 @@ const konnectorManifest = mockKonnector.manifest
 const getAppProps = () => {
   return {
     t: tMock,
+    slug: appManifest.slug,
     description: appManifest.locales.en.long_description,
     changes: appManifest.locales.en.changes,
     app: {
@@ -46,6 +48,10 @@ const getKonnectorProps = () => {
 }
 
 describe('ApplicationPage details component', () => {
+  beforeEach(() => {
+    jest.resetModules()
+  })
+
   it('should be rendered correctly with provided app', () => {
     const component = shallow(<Details {...getAppProps()} />).getElement()
     expect(component).toMatchSnapshot()
@@ -66,5 +72,114 @@ describe('ApplicationPage details component', () => {
     appProps.version = ''
     const component = shallow(<Details {...appProps} />).getElement()
     expect(component).toMatchSnapshot()
+  })
+
+  it('should handle channel switching if with installed app from registry provided', async () => {
+    jest.doMock('ducks/apps', () => ({
+      REGISTRY_CHANNELS,
+      getContext: () =>
+        Promise.resolve({
+          attributes: {
+            debug: true
+          }
+        })
+    }))
+    // we have to re import to handle previous mocking here
+    const MockedDetails = require('ducks/apps/components/ApplicationPage/Details')
+      .Details
+    const appProps = getAppProps()
+    // correctly handled if from registry and installed
+    appProps.app.installed = true
+    appProps.app.source = `registry://${appProps}/stable`
+    const component = shallow(<MockedDetails {...appProps} />)
+    await component.instance().toggleChannels()
+    component.update()
+    expect(component.getElement()).toMatchSnapshot()
+  })
+
+  it('should not suggest Dev channel switching if the context is not in debug mode', async () => {
+    jest.doMock('ducks/apps', () => ({
+      REGISTRY_CHANNELS,
+      getContext: () =>
+        Promise.resolve({
+          attributes: {
+            debug: false
+          }
+        })
+    }))
+    // we have to re import to handle previous mocking here
+    const MockedDetails = require('ducks/apps/components/ApplicationPage/Details')
+      .Details
+    const appProps = getAppProps()
+    // correctly handled if from registry and installed
+    appProps.app.installed = true
+    appProps.app.source = `registry://${appProps}/stable`
+    const component = shallow(<MockedDetails {...appProps} />)
+    await component.instance().toggleChannels()
+    component.update()
+    expect(component.getElement()).toMatchSnapshot()
+  })
+
+  it('should not suggest channel switching if the app is not installed', async () => {
+    jest.doMock('ducks/apps', () => ({
+      REGISTRY_CHANNELS,
+      getContext: () =>
+        Promise.resolve({
+          attributes: {
+            debug: true
+          }
+        })
+    }))
+    // we have to re import to handle previous mocking here
+    const MockedDetails = require('ducks/apps/components/ApplicationPage/Details')
+      .Details
+    const appProps = getAppProps()
+    appProps.app.installed = false
+    appProps.app.source = `registry://${appProps}/stable`
+    const component = shallow(<MockedDetails {...appProps} />)
+    await component.instance().toggleChannels()
+    expect(component.getElement()).toMatchSnapshot()
+  })
+
+  it('should not suggest channel switching if the installed app is not from registry', async () => {
+    jest.doMock('ducks/apps', () => ({
+      REGISTRY_CHANNELS,
+      getContext: () =>
+        Promise.resolve({
+          attributes: {
+            debug: true
+          }
+        })
+    }))
+    // we have to re import to handle previous mocking here
+    const MockedDetails = require('ducks/apps/components/ApplicationPage/Details')
+      .Details
+    const appProps = getAppProps()
+    appProps.app.installed = true
+    appProps.app.source = `dont://know/source`
+    const component = shallow(<MockedDetails {...appProps} />)
+    await component.instance().toggleChannels()
+    expect(component.getElement()).toMatchSnapshot()
+  })
+
+  it('should not suggest channel switching if the app is not from registry and not installed', async () => {
+    jest.doMock('ducks/apps', () => ({
+      REGISTRY_CHANNELS,
+      getContext: () =>
+        Promise.resolve({
+          attributes: {
+            debug: true
+          }
+        })
+    }))
+    // we have to re import to handle previous mocking here
+    const MockedDetails = require('ducks/apps/components/ApplicationPage/Details')
+      .Details
+    const appProps = getAppProps()
+    appProps.app.installed = false
+    appProps.app.source = `dont://know/source`
+    const component = shallow(<MockedDetails {...appProps} />)
+    await component.instance().toggleChannels()
+    expect(component.getElement()).toMatchSnapshot()
   })
 })

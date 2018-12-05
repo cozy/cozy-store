@@ -40,20 +40,21 @@ export class Details extends Component {
     this.props.history.push(`/${parent}/${app.slug}/permissions`)
   }
 
-  toggleChannels() {
+  async toggleChannels() {
     const { app } = this.props
-    if (!getChannel(app.source))
-      console.warn("This application don't use the registry")
+    // only for installed apps and apps from the registry
+    if (!(app.installed && getChannel(app.source))) return
+    const stateUpdate = {}
     if (!this.state.displayBetaChannel) {
-      this.setState(() => ({ displayBetaChannel: true }))
+      stateUpdate.displayBetaChannel = true
     }
     if (!this.state.displayDevChannel) {
-      getContext().then(context => {
-        if (context && context.attributes && context.attributes.debug) {
-          this.setState(() => ({ displayDevChannel: true }))
-        }
-      })
+      const context = await getContext()
+      if (context && context.attributes && context.attributes.debug) {
+        stateUpdate.displayDevChannel = true
+      }
     }
+    this.setState(() => stateUpdate)
   }
 
   onUpdateChannel(checked, channel) {
