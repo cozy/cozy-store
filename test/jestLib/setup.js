@@ -8,6 +8,8 @@ configure({ adapter: new Adapter() })
 
 const React = require('react')
 
+process.env.USE_REACT = true
+
 // polyfill for requestAnimationFrame
 global.requestAnimationFrame = cb => {
   setTimeout(cb, 0)
