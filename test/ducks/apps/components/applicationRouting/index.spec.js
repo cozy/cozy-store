@@ -25,8 +25,7 @@ const getMockProps = (
   parent,
   history: { push: jest.fn(), replace: jest.fn() },
   uninstallApp: jest.fn().mockName('mockUninstallApp'),
-  installApp: jest.fn().mockName('mockInstallApp'),
-  updateApp: jest.fn().mockName('mockUpdateApp')
+  installApp: jest.fn().mockName('mockInstallApp')
 })
 
 const TOTAL_ROUTES = 6

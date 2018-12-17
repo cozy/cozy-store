@@ -35,6 +35,41 @@ exports[`InstallModal component should be rendered correctly if app found 1`] = 
 </div>
 `;
 
+exports[`InstallModal component should be rendered correctly to update app with availableVersion 1`] = `
+<div
+  className="sto-modal--install"
+>
+  <FocusTrap
+    _createFocusTrap={[Function]}
+    active={true}
+    focusTrapOptions={
+      Object {
+        "clickOutsideDeactivates": true,
+        "onDeactivate": [Function],
+      }
+    }
+    paused={false}
+    tag="div"
+  >
+    <Unknown
+      closable={true}
+      dismissAction={[MockFunction]}
+      mobileFullscreen={true}
+      overflowHidden={false}
+      primaryType="regular"
+      secondaryType="secondary"
+      size="small"
+    >
+      <Connect(Wrapper)
+        appSlug="photos"
+        onCancel={[MockFunction]}
+        onSuccess={[MockFunction]}
+      />
+    </Unknown>
+  </FocusTrap>
+</div>
+`;
+
 exports[`InstallModal component should be rendered correctly with also app in registry 1`] = `
 <div
   className="sto-modal--install"

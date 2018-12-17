@@ -48,6 +48,10 @@ const getMockProps = (slug, fromRegistry = null) => ({
 })
 
 describe('InstallModal component', () => {
+  beforeEach(() => {
+    jest.resetAllMocks()
+  })
+
   beforeAll(() => {
     // define global mock url
     global.cozy = {
@@ -65,22 +69,31 @@ describe('InstallModal component', () => {
   })
 
   it('should be rendered correctly with also app in registry', () => {
-    const mockProps = getMockProps('photos', null, null, mockAppVersion)
+    const mockProps = getMockProps('photos', mockAppVersion)
     const component = shallow(<InstallModal {...mockProps} />).getElement()
     expect(component).toMatchSnapshot()
   })
 
+  it('should be rendered correctly to update app with availableVersion', () => {
+    const mockProps = getMockProps('photos', mockAppVersion)
+    mockProps.app.installed = true
+    mockProps.app.availableVersion = '4.0.0'
+    const component = shallow(<InstallModal {...mockProps} />).getElement()
+    expect(component).toMatchSnapshot()
+    expect(mockProps.onAlreadyInstalled.mock.calls.length).toBe(0)
+  })
+
   it('should not break the permissions part if no permissions property found in manifest', () => {
-    const mockProps = getMockProps('photos', null, null, mockAppVersion)
+    const mockProps = getMockProps('photos', mockAppVersion)
     delete mockProps.app.permissions
     const component = shallow(<InstallModal {...mockProps} />).getElement()
     expect(component).toMatchSnapshot()
   })
 
   it('calls onAlreadyInstalled', () => {
-    const mockProps = getMockProps('photos', null, null, mockAppVersion)
+    const mockProps = getMockProps('photos', mockAppVersion)
     mockProps.app.installed = true
     shallow(<InstallModal {...mockProps} />)
-    expect(mockProps.onAlreadyInstalled.call.length).toBe(1)
+    expect(mockProps.onAlreadyInstalled.mock.calls.length).toBe(1)
   })
 })

@@ -369,7 +369,6 @@ ShallowWrapper {
     isFetching={false}
     parent="myapps"
     uninstallApp={[MockFunction mockUninstallApp]}
-    updateApp={[MockFunction mockUpdateApp]}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
