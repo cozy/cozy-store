@@ -4,6 +4,7 @@ import Modal from 'cozy-ui/react/Modal'
 import FocusTrap from 'focus-trap-react'
 
 import AppInstallation from './AppInstallation'
+import { hasPendingUpdate } from 'ducks/apps/appStatus'
 
 export class InstallModal extends Component {
   constructor(props) {
@@ -12,7 +13,7 @@ export class InstallModal extends Component {
 
     this.state = { activeTrap: true }
 
-    if (app.installed) {
+    if (app.installed && !hasPendingUpdate(app)) {
       onAlreadyInstalled()
     }
   }
