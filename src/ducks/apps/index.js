@@ -192,11 +192,10 @@ function _sortAlphabetically(array, property) {
 /* Only for the icon fetching */
 const root = document.querySelector('[role=application]')
 const data = root && root.dataset
-const COZY_DOMAIN = data && `//${data.cozyDomain}`
 /* Only for the icon fetching */
 
 export const getAppIconProps = () => ({
-  domain: COZY_DOMAIN,
+  domain: data && data.cozyDomain,
   secure: window.location.protocol === 'https:'
 })
 
