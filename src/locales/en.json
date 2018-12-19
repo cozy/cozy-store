@@ -53,6 +53,7 @@
       "cancel": "Cancel",
       "install": "Install",
       "update": "Update",
+      "terms": "I have read and I accept [this application related ToS](%{url})",
       "message": {
         "install_success": "The application has correctly been installed.",
         "version_error": "Something went wrong when fetching the application informations. Reason: %{message}",

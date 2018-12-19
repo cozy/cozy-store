@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { PropTypes } from 'react-proptypes'
 
+import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
 import getChannel from 'lib/getChannelFromSource'
 import { ModalDescription, ModalHeader, ModalFooter } from 'cozy-ui/react/Modal'
 import Spinner from 'cozy-ui/react/Spinner'
@@ -10,16 +11,22 @@ import Spinner from 'cozy-ui/react/Spinner'
 import PermissionsList from './PermissionsList'
 import { translate } from 'cozy-ui/react/I18n'
 import Alerter from 'cozy-ui/react/Alerter'
+import Checkbox from 'cozy-ui/react/Checkbox'
 import { hasPendingUpdate } from 'ducks/apps/appStatus'
 
 import { APP_TYPE, getAppBySlug, installAppFromRegistry } from 'ducks/apps'
 
 export class AppInstallation extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { isTermsAccepted: false }
+  }
+
   installApp = async () => {
-    this.setState({ error: null })
+    if (!this.isInstallReady()) return // Not ready to be installed
     const { app, channel, installApp, onError } = this.props
     try {
-      await installApp(app.slug, app.type, channel, app.installed)
+      await installApp(app, channel, app.installed)
     } catch (error) {
       if (onError) return onError(error)
       throw error
@@ -46,6 +53,20 @@ export class AppInstallation extends Component {
     }
   }
 
+  acceptTerms = () => {
+    this.setState(state => ({
+      isTermsAccepted: !state.isTermsAccepted
+    }))
+  }
+
+  isInstallReady = () => {
+    const { app, isInstalling, isCanceling } = this.props
+    return (
+      !(isInstalling || isCanceling) &&
+      (!app.terms || this.state.isTermsAccepted)
+    )
+  }
+
   render() {
     const {
       app,
@@ -57,6 +78,7 @@ export class AppInstallation extends Component {
       onCancel,
       t
     } = this.props
+    const { isTermsAccepted } = this.state
     const appName = t(`apps.${app.slug}.name`, {
       _: app.name
     })
@@ -94,6 +116,23 @@ export class AppInstallation extends Component {
                   })}
                 </p>
               )}
+              {app.terms && (
+                <div className="sto-install-terms">
+                  <Checkbox
+                    className="sto-install-terms-checkbox"
+                    onChange={this.acceptTerms}
+                    checked={isTermsAccepted}
+                    disabled={isInstalling}
+                  />
+                  <span>
+                    <ReactMarkdownWrapper
+                      source={t('app_modal.install.terms', {
+                        url: app.terms.url
+                      })}
+                    />
+                  </span>
+                </div>
+              )}
               <div className="sto-install-controls">
                 <button
                   role="button"
@@ -106,7 +145,7 @@ export class AppInstallation extends Component {
                 </button>
                 <button
                   role="button"
-                  disabled={isInstalling || isCanceling}
+                  disabled={!this.isInstallReady()}
                   aria-busy={isInstalling}
                   className="c-btn c-btn--regular c-btn--download"
                   onClick={this.installApp}
@@ -137,8 +176,8 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  installApp: (appSlug, appType, channel, isUpdate) =>
-    dispatch(installAppFromRegistry(appSlug, appType, channel, isUpdate))
+  installApp: (app, channel, isUpdate) =>
+    dispatch(installAppFromRegistry(app, channel, isUpdate))
 })
 
 export default connect(

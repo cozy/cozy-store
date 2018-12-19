@@ -40,7 +40,6 @@ exports[`Apps Containers (connected components): Discover should be rendered cor
       "unsubscribe": [Function],
     }
   }
-  uninstallApp={[Function]}
 />
 `;
 
@@ -84,6 +83,5 @@ exports[`Apps Containers (connected components): MyApplications should be render
       "unsubscribe": [Function],
     }
   }
-  uninstallApp={[Function]}
 />
 `;

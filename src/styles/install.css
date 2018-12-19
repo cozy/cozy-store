@@ -4,9 +4,25 @@
   justify-content: center;
 }
 
+.sto-install-terms {
+  display: flex;
+  align-items: center;
+  margin-left: .25rem;
+  margin-top: .75rem;
+}
+
+.sto-install-terms p {
+  margin: 0;
+}
+
+.sto-install-terms-checkbox {
+  margin: 0;
+}
+
 .sto-install-controls {
   display: flex;
   justify-content: center;
+  margin-top: .75rem;
 }
 
 .sto-install-controls .c-btn {
@@ -15,6 +31,7 @@
 
 .sto-install-footer {
   margin-top: auto;
+  padding-top: .25rem;
 }
 
 .sto-install-success-header {

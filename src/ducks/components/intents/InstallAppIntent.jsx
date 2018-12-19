@@ -32,11 +32,11 @@ export class InstallAppIntent extends Component {
   }
 
   installApp() {
-    const { app, data, isInstalling, isFetching, fetchError } = this.props
+    const { app, isInstalling, isFetching, fetchError } = this.props
     const isReady = !isInstalling && !isFetching && !fetchError
 
     if (isReady) {
-      return this.props.installApp(data.slug, app.type)
+      return this.props.installApp(app)
     }
   }
 
@@ -153,8 +153,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   initAppIntent: () => {
     dispatch(initAppIntent(ownProps.lang, ownProps.data.slug))
   },
-  installApp: (appSlug, appType, channel) =>
-    dispatch(installAppFromRegistry(appSlug, appType, channel))
+  installApp: (app, channel) => dispatch(installAppFromRegistry(app, channel))
 })
 
 // translate last to pass the lang property to fetchApps()

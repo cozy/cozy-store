@@ -22,3 +22,15 @@
 .sto-view-loading {
     top: 45vh!important;
 }
+
+.sto-markdown-link,
+.sto-markdown-link:visited {
+    color: var(--dodgerBlue);
+    text-decoration: none;
+}
+
+.sto-markdown-link:hover,
+.sto-markdown-link:active,
+.sto-markdown-link:focus {
+    text-decoration: underline;
+}

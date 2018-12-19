@@ -239,8 +239,14 @@ function _sanitizeManifest(app) {
   if (!app.categories && app.category && typeof app.category === 'string')
     sanitized.categories = [app.category]
   if (typeof app.name === 'object') sanitized.name = app.name.en
+  // FIXME use camelCase from cozy-stack
   sanitized.availableVersion = app.available_version
   delete sanitized.available_version
+  // clean empty or incomplete terms property
+  // remove incomplete or empty terms
+  const hasValidTerms =
+    sanitized.terms && !!sanitized.terms.url && !!sanitized.terms.version
+  if (sanitized.terms && !hasValidTerms) delete sanitized.terms
   return sanitized
 }
 
@@ -600,7 +606,8 @@ export function fetchApps(lang) {
   }
 }
 
-export function uninstallApp(slug, type) {
+export function uninstallApp(app) {
+  const { slug, type } = app
   return dispatch => {
     if (
       config.notRemovableApps.includes(slug) ||
@@ -620,12 +627,12 @@ export function uninstallApp(slug, type) {
 }
 
 export function installApp(
-  slug,
-  type,
+  app,
   source,
   isUpdate = false,
   permissionsAcked = false
 ) {
+  const { slug, type } = app
   return dispatch => {
     const args = {}
     if (permissionsAcked) args.PermissionsAcked = permissionsAcked
@@ -646,14 +653,13 @@ export function installApp(
 }
 
 export function installAppFromRegistry(
-  slug,
-  type,
+  app,
   channel = DEFAULT_CHANNEL,
   isUpdate = false,
   permissionsAcked = false
 ) {
   return dispatch => {
-    const source = `registry://${slug}/${channel}`
-    return dispatch(installApp(slug, type, source, isUpdate, permissionsAcked))
+    const source = `registry://${app.slug}/${channel}`
+    return dispatch(installApp(app, source, isUpdate, permissionsAcked))
   }
 }

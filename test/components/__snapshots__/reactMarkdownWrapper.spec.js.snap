@@ -50,6 +50,7 @@ exports[`ReactMarkdownWrapper component should have correct heading renderer opt
 
 exports[`ReactMarkdownWrapper component should have correct link renderer options 1`] = `
 <a
+  className="sto-markdown-link"
   href="#"
   rel="noopener noreferrer"
   target="_blank"

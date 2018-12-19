@@ -13,7 +13,12 @@ const parseTitles = props => {
 }
 
 const parseLinks = props => (
-  <a href={props.href} target="_blank" rel="noopener noreferrer">
+  <a
+    href={props.href}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="sto-markdown-link"
+  >
     {props.children}
   </a>
 )
