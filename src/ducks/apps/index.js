@@ -182,10 +182,7 @@ export function getInstalledApps(state) {
 }
 
 export function getRegistryApps(state) {
-  // display only apps with stable versions for now
-  return state.apps.list
-    .filter(app => app.isInRegistry)
-    .filter(app => Array.isArray(app.versions.stable) && !!app.versions.stable)
+  return state.apps.list.filter(app => app.isInRegistry)
 }
 
 function _sortAlphabetically(array, property) {
@@ -575,6 +572,7 @@ export function fetchRegistryApps(lang, channel = DEFAULT_CHANNEL) {
           .filter(app => app.versions[channel] && app.versions[channel].length) // only apps with versions available
         return Promise.all(
           apps.map(app => {
+            // no latest_version means no version for this channel
             if (!app.latest_version) return false // skip
             return getFormattedRegistryApp(app).catch(err => {
               console.warn(
