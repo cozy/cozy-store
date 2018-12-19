@@ -8,6 +8,7 @@ import categories from 'config/categories'
 import { extend as extendI18n } from 'cozy-ui/react/I18n'
 import { NotUninstallableAppException } from '../../lib/exceptions'
 import realtime from 'cozy-realtime'
+import slugify from 'slugify'
 
 const APP_STATE = {
   READY: 'ready',
@@ -28,6 +29,7 @@ export const REGISTRY_CHANNELS = {
 
 const APPS_DOCTYPE = 'io.cozy.apps'
 const KONNECTORS_DOCTYPE = 'io.cozy.konnectors'
+const TERMS_DOCTYPE = 'io.cozy.terms'
 
 const AUTHORIZED_CATEGORIES = categories
 
@@ -242,10 +244,12 @@ function _sanitizeManifest(app) {
   // FIXME use camelCase from cozy-stack
   sanitized.availableVersion = app.available_version
   delete sanitized.available_version
-  // clean empty or incomplete terms property
   // remove incomplete or empty terms
   const hasValidTerms =
-    sanitized.terms && !!sanitized.terms.url && !!sanitized.terms.version
+    !!sanitized.terms &&
+    !!sanitized.terms.id &&
+    !!sanitized.terms.url &&
+    !!sanitized.terms.version
   if (sanitized.terms && !hasValidTerms) delete sanitized.terms
   return sanitized
 }
@@ -626,29 +630,66 @@ export function uninstallApp(app) {
   }
 }
 
+async function _handleTerms(terms) {
+  const { id, ...termsAttributes } = terms
+  const docId = slugify(`${id}:${termsAttributes.version}`)
+  let savedTerms = null
+  try {
+    savedTerms = await cozy.client.data.find(TERMS_DOCTYPE, docId)
+  } catch (e) {
+    if (e.status != '404') throw e
+  }
+  if (savedTerms) {
+    // we just update the url if this is the same docId
+    // but the url changed
+    if (savedTerms.url != termsAttributes.url) {
+      await cozy.client.data.updateAttributes(TERMS_DOCTYPE, docId, {
+        url: termsAttributes.url
+      })
+    }
+  } else {
+    const termsToSave = Object.assign({}, termsAttributes, {
+      _id: docId,
+      accepted: true,
+      acceptedAt: new Date()
+    })
+    await cozy.client.data.create(TERMS_DOCTYPE, termsToSave)
+  }
+}
+
 export function installApp(
   app,
   source,
   isUpdate = false,
   permissionsAcked = false
 ) {
-  const { slug, type } = app
-  return dispatch => {
+  const { slug, type, terms } = app
+  return async dispatch => {
+    dispatch({ type: INSTALL_APP })
+    const handleError = e => {
+      dispatch({ type: INSTALL_APP_FAILURE, error: e })
+      throw e
+    }
     const args = {}
     if (permissionsAcked) args.PermissionsAcked = permissionsAcked
     if (source) args.Source = source
     const queryString = Object.keys(args)
       .map(k => k + '=' + args[k])
       .join('&')
-    dispatch({ type: INSTALL_APP })
+    if (terms) {
+      try {
+        await _handleTerms(terms)
+      } catch (e) {
+        handleError(e)
+      }
+    }
     const verb = isUpdate ? 'PUT' : 'POST'
     const route = type === APP_TYPE.KONNECTOR ? 'konnectors' : 'apps'
-    return cozy.client
-      .fetchJSON(verb, `/${route}/${slug}?${queryString}`)
-      .catch(e => {
-        dispatch({ type: INSTALL_APP_FAILURE, error: e })
-        throw e
-      })
+    try {
+      await cozy.client.fetchJSON(verb, `/${route}/${slug}?${queryString}`)
+    } catch (e) {
+      handleError(e)
+    }
   }
 }
 

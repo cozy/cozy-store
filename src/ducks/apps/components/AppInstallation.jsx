@@ -172,7 +172,8 @@ const mapStateToProps = (state, ownProps) => ({
   app: getAppBySlug(state, ownProps.appSlug),
   isFetching: state.apps.isFetching,
   isInstalling: state.apps.isInstalling,
-  fetchError: state.apps.fetchError
+  fetchError: state.apps.fetchError,
+  installError: state.apps.actionError
 })
 
 const mapDispatchToProps = dispatch => ({

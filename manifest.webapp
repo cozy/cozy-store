@@ -57,6 +57,10 @@
     }
   },
   "permissions": {
+    "terms": {
+      "description": "Required to save accepted applications terms",
+      "type": "io.cozy.terms"
+    },
     "apps": {
       "description": "Required to manage applications",
       "type": "io.cozy.apps"
