@@ -10,7 +10,7 @@ import externalIcon from 'assets/icons/icon-cloud-out-cozy.svg'
 import LINXO_CONNECTORS from 'config/linxo.json'
 
 export const Permission = ({ description, label, type, t }) => (
-  <li key={type} className="sto-perm-list-item">
+  <li className="sto-perm-list-item">
     <div className="sto-perm-label">
       <span className="sto-perm-title" data-doctype={type}>
         {label}
@@ -46,6 +46,7 @@ const getProcessedPermissions = (t, app) => {
         description={t('permissions.linxo')}
         label={t(`doctypes.${linxoType}`)}
         type={linxoType}
+        key={linxoType}
         t={t}
       />
     )
