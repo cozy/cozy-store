@@ -9,6 +9,7 @@ import { ModalDescription, ModalHeader, ModalFooter } from 'cozy-ui/react/Modal'
 import Spinner from 'cozy-ui/react/Spinner'
 
 import PermissionsList from './PermissionsList'
+import Partnership from './Partnership'
 import { translate } from 'cozy-ui/react/I18n'
 import Alerter from 'cozy-ui/react/Alerter'
 import Checkbox from 'cozy-ui/react/Checkbox'
@@ -92,6 +93,7 @@ export class AppInstallation extends Component {
           </ModalDescription>
         ) : (
           <ModalDescription>
+            {app.partnership && <Partnership app={app} />}
             {app.permissions && <PermissionsList app={app} />}
             {fetchError && (
               <p className="u-error">

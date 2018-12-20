@@ -251,6 +251,10 @@ function _sanitizeManifest(app) {
     !!sanitized.terms.url &&
     !!sanitized.terms.version
   if (sanitized.terms && !hasValidTerms) delete sanitized.terms
+  // remove incomplete or empty partnership
+  const hasValidPartnership =
+    !!sanitized.partnership && !!sanitized.partnership.description
+  if (sanitized.partnership && !hasValidPartnership) delete sanitized.terms
   return sanitized
 }
 
@@ -282,18 +286,43 @@ export function getContext() {
         })
 }
 
+function _getRegistryAssetsLinks(manifest, appVersion) {
+  if (!appVersion) appVersion = manifest.version
+  const screensLinks =
+    manifest.screenshots &&
+    manifest.screenshots.map(name => {
+      let fileName = name
+      if (fileName[0] === '/') fileName = fileName.slice(1)
+      return `${cozy.client._url}/registry/${
+        manifest.slug
+      }/${appVersion}/screenshots/${fileName}`
+    })
+  const iconLink = `/registry/${manifest.slug}/${appVersion}/icon`
+  const partnershipIconLink =
+    !!manifest.partnership &&
+    !!manifest.partnership.icon &&
+    `${cozy.client._url}/registry/${
+      manifest.slug
+    }/${appVersion}/parternship_icon`
+  return {
+    screensLinks,
+    iconLink,
+    partnershipIconLink
+  }
+}
+
 export async function getFormattedInstalledApp(response) {
   const appAttributes = _sanitizeManifest(response.attributes)
 
   const openingLink = response.links.related
-  const screensLinks =
-    appAttributes.screenshots &&
-    appAttributes.screenshots.map(name => {
-      let fileName = name
-      if (fileName[0] === '/') fileName = fileName.slice(1)
-      return `${cozy.client._url}/registry/${appAttributes.slug}/${
-        appAttributes.version
-      }/screenshots/${fileName}`
+  const { screensLinks, partnershipIconLink } = _getRegistryAssetsLinks(
+    appAttributes,
+    appAttributes.version
+  )
+  const partnership =
+    !!appAttributes.partnership &&
+    Object.assign({}, appAttributes.partnership, {
+      ...(partnershipIconLink ? { icon: partnershipIconLink } : {})
     })
   return Object.assign({}, appAttributes, {
     _id: response.id || response._id,
@@ -301,7 +330,10 @@ export async function getFormattedInstalledApp(response) {
     installed: true,
     related: openingLink,
     links: response.links,
-    screenshots: screensLinks,
+    // Add partnership property only if it exists
+    ...(partnership ? { partnership } : {}),
+    // add screensLinks property only if it exists
+    ...(screensLinks ? { screenshots: screensLinks } : {}),
     uninstallable: !config.notRemovableApps.includes(appAttributes.slug)
   })
 }
@@ -492,16 +524,16 @@ export async function getFormattedRegistryApp(
   }
 
   const versionFromRegistry = version.version
-  const screensLinks =
-    manifest.screenshots &&
-    manifest.screenshots.map(name => {
-      let fileName = name
-      if (fileName[0] === '/') fileName = fileName.slice(1)
-      return `${cozy.client._url}/registry/${
-        manifest.slug
-      }/${versionFromRegistry}/screenshots/${fileName}`
+  const {
+    screensLinks,
+    iconLink,
+    partnershipIconLink
+  } = _getRegistryAssetsLinks(manifest, versionFromRegistry)
+  const partnership =
+    !!manifest.partnership &&
+    Object.assign({}, manifest.partnership, {
+      ...(partnershipIconLink ? { icon: partnershipIconLink } : {})
     })
-  const iconLink = `/registry/${manifest.slug}/${versionFromRegistry}/icon`
   return Object.assign(
     {},
     {
@@ -515,6 +547,8 @@ export async function getFormattedRegistryApp(
       links: { icon: iconLink },
       uninstallable: !config.notRemovableApps.includes(manifest.slug),
       isInRegistry: true,
+      // Add partnership property only if it exists
+      ...(partnership ? { partnership } : {}),
       // handle maintenance status
       ...(maintenance ? { maintenance } : {}),
       // add screensLinks property only if it exists

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Partnership component should be rendered correctly the parternship informations 1`] = `
+<div
+  className="sto-partnership"
+>
+  <img
+    className="sto-partnership-icon"
+    onError={[Function]}
+    src="/registry/mockapp/1.0.0/partnership_icon"
+    style={Object {}}
+  />
+  <span>
+    <ReactMarkdownWrapper
+      source="A legal for this mock partnership"
+    />
+  </span>
+</div>
+`;
