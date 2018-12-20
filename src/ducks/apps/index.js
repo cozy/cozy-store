@@ -454,7 +454,10 @@ export function fetchLatestApp(lang, slug, channel = DEFAULT_CHANNEL) {
     dispatch({ type: FETCH_APP })
     let app = getState().apps.list.find(a => a.slug === slug)
     try {
-      app = await cozy.client.fetchJSON('GET', `/registry/${slug}`)
+      app = await cozy.client.fetchJSON(
+        'GET',
+        `/registry/${slug}?latestChannelVersion=${channel}`
+      )
     } catch (err) {
       let errorMessage = `Error while getting the application with slug: ${slug}`
       if (err.status === 404) {
@@ -608,7 +611,10 @@ export function fetchRegistryApps(lang, channel = DEFAULT_CHANNEL) {
   return dispatch => {
     dispatch({ type: FETCH_APPS })
     return cozy.client
-      .fetchJSON('GET', `/registry?limit=150&versionsChannel=${channel}`)
+      .fetchJSON(
+        'GET',
+        `/registry?limit=200&versionsChannel=${channel}&latestChannelVersion=${channel}`
+      )
       .then(response => {
         const apps = response.data
           .filter(app => !config.notDisplayedApps.includes(app.slug))
