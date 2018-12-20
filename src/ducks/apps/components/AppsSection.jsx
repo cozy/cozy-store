@@ -1,6 +1,7 @@
 import React from 'react'
 import { translate } from 'cozy-ui/react/I18n'
 import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
+import { getTranslatedManifestProperty } from 'lib/helpers'
 
 import SmallAppItem from 'ducks/components/SmallAppItem'
 
@@ -8,10 +9,8 @@ const _renderAppComponent = (app, t, onAppClick, isMobile) => {
   return (
     <SmallAppItem
       app={app}
-      namePrefix={t(`apps.${app.slug}.name_prefix`, {
-        _: app.name_prefix || ''
-      })}
-      name={t(`apps.${app.slug}.name`, { _: app.name })}
+      namePrefix={getTranslatedManifestProperty(app, 'name_prefix', t)}
+      name={getTranslatedManifestProperty(app, 'name', t)}
       onClick={() => onAppClick(app.slug)}
       key={app.slug}
       isMobile={isMobile}

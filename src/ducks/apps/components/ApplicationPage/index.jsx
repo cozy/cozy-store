@@ -9,6 +9,7 @@ import FocusTrap from 'focus-trap-react'
 import AppIcon from 'cozy-ui/react/AppIcon'
 
 import ApplicationPageLoading from 'ducks/components/ApplicationPageLoading'
+import { getTranslatedManifestProperty } from 'lib/helpers'
 import Header from './Header'
 import Gallery from './Gallery'
 import Details from './Details'
@@ -98,17 +99,19 @@ export class ApplicationPage extends Component {
       )
     }
     const { icon, slug, iconToLoad } = app
-    const appName = t(`apps.${app.slug}.name`, { _: app.name })
-    const namePrefix = t(`apps.${app.slug}.name_prefix`, {
-      _: app.name_prefix || ''
-    })
-    const appShortDesc = t(`apps.${app.slug}.short_description`, {
-      _: app.short_description || ''
-    })
-    const appLongDesc = t(`apps.${app.slug}.long_description`, {
-      _: app.long_description || ''
-    })
-    const appChanges = t(`apps.${app.slug}.changes`, { _: '' })
+    const appName = getTranslatedManifestProperty(app, 'name', t)
+    const namePrefix = getTranslatedManifestProperty(app, 'name_prefix', t)
+    const appShortDesc = getTranslatedManifestProperty(
+      app,
+      'short_description',
+      t
+    )
+    const appLongDesc = getTranslatedManifestProperty(
+      app,
+      'long_description',
+      t
+    )
+    const appChanges = getTranslatedManifestProperty(app, 'changes', t)
     const mobileApps =
       app.platforms &&
       !!app.platforms.length &&

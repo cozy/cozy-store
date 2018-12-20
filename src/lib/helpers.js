@@ -1,4 +1,5 @@
 import { APP_TYPE } from 'ducks/apps'
+import _get from 'lodash.get'
 
 // take a list of apps as parameters and returned them sorted
 // by categories in a dictionnary with the category slug as property
@@ -79,7 +80,15 @@ export const getCategoriesSelections = (apps, t, includeAll = false) => {
   return appsCategories.concat(konnectorsCategories)
 }
 
+export const getTranslatedManifestProperty = (app, path, t) => {
+  if (!t || !app || !path) return _get(app, path, '')
+  return t(`apps.${app.slug}.${path}`, {
+    _: _get(app, path, '')
+  })
+}
+
 export default {
+  getTranslatedManifestProperty,
   getAppsSortedByCategories,
   sortCategoriesAlphabetically,
   getCategoriesSelections

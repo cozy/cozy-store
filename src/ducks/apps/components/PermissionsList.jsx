@@ -2,7 +2,8 @@ import React from 'react'
 
 import { translate } from 'cozy-ui/react/I18n'
 import Icon from 'cozy-ui/react/Icon'
-import ReactMarkdownWrapper from '../../components/ReactMarkdownWrapper'
+import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
+import { getTranslatedManifestProperty } from 'lib/helpers'
 
 import localAccessIcon from 'assets/icons/icon-cloud-in-cozy.svg'
 import externalIcon from 'assets/icons/icon-cloud-out-cozy.svg'
@@ -27,9 +28,13 @@ export const Permission = ({ description, label, type, t }) => (
   </li>
 )
 
-const LocalizedPermission = ({ t, slug, name, type }) => (
+const LocalizedPermission = ({ t, app, name, type }) => (
   <Permission
-    description={t(`apps.${slug}.permissions.${name}.description`, { _: '' })}
+    description={getTranslatedManifestProperty(
+      app,
+      `permissions.${name}.description`,
+      t
+    )}
     label={t(`doctypes.${type}`)}
     type={type}
     t={t}
@@ -58,9 +63,9 @@ const getProcessedPermissions = (t, app) => {
     .filter(name => !externalTypes.includes(app.permissions[name].type))
     .map(name => (
       <LocalizedPermission
+        app={app}
         key={name}
         {...app.permissions[name]}
-        slug={app.slug}
         name={name}
         t={t}
       />
