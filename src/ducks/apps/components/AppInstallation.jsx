@@ -13,7 +13,6 @@ import { translate } from 'cozy-ui/react/I18n'
 import Alerter from 'cozy-ui/react/Alerter'
 import Checkbox from 'cozy-ui/react/Checkbox'
 import { hasPendingUpdate } from 'ducks/apps/appStatus'
-import { getTranslatedManifestProperty } from 'lib/helpers'
 
 import { APP_TYPE, getAppBySlug, installAppFromRegistry } from 'ducks/apps'
 
@@ -80,8 +79,6 @@ export class AppInstallation extends Component {
       t
     } = this.props
     const { isTermsAccepted } = this.state
-    const appName = getTranslatedManifestProperty(app, 'name', t)
-    const permissions = app.permissions || {}
     const isFirstLoading = isFetching && !isCanceling
 
     return (
@@ -95,7 +92,7 @@ export class AppInstallation extends Component {
           </ModalDescription>
         ) : (
           <ModalDescription>
-            {permissions && <PermissionsList app={app} appName={appName} />}
+            {app.permissions && <PermissionsList app={app} />}
             {fetchError && (
               <p className="u-error">
                 {t('app_modal.install.message.version_error', {

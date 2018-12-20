@@ -73,11 +73,12 @@ const getProcessedPermissions = (t, app) => {
   return { internalPermissions: internal, externalPermissions: external }
 }
 
-export const PermissionsList = ({ t, app, appName }) => {
+export const PermissionsList = ({ t, app }) => {
   const { externalPermissions, internalPermissions } = getProcessedPermissions(
     t,
     app
   )
+  const appName = getTranslatedManifestProperty(app, 'name', t)
   const developerName =
     (app.developer && app.developer.name) || t('permissions.developer_default')
   return app.permissions ? (
