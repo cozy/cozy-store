@@ -6,7 +6,7 @@
 @import './empty.css';
 @import './install.css';
 @import './intents.css';
-@import './modal.css';
+@import './uninstall.css';
 @import './permissions.css';
 @import './sections.css';
 @import './dropdownFilter.css';
@@ -23,14 +23,18 @@
     top: 45vh!important;
 }
 
-.sto-markdown-link,
-.sto-markdown-link:visited {
+.md-link,
+.md-link:visited {
     color: var(--dodgerBlue);
     text-decoration: none;
 }
 
-.sto-markdown-link:hover,
-.sto-markdown-link:active,
-.sto-markdown-link:focus {
+.md-link:hover,
+.md-link:active,
+.md-link:focus {
     text-decoration: underline;
+}
+
+.md-paragraph {
+  margin: 0;
 }

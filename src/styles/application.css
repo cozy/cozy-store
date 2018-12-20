@@ -290,10 +290,6 @@ main > [role=main].sto-myapps {
   margin-bottom: 4rem;
 }
 
-.sto-app-details p {
-  margin: 0;
-}
-
 /* Descriptions */
 .sto-app-descriptions {
   padding-right: 5rem;

@@ -4,7 +4,7 @@ import Emoji from 'emoji-js'
 
 const emojiParser = new Emoji()
 
-const parseTitles = props => {
+const renderTitles = props => {
   return React.createElement(
     `h${props.level}`,
     { className: `md-title md-title--h${props.level}` },
@@ -12,20 +12,25 @@ const parseTitles = props => {
   )
 }
 
-const parseLinks = props => (
+const renderLinks = props => (
   <a
     href={props.href}
     target="_blank"
     rel="noopener noreferrer"
-    className="sto-markdown-link"
+    className="md-link"
   >
     {props.children}
   </a>
 )
 
+const renderParagraphs = props => (
+  <p className="md-paragraph">{props.children}</p>
+)
+
 export const reactMarkdownRendererOptions = {
-  link: parseLinks,
-  heading: parseTitles
+  paragraph: renderParagraphs,
+  link: renderLinks,
+  heading: renderTitles
 }
 
 export const ReactMarkdownWrapper = ({ source, parseEmoji, className }) => {

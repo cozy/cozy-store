@@ -11,11 +11,7 @@
   margin-top: .75rem;
 }
 
-.sto-install-terms p {
-  margin: 0;
-}
-
-.sto-install-terms-checkbox {
+.sto-install-terms .sto-install-terms-checkbox {
   margin: 0;
 }
 
