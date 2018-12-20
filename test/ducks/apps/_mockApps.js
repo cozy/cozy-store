@@ -131,12 +131,12 @@ export const apps = [
     icon: '<svg></svg>',
     type: 'webapp',
     versions: {
-      stable: ['1.0.0'],
-      beta: ['1.0.0'],
-      dev: ['1.0.0']
+      stable: ['3.0.0', '1.0.0'],
+      beta: ['3.0.0', '1.0.0'],
+      dev: ['3.0.0', '1.0.0']
     },
     installed: true,
-    availableVersion: true,
+    availableVersion: '3.0.0',
     uninstallable: true,
     isInRegistry: true
   }

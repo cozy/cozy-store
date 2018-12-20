@@ -42,6 +42,14 @@ const getFilteredAppsFromSearch = (apps, search = '') => {
     })
   }
 
+  // filter by app which need to be updated manually
+  const updateParam = params.get('pendingUpdate')
+  if (updateParam) {
+    filteredApps = filteredApps.filter(a => {
+      return !!a.availableVersion
+    })
+  }
+
   return filteredApps
 }
 

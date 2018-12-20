@@ -29,7 +29,8 @@
         "doctype",
         "slug",
         "tag",
-        "type"
+        "type",
+        "pendingUpdate"
       ]
     },
     {

@@ -28,6 +28,12 @@ describe('getFilteredAppsFromSearch library', () => {
     ).toMatchSnapshot()
   })
 
+  it('should filter correctly on pending update apps', () => {
+    expect(
+      getFilteredAppsFromSearch(mockApps, '?pendingUpdate=true')
+    ).toMatchSnapshot()
+  })
+
   it('should handle correctly multi filters', () => {
     expect(
       getFilteredAppsFromSearch(

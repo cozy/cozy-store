@@ -149,7 +149,7 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
               },
             },
             Object {
-              "availableVersion": true,
+              "availableVersion": "3.0.0",
               "categories": Array [
                 "partners",
               ],
@@ -162,12 +162,15 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
               "uninstallable": true,
               "versions": Object {
                 "beta": Array [
+                  "3.0.0",
                   "1.0.0",
                 ],
                 "dev": Array [
+                  "3.0.0",
                   "1.0.0",
                 ],
                 "stable": Array [
+                  "3.0.0",
                   "1.0.0",
                 ],
               },
@@ -312,7 +315,7 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
               },
             },
             Object {
-              "availableVersion": true,
+              "availableVersion": "3.0.0",
               "categories": Array [
                 "partners",
               ],
@@ -325,12 +328,15 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
               "uninstallable": true,
               "versions": Object {
                 "beta": Array [
+                  "3.0.0",
                   "1.0.0",
                 ],
                 "dev": Array [
+                  "3.0.0",
                   "1.0.0",
                 ],
                 "stable": Array [
+                  "3.0.0",
                   "1.0.0",
                 ],
               },
@@ -485,7 +491,7 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
           },
         },
         Object {
-          "availableVersion": true,
+          "availableVersion": "3.0.0",
           "categories": Array [
             "partners",
           ],
@@ -498,12 +504,15 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
           "uninstallable": true,
           "versions": Object {
             "beta": Array [
+              "3.0.0",
               "1.0.0",
             ],
             "dev": Array [
+              "3.0.0",
               "1.0.0",
             ],
             "stable": Array [
+              "3.0.0",
               "1.0.0",
             ],
           },
@@ -665,7 +674,7 @@ exports[`Discover component should be rendered correctly with apps and URL searc
               },
             },
             Object {
-              "availableVersion": true,
+              "availableVersion": "3.0.0",
               "categories": Array [
                 "partners",
               ],
@@ -678,12 +687,15 @@ exports[`Discover component should be rendered correctly with apps and URL searc
               "uninstallable": true,
               "versions": Object {
                 "beta": Array [
+                  "3.0.0",
                   "1.0.0",
                 ],
                 "dev": Array [
+                  "3.0.0",
                   "1.0.0",
                 ],
                 "stable": Array [
+                  "3.0.0",
                   "1.0.0",
                 ],
               },
@@ -1065,7 +1077,7 @@ exports[`Discover component should use BarCenter from cozy-bar in mobile view on
               },
             },
             Object {
-              "availableVersion": true,
+              "availableVersion": "3.0.0",
               "categories": Array [
                 "partners",
               ],
@@ -1078,12 +1090,15 @@ exports[`Discover component should use BarCenter from cozy-bar in mobile view on
               "uninstallable": true,
               "versions": Object {
                 "beta": Array [
+                  "3.0.0",
                   "1.0.0",
                 ],
                 "dev": Array [
+                  "3.0.0",
                   "1.0.0",
                 ],
                 "stable": Array [
+                  "3.0.0",
                   "1.0.0",
                 ],
               },
@@ -1228,7 +1243,7 @@ exports[`Discover component should use BarCenter from cozy-bar in mobile view on
               },
             },
             Object {
-              "availableVersion": true,
+              "availableVersion": "3.0.0",
               "categories": Array [
                 "partners",
               ],
@@ -1241,12 +1256,15 @@ exports[`Discover component should use BarCenter from cozy-bar in mobile view on
               "uninstallable": true,
               "versions": Object {
                 "beta": Array [
+                  "3.0.0",
                   "1.0.0",
                 ],
                 "dev": Array [
+                  "3.0.0",
                   "1.0.0",
                 ],
                 "stable": Array [
+                  "3.0.0",
                   "1.0.0",
                 ],
               },
@@ -1401,7 +1419,7 @@ exports[`Discover component should use BarCenter from cozy-bar in mobile view on
           },
         },
         Object {
-          "availableVersion": true,
+          "availableVersion": "3.0.0",
           "categories": Array [
             "partners",
           ],
@@ -1414,12 +1432,15 @@ exports[`Discover component should use BarCenter from cozy-bar in mobile view on
           "uninstallable": true,
           "versions": Object {
             "beta": Array [
+              "3.0.0",
               "1.0.0",
             ],
             "dev": Array [
+              "3.0.0",
               "1.0.0",
             ],
             "stable": Array [
+              "3.0.0",
               "1.0.0",
             ],
           },
