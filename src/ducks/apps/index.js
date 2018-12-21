@@ -8,7 +8,6 @@ import categories from 'config/categories'
 import { extend as extendI18n } from 'cozy-ui/react/I18n'
 import { NotUninstallableAppException } from '../../lib/exceptions'
 import realtime from 'cozy-realtime'
-import slugify from 'slugify'
 
 const APP_STATE = {
   READY: 'ready',
@@ -670,9 +669,19 @@ export function uninstallApp(app) {
   }
 }
 
-async function _handleTerms(terms) {
+function _getTermsDocId(terms) {
+  // We use : as separator for <id>:<version>
+  return `${terms.id
+    .replace(/ /g, '-')
+    .replace(/[*+~.()'"!:@]/g, '')}:${terms.version
+    .replace(/ /g, '-')
+    .replace(/[*+~.()'"!:@]/g, '')}`
+}
+
+async function _saveAppTerms(terms) {
   const { id, ...termsAttributes } = terms
-  const docId = slugify(`${id}:${termsAttributes.version}`)
+  // We use : as separator for <id>:<version>
+  const docId = _getTermsDocId(terms)
   let savedTerms = null
   try {
     savedTerms = await cozy.client.data.find(TERMS_DOCTYPE, docId)
@@ -680,9 +689,13 @@ async function _handleTerms(terms) {
     if (e.status != '404') throw e
   }
   if (savedTerms) {
-    // we just update the url if this is the same docId
+    // we just update the url if this is the same id and same version
     // but the url changed
-    if (savedTerms.url != termsAttributes.url) {
+    if (
+      savedTerms.termsId == id &&
+      savedTerms.version == termsAttributes.version &&
+      savedTerms.url != termsAttributes.url
+    ) {
       await cozy.client.data.updateAttributes(TERMS_DOCTYPE, docId, {
         url: termsAttributes.url
       })
@@ -690,6 +703,7 @@ async function _handleTerms(terms) {
   } else {
     const termsToSave = Object.assign({}, termsAttributes, {
       _id: docId,
+      termsId: id,
       accepted: true,
       acceptedAt: new Date()
     })
@@ -718,7 +732,7 @@ export function installApp(
       .join('&')
     if (terms) {
       try {
-        await _handleTerms(terms)
+        await _saveAppTerms(terms)
       } catch (e) {
         handleError(e)
       }
