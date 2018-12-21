@@ -287,7 +287,7 @@ export function getContext() {
 
 function _getRegistryAssetsLinks(manifest, appVersion) {
   if (!appVersion) appVersion = manifest.version
-  const screensLinks =
+  const screenshotsLinks =
     manifest.screenshots &&
     manifest.screenshots.map(name => {
       let fileName = name
@@ -304,7 +304,7 @@ function _getRegistryAssetsLinks(manifest, appVersion) {
       manifest.slug
     }/${appVersion}/parternship_icon`
   return {
-    screensLinks,
+    screenshotsLinks,
     iconLink,
     partnershipIconLink
   }
@@ -314,7 +314,7 @@ export async function getFormattedInstalledApp(response) {
   const appAttributes = _sanitizeManifest(response.attributes)
 
   const openingLink = response.links.related
-  const { screensLinks, partnershipIconLink } = _getRegistryAssetsLinks(
+  const { screenshotsLinks, partnershipIconLink } = _getRegistryAssetsLinks(
     appAttributes,
     appAttributes.version
   )
@@ -331,8 +331,8 @@ export async function getFormattedInstalledApp(response) {
     links: response.links,
     // Add partnership property only if it exists
     ...(partnership ? { partnership } : {}),
-    // add screensLinks property only if it exists
-    ...(screensLinks ? { screenshots: screensLinks } : {}),
+    // add screenshotsLinks property only if it exists
+    ...(screenshotsLinks ? { screenshots: screenshotsLinks } : {}),
     uninstallable: !config.notRemovableApps.includes(appAttributes.slug)
   })
 }
@@ -527,7 +527,7 @@ export async function getFormattedRegistryApp(
 
   const versionFromRegistry = version.version
   const {
-    screensLinks,
+    screenshotsLinks,
     iconLink,
     partnershipIconLink
   } = _getRegistryAssetsLinks(manifest, versionFromRegistry)
@@ -553,8 +553,8 @@ export async function getFormattedRegistryApp(
       ...(partnership ? { partnership } : {}),
       // handle maintenance status
       ...(maintenance ? { maintenance } : {}),
-      // add screensLinks property only if it exists
-      ...(screensLinks ? { screenshots: screensLinks } : {}),
+      // add screenshotsLinks property only if it exists
+      ...(screenshotsLinks ? { screenshots: screenshotsLinks } : {}),
       // add installed value only if not already provided
       installed: responseApp.installed || false
     }
