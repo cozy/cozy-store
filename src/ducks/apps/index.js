@@ -1,13 +1,31 @@
 /* eslint-env browser */
 /* global cozy */
 
-import { combineReducers } from 'redux'
 import config from 'config/apps'
 import constants from 'config/constants'
 import categories from 'config/categories'
-import { extend as extendI18n } from 'cozy-ui/react/I18n'
 import { NotUninstallableAppException } from '../../lib/exceptions'
 import realtime from 'cozy-realtime'
+
+export * from './selectors'
+export { appsReducers } from './reducers'
+import {
+  LOADING_APP,
+  LOADING_APP_INTENT,
+  FETCH_APPS,
+  FETCH_APPS_SUCCESS,
+  FETCH_APPS_FAILURE,
+  FETCH_APP,
+  FETCH_APP_SUCCESS,
+  FETCH_APP_FAILURE,
+  FETCH_REGISTRY_APPS_SUCCESS,
+  UNINSTALL_APP,
+  UNINSTALL_APP_SUCCESS,
+  UNINSTALL_APP_FAILURE,
+  INSTALL_APP,
+  INSTALL_APP_SUCCESS,
+  INSTALL_APP_FAILURE
+} from './reducers'
 
 const APP_STATE = {
   READY: 'ready',
@@ -34,162 +52,6 @@ const AUTHORIZED_CATEGORIES = categories
 
 const DEFAULT_CHANNEL = constants.default.registry.channel
 
-// initial loading
-const LOADING_APP = 'LOADING_APP'
-const LOADING_APP_INTENT = 'LOADING_APP_INTENT'
-
-const FETCH_APPS = 'FETCH_APPS'
-const FETCH_APPS_SUCCESS = 'FETCH_APPS_SUCCESS'
-const FETCH_APPS_FAILURE = 'FETCH_APPS_FAILURE'
-
-const FETCH_APP = 'FETCH_APP'
-const FETCH_APP_SUCCESS = 'FETCH_APP_SUCCESS'
-const FETCH_APP_FAILURE = 'FETCH_APP_FAILURE'
-
-const FETCH_REGISTRY_APPS_SUCCESS = 'FETCH_REGISTRY_APPS_SUCCESS'
-
-const UNINSTALL_APP = 'UNINSTALL_APP'
-const UNINSTALL_APP_SUCCESS = 'UNINSTALL_APP_SUCCESS'
-const UNINSTALL_APP_FAILURE = 'UNINSTALL_APP_FAILURE'
-
-const INSTALL_APP = 'INSTALL_APP'
-const INSTALL_APP_SUCCESS = 'INSTALL_APP_SUCCESS'
-const INSTALL_APP_FAILURE = 'INSTALL_APP_FAILURE'
-
-const RECEIVE_APPS_ICON = 'RECEIVE_APPS_ICON'
-
-export const list = (state = [], action) => {
-  switch (action.type) {
-    case FETCH_APP_SUCCESS:
-    case FETCH_REGISTRY_APPS_SUCCESS:
-    case FETCH_APPS_SUCCESS:
-      return _sortAlphabetically(
-        _consolidateApps(state, action.apps, action.lang),
-        'slug'
-      )
-    case UNINSTALL_APP_SUCCESS:
-      return state.map(
-        app => (app.slug === action.slug ? { ...app, installed: false } : app)
-      )
-    case INSTALL_APP_SUCCESS:
-      return _sortAlphabetically(action.apps, 'slug')
-    case RECEIVE_APPS_ICON:
-      return state.map(app => {
-        if (action.iconsMap.has(app.slug)) {
-          app.icon = action.iconsMap.get(app.slug)
-          delete app.iconToLoad
-        }
-        return app
-      })
-    default:
-      return state
-  }
-}
-
-export const isFetching = (state = false, action) => {
-  switch (action.type) {
-    case LOADING_APP:
-    case FETCH_APPS:
-      return true
-    case FETCH_APPS_SUCCESS:
-    case FETCH_APPS_FAILURE:
-      return false
-    default:
-      return state
-  }
-}
-
-export const isAppFetching = (state = false, action) => {
-  switch (action.type) {
-    case LOADING_APP_INTENT:
-    case FETCH_APP:
-      return true
-    case FETCH_APP_SUCCESS:
-    case FETCH_APP_FAILURE:
-      return false
-    default:
-      return state
-  }
-}
-
-export const isInstalling = (state = false, action) => {
-  switch (action.type) {
-    case INSTALL_APP:
-      return true
-    case INSTALL_APP_SUCCESS:
-    case INSTALL_APP_FAILURE:
-      return false
-    default:
-      return state
-  }
-}
-
-export const isUninstalling = (state = false, action) => {
-  switch (action.type) {
-    case UNINSTALL_APP:
-      return true
-    case UNINSTALL_APP_SUCCESS:
-    case UNINSTALL_APP_FAILURE:
-      return false
-    default:
-      return state
-  }
-}
-
-export const actionError = (state = null, action) => {
-  switch (action.type) {
-    case UNINSTALL_APP_FAILURE:
-    case INSTALL_APP_FAILURE:
-      return action.error
-    case UNINSTALL_APP_SUCCESS:
-    case INSTALL_APP_SUCCESS:
-      return null
-    default:
-      return state
-  }
-}
-
-export const fetchError = (state = null, action) => {
-  switch (action.type) {
-    case FETCH_APPS_FAILURE:
-    case FETCH_APP_FAILURE:
-      return action.error
-    case FETCH_APPS_SUCCESS:
-    case FETCH_APP_SUCCESS:
-      return null
-    default:
-      return state
-  }
-}
-
-export const appsReducers = combineReducers({
-  list,
-  actionError,
-  fetchError,
-  isFetching,
-  isAppFetching,
-  isInstalling,
-  isUninstalling
-})
-
-// Selectors
-
-export function getAppBySlug(state, slug) {
-  return state.apps.list.find(app => app.slug === slug)
-}
-
-export function getInstalledApps(state) {
-  return state.apps.list.filter(app => app.installed)
-}
-
-export function getRegistryApps(state) {
-  return state.apps.list.filter(app => app.isInRegistry)
-}
-
-function _sortAlphabetically(array, property) {
-  return array.sort((a, b) => a[property] > b[property])
-}
-
 /* Only for the icon fetching */
 const root = document.querySelector('[role=application]')
 const data = root && root.dataset
@@ -199,40 +61,6 @@ export const getAppIconProps = () => ({
   domain: data && data.cozyDomain,
   secure: window.location.protocol === 'https:'
 })
-
-function _consolidateApps(stateApps, newAppsInfos, lang) {
-  const apps = new Map()
-  stateApps.forEach(app => apps.set(app.slug, app))
-  newAppsInfos.forEach(app => {
-    const appFromState = apps.get(app.slug)
-    // handle maintenance locales
-    let appLocales = app.locales
-    if (appLocales && appFromState && appFromState.locales) {
-      for (let locale in appFromState.locales) {
-        appLocales[locale] = Object.assign(
-          {},
-          appFromState.locales[locale],
-          app.locales[locale]
-        )
-      }
-    }
-    if (appLocales && appLocales[lang]) {
-      // access app locales from 'apps.slug.[...]'
-      extendI18n({ apps: { [app.slug]: appLocales[lang] } })
-    }
-    if (appFromState) {
-      apps.set(
-        app.slug,
-        Object.assign({}, appFromState, app, {
-          locales: appLocales
-        })
-      )
-    } else {
-      apps.set(app.slug, app)
-    }
-  })
-  return Array.from(apps.values()).filter(app => app)
-}
 
 function _sanitizeManifest(app) {
   // FIXME retro-compatibility for old formatted manifest
@@ -356,7 +184,7 @@ export function initAppIntent(lang, slug) {
 }
 
 function onAppUpdate(appResponse) {
-  return async (dispatch, getState) => {
+  return async dispatch => {
     if (appResponse.state === APP_STATE.ERRORED) {
       const err = new Error('Error when installing the application')
       dispatch({ type: INSTALL_APP_FAILURE, error: err })
@@ -372,15 +200,8 @@ function onAppUpdate(appResponse) {
         'GET',
         `/${route}/${appResponse.slug}`
       )
-      return getFormattedInstalledApp(appFromStack).then(app => {
-        // add the installed app to the state apps list
-        const apps = getState().apps.list.map(a => {
-          if (a.slug === app.slug) {
-            return Object.assign({}, a, app, { installed: true })
-          }
-          return a
-        })
-        return dispatch({ type: INSTALL_APP_SUCCESS, apps })
+      return getFormattedInstalledApp(appFromStack).then(installedApp => {
+        return dispatch({ type: INSTALL_APP_SUCCESS, installedApp })
       })
     }
   }
