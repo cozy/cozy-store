@@ -25,11 +25,11 @@ export const INSTALL_APP = 'INSTALL_APP'
 export const INSTALL_APP_SUCCESS = 'INSTALL_APP_SUCCESS'
 export const INSTALL_APP_FAILURE = 'INSTALL_APP_FAILURE'
 
-function _sortAlphabetically(array, property) {
+export function _sortAlphabetically(array, property) {
   return array.sort((a, b) => a[property] > b[property])
 }
 
-function _consolidateApps(stateApps, newAppsInfos, lang) {
+export function _consolidateApps(stateApps, newAppsInfos, lang) {
   const apps = new Map()
   stateApps.forEach(app => apps.set(app.slug, app))
   newAppsInfos.forEach(app => {

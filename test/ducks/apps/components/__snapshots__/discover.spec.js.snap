@@ -131,6 +131,11 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
               "editor": "Cozy",
               "icon": "<svg></svg>",
               "isInRegistry": true,
+              "locales": Object {
+                "en": Object {
+                  "long_description": "A long description finally short",
+                },
+              },
               "name": "Photos",
               "name_prefix": "Cozy",
               "slug": "photos",
@@ -297,6 +302,11 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
               "editor": "Cozy",
               "icon": "<svg></svg>",
               "isInRegistry": true,
+              "locales": Object {
+                "en": Object {
+                  "long_description": "A long description finally short",
+                },
+              },
               "name": "Photos",
               "name_prefix": "Cozy",
               "slug": "photos",
@@ -473,6 +483,11 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
           "editor": "Cozy",
           "icon": "<svg></svg>",
           "isInRegistry": true,
+          "locales": Object {
+            "en": Object {
+              "long_description": "A long description finally short",
+            },
+          },
           "name": "Photos",
           "name_prefix": "Cozy",
           "slug": "photos",
@@ -656,6 +671,11 @@ exports[`Discover component should be rendered correctly with apps and URL searc
               "editor": "Cozy",
               "icon": "<svg></svg>",
               "isInRegistry": true,
+              "locales": Object {
+                "en": Object {
+                  "long_description": "A long description finally short",
+                },
+              },
               "name": "Photos",
               "name_prefix": "Cozy",
               "slug": "photos",
@@ -759,6 +779,11 @@ exports[`Discover component should be rendered correctly with apps and URL searc
               "editor": "Cozy",
               "icon": "<svg></svg>",
               "isInRegistry": true,
+              "locales": Object {
+                "en": Object {
+                  "long_description": "A long description finally short",
+                },
+              },
               "name": "Photos",
               "name_prefix": "Cozy",
               "slug": "photos",
@@ -845,6 +870,11 @@ exports[`Discover component should be rendered correctly with apps and URL searc
           "editor": "Cozy",
           "icon": "<svg></svg>",
           "isInRegistry": true,
+          "locales": Object {
+            "en": Object {
+              "long_description": "A long description finally short",
+            },
+          },
           "name": "Photos",
           "name_prefix": "Cozy",
           "slug": "photos",
@@ -1059,6 +1089,11 @@ exports[`Discover component should use BarCenter from cozy-bar in mobile view on
               "editor": "Cozy",
               "icon": "<svg></svg>",
               "isInRegistry": true,
+              "locales": Object {
+                "en": Object {
+                  "long_description": "A long description finally short",
+                },
+              },
               "name": "Photos",
               "name_prefix": "Cozy",
               "slug": "photos",
@@ -1225,6 +1260,11 @@ exports[`Discover component should use BarCenter from cozy-bar in mobile view on
               "editor": "Cozy",
               "icon": "<svg></svg>",
               "isInRegistry": true,
+              "locales": Object {
+                "en": Object {
+                  "long_description": "A long description finally short",
+                },
+              },
               "name": "Photos",
               "name_prefix": "Cozy",
               "slug": "photos",
@@ -1401,6 +1441,11 @@ exports[`Discover component should use BarCenter from cozy-bar in mobile view on
           "editor": "Cozy",
           "icon": "<svg></svg>",
           "isInRegistry": true,
+          "locales": Object {
+            "en": Object {
+              "long_description": "A long description finally short",
+            },
+          },
           "name": "Photos",
           "name_prefix": "Cozy",
           "slug": "photos",

@@ -26,7 +26,9 @@ import {
   isInstalling,
   isUninstalling,
   actionError,
-  fetchError
+  fetchError,
+  _consolidateApps,
+  _sortAlphabetically
 } from 'ducks/apps/reducers'
 import mockApps from './_mockApps'
 import mockApp from './_mockPhotosRegistryVersion'
@@ -34,7 +36,7 @@ import mockApp from './_mockPhotosRegistryVersion'
 const mockError = new Error('This is a test error')
 
 const mockRegistryApps = mockApps.filter(a => a.isInRegistry)
-const mockAppAlone = [mockApp]
+const mockAppAlone = [mockApp.manifest]
 
 const reducersMap = new Map([
   ['list', list],
@@ -242,5 +244,26 @@ describe('Apps ducks reducers', () => {
         })
       })
     }
+  })
+})
+
+describe('Apps ducks helpers', () => {
+  it('_sortAlphabetically should sort alphabetically according to the provided property name', () => {
+    expect(
+      _sortAlphabetically(
+        [{ slug: 'bibi' }, { slug: 'aya' }, { slug: 'bab' }],
+        'slug'
+      )
+    ).toMatchSnapshot()
+    expect(
+      _sortAlphabetically(
+        [{ custom: 'bibi' }, { custom: 'aya' }, { custom: 'bab' }],
+        'custom'
+      )
+    ).toMatchSnapshot()
+  })
+
+  it('_consolidateApps should merge correctly two apps infos lists', () => {
+    expect(_consolidateApps(mockApps, mockAppAlone, 'en')).toMatchSnapshot()
   })
 })
