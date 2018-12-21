@@ -1,8 +1,7 @@
 export const getCurrentStatusLabel = app => {
-  const { installed, maintenance } = app
   if (hasPendingUpdate(app)) return 'update'
-  if (maintenance) return 'maintenance'
-  if (installed) return 'installed'
+  if (isUnderMaintenance(app)) return 'maintenance'
+  if (isInstalledAndNothingToReport(app)) return 'installed'
   return null
 }
 
