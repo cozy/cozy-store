@@ -63,7 +63,7 @@ export function _consolidateApps(stateApps, newAppsInfos, lang) {
   return Array.from(apps.values()).filter(app => app)
 }
 
-export const list = (state = [], action) => {
+export const list = (state = [], action = {}) => {
   switch (action.type) {
     case FETCH_APP_SUCCESS:
     case FETCH_REGISTRY_APPS_SUCCESS:
@@ -91,7 +91,7 @@ export const list = (state = [], action) => {
   }
 }
 
-export const isFetching = (state = false, action) => {
+export const isFetching = (state = false, action = {}) => {
   switch (action.type) {
     case LOADING_APP:
     case FETCH_APPS:
@@ -104,7 +104,7 @@ export const isFetching = (state = false, action) => {
   }
 }
 
-export const isAppFetching = (state = false, action) => {
+export const isAppFetching = (state = false, action = {}) => {
   switch (action.type) {
     case LOADING_APP_INTENT:
     case FETCH_APP:
@@ -117,7 +117,7 @@ export const isAppFetching = (state = false, action) => {
   }
 }
 
-export const isInstalling = (state = false, action) => {
+export const isInstalling = (state = false, action = {}) => {
   switch (action.type) {
     case INSTALL_APP:
       return true
@@ -129,7 +129,7 @@ export const isInstalling = (state = false, action) => {
   }
 }
 
-export const isUninstalling = (state = false, action) => {
+export const isUninstalling = (state = false, action = {}) => {
   switch (action.type) {
     case UNINSTALL_APP:
       return true
@@ -141,7 +141,7 @@ export const isUninstalling = (state = false, action) => {
   }
 }
 
-export const actionError = (state = null, action) => {
+export const actionError = (state = null, action = {}) => {
   switch (action.type) {
     case UNINSTALL_APP_FAILURE:
     case INSTALL_APP_FAILURE:
@@ -154,7 +154,7 @@ export const actionError = (state = null, action) => {
   }
 }
 
-export const fetchError = (state = null, action) => {
+export const fetchError = (state = null, action = {}) => {
   switch (action.type) {
     case FETCH_APPS_FAILURE:
     case FETCH_APP_FAILURE:

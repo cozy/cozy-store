@@ -2,8 +2,8 @@
 /* global cozy */
 
 import config from 'config/apps'
-import constants from 'config/constants'
-import categories from 'config/categories'
+import CONSTANTS from 'config/constants'
+import AUTHORIZED_CATEGORIES from 'config/categories'
 import { NotUninstallableAppException } from '../../lib/exceptions'
 import realtime from 'cozy-realtime'
 
@@ -48,29 +48,36 @@ const APPS_DOCTYPE = 'io.cozy.apps'
 const KONNECTORS_DOCTYPE = 'io.cozy.konnectors'
 const TERMS_DOCTYPE = 'io.cozy.terms'
 
-const AUTHORIZED_CATEGORIES = categories
-
-const DEFAULT_CHANNEL = constants.default.registry.channel
+const DEFAULT_CHANNEL = CONSTANTS.default.registry.channel
 
 /* Only for the icon fetching */
-const root = document.querySelector('[role=application]')
-const data = root && root.dataset
+let dataset
+const getDataset = () => {
+  if (dataset) return dataset
+  const root = document.querySelector('[role=application]')
+  dataset = root && root.dataset
+  return dataset
+}
 /* Only for the icon fetching */
 
 export const getAppIconProps = () => ({
-  domain: data && data.cozyDomain,
+  domain: getDataset() && getDataset().cozyDomain,
   secure: window.location.protocol === 'https:'
 })
 
-function _sanitizeManifest(app) {
+export function _sanitizeManifest(app) {
   // FIXME retro-compatibility for old formatted manifest
   const sanitized = Object.assign({}, app)
-  if (!app.categories && app.category && typeof app.category === 'string')
+  if (!app.categories && app.category && typeof app.category === 'string') {
     sanitized.categories = [app.category]
+    delete sanitized.category
+  }
   if (typeof app.name === 'object') sanitized.name = app.name.en
   // FIXME use camelCase from cozy-stack
-  sanitized.availableVersion = app.available_version
-  delete sanitized.available_version
+  if (app.available_version) {
+    sanitized.availableVersion = app.available_version
+    delete sanitized.available_version
+  }
   // remove incomplete or empty terms
   const hasValidTerms =
     !!sanitized.terms &&
@@ -81,12 +88,13 @@ function _sanitizeManifest(app) {
   // remove incomplete or empty partnership
   const hasValidPartnership =
     !!sanitized.partnership && !!sanitized.partnership.description
-  if (sanitized.partnership && !hasValidPartnership) delete sanitized.terms
+  if (sanitized.partnership && !hasValidPartnership)
+    delete sanitized.partnership
   return sanitized
 }
 
 // check authorized categories and add default 'others'
-function _sanitizeCategories(categoriesList) {
+export function _sanitizeCategories(categoriesList) {
   if (!categoriesList) return ['others']
   const filteredList = categoriesList.filter(c =>
     AUTHORIZED_CATEGORIES.includes(c)
@@ -110,11 +118,13 @@ export function getContext() {
             contextCache = {}
             return contextCache
           }
+          return {}
         })
 }
 
-function _getRegistryAssetsLinks(manifest, appVersion) {
-  if (!appVersion) appVersion = manifest.version
+export function _getRegistryAssetsLinks(manifest, appVersion) {
+  if (!appVersion && manifest) appVersion = manifest.version
+  if (!appVersion) return {}
   const screenshotsLinks =
     manifest.screenshots &&
     manifest.screenshots.map(name => {
@@ -124,10 +134,12 @@ function _getRegistryAssetsLinks(manifest, appVersion) {
         manifest.slug
       }/${appVersion}/screenshots/${fileName}`
     })
-  const iconLink = `/registry/${manifest.slug}/${appVersion}/icon`
+  const iconLink =
+    manifest.slug && `/registry/${manifest.slug}/${appVersion}/icon`
   const partnershipIconLink =
-    !!manifest.partnership &&
-    !!manifest.partnership.icon &&
+    manifest.slug &&
+    manifest.partnership &&
+    manifest.partnership.icon &&
     `${cozy.client._url}/registry/${
       manifest.slug
     }/${appVersion}/parternship_icon`
@@ -453,7 +465,11 @@ export function fetchRegistryApps(lang, channel = DEFAULT_CHANNEL) {
             })
           })
         ).then(apps => {
-          return dispatch({ type: FETCH_REGISTRY_APPS_SUCCESS, apps, lang })
+          return dispatch({
+            type: FETCH_REGISTRY_APPS_SUCCESS,
+            apps: apps.filter(a => a),
+            lang
+          })
         })
       })
       .catch(e => {
