@@ -506,40 +506,48 @@ export function uninstallApp(app) {
   }
 }
 
-function _getTermsDocId(terms) {
-  // We use : as separator for <id>:<version>
-  return `${terms.id
-    .replace(/ /g, '-')
-    .replace(/[*+~.()'"!:@]/g, '')}:${terms.version
-    .replace(/ /g, '-')
-    .replace(/[*+~.()'"!:@]/g, '')}`
+let termsIndexCache = null
+async function _getOrCreateTermsIndex() {
+  termsIndexCache = await cozy.client.data.defineIndex(TERMS_DOCTYPE, [
+    'termsId',
+    'version'
+  ])
+  return termsIndexCache
 }
 
 async function _saveAppTerms(terms) {
   const { id, ...termsAttributes } = terms
   // We use : as separator for <id>:<version>
-  const docId = _getTermsDocId(terms)
-  let savedTerms = null
+  let savedTermsDocs = null
   try {
-    savedTerms = await cozy.client.data.find(TERMS_DOCTYPE, docId)
+    savedTermsDocs = await cozy.client.data.query(
+      await _getOrCreateTermsIndex(),
+      {
+        selector: {
+          termsId: id,
+          version: termsAttributes.version
+        },
+        limit: 1
+      }
+    )
   } catch (e) {
-    if (e.status != '404') throw e
+    throw e
   }
-  if (savedTerms) {
+  if (savedTermsDocs && savedTermsDocs.length) {
     // we just update the url if this is the same id and same version
     // but the url changed
+    const savedTerms = savedTermsDocs[0]
     if (
       savedTerms.termsId == id &&
       savedTerms.version == termsAttributes.version &&
       savedTerms.url != termsAttributes.url
     ) {
-      await cozy.client.data.updateAttributes(TERMS_DOCTYPE, docId, {
+      await cozy.client.data.updateAttributes(TERMS_DOCTYPE, savedTerms._id, {
         url: termsAttributes.url
       })
     }
   } else {
     const termsToSave = Object.assign({}, termsAttributes, {
-      _id: docId,
       termsId: id,
       accepted: true,
       acceptedAt: new Date()
