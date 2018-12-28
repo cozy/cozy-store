@@ -445,7 +445,6 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
     }
     isFetching={false}
     parent="myapps"
-    uninstallApp={[MockFunction]}
   />
 </Content>
 `;
@@ -767,7 +766,6 @@ exports[`MyApplications component should be rendered correctly with apps and URL
     }
     isFetching={false}
     parent="myapps"
-    uninstallApp={[MockFunction]}
   />
 </Content>
 `;
@@ -797,7 +795,6 @@ exports[`MyApplications component should display error from props correctly 1`] 
     installedApps={Array []}
     isFetching={false}
     parent="myapps"
-    uninstallApp={[MockFunction]}
   />
 </Content>
 `;
@@ -819,7 +816,6 @@ exports[`MyApplications component should render correctly a spinner if apps is f
     installedApps={Array []}
     isFetching={true}
     parent="myapps"
-    uninstallApp={[MockFunction]}
   />
 </Content>
 `;
@@ -1276,7 +1272,6 @@ exports[`MyApplications component should use BarCenter from cozy-bar in mobile v
     }
     isFetching={false}
     parent="myapps"
-    uninstallApp={[MockFunction]}
   />
 </Content>
 `;

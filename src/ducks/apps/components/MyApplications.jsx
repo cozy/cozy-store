@@ -70,7 +70,6 @@ export class MyApplications extends Component {
           isFetching={isFetching}
           isAppFetching={isAppFetching}
           actionError={actionError}
-          uninstallApp={this.props.uninstallApp}
           fetchLatestApp={this.props.fetchLatestApp}
           parent="myapps"
         />

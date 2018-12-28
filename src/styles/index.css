@@ -6,8 +6,9 @@
 @import './empty.css';
 @import './install.css';
 @import './intents.css';
-@import './modal.css';
+@import './uninstall.css';
 @import './permissions.css';
+@import './partnership.css';
 @import './sections.css';
 @import './dropdownFilter.css';
 @import './smallAppItem.css';
@@ -21,4 +22,20 @@
 
 .sto-view-loading {
     top: 45vh!important;
+}
+
+.md-link,
+.md-link:visited {
+    color: var(--dodgerBlue);
+    text-decoration: none;
+}
+
+.md-link:hover,
+.md-link:active,
+.md-link:focus {
+    text-decoration: underline;
+}
+
+.md-paragraph {
+  margin: 0;
 }

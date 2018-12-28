@@ -33,15 +33,13 @@ export class UninstallModal extends Component {
     }
   }
 
+  uninstallApp = () => {
+    const { app, uninstallApp } = this.props
+    uninstallApp(app)
+  }
+
   render() {
-    const {
-      app,
-      isUninstalling,
-      dismissAction,
-      t,
-      uninstallApp,
-      uninstallError
-    } = this.props
+    const { isUninstalling, dismissAction, t, uninstallError } = this.props
     return (
       <div className="sto-modal--uninstall">
         <Modal
@@ -76,7 +74,7 @@ export class UninstallModal extends Component {
                   disabled={isUninstalling}
                   theme="danger"
                   icon="delete"
-                  onClick={() => uninstallApp(app)}
+                  onClick={this.uninstallApp}
                   label={t('app_modal.uninstall.uninstall')}
                 />
               </div>
@@ -102,7 +100,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
   uninstallApp: app => {
-    return dispatch(uninstallApp(app.slug, app.type))
+    return dispatch(uninstallApp(app))
   }
 })
 

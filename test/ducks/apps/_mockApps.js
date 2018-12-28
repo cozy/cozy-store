@@ -116,6 +116,11 @@ export const apps = [
     developer: { name: 'Cozy' },
     type: 'webapp',
     icon: '<svg></svg>',
+    locales: {
+      en: {
+        long_description: 'A long description finally short'
+      }
+    },
     versions: {
       stable: ['3.0.0'],
       beta: ['3.0.0'],

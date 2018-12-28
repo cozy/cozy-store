@@ -1,0 +1,341 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Apps ducks helpers _consolidateApps should merge correctly two apps infos lists 1`] = `
+Array [
+  Object {
+    "categories": Array [
+      "cozy",
+    ],
+    "developer": Object {
+      "name": "Cozy",
+    },
+    "editor": "Cozy",
+    "icon": "<svg></svg>",
+    "installed": false,
+    "isInRegistry": true,
+    "name": "Collect",
+    "name_prefix": "Cozy",
+    "permissions": Object {
+      "mock": Object {
+        "type": "io.mock.doctype",
+      },
+      "mock2": Object {
+        "type": "io.mock.doctype2",
+      },
+    },
+    "related": "http://collect.cozy.mock/",
+    "slug": "collect",
+    "tags": Array [
+      "konnector",
+      "collect",
+      "bills",
+      "providers",
+      "files",
+    ],
+    "type": "webapp",
+    "uninstallable": false,
+    "version": "3.0.0",
+    "versions": Object {
+      "beta": Array [
+        "3.0.0",
+      ],
+      "dev": Array [
+        "3.0.0",
+      ],
+      "stable": Array [
+        "3.0.0",
+      ],
+    },
+  },
+  Object {
+    "categories": Array [
+      "others",
+    ],
+    "developer": Object {
+      "name": "Cozy",
+    },
+    "editor": "Cozy",
+    "icon": "<svg></svg>",
+    "isInRegistry": true,
+    "locales": Object {
+      "name": "For Dev Only",
+    },
+    "name": "DevOnly",
+    "slug": "devonly",
+    "type": "webapp",
+    "uninstallable": true,
+    "versions": Object {
+      "beta": Array [],
+      "dev": Array [
+        "1.0.0-betaojdkehy989ekhflldh",
+      ],
+      "stable": Array [],
+    },
+  },
+  Object {
+    "categories": Array [
+      "cozy",
+    ],
+    "developer": Object {
+      "name": "Cozy",
+    },
+    "editor": "Cozy",
+    "icon": "<svg></svg>",
+    "installed": true,
+    "name": "Drive",
+    "name_prefix": "Cozy",
+    "permissions": Object {
+      "mock2": Object {
+        "type": "io.mock.doctype2",
+      },
+    },
+    "related": "http://drive.cozy.mock/",
+    "slug": "drive",
+    "tags": Array [
+      "search",
+      "files",
+      "folders",
+    ],
+    "type": "webapp",
+    "uninstallable": false,
+    "version": "3.0.0-beta89bnhj3993",
+  },
+  Object {
+    "categories": Array [
+      "isp",
+      "telecom",
+    ],
+    "developer": Object {
+      "name": "Cozy",
+    },
+    "icon": "<svg></svg>",
+    "isInRegistry": true,
+    "name": "Bouilligue",
+    "slug": "konnector-bouilligue",
+    "type": "konnector",
+    "uninstallable": true,
+    "versions": Object {
+      "beta": Array [
+        "0.1.0",
+      ],
+      "dev": Array [
+        "0.1.0",
+      ],
+      "stable": Array [
+        "0.1.0",
+      ],
+    },
+  },
+  Object {
+    "categories": Array [
+      "transport",
+    ],
+    "developer": Object {
+      "name": "Cozy",
+    },
+    "icon": "<svg></svg>",
+    "installed": true,
+    "isInRegistry": true,
+    "name": "Trinlane",
+    "permissions": Object {
+      "mock": Object {
+        "type": "io.mock.doctype",
+      },
+    },
+    "slug": "konnector-trinlane",
+    "tags": Array [
+      "transport",
+      "files",
+      "bills",
+    ],
+    "type": "konnector",
+    "uninstallable": true,
+    "version": "0.1.0",
+    "versions": Object {
+      "beta": Array [
+        "0.1.0",
+      ],
+      "dev": Array [
+        "0.1.0",
+      ],
+      "stable": Array [
+        "0.1.0",
+      ],
+    },
+  },
+  Object {
+    "categories": Array [
+      "cozy",
+    ],
+    "developer": Object {
+      "name": "Cozy",
+      "url": "https://cozy.io",
+    },
+    "editor": "Cozy",
+    "icon": "https://mockcozy.cc/registry/photos/3.0.0/icon.svg",
+    "installed": true,
+    "isInRegistry": true,
+    "langs": Array [
+      "en",
+      "fr",
+    ],
+    "licence": "AGPL-3.0",
+    "locales": Object {
+      "en": Object {
+        "changes": "### NEW!!!
+
+ Now on the cozy-store :tada",
+        "long_description": "### Features
+
+Enjoy features to grab your data in you Cozy :tada:",
+        "short_description": "Gestionnaire de photos pour Cozy v3",
+      },
+      "fr": Object {
+        "long_description": "### Photos
+
+Gestionnaire de photos pour Cozy v3 :tada:",
+        "short_description": "Gestionnaire de photos pour Cozy v3",
+      },
+    },
+    "name": "Photos",
+    "name_prefix": "Cozy",
+    "permissions": Object {
+      "albums": Object {
+        "description": "Required to manage photos albums",
+        "methods": Array [
+          "GET",
+          "POST",
+          "PUT",
+        ],
+        "type": "io.cozy.photos.albums",
+      },
+      "apps": Object {
+        "description": "Required by the cozy-bar to display the icons of the apps",
+        "type": "io.cozy.apps",
+        "verbs": Array [
+          "GET",
+        ],
+      },
+      "contacts": Object {
+        "description": "Required to to share photos with your contacts",
+        "methods": Array [
+          "GET",
+          "POST",
+        ],
+        "type": "io.cozy.contacts",
+      },
+      "files": Object {
+        "description": "Required for photo access",
+        "methods": Array [
+          "GET",
+          "POST",
+          "PUT",
+        ],
+        "type": "io.cozy.files",
+      },
+      "settings": Object {
+        "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
+        "type": "io.cozy.settings",
+        "verbs": Array [
+          "GET",
+        ],
+      },
+    },
+    "platforms": Array [
+      Object {
+        "type": "ios",
+        "url": "",
+      },
+      Object {
+        "type": "linux",
+        "url": "",
+      },
+      Object {
+        "type": "android",
+        "url": "https://mock.app",
+      },
+    ],
+    "routes": Object {
+      "/": Object {
+        "folder": "/",
+        "index": "index.html",
+        "public": false,
+      },
+      "/public": Object {
+        "folder": "/public",
+        "index": "index.html",
+        "public": true,
+      },
+    },
+    "short_description": "Photos manager for Cozy v3",
+    "slug": "photos",
+    "source": "https://github.com/cozy/cozy-drive.git@build-photos",
+    "type": "webapp",
+    "uninstallable": true,
+    "version": "3.0.0",
+    "versions": Object {
+      "beta": Array [
+        "3.0.0",
+      ],
+      "dev": Array [
+        "3.0.0",
+      ],
+      "stable": Array [
+        "3.0.0",
+      ],
+    },
+  },
+  Object {
+    "availableVersion": true,
+    "categories": Array [
+      "partners",
+    ],
+    "icon": "<svg></svg>",
+    "installed": true,
+    "isInRegistry": true,
+    "name": "Tasky",
+    "slug": "tasky",
+    "type": "webapp",
+    "uninstallable": true,
+    "versions": Object {
+      "beta": Array [
+        "1.0.0",
+      ],
+      "dev": Array [
+        "1.0.0",
+      ],
+      "stable": Array [
+        "1.0.0",
+      ],
+    },
+  },
+]
+`;
+
+exports[`Apps ducks helpers _sortAlphabetically should sort alphabetically according to the provided property name 1`] = `
+Array [
+  Object {
+    "slug": "aya",
+  },
+  Object {
+    "slug": "bab",
+  },
+  Object {
+    "slug": "bibi",
+  },
+]
+`;
+
+exports[`Apps ducks helpers _sortAlphabetically should sort alphabetically according to the provided property name 2`] = `
+Array [
+  Object {
+    "custom": "aya",
+  },
+  Object {
+    "custom": "bab",
+  },
+  Object {
+    "custom": "bibi",
+  },
+]
+`;

@@ -2,7 +2,8 @@ import React from 'react'
 
 import { translate } from 'cozy-ui/react/I18n'
 import Icon from 'cozy-ui/react/Icon'
-import ReactMarkdownWrapper from '../../components/ReactMarkdownWrapper'
+import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
+import { getTranslatedManifestProperty } from 'lib/helpers'
 
 import localAccessIcon from 'assets/icons/icon-cloud-in-cozy.svg'
 import externalIcon from 'assets/icons/icon-cloud-out-cozy.svg'
@@ -10,7 +11,7 @@ import externalIcon from 'assets/icons/icon-cloud-out-cozy.svg'
 import LINXO_CONNECTORS from 'config/linxo.json'
 
 export const Permission = ({ description, label, type, t }) => (
-  <li key={type} className="sto-perm-list-item">
+  <li className="sto-perm-list-item">
     <div className="sto-perm-label">
       <span className="sto-perm-title" data-doctype={type}>
         {label}
@@ -27,9 +28,13 @@ export const Permission = ({ description, label, type, t }) => (
   </li>
 )
 
-const LocalizedPermission = ({ t, slug, name, type }) => (
+const LocalizedPermission = ({ t, app, name, type }) => (
   <Permission
-    description={t(`apps.${slug}.permissions.${name}.description`, { _: '' })}
+    description={getTranslatedManifestProperty(
+      app,
+      `permissions.${name}.description`,
+      t
+    )}
     label={t(`doctypes.${type}`)}
     type={type}
     t={t}
@@ -46,6 +51,7 @@ const getProcessedPermissions = (t, app) => {
         description={t('permissions.linxo')}
         label={t(`doctypes.${linxoType}`)}
         type={linxoType}
+        key={linxoType}
         t={t}
       />
     )
@@ -57,9 +63,9 @@ const getProcessedPermissions = (t, app) => {
     .filter(name => !externalTypes.includes(app.permissions[name].type))
     .map(name => (
       <LocalizedPermission
+        app={app}
         key={name}
         {...app.permissions[name]}
-        slug={app.slug}
         name={name}
         t={t}
       />
@@ -67,11 +73,12 @@ const getProcessedPermissions = (t, app) => {
   return { internalPermissions: internal, externalPermissions: external }
 }
 
-export const PermissionsList = ({ t, app, appName }) => {
+export const PermissionsList = ({ t, app }) => {
   const { externalPermissions, internalPermissions } = getProcessedPermissions(
     t,
     app
   )
+  const appName = getTranslatedManifestProperty(app, 'name', t)
   const developerName =
     (app.developer && app.developer.name) || t('permissions.developer_default')
   return app.permissions ? (

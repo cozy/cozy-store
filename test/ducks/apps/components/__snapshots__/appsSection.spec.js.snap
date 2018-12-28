@@ -218,6 +218,11 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
           "editor": "Cozy",
           "icon": "<svg></svg>",
           "isInRegistry": true,
+          "locales": Object {
+            "en": Object {
+              "long_description": "A long description finally short",
+            },
+          },
           "name": "Photos",
           "name_prefix": "Cozy",
           "slug": "photos",

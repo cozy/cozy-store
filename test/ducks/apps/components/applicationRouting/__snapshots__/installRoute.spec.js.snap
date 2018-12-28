@@ -13,6 +13,11 @@ exports[`InstallRoute component should display install modal if app found in the
       "editor": "Cozy",
       "icon": "<svg></svg>",
       "isInRegistry": true,
+      "locales": Object {
+        "en": Object {
+          "long_description": "A long description finally short",
+        },
+      },
       "name": "Photos",
       "name_prefix": "Cozy",
       "slug": "photos",

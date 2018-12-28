@@ -1,13 +1,31 @@
 /* eslint-env browser */
 /* global cozy */
 
-import { combineReducers } from 'redux'
 import config from 'config/apps'
-import constants from 'config/constants'
-import categories from 'config/categories'
-import { extend as extendI18n } from 'cozy-ui/react/I18n'
+import CONSTANTS from 'config/constants'
+import AUTHORIZED_CATEGORIES from 'config/categories'
 import { NotUninstallableAppException } from '../../lib/exceptions'
 import realtime from 'cozy-realtime'
+
+export * from './selectors'
+export { appsReducers } from './reducers'
+import {
+  LOADING_APP,
+  LOADING_APP_INTENT,
+  FETCH_APPS,
+  FETCH_APPS_SUCCESS,
+  FETCH_APPS_FAILURE,
+  FETCH_APP,
+  FETCH_APP_SUCCESS,
+  FETCH_APP_FAILURE,
+  FETCH_REGISTRY_APPS_SUCCESS,
+  UNINSTALL_APP,
+  UNINSTALL_APP_SUCCESS,
+  UNINSTALL_APP_FAILURE,
+  INSTALL_APP,
+  INSTALL_APP_SUCCESS,
+  INSTALL_APP_FAILURE
+} from './reducers'
 
 const APP_STATE = {
   READY: 'ready',
@@ -28,228 +46,55 @@ export const REGISTRY_CHANNELS = {
 
 const APPS_DOCTYPE = 'io.cozy.apps'
 const KONNECTORS_DOCTYPE = 'io.cozy.konnectors'
+const TERMS_DOCTYPE = 'io.cozy.terms'
 
-const AUTHORIZED_CATEGORIES = categories
-
-const DEFAULT_CHANNEL = constants.default.registry.channel
-
-// initial loading
-const LOADING_APP = 'LOADING_APP'
-const LOADING_APP_INTENT = 'LOADING_APP_INTENT'
-
-const FETCH_APPS = 'FETCH_APPS'
-const FETCH_APPS_SUCCESS = 'FETCH_APPS_SUCCESS'
-const FETCH_APPS_FAILURE = 'FETCH_APPS_FAILURE'
-
-const FETCH_APP = 'FETCH_APP'
-const FETCH_APP_SUCCESS = 'FETCH_APP_SUCCESS'
-const FETCH_APP_FAILURE = 'FETCH_APP_FAILURE'
-
-const FETCH_REGISTRY_APPS_SUCCESS = 'FETCH_REGISTRY_APPS_SUCCESS'
-
-const UNINSTALL_APP = 'UNINSTALL_APP'
-const UNINSTALL_APP_SUCCESS = 'UNINSTALL_APP_SUCCESS'
-const UNINSTALL_APP_FAILURE = 'UNINSTALL_APP_FAILURE'
-
-const INSTALL_APP = 'INSTALL_APP'
-const INSTALL_APP_SUCCESS = 'INSTALL_APP_SUCCESS'
-const INSTALL_APP_FAILURE = 'INSTALL_APP_FAILURE'
-
-const RECEIVE_APPS_ICON = 'RECEIVE_APPS_ICON'
-
-export const list = (state = [], action) => {
-  switch (action.type) {
-    case FETCH_APP_SUCCESS:
-    case FETCH_REGISTRY_APPS_SUCCESS:
-    case FETCH_APPS_SUCCESS:
-      return _sortAlphabetically(
-        _consolidateApps(state, action.apps, action.lang),
-        'slug'
-      )
-    case UNINSTALL_APP_SUCCESS:
-      return state.map(
-        app => (app.slug === action.slug ? { ...app, installed: false } : app)
-      )
-    case INSTALL_APP_SUCCESS:
-      return _sortAlphabetically(action.apps, 'slug')
-    case RECEIVE_APPS_ICON:
-      return state.map(app => {
-        if (action.iconsMap.has(app.slug)) {
-          app.icon = action.iconsMap.get(app.slug)
-          delete app.iconToLoad
-        }
-        return app
-      })
-    default:
-      return state
-  }
-}
-
-export const isFetching = (state = false, action) => {
-  switch (action.type) {
-    case LOADING_APP:
-    case FETCH_APPS:
-      return true
-    case FETCH_APPS_SUCCESS:
-    case FETCH_APPS_FAILURE:
-      return false
-    default:
-      return state
-  }
-}
-
-export const isAppFetching = (state = false, action) => {
-  switch (action.type) {
-    case LOADING_APP_INTENT:
-    case FETCH_APP:
-      return true
-    case FETCH_APP_SUCCESS:
-    case FETCH_APP_FAILURE:
-      return false
-    default:
-      return state
-  }
-}
-
-export const isInstalling = (state = false, action) => {
-  switch (action.type) {
-    case INSTALL_APP:
-      return true
-    case INSTALL_APP_SUCCESS:
-    case INSTALL_APP_FAILURE:
-      return false
-    default:
-      return state
-  }
-}
-
-export const isUninstalling = (state = false, action) => {
-  switch (action.type) {
-    case UNINSTALL_APP:
-      return true
-    case UNINSTALL_APP_SUCCESS:
-    case UNINSTALL_APP_FAILURE:
-      return false
-    default:
-      return state
-  }
-}
-
-export const actionError = (state = null, action) => {
-  switch (action.type) {
-    case UNINSTALL_APP_FAILURE:
-    case INSTALL_APP_FAILURE:
-      return action.error
-    case UNINSTALL_APP_SUCCESS:
-    case INSTALL_APP_SUCCESS:
-      return null
-    default:
-      return state
-  }
-}
-
-export const fetchError = (state = null, action) => {
-  switch (action.type) {
-    case FETCH_APPS_FAILURE:
-    case FETCH_APP_FAILURE:
-      return action.error
-    case FETCH_APPS_SUCCESS:
-    case FETCH_APP_SUCCESS:
-      return null
-    default:
-      return state
-  }
-}
-
-export const appsReducers = combineReducers({
-  list,
-  actionError,
-  fetchError,
-  isFetching,
-  isAppFetching,
-  isInstalling,
-  isUninstalling
-})
-
-// Selectors
-
-export function getAppBySlug(state, slug) {
-  return state.apps.list.find(app => app.slug === slug)
-}
-
-export function getInstalledApps(state) {
-  return state.apps.list.filter(app => app.installed)
-}
-
-export function getRegistryApps(state) {
-  // display only apps with stable versions for now
-  return state.apps.list
-    .filter(app => app.isInRegistry)
-    .filter(app => Array.isArray(app.versions.stable) && !!app.versions.stable)
-}
-
-function _sortAlphabetically(array, property) {
-  return array.sort((a, b) => a[property] > b[property])
-}
+const DEFAULT_CHANNEL = CONSTANTS.default.registry.channel
 
 /* Only for the icon fetching */
-const root = document.querySelector('[role=application]')
-const data = root && root.dataset
-const COZY_DOMAIN = data && `//${data.cozyDomain}`
+let dataset
+const getDataset = () => {
+  if (dataset) return dataset
+  const root = document.querySelector('[role=application]')
+  dataset = root && root.dataset
+  return dataset
+}
 /* Only for the icon fetching */
 
 export const getAppIconProps = () => ({
-  domain: COZY_DOMAIN,
+  domain: getDataset() && getDataset().cozyDomain,
   secure: window.location.protocol === 'https:'
 })
 
-function _consolidateApps(stateApps, newAppsInfos, lang) {
-  const apps = new Map()
-  stateApps.forEach(app => apps.set(app.slug, app))
-  newAppsInfos.forEach(app => {
-    const appFromState = apps.get(app.slug)
-    // handle maintenance locales
-    let appLocales = app.locales
-    if (appLocales && appFromState && appFromState.locales) {
-      for (let locale in appFromState.locales) {
-        appLocales[locale] = Object.assign(
-          {},
-          appFromState.locales[locale],
-          app.locales[locale]
-        )
-      }
-    }
-    if (appLocales && appLocales[lang]) {
-      // access app locales from 'apps.slug.[...]'
-      extendI18n({ apps: { [app.slug]: appLocales[lang] } })
-    }
-    if (appFromState) {
-      apps.set(
-        app.slug,
-        Object.assign({}, appFromState, app, {
-          locales: appLocales
-        })
-      )
-    } else {
-      apps.set(app.slug, app)
-    }
-  })
-  return Array.from(apps.values()).filter(app => app)
-}
-
-function _sanitizeManifest(app) {
+export function _sanitizeManifest(app) {
   // FIXME retro-compatibility for old formatted manifest
   const sanitized = Object.assign({}, app)
-  if (!app.categories && app.category && typeof app.category === 'string')
+  if (!app.categories && app.category && typeof app.category === 'string') {
     sanitized.categories = [app.category]
+    delete sanitized.category
+  }
   if (typeof app.name === 'object') sanitized.name = app.name.en
-  sanitized.availableVersion = app.available_version
-  delete sanitized.available_version
+  // FIXME use camelCase from cozy-stack
+  if (app.available_version) {
+    sanitized.availableVersion = app.available_version
+    delete sanitized.available_version
+  }
+  // remove incomplete or empty terms
+  const hasValidTerms =
+    !!sanitized.terms &&
+    !!sanitized.terms.id &&
+    !!sanitized.terms.url &&
+    !!sanitized.terms.version
+  if (sanitized.terms && !hasValidTerms) delete sanitized.terms
+  // remove incomplete or empty partnership
+  const hasValidPartnership =
+    !!sanitized.partnership && !!sanitized.partnership.description
+  if (sanitized.partnership && !hasValidPartnership)
+    delete sanitized.partnership
   return sanitized
 }
 
 // check authorized categories and add default 'others'
-function _sanitizeCategories(categoriesList) {
+export function _sanitizeCategories(categoriesList) {
   if (!categoriesList) return ['others']
   const filteredList = categoriesList.filter(c =>
     AUTHORIZED_CATEGORIES.includes(c)
@@ -273,21 +118,50 @@ export function getContext() {
             contextCache = {}
             return contextCache
           }
+          return {}
         })
+}
+
+export function _getRegistryAssetsLinks(manifest, appVersion) {
+  if (!appVersion && manifest) appVersion = manifest.version
+  if (!appVersion) return {}
+  const screenshotsLinks =
+    manifest.screenshots &&
+    manifest.screenshots.map(name => {
+      let fileName = name
+      if (fileName[0] === '/') fileName = fileName.slice(1)
+      return `${cozy.client._url}/registry/${
+        manifest.slug
+      }/${appVersion}/screenshots/${fileName}`
+    })
+  const iconLink =
+    manifest.slug && `/registry/${manifest.slug}/${appVersion}/icon`
+  const partnershipIconLink =
+    manifest.slug &&
+    manifest.partnership &&
+    manifest.partnership.icon &&
+    `${cozy.client._url}/registry/${
+      manifest.slug
+    }/${appVersion}/parternship_icon`
+  return {
+    screenshotsLinks,
+    iconLink,
+    partnershipIconLink
+  }
 }
 
 export async function getFormattedInstalledApp(response) {
   const appAttributes = _sanitizeManifest(response.attributes)
 
   const openingLink = response.links.related
-  const screensLinks =
-    appAttributes.screenshots &&
-    appAttributes.screenshots.map(name => {
-      let fileName = name
-      if (fileName[0] === '/') fileName = fileName.slice(1)
-      return `${cozy.client._url}/registry/${appAttributes.slug}/${
-        appAttributes.version
-      }/screenshots/${fileName}`
+  const { screenshotsLinks, partnershipIconLink } = _getRegistryAssetsLinks(
+    appAttributes,
+    appAttributes.version
+  )
+  const partnership =
+    !!appAttributes.partnership &&
+    Object.assign({}, appAttributes.partnership, {
+      ...(partnershipIconLink ? { icon: partnershipIconLink } : {})
     })
   return Object.assign({}, appAttributes, {
     _id: response.id || response._id,
@@ -295,7 +169,10 @@ export async function getFormattedInstalledApp(response) {
     installed: true,
     related: openingLink,
     links: response.links,
-    screenshots: screensLinks,
+    // Add partnership property only if it exists
+    ...(partnership ? { partnership } : {}),
+    // add screenshotsLinks property only if it exists
+    ...(screenshotsLinks ? { screenshots: screenshotsLinks } : {}),
     uninstallable: !config.notRemovableApps.includes(appAttributes.slug)
   })
 }
@@ -319,7 +196,7 @@ export function initAppIntent(lang, slug) {
 }
 
 function onAppUpdate(appResponse) {
-  return async (dispatch, getState) => {
+  return async dispatch => {
     if (appResponse.state === APP_STATE.ERRORED) {
       const err = new Error('Error when installing the application')
       dispatch({ type: INSTALL_APP_FAILURE, error: err })
@@ -335,15 +212,8 @@ function onAppUpdate(appResponse) {
         'GET',
         `/${route}/${appResponse.slug}`
       )
-      return getFormattedInstalledApp(appFromStack).then(app => {
-        // add the installed app to the state apps list
-        const apps = getState().apps.list.map(a => {
-          if (a.slug === app.slug) {
-            return Object.assign({}, a, app, { installed: true })
-          }
-          return a
-        })
-        return dispatch({ type: INSTALL_APP_SUCCESS, apps })
+      return getFormattedInstalledApp(appFromStack).then(installedApp => {
+        return dispatch({ type: INSTALL_APP_SUCCESS, installedApp })
       })
     }
   }
@@ -416,7 +286,10 @@ export function fetchLatestApp(lang, slug, channel = DEFAULT_CHANNEL) {
     dispatch({ type: FETCH_APP })
     let app = getState().apps.list.find(a => a.slug === slug)
     try {
-      app = await cozy.client.fetchJSON('GET', `/registry/${slug}`)
+      app = await cozy.client.fetchJSON(
+        'GET',
+        `/registry/${slug}?latestChannelVersion=${channel}`
+      )
     } catch (err) {
       let errorMessage = `Error while getting the application with slug: ${slug}`
       if (err.status === 404) {
@@ -486,16 +359,16 @@ export async function getFormattedRegistryApp(
   }
 
   const versionFromRegistry = version.version
-  const screensLinks =
-    manifest.screenshots &&
-    manifest.screenshots.map(name => {
-      let fileName = name
-      if (fileName[0] === '/') fileName = fileName.slice(1)
-      return `${cozy.client._url}/registry/${
-        manifest.slug
-      }/${versionFromRegistry}/screenshots/${fileName}`
+  const {
+    screenshotsLinks,
+    iconLink,
+    partnershipIconLink
+  } = _getRegistryAssetsLinks(manifest, versionFromRegistry)
+  const partnership =
+    !!manifest.partnership &&
+    Object.assign({}, manifest.partnership, {
+      ...(partnershipIconLink ? { icon: partnershipIconLink } : {})
     })
-  const iconLink = `/registry/${manifest.slug}/${versionFromRegistry}/icon`
   return Object.assign(
     {},
     {
@@ -509,10 +382,12 @@ export async function getFormattedRegistryApp(
       links: { icon: iconLink },
       uninstallable: !config.notRemovableApps.includes(manifest.slug),
       isInRegistry: true,
+      // Add partnership property only if it exists
+      ...(partnership ? { partnership } : {}),
       // handle maintenance status
       ...(maintenance ? { maintenance } : {}),
-      // add screensLinks property only if it exists
-      ...(screensLinks ? { screenshots: screensLinks } : {}),
+      // add screenshotsLinks property only if it exists
+      ...(screenshotsLinks ? { screenshots: screenshotsLinks } : {}),
       // add installed value only if not already provided
       installed: responseApp.installed || false
     }
@@ -568,13 +443,17 @@ export function fetchRegistryApps(lang, channel = DEFAULT_CHANNEL) {
   return dispatch => {
     dispatch({ type: FETCH_APPS })
     return cozy.client
-      .fetchJSON('GET', `/registry?limit=150&versionsChannel=${channel}`)
+      .fetchJSON(
+        'GET',
+        `/registry?limit=200&versionsChannel=${channel}&latestChannelVersion=${channel}`
+      )
       .then(response => {
         const apps = response.data
           .filter(app => !config.notDisplayedApps.includes(app.slug))
           .filter(app => app.versions[channel] && app.versions[channel].length) // only apps with versions available
         return Promise.all(
           apps.map(app => {
+            // no latest_version means no version for this channel
             if (!app.latest_version) return false // skip
             return getFormattedRegistryApp(app).catch(err => {
               console.warn(
@@ -586,7 +465,11 @@ export function fetchRegistryApps(lang, channel = DEFAULT_CHANNEL) {
             })
           })
         ).then(apps => {
-          return dispatch({ type: FETCH_REGISTRY_APPS_SUCCESS, apps, lang })
+          return dispatch({
+            type: FETCH_REGISTRY_APPS_SUCCESS,
+            apps: apps.filter(a => a),
+            lang
+          })
         })
       })
       .catch(e => {
@@ -603,7 +486,8 @@ export function fetchApps(lang) {
   }
 }
 
-export function uninstallApp(slug, type) {
+export function uninstallApp(app) {
+  const { slug, type } = app
   return dispatch => {
     if (
       config.notRemovableApps.includes(slug) ||
@@ -622,41 +506,94 @@ export function uninstallApp(slug, type) {
   }
 }
 
-export function installApp(
-  slug,
-  type,
-  source,
-  isUpdate = false,
-  permissionsAcked = false
-) {
-  return dispatch => {
+let termsIndexCache = null
+async function _getOrCreateTermsIndex() {
+  termsIndexCache = await cozy.client.data.defineIndex(TERMS_DOCTYPE, [
+    'termsId',
+    'version'
+  ])
+  return termsIndexCache
+}
+
+async function _saveAppTerms(terms) {
+  const { id, ...termsAttributes } = terms
+  // We use : as separator for <id>:<version>
+  let savedTermsDocs = null
+  try {
+    savedTermsDocs = await cozy.client.data.query(
+      await _getOrCreateTermsIndex(),
+      {
+        selector: {
+          termsId: id,
+          version: termsAttributes.version
+        },
+        limit: 1
+      }
+    )
+  } catch (e) {
+    throw e
+  }
+  if (savedTermsDocs && savedTermsDocs.length) {
+    // we just update the url if this is the same id and same version
+    // but the url changed
+    const savedTerms = savedTermsDocs[0]
+    if (
+      savedTerms.termsId == id &&
+      savedTerms.version == termsAttributes.version &&
+      savedTerms.url != termsAttributes.url
+    ) {
+      await cozy.client.data.updateAttributes(TERMS_DOCTYPE, savedTerms._id, {
+        url: termsAttributes.url
+      })
+    }
+  } else {
+    const termsToSave = Object.assign({}, termsAttributes, {
+      termsId: id,
+      accepted: true,
+      acceptedAt: new Date()
+    })
+    await cozy.client.data.create(TERMS_DOCTYPE, termsToSave)
+  }
+}
+
+export function installApp(app, source, isUpdate = false) {
+  const { slug, type, terms } = app
+  return async dispatch => {
+    dispatch({ type: INSTALL_APP })
+    const handleError = e => {
+      dispatch({ type: INSTALL_APP_FAILURE, error: e })
+      throw e
+    }
     const args = {}
-    if (permissionsAcked) args.PermissionsAcked = permissionsAcked
+    if (isUpdate) args.PermissionsAcked = isUpdate
     if (source) args.Source = source
     const queryString = Object.keys(args)
       .map(k => k + '=' + args[k])
       .join('&')
-    dispatch({ type: INSTALL_APP })
+    if (terms) {
+      try {
+        await _saveAppTerms(terms)
+      } catch (e) {
+        handleError(e)
+      }
+    }
     const verb = isUpdate ? 'PUT' : 'POST'
     const route = type === APP_TYPE.KONNECTOR ? 'konnectors' : 'apps'
-    return cozy.client
-      .fetchJSON(verb, `/${route}/${slug}?${queryString}`)
-      .catch(e => {
-        dispatch({ type: INSTALL_APP_FAILURE, error: e })
-        throw e
-      })
+    try {
+      await cozy.client.fetchJSON(verb, `/${route}/${slug}?${queryString}`)
+    } catch (e) {
+      handleError(e)
+    }
   }
 }
 
 export function installAppFromRegistry(
-  slug,
-  type,
+  app,
   channel = DEFAULT_CHANNEL,
-  isUpdate = false,
-  permissionsAcked = false
+  isUpdate = false
 ) {
   return dispatch => {
-    const source = `registry://${slug}/${channel}`
-    return dispatch(installApp(slug, type, source, isUpdate, permissionsAcked))
+    const source = `registry://${app.slug}/${channel}`
+    return dispatch(installApp(app, source, isUpdate))
   }
 }
