@@ -556,12 +556,7 @@ async function _saveAppTerms(terms) {
   }
 }
 
-export function installApp(
-  app,
-  source,
-  isUpdate = false,
-  permissionsAcked = false
-) {
+export function installApp(app, source, isUpdate = false) {
   const { slug, type, terms } = app
   return async dispatch => {
     dispatch({ type: INSTALL_APP })
@@ -570,7 +565,7 @@ export function installApp(
       throw e
     }
     const args = {}
-    if (permissionsAcked) args.PermissionsAcked = permissionsAcked
+    if (isUpdate) args.PermissionsAcked = isUpdate
     if (source) args.Source = source
     const queryString = Object.keys(args)
       .map(k => k + '=' + args[k])
@@ -595,11 +590,10 @@ export function installApp(
 export function installAppFromRegistry(
   app,
   channel = DEFAULT_CHANNEL,
-  isUpdate = false,
-  permissionsAcked = false
+  isUpdate = false
 ) {
   return dispatch => {
     const source = `registry://${app.slug}/${channel}`
-    return dispatch(installApp(app, source, isUpdate, permissionsAcked))
+    return dispatch(installApp(app, source, isUpdate))
   }
 }
