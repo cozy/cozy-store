@@ -161,7 +161,7 @@ Object {
   ],
   "partners": Array [
     Object {
-      "availableVersion": true,
+      "availableVersion": "3.0.0",
       "categories": Array [
         "partners",
       ],
@@ -174,12 +174,15 @@ Object {
       "uninstallable": true,
       "versions": Object {
         "beta": Array [
+          "3.0.0",
           "1.0.0",
         ],
         "dev": Array [
+          "3.0.0",
           "1.0.0",
         ],
         "stable": Array [
+          "3.0.0",
           "1.0.0",
         ],
       },

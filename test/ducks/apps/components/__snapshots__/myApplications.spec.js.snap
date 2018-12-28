@@ -124,7 +124,7 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
               },
             },
             Object {
-              "availableVersion": true,
+              "availableVersion": "3.0.0",
               "categories": Array [
                 "partners",
               ],
@@ -137,12 +137,15 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
               "uninstallable": true,
               "versions": Object {
                 "beta": Array [
+                  "3.0.0",
                   "1.0.0",
                 ],
                 "dev": Array [
+                  "3.0.0",
                   "1.0.0",
                 ],
                 "stable": Array [
+                  "3.0.0",
                   "1.0.0",
                 ],
               },
@@ -262,7 +265,7 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
               },
             },
             Object {
-              "availableVersion": true,
+              "availableVersion": "3.0.0",
               "categories": Array [
                 "partners",
               ],
@@ -275,12 +278,15 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
               "uninstallable": true,
               "versions": Object {
                 "beta": Array [
+                  "3.0.0",
                   "1.0.0",
                 ],
                 "dev": Array [
+                  "3.0.0",
                   "1.0.0",
                 ],
                 "stable": Array [
+                  "3.0.0",
                   "1.0.0",
                 ],
               },
@@ -409,7 +415,7 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
           },
         },
         Object {
-          "availableVersion": true,
+          "availableVersion": "3.0.0",
           "categories": Array [
             "partners",
           ],
@@ -422,12 +428,15 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
           "uninstallable": true,
           "versions": Object {
             "beta": Array [
+              "3.0.0",
               "1.0.0",
             ],
             "dev": Array [
+              "3.0.0",
               "1.0.0",
             ],
             "stable": Array [
+              "3.0.0",
               "1.0.0",
             ],
           },
@@ -565,7 +574,7 @@ exports[`MyApplications component should be rendered correctly with apps and URL
               },
             },
             Object {
-              "availableVersion": true,
+              "availableVersion": "3.0.0",
               "categories": Array [
                 "partners",
               ],
@@ -578,12 +587,15 @@ exports[`MyApplications component should be rendered correctly with apps and URL
               "uninstallable": true,
               "versions": Object {
                 "beta": Array [
+                  "3.0.0",
                   "1.0.0",
                 ],
                 "dev": Array [
+                  "3.0.0",
                   "1.0.0",
                 ],
                 "stable": Array [
+                  "3.0.0",
                   "1.0.0",
                 ],
               },
@@ -943,7 +955,7 @@ exports[`MyApplications component should use BarCenter from cozy-bar in mobile v
               },
             },
             Object {
-              "availableVersion": true,
+              "availableVersion": "3.0.0",
               "categories": Array [
                 "partners",
               ],
@@ -956,12 +968,15 @@ exports[`MyApplications component should use BarCenter from cozy-bar in mobile v
               "uninstallable": true,
               "versions": Object {
                 "beta": Array [
+                  "3.0.0",
                   "1.0.0",
                 ],
                 "dev": Array [
+                  "3.0.0",
                   "1.0.0",
                 ],
                 "stable": Array [
+                  "3.0.0",
                   "1.0.0",
                 ],
               },
@@ -1081,7 +1096,7 @@ exports[`MyApplications component should use BarCenter from cozy-bar in mobile v
               },
             },
             Object {
-              "availableVersion": true,
+              "availableVersion": "3.0.0",
               "categories": Array [
                 "partners",
               ],
@@ -1094,12 +1109,15 @@ exports[`MyApplications component should use BarCenter from cozy-bar in mobile v
               "uninstallable": true,
               "versions": Object {
                 "beta": Array [
+                  "3.0.0",
                   "1.0.0",
                 ],
                 "dev": Array [
+                  "3.0.0",
                   "1.0.0",
                 ],
                 "stable": Array [
+                  "3.0.0",
                   "1.0.0",
                 ],
               },
@@ -1228,7 +1246,7 @@ exports[`MyApplications component should use BarCenter from cozy-bar in mobile v
           },
         },
         Object {
-          "availableVersion": true,
+          "availableVersion": "3.0.0",
           "categories": Array [
             "partners",
           ],
@@ -1241,12 +1259,15 @@ exports[`MyApplications component should use BarCenter from cozy-bar in mobile v
           "uninstallable": true,
           "versions": Object {
             "beta": Array [
+              "3.0.0",
               "1.0.0",
             ],
             "dev": Array [
+              "3.0.0",
               "1.0.0",
             ],
             "stable": Array [
+              "3.0.0",
               "1.0.0",
             ],
           },
