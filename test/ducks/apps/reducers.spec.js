@@ -35,7 +35,6 @@ import mockApp from './_mockPhotosRegistryVersion'
 
 const mockError = new Error('This is a test error')
 
-const mockRegistryApps = mockApps.filter(a => a.isInRegistry)
 const mockAppAlone = [mockApp.manifest]
 
 const reducersMap = new Map([
@@ -48,13 +47,17 @@ const reducersMap = new Map([
   ['fetchError', fetchError]
 ])
 
+// to be sure we use cleaned mock apps list each time
+const getMockApps = () => JSON.parse(JSON.stringify(mockApps))
+const mockRegistryApps = getMockApps().filter(a => a.isInRegistry)
+
 const actionsMap = new Map([
   [
     'FETCH_APPS*',
     {
       fetchAppsAction: { type: FETCH_APPS },
       fetchAppsSuccessAction: {
-        apps: mockApps,
+        apps: getMockApps(),
         type: FETCH_APPS_SUCCESS
       },
       fetchAppsErrorAction: {
@@ -130,29 +133,59 @@ const actionsMap = new Map([
 */
 const reducersTestConfig = {
   list: {
-    installAppSuccessAction: [
-      mockApps.map(a => {
-        if (
-          a.slug ==
-          actionsMap.get('INSTALL_APP*').installAppSuccessAction.installedApp
-            .slug
-        )
-          a.installed = false
-        return a
-      }),
-      'toEqual',
-      mockApps.map(a => {
-        if (
-          a.slug ==
-          actionsMap.get('INSTALL_APP*').installAppSuccessAction.installedApp
-            .slug
-        )
-          a.installed = true
-        return a
-      })
-    ],
+    installAppSuccessAction: {
+      multiple: [
+        [
+          getMockApps().map(a => {
+            if (
+              a.slug ==
+              actionsMap.get('INSTALL_APP*').installAppSuccessAction
+                .installedApp.slug
+            ) {
+              a.installed = false
+              if (a.availableVersion) delete a.availableVersion
+            }
+            return a
+          }),
+          'toEqual',
+          getMockApps().map(a => {
+            if (
+              a.slug ==
+              actionsMap.get('INSTALL_APP*').installAppSuccessAction
+                .installedApp.slug
+            )
+              a.installed = true
+            return a
+          })
+        ],
+        // if available_version, this is an update
+        [
+          getMockApps().map(a => {
+            if (
+              a.slug ==
+              actionsMap.get('INSTALL_APP*').installAppSuccessAction
+                .installedApp.slug
+            ) {
+              a.installed = false
+              a.availableVersion = '5.0.0'
+            }
+            return a
+          }),
+          'toEqual',
+          getMockApps().map(a => {
+            if (
+              a.slug ==
+              actionsMap.get('INSTALL_APP*').installAppSuccessAction
+                .installedApp.slug
+            )
+              a.installed = true
+            return a
+          })
+        ]
+      ]
+    },
     uninstallAppSuccessAction: [
-      mockApps.map(a => {
+      getMockApps().map(a => {
         if (
           a.slug ==
           actionsMap.get('UNINSTALL_APP*').uninstallAppSuccessAction.slug
@@ -161,7 +194,7 @@ const reducersTestConfig = {
         return a
       }),
       'toEqual',
-      mockApps.map(a => {
+      getMockApps().map(a => {
         if (
           a.slug ==
           actionsMap.get('UNINSTALL_APP*').uninstallAppSuccessAction.slug
@@ -170,7 +203,7 @@ const reducersTestConfig = {
         return a
       })
     ],
-    fetchAppsSuccessAction: [[], 'toEqual', mockApps],
+    fetchAppsSuccessAction: [[], 'toEqual', getMockApps()],
     fetchRegistryAppsSuccessAction: [[], 'toEqual', mockRegistryApps],
     fetchAppSuccessAction: [[], 'toEqual', mockAppAlone]
   },
@@ -211,6 +244,10 @@ const reducersTestConfig = {
 }
 
 describe('Apps ducks reducers', () => {
+  beforeEach(() => {
+    jest.resetModules()
+  })
+
   function expectToNotTouchTheState(reducer, action) {
     expect(reducer('default_state', action)).toBe('default_state')
   }
@@ -218,22 +255,33 @@ describe('Apps ducks reducers', () => {
     // for each reducer from the config
     if (reducersTestConfig.hasOwnProperty(reducerName)) {
       describe(reducerName, () => {
+        beforeEach(() => {
+          jest.resetAllMocks()
+          jest.resetModules()
+        })
+        it('- No action provided', () => {
+          expectToNotTouchTheState(reducer)
+        })
         const reducerConfig = reducersTestConfig[reducerName]
         const reducer = reducersMap.get(reducerName)
         // we get all actions group defined in the actions Map
         actionsMap.forEach((actionsGroup, actionsGroupName) => {
           it(`- ${actionsGroupName}`, () => {
-            beforeEach(() => {
-              jest.resetAllMocks()
-              jest.resetModules()
-            })
             // we test all actions from the group
             Object.keys(actionsGroup).map(actionName => {
               const action = actionsGroup[actionName]
               // if defined in the reducer config, we use provided parameters
               if (reducerConfig.hasOwnProperty(actionName)) {
                 const params = reducerConfig[actionName]
-                _get(expect(reducer(params[0], action)), params[1])(params[2])
+                if (Array.isArray(params.multiple)) {
+                  params.multiple.forEach(unitParams => {
+                    _get(expect(reducer(unitParams[0], action)), unitParams[1])(
+                      unitParams[2]
+                    )
+                  })
+                } else {
+                  _get(expect(reducer(params[0], action)), params[1])(params[2])
+                }
               } else {
                 // not defined in the config, we guess that this is action
                 // which doesn't change the reducer state here
@@ -248,6 +296,10 @@ describe('Apps ducks reducers', () => {
 })
 
 describe('Apps ducks helpers', () => {
+  beforeEach(() => {
+    jest.resetModules()
+  })
+
   it('_sortAlphabetically should sort alphabetically according to the provided property name', () => {
     expect(
       _sortAlphabetically(
@@ -264,6 +316,8 @@ describe('Apps ducks helpers', () => {
   })
 
   it('_consolidateApps should merge correctly two apps infos lists', () => {
-    expect(_consolidateApps(mockApps, mockAppAlone, 'en')).toMatchSnapshot()
+    expect(
+      _consolidateApps(getMockApps(), mockAppAlone, 'en')
+    ).toMatchSnapshot()
   })
 })

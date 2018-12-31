@@ -76,16 +76,20 @@ export const list = (state = [], action = {}) => {
       return state.map(
         app => (app.slug === action.slug ? { ...app, installed: false } : app)
       )
-    case INSTALL_APP_SUCCESS:
+    case INSTALL_APP_SUCCESS: {
       return _sortAlphabetically(
-        state.map(
-          app =>
-            app.slug === action.installedApp.slug
-              ? { ...app, installed: true }
-              : app
-        ),
+        state.map(app => {
+          if (app.slug === action.installedApp.slug) {
+            const nextApp = { ...app, installed: true }
+            // the available update is now installed
+            if (nextApp.availableVersion) delete nextApp.availableVersion
+            return nextApp
+          }
+          return app
+        }),
         'slug'
       )
+    }
     default:
       return state
   }

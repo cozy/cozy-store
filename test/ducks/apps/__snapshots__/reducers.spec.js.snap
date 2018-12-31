@@ -11,7 +11,7 @@ Array [
     },
     "editor": "Cozy",
     "icon": "<svg></svg>",
-    "installed": false,
+    "installed": true,
     "isInRegistry": true,
     "name": "Collect",
     "name_prefix": "Cozy",
@@ -173,7 +173,6 @@ Array [
     },
     "editor": "Cozy",
     "icon": "https://mockcozy.cc/registry/photos/3.0.0/icon.svg",
-    "installed": true,
     "isInRegistry": true,
     "langs": Array [
       "en",
