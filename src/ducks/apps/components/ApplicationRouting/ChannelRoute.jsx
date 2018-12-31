@@ -21,7 +21,7 @@ export const ChannelRoute = ({
       if (isFetching) return null
       const app = getApp(match)
       const appPath = `/${parent}/${(app && app.slug) || ''}`
-      if (!app || !app.isInRegistry) return redirectTo(`/${parent}`)
+      if (!app) return redirectTo(`/${parent}`)
       const channel = match.params.channel
       const isChannelAvailable = Object.values(REGISTRY_CHANNELS).includes(
         channel
@@ -41,7 +41,7 @@ export const ChannelRoute = ({
           isAppFetching={isAppFetching}
           isInstalling={isInstalling}
           onCurrentChannel={() => redirectTo(appPath)}
-          onNotInstalled={() => redirectTo(appPath)}
+          onNotHandled={() => redirectTo(appPath)}
           onSuccess={() => redirectTo(appPath)}
         />
       )

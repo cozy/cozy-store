@@ -7,7 +7,7 @@ exports[`ChannelRoute component should display install modal if app found and in
   dismissAction={[Function]}
   fetchApp={[Function]}
   onCurrentChannel={[Function]}
-  onNotInstalled={[Function]}
+  onNotHandled={[Function]}
   onSuccess={[Function]}
 />
 `;
@@ -19,7 +19,7 @@ exports[`ChannelRoute component should display install modal if app found and in
   dismissAction={[Function]}
   fetchApp={[Function]}
   onCurrentChannel={[Function]}
-  onNotInstalled={[Function]}
+  onNotHandled={[Function]}
   onSuccess={[Function]}
 />
 `;
