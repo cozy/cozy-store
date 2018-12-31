@@ -29,7 +29,7 @@ const getMockProps = (fromRegistry = false) => ({
     : mockApps.find(a => a.slug === 'photos'),
   dismissAction: jest.fn(),
   parent: '/discover',
-  onAlreadyInstalled: jest.fn(),
+  onInstalled: jest.fn(),
   onSuccess: jest.fn(app => {
     if (app.slug === 'photos' || app.slug === 'konnector-bouilligue') {
       return sinon
@@ -78,7 +78,7 @@ describe('InstallModal component', () => {
     mockProps.app.availableVersion = '4.0.0'
     const component = shallow(<InstallModal {...mockProps} />).getElement()
     expect(component).toMatchSnapshot()
-    expect(mockProps.onAlreadyInstalled.mock.calls.length).toBe(0)
+    expect(mockProps.onInstalled.mock.calls.length).toBe(0)
   })
 
   it('should not break the permissions part if no permissions property found in manifest', () => {
@@ -95,20 +95,20 @@ describe('InstallModal component', () => {
     expect(wrapper.state().activeTrap).toBe(false)
   })
 
-  it('calls onAlreadyInstalled if app installed without update', () => {
+  it('calls onInstalled if app installed without update', () => {
     const mockProps = getMockProps(true)
     mockProps.app.installed = true
     shallow(<InstallModal {...mockProps} />)
-    expect(mockProps.onAlreadyInstalled.mock.calls.length).toBe(1)
+    expect(mockProps.onInstalled.mock.calls.length).toBe(1)
   })
 
-  it('calls onAlreadyInstalled if app status updated to installed', () => {
+  it('calls onInstalled if app status updated to installed', () => {
     const mockProps = getMockProps(true)
     mockProps.app.installed = false
     const wrapper = shallow(<InstallModal {...mockProps} />)
-    expect(mockProps.onAlreadyInstalled.mock.calls.length).toBe(0)
+    expect(mockProps.onInstalled.mock.calls.length).toBe(0)
     mockProps.app.installed = true
     wrapper.setProps(mockProps)
-    expect(mockProps.onAlreadyInstalled.mock.calls.length).toBe(1)
+    expect(mockProps.onInstalled.mock.calls.length).toBe(1)
   })
 })

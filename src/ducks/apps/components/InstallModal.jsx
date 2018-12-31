@@ -21,9 +21,9 @@ export class InstallModal extends Component {
   }
 
   handleInstalledStatus = () => {
-    const { app, onAlreadyInstalled } = this.props
+    const { app, onInstalled } = this.props
     if (app.installed && !hasPendingUpdate(app)) {
-      onAlreadyInstalled()
+      onInstalled()
     }
   }
 
@@ -67,7 +67,7 @@ export class InstallModal extends Component {
 InstallModal.propTypes = {
   app: PropTypes.object.isRequired,
   dismissAction: PropTypes.func.isRequired,
-  onAlreadyInstalled: PropTypes.func.isRequired,
+  onInstalled: PropTypes.func.isRequired,
   onSuccess: PropTypes.func.isRequired
 }
 
