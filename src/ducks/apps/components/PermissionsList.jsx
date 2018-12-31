@@ -48,7 +48,14 @@ const getProcessedPermissions = (t, app) => {
     const linxoType = 'io.cozy.accounts'
     external.push(
       <Permission
-        description={t('permissions.linxo')}
+        description={
+          app.partnership && app.partnership.name && app.partnership.domain
+            ? t('permissions.banking', {
+                name: app.partnersip.name,
+                domain: app.partnership.domain
+              })
+            : t('permissions.linxo')
+        }
         label={t(`doctypes.${linxoType}`)}
         type={linxoType}
         key={linxoType}

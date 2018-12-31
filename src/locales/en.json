@@ -263,6 +263,7 @@
 
   "permissions": {
     "linxo": "Display your banking accounts in your Cozy, thanks to the secured connexion to your bank by our partner Linxo ([linxo.com](https://linxo.com))",
+    "banking": "Display your banking accounts in your Cozy, thanks to the secured connexion to your bank by our partner %{name} ([%{domain}](https://%{domain}))",
     "reason": "**Reason: **",
     "developer_default": "The developer of this application",
     "description": {
