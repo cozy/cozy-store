@@ -27,10 +27,6 @@ export class InstallModal extends Component {
     }
   }
 
-  mountTrap = () => {
-    this.setState({ activeTrap: true })
-  }
-
   unmountTrap = () => {
     this.setState({ activeTrap: false })
   }
@@ -44,7 +40,6 @@ export class InstallModal extends Component {
       channel,
       isAppFetching
     } = this.props
-    if (!app) return null
     return (
       <div className="sto-modal--install">
         <FocusTrap

@@ -19,14 +19,14 @@ sinonStubPromise(sinon)
 
 const mockError = new Error('This is a test error')
 
-const getMockProps = (slug, fromRegistry = null) => ({
+const getMockProps = (fromRegistry = false) => ({
   app: fromRegistry
     ? Object.assign(
         {},
-        fromRegistry.manifest,
-        mockApps.find(a => a.slug === slug)
+        mockAppVersion.manifest,
+        mockApps.find(a => a.slug === 'photos')
       )
-    : mockApps.find(a => a.slug === slug),
+    : mockApps.find(a => a.slug === 'photos'),
   dismissAction: jest.fn(),
   parent: '/discover',
   onAlreadyInstalled: jest.fn(),
@@ -62,20 +62,18 @@ describe('InstallModal component', () => {
   })
 
   it('should be rendered correctly if app found', () => {
-    const component = shallow(
-      <InstallModal {...getMockProps('photos')} />
-    ).getElement()
+    const component = shallow(<InstallModal {...getMockProps()} />).getElement()
     expect(component).toMatchSnapshot()
   })
 
   it('should be rendered correctly with also app in registry', () => {
-    const mockProps = getMockProps('photos', mockAppVersion)
+    const mockProps = getMockProps(true)
     const component = shallow(<InstallModal {...mockProps} />).getElement()
     expect(component).toMatchSnapshot()
   })
 
   it('should be rendered correctly to update app with availableVersion', () => {
-    const mockProps = getMockProps('photos', mockAppVersion)
+    const mockProps = getMockProps(true)
     mockProps.app.installed = true
     mockProps.app.availableVersion = '4.0.0'
     const component = shallow(<InstallModal {...mockProps} />).getElement()
@@ -84,16 +82,33 @@ describe('InstallModal component', () => {
   })
 
   it('should not break the permissions part if no permissions property found in manifest', () => {
-    const mockProps = getMockProps('photos', mockAppVersion)
+    const mockProps = getMockProps(true)
     delete mockProps.app.permissions
     const component = shallow(<InstallModal {...mockProps} />).getElement()
     expect(component).toMatchSnapshot()
   })
 
-  it('calls onAlreadyInstalled', () => {
-    const mockProps = getMockProps('photos', mockAppVersion)
+  it('should handle focus trop correctly', () => {
+    const wrapper = shallow(<InstallModal {...getMockProps()} />)
+    expect(wrapper.state().activeTrap).toBe(true)
+    wrapper.instance().unmountTrap()
+    expect(wrapper.state().activeTrap).toBe(false)
+  })
+
+  it('calls onAlreadyInstalled if app installed without update', () => {
+    const mockProps = getMockProps(true)
     mockProps.app.installed = true
     shallow(<InstallModal {...mockProps} />)
+    expect(mockProps.onAlreadyInstalled.mock.calls.length).toBe(1)
+  })
+
+  it('calls onAlreadyInstalled if app status updated to installed', () => {
+    const mockProps = getMockProps(true)
+    mockProps.app.installed = false
+    const wrapper = shallow(<InstallModal {...mockProps} />)
+    expect(mockProps.onAlreadyInstalled.mock.calls.length).toBe(0)
+    mockProps.app.installed = true
+    wrapper.setProps(mockProps)
     expect(mockProps.onAlreadyInstalled.mock.calls.length).toBe(1)
   })
 })
