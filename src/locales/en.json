@@ -247,20 +247,6 @@
     }
   },
 
-  "HiddenInstallerView": {
-    "title": "Application installation",
-    "install_error": "An error occured while installing %{slug}",
-    "update_error": "An error occured while updating %{slug}",
-    "conflict": "An application with the same slug already exists. Please change it.",
-    "update": "Update",
-    "konnector": "Konnector",
-    "slug": "Slug",
-    "source": "Source",
-    "source_examples": "#### Source documentation: \n* `registry://`: to install an application from __the instance registries__ \n* `git://` or `git+ssh://`: to install an application from __a git repository__ \n* `http://` or `https://`: to install an application from __an http(s) server (via a tarball)__ \n#### Source examples: \n* `registry://drive/stable`, `registry://drive/beta`, or `registry://drive/dev` \n* `git://github.com/cozy/cozy-collect.git#build` \n* `https://github.com/cozy/cozy-collect/archive/v3.0.3.tar.gz` \n#### [Link to complete cozy-stack docs](https://cozy.github.io/cozy-stack/apps.html#sources)",
-    "source_placeholder": "See examples above",
-    "install": "Install"
-  },
-
   "permissions": {
     "linxo": "Display your banking accounts in your Cozy, thanks to the secured connexion to your bank by our partner Linxo ([linxo.com](https://linxo.com))",
     "banking": "Display your banking accounts in your Cozy, thanks to the secured connexion to your bank by our partner %{name} ([%{domain}](https://%{domain}))",
