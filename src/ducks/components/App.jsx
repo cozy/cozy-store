@@ -26,7 +26,7 @@ export class App extends Component {
     // quitting channel modal, so we restore the previous app state
     if (
       this.props.location.pathname !== prevProps.location.pathname &&
-      prevProps.location.pathname.match(/.*\/channel\/.*/)
+      prevProps.location.pathname.match(/.*\/(channel\/|install).*/)
     ) {
       this.props.restoreSavedApp()
     }
