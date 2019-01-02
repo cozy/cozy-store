@@ -30,7 +30,7 @@ const getMockProps = () => ({
   dismissAction: jest.fn(),
   onCurrentChannel: jest.fn(),
   onNotHandled: jest.fn(),
-  fetchApp: jest.fn(),
+  fetchLatestApp: jest.fn(),
   onSuccess: jest.fn(app => {
     if (app.slug === 'photos' || app.slug === 'konnector-bouilligue') {
       return sinon
@@ -63,8 +63,9 @@ describe('ChannelModal component', () => {
     const mockProps = getMockProps()
     const component = shallow(<ChannelModal {...mockProps} />).getElement()
     expect(component).toMatchSnapshot()
-    expect(mockProps.fetchApp.mock.calls.length).toBe(1)
-    expect(mockProps.fetchApp.mock.calls[0][0]).toBe(mockProps.channel)
+    expect(mockProps.fetchLatestApp.mock.calls.length).toBe(1)
+    expect(mockProps.fetchLatestApp.mock.calls[0][0]).toBe(mockProps.app)
+    expect(mockProps.fetchLatestApp.mock.calls[0][1]).toBe(mockProps.channel)
   })
 
   it('should call onNotHandled if app not installed', () => {
@@ -72,7 +73,7 @@ describe('ChannelModal component', () => {
     mockProps.app.installed = false
     shallow(<ChannelModal {...mockProps} />).getElement()
     expect(mockProps.onNotHandled.mock.calls.length).toBe(1)
-    expect(mockProps.fetchApp.mock.calls.length).toBe(0)
+    expect(mockProps.fetchLatestApp.mock.calls.length).toBe(0)
   })
 
   it('should call onNotHandled if app not from registry', () => {
@@ -80,7 +81,7 @@ describe('ChannelModal component', () => {
     mockProps.app.isInRegistry = false
     shallow(<ChannelModal {...mockProps} />).getElement()
     expect(mockProps.onNotHandled.mock.calls.length).toBe(1)
-    expect(mockProps.fetchApp.mock.calls.length).toBe(0)
+    expect(mockProps.fetchLatestApp.mock.calls.length).toBe(0)
   })
 
   it('should not break the permissions part if no permissions property found in manifest', () => {
@@ -97,34 +98,12 @@ describe('ChannelModal component', () => {
     expect(wrapper.state().activeTrap).toBe(false)
   })
 
-  it('dismiss method should refetch app if previousChannel', () => {
-    const mockProps = getMockProps()
-    const wrapper = shallow(<ChannelModal {...mockProps} />)
-    expect(mockProps.fetchApp.mock.calls.length).toBe(1)
-    wrapper.instance().dismiss()
-    expect(mockProps.fetchApp.mock.calls.length).toBe(2)
-    expect(mockProps.fetchApp.mock.calls[1][0]).toBe(
-      wrapper.state().previousChannel
-    )
-  })
-
-  it('dismiss method should not refetch app if no previousChannel', () => {
-    const mockProps = getMockProps()
-    const wrapper = shallow(<ChannelModal {...mockProps} />)
-    expect(mockProps.fetchApp.mock.calls.length).toBe(1)
-    wrapper.instance().dismiss()
-    expect(mockProps.fetchApp.mock.calls.length).toBe(2)
-    expect(mockProps.fetchApp.mock.calls[1][0]).toBe(
-      wrapper.state().previousChannel
-    )
-  })
-
   it('calls onCurrentChannel if app already on asked channel', () => {
     const mockProps = getMockProps()
     mockProps.app.source = 'registry://photos/beta'
     shallow(<ChannelModal {...mockProps} />)
     expect(mockProps.onCurrentChannel.mock.calls.length).toBe(1)
-    expect(mockProps.fetchApp.mock.calls.length).toBe(0)
+    expect(mockProps.fetchLatestApp.mock.calls.length).toBe(0)
   })
 
   it('calls onCurrentChannel on update only if app changed to asked channel', () => {
