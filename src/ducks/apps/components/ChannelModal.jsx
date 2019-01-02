@@ -41,7 +41,7 @@ export class ChannelModal extends Component {
     }
   }
 
-  async dismiss() {
+  dismiss = async () => {
     const { dismissAction, fetchApp } = this.props
     const { previousChannel } = this.state
     // fetch previous channel if channel switch canceled
