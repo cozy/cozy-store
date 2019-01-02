@@ -142,7 +142,7 @@ export function _getRegistryAssetsLinks(manifest, appVersion) {
     manifest.partnership.icon &&
     `${cozy.client._url}/registry/${
       manifest.slug
-    }/${appVersion}/parternship_icon`
+    }/${appVersion}/partnership_icon`
   return {
     screenshotsLinks,
     iconLink,
