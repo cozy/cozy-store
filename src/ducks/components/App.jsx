@@ -8,7 +8,7 @@ import { translate } from 'cozy-ui/react/I18n'
 import IntentRedirect from './intents/IntentRedirect'
 import Sidebar from './Sidebar'
 
-import { initApp, restoreSavedApp } from '../apps'
+import { initApp, restoreAppIfSaved } from '../apps'
 import { Discover, MyApplications } from '../apps/Containers'
 
 import { Layout, Main } from 'cozy-ui/react/Layout'
@@ -28,7 +28,7 @@ export class App extends Component {
       this.props.location.pathname !== prevProps.location.pathname &&
       prevProps.location.pathname.match(/.*\/(channel\/|install).*/)
     ) {
-      this.props.restoreSavedApp()
+      this.props.restoreAppIfSaved()
     }
   }
 
@@ -58,7 +58,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   initApp: () => dispatch(initApp(ownProps.lang)),
-  restoreSavedApp: () => dispatch(restoreSavedApp())
+  restoreAppIfSaved: () => dispatch(restoreAppIfSaved())
 })
 
 export default hot(module)(

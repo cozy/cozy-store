@@ -248,10 +248,11 @@ const reducersTestConfig = {
     }
   },
   savedApp: {
-    saveAppAction: [{}, 'toEqual', mockAppAlone[0]],
-    saveMisformatedAppAction: [{}, 'toEqual', {}],
-    restoreAppAction: [mockAppAlone[0], 'toEqual', {}],
-    restoreMisformatedAppAction: [{ slug: 'formform' }, 'toEqual', {}]
+    saveAppAction: [null, 'toEqual', mockAppAlone[0]],
+    saveMisformatedAppAction: [null, 'toEqual', null],
+    restoreAppAction: [mockAppAlone[0], 'toEqual', null],
+    restoreMisformatedAppAction: [{ slug: 'formform' }, 'toEqual', null],
+    installAppSuccessAction: [mockAppAlone[0], 'toEqual', null]
   },
   isFetching: {
     loadingAppAction: [false, 'toBe', true],

@@ -122,12 +122,13 @@ export const list = (state = [], action = {}) => {
   }
 }
 
-export const savedApp = (state = {}, action = {}) => {
+export const savedApp = (state = null, action = {}) => {
   switch (action.type) {
     case SAVE_APP:
       return _isValidApp(action.app) ? action.app : state
     case RESTORE_APP:
-      return {}
+    case INSTALL_APP_SUCCESS: // after install we clean the previously saved app
+      return null
     default:
       return state
   }

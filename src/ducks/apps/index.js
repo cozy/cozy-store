@@ -284,9 +284,10 @@ async function _getInstalledInfos(app) {
 }
 
 /* Restore a previous saved app state into the apps list */
-export function restoreSavedApp() {
+export function restoreAppIfSaved() {
   return async (dispatch, getState) => {
-    dispatch({ type: RESTORE_APP, app: getState().apps.savedApp })
+    if (getState().apps.savedApp)
+      dispatch({ type: RESTORE_APP, app: getState().apps.savedApp })
   }
 }
 

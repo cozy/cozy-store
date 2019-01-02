@@ -6,8 +6,7 @@ export const getCurrentStatusLabel = app => {
 }
 
 export const hasPendingUpdate = app => {
-  const { availableVersion, version } = app
-  return availableVersion && availableVersion !== version
+  return !!app.availableVersion
 }
 
 export const isUnderMaintenance = app => {
