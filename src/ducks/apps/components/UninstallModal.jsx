@@ -95,7 +95,8 @@ UninstallModal.propTypes = {
 
 const mapStateToProps = (state, ownProps) => ({
   app: getAppBySlug(state, ownProps.appSlug),
-  isUninstalling: state.apps.isUninstalling
+  isUninstalling: state.apps.isUninstalling,
+  uninstallError: state.apps.actionError
 })
 
 const mapDispatchToProps = dispatch => ({

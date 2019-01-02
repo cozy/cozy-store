@@ -61,11 +61,8 @@ export class AppInstallation extends Component {
   }
 
   isInstallReady = () => {
-    const { app, isInstalling, isCanceling } = this.props
-    return (
-      !(isInstalling || isCanceling) &&
-      (!app.terms || this.state.isTermsAccepted)
-    )
+    const { app, isInstalling } = this.props
+    return !isInstalling && (!app.terms || this.state.isTermsAccepted)
   }
 
   render() {
@@ -74,18 +71,18 @@ export class AppInstallation extends Component {
       fetchError,
       installError,
       isFetching,
+      isAppFetching,
       isInstalling,
-      isCanceling,
       onCancel,
       t
     } = this.props
     const { isTermsAccepted } = this.state
-    const isFirstLoading = isFetching && !isCanceling
+    const isFetchingSomething = isFetching || isAppFetching
 
     return (
       <React.Fragment>
         <ModalHeader title={t('app_modal.install.title')} />
-        {isFirstLoading ? (
+        {isFetchingSomething ? (
           <ModalDescription>
             <div className="sto-install-loading">
               <Spinner size="xlarge" />
@@ -104,7 +101,7 @@ export class AppInstallation extends Component {
             )}
           </ModalDescription>
         )}
-        {!isFirstLoading &&
+        {!isFetchingSomething &&
           !fetchError && (
             <ModalFooter className="sto-install-footer">
               {installError && (
@@ -136,8 +133,7 @@ export class AppInstallation extends Component {
                   role="button"
                   className="c-btn c-btn--secondary"
                   onClick={onCancel}
-                  disabled={isInstalling || isCanceling}
-                  aria-busy={isCanceling}
+                  disabled={isInstalling}
                 >
                   <span>{t('app_modal.install.cancel')}</span>
                 </button>
@@ -169,6 +165,7 @@ AppInstallation.propTypes = {
 const mapStateToProps = (state, ownProps) => ({
   app: getAppBySlug(state, ownProps.appSlug),
   isFetching: state.apps.isFetching,
+  isAppFetching: state.apps.isAppFetching,
   isInstalling: state.apps.isInstalling,
   fetchError: state.apps.fetchError,
   installError: state.apps.actionError

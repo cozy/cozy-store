@@ -3,13 +3,7 @@ import { Route } from 'react-router-dom'
 
 import UninstallModal from '../UninstallModal'
 
-export const UninstallRoute = ({
-  actionError,
-  getApp,
-  isFetching,
-  parent,
-  redirectTo
-}) => (
+export const UninstallRoute = ({ getApp, isFetching, parent, redirectTo }) => (
   <Route
     path={`/${parent}/:appSlug/uninstall`}
     render={({ match }) => {
@@ -24,7 +18,6 @@ export const UninstallRoute = ({
           dismissAction={() => redirectTo(appPath)}
           onNotInstalled={() => redirectTo(appPath)}
           onSuccess={() => redirectTo(appPath)}
-          uninstallError={actionError}
         />
       )
     }}

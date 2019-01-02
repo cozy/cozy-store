@@ -32,14 +32,7 @@ export class InstallModal extends Component {
   }
 
   render() {
-    const {
-      app,
-      dismissAction,
-      isInstalling,
-      onSuccess,
-      channel,
-      isAppFetching
-    } = this.props
+    const { app, dismissAction, onSuccess, channel } = this.props
     return (
       <div className="sto-modal--install">
         <FocusTrap
@@ -51,9 +44,7 @@ export class InstallModal extends Component {
           <Modal dismissAction={dismissAction} mobileFullscreen>
             <AppInstallation
               appSlug={app.slug}
-              isFetching={isAppFetching}
               channel={channel}
-              isInstalling={isInstalling}
               onCancel={dismissAction}
               onSuccess={onSuccess}
             />

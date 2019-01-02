@@ -27,15 +27,7 @@ export class ApplicationRouting extends Component {
   }
 
   render() {
-    const {
-      isFetching,
-      isAppFetching,
-      isInstalling,
-      isUninstalling,
-      parent,
-      actionError,
-      fetchError
-    } = this.props
+    const { isFetching, parent } = this.props
     return (
       <div className="sto-modal-page" ref={this.mainPage}>
         <Route
@@ -55,28 +47,20 @@ export class ApplicationRouting extends Component {
           }}
         />
         <ChannelRoute
-          actionError={actionError}
-          fetchError={fetchError}
           getApp={this.getAppFromMatchOrSlug}
-          isAppFetching={isAppFetching}
           isFetching={isFetching}
-          isInstalling={isInstalling}
           parent={parent}
           redirectTo={this.redirectTo}
         />
         <InstallRoute
-          actionError={actionError}
           getApp={this.getAppFromMatchOrSlug}
           isFetching={isFetching}
-          isInstalling={isInstalling}
           parent={parent}
           redirectTo={this.redirectTo}
         />
         <UninstallRoute
-          actionError={actionError}
           getApp={this.getAppFromMatchOrSlug}
           isFetching={isFetching}
-          isUninstalling={isUninstalling}
           parent={parent}
           redirectTo={this.redirectTo}
         />

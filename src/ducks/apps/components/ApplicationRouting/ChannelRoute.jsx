@@ -4,16 +4,7 @@ import { Route } from 'react-router-dom'
 import ChannelModal from '../ChannelModal'
 import { REGISTRY_CHANNELS } from 'ducks/apps'
 
-export const ChannelRoute = ({
-  actionError,
-  fetchError,
-  getApp,
-  isAppFetching,
-  isFetching,
-  isInstalling,
-  parent,
-  redirectTo
-}) => (
+export const ChannelRoute = ({ getApp, isFetching, parent, redirectTo }) => (
   <Route
     path={`/${parent}/:appSlug/channel/:channel`}
     render={({ match }) => {
@@ -33,10 +24,6 @@ export const ChannelRoute = ({
           appSlug={app.slug}
           channel={channel}
           dismissAction={() => redirectTo(appPath)}
-          fetchError={fetchError}
-          installError={actionError}
-          isAppFetching={isAppFetching}
-          isInstalling={isInstalling}
           onCurrentChannel={() => redirectTo(appPath)}
           onNotHandled={() => redirectTo(appPath)}
           onSuccess={() => redirectTo(appPath)}

@@ -58,13 +58,7 @@ export class ChannelModal extends Component {
   }
 
   render() {
-    const {
-      app,
-      isInstalling,
-      onSuccess,
-      channel,
-      isAppFetching
-    } = this.props
+    const { app, onSuccess, channel } = this.props
     if (!this.isAppHandled()) return null
     return (
       <div className="sto-modal--install">
@@ -77,9 +71,7 @@ export class ChannelModal extends Component {
           <Modal dismissAction={this.dismiss} mobileFullscreen>
             <AppInstallation
               appSlug={app.slug}
-              isFetching={isAppFetching}
               channel={channel}
-              isInstalling={isInstalling}
               onCancel={this.dismiss}
               onSuccess={onSuccess}
             />
