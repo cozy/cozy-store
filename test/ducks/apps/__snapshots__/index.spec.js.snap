@@ -299,7 +299,7 @@ Object {
 exports[`Apps duck helpers _getRegistryAssetsLinks should handle partnership icon link 1`] = `
 Object {
   "iconLink": "/registry/mock/1.0.0/icon",
-  "partnershipIconLink": "//cozy.tools/registry/mock/1.0.0/parternship_icon",
+  "partnershipIconLink": "//cozy.tools/registry/mock/1.0.0/partnership_icon",
   "screenshotsLinks": undefined,
 }
 `;
