@@ -7,7 +7,6 @@ import { REGISTRY_CHANNELS } from 'ducks/apps'
 export const ChannelRoute = ({
   actionError,
   fetchError,
-  fetchLatestApp,
   getApp,
   isAppFetching,
   isFetching,
@@ -29,13 +28,11 @@ export const ChannelRoute = ({
       if (!isChannelAvailable) {
         return redirectTo(appPath)
       }
-      const fetchApp = chan => fetchLatestApp(app.slug, chan)
       return (
         <ChannelModal
           appSlug={app.slug}
           channel={channel}
           dismissAction={() => redirectTo(appPath)}
-          fetchApp={fetchApp}
           fetchError={fetchError}
           installError={actionError}
           isAppFetching={isAppFetching}

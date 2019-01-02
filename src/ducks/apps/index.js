@@ -24,7 +24,9 @@ import {
   UNINSTALL_APP_FAILURE,
   INSTALL_APP,
   INSTALL_APP_SUCCESS,
-  INSTALL_APP_FAILURE
+  INSTALL_APP_FAILURE,
+  RESTORE_APP,
+  SAVE_APP
 } from './reducers'
 
 const APP_STATE = {
@@ -281,8 +283,21 @@ async function _getInstalledInfos(app) {
   }
 }
 
-export function fetchLatestApp(lang, slug, channel = DEFAULT_CHANNEL) {
+/* Restore a previous saved app state into the apps list */
+export function restoreSavedApp() {
   return async (dispatch, getState) => {
+    dispatch({ type: RESTORE_APP, app: getState().apps.savedApp })
+  }
+}
+
+export function fetchLatestApp(
+  lang,
+  slug,
+  channel = DEFAULT_CHANNEL,
+  appToSave = null // if provided, we store it into savedApp state
+) {
+  return async (dispatch, getState) => {
+    if (appToSave) dispatch({ type: SAVE_APP, app: appToSave })
     dispatch({ type: FETCH_APP })
     let app = getState().apps.list.find(a => a.slug === slug)
     try {
@@ -305,7 +320,7 @@ export function fetchLatestApp(lang, slug, channel = DEFAULT_CHANNEL) {
       formattedApp.installed = await _getInstalledInfos(app)
       dispatch({
         type: FETCH_APP_SUCCESS,
-        apps: [formattedApp],
+        app: formattedApp,
         lang
       })
       return formattedApp

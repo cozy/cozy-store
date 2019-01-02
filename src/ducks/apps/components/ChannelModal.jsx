@@ -1,22 +1,27 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Modal from 'cozy-ui/react/Modal'
+import { translate } from 'cozy-ui/react/I18n'
 import FocusTrap from 'focus-trap-react'
 import PropTypes from 'prop-types'
 
 import AppInstallation from './AppInstallation'
 import getChannel from 'lib/getChannelFromSource'
 
-import { getAppBySlug } from 'ducks/apps'
+import { fetchLatestApp, getAppBySlug, restoreSavedApp } from 'ducks/apps'
 
 export class ChannelModal extends Component {
   constructor(props) {
     super(props)
-    const { app, channel, fetchApp, onCurrentChannel, onNotHandled } = props
+    const {
+      app,
+      channel,
+      fetchLatestApp,
+      onCurrentChannel,
+      onNotHandled
+    } = props
 
     this.state = {
-      previousChannel: getChannel(app.source),
-      isCanceling: false,
       activeTrap: true
     }
 
@@ -25,7 +30,7 @@ export class ChannelModal extends Component {
     } else if (getChannel(app.source) === channel) {
       onCurrentChannel()
     } else {
-      fetchApp(channel)
+      fetchLatestApp(app, channel)
     }
   }
 
@@ -41,14 +46,10 @@ export class ChannelModal extends Component {
     }
   }
 
-  dismiss = async () => {
-    const { dismissAction, fetchApp } = this.props
-    const { previousChannel } = this.state
-    // fetch previous channel if channel switch canceled
-    this.setState(() => ({ isCanceling: true }))
-    await fetchApp(previousChannel)
-    this.setState(() => ({ isCanceling: false }))
-
+  dismiss = () => {
+    const { dismissAction, restoreSavedApp } = this.props
+    // reste the previous app state saved just before the fetch
+    restoreSavedApp()
     dismissAction()
   }
 
@@ -59,13 +60,11 @@ export class ChannelModal extends Component {
   render() {
     const {
       app,
-      dismissAction,
       isInstalling,
       onSuccess,
       channel,
       isAppFetching
     } = this.props
-    const { isCanceling } = this.state
     if (!this.isAppHandled()) return null
     return (
       <div className="sto-modal--install">
@@ -75,13 +74,12 @@ export class ChannelModal extends Component {
             clickOutsideDeactivates: true
           }}
         >
-          <Modal dismissAction={dismissAction} mobileFullscreen>
+          <Modal dismissAction={this.dismiss} mobileFullscreen>
             <AppInstallation
               appSlug={app.slug}
               isFetching={isAppFetching}
               channel={channel}
               isInstalling={isInstalling}
-              isCanceling={isCanceling}
               onCancel={this.dismiss}
               onSuccess={onSuccess}
             />
@@ -96,14 +94,25 @@ ChannelModal.propTypes = {
   app: PropTypes.object.isRequired,
   channel: PropTypes.string.isRequired,
   dismissAction: PropTypes.func.isRequired,
-  fetchApp: PropTypes.func.isRequired,
+  fetchLatestApp: PropTypes.func.isRequired,
   onCurrentChannel: PropTypes.func.isRequired,
   onNotHandled: PropTypes.func.isRequired,
   onSuccess: PropTypes.func.isRequired
 }
 
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  fetchLatestApp: (app, channel) =>
+    dispatch(fetchLatestApp(ownProps.lang, app.slug, channel, app)),
+  restoreSavedApp: () => dispatch(restoreSavedApp())
+})
+
 const mapStateToProps = (state, ownProps) => ({
   app: getAppBySlug(state, ownProps.appSlug)
 })
 
-export default connect(mapStateToProps)(ChannelModal)
+export default translate()(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(ChannelModal)
+)

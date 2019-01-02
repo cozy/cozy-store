@@ -28,7 +28,6 @@ export class ApplicationRouting extends Component {
 
   render() {
     const {
-      fetchLatestApp,
       isFetching,
       isAppFetching,
       isInstalling,
@@ -58,7 +57,6 @@ export class ApplicationRouting extends Component {
         <ChannelRoute
           actionError={actionError}
           fetchError={fetchError}
-          fetchLatestApp={fetchLatestApp}
           getApp={this.getAppFromMatchOrSlug}
           isAppFetching={isAppFetching}
           isFetching={isFetching}

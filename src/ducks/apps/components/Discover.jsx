@@ -76,7 +76,6 @@ export class Discover extends Component {
           isInstalling={isInstalling}
           isUninstalling={isUninstalling}
           actionError={actionError}
-          fetchLatestApp={this.props.fetchLatestApp}
           parent="discover"
         />
       </Content>
