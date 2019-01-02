@@ -9,17 +9,22 @@ import { hasPendingUpdate } from 'ducks/apps/appStatus'
 export class InstallModal extends Component {
   constructor(props) {
     super(props)
-    const { app, onAlreadyInstalled } = this.props
-
     this.state = { activeTrap: true }
-
-    if (app.installed && !hasPendingUpdate(app)) {
-      onAlreadyInstalled()
-    }
   }
 
-  mountTrap = () => {
-    this.setState({ activeTrap: true })
+  componentDidMount = () => {
+    this.handleInstalledStatus()
+  }
+
+  componentDidUpdate = () => {
+    this.handleInstalledStatus()
+  }
+
+  handleInstalledStatus = () => {
+    const { app, onInstalled } = this.props
+    if (app.installed && !hasPendingUpdate(app)) {
+      onInstalled()
+    }
   }
 
   unmountTrap = () => {
@@ -35,7 +40,6 @@ export class InstallModal extends Component {
       channel,
       isAppFetching
     } = this.props
-    if (!app) return null
     return (
       <div className="sto-modal--install">
         <FocusTrap
@@ -63,7 +67,7 @@ export class InstallModal extends Component {
 InstallModal.propTypes = {
   app: PropTypes.object.isRequired,
   dismissAction: PropTypes.func.isRequired,
-  onAlreadyInstalled: PropTypes.func.isRequired,
+  onInstalled: PropTypes.func.isRequired,
   onSuccess: PropTypes.func.isRequired
 }
 

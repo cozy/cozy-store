@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChannelModal component should be rendered correctly if app found and from registry 1`] = `
+<div
+  className="sto-modal--install"
+>
+  <FocusTrap
+    _createFocusTrap={[Function]}
+    active={true}
+    focusTrapOptions={
+      Object {
+        "clickOutsideDeactivates": true,
+        "onDeactivate": [Function],
+      }
+    }
+    paused={false}
+    tag="div"
+  >
+    <Unknown
+      closable={true}
+      dismissAction={[MockFunction]}
+      mobileFullscreen={true}
+      overflowHidden={false}
+      primaryType="regular"
+      secondaryType="secondary"
+      size="small"
+    >
+      <Connect(Wrapper)
+        appSlug="photos"
+        channel="beta"
+        isCanceling={false}
+        onCancel={[Function]}
+        onSuccess={[MockFunction]}
+      />
+    </Unknown>
+  </FocusTrap>
+</div>
+`;
+
+exports[`ChannelModal component should not break the permissions part if no permissions property found in manifest 1`] = `
+<div
+  className="sto-modal--install"
+>
+  <FocusTrap
+    _createFocusTrap={[Function]}
+    active={true}
+    focusTrapOptions={
+      Object {
+        "clickOutsideDeactivates": true,
+        "onDeactivate": [Function],
+      }
+    }
+    paused={false}
+    tag="div"
+  >
+    <Unknown
+      closable={true}
+      dismissAction={[MockFunction]}
+      mobileFullscreen={true}
+      overflowHidden={false}
+      primaryType="regular"
+      secondaryType="secondary"
+      size="small"
+    >
+      <Connect(Wrapper)
+        appSlug="photos"
+        channel="beta"
+        isCanceling={false}
+        onCancel={[Function]}
+        onSuccess={[MockFunction]}
+      />
+    </Unknown>
+  </FocusTrap>
+</div>
+`;

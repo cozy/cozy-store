@@ -30,7 +30,7 @@ export const InstallRoute = ({
           app={app}
           installError={actionError}
           isInstalling={isInstalling}
-          onAlreadyInstalled={() => redirectTo(appPath)}
+          onInstalled={() => redirectTo(appPath)}
           dismissAction={() => redirectTo(appPath)}
           onSuccess={() => {
             app.type === APP_TYPE.KONNECTOR

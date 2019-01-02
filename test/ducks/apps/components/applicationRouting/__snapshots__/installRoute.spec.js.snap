@@ -37,7 +37,7 @@ exports[`InstallRoute component should display install modal if app found in the
     }
   }
   dismissAction={[Function]}
-  onAlreadyInstalled={[Function]}
+  onInstalled={[Function]}
   onSuccess={[Function]}
 />
 `;
@@ -74,7 +74,7 @@ exports[`InstallRoute component should display install modal if app found in the
     }
   }
   dismissAction={[Function]}
-  onAlreadyInstalled={[Function]}
+  onInstalled={[Function]}
   onSuccess={[Function]}
 />
 `;

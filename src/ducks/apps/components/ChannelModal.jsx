@@ -12,28 +12,26 @@ import { getAppBySlug } from 'ducks/apps'
 export class ChannelModal extends Component {
   constructor(props) {
     super(props)
-    const {
-      app,
-      channel,
-      fetchApp,
-      onCurrentChannel,
-      onNotInstalled
-    } = this.props
-
-    if (getChannel(app.source) === channel) {
-      onCurrentChannel()
-    }
-
-    if (!app.installed) {
-      onNotInstalled()
-    }
+    const { app, channel, fetchApp, onCurrentChannel, onNotHandled } = props
 
     this.state = {
-      previousChannel: channel ? getChannel(app.source) : null,
+      previousChannel: getChannel(app.source),
       isCanceling: false,
       activeTrap: true
     }
-    if (typeof fetchApp === 'function') fetchApp(channel)
+
+    if (!this.isAppHandled()) {
+      onNotHandled()
+    } else if (getChannel(app.source) === channel) {
+      onCurrentChannel()
+    } else {
+      fetchApp(channel)
+    }
+  }
+
+  isAppHandled = () => {
+    const { app } = this.props
+    return !!(app.installed && app.isInRegistry && getChannel(app.source))
   }
 
   componentDidUpdate = () => {
@@ -47,17 +45,11 @@ export class ChannelModal extends Component {
     const { dismissAction, fetchApp } = this.props
     const { previousChannel } = this.state
     // fetch previous channel if channel switch canceled
-    if (previousChannel && typeof fetchApp === 'function') {
-      this.setState(() => ({ isCanceling: true }))
-      await fetchApp(previousChannel)
-      this.setState(() => ({ isCanceling: false }))
-    }
+    this.setState(() => ({ isCanceling: true }))
+    await fetchApp(previousChannel)
+    this.setState(() => ({ isCanceling: false }))
 
     dismissAction()
-  }
-
-  mountTrap = () => {
-    this.setState({ activeTrap: true })
   }
 
   unmountTrap = () => {
@@ -74,7 +66,7 @@ export class ChannelModal extends Component {
       isAppFetching
     } = this.props
     const { isCanceling } = this.state
-    if (!app) return null
+    if (!this.isAppHandled()) return null
     return (
       <div className="sto-modal--install">
         <FocusTrap
@@ -90,7 +82,7 @@ export class ChannelModal extends Component {
               channel={channel}
               isInstalling={isInstalling}
               isCanceling={isCanceling}
-              onCancel={() => this.dismiss()}
+              onCancel={this.dismiss}
               onSuccess={onSuccess}
             />
           </Modal>
@@ -104,8 +96,9 @@ ChannelModal.propTypes = {
   app: PropTypes.object.isRequired,
   channel: PropTypes.string.isRequired,
   dismissAction: PropTypes.func.isRequired,
+  fetchApp: PropTypes.func.isRequired,
   onCurrentChannel: PropTypes.func.isRequired,
-  onNotInstalled: PropTypes.func.isRequired,
+  onNotHandled: PropTypes.func.isRequired,
   onSuccess: PropTypes.func.isRequired
 }
 
