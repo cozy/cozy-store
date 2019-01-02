@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
 import AppInstallation from './AppInstallation'
 import getChannel from 'lib/getChannelFromSource'
 
-import { fetchLatestApp, getAppBySlug, restoreSavedApp } from 'ducks/apps'
+import { fetchLatestApp, getAppBySlug } from 'ducks/apps'
 
 export class ChannelModal extends Component {
   constructor(props) {
@@ -46,19 +46,12 @@ export class ChannelModal extends Component {
     }
   }
 
-  dismiss = () => {
-    const { dismissAction, restoreSavedApp } = this.props
-    // reste the previous app state saved just before the fetch
-    restoreSavedApp()
-    dismissAction()
-  }
-
   unmountTrap = () => {
     this.setState({ activeTrap: false })
   }
 
   render() {
-    const { app, onSuccess, channel } = this.props
+    const { app, onSuccess, channel, dismissAction } = this.props
     if (!this.isAppHandled()) return null
     return (
       <div className="sto-modal--install">
@@ -68,11 +61,11 @@ export class ChannelModal extends Component {
             clickOutsideDeactivates: true
           }}
         >
-          <Modal dismissAction={this.dismiss} mobileFullscreen>
+          <Modal dismissAction={dismissAction} mobileFullscreen>
             <AppInstallation
               appSlug={app.slug}
               channel={channel}
-              onCancel={this.dismiss}
+              onCancel={dismissAction}
               onSuccess={onSuccess}
             />
           </Modal>
@@ -94,8 +87,7 @@ ChannelModal.propTypes = {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchLatestApp: (app, channel) =>
-    dispatch(fetchLatestApp(ownProps.lang, app.slug, channel, app)),
-  restoreSavedApp: () => dispatch(restoreSavedApp())
+    dispatch(fetchLatestApp(ownProps.lang, app.slug, channel, app))
 })
 
 const mapStateToProps = (state, ownProps) => ({

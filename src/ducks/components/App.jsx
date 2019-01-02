@@ -8,7 +8,7 @@ import { translate } from 'cozy-ui/react/I18n'
 import IntentRedirect from './intents/IntentRedirect'
 import Sidebar from './Sidebar'
 
-import { initApp } from '../apps'
+import { initApp, restoreSavedApp } from '../apps'
 import { Discover, MyApplications } from '../apps/Containers'
 
 import { Layout, Main } from 'cozy-ui/react/Layout'
@@ -19,6 +19,17 @@ export class App extends Component {
   constructor(props) {
     super(props)
     props.initApp() // fetch apps without icons
+  }
+
+  componentDidUpdate(prevProps) {
+    if (!this.props.location) return
+    // quitting channel modal, so we restore the previous app state
+    if (
+      this.props.location.pathname !== prevProps.location.pathname &&
+      prevProps.location.pathname.match(/.*\/channel\/.*/)
+    ) {
+      this.props.restoreSavedApp()
+    }
   }
 
   render() {
@@ -46,7 +57,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  initApp: () => dispatch(initApp(ownProps.lang))
+  initApp: () => dispatch(initApp(ownProps.lang)),
+  restoreSavedApp: () => dispatch(restoreSavedApp())
 })
 
 export default hot(module)(
