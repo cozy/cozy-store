@@ -152,6 +152,8 @@ export const isAppFetching = (state = false, action = {}) => {
     case LOADING_APP_INTENT:
     case FETCH_APP:
       return true
+    case RESTORE_APP: // restoring the saved app cancels the app fetching
+      return _isValidApp(action.app) ? false : state
     case FETCH_APP_SUCCESS:
     case FETCH_APP_FAILURE:
       return false

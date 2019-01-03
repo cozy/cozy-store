@@ -264,7 +264,9 @@ const reducersTestConfig = {
     loadingAppIntentAction: [false, 'toBe', true],
     fetchAppAction: [false, 'toBe', true],
     fetchAppErrorAction: [true, 'toBe', false],
-    fetchAppSuccessAction: [true, 'toBe', false]
+    fetchAppSuccessAction: [true, 'toBe', false],
+    restoreAppAction: [true, 'toBe', false],
+    restoreMisformatedAppAction: [true, 'toBe', true]
   },
   isInstalling: {
     installAppAction: [false, 'toBe', true],

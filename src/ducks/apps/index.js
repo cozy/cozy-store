@@ -319,11 +319,15 @@ export function fetchLatestApp(
     try {
       const formattedApp = await getFormattedRegistryApp(app, channel)
       formattedApp.installed = await _getInstalledInfos(app)
-      dispatch({
-        type: FETCH_APP_SUCCESS,
-        app: formattedApp,
-        lang
-      })
+      // dispatch the app only if we are still in fetching status
+      // (meant that the fetch has not been cancelled by a RESTORE_APP action)
+      if (getState().apps.isAppFetching) {
+        dispatch({
+          type: FETCH_APP_SUCCESS,
+          app: formattedApp,
+          lang
+        })
+      }
       return formattedApp
     } catch (err) {
       if (err.status === 404) {
