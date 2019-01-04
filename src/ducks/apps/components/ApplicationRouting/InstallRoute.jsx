@@ -5,14 +5,7 @@ import InstallModal from '../InstallModal'
 
 import { APP_TYPE } from 'ducks/apps'
 
-export const InstallRoute = ({
-  actionError,
-  getApp,
-  isFetching,
-  isInstalling,
-  parent,
-  redirectTo
-}) => (
+export const InstallRoute = ({ getApp, isFetching, parent, redirectTo }) => (
   <Route
     path={`/${parent}/:appSlug/install`}
     render={({ match }) => {
@@ -28,8 +21,6 @@ export const InstallRoute = ({
       return (
         <InstallModal
           app={app}
-          installError={actionError}
-          isInstalling={isInstalling}
           onInstalled={() => redirectTo(appPath)}
           dismissAction={() => redirectTo(appPath)}
           onSuccess={() => {

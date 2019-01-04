@@ -20,7 +20,10 @@ import {
   INSTALL_APP,
   INSTALL_APP_SUCCESS,
   INSTALL_APP_FAILURE,
+  RESTORE_APP,
+  SAVE_APP,
   list,
+  savedApp,
   isFetching,
   isAppFetching,
   isInstalling,
@@ -39,6 +42,7 @@ const mockAppAlone = [mockApp.manifest]
 
 const reducersMap = new Map([
   ['list', list],
+  ['savedApp', savedApp],
   ['isFetching', isFetching],
   ['isAppFetching', isAppFetching],
   ['isInstalling', isInstalling],
@@ -80,12 +84,27 @@ const actionsMap = new Map([
     {
       fetchAppAction: { type: FETCH_APP },
       fetchAppSuccessAction: {
-        apps: mockAppAlone,
+        app: mockAppAlone[0],
         type: FETCH_APP_SUCCESS
       },
       fetchAppErrorAction: {
         error: mockError,
         type: FETCH_APP_FAILURE
+      }
+    }
+  ],
+  [
+    'SAVE/RESTORE_APP',
+    {
+      saveAppAction: { type: SAVE_APP, app: mockAppAlone[0] },
+      saveMisformatedAppAction: { type: SAVE_APP, app: { slug: 'mismis' } },
+      restoreAppAction: {
+        app: mockAppAlone[0],
+        type: RESTORE_APP
+      },
+      restoreMisformatedAppAction: {
+        app: { slug: 'mismis' },
+        type: RESTORE_APP
       }
     }
   ],
@@ -205,7 +224,35 @@ const reducersTestConfig = {
     ],
     fetchAppsSuccessAction: [[], 'toEqual', getMockApps()],
     fetchRegistryAppsSuccessAction: [[], 'toEqual', mockRegistryApps],
-    fetchAppSuccessAction: [[], 'toEqual', mockAppAlone]
+    fetchAppSuccessAction: [[], 'toEqual', mockAppAlone],
+    restoreMisformatedAppAction: [getMockApps(), 'toEqual', getMockApps()],
+    restoreAppAction: {
+      multiple: [
+        [
+          [],
+          'toEqual',
+          [actionsMap.get('SAVE/RESTORE_APP').restoreAppAction.app]
+        ],
+        [
+          [
+            {
+              slug: actionsMap.get('SAVE/RESTORE_APP').restoreAppAction.app
+                .slug,
+              customProp: 'mustBeRemoved'
+            }
+          ],
+          'toEqual',
+          [actionsMap.get('SAVE/RESTORE_APP').restoreAppAction.app]
+        ]
+      ]
+    }
+  },
+  savedApp: {
+    saveAppAction: [null, 'toEqual', mockAppAlone[0]],
+    saveMisformatedAppAction: [null, 'toEqual', null],
+    restoreAppAction: [mockAppAlone[0], 'toEqual', null],
+    restoreMisformatedAppAction: [{ slug: 'formform' }, 'toEqual', null],
+    installAppSuccessAction: [mockAppAlone[0], 'toEqual', null]
   },
   isFetching: {
     loadingAppAction: [false, 'toBe', true],
@@ -217,7 +264,9 @@ const reducersTestConfig = {
     loadingAppIntentAction: [false, 'toBe', true],
     fetchAppAction: [false, 'toBe', true],
     fetchAppErrorAction: [true, 'toBe', false],
-    fetchAppSuccessAction: [true, 'toBe', false]
+    fetchAppSuccessAction: [true, 'toBe', false],
+    restoreAppAction: [true, 'toBe', false],
+    restoreMisformatedAppAction: [true, 'toBe', true]
   },
   isInstalling: {
     installAppAction: [false, 'toBe', true],

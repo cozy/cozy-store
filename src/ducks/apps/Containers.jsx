@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { translate } from 'cozy-ui/react/I18n'
 
-import { fetchLatestApp, getInstalledApps, getRegistryApps } from './index'
+import { getInstalledApps, getRegistryApps } from './index'
 
 import DiscoverComponent from './components/Discover'
 import MyApplicationsComponent from './components/MyApplications'
@@ -19,23 +19,10 @@ const mapStateToProps = state => ({
   fetchError: state.apps.fetchError
 })
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  fetchLatestApp: (slug, channel) =>
-    dispatch(fetchLatestApp(ownProps.lang, slug, channel))
-})
-
-export const Discover = translate()(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(DiscoverComponent)
-)
+export const Discover = translate()(connect(mapStateToProps)(DiscoverComponent))
 
 export const MyApplications = translate()(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(MyApplicationsComponent)
+  connect(mapStateToProps)(MyApplicationsComponent)
 )
 
 export const SidebarCategories = withRouter(

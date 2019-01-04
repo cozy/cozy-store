@@ -29,6 +29,7 @@ const getMockProps = (fromRegistry = false) => ({
     : mockApps.find(a => a.slug === 'photos'),
   dismissAction: jest.fn(),
   parent: '/discover',
+  fetchLatestApp: jest.fn(),
   onInstalled: jest.fn(),
   onSuccess: jest.fn(app => {
     if (app.slug === 'photos' || app.slug === 'konnector-bouilligue') {
@@ -99,16 +100,6 @@ describe('InstallModal component', () => {
     const mockProps = getMockProps(true)
     mockProps.app.installed = true
     shallow(<InstallModal {...mockProps} />)
-    expect(mockProps.onInstalled.mock.calls.length).toBe(1)
-  })
-
-  it('calls onInstalled if app status updated to installed', () => {
-    const mockProps = getMockProps(true)
-    mockProps.app.installed = false
-    const wrapper = shallow(<InstallModal {...mockProps} />)
-    expect(mockProps.onInstalled.mock.calls.length).toBe(0)
-    mockProps.app.installed = true
-    wrapper.setProps(mockProps)
     expect(mockProps.onInstalled.mock.calls.length).toBe(1)
   })
 })

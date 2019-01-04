@@ -67,7 +67,13 @@ describe('Apps duck actions', () => {
       if (url.match(/\/konnectors/))
         return Promise.reject(new Error('Mock error'))
     })
-    const store = mockStore(storeInitialeState)
+    // we have to manually update the store state
+    const storeState = {
+      apps: Object.assign({}, storeInitialeState.apps, {
+        isAppFetching: true
+      })
+    }
+    const store = mockStore(storeState)
     await store.dispatch(initAppIntent('en', testSlug))
     const actions = store.getActions()
     expect(actions).toMatchSnapshot()
@@ -84,7 +90,13 @@ describe('Apps duck actions', () => {
       if (url.match(/\/konnectors/))
         return Promise.reject(new Error('Mock error'))
     })
-    const store = mockStore(storeInitialeState)
+    // we have to manually update the store state
+    const storeState = {
+      apps: Object.assign({}, storeInitialeState.apps, {
+        isAppFetching: true
+      })
+    }
+    const store = mockStore(storeState)
     await store.dispatch(initAppIntent('en', testSlug))
     const actions = store.getActions()
     expect(actions).toMatchSnapshot()

@@ -1,11 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ChannelRoute component should display install modal if app found and in the registry and installed 1`] = `
-<Connect(ChannelModal)
+<Wrapper
   appSlug="collect"
   channel="beta"
   dismissAction={[Function]}
-  fetchApp={[Function]}
   onCurrentChannel={[Function]}
   onNotHandled={[Function]}
   onSuccess={[Function]}
@@ -13,11 +12,10 @@ exports[`ChannelRoute component should display install modal if app found and in
 `;
 
 exports[`ChannelRoute component should display install modal if app found and in the registry even if not installed 1`] = `
-<Connect(ChannelModal)
+<Wrapper
   appSlug="photos"
   channel="beta"
   dismissAction={[Function]}
-  fetchApp={[Function]}
   onCurrentChannel={[Function]}
   onNotHandled={[Function]}
   onSuccess={[Function]}

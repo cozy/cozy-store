@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import Modal from 'cozy-ui/react/Modal'
 import FocusTrap from 'focus-trap-react'
+import { translate } from 'cozy-ui/react/I18n'
 
 import AppInstallation from './AppInstallation'
 import { hasPendingUpdate } from 'ducks/apps/appStatus'
+import { fetchLatestApp } from 'ducks/apps'
 
 export class InstallModal extends Component {
   constructor(props) {
@@ -13,11 +16,11 @@ export class InstallModal extends Component {
   }
 
   componentDidMount = () => {
+    const { app, fetchLatestApp } = this.props
     this.handleInstalledStatus()
-  }
-
-  componentDidUpdate = () => {
-    this.handleInstalledStatus()
+    if (hasPendingUpdate(app)) {
+      fetchLatestApp(app)
+    }
   }
 
   handleInstalledStatus = () => {
@@ -32,14 +35,7 @@ export class InstallModal extends Component {
   }
 
   render() {
-    const {
-      app,
-      dismissAction,
-      isInstalling,
-      onSuccess,
-      channel,
-      isAppFetching
-    } = this.props
+    const { app, dismissAction, onSuccess, channel } = this.props
     return (
       <div className="sto-modal--install">
         <FocusTrap
@@ -51,9 +47,7 @@ export class InstallModal extends Component {
           <Modal dismissAction={dismissAction} mobileFullscreen>
             <AppInstallation
               appSlug={app.slug}
-              isFetching={isAppFetching}
               channel={channel}
-              isInstalling={isInstalling}
               onCancel={dismissAction}
               onSuccess={onSuccess}
             />
@@ -71,4 +65,14 @@ InstallModal.propTypes = {
   onSuccess: PropTypes.func.isRequired
 }
 
-export default InstallModal
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  fetchLatestApp: app =>
+    dispatch(fetchLatestApp(ownProps.lang, app.slug, undefined, app))
+})
+
+export default translate()(
+  connect(
+    null,
+    mapDispatchToProps
+  )(InstallModal)
+)

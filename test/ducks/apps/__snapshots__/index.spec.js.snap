@@ -177,55 +177,53 @@ Array [
     "type": "FETCH_APP",
   },
   Object {
-    "apps": Array [
-      Object {
-        "categories": Array [
-          "cozy",
-        ],
-        "developer": Object {
-          "name": "Cozy",
+    "app": Object {
+      "categories": Array [
+        "cozy",
+      ],
+      "developer": Object {
+        "name": "Cozy",
+      },
+      "editor": "Cozy",
+      "icon": "<svg></svg>",
+      "installed": true,
+      "isInRegistry": true,
+      "links": Object {
+        "icon": "/registry/collect/3.0.0/icon",
+      },
+      "name": "Collect",
+      "name_prefix": "Cozy",
+      "permissions": Object {
+        "mock": Object {
+          "type": "io.mock.doctype",
         },
-        "editor": "Cozy",
-        "icon": "<svg></svg>",
-        "installed": true,
-        "isInRegistry": true,
-        "links": Object {
-          "icon": "/registry/collect/3.0.0/icon",
-        },
-        "name": "Collect",
-        "name_prefix": "Cozy",
-        "permissions": Object {
-          "mock": Object {
-            "type": "io.mock.doctype",
-          },
-          "mock2": Object {
-            "type": "io.mock.doctype2",
-          },
-        },
-        "slug": "collect",
-        "tags": Array [
-          "konnector",
-          "collect",
-          "bills",
-          "providers",
-          "files",
-        ],
-        "type": "webapp",
-        "uninstallable": true,
-        "version": "3.0.0",
-        "versions": Object {
-          "beta": Array [
-            "3.0.0",
-          ],
-          "dev": Array [
-            "3.0.0",
-          ],
-          "stable": Array [
-            "3.0.0",
-          ],
+        "mock2": Object {
+          "type": "io.mock.doctype2",
         },
       },
-    ],
+      "slug": "collect",
+      "tags": Array [
+        "konnector",
+        "collect",
+        "bills",
+        "providers",
+        "files",
+      ],
+      "type": "webapp",
+      "uninstallable": true,
+      "version": "3.0.0",
+      "versions": Object {
+        "beta": Array [
+          "3.0.0",
+        ],
+        "dev": Array [
+          "3.0.0",
+        ],
+        "stable": Array [
+          "3.0.0",
+        ],
+      },
+    },
     "lang": "en",
     "type": "FETCH_APP_SUCCESS",
   },
@@ -241,39 +239,37 @@ Array [
     "type": "FETCH_APP",
   },
   Object {
-    "apps": Array [
-      Object {
-        "categories": Array [
-          "isp",
-          "telecom",
-        ],
-        "developer": Object {
-          "name": "Cozy",
-        },
-        "icon": "<svg></svg>",
-        "installed": false,
-        "isInRegistry": true,
-        "links": Object {
-          "icon": "/registry/konnector-bouilligue/0.1.0/icon",
-        },
-        "name": "Bouilligue",
-        "slug": "konnector-bouilligue",
-        "type": "konnector",
-        "uninstallable": true,
-        "version": "0.1.0",
-        "versions": Object {
-          "beta": Array [
-            "0.1.0",
-          ],
-          "dev": Array [
-            "0.1.0",
-          ],
-          "stable": Array [
-            "0.1.0",
-          ],
-        },
+    "app": Object {
+      "categories": Array [
+        "isp",
+        "telecom",
+      ],
+      "developer": Object {
+        "name": "Cozy",
       },
-    ],
+      "icon": "<svg></svg>",
+      "installed": false,
+      "isInRegistry": true,
+      "links": Object {
+        "icon": "/registry/konnector-bouilligue/0.1.0/icon",
+      },
+      "name": "Bouilligue",
+      "slug": "konnector-bouilligue",
+      "type": "konnector",
+      "uninstallable": true,
+      "version": "0.1.0",
+      "versions": Object {
+        "beta": Array [
+          "0.1.0",
+        ],
+        "dev": Array [
+          "0.1.0",
+        ],
+        "stable": Array [
+          "0.1.0",
+        ],
+      },
+    },
     "lang": "en",
     "type": "FETCH_APP_SUCCESS",
   },

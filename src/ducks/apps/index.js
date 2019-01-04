@@ -24,7 +24,9 @@ import {
   UNINSTALL_APP_FAILURE,
   INSTALL_APP,
   INSTALL_APP_SUCCESS,
-  INSTALL_APP_FAILURE
+  INSTALL_APP_FAILURE,
+  RESTORE_APP,
+  SAVE_APP
 } from './reducers'
 
 const APP_STATE = {
@@ -281,8 +283,22 @@ async function _getInstalledInfos(app) {
   }
 }
 
-export function fetchLatestApp(lang, slug, channel = DEFAULT_CHANNEL) {
+/* Restore a previous saved app state into the apps list */
+export function restoreAppIfSaved() {
   return async (dispatch, getState) => {
+    if (getState().apps.savedApp)
+      dispatch({ type: RESTORE_APP, app: getState().apps.savedApp })
+  }
+}
+
+export function fetchLatestApp(
+  lang,
+  slug,
+  channel = DEFAULT_CHANNEL,
+  appToSave = null // if provided, we store it into savedApp state
+) {
+  return async (dispatch, getState) => {
+    if (appToSave) dispatch({ type: SAVE_APP, app: appToSave })
     dispatch({ type: FETCH_APP })
     let app = getState().apps.list.find(a => a.slug === slug)
     try {
@@ -303,11 +319,15 @@ export function fetchLatestApp(lang, slug, channel = DEFAULT_CHANNEL) {
     try {
       const formattedApp = await getFormattedRegistryApp(app, channel)
       formattedApp.installed = await _getInstalledInfos(app)
-      dispatch({
-        type: FETCH_APP_SUCCESS,
-        apps: [formattedApp],
-        lang
-      })
+      // dispatch the app only if we are still in fetching status
+      // (meant that the fetch has not been cancelled by a RESTORE_APP action)
+      if (getState().apps.isAppFetching) {
+        dispatch({
+          type: FETCH_APP_SUCCESS,
+          app: formattedApp,
+          lang
+        })
+      }
       return formattedApp
     } catch (err) {
       if (err.status === 404) {

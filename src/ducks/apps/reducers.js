@@ -15,6 +15,10 @@ export const FETCH_APP = 'FETCH_APP'
 export const FETCH_APP_SUCCESS = 'FETCH_APP_SUCCESS'
 export const FETCH_APP_FAILURE = 'FETCH_APP_FAILURE'
 
+// store an app state, to handle app version switch cancelling
+export const RESTORE_APP = 'RESTORE_APP'
+export const SAVE_APP = 'SAVE_APP'
+
 export const FETCH_REGISTRY_APPS_SUCCESS = 'FETCH_REGISTRY_APPS_SUCCESS'
 
 export const UNINSTALL_APP = 'UNINSTALL_APP'
@@ -27,6 +31,10 @@ export const INSTALL_APP_FAILURE = 'INSTALL_APP_FAILURE'
 
 export function _sortAlphabetically(array, property) {
   return array.sort((a, b) => a[property] > b[property])
+}
+
+export function _isValidApp(app) {
+  return !!app && !!app.slug && !!app.source && !!app.version
 }
 
 export function _consolidateApps(stateApps, newAppsInfos, lang) {
@@ -65,7 +73,26 @@ export function _consolidateApps(stateApps, newAppsInfos, lang) {
 
 export const list = (state = [], action = {}) => {
   switch (action.type) {
+    case RESTORE_APP:
+      if (_isValidApp(action.app)) {
+        return _sortAlphabetically(
+          _consolidateApps(
+            // we completely replace it, so we remove the current from state
+            state.filter(a => a.slug !== action.app.slug),
+            [action.app],
+            action.lang
+          ),
+          'slug'
+        )
+      } else {
+        console.warn('Failed attempt to restore a saved app state.')
+        return state
+      }
     case FETCH_APP_SUCCESS:
+      return _sortAlphabetically(
+        _consolidateApps(state, [action.app], action.lang),
+        'slug'
+      )
     case FETCH_REGISTRY_APPS_SUCCESS:
     case FETCH_APPS_SUCCESS:
       return _sortAlphabetically(
@@ -95,6 +122,18 @@ export const list = (state = [], action = {}) => {
   }
 }
 
+export const savedApp = (state = null, action = {}) => {
+  switch (action.type) {
+    case SAVE_APP:
+      return _isValidApp(action.app) ? action.app : state
+    case RESTORE_APP:
+    case INSTALL_APP_SUCCESS: // after install we clean the previously saved app
+      return null
+    default:
+      return state
+  }
+}
+
 export const isFetching = (state = false, action = {}) => {
   switch (action.type) {
     case LOADING_APP:
@@ -113,6 +152,8 @@ export const isAppFetching = (state = false, action = {}) => {
     case LOADING_APP_INTENT:
     case FETCH_APP:
       return true
+    case RESTORE_APP: // restoring the saved app cancels the app fetching
+      return _isValidApp(action.app) ? false : state
     case FETCH_APP_SUCCESS:
     case FETCH_APP_FAILURE:
       return false
@@ -178,5 +219,6 @@ export const appsReducers = combineReducers({
   isFetching,
   isAppFetching,
   isInstalling,
-  isUninstalling
+  isUninstalling,
+  savedApp
 })
