@@ -51,7 +51,7 @@ const getProcessedPermissions = (t, app) => {
         description={
           app.partnership && app.partnership.name && app.partnership.domain
             ? t('permissions.banking', {
-                name: app.partnersip.name,
+                name: app.partnership.name,
                 domain: app.partnership.domain
               })
             : t('permissions.linxo')
