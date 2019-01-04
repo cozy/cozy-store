@@ -4,6 +4,7 @@ exports[`Apps Containers (connected components): Discover should be rendered cor
 <Wrapper
   actionError={null}
   apps={Array []}
+  dispatch={[Function]}
   fetchError={null}
   installedApps={Array []}
   isFetching={false}
@@ -46,6 +47,7 @@ exports[`Apps Containers (connected components): MyApplications should be render
 <Wrapper
   actionError={null}
   apps={Array []}
+  dispatch={[Function]}
   fetchError={null}
   installedApps={Array []}
   isFetching={false}

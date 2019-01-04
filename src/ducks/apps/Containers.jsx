@@ -19,20 +19,10 @@ const mapStateToProps = state => ({
   fetchError: state.apps.fetchError
 })
 
-const mapDispatchToProps = () => ({})
-
-export const Discover = translate()(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(DiscoverComponent)
-)
+export const Discover = translate()(connect(mapStateToProps)(DiscoverComponent))
 
 export const MyApplications = translate()(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(MyApplicationsComponent)
+  connect(mapStateToProps)(MyApplicationsComponent)
 )
 
 export const SidebarCategories = withRouter(
