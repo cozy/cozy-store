@@ -23,8 +23,8 @@ export const InstallRoute = ({ getApp, isFetching, parent, redirectTo }) => (
           app={app}
           onInstalled={() => redirectTo(appPath)}
           dismissAction={() => redirectTo(appPath)}
-          onSuccess={() => {
-            app.type === APP_TYPE.KONNECTOR
+          onSuccess={wasUpdate => {
+            app.type === APP_TYPE.KONNECTOR && !wasUpdate
               ? redirectTo(configurePath)
               : redirectTo(appPath)
           }}
