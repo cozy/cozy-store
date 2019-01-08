@@ -37,22 +37,28 @@ export class AppInstallation extends Component {
   componentDidUpdate = prevProps => {
     const { app, channel, onSuccess, t } = this.props
     const justInstalled =
-      prevProps.app && !prevProps.app.installed && app.installed
+      !!prevProps.app && !prevProps.app.installed && app.installed
     const justUpdated =
-      prevProps.app && hasPendingUpdate(prevProps.app) && !hasPendingUpdate(app)
+      !!prevProps.app &&
+      hasPendingUpdate(prevProps.app) &&
+      !hasPendingUpdate(app)
     const justSwitchedChannel =
-      channel &&
-      prevProps.app &&
-      prevProps.app.source &&
+      !!channel &&
+      !!prevProps.app &&
+      !!prevProps.app.source &&
       getChannel(prevProps.app.source) === channel
     const succeed = justInstalled || justUpdated || justSwitchedChannel
     if (succeed) {
-      if (app.type === APP_TYPE.WEBAPP) {
-        Alerter.success(t('app_modal.install.message.install_success'), {
+      if (justUpdated) {
+        Alerter.success(t(`app_modal.install.message.update_success`), {
+          duration: 3000
+        })
+      } else if (app.type === APP_TYPE.WEBAPP) {
+        Alerter.success(t(`app_modal.install.message.install_success`), {
           duration: 3000
         })
       }
-      if (typeof onSuccess === 'function') onSuccess()
+      if (typeof onSuccess === 'function') onSuccess(justUpdated)
     }
   }
 
