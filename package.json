@@ -58,7 +58,7 @@
   "dependencies": {
     "cozy-bar": "6.1.2",
     "cozy-client-js": "0.14.2",
-    "cozy-realtime": "1.2.3",
+    "cozy-realtime": "1.2.6",
     "cozy-ui": "17.4.6",
     "emoji-js": "3.4.1",
     "eslint-config-prettier": "3.3.0",
