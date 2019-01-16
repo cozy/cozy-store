@@ -109,58 +109,57 @@ export class AppInstallation extends Component {
             )}
           </ModalDescription>
         )}
-        {!isFetchingSomething &&
-          !fetchError && (
-            <ModalFooter className="sto-install-footer">
-              {installError && (
-                <p className="u-error">
-                  {t('app_modal.install.message.install_error', {
-                    message: installError.message
-                  })}
-                </p>
-              )}
-              {app.terms && (
-                <div className="sto-install-terms">
-                  <Checkbox
-                    className="sto-install-terms-checkbox"
-                    onChange={this.acceptTerms}
-                    checked={isTermsAccepted}
-                    disabled={isInstalling}
-                  />
-                  <span>
-                    <ReactMarkdownWrapper
-                      source={t('app_modal.install.terms', {
-                        url: app.terms.url
-                      })}
-                    />
-                  </span>
-                </div>
-              )}
-              <div className="sto-install-controls">
-                <button
-                  role="button"
-                  className="c-btn c-btn--secondary"
-                  onClick={onCancel}
+        {!isFetchingSomething && !fetchError && (
+          <ModalFooter className="sto-install-footer">
+            {installError && (
+              <p className="u-error">
+                {t('app_modal.install.message.install_error', {
+                  message: installError.message
+                })}
+              </p>
+            )}
+            {app.terms && (
+              <div className="sto-install-terms">
+                <Checkbox
+                  className="sto-install-terms-checkbox"
+                  onChange={this.acceptTerms}
+                  checked={isTermsAccepted}
                   disabled={isInstalling}
-                >
-                  <span>{t('app_modal.install.cancel')}</span>
-                </button>
-                <button
-                  role="button"
-                  disabled={!this.isInstallReady()}
-                  aria-busy={isInstalling}
-                  className="c-btn c-btn--regular c-btn--download"
-                  onClick={this.installApp}
-                >
-                  <span>
-                    {hasPendingUpdate(app)
-                      ? t('app_modal.install.update')
-                      : t('app_modal.install.install')}
-                  </span>
-                </button>
+                />
+                <span>
+                  <ReactMarkdownWrapper
+                    source={t('app_modal.install.terms', {
+                      url: app.terms.url
+                    })}
+                  />
+                </span>
               </div>
-            </ModalFooter>
-          )}
+            )}
+            <div className="sto-install-controls">
+              <button
+                role="button"
+                className="c-btn c-btn--secondary"
+                onClick={onCancel}
+                disabled={isInstalling}
+              >
+                <span>{t('app_modal.install.cancel')}</span>
+              </button>
+              <button
+                role="button"
+                disabled={!this.isInstallReady()}
+                aria-busy={isInstalling}
+                className="c-btn c-btn--regular c-btn--download"
+                onClick={this.installApp}
+              >
+                <span>
+                  {hasPendingUpdate(app)
+                    ? t('app_modal.install.update')
+                    : t('app_modal.install.install')}
+                </span>
+              </button>
+            </div>
+          </ModalFooter>
+        )}
       </React.Fragment>
     )
   }
