@@ -29,13 +29,14 @@ export const AppsSection = ({
   return (
     <div className="sto-sections-apps">
       {subtitle}
-      {appsList && !!appsList.length && (
-        <div className="sto-sections-list">
-          {appsList.map(app =>
-            _renderAppComponent(app, t, onAppClick, isMobile)
-          )}
-        </div>
-      )}
+      {appsList &&
+        !!appsList.length && (
+          <div className="sto-sections-list">
+            {appsList.map(app =>
+              _renderAppComponent(app, t, onAppClick, isMobile)
+            )}
+          </div>
+        )}
     </div>
   )
 }

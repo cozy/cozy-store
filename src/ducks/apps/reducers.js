@@ -100,8 +100,8 @@ export const list = (state = [], action = {}) => {
         'slug'
       )
     case UNINSTALL_APP_SUCCESS:
-      return state.map(app =>
-        app.slug === action.slug ? { ...app, installed: false } : app
+      return state.map(
+        app => (app.slug === action.slug ? { ...app, installed: false } : app)
       )
     case INSTALL_APP_SUCCESS: {
       return _sortAlphabetically(

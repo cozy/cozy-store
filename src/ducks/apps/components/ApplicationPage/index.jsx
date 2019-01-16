@@ -132,19 +132,21 @@ export class ApplicationPage extends Component {
         paused={pauseFocusTrap}
       >
         <div className="sto-modal-page-app">
-          {isMobile && icon && !iconToLoad && (
-            <BarCenter>
-              <div className="sto-app-bar">
-                <AppIcon
-                  app={app}
-                  className={`sto-app-bar-icon ${
-                    !displayBarIcon ? 'sto-app-bar-icon--hidden' : ''
-                  }`}
-                  {...getAppIconProps()}
-                />
-              </div>
-            </BarCenter>
-          )}
+          {isMobile &&
+            icon &&
+            !iconToLoad && (
+              <BarCenter>
+                <div className="sto-app-bar">
+                  <AppIcon
+                    app={app}
+                    className={`sto-app-bar-icon ${
+                      !displayBarIcon ? 'sto-app-bar-icon--hidden' : ''
+                    }`}
+                    {...getAppIconProps()}
+                  />
+                </div>
+              </BarCenter>
+            )}
           <div className="sto-app">
             <Button
               icon="back"
@@ -162,9 +164,10 @@ export class ApplicationPage extends Component {
               description={appShortDesc}
               parent={parent}
             />
-            {app.screenshots && !!app.screenshots.length && (
-              <Gallery slug={slug} images={app.screenshots} />
-            )}
+            {app.screenshots &&
+              !!app.screenshots.length && (
+                <Gallery slug={slug} images={app.screenshots} />
+              )}
             <Details
               app={app}
               description={appLongDesc}
