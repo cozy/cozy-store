@@ -3353,10 +3353,10 @@ cozy-scripts@1.10.0:
     webpack-dev-server "3.1.14"
     webpack-merge "4.2.1"
 
-cozy-ui@17.4.6:
-  version "17.4.6"
-  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-17.4.6.tgz#a93c9e593d96553818c02cf234bf961f6736994f"
-  integrity sha512-OIVLy4g0CJtkAKNIZyPLofZVdBPsYYeCDPo2qmGIlRQeqvSrHUKyDp+w2W4HR63jejZCD6PODD1FDa7sA0lzpw==
+cozy-ui@17.17.2:
+  version "17.17.2"
+  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-17.17.2.tgz#f57a7fd4ce3d413a71fd77654488156ba9a9daab"
+  integrity sha512-oyrKYb5vMKboFYHgtHpBF3DLu0lb3jooY3LGyWicsotv7oed5ayWPbO7zxHq2meeC397emctz6Y2rHanY9bJXQ==
   dependencies:
     body-scroll-lock "^2.5.8"
     classnames "^2.2.5"
@@ -4320,13 +4320,6 @@ eslint-loader@2.1.1:
     object-assign "^4.0.1"
     object-hash "^1.1.4"
     rimraf "^2.6.1"
-
-eslint-plugin-prettier@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-3.0.0.tgz#f6b823e065f8c36529918cdb766d7a0e975ec30c"
-  integrity sha512-4g11opzhqq/8+AMmo5Vc2Gn7z9alZ4JqrbZ+D4i8KlSyxeQhZHlmIrY8U9Akf514MoEhogPa87Jgkq87aZ2Ohw==
-  dependencies:
-    prettier-linter-helpers "^1.0.0"
 
 eslint-plugin-prettier@3.0.1:
   version "3.0.1"
