@@ -12,6 +12,7 @@ import Maintenance from './Maintenance'
 import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
 import { getContext, REGISTRY_CHANNELS } from 'ducks/apps'
 import getChannel from 'lib/getChannelFromSource'
+import { getTranslatedManifestProperty } from 'lib/helpers'
 import { isUnderMaintenance } from 'ducks/apps/appStatus'
 
 const isValidUrl = url => {
@@ -75,7 +76,10 @@ export class Details extends Component {
       categories &&
       !!categories.length &&
       categories.map(c => t(`app_categories.${c}`))
-    const developerName = developer && developer.name
+    const developerName =
+      developer && getTranslatedManifestProperty(app, 'developer.name', t)
+    const developerUrl =
+      developer && getTranslatedManifestProperty(app, 'developer.url', t)
     const shortVersion = version && version.match(/^(\d+\.\d+\.\d+)-.*$/)
     const displayedVersion =
       (shortVersion && shortVersion.length && shortVersion[1]) || version
@@ -196,14 +200,14 @@ export class Details extends Component {
               <h3 className="u-title-h3">{t('app_page.developer_infos')}</h3>
               <div className="sto-app-developer-infos">
                 <span>{developerName}</span>
-                {isValidUrl(developer.url) && (
+                {isValidUrl(developerUrl) && (
                   <a
-                    href={developer.url}
+                    href={developerUrl}
                     className="sto-app-developer-link"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {developer.url}
+                    {developerUrl}
                   </a>
                 )}
               </div>
