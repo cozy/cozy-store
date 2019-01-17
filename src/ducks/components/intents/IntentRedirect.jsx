@@ -14,7 +14,20 @@ export const IntentRedirect = ({ location }) => {
         return accumulator
       }, {})
 
-  if (query.slug) return <Redirect to={`/discover/${query.slug}`} />
+  if (query.slug) {
+    switch (query.step) {
+      case 'install':
+        return <Redirect to={`/discover/${query.slug}/install`} />
+      case 'update':
+        return <Redirect to={`/discover/${query.slug}/install`} />
+      case 'uninstall':
+        return <Redirect to={`/discover/${query.slug}/uninstall`} />
+      case 'permissions':
+        return <Redirect to={`/discover/${query.slug}/permissions`} />
+      default:
+        return <Redirect to={`/discover/${query.slug}`} />
+    }
+  }
   return <Redirect to={`/discover/${queryString}`} />
 }
 

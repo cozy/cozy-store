@@ -30,7 +30,8 @@
         "slug",
         "tag",
         "type",
-        "pendingUpdate"
+        "pendingUpdate",
+        "step"
       ]
     },
     {
