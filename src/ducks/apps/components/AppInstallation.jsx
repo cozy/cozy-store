@@ -126,14 +126,13 @@ export class AppInstallation extends Component {
                     onChange={this.acceptTerms}
                     checked={isTermsAccepted}
                     disabled={isInstalling}
-                  />
-                  <span>
+                  >
                     <ReactMarkdownWrapper
                       source={t('app_modal.install.terms', {
                         url: app.terms.url
                       })}
                     />
-                  </span>
+                  </Checkbox>
                 </div>
               )}
               <div className="sto-install-controls">
