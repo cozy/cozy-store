@@ -46,12 +46,17 @@ export class ChannelModal extends Component {
     }
   }
 
+  dismiss = () => {
+    this.props.restoreAppIfSaved()
+    this.props.dismissAction()
+  }
+
   unmountTrap = () => {
     this.setState({ activeTrap: false })
   }
 
   render() {
-    const { app, onSuccess, channel, dismissAction } = this.props
+    const { app, onSuccess, channel } = this.props
     if (!this.isAppHandled()) return null
     return (
       <div className="sto-modal--install">
@@ -61,12 +66,12 @@ export class ChannelModal extends Component {
             clickOutsideDeactivates: true
           }}
         >
-          <Modal dismissAction={dismissAction} mobileFullscreen>
+          <Modal dismissAction={this.dismiss} mobileFullscreen>
             <AppInstallation
               appSlug={app.slug}
               channel={channel}
-              onCancel={dismissAction}
-              onSuccess={onSuccess}
+              onCancel={this.dismiss}
+              onInstallOrUpdate={onSuccess}
             />
           </Modal>
         </FocusTrap>

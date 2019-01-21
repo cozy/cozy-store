@@ -136,11 +136,6 @@ main > [role=main].sto-myapps {
   padding: 1rem .5rem;
 }
 
-.sto-app-icon--button {
-  position: relative;
-  left: -.35rem;
-}
-
 @media (max-width: 48rem) {
   .sto-app-header .c-btn {
     width: 100%;
@@ -168,10 +163,6 @@ main > [role=main].sto-myapps {
   .sto-app-header {
     margin-top: .5rem;
     flex-direction: column;
-  }
-
-  .sto-app-header-uninstall-button {
-    margin-top: .8rem;
   }
 }
 

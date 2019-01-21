@@ -286,8 +286,9 @@ async function _getInstalledInfos(app) {
 /* Restore a previous saved app state into the apps list */
 export function restoreAppIfSaved() {
   return async (dispatch, getState) => {
-    if (getState().apps.savedApp)
-      dispatch({ type: RESTORE_APP, app: getState().apps.savedApp })
+    const savedApp = getState().apps.savedApp
+    if (savedApp && getState().apps.isInstalling !== savedApp.slug)
+      dispatch({ type: RESTORE_APP, app: savedApp })
   }
 }
 
@@ -579,7 +580,7 @@ async function _saveAppTerms(terms) {
 export function installApp(app, source, isUpdate = false) {
   const { slug, type, terms } = app
   return async dispatch => {
-    dispatch({ type: INSTALL_APP })
+    dispatch({ type: INSTALL_APP, slug })
     const handleError = e => {
       dispatch({ type: INSTALL_APP_FAILURE, error: e })
       throw e

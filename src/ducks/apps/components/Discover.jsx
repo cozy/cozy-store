@@ -38,7 +38,6 @@ export class Discover extends Component {
       isFetching,
       isAppFetching,
       fetchError,
-      isInstalling,
       isUninstalling,
       actionError,
       breakpoints = {},
@@ -73,7 +72,6 @@ export class Discover extends Component {
           apps={filteredApps}
           isFetching={isFetching}
           isAppFetching={isAppFetching}
-          isInstalling={isInstalling}
           isUninstalling={isUninstalling}
           actionError={actionError}
           parent="discover"

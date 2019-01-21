@@ -55,10 +55,13 @@
       "update": "Update",
       "terms": "I have read and I accept [this application related ToS](%{url})",
       "message": {
-        "install_success": "The application has correctly been installed.",
-        "update_success": "Successfully updated.",
         "version_error": "Something went wrong when fetching the application informations. Reason: %{message}",
         "install_error": "Something went wrong when installing the application on your Cozy. Reason: %{message}"
+      },
+      "alert": {
+        "install_error": "Something went wrong when installing the application %{name} on your Cozy. Reason: %{message}",
+        "dismiss": "dismiss"
+
       }
     },
     "permissions": {
