@@ -46,6 +46,10 @@
       "message": {
         "success": "The application has correctly been uninstalled.",
         "error": "Something went wrong when uninstalling this application. Reason: %{message}"
+      },
+      "linked_app": {
+        "error": "A mobile application is linked to this application, it must be revoked to uninstall this application. To do this, you can go on",
+        "link": "your page for managing connected devices"
       }
     },
     "install": {
