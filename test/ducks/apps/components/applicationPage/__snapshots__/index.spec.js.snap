@@ -28,7 +28,7 @@ exports[`ApplicationPage component should be rendered correctly with app infos f
         tag={[Function]}
         to="/myapps"
       />
-      <Wrapper
+      <Connect(Aware)
         app={
           Object {
             "categories": Array [
@@ -314,7 +314,7 @@ exports[`ApplicationPage component should be rendered correctly with app with sc
         tag={[Function]}
         to="/myapps"
       />
-      <Wrapper
+      <Connect(Aware)
         app={
           Object {
             "categories": Array [
@@ -612,7 +612,7 @@ exports[`ApplicationPage component should be rendered correctly with konnector i
         tag={[Function]}
         to="/myapps"
       />
-      <Wrapper
+      <Connect(Aware)
         app={
           Object {
             "categories": Array [
@@ -852,7 +852,7 @@ exports[`ApplicationPage component should be rendered correctly with provided in
         tag={[Function]}
         to="/myapps"
       />
-      <Wrapper
+      <Connect(Aware)
         app={
           Object {
             "categories": Array [
@@ -1138,7 +1138,7 @@ exports[`ApplicationPage component should be rendered correctly with provided in
         tag={[Function]}
         to="/myapps"
       />
-      <Wrapper
+      <Connect(Aware)
         app={
           Object {
             "categories": Array [
@@ -1378,7 +1378,7 @@ exports[`ApplicationPage component should be rendered correctly without app desc
         tag={[Function]}
         to="/myapps"
       />
-      <Wrapper
+      <Connect(Aware)
         app={
           Object {
             "categories": Array [
@@ -1588,8 +1588,6 @@ exports[`ApplicationPage component should be rendered correctly without app desc
 </FocusTrap>
 `;
 
-exports[`ApplicationPage component should render correctly a spinner if isFetching 1`] = `<Aware />`;
-
 exports[`ApplicationPage component should render correctly an error message if fetchError 1`] = `
 <p
   className="u-error"
@@ -1750,7 +1748,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         tag={[Function]}
         to="/myapps"
       />
-      <Wrapper
+      <Connect(Aware)
         app={
           Object {
             "categories": Array [
@@ -2160,7 +2158,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         tag={[Function]}
         to="/myapps"
       />
-      <Wrapper
+      <Connect(Aware)
         app={
           Object {
             "categories": Array [
@@ -2416,4 +2414,165 @@ Enjoy features to grab your data in you Cozy :tada:"
     </div>
   </div>
 </FocusTrap>
+`;
+
+exports[`ApplicationPage component should render correctly the application page loading if isFetching 1`] = `
+<div
+  className="sto-modal-page-app app-page-loading --loading"
+>
+  <div
+    className="sto-app"
+  >
+    <Placeholder
+      className="text-placeholder"
+      width="9rem"
+    />
+    <a
+      className="sto-app-back"
+      href="#/discover/discover"
+    />
+    <div
+      className="sto-app-header"
+    >
+      <div
+        className="sto-app-header-icon"
+      >
+        <Placeholder
+          height="7rem"
+          width="8rem"
+        />
+      </div>
+      <div
+        className="sto-app-header-content grp-placeholder"
+      >
+        <h2
+          className="sto-app-header-title"
+        >
+          <Placeholder
+            className="text-placeholder"
+            width="12rem"
+          />
+        </h2>
+        <Placeholder
+          className="text-placeholder"
+          width="40rem"
+        />
+        <Placeholder
+          className="text-placeholder"
+          width="30rem"
+        />
+        <Placeholder
+          className="text-placeholder"
+          width="18rem"
+        />
+      </div>
+    </div>
+    <div
+      className="sto-app-images"
+    >
+      <div
+        className="sto-app-big-images"
+      >
+        <Placeholder
+          height="100%"
+          width="100%"
+        />
+        <Placeholder
+          height="100%"
+          width="100%"
+        />
+      </div>
+      <div
+        className="sto-app-small-images"
+      >
+        <Placeholder
+          height="6vw"
+          width="100%"
+        />
+        <Placeholder
+          height="6vw"
+          width="100%"
+        />
+        <Placeholder
+          height="6vw"
+          width="100%"
+        />
+      </div>
+    </div>
+    <div
+      className="sto-app-details"
+    >
+      <div
+        className="sto-app-descriptions"
+      >
+        <div
+          className="sto-app-description"
+        >
+          <div>
+            <p
+              className="grp-placeholder"
+            >
+              <Placeholder
+                className="text-placeholder"
+                width="15rem"
+              />
+              <Placeholder
+                className="text-placeholder"
+                width="100%"
+              />
+              <Placeholder
+                className="text-placeholder"
+                width="100%"
+              />
+              <Placeholder
+                className="text-placeholder"
+                width="100%"
+              />
+              <Placeholder
+                className="text-placeholder"
+                width="100%"
+              />
+              <Placeholder
+                className="text-placeholder"
+                width="100%"
+              />
+              <Placeholder
+                className="text-placeholder"
+                width="60%"
+              />
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        className="sto-app-additional-details grp-placeholder"
+      >
+        <Placeholder
+          className="text-placeholder"
+          width="10rem"
+        />
+        <Placeholder
+          className="text-placeholder"
+          width="16rem"
+        />
+        <Placeholder
+          className="text-placeholder"
+          width="20rem"
+        />
+        <Placeholder
+          className="text-placeholder"
+          width="15rem"
+        />
+        <Placeholder
+          className="text-placeholder"
+          width="18rem"
+        />
+        <Placeholder
+          className="text-placeholder"
+          width="13rem"
+        />
+      </div>
+    </div>
+  </div>
+</div>
 `;

@@ -6,7 +6,6 @@ import React from 'react'
 import { shallow } from 'enzyme'
 
 import Button from 'cozy-ui/react/Button'
-import { Link } from 'react-router-dom'
 
 import { tMock } from '../../../../jestLib/I18n'
 import { Header } from 'ducks/apps/components/ApplicationPage/Header'
@@ -78,7 +77,11 @@ describe('ApplicationPage header component', () => {
         description={appProps.description}
       />
     )
-    wrapper.find(Button).simulate('click')
+    // open button is the first one
+    wrapper
+      .find(Button)
+      .at(0)
+      .simulate('click')
     expect(window.location.assign.mock.calls.length).toBe(1)
     expect(window.location.assign.mock.calls[0][0]).toBe('#')
   })
@@ -98,9 +101,11 @@ describe('ApplicationPage header component', () => {
     const mockEvent = {
       preventDefault: jest.fn()
     }
-    wrapper.find(Link).simulate('click', mockEvent)
+    // install button is the only one here
+    const installButton = wrapper.find(Button)
+    expect(installButton.props().disabled).toBe(true)
+    wrapper.find(Button).simulate('click', mockEvent)
     expect(mockEvent.preventDefault.mock.calls.length).toBe(1)
-    expect(wrapper.getElement()).toMatchSnapshot()
   })
 
   it('should disable the uninstall button for installed app if not uninstallable', () => {
@@ -120,9 +125,34 @@ describe('ApplicationPage header component', () => {
     const mockEvent = {
       preventDefault: jest.fn()
     }
-    wrapper.find(Link).simulate('click', mockEvent)
+    // uninstall button is the second one
+    const uninstallButton = wrapper.find(Button).at(1)
+    expect(uninstallButton.props().disabled).toBe(true)
+    uninstallButton.simulate('click', mockEvent)
     expect(mockEvent.preventDefault.mock.calls.length).toBe(1)
-    expect(wrapper.getElement()).toMatchSnapshot()
+  })
+
+  it('should disable the uninstall button an app is installing (updating)', () => {
+    const appProps = Object.assign({}, mockApp.manifest)
+    appProps.installed = true
+    const wrapper = shallow(
+      <Header
+        t={tMock}
+        parent="/discover"
+        app={appProps}
+        name={appProps.name}
+        description={appProps.description}
+        isInstalling
+      />
+    )
+    const mockEvent = {
+      preventDefault: jest.fn()
+    }
+    // uninstall button is the second one
+    const uninstallButton = wrapper.find(Button).at(1)
+    expect(uninstallButton.props().disabled).toBe(true)
+    uninstallButton.simulate('click', mockEvent)
+    expect(mockEvent.preventDefault.mock.calls.length).toBe(1)
   })
 
   it('should display a placeholder if app icon is still fetching', () => {

@@ -18,7 +18,7 @@ exports[`ChannelModal component should be rendered correctly if app found and fr
   >
     <Unknown
       closable={true}
-      dismissAction={[MockFunction]}
+      dismissAction={[Function]}
       mobileFullscreen={true}
       overflowHidden={false}
       primaryType="regular"
@@ -28,8 +28,8 @@ exports[`ChannelModal component should be rendered correctly if app found and fr
       <Connect(Wrapper)
         appSlug="photos"
         channel="beta"
-        onCancel={[MockFunction]}
-        onSuccess={[MockFunction]}
+        onCancel={[Function]}
+        onInstallOrUpdate={[MockFunction]}
       />
     </Unknown>
   </FocusTrap>
@@ -54,7 +54,7 @@ exports[`ChannelModal component should not break the permissions part if no perm
   >
     <Unknown
       closable={true}
-      dismissAction={[MockFunction]}
+      dismissAction={[Function]}
       mobileFullscreen={true}
       overflowHidden={false}
       primaryType="regular"
@@ -64,8 +64,8 @@ exports[`ChannelModal component should not break the permissions part if no perm
       <Connect(Wrapper)
         appSlug="photos"
         channel="beta"
-        onCancel={[MockFunction]}
-        onSuccess={[MockFunction]}
+        onCancel={[Function]}
+        onInstallOrUpdate={[MockFunction]}
       />
     </Unknown>
   </FocusTrap>

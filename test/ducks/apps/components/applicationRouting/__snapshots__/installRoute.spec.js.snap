@@ -38,7 +38,8 @@ exports[`InstallRoute component should display install modal if app found in the
   }
   dismissAction={[Function]}
   onInstalled={[Function]}
-  onSuccess={[Function]}
+  redirectToApp={[Function]}
+  redirectToConfigure={[Function]}
 />
 `;
 
@@ -75,6 +76,7 @@ exports[`InstallRoute component should display install modal if app found in the
   }
   dismissAction={[Function]}
   onInstalled={[Function]}
-  onSuccess={[Function]}
+  redirectToApp={[Function]}
+  redirectToConfigure={[Function]}
 />
 `;
