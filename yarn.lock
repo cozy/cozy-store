@@ -3327,10 +3327,10 @@ cozy-scripts@1.11.0:
     webpack-dev-server "3.1.10"
     webpack-merge "4.2.1"
 
-cozy-ui@18.9.1:
-  version "18.9.1"
-  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-18.9.1.tgz#858493411af4ae2a6a6f86674a66b8ef8a643fa7"
-  integrity sha512-aNOsQRIFVb7hmOCuC9vICBIVnGU1eBaJn4w5TZaPKF4xsFG0SElc/dJC2AfyFNoovGRoBjS+tfbOKAUvruLhwg==
+cozy-ui@18.12.0:
+  version "18.12.0"
+  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-18.12.0.tgz#19e84aa49282e00b6ed987694ebfd0ea31cd9e9a"
+  integrity sha512-cg6tkrKCVreqrahvKLB4GpM9+A7/NE+XSK7vIY563Usk8qTZuWjKpM5BWG+IZ7ZkDxm/WKeFYHScCeTOvRLdeg==
   dependencies:
     body-scroll-lock "^2.5.8"
     classnames "^2.2.5"
@@ -4278,13 +4278,6 @@ eslint-config-prettier@2.9.0:
   integrity sha512-ag8YEyBXsm3nmOv1Hz991VtNNDMRa+MNy8cY47Pl4bw6iuzqKbJajXdqUpiw13STdLLrznxgm1hj9NhxeOYq0A==
   dependencies:
     get-stdin "^5.0.1"
-
-eslint-config-prettier@3.6.0:
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-3.6.0.tgz#8ca3ffac4bd6eeef623a0651f9d754900e3ec217"
-  integrity sha512-ixJ4U3uTLXwJts4rmSVW/lMXjlGwCijhBJHk8iVqKKSifeI0qgFEfWl8L63isfc8Od7EiBALF6BX3jKLluf/jQ==
-  dependencies:
-    get-stdin "^6.0.0"
 
 eslint-config-prettier@3.6.0:
   version "3.6.0"
