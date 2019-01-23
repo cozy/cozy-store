@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
 import Placeholder from './Placeholder'
 
 export class ApplicationPageLoading extends Component {
@@ -68,4 +67,4 @@ export class ApplicationPageLoading extends Component {
   }
 }
 
-export default withBreakpoints()(ApplicationPageLoading)
+export default ApplicationPageLoading

@@ -132,11 +132,13 @@ describe('ApplicationPage component', () => {
     expect(wrapper.state('displayBarIcon')).toBe(false)
   })
 
-  it('should render correctly a spinner if isFetching', () => {
+  it('should render correctly the application page loading if isFetching', () => {
     const props = getAppProps(false, null)
     const component = shallow(
       <ApplicationPage t={tMock} isFetching {...props} />
-    ).getElement()
+    )
+      .dive()
+      .getElement()
     expect(component).toMatchSnapshot()
   })
 

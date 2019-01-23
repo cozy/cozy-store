@@ -111,7 +111,7 @@ const actionsMap = new Map([
   [
     'INSTALL_APP*',
     {
-      installAppAction: { type: INSTALL_APP },
+      installAppAction: { type: INSTALL_APP, slug: 'yeah' },
       installAppSuccessAction: {
         installedApp: mockApp,
         type: INSTALL_APP_SUCCESS
@@ -269,7 +269,11 @@ const reducersTestConfig = {
     restoreMisformatedAppAction: [true, 'toBe', true]
   },
   isInstalling: {
-    installAppAction: [false, 'toBe', true],
+    installAppAction: [
+      false,
+      'toBe',
+      actionsMap.get('INSTALL_APP*').installAppAction.slug
+    ],
     installAppSuccessAction: [true, 'toBe', false],
     installAppErrorAction: [true, 'toBe', false]
   },

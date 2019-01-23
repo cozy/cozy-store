@@ -18,7 +18,7 @@ exports[`InstallModal component should be rendered correctly if app found 1`] = 
   >
     <Unknown
       closable={true}
-      dismissAction={[MockFunction]}
+      dismissAction={[Function]}
       mobileFullscreen={true}
       overflowHidden={false}
       primaryType="regular"
@@ -27,8 +27,7 @@ exports[`InstallModal component should be rendered correctly if app found 1`] = 
     >
       <Connect(Wrapper)
         appSlug="photos"
-        onCancel={[MockFunction]}
-        onSuccess={[MockFunction]}
+        onCancel={[Function]}
       />
     </Unknown>
   </FocusTrap>
@@ -53,7 +52,7 @@ exports[`InstallModal component should be rendered correctly to update app with 
   >
     <Unknown
       closable={true}
-      dismissAction={[MockFunction]}
+      dismissAction={[Function]}
       mobileFullscreen={true}
       overflowHidden={false}
       primaryType="regular"
@@ -62,8 +61,7 @@ exports[`InstallModal component should be rendered correctly to update app with 
     >
       <Connect(Wrapper)
         appSlug="photos"
-        onCancel={[MockFunction]}
-        onSuccess={[MockFunction]}
+        onCancel={[Function]}
       />
     </Unknown>
   </FocusTrap>
@@ -88,7 +86,7 @@ exports[`InstallModal component should be rendered correctly with also app in re
   >
     <Unknown
       closable={true}
-      dismissAction={[MockFunction]}
+      dismissAction={[Function]}
       mobileFullscreen={true}
       overflowHidden={false}
       primaryType="regular"
@@ -97,8 +95,7 @@ exports[`InstallModal component should be rendered correctly with also app in re
     >
       <Connect(Wrapper)
         appSlug="photos"
-        onCancel={[MockFunction]}
-        onSuccess={[MockFunction]}
+        onCancel={[Function]}
       />
     </Unknown>
   </FocusTrap>
@@ -123,7 +120,7 @@ exports[`InstallModal component should not break the permissions part if no perm
   >
     <Unknown
       closable={true}
-      dismissAction={[MockFunction]}
+      dismissAction={[Function]}
       mobileFullscreen={true}
       overflowHidden={false}
       primaryType="regular"
@@ -132,8 +129,7 @@ exports[`InstallModal component should not break the permissions part if no perm
     >
       <Connect(Wrapper)
         appSlug="photos"
-        onCancel={[MockFunction]}
-        onSuccess={[MockFunction]}
+        onCancel={[Function]}
       />
     </Unknown>
   </FocusTrap>

@@ -7,7 +7,7 @@ import { translate } from 'cozy-ui/react/I18n'
 
 import AppInstallation from './AppInstallation'
 import { hasPendingUpdate } from 'ducks/apps/appStatus'
-import { fetchLatestApp } from 'ducks/apps'
+import { fetchLatestApp, restoreAppIfSaved } from 'ducks/apps'
 
 export class InstallModal extends Component {
   constructor(props) {
@@ -34,8 +34,13 @@ export class InstallModal extends Component {
     this.setState({ activeTrap: false })
   }
 
+  dismiss = () => {
+    this.props.restoreAppIfSaved()
+    this.props.dismissAction()
+  }
+
   render() {
-    const { app, dismissAction, onSuccess, channel } = this.props
+    const { app, redirectToApp, redirectToConfigure } = this.props
     return (
       <div className="sto-modal--install">
         <FocusTrap
@@ -44,12 +49,12 @@ export class InstallModal extends Component {
             clickOutsideDeactivates: true
           }}
         >
-          <Modal dismissAction={dismissAction} mobileFullscreen>
+          <Modal dismissAction={this.dismiss} mobileFullscreen>
             <AppInstallation
               appSlug={app.slug}
-              channel={channel}
-              onCancel={dismissAction}
-              onSuccess={onSuccess}
+              onCancel={this.dismiss}
+              onKonnectorInstall={redirectToConfigure}
+              onInstallOrUpdate={redirectToApp}
             />
           </Modal>
         </FocusTrap>
@@ -62,12 +67,14 @@ InstallModal.propTypes = {
   app: PropTypes.object.isRequired,
   dismissAction: PropTypes.func.isRequired,
   onInstalled: PropTypes.func.isRequired,
-  onSuccess: PropTypes.func.isRequired
+  redirectToConfigure: PropTypes.func.isRequired,
+  redirectToApp: PropTypes.func.isRequired
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchLatestApp: app =>
-    dispatch(fetchLatestApp(ownProps.lang, app.slug, undefined, app))
+    dispatch(fetchLatestApp(ownProps.lang, app.slug, undefined, app)),
+  restoreAppIfSaved: () => dispatch(restoreAppIfSaved())
 })
 
 export default translate()(

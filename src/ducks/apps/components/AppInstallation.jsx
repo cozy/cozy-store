@@ -4,15 +4,17 @@ import { connect } from 'react-redux'
 import { PropTypes } from 'react-proptypes'
 
 import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
-import getChannel from 'lib/getChannelFromSource'
 import { ModalDescription, ModalHeader, ModalFooter } from 'cozy-ui/react/Modal'
 import Spinner from 'cozy-ui/react/Spinner'
+import Button from 'cozy-ui/react/Button'
 
 import PermissionsList from './PermissionsList'
 import Partnership from './Partnership'
 import { translate } from 'cozy-ui/react/I18n'
 import Alerter from 'cozy-ui/react/Alerter'
 import Checkbox from 'cozy-ui/react/Checkbox'
+
+import { getTranslatedManifestProperty } from 'lib/helpers'
 import { hasPendingUpdate } from 'ducks/apps/appStatus'
 
 import { APP_TYPE, getAppBySlug, installAppFromRegistry } from 'ducks/apps'
@@ -23,42 +25,37 @@ export class AppInstallation extends Component {
     this.state = { isTermsAccepted: false }
   }
 
-  installApp = async () => {
+  installApp = () => {
     if (!this.isInstallReady()) return // Not ready to be installed
-    const { app, channel, installApp, onError } = this.props
-    try {
-      await installApp(app, channel, app.installed)
-    } catch (error) {
-      if (onError) return onError(error)
-      throw error
+    const { app, channel, installApp, onInstallOrUpdate, t } = this.props
+    const isUpdate = app.installed
+    const isChannelSwitch = !!channel
+    installApp(app, channel, isUpdate).catch(error => {
+      const appName = getTranslatedManifestProperty(app, 'name', t)
+      Alerter.error(
+        t('app_modal.install.alert.install_error', {
+          message: error.message,
+          name: appName
+        }),
+        {
+          duration: 12000,
+          buttonText: t('app_modal.install.alert.dismiss'),
+          buttonAction: dismiss => dismiss()
+        }
+      )
+      console.error(error)
+    })
+    if (isUpdate || isChannelSwitch || app.type !== APP_TYPE.KONNECTOR) {
+      if (typeof onInstallOrUpdate === 'function') onInstallOrUpdate()
     }
   }
 
   componentDidUpdate = prevProps => {
-    const { app, channel, onSuccess, t } = this.props
+    const { app, onKonnectorInstall } = this.props
     const justInstalled =
       !!prevProps.app && !prevProps.app.installed && app.installed
-    const justUpdated =
-      !!prevProps.app &&
-      hasPendingUpdate(prevProps.app) &&
-      !hasPendingUpdate(app)
-    const justSwitchedChannel =
-      !!channel &&
-      !!prevProps.app &&
-      !!prevProps.app.source &&
-      getChannel(prevProps.app.source) === channel
-    const succeed = justInstalled || justUpdated || justSwitchedChannel
-    if (succeed) {
-      if (justUpdated) {
-        Alerter.success(t(`app_modal.install.message.update_success`), {
-          duration: 3000
-        })
-      } else if (app.type === APP_TYPE.WEBAPP) {
-        Alerter.success(t(`app_modal.install.message.install_success`), {
-          duration: 3000
-        })
-      }
-      if (typeof onSuccess === 'function') onSuccess(justUpdated)
+    if (justInstalled && app.type === APP_TYPE.KONNECTOR) {
+      if (typeof onKonnectorInstall === 'function') onKonnectorInstall()
     }
   }
 
@@ -86,6 +83,7 @@ export class AppInstallation extends Component {
     } = this.props
     const { isTermsAccepted } = this.state
     const isFetchingSomething = isFetching || isAppFetching
+    const isCurrentAppInstalling = isInstalling === app.slug
 
     return (
       <React.Fragment>
@@ -136,27 +134,28 @@ export class AppInstallation extends Component {
                 </div>
               )}
               <div className="sto-install-controls">
-                <button
-                  role="button"
-                  className="c-btn c-btn--secondary"
+                <Button
+                  theme="secondary"
                   onClick={onCancel}
-                  disabled={isInstalling}
-                >
-                  <span>{t('app_modal.install.cancel')}</span>
-                </button>
-                <button
-                  role="button"
-                  disabled={!this.isInstallReady()}
-                  aria-busy={isInstalling}
-                  className="c-btn c-btn--regular c-btn--download"
+                  disabled={isCurrentAppInstalling}
+                  label={t('app_modal.install.cancel')}
+                  extension="full"
+                  className="u-mh-half"
+                />
+                <Button
+                  theme="primary"
+                  disabled={!this.isInstallReady() || isInstalling}
+                  busy={isCurrentAppInstalling}
+                  icon="download"
+                  extension="full"
                   onClick={this.installApp}
-                >
-                  <span>
-                    {hasPendingUpdate(app)
+                  label={
+                    hasPendingUpdate(app)
                       ? t('app_modal.install.update')
-                      : t('app_modal.install.install')}
-                  </span>
-                </button>
+                      : t('app_modal.install.install')
+                  }
+                  className="u-mh-half"
+                />
               </div>
             </ModalFooter>
           )}

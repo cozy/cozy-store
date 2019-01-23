@@ -6,6 +6,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 
 import { ChannelModal } from 'ducks/apps/components/ChannelModal'
+import AppInstallation from 'ducks/apps/components/AppInstallation'
 
 import mockApps from '../_mockApps'
 import mockAppVersion from '../_mockPhotosRegistryVersion'
@@ -28,6 +29,7 @@ const getMockProps = () => ({
     { installed: true, source: 'registry://photos/stable' }
   ),
   dismissAction: jest.fn(),
+  restoreAppIfSaved: jest.fn(),
   onCurrentChannel: jest.fn(),
   onNotHandled: jest.fn(),
   fetchLatestApp: jest.fn(),
@@ -113,5 +115,14 @@ describe('ChannelModal component', () => {
     mockProps.app.source = 'registry://photos/beta'
     wrapper.setProps(mockProps)
     expect(mockProps.onCurrentChannel.mock.calls.length).toBe(1)
+  })
+
+  it('call state restoring and dismiss on cancel', () => {
+    const mockProps = getMockProps()
+    const wrapper = shallow(<ChannelModal {...mockProps} />)
+    const installationWrapper = wrapper.find(AppInstallation)
+    installationWrapper.props().onCancel()
+    expect(mockProps.restoreAppIfSaved.mock.calls.length).toBe(1)
+    expect(mockProps.dismissAction.mock.calls.length).toBe(1)
   })
 })

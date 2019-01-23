@@ -1,11 +1,12 @@
 /* global cozy */
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import AppIcon from 'cozy-ui/react/AppIcon'
 import Button from 'cozy-ui/react/Button'
-import Icon from 'cozy-ui/react/Icon'
 import { translate } from 'cozy-ui/react/I18n'
+import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
 
 import cozySmileIcon from 'assets/icons/icon-cozy-smile.svg'
 import AsyncButton from 'ducks/components/AsyncButton'
@@ -17,12 +18,25 @@ import {
   isInstalledAndNothingToReport
 } from 'ducks/apps/appStatus'
 
-export const Header = ({ t, app, namePrefix, name, description, parent }) => {
+export const Header = ({
+  t,
+  app,
+  namePrefix,
+  name,
+  description,
+  parent,
+  isInstalling,
+  breakpoints = {}
+}) => {
   const { slug, installed, type, related, uninstallable } = app
+  const { isMobile } = breakpoints
+  const isCurrentAppInstalling = isInstalling === slug
   const openApp = link => {
     window.location.assign(link)
   }
   const isKonnector = type === APP_TYPE.KONNECTOR
+  const isInstallDisabled = !!isUnderMaintenance(app) || isInstalling
+  const isUninstallDisabled = !uninstallable || isCurrentAppInstalling
   return (
     <div className="sto-app-header">
       <div className="sto-app-header-icon">
@@ -54,39 +68,39 @@ export const Header = ({ t, app, namePrefix, name, description, parent }) => {
             />
           )
         ) : (
-          <Link
+          <Button
+            tag={Link}
             to={`/${parent}/${slug}/install`}
-            className="c-btn c-btn--regular"
-            disabled={!!isUnderMaintenance(app)}
-            onClick={isUnderMaintenance(app) ? e => e.preventDefault() : null}
-          >
-            <span>
-              <Icon
-                icon={cozySmileIcon}
-                color="#FFFFFF"
-                width="16px"
-                height="16px"
-                className="sto-app-icon--button"
-              />{' '}
-              {hasPendingUpdate(app)
+            theme="primary"
+            extension={isMobile ? 'full' : null}
+            disabled={isInstallDisabled}
+            onClick={isInstallDisabled ? e => e.preventDefault() : null}
+            aria-busy={isCurrentAppInstalling}
+            icon={cozySmileIcon}
+            label={
+              hasPendingUpdate(app)
                 ? t('app_page.update')
-                : t('app_page.install')}
-            </span>
-          </Link>
+                : t('app_page.install')
+            }
+          />
         )}
         {installed && (
-          <Link
+          <Button
+            tag={Link}
             to={`/${parent}/${slug}/uninstall`}
-            className="c-btn c-btn--secondary sto-app-header-uninstall-button"
-            onClick={!uninstallable ? e => e.preventDefault() : null}
-            disabled={!uninstallable}
-          >
-            <span>{t('app_page.uninstall')}</span>
-          </Link>
+            theme="secondary"
+            extension={isMobile ? 'full' : null}
+            className={isMobile ? 'u-mt-1' : null}
+            onClick={isUninstallDisabled ? e => e.preventDefault() : null}
+            disabled={isUninstallDisabled}
+            label={t('app_page.uninstall')}
+          />
         )}
       </div>
     </div>
   )
 }
 
-export default translate()(Header)
+export default connect(state => ({
+  isInstalling: state.apps.isInstalling
+}))(withBreakpoints()(translate()(Header)))

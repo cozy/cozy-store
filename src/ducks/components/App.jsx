@@ -21,17 +21,6 @@ export class App extends Component {
     props.initApp() // fetch apps without icons
   }
 
-  componentDidUpdate(prevProps) {
-    if (!this.props.location) return
-    // quitting channel modal, so we restore the previous app state
-    if (
-      this.props.location.pathname !== prevProps.location.pathname &&
-      prevProps.location.pathname.match(/.*\/(channel\/|install).*/)
-    ) {
-      this.props.restoreAppIfSaved()
-    }
-  }
-
   render() {
     return (
       <Layout>
@@ -53,7 +42,8 @@ export class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  isFetching: state.apps.isFetching
+  isFetching: state.apps.isFetching,
+  isInstalling: state.apps.isInstalling
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

@@ -39,7 +39,13 @@ export class UninstallModal extends Component {
   }
 
   render() {
-    const { isUninstalling, dismissAction, t, uninstallError } = this.props
+    const {
+      isUninstalling,
+      isInstalling,
+      dismissAction,
+      t,
+      uninstallError
+    } = this.props
     return (
       <div className="sto-modal--uninstall">
         <Modal
@@ -71,7 +77,7 @@ export class UninstallModal extends Component {
                 </button>
                 <Button
                   busy={isUninstalling}
-                  disabled={isUninstalling}
+                  disabled={isUninstalling || isInstalling}
                   theme="danger"
                   icon="delete"
                   onClick={this.uninstallApp}
@@ -96,6 +102,7 @@ UninstallModal.propTypes = {
 const mapStateToProps = (state, ownProps) => ({
   app: getAppBySlug(state, ownProps.appSlug),
   isUninstalling: state.apps.isUninstalling,
+  isInstalling: state.apps.isInstalling,
   uninstallError: state.apps.actionError
 })
 

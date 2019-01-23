@@ -165,7 +165,7 @@ export const isAppFetching = (state = false, action = {}) => {
 export const isInstalling = (state = false, action = {}) => {
   switch (action.type) {
     case INSTALL_APP:
-      return true
+      return action.slug
     case INSTALL_APP_SUCCESS:
     case INSTALL_APP_FAILURE:
       return false

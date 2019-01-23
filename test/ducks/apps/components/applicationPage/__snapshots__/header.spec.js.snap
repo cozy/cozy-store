@@ -140,26 +140,16 @@ Gestionnaire de photos pour Cozy v3 :tada:",
     <p
       className="sto-app-header-description"
     />
-    <Link
-      className="c-btn c-btn--regular"
-      disabled={false}
+    <DefaultButton
+      aria-busy={false}
+      extension={null}
+      icon="test-file-stub"
+      label="Install"
       onClick={null}
-      replace={false}
+      tag={[Function]}
+      theme="primary"
       to="//myapps/photos/install"
-    >
-      <span>
-        <Icon
-          className="sto-app-icon--button"
-          color="#FFFFFF"
-          height="16px"
-          icon="test-file-stub"
-          spin={false}
-          width="16px"
-        />
-         
-        Install
-      </span>
-    </Link>
+    />
   </div>
 </div>
 `;
@@ -298,26 +288,16 @@ Gestionnaire de photos pour Cozy v3 :tada:",
     <p
       className="sto-app-header-description"
     />
-    <Link
-      className="c-btn c-btn--regular"
-      disabled={false}
+    <DefaultButton
+      aria-busy={false}
+      extension={null}
+      icon="test-file-stub"
+      label="Install"
       onClick={null}
-      replace={false}
+      tag={[Function]}
+      theme="primary"
       to="//myapps/photos/install"
-    >
-      <span>
-        <Icon
-          className="sto-app-icon--button"
-          color="#FFFFFF"
-          height="16px"
-          icon="test-file-stub"
-          spin={false}
-          width="16px"
-        />
-         
-        Install
-      </span>
-    </Link>
+    />
   </div>
 </div>
 `;
@@ -447,342 +427,16 @@ exports[`ApplicationPage header component should be rendered correctly provided 
     <p
       className="sto-app-header-description"
     />
-    <Link
-      className="c-btn c-btn--regular"
-      disabled={false}
-      onClick={null}
-      replace={false}
-      to="//myapps/konnector-trinlane/install"
-    >
-      <span>
-        <Icon
-          className="sto-app-icon--button"
-          color="#FFFFFF"
-          height="16px"
-          icon="test-file-stub"
-          spin={false}
-          width="16px"
-        />
-         
-        Install
-      </span>
-    </Link>
-  </div>
-</div>
-`;
-
-exports[`ApplicationPage header component should disable the install button if maintenance 1`] = `
-<div
-  className="sto-app-header"
->
-  <div
-    className="sto-app-header-icon"
-  >
-    <AppIcon
-      app={
-        Object {
-          "categories": Array [
-            "cozy",
-          ],
-          "developer": Object {
-            "name": "Cozy",
-            "url": "https://cozy.io",
-          },
-          "editor": "Cozy",
-          "icon": "https://mockcozy.cc/registry/photos/3.0.0/icon.svg",
-          "langs": Array [
-            "en",
-            "fr",
-          ],
-          "licence": "AGPL-3.0",
-          "locales": Object {
-            "en": Object {
-              "changes": "### NEW!!!
-
- Now on the cozy-store :tada",
-              "long_description": "### Features
-
-Enjoy features to grab your data in you Cozy :tada:",
-              "short_description": "Gestionnaire de photos pour Cozy v3",
-            },
-            "fr": Object {
-              "long_description": "### Photos
-
-Gestionnaire de photos pour Cozy v3 :tada:",
-              "short_description": "Gestionnaire de photos pour Cozy v3",
-            },
-          },
-          "maintenance": Object {},
-          "name": "Photos",
-          "name_prefix": "Cozy",
-          "permissions": Object {
-            "albums": Object {
-              "description": "Required to manage photos albums",
-              "methods": Array [
-                "GET",
-                "POST",
-                "PUT",
-              ],
-              "type": "io.cozy.photos.albums",
-            },
-            "apps": Object {
-              "description": "Required by the cozy-bar to display the icons of the apps",
-              "type": "io.cozy.apps",
-              "verbs": Array [
-                "GET",
-              ],
-            },
-            "contacts": Object {
-              "description": "Required to to share photos with your contacts",
-              "methods": Array [
-                "GET",
-                "POST",
-              ],
-              "type": "io.cozy.contacts",
-            },
-            "files": Object {
-              "description": "Required for photo access",
-              "methods": Array [
-                "GET",
-                "POST",
-                "PUT",
-              ],
-              "type": "io.cozy.files",
-            },
-            "settings": Object {
-              "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
-              "type": "io.cozy.settings",
-              "verbs": Array [
-                "GET",
-              ],
-            },
-          },
-          "platforms": Array [
-            Object {
-              "type": "ios",
-              "url": "",
-            },
-            Object {
-              "type": "linux",
-              "url": "",
-            },
-            Object {
-              "type": "android",
-              "url": "https://mock.app",
-            },
-          ],
-          "routes": Object {
-            "/": Object {
-              "folder": "/",
-              "index": "index.html",
-              "public": false,
-            },
-            "/public": Object {
-              "folder": "/public",
-              "index": "index.html",
-              "public": true,
-            },
-          },
-          "short_description": "Photos manager for Cozy v3",
-          "slug": "photos",
-          "source": "https://github.com/cozy/cozy-drive.git@build-photos",
-          "type": "webapp",
-          "version": "3.0.0",
-        }
-      }
-      className="sto-app-icon"
-      domain={null}
-      secure={false}
-    />
-  </div>
-  <div
-    className="sto-app-header-content"
-  >
-    <h2
-      className="sto-app-header-title"
-    >
-      Photos
-    </h2>
-    <p
-      className="sto-app-header-description"
-    />
-    <Link
-      className="c-btn c-btn--regular"
-      disabled={true}
-      onClick={[Function]}
-      replace={false}
-      to="//discover/photos/install"
-    >
-      <span>
-        <Icon
-          className="sto-app-icon--button"
-          color="#FFFFFF"
-          height="16px"
-          icon="test-file-stub"
-          spin={false}
-          width="16px"
-        />
-         
-        Install
-      </span>
-    </Link>
-  </div>
-</div>
-`;
-
-exports[`ApplicationPage header component should disable the uninstall button for installed app if not uninstallable 1`] = `
-<div
-  className="sto-app-header"
->
-  <div
-    className="sto-app-header-icon"
-  >
-    <AppIcon
-      app={
-        Object {
-          "categories": Array [
-            "cozy",
-          ],
-          "developer": Object {
-            "name": "Cozy",
-            "url": "https://cozy.io",
-          },
-          "editor": "Cozy",
-          "icon": "<svg></svg>",
-          "installed": true,
-          "langs": Array [
-            "en",
-            "fr",
-          ],
-          "licence": "AGPL-3.0",
-          "locales": Object {
-            "en": Object {
-              "changes": "### NEW!!!
-
- Now on the cozy-store :tada",
-              "long_description": "### Features
-
-Enjoy features to grab your data in you Cozy :tada:",
-              "short_description": "Gestionnaire de photos pour Cozy v3",
-            },
-            "fr": Object {
-              "long_description": "### Photos
-
-Gestionnaire de photos pour Cozy v3 :tada:",
-              "short_description": "Gestionnaire de photos pour Cozy v3",
-            },
-          },
-          "name": "Photos",
-          "name_prefix": "Cozy",
-          "permissions": Object {
-            "albums": Object {
-              "description": "Required to manage photos albums",
-              "methods": Array [
-                "GET",
-                "POST",
-                "PUT",
-              ],
-              "type": "io.cozy.photos.albums",
-            },
-            "apps": Object {
-              "description": "Required by the cozy-bar to display the icons of the apps",
-              "type": "io.cozy.apps",
-              "verbs": Array [
-                "GET",
-              ],
-            },
-            "contacts": Object {
-              "description": "Required to to share photos with your contacts",
-              "methods": Array [
-                "GET",
-                "POST",
-              ],
-              "type": "io.cozy.contacts",
-            },
-            "files": Object {
-              "description": "Required for photo access",
-              "methods": Array [
-                "GET",
-                "POST",
-                "PUT",
-              ],
-              "type": "io.cozy.files",
-            },
-            "settings": Object {
-              "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
-              "type": "io.cozy.settings",
-              "verbs": Array [
-                "GET",
-              ],
-            },
-          },
-          "platforms": Array [
-            Object {
-              "type": "ios",
-              "url": "",
-            },
-            Object {
-              "type": "linux",
-              "url": "",
-            },
-            Object {
-              "type": "android",
-              "url": "https://mock.app",
-            },
-          ],
-          "routes": Object {
-            "/": Object {
-              "folder": "/",
-              "index": "index.html",
-              "public": false,
-            },
-            "/public": Object {
-              "folder": "/public",
-              "index": "index.html",
-              "public": true,
-            },
-          },
-          "short_description": "Photos manager for Cozy v3",
-          "slug": "photos",
-          "source": "https://github.com/cozy/cozy-drive.git@build-photos",
-          "type": "webapp",
-          "uninstallable": false,
-          "version": "3.0.0",
-        }
-      }
-      className="sto-app-icon"
-      domain={null}
-      secure={false}
-    />
-  </div>
-  <div
-    className="sto-app-header-content"
-  >
-    <h2
-      className="sto-app-header-title"
-    >
-      Photos
-    </h2>
-    <p
-      className="sto-app-header-description"
-    />
     <DefaultButton
-      className="c-btn"
-      icon="openwith"
-      label="Open"
-      onClick={[Function]}
+      aria-busy={false}
+      extension={null}
+      icon="test-file-stub"
+      label="Install"
+      onClick={null}
+      tag={[Function]}
+      theme="primary"
+      to="//myapps/konnector-trinlane/install"
     />
-    <Link
-      className="c-btn c-btn--secondary sto-app-header-uninstall-button"
-      disabled={true}
-      onClick={[Function]}
-      replace={false}
-      to="//discover/photos/uninstall"
-    >
-      <span>
-        Uninstall
-      </span>
-    </Link>
   </div>
 </div>
 `;
@@ -922,26 +576,16 @@ Gestionnaire de photos pour Cozy v3 :tada:",
     <p
       className="sto-app-header-description"
     />
-    <Link
-      className="c-btn c-btn--regular"
-      disabled={false}
+    <DefaultButton
+      aria-busy={false}
+      extension={null}
+      icon="test-file-stub"
+      label="Install"
       onClick={null}
-      replace={false}
+      tag={[Function]}
+      theme="primary"
       to="//discover/photos/install"
-    >
-      <span>
-        <Icon
-          className="sto-app-icon--button"
-          color="#FFFFFF"
-          height="16px"
-          icon="test-file-stub"
-          spin={false}
-          width="16px"
-        />
-         
-        Install
-      </span>
-    </Link>
+    />
   </div>
 </div>
 `;
