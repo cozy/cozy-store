@@ -4286,13 +4286,6 @@ eslint-config-prettier@3.6.0:
   dependencies:
     get-stdin "^6.0.0"
 
-eslint-config-prettier@3.6.0:
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-3.6.0.tgz#8ca3ffac4bd6eeef623a0651f9d754900e3ec217"
-  integrity sha512-ixJ4U3uTLXwJts4rmSVW/lMXjlGwCijhBJHk8iVqKKSifeI0qgFEfWl8L63isfc8Od7EiBALF6BX3jKLluf/jQ==
-  dependencies:
-    get-stdin "^6.0.0"
-
 eslint-loader@2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/eslint-loader/-/eslint-loader-2.1.1.tgz#2a9251523652430bfdd643efdb0afc1a2a89546a"
@@ -4992,10 +4985,10 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.1"
     readable-stream "^2.0.4"
 
-focus-trap-react@4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/focus-trap-react/-/focus-trap-react-4.0.1.tgz#3cffd39341df3b2f546a4a2fe94cfdea66154683"
-  integrity sha512-UUZKVEn5cFbF6yUnW7lbXNW0iqN617ShSqYKgxctUvWw1wuylLtyVmC0RmPQNnJ/U+zoKc/djb0tZMs0uN/0QQ==
+focus-trap-react@5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/focus-trap-react/-/focus-trap-react-5.0.1.tgz#2459c632225ec7ff45a9a6abea320c38467d75e1"
+  integrity sha512-gDvYHKzUphCafOplHp3OQIz44WBge24yXculCkERLQplG53GyVOXvehYDW3rM4VAPGillsLUN8BlsKoRJAcoMA==
   dependencies:
     focus-trap "^3.0.0"
 
