@@ -72,6 +72,7 @@ export class DropdownFilter extends Component {
             DropdownIndicator: SmallArrow
           }}
           isSearchable={false}
+          fullwidth
         />
       </div>
     )
