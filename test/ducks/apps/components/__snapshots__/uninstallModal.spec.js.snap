@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`UninstallModal component should be rendered correctly (app uninstallable) 1`] = `
-<div
-  className="sto-modal--uninstall"
+<Portal
+  into="body"
 >
   <Unknown
     closable={true}
@@ -41,12 +41,12 @@ exports[`UninstallModal component should be rendered correctly (app uninstallabl
       </div>
     </ModalContent>
   </Unknown>
-</div>
+</Portal>
 `;
 
 exports[`UninstallModal component should handle correctly error from props 1`] = `
-<div
-  className="sto-modal--uninstall"
+<Portal
+  into="body"
 >
   <Unknown
     closable={true}
@@ -90,5 +90,5 @@ exports[`UninstallModal component should handle correctly error from props 1`] =
       </div>
     </ModalContent>
   </Unknown>
-</div>
+</Portal>
 `;

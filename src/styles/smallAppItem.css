@@ -13,7 +13,7 @@
   flex-basis: var(--item-size);
   height: var(--item-size);
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   background: white;
   box-shadow: none;
   border-radius: 4px;
@@ -55,7 +55,7 @@
 .sto-small-app-item-desc {
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   margin-top: .5rem;
   text-align: center;

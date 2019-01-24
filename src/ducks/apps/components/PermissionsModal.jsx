@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import Modal, { ModalContent, ModalHeader } from 'cozy-ui/react/Modal'
 import { translate } from 'cozy-ui/react/I18n'
+import Portal from 'cozy-ui/react/Portal'
 
 import { withRouter } from 'react-router-dom'
 import PermissionsList from './PermissionsList'
@@ -19,14 +20,16 @@ export class PermissionsModal extends Component {
   render() {
     const { t, app } = this.props
     return (
-      <Modal secondaryAction={() => this.gotoParent()} mobileFullscreen>
-        <ModalHeader className="sto-install-header">
-          <h2>{t('app_modal.permissions.title')}</h2>
-        </ModalHeader>
-        <ModalContent>
-          <PermissionsList app={app} />
-        </ModalContent>
-      </Modal>
+      <Portal into="body">
+        <Modal secondaryAction={() => this.gotoParent()} mobileFullscreen>
+          <ModalHeader className="sto-install-header">
+            <h2>{t('app_modal.permissions.title')}</h2>
+          </ModalHeader>
+          <ModalContent>
+            <PermissionsList app={app} />
+          </ModalContent>
+        </Modal>
+      </Portal>
     )
   }
 }

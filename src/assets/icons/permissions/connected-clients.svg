@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-connected-clients</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="icon-connected-clients" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-phone" transform="translate(9.000000, 0.000000)">
+            <path d="M26,48 L4,48 C1.79,48 0,46.130087 0,43.826087 L0,4.17391304 C0,1.86991304 1.79,0 4,0 L26,0 C28.208,0 30,1.86991304 30,4.17391304 L30,43.826087 C30,46.130087 28.208,48 26,48 Z" id="Stroke-2079" fill="#d6d8da"></path>
+            <path d="M12,3 L18,3" id="Stroke-2082" stroke="#5d6165" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M17,44 C17,45.104 16.104,46 15,46 C13.896,46 13,45.104 13,44 C13,42.896 13.896,42 15,42 C16.104,42 17,42.896 17,44 L17,44 Z" id="Stroke-2083" fill="#5d6165"></path>
+            <rect id="Rectangle-3" fill="#5d6165" x="3" y="6" width="24" height="34"></rect>
+        </g>
+    </g>
+</svg>

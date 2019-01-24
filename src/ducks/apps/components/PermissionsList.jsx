@@ -9,24 +9,31 @@ import localAccessIcon from 'assets/icons/icon-cloud-in-cozy.svg'
 import externalIcon from 'assets/icons/icon-cloud-out-cozy.svg'
 
 import LINXO_CONNECTORS from 'config/linxo.json'
+import PERMISSIONS_ICONS from 'config/permissionsIcons.json'
 
-export const Permission = ({ description, label, type, t }) => (
-  <li className="sto-perm-list-item">
-    <div className="sto-perm-label">
-      <span className="sto-perm-title" data-doctype={type}>
-        {label}
-      </span>
-      {description && (
-        <small className="sto-perm-description">
-          <ReactMarkdownWrapper
-            className="sto-perm-description-detail"
-            source={`${t('permissions.reason')}${description}`}
-          />
-        </small>
-      )}
-    </div>
-  </li>
-)
+export const Permission = ({ description, label, type, t }) => {
+  const permIconName = PERMISSIONS_ICONS[type] || 'fallback'
+  const permIcon = require(`assets/icons/permissions/${permIconName}.svg`)
+    .default
+  return (
+    <li className="sto-perm-list-item">
+      <div className="sto-perm-label">
+        <span className="sto-perm-title" data-doctype={type}>
+          <Icon icon={permIcon} className="sto-perm-title-icon" />
+          {label}
+        </span>
+        {description && (
+          <small className="sto-perm-description">
+            <ReactMarkdownWrapper
+              className="sto-perm-description-detail"
+              source={`${t('permissions.reason')}${description}`}
+            />
+          </small>
+        )}
+      </div>
+    </li>
+  )
+}
 
 const LocalizedPermission = ({ t, app, name, type }) => (
   <Permission
