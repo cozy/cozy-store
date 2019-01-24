@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InstallModal component should be rendered correctly if app found 1`] = `
-<div
-  className="sto-modal--install"
+<Portal
+  into="body"
 >
   <FocusTrap
     _createFocusTrap={[Function]}
@@ -31,12 +31,12 @@ exports[`InstallModal component should be rendered correctly if app found 1`] = 
       />
     </Unknown>
   </FocusTrap>
-</div>
+</Portal>
 `;
 
 exports[`InstallModal component should be rendered correctly to update app with availableVersion 1`] = `
-<div
-  className="sto-modal--install"
+<Portal
+  into="body"
 >
   <FocusTrap
     _createFocusTrap={[Function]}
@@ -65,12 +65,12 @@ exports[`InstallModal component should be rendered correctly to update app with 
       />
     </Unknown>
   </FocusTrap>
-</div>
+</Portal>
 `;
 
 exports[`InstallModal component should be rendered correctly with also app in registry 1`] = `
-<div
-  className="sto-modal--install"
+<Portal
+  into="body"
 >
   <FocusTrap
     _createFocusTrap={[Function]}
@@ -99,12 +99,12 @@ exports[`InstallModal component should be rendered correctly with also app in re
       />
     </Unknown>
   </FocusTrap>
-</div>
+</Portal>
 `;
 
 exports[`InstallModal component should not break the permissions part if no permissions property found in manifest 1`] = `
-<div
-  className="sto-modal--install"
+<Portal
+  into="body"
 >
   <FocusTrap
     _createFocusTrap={[Function]}
@@ -133,5 +133,5 @@ exports[`InstallModal component should not break the permissions part if no perm
       />
     </Unknown>
   </FocusTrap>
-</div>
+</Portal>
 `;

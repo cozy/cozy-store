@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import Modal from 'cozy-ui/react/Modal'
 import { translate } from 'cozy-ui/react/I18n'
 import FocusTrap from 'focus-trap-react'
+import Portal from 'cozy-ui/react/Portal'
 import PropTypes from 'prop-types'
 
 import AppInstallation from './AppInstallation'
@@ -59,7 +60,7 @@ export class ChannelModal extends Component {
     const { app, onSuccess, channel } = this.props
     if (!this.isAppHandled()) return null
     return (
-      <div className="sto-modal--install">
+      <Portal into="body">
         <FocusTrap
           focusTrapOptions={{
             onDeactivate: this.unmountTrap,
@@ -75,7 +76,7 @@ export class ChannelModal extends Component {
             />
           </Modal>
         </FocusTrap>
-      </div>
+      </Portal>
     )
   }
 }

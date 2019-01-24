@@ -9,6 +9,7 @@ import Alerter from 'cozy-ui/react/Alerter'
 import Button from 'cozy-ui/react/Button'
 import { getAppBySlug, uninstallApp } from 'ducks/apps'
 import Modal, { ModalContent } from 'cozy-ui/react/Modal'
+import Portal from 'cozy-ui/react/Portal'
 
 import ReactMarkdownWrapper from '../../components/ReactMarkdownWrapper'
 
@@ -47,7 +48,7 @@ export class UninstallModal extends Component {
       uninstallError
     } = this.props
     return (
-      <div className="sto-modal--uninstall">
+      <Portal into="body">
         <Modal
           title={t('app_modal.uninstall.title')}
           dismissAction={dismissAction}
@@ -87,7 +88,7 @@ export class UninstallModal extends Component {
             </div>
           </ModalContent>
         </Modal>
-      </div>
+      </Portal>
     )
   }
 }

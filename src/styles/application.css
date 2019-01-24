@@ -84,13 +84,7 @@ main > [role=main].sto-myapps {
   overflow-y: auto;
 }
 
-
 @media (max-width: 64rem) {
-  .has-modal .sto-modal-page {
-    position: absolute;
-    z-index: auto;
-  }
-
   .sto-modal-page {
     position: fixed;
     top: 3rem;

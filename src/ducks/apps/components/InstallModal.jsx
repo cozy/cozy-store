@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import Modal from 'cozy-ui/react/Modal'
 import FocusTrap from 'focus-trap-react'
 import { translate } from 'cozy-ui/react/I18n'
+import Portal from 'cozy-ui/react/Portal'
 
 import AppInstallation from './AppInstallation'
 import { hasPendingUpdate } from 'ducks/apps/appStatus'
@@ -42,7 +43,7 @@ export class InstallModal extends Component {
   render() {
     const { app, redirectToApp, redirectToConfigure } = this.props
     return (
-      <div className="sto-modal--install">
+      <Portal into="body">
         <FocusTrap
           focusTrapOptions={{
             onDeactivate: this.unmountTrap,
@@ -58,7 +59,7 @@ export class InstallModal extends Component {
             />
           </Modal>
         </FocusTrap>
-      </div>
+      </Portal>
     )
   }
 }
