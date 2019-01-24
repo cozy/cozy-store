@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-task-to-effectuate</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="icon-task-to-effectuate" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-5">
+            <g id="Group">
+                <rect id="Rectangle" fill="#d6d8da" x="0" y="0" width="38" height="38" rx="2"></rect>
+                <g id="Group-2" transform="translate(23.000000, 17.000000) scale(1, -1) translate(-23.000000, -17.000000) translate(11.000000, 2.000000)" fill="#5d6165">
+                    <rect id="Rectangle-5" x="0" y="0" width="10" height="4" rx="2"></rect>
+                    <rect id="Rectangle-5-Copy-2" x="0" y="8" width="15" height="4" rx="2"></rect>
+                    <rect id="Rectangle-5-Copy-3" x="0" y="16" width="23" height="4" rx="2"></rect>
+                    <rect id="Rectangle-5-Copy-4" x="0" y="24" width="23" height="4" rx="2"></rect>
+                </g>
+            </g>
+            <g id="Group-3" transform="translate(24.000000, 24.000000)">
+                <g id="Group-4">
+                    <circle id="Oval-9" fill="#5d6165" cx="12" cy="12" r="12"></circle>
+                    <path d="M12.3284505,12.3333333 L12.3284505,5.66666667 C12.3284505,5.29866667 12.0297839,5 11.6617839,5 C11.2937839,5 10.9951172,5.29866667 10.9951172,5.66666667 L10.9951172,13.6666667 L16.3284505,13.6666667 C16.6964505,13.6666667 16.9951172,13.368 16.9951172,13 C16.9951172,12.632 16.6964505,12.3333333 16.3284505,12.3333333 L12.3284505,12.3333333 Z" id="Fill-162" stroke="#d6d8da" fill="#d6d8da"></path>
+                </g>
+            </g>
+            <circle id="Oval-27" fill="#5d6165" cx="6" cy="14" r="2"></circle>
+            <circle id="Oval-27-Copy-3" fill="#5d6165" cx="6" cy="6" r="2"></circle>
+            <circle id="Oval-27-Copy" fill="#5d6165" cx="6" cy="22" r="2"></circle>
+            <circle id="Oval-27-Copy-2" fill="#5d6165" cx="6" cy="30" r="2"></circle>
+        </g>
+    </g>
+</svg>
