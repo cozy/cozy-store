@@ -146,7 +146,6 @@ export class AppInstallation extends Component {
                   theme="primary"
                   disabled={!this.isInstallReady() || isInstalling}
                   busy={isCurrentAppInstalling}
-                  icon="download"
                   extension="full"
                   onClick={this.installApp}
                   label={
