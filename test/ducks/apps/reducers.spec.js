@@ -172,8 +172,14 @@ const reducersTestConfig = {
               a.slug ==
               actionsMap.get('INSTALL_APP*').installAppSuccessAction
                 .installedApp.slug
-            )
-              a.installed = true
+            ) {
+              return {
+                ...a,
+                ...actionsMap.get('INSTALL_APP*').installAppSuccessAction
+                  .installedApp,
+                installed: true
+              }
+            }
             return a
           })
         ],
@@ -196,8 +202,14 @@ const reducersTestConfig = {
               a.slug ==
               actionsMap.get('INSTALL_APP*').installAppSuccessAction
                 .installedApp.slug
-            )
-              a.installed = true
+            ) {
+              return {
+                ...a,
+                ...actionsMap.get('INSTALL_APP*').installAppSuccessAction
+                  .installedApp,
+                installed: true
+              }
+            }
             return a
           })
         ]
