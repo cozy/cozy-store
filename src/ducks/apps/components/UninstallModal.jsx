@@ -8,7 +8,7 @@ import { translate } from 'cozy-ui/react/I18n'
 import Alerter from 'cozy-ui/react/Alerter'
 import Button from 'cozy-ui/react/Button'
 import { getAppBySlug, uninstallApp } from 'ducks/apps'
-import Modal, { ModalContent } from 'cozy-ui/react/Modal'
+import Modal, { ModalDescription, ModalFooter } from 'cozy-ui/react/Modal'
 import Portal from 'cozy-ui/react/Portal'
 
 import ReactMarkdownWrapper from '../../components/ReactMarkdownWrapper'
@@ -53,40 +53,41 @@ export class UninstallModal extends Component {
           title={t('app_modal.uninstall.title')}
           dismissAction={dismissAction}
           mobileFullscreen
+          className="sto-modal--uninstall"
         >
-          <ModalContent>
-            <div className="sto-modal-content">
-              <ReactMarkdownWrapper
-                source={t('app_modal.uninstall.description', {
-                  cozyName: cozy.client._url.replace(/^\/\//, '')
+          <ModalDescription>
+            <ReactMarkdownWrapper
+              source={t('app_modal.uninstall.description', {
+                cozyName: cozy.client._url.replace(/^\/\//, '')
+              })}
+            />
+            {uninstallError && (
+              <p className="u-error">
+                {t('app_modal.uninstall.message.error', {
+                  message: uninstallError.message
                 })}
-              />
-              {uninstallError && (
-                <p className="u-error">
-                  {t('app_modal.uninstall.message.error', {
-                    message: uninstallError.message
-                  })}
-                </p>
-              )}
-              <div className="sto-modal-controls">
-                <button
-                  role="button"
-                  className="c-btn c-btn--secondary"
-                  onClick={dismissAction}
-                >
-                  <span>{t('app_modal.uninstall.cancel')}</span>
-                </button>
-                <Button
-                  busy={isUninstalling}
-                  disabled={isUninstalling || isInstalling}
-                  theme="danger"
-                  icon="delete"
-                  onClick={this.uninstallApp}
-                  label={t('app_modal.uninstall.uninstall')}
-                />
-              </div>
-            </div>
-          </ModalContent>
+              </p>
+            )}
+          </ModalDescription>
+          <ModalFooter className="sto-modal-controls">
+            <Button
+              theme="secondary"
+              onClick={dismissAction}
+              label={t('app_modal.uninstall.cancel')}
+              extension="full"
+              className="u-mh-half"
+            />
+            <Button
+              busy={isUninstalling}
+              disabled={isUninstalling || isInstalling}
+              theme="danger"
+              icon="delete"
+              onClick={this.uninstallApp}
+              label={t('app_modal.uninstall.uninstall')}
+              extension="full"
+              className="u-mh-half"
+            />
+          </ModalFooter>
         </Modal>
       </Portal>
     )

@@ -5,6 +5,7 @@ exports[`UninstallModal component should be rendered correctly (app uninstallabl
   into="body"
 >
   <Unknown
+    className="sto-modal--uninstall"
     closable={true}
     mobileFullscreen={true}
     overflowHidden={false}
@@ -14,32 +15,28 @@ exports[`UninstallModal component should be rendered correctly (app uninstallabl
     title="Uninstall this application"
   >
     <ModalContent>
-      <div
-        className="sto-modal-content"
-      >
-        <ReactMarkdownWrapper
-          source="This application is bound to be removed from your Cozy cozytest.mock.cc. Are you sure to __remove this application definitively__?"
-        />
-        <div
-          className="sto-modal-controls"
-        >
-          <button
-            className="c-btn c-btn--secondary"
-            role="button"
-          >
-            <span>
-              Cancel
-            </span>
-          </button>
-          <DefaultButton
-            icon="delete"
-            label="Uninstall"
-            onClick={[Function]}
-            theme="danger"
-          />
-        </div>
-      </div>
+      <ReactMarkdownWrapper
+        source="This application is bound to be removed from your Cozy cozytest.mock.cc. Are you sure to __remove this application definitively__?"
+      />
     </ModalContent>
+    <ModalFooter
+      className="sto-modal-controls"
+    >
+      <DefaultButton
+        className="u-mh-half"
+        extension="full"
+        label="Cancel"
+        theme="secondary"
+      />
+      <DefaultButton
+        className="u-mh-half"
+        extension="full"
+        icon="delete"
+        label="Uninstall"
+        onClick={[Function]}
+        theme="danger"
+      />
+    </ModalFooter>
   </Unknown>
 </Portal>
 `;
@@ -49,6 +46,7 @@ exports[`UninstallModal component should handle correctly error from props 1`] =
   into="body"
 >
   <Unknown
+    className="sto-modal--uninstall"
     closable={true}
     mobileFullscreen={true}
     overflowHidden={false}
@@ -58,37 +56,33 @@ exports[`UninstallModal component should handle correctly error from props 1`] =
     title="Uninstall this application"
   >
     <ModalContent>
-      <div
-        className="sto-modal-content"
+      <ReactMarkdownWrapper
+        source="This application is bound to be removed from your Cozy cozytest.mock.cc. Are you sure to __remove this application definitively__?"
+      />
+      <p
+        className="u-error"
       >
-        <ReactMarkdownWrapper
-          source="This application is bound to be removed from your Cozy cozytest.mock.cc. Are you sure to __remove this application definitively__?"
-        />
-        <p
-          className="u-error"
-        >
-          Something went wrong when uninstalling this application. Reason: This is a test error
-        </p>
-        <div
-          className="sto-modal-controls"
-        >
-          <button
-            className="c-btn c-btn--secondary"
-            role="button"
-          >
-            <span>
-              Cancel
-            </span>
-          </button>
-          <DefaultButton
-            icon="delete"
-            label="Uninstall"
-            onClick={[Function]}
-            theme="danger"
-          />
-        </div>
-      </div>
+        Something went wrong when uninstalling this application. Reason: This is a test error
+      </p>
     </ModalContent>
+    <ModalFooter
+      className="sto-modal-controls"
+    >
+      <DefaultButton
+        className="u-mh-half"
+        extension="full"
+        label="Cancel"
+        theme="secondary"
+      />
+      <DefaultButton
+        className="u-mh-half"
+        extension="full"
+        icon="delete"
+        label="Uninstall"
+        onClick={[Function]}
+        theme="danger"
+      />
+    </ModalFooter>
   </Unknown>
 </Portal>
 `;
