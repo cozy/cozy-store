@@ -36,6 +36,7 @@ export class ConfigureModal extends Component {
         overflowHidden
         size="small"
         height={!isMobile && '35rem'}
+        into="body"
       />
     )
   }
