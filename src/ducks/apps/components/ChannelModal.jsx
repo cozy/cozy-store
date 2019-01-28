@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 import AppInstallation from './AppInstallation'
 import getChannel from 'lib/getChannelFromSource'
 
-import { fetchLatestApp, getAppBySlug } from 'ducks/apps'
+import { fetchLatestApp, getAppBySlug, restoreAppIfSaved } from 'ducks/apps'
 
 export class ChannelModal extends Component {
   constructor(props) {
@@ -93,7 +93,8 @@ ChannelModal.propTypes = {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchLatestApp: (app, channel) =>
-    dispatch(fetchLatestApp(ownProps.lang, app.slug, channel, app))
+    dispatch(fetchLatestApp(ownProps.lang, app.slug, channel, app)),
+  restoreAppIfSaved: () => dispatch(restoreAppIfSaved())
 })
 
 const mapStateToProps = (state, ownProps) => ({
