@@ -47,7 +47,7 @@ export const Header = ({
           {namePrefix ? `${namePrefix} ${name}` : name}
         </h2>
         <p className="sto-app-header-description">{description}</p>
-        {isInstalledAndNothingToReport(app) ? (
+        {isInstalledAndNothingToReport(app) && !isCurrentAppInstalling ? (
           isKonnector ? (
             <AsyncButton
               asyncAction={() =>
