@@ -107,7 +107,7 @@ export const list = (state = [], action = {}) => {
       return _sortAlphabetically(
         state.map(app => {
           if (app.slug === action.installedApp.slug) {
-            const nextApp = { ...app, installed: true }
+            const nextApp = { ...app, ...action.installedApp, installed: true }
             // the available update is now installed
             if (nextApp.availableVersion) delete nextApp.availableVersion
             return nextApp
