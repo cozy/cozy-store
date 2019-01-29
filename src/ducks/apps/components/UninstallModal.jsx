@@ -17,6 +17,10 @@ export class UninstallModal extends Component {
   constructor(props) {
     super(props)
 
+    this.state = {
+      redirecting: false
+    }
+
     const { app, onNotInstalled } = props
     if (app && !app.installed) {
       onNotInstalled()
@@ -39,6 +43,21 @@ export class UninstallModal extends Component {
     uninstallApp(app)
   }
 
+  toggleRedirect = async () => {
+    if (this.state.redirecting) return // don't toggle twice
+    this.setState(() => ({ redirecting: true }))
+    try {
+      await cozy.client.intents.redirect('io.cozy.settings', {
+        step: 'connectedDevices'
+      })
+    } catch (error) {
+      console.error(error)
+      this.setState({
+        redirecting: false
+      })
+    }
+  }
+
   render() {
     const {
       isUninstalling,
@@ -47,6 +66,9 @@ export class UninstallModal extends Component {
       t,
       uninstallError
     } = this.props
+    const linkedAppError =
+      uninstallError &&
+      uninstallError.message === 'A linked OAuth client exists for this app'
     return (
       <Portal into="body">
         <Modal
@@ -61,11 +83,25 @@ export class UninstallModal extends Component {
                 cozyName: cozy.client._url.replace(/^\/\//, '')
               })}
             />
-            {uninstallError && (
+            {uninstallError &&
+              !linkedAppError && (
+                <p className="u-error">
+                  {t('app_modal.uninstall.message.error', {
+                    message: uninstallError.message
+                  })}
+                </p>
+              )}
+            {linkedAppError && (
               <p className="u-error">
-                {t('app_modal.uninstall.message.error', {
-                  message: uninstallError.message
-                })}
+                {t('app_modal.uninstall.linked_app.error')}
+                &nbsp;
+                <a
+                  className="u-c-pointer u-dodgerBlue"
+                  onClick={this.toggleRedirect}
+                >
+                  {t('app_modal.uninstall.linked_app.link')}
+                </a>
+                .
               </p>
             )}
           </ModalDescription>
@@ -79,7 +115,7 @@ export class UninstallModal extends Component {
             />
             <Button
               busy={isUninstalling}
-              disabled={isUninstalling || isInstalling}
+              disabled={isUninstalling || isInstalling || !!linkedAppError}
               theme="danger"
               icon="delete"
               onClick={this.uninstallApp}

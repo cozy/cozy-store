@@ -70,4 +70,13 @@ describe('UninstallModal component', () => {
     const component = shallow(<UninstallModal t={tMock} {...mockProps} />)
     expect(component.getElement()).toMatchSnapshot()
   })
+
+  it('should handle correctly linked app error', () => {
+    const mockProps = getMockProps(
+      'photos',
+      new Error('A linked OAuth client exists for this app')
+    )
+    const component = shallow(<UninstallModal t={tMock} {...mockProps} />)
+    expect(component.getElement()).toMatchSnapshot()
+  })
 })

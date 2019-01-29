@@ -507,6 +507,15 @@ export function fetchApps(lang) {
   }
 }
 
+function extractJsonApiError(e) {
+  try {
+    const parsed = JSON.parse(e.message)
+    return new Error(parsed.errors[0].detail || e.message)
+  } catch (err) {
+    return e
+  }
+}
+
 export function uninstallApp(app) {
   const { slug, type } = app
   return dispatch => {
@@ -522,7 +531,7 @@ export function uninstallApp(app) {
     const route =
       type === APP_TYPE.KONNECTOR || type === 'node' ? 'konnectors' : 'apps'
     return cozy.client.fetchJSON('DELETE', `/${route}/${slug}`).catch(e => {
-      dispatch({ type: UNINSTALL_APP_FAILURE, error: e })
+      dispatch({ type: UNINSTALL_APP_FAILURE, error: extractJsonApiError(e) })
     })
   }
 }
