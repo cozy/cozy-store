@@ -4,8 +4,8 @@ matrix:
 node_js:
 - '8'
 branches:
-  except:
-  - build
+  only:
+  - master
 env:
   global:
   - CXX=g++-4.8
