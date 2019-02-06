@@ -419,6 +419,7 @@ export function fetchInstalledApps(lang) {
   return async dispatch => {
     dispatch({ type: FETCH_APPS })
     try {
+      let fetchingKonnectors = cozy.client.fetchJSON('GET', '/konnectors/')
       let installedWebApps = await cozy.client.fetchJSON('GET', '/apps/')
       installedWebApps = installedWebApps.map(w => {
         // FIXME type konnector is missing from stack
@@ -433,10 +434,7 @@ export function fetchInstalledApps(lang) {
       installedWebApps = installedWebApps.filter(
         app => !config.notDisplayedApps.includes(app.attributes.slug)
       )
-      let installedKonnectors = await cozy.client.fetchJSON(
-        'GET',
-        '/konnectors/'
-      )
+      let installedKonnectors = await fetchingKonnectors
       installedKonnectors = installedKonnectors.map(k => {
         // FIXME type konnector is missing from stack
         k.attributes.type = APP_TYPE.KONNECTOR
