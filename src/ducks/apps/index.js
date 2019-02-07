@@ -415,11 +415,15 @@ export async function getFormattedRegistryApp(
   )
 }
 
-export function fetchInstalledApps(lang) {
+export function fetchInstalledApps(lang, fetchingRegistry) {
   return async dispatch => {
-    dispatch({ type: FETCH_APPS })
     try {
-      let installedWebApps = await cozy.client.fetchJSON('GET', '/apps/')
+      // Start the HTTP requests as soon as possible
+      let fetchingKonnectors = cozy.client.fetchJSON('GET', '/konnectors/')
+      let fetchingWebApps = cozy.client.fetchJSON('GET', '/apps/')
+      await fetchingRegistry
+      dispatch({ type: FETCH_APPS })
+      let installedWebApps = await fetchingWebApps
       installedWebApps = installedWebApps.map(w => {
         // FIXME type konnector is missing from stack
         w.attributes.type = APP_TYPE.WEBAPP
@@ -433,10 +437,7 @@ export function fetchInstalledApps(lang) {
       installedWebApps = installedWebApps.filter(
         app => !config.notDisplayedApps.includes(app.attributes.slug)
       )
-      let installedKonnectors = await cozy.client.fetchJSON(
-        'GET',
-        '/konnectors/'
-      )
+      let installedKonnectors = await fetchingKonnectors
       installedKonnectors = installedKonnectors.map(k => {
         // FIXME type konnector is missing from stack
         k.attributes.type = APP_TYPE.KONNECTOR
@@ -502,8 +503,8 @@ export function fetchRegistryApps(lang, channel = DEFAULT_CHANNEL) {
 
 export function fetchApps(lang) {
   return async dispatch => {
-    await dispatch(fetchRegistryApps(lang))
-    return dispatch(fetchInstalledApps(lang))
+    const fetchingRegistry = dispatch(fetchRegistryApps(lang))
+    return dispatch(fetchInstalledApps(lang, fetchingRegistry))
   }
 }
 
