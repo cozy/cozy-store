@@ -181,9 +181,9 @@ export async function getFormattedInstalledApp(response) {
 
 // only on the app initialisation
 export function initApp(lang) {
-  return async dispatch => {
+  return dispatch => {
     dispatch({ type: LOADING_APP })
-    await dispatch(initializeRealtime())
+    dispatch(initializeRealtime())
     return dispatch(fetchApps(lang))
   }
 }
@@ -192,7 +192,7 @@ export function initApp(lang) {
 export function initAppIntent(lang, slug) {
   return async dispatch => {
     dispatch({ type: LOADING_APP_INTENT })
-    await dispatch(initializeRealtime())
+    dispatch(initializeRealtime())
     return await dispatch(fetchLatestApp(lang, slug))
   }
 }
@@ -240,34 +240,31 @@ function initializeRealtime() {
     // see https://github.com/cozy/cozy-libs/blob/master/packages/realtime/src/index.js#L52
     url: `${window.location.protocol}${cozy.client._url}`
   }
-  return async dispatch => {
-    realtime
-      .subscribeAll(config, APPS_DOCTYPE)
-      .then(subscription => {
+  return dispatch => {
+    try {
+      realtime
+        .subscribe(config, APPS_DOCTYPE)
         // HACK: the push CREATE at fisrt install
-        subscription.onCreate(app => dispatch(onAppUpdate(app)))
-        subscription.onUpdate(app => dispatch(onAppUpdate(app)))
-        subscription.onDelete(app => dispatch(onAppDelete(app)))
-      })
-      .catch(error => {
-        // eslint-disable-next-line no-console
-        console.warn(`Cannot initialize realtime for apps: ${error.message}`)
-      })
-
-    realtime
-      .subscribeAll(config, KONNECTORS_DOCTYPE)
-      .then(subscription => {
+        .onCreate(app => dispatch(onAppUpdate(app)))
+        .onUpdate(app => dispatch(onAppUpdate(app)))
+        .onDelete(app => dispatch(onAppDelete(app)))
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.warn(`Cannot initialize realtime for apps: ${error.message}`)
+    }
+    try {
+      realtime
+        .subscribe(config, KONNECTORS_DOCTYPE)
         // HACK: the push CREATE at fisrt install
-        subscription.onCreate(app => dispatch(onAppUpdate(app)))
-        subscription.onUpdate(app => dispatch(onAppUpdate(app)))
-        subscription.onDelete(app => dispatch(onAppDelete(app)))
-      })
-      .catch(error => {
-        // eslint-disable-next-line no-console
-        console.warn(
-          `Cannot initialize realtime for konnectors: ${error.message}`
-        )
-      })
+        .onCreate(app => dispatch(onAppUpdate(app)))
+        .onUpdate(app => dispatch(onAppUpdate(app)))
+        .onDelete(app => dispatch(onAppDelete(app)))
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.warn(
+        `Cannot initialize realtime for konnectors: ${error.message}`
+      )
+    }
   }
 }
 
