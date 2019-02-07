@@ -45,7 +45,7 @@
     "prettier": "1.14.3",
     "react": "16.7.0",
     "react-dom": "16.7.0",
-    "react-hot-loader": "4.6.3",
+    "react-hot-loader": "4.6.5",
     "react-markdown": "3.6.0",
     "react-test-renderer": "16.7.0",
     "redux-logger": "3.0.6",
