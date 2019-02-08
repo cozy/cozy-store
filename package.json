@@ -16,7 +16,6 @@
     "watch:mobile": "cozy-scripts watch --mobile",
     "start": "cozy-scripts start --hot",
     "cozyPublish": "cozy-scripts publish --token $REGISTRY_TOKEN --prepublish downcloud --postpublish mattermost",
-    "pretest": "yarn lint",
     "test": "cozy-scripts test --verbose --coverage",
     "stack:docker": "docker run --rm -it -p 8080:8080 -v \"$(pwd)/build\":/data/cozy-app/app cozy/cozy-app-dev"
   },
