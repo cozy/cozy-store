@@ -220,6 +220,7 @@
         "bills": "Bills",
         "contacts": "Contacts",
         "contacts.groups": "Contacts groups",
+        "contacts.accounts": "Accounts linked to the contacts",
         "files": "Files",
         "jobs": "Jobs",
         "konnectors": "Connectors for importing data",

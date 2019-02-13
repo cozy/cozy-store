@@ -14,6 +14,7 @@
   "io.cozy.bills": "bill",
   "io.cozy.contacts": "contacts",
   "io.cozy.contacts.groups": "contacts-groups",
+  "io.cozy.contacts.accounts": "contacts-accounts",
   "io.cozy.files": "files",
   "io.cozy.jobs": "task-to-effectuate",
   "io.cozy.konnectors": "konnectors",
