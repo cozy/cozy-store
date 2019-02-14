@@ -63,7 +63,7 @@
     "eslint-config-prettier": "4.0.0",
     "focus-trap-react": "4.0.1",
     "lodash.get": "4.4.2",
-    "prop-types": "15.6.2",
+    "prop-types": "15.7.2",
     "react-proptypes": "1.0.0",
     "react-redux": "5.1.1",
     "react-router-dom": "4.3.1",
