@@ -17,10 +17,6 @@
   <% _.forEach(htmlWebpackPlugin.files.css, function(file) { %>
     <link rel="stylesheet" href="<%- file %>">
   <% }); %>
-  <script src="//{{.Domain}}/assets/js/piwik.js" defer></script>
-  <% _.forEach(htmlWebpackPlugin.files.js, function(file) { %>
-    <script src="<%- file %>" defer></script>
-  <% }); %>
   <% if (__STACK_ASSETS__) { %>
   {{.CozyClientJS}}
   {{.CozyBar}}
@@ -38,3 +34,7 @@
   data-cozy-tracking="{{.Tracking}}"
   data-cozy-icon-path="{{.IconPath}}"
 >
+<% _.forEach(htmlWebpackPlugin.files.js, function(file) { %>
+  <script src="<%- file %>"></script>
+<% }); %>
+<script src="//{{.Domain}}/assets/js/piwik.js" async></script>

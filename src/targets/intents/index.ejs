@@ -15,9 +15,6 @@
   <% _.forEach(htmlWebpackPlugin.files.css, function(file) { %>
     <link rel="stylesheet" href="<%- file %>">
   <% }); %>
-  <% _.forEach(htmlWebpackPlugin.files.js, function(file) { %>
-    <script src="<%- file %>" defer></script>
-  <% }); %>
   <% if (__STACK_ASSETS__) { %>
   {{.CozyClientJS}}
   <% } %>
@@ -33,3 +30,6 @@
   data-cozy-app-slug="{{.AppSlug}}"
   data-cozy-icon-path="{{.IconPath}}"
 >
+<% _.forEach(htmlWebpackPlugin.files.js, function(file) { %>
+  <script src="<%- file %>"></script>
+<% }); %>
