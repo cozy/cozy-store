@@ -3339,10 +3339,10 @@ cozy-device-helper@^1.4.4:
   dependencies:
     lodash "4.17.10"
 
-cozy-realtime@2.0.6:
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/cozy-realtime/-/cozy-realtime-2.0.6.tgz#4b210253bfb7683df958ef8b39dbc68245cf0fc6"
-  integrity sha512-mperwew3UkZJ5XaNYwqg3HOG+RWRz29asp8NGownHzYYtgHrM0HdUFUJu2C0Wnd+BqsrFw/rX2fKw6YySMSzHg==
+cozy-realtime@2.0.7:
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/cozy-realtime/-/cozy-realtime-2.0.7.tgz#1ca40806e4a3e752bf1d6ea4f8a761a8eaa123d2"
+  integrity sha512-rGJ4lLqbhcw6CKYIKir3lpuck1GbJCy2hUiEKeQXjeLU0j4TIPB1OBk01oz46RyTcAr2tzW8EesRGd4eqy/8Hw==
 
 cozy-scripts@1.13.0:
   version "1.13.0"
