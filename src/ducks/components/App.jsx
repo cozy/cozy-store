@@ -4,6 +4,7 @@ import { hot } from 'react-hot-loader'
 
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
 import { translate } from 'cozy-ui/react/I18n'
+import flag, { FlagSwitcher } from 'cozy-flags'
 
 import IntentRedirect from './intents/IntentRedirect'
 import Sidebar from './Sidebar'
@@ -24,6 +25,7 @@ export class App extends Component {
   render() {
     return (
       <Layout>
+        {flag('switcher') && <FlagSwitcher />}
         <Alerter />
         <Sidebar />
         <Main>
