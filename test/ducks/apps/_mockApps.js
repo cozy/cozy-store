@@ -4,6 +4,7 @@ export const apps = [
     slug: 'collect',
     name: 'Collect',
     editor: 'Cozy',
+    label: 1,
     name_prefix: 'Cozy',
     categories: ['cozy'],
     developer: { name: 'Cozy' },

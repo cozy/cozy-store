@@ -11,6 +11,7 @@ exports[`ApplicationPage header component should be rendered correctly provided 
       app={
         Object {
           "editor": "Cozy",
+          "label": 1,
           "manifest": Object {
             "categories": Array [
               "cozy",
@@ -313,6 +314,7 @@ exports[`ApplicationPage header component should be rendered correctly provided 
       app={
         Object {
           "editor": "Cozy",
+          "label": 1,
           "manifest": Object {
             "categories": Array [
               "transport",

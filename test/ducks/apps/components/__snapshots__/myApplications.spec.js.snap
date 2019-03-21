@@ -24,6 +24,7 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
               "icon": "<svg></svg>",
               "installed": true,
               "isInRegistry": true,
+              "label": 1,
               "name": "Collect",
               "name_prefix": "Cozy",
               "permissions": Object {
@@ -165,6 +166,7 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
               "icon": "<svg></svg>",
               "installed": true,
               "isInRegistry": true,
+              "label": 1,
               "name": "Collect",
               "name_prefix": "Cozy",
               "permissions": Object {
@@ -315,6 +317,7 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
           "icon": "<svg></svg>",
           "installed": true,
           "isInRegistry": true,
+          "label": 1,
           "name": "Collect",
           "name_prefix": "Cozy",
           "permissions": Object {
@@ -473,6 +476,7 @@ exports[`MyApplications component should be rendered correctly with apps and URL
               "icon": "<svg></svg>",
               "installed": true,
               "isInRegistry": true,
+              "label": 1,
               "name": "Collect",
               "name_prefix": "Cozy",
               "permissions": Object {
@@ -614,6 +618,7 @@ exports[`MyApplications component should be rendered correctly with apps and URL
               "icon": "<svg></svg>",
               "installed": true,
               "isInRegistry": true,
+              "label": 1,
               "name": "Collect",
               "name_prefix": "Cozy",
               "permissions": Object {
@@ -700,6 +705,7 @@ exports[`MyApplications component should be rendered correctly with apps and URL
           "icon": "<svg></svg>",
           "installed": true,
           "isInRegistry": true,
+          "label": 1,
           "name": "Collect",
           "name_prefix": "Cozy",
           "permissions": Object {
@@ -851,6 +857,7 @@ exports[`MyApplications component should use BarCenter from cozy-bar in mobile v
               "icon": "<svg></svg>",
               "installed": true,
               "isInRegistry": true,
+              "label": 1,
               "name": "Collect",
               "name_prefix": "Cozy",
               "permissions": Object {
@@ -992,6 +999,7 @@ exports[`MyApplications component should use BarCenter from cozy-bar in mobile v
               "icon": "<svg></svg>",
               "installed": true,
               "isInRegistry": true,
+              "label": 1,
               "name": "Collect",
               "name_prefix": "Cozy",
               "permissions": Object {
@@ -1142,6 +1150,7 @@ exports[`MyApplications component should use BarCenter from cozy-bar in mobile v
           "icon": "<svg></svg>",
           "installed": true,
           "isInRegistry": true,
+          "label": 1,
           "name": "Collect",
           "name_prefix": "Cozy",
           "permissions": Object {

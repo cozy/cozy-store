@@ -3,6 +3,7 @@ export const KonnectorTrinlane = {
   editor: 'Cozy',
   type: 'konnector',
   version: '0.1.0',
+  label: 1,
   manifest: {
     name: 'Trinlane',
     slug: 'konnector-trinlane',

@@ -28,6 +28,7 @@ Array [
         "icon": "<svg></svg>",
         "installed": false,
         "isInRegistry": true,
+        "label": 2,
         "links": Object {
           "icon": "/registry/konnector-bouilligue/0.1.0/icon",
         },
@@ -58,6 +59,7 @@ Array [
         "icon": "<svg></svg>",
         "installed": false,
         "isInRegistry": true,
+        "label": 1,
         "links": Object {
           "icon": "/registry/konnector-trinlane/0.1.0/icon",
         },
@@ -99,6 +101,7 @@ Array [
         "icon": "<svg></svg>",
         "installed": false,
         "isInRegistry": true,
+        "label": 1,
         "links": Object {
           "icon": "/registry/photos/3.0.0/icon",
         },
@@ -133,6 +136,7 @@ Array [
         "icon": "<svg></svg>",
         "installed": false,
         "isInRegistry": true,
+        "label": 4,
         "links": Object {
           "icon": "/registry/tasky/1.0.0/icon",
         },
@@ -188,6 +192,7 @@ Array [
       "icon": "<svg></svg>",
       "installed": true,
       "isInRegistry": true,
+      "label": 1,
       "links": Object {
         "icon": "/registry/collect/3.0.0/icon",
       },
@@ -250,6 +255,7 @@ Array [
       "icon": "<svg></svg>",
       "installed": false,
       "isInRegistry": true,
+      "label": 2,
       "links": Object {
         "icon": "/registry/konnector-bouilligue/0.1.0/icon",
       },

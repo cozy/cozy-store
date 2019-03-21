@@ -2,6 +2,7 @@ export const Photos = {
   slug: 'photos',
   editor: 'Cozy',
   type: 'webapp',
+  label: 1,
   version: '3.0.0',
   manifest: {
     name: 'Photos',

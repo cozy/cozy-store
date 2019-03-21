@@ -24,6 +24,7 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
               "icon": "<svg></svg>",
               "installed": true,
               "isInRegistry": true,
+              "label": 1,
               "name": "Collect",
               "name_prefix": "Cozy",
               "permissions": Object {
@@ -195,6 +196,7 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
               "icon": "<svg></svg>",
               "installed": true,
               "isInRegistry": true,
+              "label": 1,
               "name": "Collect",
               "name_prefix": "Cozy",
               "permissions": Object {
@@ -376,6 +378,7 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
           "icon": "<svg></svg>",
           "installed": true,
           "isInRegistry": true,
+          "label": 1,
           "name": "Collect",
           "name_prefix": "Cozy",
           "permissions": Object {
@@ -564,6 +567,7 @@ exports[`Discover component should be rendered correctly with apps and URL searc
               "icon": "<svg></svg>",
               "installed": true,
               "isInRegistry": true,
+              "label": 1,
               "name": "Collect",
               "name_prefix": "Cozy",
               "permissions": Object {
@@ -735,6 +739,7 @@ exports[`Discover component should be rendered correctly with apps and URL searc
               "icon": "<svg></svg>",
               "installed": true,
               "isInRegistry": true,
+              "label": 1,
               "name": "Collect",
               "name_prefix": "Cozy",
               "permissions": Object {
@@ -826,6 +831,7 @@ exports[`Discover component should be rendered correctly with apps and URL searc
           "icon": "<svg></svg>",
           "installed": true,
           "isInRegistry": true,
+          "label": 1,
           "name": "Collect",
           "name_prefix": "Cozy",
           "permissions": Object {
@@ -982,6 +988,7 @@ exports[`Discover component should use BarCenter from cozy-bar in mobile view on
               "icon": "<svg></svg>",
               "installed": true,
               "isInRegistry": true,
+              "label": 1,
               "name": "Collect",
               "name_prefix": "Cozy",
               "permissions": Object {
@@ -1153,6 +1160,7 @@ exports[`Discover component should use BarCenter from cozy-bar in mobile view on
               "icon": "<svg></svg>",
               "installed": true,
               "isInRegistry": true,
+              "label": 1,
               "name": "Collect",
               "name_prefix": "Cozy",
               "permissions": Object {
@@ -1334,6 +1342,7 @@ exports[`Discover component should use BarCenter from cozy-bar in mobile view on
           "icon": "<svg></svg>",
           "installed": true,
           "isInRegistry": true,
+          "label": 1,
           "name": "Collect",
           "name_prefix": "Cozy",
           "permissions": Object {

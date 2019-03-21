@@ -2,7 +2,8 @@
   "default": {
     "registry": {
       "channel": "stable"
-    }
+    },
+    "authorizedLabelLimit": 3
   },
   "collect": "#/connected"
 }

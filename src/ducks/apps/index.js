@@ -389,11 +389,10 @@ export async function getFormattedRegistryApp(
     })
   return Object.assign(
     {},
-    {
-      versions: responseApp.versions
-    },
     manifest,
     {
+      versions: responseApp.versions,
+      label: responseApp.label,
       version: versionFromRegistry,
       type: version.type,
       categories: _sanitizeCategories(manifest.categories),
