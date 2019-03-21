@@ -43,12 +43,12 @@ export class App extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   isFetching: state.apps.isFetching,
   isInstalling: state.apps.isInstalling
 })
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+export const mapDispatchToProps = (dispatch, ownProps) => ({
   initApp: () => dispatch(initApp(ownProps.lang)),
   restoreAppIfSaved: () => dispatch(restoreAppIfSaved())
 })
