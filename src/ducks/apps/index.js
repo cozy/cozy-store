@@ -387,28 +387,24 @@ export async function getFormattedRegistryApp(
     Object.assign({}, manifest.partnership, {
       ...(partnershipIconLink ? { icon: partnershipIconLink } : {})
     })
-  return Object.assign(
-    {},
-    manifest,
-    {
-      versions: responseApp.versions,
-      label: responseApp.label,
-      version: versionFromRegistry,
-      type: version.type,
-      categories: _sanitizeCategories(manifest.categories),
-      links: { icon: iconLink },
-      uninstallable: !config.notRemovableApps.includes(manifest.slug),
-      isInRegistry: true,
-      // Add partnership property only if it exists
-      ...(partnership ? { partnership } : {}),
-      // handle maintenance status
-      ...(maintenance ? { maintenance } : {}),
-      // add screenshotsLinks property only if it exists
-      ...(screenshotsLinks ? { screenshots: screenshotsLinks } : {}),
-      // add installed value only if not already provided
-      installed: responseApp.installed || false
-    }
-  )
+  return Object.assign({}, manifest, {
+    versions: responseApp.versions,
+    label: responseApp.label,
+    version: versionFromRegistry,
+    type: version.type,
+    categories: _sanitizeCategories(manifest.categories),
+    links: { icon: iconLink },
+    uninstallable: !config.notRemovableApps.includes(manifest.slug),
+    isInRegistry: true,
+    // Add partnership property only if it exists
+    ...(partnership ? { partnership } : {}),
+    // handle maintenance status
+    ...(maintenance ? { maintenance } : {}),
+    // add screenshotsLinks property only if it exists
+    ...(screenshotsLinks ? { screenshots: screenshotsLinks } : {}),
+    // add installed value only if not already provided
+    installed: responseApp.installed || false
+  })
 }
 
 export function fetchInstalledApps(lang, fetchingRegistry) {
