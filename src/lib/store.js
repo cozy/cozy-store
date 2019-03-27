@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 
-import appReducers from '../ducks'
+import appReducers from 'ducks'
 import { createLogger } from 'redux-logger'
 import {
   shouldEnableTracking,

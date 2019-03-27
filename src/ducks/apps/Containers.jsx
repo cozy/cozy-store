@@ -4,9 +4,9 @@ import { translate } from 'cozy-ui/react/I18n'
 
 import { getInstalledApps, getRegistryApps } from './index'
 
-import DiscoverComponent from './components/Discover'
-import MyApplicationsComponent from './components/MyApplications'
-import SidebarCategoriesComponent from './components/SidebarCategories'
+import DiscoverComponent from 'ducks/apps/components/Discover'
+import MyApplicationsComponent from 'ducks/apps/components/MyApplications'
+import SidebarCategoriesComponent from 'ducks/apps/components/SidebarCategories'
 
 const mapStateToProps = state => ({
   apps: getRegistryApps(state),

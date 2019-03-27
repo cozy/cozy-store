@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 
-import ConfigureModal from '../ConfigureModal'
+import ConfigureModal from 'ducks/apps/components/ConfigureModal'
 
 export const ConfigureRoute = ({ getApp, isFetching, parent, redirectTo }) => (
   <Route

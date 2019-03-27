@@ -5,11 +5,11 @@ import { hot } from 'react-hot-loader'
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
 import { translate } from 'cozy-ui/react/I18n'
 
-import IntentRedirect from './intents/IntentRedirect'
-import Sidebar from './Sidebar'
+import IntentRedirect from 'ducks/components/intents/IntentRedirect'
+import Sidebar from 'ducks/components/Sidebar'
 
-import { initApp, restoreAppIfSaved } from '../apps'
-import { Discover, MyApplications } from '../apps/Containers'
+import { initApp, restoreAppIfSaved } from 'ducks/apps'
+import { Discover, MyApplications } from 'ducks/apps/Containers'
 
 import { Layout, Main } from 'cozy-ui/react/Layout'
 import Alerter from 'cozy-ui/react/Alerter'

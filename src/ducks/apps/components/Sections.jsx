@@ -7,9 +7,9 @@ import {
   sortCategoriesAlphabetically,
   getCategoriesSelections
 } from 'lib/helpers'
-import AppsSection from './AppsSection'
-import DropdownFilter from './DropdownFilter'
-import { APP_TYPE } from '../index'
+import AppsSection from 'ducks/apps/components/AppsSection'
+import DropdownFilter from 'ducks/apps/components/DropdownFilter'
+import { APP_TYPE } from 'ducks/apps'
 
 export class Sections extends Component {
   render() {

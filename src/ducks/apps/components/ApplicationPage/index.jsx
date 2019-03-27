@@ -10,9 +10,9 @@ import AppIcon from 'cozy-ui/react/AppIcon'
 
 import ApplicationPageLoading from 'ducks/components/ApplicationPageLoading'
 import { getTranslatedManifestProperty } from 'lib/helpers'
-import Header from './Header'
-import Gallery from './Gallery'
-import Details from './Details'
+import Header from 'ducks/apps/components/ApplicationPage/Header'
+import Gallery from 'ducks/apps/components/ApplicationPage/Gallery'
+import Details from 'ducks/apps/components/ApplicationPage/Details'
 
 import {
   preventBackgroundScroll,

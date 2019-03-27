@@ -5,8 +5,8 @@ import { translate } from 'cozy-ui/react/I18n'
 import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
 import { Content } from 'cozy-ui/react/Layout'
 
-import ApplicationRouting from './ApplicationRouting'
-import Sections from './Sections'
+import ApplicationRouting from 'ducks/apps/components/ApplicationRouting'
+import Sections from 'ducks/apps/components/Sections'
 import AppsLoading from 'ducks/components/AppsLoading'
 
 import getFilteredAppsFromSearch from 'lib/getFilteredAppsFromSearch'

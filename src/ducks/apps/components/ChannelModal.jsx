@@ -6,7 +6,7 @@ import FocusTrap from 'focus-trap-react'
 import Portal from 'cozy-ui/react/Portal'
 import PropTypes from 'prop-types'
 
-import AppInstallation from './AppInstallation'
+import AppInstallation from 'ducks/apps/components/AppInstallation'
 import getChannel from 'lib/getChannelFromSource'
 
 import { fetchLatestApp, getAppBySlug, restoreAppIfSaved } from 'ducks/apps'

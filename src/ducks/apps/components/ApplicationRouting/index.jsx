@@ -3,12 +3,12 @@ import { withRouter, Route } from 'react-router-dom'
 
 import { translate } from 'cozy-ui/react/I18n'
 
-import ChannelRoute from './ChannelRoute'
-import PermissionsRoute from './PermissionsRoute'
-import ConfigureRoute from './ConfigureRoute'
-import InstallRoute from './InstallRoute'
-import UninstallRoute from './UninstallRoute'
-import ApplicationPage from '../ApplicationPage'
+import ChannelRoute from 'ducks/apps/components/ApplicationRouting/ChannelRoute'
+import PermissionsRoute from 'ducks/apps/components/ApplicationRouting/PermissionsRoute'
+import ConfigureRoute from 'ducks/apps/components/ApplicationRouting/ConfigureRoute'
+import InstallRoute from 'ducks/apps/components/ApplicationRouting/InstallRoute'
+import UninstallRoute from 'ducks/apps/components/ApplicationRouting/UninstallRoute'
+import ApplicationPage from 'ducks/apps/components/ApplicationPage'
 
 export class ApplicationRouting extends Component {
   mainPage = React.createRef()

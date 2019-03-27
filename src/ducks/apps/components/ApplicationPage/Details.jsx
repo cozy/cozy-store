@@ -7,7 +7,7 @@ import { Button } from 'cozy-ui/react/Button'
 import Icon from 'cozy-ui/react/Icon'
 import Toggle from 'cozy-ui/react/Toggle'
 
-import Maintenance from './Maintenance'
+import Maintenance from 'ducks/apps/components/ApplicationPage/Maintenance'
 
 import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
 import { getContext, REGISTRY_CHANNELS } from 'ducks/apps'

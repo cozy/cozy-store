@@ -11,7 +11,7 @@ import { getAppBySlug, uninstallApp } from 'ducks/apps'
 import Modal, { ModalDescription, ModalFooter } from 'cozy-ui/react/Modal'
 import Portal from 'cozy-ui/react/Portal'
 
-import ReactMarkdownWrapper from '../../components/ReactMarkdownWrapper'
+import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
 
 export class UninstallModal extends Component {
   constructor(props) {
