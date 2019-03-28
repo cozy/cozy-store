@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
 import { PropTypes } from 'react-proptypes'
+import flags from 'cozy-flags'
 
 import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
 import { ModalDescription, ModalHeader, ModalFooter } from 'cozy-ui/react/Modal'
@@ -16,16 +17,27 @@ import Checkbox from 'cozy-ui/react/Checkbox'
 
 import { getTranslatedManifestProperty } from 'lib/helpers'
 import { hasPendingUpdate } from 'ducks/apps/appStatus'
+import CTS from 'config/constants'
 
 import { APP_TYPE, getAppBySlug, installAppFromRegistry } from 'ducks/apps'
+
+const shouldSkipPermissions = app =>
+  flags('skip-low-permissions') && app.label <= CTS.default.authorizedLabelLimit
+
+const hasInstallation = app => !app.installed || hasPendingUpdate(app)
 
 export class AppInstallation extends Component {
   constructor(props) {
     super(props)
+    const { app } = props
     this.state = { isTermsAccepted: false }
+    if (shouldSkipPermissions(app) && hasInstallation(app)) {
+      this.installApp()
+    }
+    this.installApp = this.installApp.bind(this)
   }
 
-  installApp = () => {
+  installApp() {
     if (!this.isInstallReady()) return // Not ready to be installed
     const { app, channel, installApp, onInstallOrUpdate, t } = this.props
     const isUpdate = app.installed
@@ -85,11 +97,23 @@ export class AppInstallation extends Component {
     const isFetchingSomething = isFetching || isAppFetching
     const isCurrentAppInstalling = isInstalling === app.slug
 
+    if (shouldSkipPermissions(app) && hasInstallation(app)) {
+      return (
+        <React.Fragment>
+          <ModalDescription className="sto-install-loading-wrapper">
+            <div className="sto-install-loading">
+              <Spinner size="xxlarge" />
+            </div>
+          </ModalDescription>
+        </React.Fragment>
+      )
+    }
+
     return (
       <React.Fragment>
         <ModalHeader title={t('app_modal.install.title')} />
         {isFetchingSomething ? (
-          <ModalDescription>
+          <ModalDescription className="sto-install-loading-wrapper">
             <div className="sto-install-loading">
               <Spinner size="xlarge" />
             </div>

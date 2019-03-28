@@ -68,6 +68,7 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
               "icon": "<svg></svg>",
               "installed": true,
               "isInRegistry": true,
+              "label": 1,
               "name": "Collect",
               "name_prefix": "Cozy",
               "permissions": Object {

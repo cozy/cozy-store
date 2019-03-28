@@ -5,6 +5,7 @@ export const RegistryAppsResponse = {
       slug: 'collect',
       type: 'webapp',
       editor: 'Cozy',
+      label: 1,
       versions: {
         stable: ['3.0.0'],
         beta: ['3.0.0'],
@@ -42,6 +43,7 @@ export const RegistryAppsResponse = {
       slug: 'devonly',
       editor: 'Cozy',
       type: 'webapp',
+      label: 3,
       versions: {
         stable: [],
         beta: [],
@@ -71,6 +73,7 @@ export const RegistryAppsResponse = {
       slug: 'konnector-bouilligue',
       editor: 'Cozy',
       type: 'konnector',
+      label: 2,
       versions: {
         stable: ['0.1.0'],
         beta: ['0.1.0'],
@@ -95,6 +98,7 @@ export const RegistryAppsResponse = {
       slug: 'konnector-trinlane',
       editor: 'Blibli',
       type: 'konnector',
+      label: 1,
       versions: {
         stable: ['0.1.0'],
         beta: ['0.1.0'],
@@ -126,6 +130,7 @@ export const RegistryAppsResponse = {
       slug: 'photos',
       type: 'webapp',
       editor: 'Cozy',
+      label: 1,
       versions: {
         stable: ['3.0.0'],
         beta: ['3.0.0'],
@@ -157,6 +162,7 @@ export const RegistryAppsResponse = {
       slug: 'tasky',
       type: 'webapp',
       editor: 'vestrejail',
+      label: 4,
       versions: {
         stable: ['1.0.0'],
         beta: ['1.0.0'],

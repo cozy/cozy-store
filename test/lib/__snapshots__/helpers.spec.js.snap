@@ -14,6 +14,7 @@ Object {
       "icon": "<svg></svg>",
       "installed": true,
       "isInRegistry": true,
+      "label": 1,
       "name": "Collect",
       "name_prefix": "Cozy",
       "permissions": Object {
