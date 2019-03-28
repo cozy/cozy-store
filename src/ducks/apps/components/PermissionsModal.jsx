@@ -5,7 +5,7 @@ import { translate } from 'cozy-ui/react/I18n'
 import Portal from 'cozy-ui/react/Portal'
 
 import { withRouter } from 'react-router-dom'
-import PermissionsList from './PermissionsList'
+import PermissionsList from 'ducks/apps/components/PermissionsList'
 
 export class PermissionsModal extends Component {
   gotoParent() {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 
-import InstallModal from '../InstallModal'
+import InstallModal from 'ducks/apps/components/InstallModal'
 
 export const InstallRoute = ({ getApp, isFetching, parent, redirectTo }) => (
   <Route

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Placeholder from './Placeholder'
+import Placeholder from 'ducks/components/Placeholder'
 
 export class ApplicationPageLoading extends Component {
   shouldComponentUpdate() {

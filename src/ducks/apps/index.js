@@ -4,11 +4,11 @@
 import config from 'config/apps'
 import CONSTANTS from 'config/constants'
 import AUTHORIZED_CATEGORIES from 'config/categories'
-import { NotUninstallableAppException } from '../../lib/exceptions'
+import { NotUninstallableAppException } from 'lib/exceptions'
 import realtime from 'cozy-realtime'
 
-export * from './selectors'
-export { appsReducers } from './reducers'
+export * from 'ducks/apps/selectors'
+export { appsReducers } from 'ducks/apps/reducers'
 import {
   LOADING_APP,
   LOADING_APP_INTENT,

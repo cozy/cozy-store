@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
-import Placeholder from './Placeholder'
+import Placeholder from 'ducks/components/Placeholder'
 
 // subarray = sections, array of subsections
 // number = number of loading items per subsection
