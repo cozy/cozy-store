@@ -56,6 +56,7 @@
   },
   "dependencies": {
     "cozy-bar": "6.1.2",
+    "cozy-client": "^6.20.0",
     "cozy-client-js": "0.15.0",
     "cozy-realtime": "2.0.7",
     "cozy-ui": "18.20.0",

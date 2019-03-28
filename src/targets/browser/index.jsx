@@ -4,6 +4,7 @@ import 'styles'
 
 import React from 'react'
 import { render } from 'react-dom'
+import CozyClient from 'cozy-client'
 
 import store from 'lib/store'
 
@@ -22,7 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
     cozyURL: '//' + data.cozyDomain,
     token: data.cozyToken
   })
+  const protocol = window.location.protocol
+  const client = new CozyClient({
+    uri: `${protocol}//${data.cozyDomain}`,
+    schema: {},
+    token: data.cozyToken
+  })
   cozy.bar.init({
+    cozyClient: client,
     appEditor: data.cozyAppEditor,
     appName: data.cozyAppName,
     iconPath: data.cozyIconPath,
