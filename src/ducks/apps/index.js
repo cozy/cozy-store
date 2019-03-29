@@ -411,34 +411,53 @@ export function fetchInstalledApps(lang, fetchingRegistry) {
   return async dispatch => {
     try {
       // Start the HTTP requests as soon as possible
-      let fetchingKonnectors = cozy.client.fetchJSON('GET', '/konnectors/')
-      let fetchingWebApps = cozy.client.fetchJSON('GET', '/apps/')
+      let fetchingKonnectors = null
+      let fetchingWebApps = null
+      if (
+        !CONSTANTS.filterAppType ||
+        CONSTANTS.filterAppType === APP_TYPE.KONNECTOR
+      ) {
+        fetchingKonnectors = cozy.client.fetchJSON('GET', '/konnectors/')
+      }
+      if (
+        !CONSTANTS.filterAppType ||
+        CONSTANTS.filterAppType === APP_TYPE.WEBAPP
+      ) {
+        fetchingWebApps = cozy.client.fetchJSON('GET', '/apps/')
+      }
       await fetchingRegistry
       dispatch({ type: FETCH_APPS })
-      let installedWebApps = await fetchingWebApps
-      installedWebApps = installedWebApps.map(w => {
-        // FIXME type konnector is missing from stack
-        w.attributes.type = APP_TYPE.WEBAPP
-        return w
-      })
-      // TODO throw error if collect is not installed
-      const collectApp = installedWebApps.find(
-        a => a.attributes.slug === 'collect'
-      )
-      const collectLink = collectApp && collectApp.links.related
-      installedWebApps = installedWebApps.filter(
-        app => !config.notDisplayedApps.includes(app.attributes.slug)
-      )
-      let installedKonnectors = await fetchingKonnectors
-      installedKonnectors = installedKonnectors.map(k => {
-        // FIXME type konnector is missing from stack
-        k.attributes.type = APP_TYPE.KONNECTOR
-        return k
-      })
-      installedKonnectors = installedKonnectors.filter(
-        app => !config.notDisplayedApps.includes(app.attributes.slug)
-      )
-      const installedApps = installedWebApps.concat(installedKonnectors)
+      let installedApps = []
+      let collectLink
+      if (fetchingWebApps) {
+        let installedWebApps = await fetchingWebApps
+        installedWebApps = installedWebApps.map(w => {
+          // FIXME type konnector is missing from stack
+          w.attributes.type = APP_TYPE.WEBAPP
+          return w
+        })
+        // TODO throw error if collect is not installed
+        const collectApp = installedWebApps.find(
+          a => a.attributes.slug === 'collect'
+        )
+        collectLink = collectApp && collectApp.links.related
+        installedWebApps = installedWebApps.filter(
+          app => !config.notDisplayedApps.includes(app.attributes.slug)
+        )
+        installedApps = installedApps.concat(installedWebApps)
+      }
+      if (fetchingKonnectors) {
+        let installedKonnectors = await fetchingKonnectors
+        installedKonnectors = installedKonnectors.map(k => {
+          // FIXME type konnector is missing from stack
+          k.attributes.type = APP_TYPE.KONNECTOR
+          return k
+        })
+        installedKonnectors = installedKonnectors.filter(
+          app => !config.notDisplayedApps.includes(app.attributes.slug)
+        )
+        installedApps = installedApps.concat(installedKonnectors)
+      }
       Promise.all(
         installedApps.map(app => {
           return getFormattedInstalledApp(app, collectLink, false)
@@ -456,10 +475,13 @@ export function fetchInstalledApps(lang, fetchingRegistry) {
 export function fetchRegistryApps(lang, channel = DEFAULT_CHANNEL) {
   return dispatch => {
     dispatch({ type: FETCH_APPS })
+    let filterParam = ''
+    if (CONSTANTS.filterAppType)
+      filterParam = `&filter[type]=${CONSTANTS.filterAppType}`
     return cozy.client
       .fetchJSON(
         'GET',
-        `/registry?limit=200&versionsChannel=${channel}&latestChannelVersion=${channel}`
+        `/registry?limit=200&versionsChannel=${channel}&latestChannelVersion=${channel}${filterParam}`
       )
       .then(response => {
         const apps = response.data
