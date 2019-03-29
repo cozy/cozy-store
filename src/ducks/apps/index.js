@@ -2,7 +2,7 @@
 /* global cozy */
 
 import config from 'config/apps'
-import CONSTANTS from 'config/constants'
+import storeConfig from 'config'
 import AUTHORIZED_CATEGORIES from 'config/categories'
 import { NotUninstallableAppException } from 'lib/exceptions'
 import realtime from 'cozy-realtime'
@@ -50,7 +50,7 @@ const APPS_DOCTYPE = 'io.cozy.apps'
 const KONNECTORS_DOCTYPE = 'io.cozy.konnectors'
 const TERMS_DOCTYPE = 'io.cozy.terms'
 
-const DEFAULT_CHANNEL = CONSTANTS.default.registry.channel
+const DEFAULT_CHANNEL = storeConfig.default.registry.channel
 
 /* Only for the icon fetching */
 let dataset
@@ -414,14 +414,14 @@ export function fetchInstalledApps(lang, fetchingRegistry) {
       let fetchingKonnectors = null
       let fetchingWebApps = null
       if (
-        !CONSTANTS.filterAppType ||
-        CONSTANTS.filterAppType === APP_TYPE.KONNECTOR
+        !storeConfig.filterAppType ||
+        storeConfig.filterAppType === APP_TYPE.KONNECTOR
       ) {
         fetchingKonnectors = cozy.client.fetchJSON('GET', '/konnectors/')
       }
       if (
-        !CONSTANTS.filterAppType ||
-        CONSTANTS.filterAppType === APP_TYPE.WEBAPP
+        !storeConfig.filterAppType ||
+        storeConfig.filterAppType === APP_TYPE.WEBAPP
       ) {
         fetchingWebApps = cozy.client.fetchJSON('GET', '/apps/')
       }
@@ -470,8 +470,8 @@ export function fetchRegistryApps(lang, channel = DEFAULT_CHANNEL) {
   return dispatch => {
     dispatch({ type: FETCH_APPS })
     let filterParam = ''
-    if (CONSTANTS.filterAppType)
-      filterParam = `&filter[type]=${CONSTANTS.filterAppType}`
+    if (storeConfig.filterAppType)
+      filterParam = `&filter[type]=${storeConfig.filterAppType}`
     return cozy.client
       .fetchJSON(
         'GET',
