@@ -428,7 +428,6 @@ export function fetchInstalledApps(lang, fetchingRegistry) {
       await fetchingRegistry
       dispatch({ type: FETCH_APPS })
       let installedApps = []
-      let collectLink
       if (fetchingWebApps) {
         let installedWebApps = await fetchingWebApps
         installedWebApps = installedWebApps.map(w => {
@@ -436,11 +435,6 @@ export function fetchInstalledApps(lang, fetchingRegistry) {
           w.attributes.type = APP_TYPE.WEBAPP
           return w
         })
-        // TODO throw error if collect is not installed
-        const collectApp = installedWebApps.find(
-          a => a.attributes.slug === 'collect'
-        )
-        collectLink = collectApp && collectApp.links.related
         installedWebApps = installedWebApps.filter(
           app => !config.notDisplayedApps.includes(app.attributes.slug)
         )
@@ -460,7 +454,7 @@ export function fetchInstalledApps(lang, fetchingRegistry) {
       }
       Promise.all(
         installedApps.map(app => {
-          return getFormattedInstalledApp(app, collectLink, false)
+          return getFormattedInstalledApp(app)
         })
       ).then(apps => {
         return dispatch({ type: FETCH_APPS_SUCCESS, apps, lang })
