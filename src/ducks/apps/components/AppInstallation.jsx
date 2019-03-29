@@ -31,10 +31,10 @@ export class AppInstallation extends Component {
     super(props)
     const { app } = props
     this.state = { isTermsAccepted: false }
+    this.installApp = this.installApp.bind(this)
     if (shouldSkipPermissions(app) && hasInstallation(app)) {
       this.installApp()
     }
-    this.installApp = this.installApp.bind(this)
   }
 
   installApp() {
@@ -79,7 +79,10 @@ export class AppInstallation extends Component {
 
   isInstallReady = () => {
     const { app, isInstalling } = this.props
-    return !isInstalling && (!app.terms || this.state.isTermsAccepted)
+    const isCurrentAppInstalling = isInstalling === app.slug
+    const isTermsReady =
+      shouldSkipPermissions(app) || (!app.terms || this.state.isTermsAccepted)
+    return !isCurrentAppInstalling && isTermsReady
   }
 
   render() {
