@@ -67,7 +67,7 @@
     "lodash.get": "4.4.2",
     "prop-types": "15.7.2",
     "react-proptypes": "1.0.0",
-    "react-redux": "5.1.1",
+    "react-redux": "6.0.1",
     "react-router-dom": "4.3.1",
     "redux": "3.7.2",
     "redux-raven-middleware": "1.2.0",
