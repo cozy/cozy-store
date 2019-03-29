@@ -17,12 +17,13 @@ import Checkbox from 'cozy-ui/react/Checkbox'
 
 import { getTranslatedManifestProperty } from 'lib/helpers'
 import { hasPendingUpdate } from 'ducks/apps/appStatus'
-import CTS from 'config/constants'
+import storeConfig from 'config'
 
 import { APP_TYPE, getAppBySlug, installAppFromRegistry } from 'ducks/apps'
 
 const shouldSkipPermissions = app =>
-  flags('skip-low-permissions') && app.label <= CTS.default.authorizedLabelLimit
+  flags('skip-low-permissions') &&
+  app.label <= storeConfig.default.authorizedLabelLimit
 
 const hasInstallation = app => !app.installed || hasPendingUpdate(app)
 

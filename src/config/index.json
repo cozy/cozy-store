@@ -5,5 +5,6 @@
     },
     "authorizedLabelLimit": 3
   },
-  "collect": "#/connected"
+  "collect": "#/connected",
+  "filterAppType": false
 }

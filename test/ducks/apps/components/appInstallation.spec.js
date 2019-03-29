@@ -8,7 +8,7 @@ import flags from 'cozy-flags'
 
 import { tMock } from '../../../jestLib/I18n'
 import { AppInstallation } from 'ducks/apps/components/AppInstallation'
-import CTS from 'config/constants'
+import storeConfig from 'config'
 
 import mockRegistryApp from '../_mockPhotosRegistryVersion'
 
@@ -24,7 +24,7 @@ describe('AppInstallation component', () => {
   it('should install automatically the app if the label is skippable and render the loading modal', () => {
     flags('skip-low-permissions', true)
     const mockApp = Object.assign({}, mockRegistryApp, {
-      label: CTS.default.authorizedLabelLimit
+      label: storeConfig.default.authorizedLabelLimit
     })
     const mockInstallProp = jest.fn(() => Promise.resolve())
     const component = shallow(
@@ -45,7 +45,7 @@ describe('AppInstallation component', () => {
   it('should not install automatically the app if the label is not skippable and render the permissions modal', () => {
     flags('skip-low-permissions', true)
     const mockApp = Object.assign({}, mockRegistryApp, {
-      label: CTS.default.authorizedLabelLimit + 1
+      label: storeConfig.default.authorizedLabelLimit + 1
     })
     const mockInstallProp = jest.fn(() => Promise.resolve())
     const component = shallow(
