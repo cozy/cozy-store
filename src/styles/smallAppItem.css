@@ -23,6 +23,7 @@
   margin-right: .75rem;
   overflow: hidden;
   transition: .15s ease all;
+  color: var(--black);
 }
 
 .sto-small-app-item:hover,
