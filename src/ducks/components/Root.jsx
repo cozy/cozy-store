@@ -7,7 +7,7 @@ import App from 'ducks/components/App'
 
 const Root = ({ lang, store }) => {
   return (
-    <I18n lang={lang} dictRequire={lang => require(`../../locales/${lang}`)}>
+    <I18n lang={lang} dictRequire={lang => require(`locales/${lang}`)}>
       <Provider store={store}>
         <PiwikHashRouter>
           <App />
