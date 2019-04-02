@@ -107,57 +107,56 @@ export class AppInstallation extends Component {
             )}
           </ModalDescription>
         )}
-        {!isFetchingSomething &&
-          !fetchError && (
-            <ModalFooter className="sto-install-footer">
-              {installError && (
-                <p className="u-error">
-                  {t('app_modal.install.message.install_error', {
-                    message: installError.message
-                  })}
-                </p>
-              )}
-              {app.terms && (
-                <div className="sto-install-terms">
-                  <Checkbox
-                    className="sto-install-terms-checkbox"
-                    onChange={this.acceptTerms}
-                    checked={isTermsAccepted}
-                    disabled={isInstalling}
-                  >
-                    <ReactMarkdownWrapper
-                      source={t('app_modal.install.terms', {
-                        url: app.terms.url
-                      })}
-                    />
-                  </Checkbox>
-                </div>
-              )}
-              <div className="sto-install-controls">
-                <Button
-                  theme="secondary"
-                  onClick={onCancel}
-                  disabled={isCurrentAppInstalling}
-                  label={t('app_modal.install.cancel')}
-                  extension="full"
-                  className="u-mh-half"
-                />
-                <Button
-                  theme="primary"
-                  disabled={!this.isInstallReady() || isInstalling}
-                  busy={isCurrentAppInstalling}
-                  extension="full"
-                  onClick={this.installApp}
-                  label={
-                    hasPendingUpdate(app)
-                      ? t('app_modal.install.update')
-                      : t('app_modal.install.install')
-                  }
-                  className="u-mh-half"
-                />
+        {!isFetchingSomething && !fetchError && (
+          <ModalFooter className="sto-install-footer">
+            {installError && (
+              <p className="u-error">
+                {t('app_modal.install.message.install_error', {
+                  message: installError.message
+                })}
+              </p>
+            )}
+            {app.terms && (
+              <div className="sto-install-terms">
+                <Checkbox
+                  className="sto-install-terms-checkbox"
+                  onChange={this.acceptTerms}
+                  checked={isTermsAccepted}
+                  disabled={isInstalling}
+                >
+                  <ReactMarkdownWrapper
+                    source={t('app_modal.install.terms', {
+                      url: app.terms.url
+                    })}
+                  />
+                </Checkbox>
               </div>
-            </ModalFooter>
-          )}
+            )}
+            <div className="sto-install-controls">
+              <Button
+                theme="secondary"
+                onClick={onCancel}
+                disabled={isCurrentAppInstalling}
+                label={t('app_modal.install.cancel')}
+                extension="full"
+                className="u-mh-half"
+              />
+              <Button
+                theme="primary"
+                disabled={!this.isInstallReady() || isInstalling}
+                busy={isCurrentAppInstalling}
+                extension="full"
+                onClick={this.installApp}
+                label={
+                  hasPendingUpdate(app)
+                    ? t('app_modal.install.update')
+                    : t('app_modal.install.install')
+                }
+                className="u-mh-half"
+              />
+            </div>
+          </ModalFooter>
+        )}
       </React.Fragment>
     )
   }

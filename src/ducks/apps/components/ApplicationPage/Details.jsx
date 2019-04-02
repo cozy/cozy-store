@@ -161,32 +161,31 @@ export class Details extends Component {
               </div>
             </div>
           )}
-          {mobileApps &&
-            !!mobileApps.length && (
-              <div className="sto-app-info">
-                <div className="sto-app-info-header">
-                  {t('app_page.infos.mobile_app')}
-                </div>
-                <div className="sto-app-info-content sto-app-info-content--mobile-apps">
-                  {mobileApps.map(a => {
-                    const icon = require(`assets/icons/platforms/icon-${
-                      a.type
-                    }.svg`)
-                    return (
-                      <a
-                        className="sto-app-info-content-icon"
-                        href={isValidUrl(a.url) ? a.url : null}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        key={a.type}
-                      >
-                        <Icon icon={icon.default} width="24px" height="24px" />
-                      </a>
-                    )
-                  })}
-                </div>
+          {mobileApps && !!mobileApps.length && (
+            <div className="sto-app-info">
+              <div className="sto-app-info-header">
+                {t('app_page.infos.mobile_app')}
               </div>
-            )}
+              <div className="sto-app-info-content sto-app-info-content--mobile-apps">
+                {mobileApps.map(a => {
+                  const icon = require(`assets/icons/platforms/icon-${
+                    a.type
+                  }.svg`)
+                  return (
+                    <a
+                      className="sto-app-info-content-icon"
+                      href={isValidUrl(a.url) ? a.url : null}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      key={a.type}
+                    >
+                      <Icon icon={icon.default} width="24px" height="24px" />
+                    </a>
+                  )
+                })}
+              </div>
+            </div>
+          )}
           <div>
             <Button
               label={t('app_page.permissions.button.label')}
