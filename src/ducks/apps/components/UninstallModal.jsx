@@ -83,14 +83,13 @@ export class UninstallModal extends Component {
                 cozyName: cozy.client._url.replace(/^\/\//, '')
               })}
             />
-            {uninstallError &&
-              !linkedAppError && (
-                <p className="u-error">
-                  {t('app_modal.uninstall.message.error', {
-                    message: uninstallError.message
-                  })}
-                </p>
-              )}
+            {uninstallError && !linkedAppError && (
+              <p className="u-error">
+                {t('app_modal.uninstall.message.error', {
+                  message: uninstallError.message
+                })}
+              </p>
+            )}
             {linkedAppError && (
               <p className="u-error">
                 {t('app_modal.uninstall.linked_app.error')}

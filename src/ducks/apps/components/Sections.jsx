@@ -54,12 +54,11 @@ export class Sections extends Component {
             pushQuery={pushQuery}
           />
         )}
-        {!isMobile &&
-          !!webAppsCategories.length && (
-            <h1 className="sto-sections-title u-title-h1">
-              {t('sections.applications')}
-            </h1>
-          )}
+        {!isMobile && !!webAppsCategories.length && (
+          <h1 className="sto-sections-title u-title-h1">
+            {t('sections.applications')}
+          </h1>
+        )}
         <div className="sto-sections-section">
           {!!webAppsCategories.length && (
             <div>
