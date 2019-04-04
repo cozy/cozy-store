@@ -60,22 +60,23 @@
   "permissions": {
     "terms": {
       "description": "Required to save accepted applications terms",
-      "type": "io.cozy.terms"
+      "type": "io.cozy.terms",
+      "verbs": ["ALL"]
     },
     "apps": {
       "description": "Required to manage applications",
-      "type": "io.cozy.apps"
+      "type": "io.cozy.apps",
+      "verbs": ["ALL"]
     },
     "konnectors": {
       "description": "Required to manage konnectors",
-      "type": "io.cozy.konnectors"
+      "type": "io.cozy.konnectors",
+      "verbs": ["ALL"]
     },
     "settings": {
       "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
       "type": "io.cozy.settings",
-      "verbs": [
-        "GET"
-      ]
+      "verbs": ["GET"]
     }
   }
 }
