@@ -1,5 +1,6 @@
 import fetch from 'node-fetch'
 import CozyClient from 'cozy-client'
+import log from 'cozy-logger'
 
 global.fetch = fetch
 
@@ -12,11 +13,12 @@ const schema = {
   }
 }
 
-let suggestion = {}
-try {
-  suggestion = JSON.parse(process.env.COZY_COUCH_DOC)
-} catch (e) {
-  throw new Error(`Wrong formatted suggestion doc: ${e}`)
+function getSuggestion() {
+  try {
+    return JSON.parse(process.env.COZY_COUCH_DOC)
+  } catch (e) {
+    throw new Error(`Wrong formatted suggestion doc: ${e}`)
+  }
 }
 
 const client = new CozyClient({
@@ -25,19 +27,24 @@ const client = new CozyClient({
   token: process.env.COZY_CREDENTIALS.trim()
 }).getStackClient()
 
-const handleError = (e, slug) => {
-  if (e.status === 409) return
-  throw new Error(`Error when installing ${slug}: ${e}`)
-}
-
-async function install(suggestion) {
+async function main() {
+  const suggestion = getSuggestion()
   if (suggestion.silenced) return // silenced, so not concerned
   const slug = suggestion.slug
   try {
     await client.fetchJSON('POST', `/konnectors/${slug}`)
   } catch (e) {
-    handleError(e, slug)
+    if (e.status === 409) return
+    throw new Error(`Error when installing ${slug}: ${e}`)
   }
 }
 
-install(suggestion)
+const handleError = e => {
+  log('error', e)
+}
+
+try {
+  main().catch(handleError)
+} catch (e) {
+  handleError(e)
+}
