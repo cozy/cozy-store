@@ -36,42 +36,40 @@ export class Gallery extends Component {
     }, {})
     return (
       <div className="sto-app-images">
-        {imagesParts.big &&
-          !!imagesParts.big.length && (
-            <div className="sto-app-big-images">
-              {imagesParts.big.map((image, index) => (
-                <img
-                  className="sto-app-big-image"
-                  src={image}
-                  alt={`${slug}-image-${index + 1}`}
-                  key={`${slug}-image-${index + 1}`}
-                  tabIndex={0}
-                  onClick={() => this.onClick(image)}
-                  onKeyUp={e => (e.keyCode === 13 ? this.onClick(image) : null)}
-                />
-              ))}
-            </div>
-          )}
-        {imagesParts.small &&
-          !!imagesParts.small.length && (
-            <div
-              className={`sto-app-small-images${
-                imagesParts.small.length > 2 ? ' --space-around' : ''
-              }`}
-            >
-              {imagesParts.small.map((image, index) => (
-                <img
-                  className="sto-app-small-image"
-                  src={image}
-                  alt={`${slug}-image-${index + 3}`}
-                  key={`${slug}-image-${index + 3}`}
-                  tabIndex={0}
-                  onClick={() => this.onClick(image)}
-                  onKeyUp={e => (e.keyCode === 13 ? this.onClick(image) : null)}
-                />
-              ))}
-            </div>
-          )}
+        {imagesParts.big && !!imagesParts.big.length && (
+          <div className="sto-app-big-images">
+            {imagesParts.big.map((image, index) => (
+              <img
+                className="sto-app-big-image"
+                src={image}
+                alt={`${slug}-image-${index + 1}`}
+                key={`${slug}-image-${index + 1}`}
+                tabIndex={0}
+                onClick={() => this.onClick(image)}
+                onKeyUp={e => (e.keyCode === 13 ? this.onClick(image) : null)}
+              />
+            ))}
+          </div>
+        )}
+        {imagesParts.small && !!imagesParts.small.length && (
+          <div
+            className={`sto-app-small-images${
+              imagesParts.small.length > 2 ? ' --space-around' : ''
+            }`}
+          >
+            {imagesParts.small.map((image, index) => (
+              <img
+                className="sto-app-small-image"
+                src={image}
+                alt={`${slug}-image-${index + 3}`}
+                key={`${slug}-image-${index + 3}`}
+                tabIndex={0}
+                onClick={() => this.onClick(image)}
+                onKeyUp={e => (e.keyCode === 13 ? this.onClick(image) : null)}
+              />
+            ))}
+          </div>
+        )}
         {currentImage && (
           <Modal
             title={t('app_page.preview')}
