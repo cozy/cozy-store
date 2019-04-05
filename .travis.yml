@@ -24,10 +24,7 @@ env:
   - secure: jYQ0y7bxmoO8eUJla36y1zrhtnxi0guSD4ufRQGnYmAlp7sWYeCBQj4ACXnIaTOwAhd2EpFUUp8BZ0z7W5sDUgOdYqAQe1eTe17kc2xJmDHMkW3INRYAW7LVgZTDmFLAmh5pXcdv0roGqB3KoU9PauhO8Q1h6IHwwbRslPngX2A2MYQLpobugmi0AxUff1C6bSP3rdO0GHbaAN6sYMtPzZRTeiRLaBCh3gbQhYVLFmfqVdYulHAS1TqaOGUpMEosfC+FIw/14b1u+pyWQHA5BSBrDDmqnHjcQZtugQNJP2Epw8UW1aVM1HwlU5fh3/Ru/LZ/+bDc/Xg26C+OKJzF5Loo8owdlFcPjh7/hnamARz8jhB2jCJzwpTtBeTkX6O9xVDoPcBnNypaf3Ck8glZ0xg9AbnpOwmy7KYbKffDe6uRq6whJEQOvgmdTYlFXWS1wY0IS2J2pPw9QaHmhM+eQNxS1mrL59CPsP9y+b58mNRPLMscE3RYn5un5xlRYQKbT1JUHh0eFmVlAciEl5U5t2FGccPwSUyPN9pM2yf/1jmyNq16sR8XCvMgzHXI2Hev8UumEq2qthQfZ6WfXQDSfJhgPCsCZq89IhxmzwOLACk7Tk/Bw4ryrSfldfGxpozuJmppQGRatPwaJToHKLg1CcoQ/6d5wxpViS68X1HrZWY=
   # REGISTRY_TOKEN
   - secure: lG8EXRnx6k/pS5ABk1UJl1743VSEU9GXmya/z0cIhgeSiQ9IWpQoS3Kdk5ZDgm35Sm/MnBvcfFPbqsWGLIXGYBEV9TW7kf7I0JL/x8doG+otau2fHT54J1yC4lzpJbxgwnmsEo6iusaiqTthrDO4BV5tboB0YarJIfZ56q/ASGB/18oTafItVC73x8iH9hiX6n1MjqFyVAfmyBoUAOKI4m83ijB+LyqbOLWpZg3LCD5LxbIRAqG/+a/AOBRl5gvH9z5+ZIJZD2JYBlkhnQL9rZ65Q2lLH5N8BbaC/85IZTEUb4zBV0qgO9suZepMM5TNmYKy7Ix70z+FgAEwGkLEEB2KbMya9ZoL+mu+ImffsSs2CIT9OJxNpT0yWwRnXUvI7VgT8bJuirMTWCVPDO5qmW7uKED0PFd7Q/7MnqWQhqoHAt4xa7lYQvKbfs8ISMbiWlLXyaqRT3hdrZnBJ89Vrotu5eu2ce5sCgS4FcKEAWZ0NwATqkJHMf23H88gD7VrIqYQpX/DM5vuw2rCAVcBcbdOI5CEyt8foF6Ib9aSNGd7whLLcTxue7x7vPj658nfzS8hiZQcBiyQvKiLy5lGfBQ7T7edilFWX91HfnO2dACWtZJfVw0DrXu8G6HKuJM77wwrMZanTXw82oWxiyCRn0EGgmYYBNFn5dj3Vzd/ZmM=
-cache:
-  yarn: true
-  directories:
-  - node_modules
+cache: yarn
 stages:
   - prebuild
   - build
@@ -35,13 +32,22 @@ jobs:
   include:
     - name: 'Lint'
       stage: 'prebuild'
+      before_install:
+        # The default version of yarn on travis is very old and does not install the correct version of eslint-preset-cozy-app
+        - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.15.2
+        - export PATH=$HOME/.yarn/bin:$PATH
       script: yarn lint
     - name: 'Tests'
       stage: 'prebuild'
+      before_install:
+        - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.15.2
+        - export PATH=$HOME/.yarn/bin:$PATH
       script: yarn test
     - name: 'Build app'
       stage: 'build'
       before_install:
+        - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.15.2
+        - export PATH=$HOME/.yarn/bin:$PATH
         - if [ "$TRAVIS_SECURE_ENV_VARS" != "false" ]; then openssl aes-256-cbc -K $encrypted_e8e75da126d5_key -iv $encrypted_e8e75da126d5_iv -in deploy/id_rsa_downcloud_cozy-store.enc -out /tmp/id_rsa_downcloud_cozy-store -d; fi
         - if [ "$TRAVIS_SECURE_ENV_VARS" != "false" ]; then eval "$(ssh-agent -s)"; fi
         - if [ "$TRAVIS_SECURE_ENV_VARS" != "false" ]; then chmod 600 /tmp/id_rsa_downcloud_cozy-store; fi
