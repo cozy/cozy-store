@@ -32,7 +32,10 @@ async function main() {
   if (suggestion.silenced) return // silenced, so not concerned
   const slug = suggestion.slug
   try {
-    await client.fetchJSON('POST', `/konnectors/${slug}`)
+    await client.fetchJSON(
+      'POST',
+      `/konnectors/${slug}?Source=registry://${slug}/stable`
+    )
   } catch (e) {
     if (e.status === 409) return
     throw new Error(`Error when installing ${slug}: ${e}`)
