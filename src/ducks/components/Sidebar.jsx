@@ -7,8 +7,8 @@ import discoverIcon from 'assets/icons/icon-compass.svg'
 import myAppsIcon from 'assets/icons/icon-cozy-smile.svg'
 
 import { SidebarCategories } from 'ducks/apps/Containers'
-
 import { enabledStoreParts } from 'config'
+import isNavigationEnabled from 'lib/isNavigationEnabled'
 
 const configMap = {
   discover: {
@@ -21,8 +21,9 @@ const configMap = {
   }
 }
 
-export const Sidebar = React.memo(({ t }) => {
+export const Sidebar = React.memo(({ location, t }) => {
   const parts = enabledStoreParts || ['discover', 'myapps']
+  if (!isNavigationEnabled(location.search)) return null
   return (
     <aside className="o-sidebar">
       <Nav>
