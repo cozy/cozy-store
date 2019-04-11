@@ -5,42 +5,52 @@ exports[`Sidebar component should be rendered correctly 1`] = `
   className="o-sidebar"
 >
   <Nav>
-    <NavItem>
-      <NavLink
-        activeClassName="is-active"
-        aria-current="page"
-        className="c-nav-link"
-        to="/discover"
-      >
-        <NavIcon
-          icon="test-file-stub"
-        />
-        <NavText>
-          Applications
-        </NavText>
-      </NavLink>
-    </NavItem>
-    <withRouter(Connect(withRouter(Wrapper)))
-      parent="/discover"
-    />
-    <NavItem>
-      <NavLink
-        activeClassName="is-active"
-        aria-current="page"
-        className="c-nav-link"
-        to="/myapps"
-      >
-        <NavIcon
-          icon="test-file-stub"
-        />
-        <NavText>
-          My Applications
-        </NavText>
-      </NavLink>
-    </NavItem>
-    <withRouter(Connect(withRouter(Wrapper)))
-      parent="/myapps"
-    />
+    <React.Fragment>
+      <NavItem>
+        <NavLink
+          activeClassName="is-active"
+          aria-current="page"
+          className="c-nav-link"
+          to="/discover"
+        >
+          <NavIcon
+            icon="test-file-stub"
+          />
+          <NavText>
+            Applications
+          </NavText>
+        </NavLink>
+      </NavItem>
+      <withRouter(Connect(withRouter(Wrapper)))
+        parent="/discover"
+      />
+    </React.Fragment>
+    <React.Fragment>
+      <NavItem>
+        <NavLink
+          activeClassName="is-active"
+          aria-current="page"
+          className="c-nav-link"
+          to="/myapps"
+        >
+          <NavIcon
+            icon="test-file-stub"
+          />
+          <NavText>
+            My Applications
+          </NavText>
+        </NavLink>
+      </NavItem>
+      <withRouter(Connect(withRouter(Wrapper)))
+        parent="/myapps"
+      />
+    </React.Fragment>
   </Nav>
 </aside>
 `;
+
+exports[`Sidebar component should not render if nav is disabled using search flag 1`] = `null`;
+
+exports[`Sidebar component should not render if nav is enabled but only one store part is displayed and we are on mobile 1`] = `null`;
+
+exports[`Sidebar component should not render if nav is enabled but only one store part is displayed and we are on tablet 1`] = `null`;
