@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { translate } from 'cozy-ui/react/I18n'
-import { NavLink as RouterLink } from 'react-router-dom'
+import { NavLink as RouterLink, withRouter } from 'react-router-dom'
 import Nav, { NavLink, NavItem, NavIcon, NavText } from 'cozy-ui/react/Nav'
 
 import discoverIcon from 'assets/icons/icon-compass.svg'
@@ -8,33 +8,47 @@ import myAppsIcon from 'assets/icons/icon-cozy-smile.svg'
 
 import { SidebarCategories } from 'ducks/apps/Containers'
 
-export const Sidebar = ({ t }) => (
-  <aside className="o-sidebar">
-    <Nav>
-      <NavItem>
-        <RouterLink
-          to="/discover"
-          className={NavLink.className}
-          activeClassName={NavLink.activeClassName}
-        >
-          <NavIcon icon={discoverIcon} />
-          <NavText>{t('nav.discover')}</NavText>
-        </RouterLink>
-      </NavItem>
-      <SidebarCategories parent="/discover" />
-      <NavItem>
-        <RouterLink
-          to="/myapps"
-          className={NavLink.className}
-          activeClassName={NavLink.activeClassName}
-        >
-          <NavIcon icon={myAppsIcon} />
-          <NavText>{t('nav.myapps')}</NavText>
-        </RouterLink>
-      </NavItem>
-      <SidebarCategories parent="/myapps" />
-    </Nav>
-  </aside>
-)
+import { enabledStoreParts } from 'config'
 
-export default translate()(Sidebar)
+const configMap = {
+  discover: {
+    icon: discoverIcon,
+    labelKey: 'nav.discover'
+  },
+  myapps: {
+    icon: myAppsIcon,
+    labelKey: 'nav.myapps'
+  }
+}
+
+export const Sidebar = React.memo(({ t }) => {
+  const parts = enabledStoreParts || ['discover', 'myapps']
+  return (
+    <aside className="o-sidebar">
+      <Nav>
+        {parts.map(name => {
+          if (configMap.hasOwnProperty(name)) {
+            return (
+              <Fragment key={name}>
+                <NavItem>
+                  <RouterLink
+                    to={`/${name}`}
+                    className={NavLink.className}
+                    activeClassName={NavLink.activeClassName}
+                  >
+                    <NavIcon icon={configMap[name].icon} />
+                    <NavText>{t(configMap[name].labelKey)}</NavText>
+                  </RouterLink>
+                </NavItem>
+                <SidebarCategories parent={`/${name}`} />
+              </Fragment>
+            )
+          }
+        })}
+      </Nav>
+    </aside>
+  )
+})
+Sidebar.displayName = 'Sidebar'
+
+export default translate()(withRouter(Sidebar))

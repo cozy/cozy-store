@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { hot } from 'react-hot-loader'
 
@@ -16,6 +16,13 @@ import { Layout, Main } from 'cozy-ui/react/Layout'
 import Alerter from 'cozy-ui/react/Alerter'
 import { IconSprite } from 'cozy-ui/react'
 
+import { enabledStoreParts } from 'config'
+
+const componentsMap = {
+  discover: Discover,
+  myapps: MyApplications
+}
+
 export class App extends Component {
   constructor(props) {
     super(props)
@@ -23,6 +30,8 @@ export class App extends Component {
   }
 
   render() {
+    const parts = enabledStoreParts || ['discover', 'myapps']
+    const defaultPart = parts[0]
     return (
       <Layout>
         {flag('switcher') && <FlagSwitcher />}
@@ -31,10 +40,23 @@ export class App extends Component {
         <Main>
           <Switch>
             <Route path="/redirect" component={IntentRedirect} />
-            <Route path="/discover" component={Discover} />
-            <Route path="/myapps" component={MyApplications} />
-            <Redirect exact from="/" to="/discover" />
-            <Redirect from="*" to="/discover" />
+            {parts.map(name => {
+              if (componentsMap.hasOwnProperty(name)) {
+                return (
+                  <Route
+                    path={`/${name}`}
+                    component={componentsMap[name]}
+                    key={name}
+                  />
+                )
+              }
+            })}
+            {defaultPart && (
+              <Fragment>
+                <Redirect exact from="/" to={`/${defaultPart}`} />
+                <Redirect from="*" to={`/${defaultPart}`} />
+              </Fragment>
+            )}
           </Switch>
         </Main>
         <IconSprite />
