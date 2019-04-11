@@ -107,6 +107,7 @@
     justify-content: flex-start;
     margin-right: 0;
     margin-bottom: .5rem;
+    padding-left: .5rem;
   }
 
   .sto-small-app-item:hover,
@@ -123,7 +124,6 @@
   }
 
   .sto-small-app-item-icon {
-    margin-left: .5rem;
     height: 2.5rem;
     max-width: 2.5rem;
     max-height: 2.5rem;
