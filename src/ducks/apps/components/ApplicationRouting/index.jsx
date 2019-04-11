@@ -22,7 +22,8 @@ export class ApplicationRouting extends Component {
   }
 
   redirectTo = target => {
-    this.props.history.replace(target)
+    const { history, location } = this.props
+    history.replace(target + location.search)
     return null
   }
 
