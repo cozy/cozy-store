@@ -36,7 +36,7 @@ describe('Sidebar component', () => {
   it('should not render if nav is enabled but only one store part is displayed and we are on mobile', () => {
     jest.doMock('config/index.json', () => {
       return {
-        enabledStoreParts: ['myapps'],
+        enabledPages: ['myapps'],
         default: {
           registry: {
             channel: 'stable'
@@ -62,7 +62,7 @@ describe('Sidebar component', () => {
   it('should not render if nav is enabled but only one store part is displayed and we are on tablet', () => {
     jest.doMock('config/index.json', () => {
       return {
-        enabledStoreParts: ['myapps'],
+        enabledPages: ['myapps'],
         default: {
           registry: {
             channel: 'stable'

@@ -358,7 +358,7 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
 
 exports[`AppsSection component should not render dropdown filter on mobile if nav=false flag provided 1`] = `
 <div
-  className="sto-sections --no-nav"
+  className="sto-sections u-mt-half"
 >
   <div
     className="sto-sections-section"
@@ -709,7 +709,7 @@ exports[`AppsSection component should not render dropdown filter on mobile if na
 
 exports[`AppsSection component should not render dropdown filter on tablet if nav=false flag provided 1`] = `
 <div
-  className="sto-sections --no-nav"
+  className="sto-sections u-mt-half"
 >
   <h1
     className="sto-sections-title u-title-h1"

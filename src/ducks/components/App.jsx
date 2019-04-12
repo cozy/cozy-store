@@ -16,7 +16,7 @@ import { Layout, Main } from 'cozy-ui/react/Layout'
 import Alerter from 'cozy-ui/react/Alerter'
 import { IconSprite } from 'cozy-ui/react'
 
-import { enabledStoreParts } from 'config'
+import { enabledPages } from 'config'
 
 const componentsMap = {
   discover: Discover,
@@ -30,8 +30,7 @@ export class App extends Component {
   }
 
   render() {
-    const parts = enabledStoreParts || ['discover', 'myapps']
-    const defaultPart = parts[0]
+    const defaultPart = enabledPages[0]
     return (
       <Layout>
         {flag('switcher') && <FlagSwitcher />}
@@ -40,8 +39,8 @@ export class App extends Component {
         <Main>
           <Switch>
             <Route path="/redirect" component={IntentRedirect} />
-            {parts.map(name => {
-              if (componentsMap.hasOwnProperty(name)) {
+            {enabledPages.map(name => {
+              if (componentsMap[name]) {
                 return (
                   <Route
                     path={`/${name}`}

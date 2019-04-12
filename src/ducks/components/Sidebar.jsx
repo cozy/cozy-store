@@ -8,7 +8,7 @@ import discoverIcon from 'assets/icons/icon-compass.svg'
 import myAppsIcon from 'assets/icons/icon-cozy-smile.svg'
 
 import { SidebarCategories } from 'ducks/apps/Containers'
-import { enabledStoreParts } from 'config'
+import { enabledPages } from 'config'
 import isNavigationEnabled from 'lib/isNavigationEnabled'
 
 const configMap = {
@@ -24,14 +24,13 @@ const configMap = {
 
 export const Sidebar = React.memo(({ location, t, breakpoints = {} }) => {
   const { isMobile, isTablet } = breakpoints
-  const parts = enabledStoreParts || ['discover', 'myapps']
-  if (parts.length === 1 && (isMobile || isTablet)) return null
+  if (enabledPages.length === 1 && (isMobile || isTablet)) return null
   if (!isNavigationEnabled(location.search)) return null
   return (
     <aside className="o-sidebar">
       <Nav>
-        {parts.map(name => {
-          if (configMap.hasOwnProperty(name)) {
+        {enabledPages.map(name => {
+          if (configMap[name]) {
             return (
               <Fragment key={name}>
                 <NavItem>

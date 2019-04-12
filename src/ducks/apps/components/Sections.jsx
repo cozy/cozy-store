@@ -50,7 +50,7 @@ export class Sections extends Component {
     const hasNav = isNavigationEnabled(location.search)
 
     return (
-      <div className={`sto-sections${hasNav ? '' : ' --no-nav'}`}>
+      <div className={`sto-sections${hasNav ? '' : ' u-mt-half'}`}>
         {(isMobile || isTablet) && hasNav && (
           <DropdownFilter
             options={selectOptions}

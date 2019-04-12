@@ -7,5 +7,5 @@
   },
   "collect": "#/connected",
   "filterAppType": false,
-  "enabledStoreParts": ["discover", "myapps"]
+  "enabledPages": ["discover", "myapps"]
 }
