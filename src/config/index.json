@@ -6,5 +6,6 @@
     "authorizedLabelLimit": 3
   },
   "collect": "#/connected",
-  "filterAppType": false
+  "filterAppType": false,
+  "enabledPages": ["discover", "myapps"]
 }

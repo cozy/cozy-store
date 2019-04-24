@@ -22,17 +22,19 @@ exports[`App component only should be mounted correctly 1`] = `
         component={[Function]}
         path="/myapps"
       />
-      <Redirect
-        exact={true}
-        from="/"
-        push={false}
-        to="/discover"
-      />
-      <Redirect
-        from="*"
-        push={false}
-        to="/discover"
-      />
+      <React.Fragment>
+        <Redirect
+          exact={true}
+          from="/"
+          push={false}
+          to="/discover"
+        />
+        <Redirect
+          from="*"
+          push={false}
+          to="/discover"
+        />
+      </React.Fragment>
     </Switch>
   </Main>
   <IconSprite />

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { translate } from 'cozy-ui/react/I18n'
 import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
+import { withRouter } from 'react-router-dom'
 
 import {
   getAppsSortedByCategories,
@@ -10,6 +11,7 @@ import {
 import AppsSection from 'ducks/apps/components/AppsSection'
 import DropdownFilter from 'ducks/apps/components/DropdownFilter'
 import { APP_TYPE } from 'ducks/apps'
+import isNavigationEnabled from 'lib/isNavigationEnabled'
 
 export class Sections extends Component {
   render() {
@@ -21,7 +23,8 @@ export class Sections extends Component {
       allApps,
       query,
       pushQuery,
-      breakpoints = {}
+      breakpoints = {},
+      location
     } = this.props
     const { isMobile, isTablet } = breakpoints
 
@@ -44,10 +47,11 @@ export class Sections extends Component {
     )
 
     const selectOptions = getCategoriesSelections(allApps, t, true)
+    const hasNav = isNavigationEnabled(location.search)
 
     return (
-      <div className="sto-sections">
-        {(isMobile || isTablet) && (
+      <div className={`sto-sections${hasNav ? '' : ' u-mt-half'}`}>
+        {(isMobile || isTablet) && hasNav && (
           <DropdownFilter
             options={selectOptions}
             query={query}
@@ -105,4 +109,4 @@ export class Sections extends Component {
   }
 }
 
-export default translate()(withBreakpoints()(Sections))
+export default translate()(withBreakpoints()(withRouter(Sections)))

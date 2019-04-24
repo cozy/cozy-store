@@ -22,6 +22,7 @@ describe('AppsSection component', () => {
         allApps={mockApps}
         onAppClick={mockOnAppClick}
         error={null}
+        location={{ search: '' }}
       />
     ).getElement()
     expect(component).toMatchSnapshot()
@@ -38,6 +39,75 @@ describe('AppsSection component', () => {
         allApps={mockApps}
         onAppClick={mockOnAppClick}
         error={new Error('This is a test error')}
+        location={{ search: '' }}
+      />
+    ).getElement()
+    expect(component).toMatchSnapshot()
+  })
+
+  it('should not render dropdown filter on mobile if nav=false flag provided', () => {
+    const mockOnAppClick = jest.fn()
+    const component = shallow(
+      <Sections
+        t={tMock}
+        lang="en"
+        subtitle="Test Apps"
+        apps={mockApps}
+        allApps={mockApps}
+        onAppClick={mockOnAppClick}
+        breakpoints={{ isMobile: true }}
+        location={{ search: '?nav=false' }}
+      />
+    ).getElement()
+    expect(component).toMatchSnapshot()
+  })
+
+  it('should not render dropdown filter on tablet if nav=false flag provided', () => {
+    const mockOnAppClick = jest.fn()
+    const component = shallow(
+      <Sections
+        t={tMock}
+        lang="en"
+        subtitle="Test Apps"
+        apps={mockApps}
+        allApps={mockApps}
+        onAppClick={mockOnAppClick}
+        breakpoints={{ isTablet: true }}
+        location={{ search: '?nav=false' }}
+      />
+    ).getElement()
+    expect(component).toMatchSnapshot()
+  })
+
+  it('should render dropdown filter on mobile if no nav=false flag provided', () => {
+    const mockOnAppClick = jest.fn()
+    const component = shallow(
+      <Sections
+        t={tMock}
+        lang="en"
+        subtitle="Test Apps"
+        apps={mockApps}
+        allApps={mockApps}
+        onAppClick={mockOnAppClick}
+        breakpoints={{ isMobile: true }}
+        location={{ search: '' }}
+      />
+    ).getElement()
+    expect(component).toMatchSnapshot()
+  })
+
+  it('should render dropdown filter on tablet if no nav=false flag provided', () => {
+    const mockOnAppClick = jest.fn()
+    const component = shallow(
+      <Sections
+        t={tMock}
+        lang="en"
+        subtitle="Test Apps"
+        apps={mockApps}
+        allApps={mockApps}
+        onAppClick={mockOnAppClick}
+        breakpoints={{ isTablet: true }}
+        location={{ search: '' }}
       />
     ).getElement()
     expect(component).toMatchSnapshot()
