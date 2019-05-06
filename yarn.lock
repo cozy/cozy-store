@@ -3348,14 +3348,15 @@ cozy-client-js@^0.3.19:
   resolved "https://registry.yarnpkg.com/cozy-client-js/-/cozy-client-js-0.3.21.tgz#d27d0288077ce95139333c41dfb537b8584ff254"
   integrity sha1-0n0CiAd86VE5MzxB37U3uFhP8lQ=
 
-cozy-client@6.20.0:
-  version "6.20.0"
-  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-6.20.0.tgz#325a933f40cb183d7f6ac4ceab3b6234c252aaf0"
-  integrity sha512-3N0YD5Q00LJlG1fnWAEPjQa6+LxbXgGXd0Be1XTKiLiaPotvD6wE3od131OOv/UP3PWpzY3QnNS4A5/ScPAufw==
+cozy-client@6.27.0:
+  version "6.27.0"
+  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-6.27.0.tgz#27cd1c9e1e6827f7fcc431f8ef1294056b4d3cd7"
+  integrity sha512-lKdWvKrBsBs8SimfvSqb3ExInH/pGA00GfZXr4Ki8bDV0Z/d/g7geQVUepIIpwyun+PqKaIQ/Fko5a1lYfx89Q==
   dependencies:
     cozy-device-helper "1.6.3"
-    cozy-stack-client "^6.20.0"
+    cozy-stack-client "^6.25.0"
     lodash "4.17.11"
+    microee "0.0.6"
     prop-types "15.6.2"
     react "16.7.0"
     react-redux "5.0.7"
@@ -3449,14 +3450,14 @@ cozy-scripts@1.13.0:
     webpack-dev-server "3.1.10"
     webpack-merge "4.2.1"
 
-cozy-stack-client@^6.20.0:
-  version "6.20.0"
-  resolved "https://registry.yarnpkg.com/cozy-stack-client/-/cozy-stack-client-6.20.0.tgz#3d4b5334bd2a7c919e8b9e3989a46e470e2ab779"
-  integrity sha512-bxzGG+VQt7tAHgrdx/fVTlSxDLdeslNiF6s4YuwjQaCS5QOGbTB83kZRvDx5HswVzjZePaP0a2omE/Pe6HVonw==
+cozy-stack-client@^6.25.0:
+  version "6.25.0"
+  resolved "https://registry.yarnpkg.com/cozy-stack-client/-/cozy-stack-client-6.25.0.tgz#4fc50087d900be4b0976ceca3606c77703cf5f52"
+  integrity sha512-SY7450Yg9n9HDcPsMaNgfTcId5rXOR7hpzyCo1OUZoLINOGlG9Crd10p01aiOLSbvw8z1piKJnGyxYSSrmBOXA==
   dependencies:
     detect-node "2.0.4"
-    mime-types "2.1.20"
-    qs "6.6.0"
+    mime-types "2.1.24"
+    qs "6.7.0"
 
 cozy-ui@18.20.0:
   version "18.20.0"
@@ -7552,7 +7553,7 @@ methods@~1.1.2:
   resolved "https://registry.yarnpkg.com/methods/-/methods-1.1.2.tgz#5529a4d67654134edcc5266656835b0f851afcee"
   integrity sha1-VSmk1nZUE07cxSZmVoNbD4Ua/O4=
 
-microee@^0.0.6:
+microee@0.0.6, microee@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/microee/-/microee-0.0.6.tgz#a12bdb0103681e8b126a9b071eba4c467c78fffe"
   integrity sha1-oSvbAQNoHosSapsHHrpMRnx4//4=
@@ -7622,12 +7623,24 @@ miller-rabin@^4.0.0:
     bn.js "^4.0.0"
     brorand "^1.0.1"
 
+mime-db@1.40.0:
+  version "1.40.0"
+  resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.40.0.tgz#a65057e998db090f732a68f6c276d387d4126c32"
+  integrity sha512-jYdeOMPy9vnxEqFRRo6ZvTZ8d9oPb+k18PKoYNYUe2stVEBPPwsln/qWzdbmaIvnhZ9v2P+CuecK+fpUfsV2mA==
+
 "mime-db@>= 1.36.0 < 2", mime-db@~1.36.0:
   version "1.36.0"
   resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.36.0.tgz#5020478db3c7fe93aad7bbcc4dcf869c43363397"
   integrity sha512-L+xvyD9MkoYMXb1jAmzI/lWYAxAMCPvIBSWur0PZ5nOf5euahRLVqH//FKW9mWp2lkqUgYiXPgkzfMUFi4zVDw==
 
-mime-types@2.1.20, mime-types@^2.1.12, mime-types@~2.1.17, mime-types@~2.1.18, mime-types@~2.1.19:
+mime-types@2.1.24:
+  version "2.1.24"
+  resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.24.tgz#b6f8d0b3e951efb77dedeca194cff6d16f676f81"
+  integrity sha512-WaFHS3MCl5fapm3oLxU4eYDw77IQM2ACcxQ9RIxfaC3ooc6PFuBMGZZsYpvoXS5D5QTWPieo1jjLdAm3TBP3cQ==
+  dependencies:
+    mime-db "1.40.0"
+
+mime-types@^2.1.12, mime-types@~2.1.17, mime-types@~2.1.18, mime-types@~2.1.19:
   version "2.1.20"
   resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.20.tgz#930cb719d571e903738520f8470911548ca2cc19"
   integrity sha512-HrkrPaP9vGuWbLK1B1FfgAkbqNjIuy4eHlIYnFi7kamZyLLrGlo2mpcx0bBmNpKqBtYtAfGbodDddIgddSJC2A==
@@ -9289,10 +9302,10 @@ qs@6.5.1:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.1.tgz#349cdf6eef89ec45c12d7d5eb3fc0c870343a6d8"
   integrity sha512-eRzhrN1WSINYCDCbrz796z37LOe3m5tmW7RQf6oBntukAG1nmovJvhnwHHRMAfeoItc1m2Hk02WER2aQ/iqs+A==
 
-qs@6.6.0:
-  version "6.6.0"
-  resolved "https://registry.yarnpkg.com/qs/-/qs-6.6.0.tgz#a99c0f69a8d26bf7ef012f871cdabb0aee4424c2"
-  integrity sha512-KIJqT9jQJDQx5h5uAVPimw6yVg2SekOKu959OCtktD3FjzbpvaPr8i4zzg07DOMz+igA4W/aNM7OV8H37pFYfA==
+qs@6.7.0:
+  version "6.7.0"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.7.0.tgz#41dc1a015e3d581f1621776be31afb2876a9b1bc"
+  integrity sha512-VCdBRNFTX1fyE7Nb6FYoURo/SPe62QCaAyzJvUjwRaIsc+NePBEniHlvxFmmX56+HZphIGtV0XeCirBtpDrTyQ==
 
 qs@~6.5.2:
   version "6.5.2"
