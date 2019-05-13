@@ -24,6 +24,7 @@ const getMockProps = (
   isFetching,
   parent,
   history: { push: jest.fn(), replace: jest.fn() },
+  location: { search: '' },
   uninstallApp: jest.fn().mockName('mockUninstallApp'),
   installApp: jest.fn().mockName('mockInstallApp')
 })

@@ -380,6 +380,11 @@ ShallowWrapper {
       ]
     }
     isFetching={false}
+    location={
+      Object {
+        "search": "",
+      }
+    }
     parent="myapps"
     uninstallApp={[MockFunction mockUninstallApp]}
   />,
