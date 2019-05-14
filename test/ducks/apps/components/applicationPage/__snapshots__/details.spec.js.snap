@@ -69,6 +69,7 @@ exports[`ApplicationPage details component should be rendered correctly provided
         className="sto-app-permissions-button"
         label="Show permissions"
         onClick={[Function]}
+        size="normal"
         subtle={true}
         tag="button"
         type="submit"
@@ -234,6 +235,7 @@ Enjoy features to grab your data in you Cozy :tada:"
         className="sto-app-permissions-button"
         label="Show permissions"
         onClick={[Function]}
+        size="normal"
         subtle={true}
         tag="button"
         type="submit"
@@ -331,6 +333,7 @@ exports[`ApplicationPage details component should be rendered correctly with pro
         className="sto-app-permissions-button"
         label="Show permissions"
         onClick={[Function]}
+        size="normal"
         subtle={true}
         tag="button"
         type="submit"
@@ -532,6 +535,7 @@ Enjoy features to grab your data in you Cozy :tada:"
         className="sto-app-permissions-button"
         label="Show permissions"
         onClick={[Function]}
+        size="normal"
         subtle={true}
         tag="button"
         type="submit"
@@ -715,6 +719,7 @@ Enjoy features to grab your data in you Cozy :tada:"
         className="sto-app-permissions-button"
         label="Show permissions"
         onClick={[Function]}
+        size="normal"
         subtle={true}
         tag="button"
         type="submit"
@@ -880,6 +885,7 @@ Enjoy features to grab your data in you Cozy :tada:"
         className="sto-app-permissions-button"
         label="Show permissions"
         onClick={[Function]}
+        size="normal"
         subtle={true}
         tag="button"
         type="submit"
@@ -1045,6 +1051,7 @@ Enjoy features to grab your data in you Cozy :tada:"
         className="sto-app-permissions-button"
         label="Show permissions"
         onClick={[Function]}
+        size="normal"
         subtle={true}
         tag="button"
         type="submit"
@@ -1210,6 +1217,7 @@ Enjoy features to grab your data in you Cozy :tada:"
         className="sto-app-permissions-button"
         label="Show permissions"
         onClick={[Function]}
+        size="normal"
         subtle={true}
         tag="button"
         type="submit"
