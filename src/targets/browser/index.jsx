@@ -8,10 +8,10 @@ import CozyClient from 'cozy-client'
 
 import store from 'lib/store'
 
-const renderApp = function(lang) {
+const renderApp = function({ client, lang }) {
   const Root = require('ducks/components/Root').default
   render(
-    <Root store={store} lang={lang} />,
+    <Root client={client} store={store} lang={lang} />,
     document.querySelector('[role=application]')
   )
 }
@@ -38,5 +38,5 @@ document.addEventListener('DOMContentLoaded', () => {
     replaceTitleOnMobile: true
   })
 
-  renderApp(data.cozyLocale)
+  renderApp({ client, lang: data.cozyLocale })
 })
