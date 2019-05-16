@@ -382,19 +382,18 @@ export async function getFormattedRegistryApp(
 
 export function fetchInstalledApps(client, lang, fetchingRegistry) {
   return async dispatch => {
+    const { filterAppType } = storeConfig
     try {
       // Start the HTTP requests as soon as possible
       let fetchingKonnectors = null
       let fetchingWebApps = null
       if (
-        !storeConfig.filterAppType ||
-        storeConfig.filterAppType === APP_TYPE.KONNECTOR
+        !filterAppType || filterAppType === APP_TYPE.KONNECTOR
       ) {
         fetchingKonnectors = client.stackClient.fetchJSON('GET', '/konnectors/')
       }
       if (
-        !storeConfig.filterAppType ||
-        storeConfig.filterAppType === APP_TYPE.WEBAPP
+        !filterAppType || filterAppType === APP_TYPE.WEBAPP
       ) {
         fetchingWebApps = client.stackClient.fetchJSON('GET', '/apps/')
       }
