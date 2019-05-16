@@ -11,6 +11,7 @@ import Button from 'cozy-ui/react/Button'
 import { getAppBySlug, uninstallApp } from 'ducks/apps'
 import Modal, { ModalDescription, ModalFooter } from 'cozy-ui/react/Modal'
 import Portal from 'cozy-ui/react/Portal'
+import { withClient } from 'cozy-client'
 
 import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
 
@@ -67,7 +68,8 @@ export class UninstallModal extends Component {
       isInstalling,
       dismissAction,
       t,
-      uninstallError
+      uninstallError,
+      client
     } = this.props
     const linkedAppError =
       uninstallError &&
@@ -83,7 +85,7 @@ export class UninstallModal extends Component {
           <ModalDescription>
             <ReactMarkdownWrapper
               source={t('app_modal.uninstall.description', {
-                cozyName: cozy.client._url.replace(/^\/\//, '')
+                cozyName: client.stackClient.uri.replace(/^\/\//, '')
               })}
             />
             {uninstallError && !linkedAppError && (
@@ -146,13 +148,14 @@ const mapStateToProps = (state, ownProps) => ({
   uninstallError: state.apps.actionError
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
   uninstallApp: app => {
-    return dispatch(uninstallApp(app))
+    return dispatch(uninstallApp(ownProps.client, app))
   }
 })
 
 export default compose(
+  withClient,
   connect(
     mapStateToProps,
     mapDispatchToProps

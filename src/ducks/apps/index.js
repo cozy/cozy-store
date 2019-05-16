@@ -469,7 +469,7 @@ function extractJsonApiError(e) {
   }
 }
 
-export function uninstallApp(app) {
+export function uninstallApp(client, app) {
   const { slug, type } = app
   return dispatch => {
     if (
@@ -483,9 +483,11 @@ export function uninstallApp(app) {
     // FIXME: hack to handle node type from stack for the konnectors
     const route =
       type === APP_TYPE.KONNECTOR || type === 'node' ? 'konnectors' : 'apps'
-    return cozy.client.fetchJSON('DELETE', `/${route}/${slug}`).catch(e => {
-      dispatch({ type: UNINSTALL_APP_FAILURE, error: extractJsonApiError(e) })
-    })
+    return client.stackClient
+      .fetchJSON('DELETE', `/${route}/${slug}`)
+      .catch(e => {
+        dispatch({ type: UNINSTALL_APP_FAILURE, error: extractJsonApiError(e) })
+      })
   }
 }
 

@@ -42,18 +42,23 @@ const getMockProps = (slug, uninstallError = null) => ({
 })
 
 describe('UninstallModal component', () => {
+  let mockClient
   beforeAll(() => {
     // define global mock url
-    global.cozy = {
-      client: {
-        _url: '//cozytest.mock.cc'
+    mockClient = {
+      stackClient: {
+        uri: '//cozytest.mock.cc'
       }
     }
   })
 
   it('should be rendered correctly (app uninstallable)', () => {
     const component = shallow(
-      <UninstallModal t={tMock} {...getMockProps('photos')} />
+      <UninstallModal
+        client={mockClient}
+        t={tMock}
+        {...getMockProps('photos')}
+      />
     ).getElement()
     expect(component).toMatchSnapshot()
   })
@@ -61,13 +66,15 @@ describe('UninstallModal component', () => {
   it('calls onNotInstalled', () => {
     const props = getMockProps('photos')
     props.installed = false
-    shallow(<UninstallModal t={tMock} {...props} />)
+    shallow(<UninstallModal client={mockClient} t={tMock} {...props} />)
     expect(props.onNotInstalled.mock.calls.length).toBe(1)
   })
 
   it('should handle correctly error from props', () => {
     const mockProps = getMockProps('photos', mockError)
-    const component = shallow(<UninstallModal t={tMock} {...mockProps} />)
+    const component = shallow(
+      <UninstallModal client={mockClient} t={tMock} {...mockProps} />
+    )
     expect(component.getElement()).toMatchSnapshot()
   })
 
@@ -76,7 +83,9 @@ describe('UninstallModal component', () => {
       'photos',
       new Error('A linked OAuth client exists for this app')
     )
-    const component = shallow(<UninstallModal t={tMock} {...mockProps} />)
+    const component = shallow(
+      <UninstallModal client={mockClient} t={tMock} {...mockProps} />
+    )
     expect(component.getElement()).toMatchSnapshot()
   })
 })
