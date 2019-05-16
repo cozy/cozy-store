@@ -28,7 +28,7 @@ import {
   RESTORE_APP,
   SAVE_APP
 } from './reducers'
-import { fetchAppsFromChannel } from './client-helpers'
+import { fetchAppsFromChannel, fetchAppOrKonnector } from './client-helpers'
 
 const APP_STATE = {
   READY: 'ready',
@@ -207,13 +207,10 @@ function onAppUpdate(client, appResponse) {
     }
     if (appResponse.state === APP_STATE.READY) {
       // FIXME: hack to handle node type from stack for the konnectors
-      const route =
-        appResponse.type === APP_TYPE.KONNECTOR || appResponse.type === 'node'
-          ? 'konnectors'
-          : 'apps'
-      const appFromStack = await client.stackClient.fetchJSON(
-        'GET',
-        `/${route}/${appResponse.slug}`
+      const appFromStack = await fetchAppOrKonnector(
+        client,
+        appResponse.type,
+        appResponse.slug
       )
       return getFormattedInstalledApp(appFromStack).then(installedApp => {
         return dispatch({ type: INSTALL_APP_SUCCESS, installedApp })
