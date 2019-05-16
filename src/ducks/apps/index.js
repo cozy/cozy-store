@@ -5,7 +5,7 @@ import config from 'config/apps'
 import storeConfig from 'config'
 import AUTHORIZED_CATEGORIES from 'config/categories'
 import { NotUninstallableAppException } from 'lib/exceptions'
-import realtime from 'cozy-realtime'
+import CozyRealtime from 'cozy-realtime'
 
 export * from 'ducks/apps/selectors'
 export { appsReducers } from 'ducks/apps/reducers'
@@ -234,32 +234,24 @@ function onAppDelete(appResponse) {
   }
 }
 
-function initializeRealtime() {
-  const config = {
-    token: cozy.client._token.token,
-    // cozy-realtime expect an URL with an https protocol,
-    // see https://github.com/cozy/cozy-libs/blob/master/packages/realtime/src/index.js#L52
-    url: `${window.location.protocol}${cozy.client._url}`
-  }
+function initializeRealtime(client) {
+  const realtime = new CozyRealtime({ cozyClient: client })
   return dispatch => {
+    const handleAppUpdate = app => dispatch(onAppUpdate(app))
+    const handleAppDelete = app => dispatch(onAppDelete(app))
+
     try {
-      realtime
-        .subscribe(config, APPS_DOCTYPE)
-        // HACK: the push CREATE at fisrt install
-        .onCreate(app => dispatch(onAppUpdate(app)))
-        .onUpdate(app => dispatch(onAppUpdate(app)))
-        .onDelete(app => dispatch(onAppDelete(app)))
+      realtime.subscribe('create', APPS_DOCTYPE, handleAppUpdate)
+      realtime.subscribe('update', APPS_DOCTYPE, handleAppUpdate)
+      realtime.subscribe('delete', APPS_DOCTYPE, handleAppDelete)
     } catch (error) {
       // eslint-disable-next-line no-console
       console.warn(`Cannot initialize realtime for apps: ${error.message}`)
     }
     try {
-      realtime
-        .subscribe(config, KONNECTORS_DOCTYPE)
-        // HACK: the push CREATE at fisrt install
-        .onCreate(app => dispatch(onAppUpdate(app)))
-        .onUpdate(app => dispatch(onAppUpdate(app)))
-        .onDelete(app => dispatch(onAppDelete(app)))
+      realtime.subscribe('create', KONNECTORS_DOCTYPE, handleAppUpdate)
+      realtime.subscribe('update', KONNECTORS_DOCTYPE, handleAppUpdate)
+      realtime.subscribe('delete', KONNECTORS_DOCTYPE, handleAppDelete)
     } catch (error) {
       // eslint-disable-next-line no-console
       console.warn(
