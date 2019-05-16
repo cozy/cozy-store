@@ -190,11 +190,11 @@ export function initApp(client, lang) {
 }
 
 // only on the app install intent initialisation
-export function initAppIntent(lang, slug) {
+export function initAppIntent(client, lang, slug) {
   return async dispatch => {
     dispatch({ type: LOADING_APP_INTENT })
-    dispatch(initializeRealtime())
-    return await dispatch(fetchLatestApp(lang, slug))
+    dispatch(initializeRealtime(client))
+    return await dispatch(fetchLatestApp(client, lang, slug))
   }
 }
 
@@ -276,6 +276,7 @@ export function restoreAppIfSaved() {
 }
 
 export function fetchLatestApp(
+  client,
   lang,
   slug,
   channel = DEFAULT_CHANNEL,
@@ -286,7 +287,8 @@ export function fetchLatestApp(
     dispatch({ type: FETCH_APP })
     let app = getState().apps.list.find(a => a.slug === slug)
     try {
-      app = await cozy.client.fetchJSON(
+      // TODO check if possible to do via fetchAppsFromChannel
+      app = await client.stackClient.fetchJSON(
         'GET',
         `/registry/${slug}?latestChannelVersion=${channel}`
       )
