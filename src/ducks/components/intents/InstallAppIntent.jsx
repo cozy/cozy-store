@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import compose from 'lodash/flowRight'
+
 import { translate } from 'cozy-ui/react/I18n'
 
 import AppInstallation from 'ducks/apps/components/AppInstallation'
@@ -157,9 +159,10 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 })
 
 // translate last to pass the lang property to fetchApps()
-export default translate()(
+export default compose(
+  translate(),
   connect(
     mapStateToProps,
     mapDispatchToProps
-  )(InstallAppIntent)
-)
+  )
+)(InstallAppIntent)
