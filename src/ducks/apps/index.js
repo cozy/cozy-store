@@ -28,6 +28,7 @@ import {
   RESTORE_APP,
   SAVE_APP
 } from './reducers'
+import { fetchAppsFromChannel } from './client-helpers'
 
 const APP_STATE = {
   READY: 'ready',
@@ -470,14 +471,7 @@ export function fetchInstalledApps(client, lang, fetchingRegistry) {
 export function fetchRegistryApps(client, lang, channel = DEFAULT_CHANNEL) {
   return dispatch => {
     dispatch({ type: FETCH_APPS })
-    let filterParam = ''
-    if (storeConfig.filterAppType)
-      filterParam = `&filter[type]=${storeConfig.filterAppType}`
-    return client.stackClient
-      .fetchJSON(
-        'GET',
-        `/registry?limit=200&versionsChannel=${channel}&latestChannelVersion=${channel}${filterParam}`
-      )
+    return fetchAppsFromChannel(client, channel, storeConfig.filterAppType)
       .then(response => {
         const apps = response.data
           .filter(app => !config.notDisplayedApps.includes(app.slug))
