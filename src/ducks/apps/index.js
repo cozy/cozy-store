@@ -146,7 +146,7 @@ export function _getRegistryAssetsLinks(manifest, appVersion) {
   }
 }
 
-export async function getFormattedInstalledApp(response) {
+export async function getFormattedInstalledApp(client, response) {
   const appAttributes = _sanitizeManifest(response.attributes)
 
   const openingLink = response.links.related
@@ -205,9 +205,11 @@ function onAppUpdate(client, appResponse) {
         appResponse.type,
         appResponse.slug
       )
-      return getFormattedInstalledApp(appFromStack).then(installedApp => {
-        return dispatch({ type: INSTALL_APP_SUCCESS, installedApp })
-      })
+      return getFormattedInstalledApp(client, appFromStack).then(
+        installedApp => {
+          return dispatch({ type: INSTALL_APP_SUCCESS, installedApp })
+        }
+      )
     }
   }
 }
@@ -401,7 +403,9 @@ export function fetchInstalledApps(client, lang, fetchingRegistry) {
 
         await Promise.all(promises)
       ).filter(shouldAppBeDisplayed)
-      const apps = await Promise.all(installedApps.map(getFormattedInstalledApp))
+      const apps = await Promise.all(
+        installedApps.map(app => getFormattedInstalledApp(client, app))
+      )
       dispatch({ type: FETCH_APPS_SUCCESS, apps, lang })
     } catch (e) {
       dispatch({ type: FETCH_APPS_FAILURE, error: e })
