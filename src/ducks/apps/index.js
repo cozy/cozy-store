@@ -54,8 +54,11 @@ const getDataset = () => {
   dataset = root && root.dataset
   return dataset
 }
-/* Only for the icon fetching */
 
+const shouldAppBeDisplayed = appAttributes =>
+  !config.notDisplayedApps.includes(appAttributes.slug)
+
+/* Only for the icon fetching */
 export const getAppIconProps = () => ({
   domain: getDataset() && getDataset().cozyDomain,
   secure: window.location.protocol === 'https:'
@@ -398,11 +401,9 @@ export function fetchInstalledApps(client, lang, fetchingRegistry) {
       const promises = toFetch.map(type => fetchUserApps(client, type))
       await fetchingRegistry
       dispatch({ type: FETCH_APPS })
-      const shouldBeDisplayed = app => !config.notDisplayedApps.includes(app.attributes.slug)
       const installedApps = flatten(
-
         await Promise.all(promises)
-      ).filter(shouldAppBeDisplayed)
+      ).filter(x => shouldAppBeDisplayed(x.attributes))
       const apps = await Promise.all(
         installedApps.map(app => getFormattedInstalledApp(client, app))
       )
@@ -420,7 +421,7 @@ export function fetchRegistryApps(client, lang, channel = DEFAULT_CHANNEL) {
     return fetchAppsFromChannel(client, channel, storeConfig.filterAppType)
       .then(response => {
         const apps = response.data
-          .filter(app => !config.notDisplayedApps.includes(app.slug))
+          .filter(shouldAppBeDisplayed)
           .filter(app => app.versions[channel] && app.versions[channel].length) // only apps with versions available
         return Promise.all(
           apps.map(app => {
