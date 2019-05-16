@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import PropTypes from 'prop-types'
+import compose from 'lodash/flowRight'
 
 import { translate } from 'cozy-ui/react/I18n'
 import Alerter from 'cozy-ui/react/Alerter'
@@ -149,7 +150,11 @@ const mapDispatchToProps = dispatch => ({
   }
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(translate()(withRouter(UninstallModal)))
+export default compose(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  ),
+  translate(),
+  withRouter
+)(UninstallModal)
