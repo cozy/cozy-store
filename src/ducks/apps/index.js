@@ -315,7 +315,7 @@ export function fetchLatestApp(
       })
     }
     try {
-      const formattedApp = await getFormattedRegistryApp(app, channel)
+      const formattedApp = await getFormattedRegistryApp(client, app, channel)
       formattedApp.installed = await _getInstalledInfos(app)
       // dispatch the app only if we are still in fetching status
       // (meant that the fetch has not been cancelled by a RESTORE_APP action)
@@ -346,12 +346,13 @@ export function fetchLatestApp(
 }
 
 export async function getFormattedRegistryApp(
+  client,
   responseApp,
   channel = DEFAULT_CHANNEL
 ) {
   let version = responseApp.latest_version
   if (!version) {
-    version = await cozy.client.fetchJSON(
+    version = await client.stackClient.fetchJSON(
       'GET',
       `/registry/${responseApp.slug}/${channel}/latest`
     )
@@ -472,7 +473,7 @@ export function fetchRegistryApps(client, lang, channel = DEFAULT_CHANNEL) {
     let filterParam = ''
     if (storeConfig.filterAppType)
       filterParam = `&filter[type]=${storeConfig.filterAppType}`
-    return cozy.client
+    return client.stackClient
       .fetchJSON(
         'GET',
         `/registry?limit=200&versionsChannel=${channel}&latestChannelVersion=${channel}${filterParam}`
@@ -485,7 +486,7 @@ export function fetchRegistryApps(client, lang, channel = DEFAULT_CHANNEL) {
           apps.map(app => {
             // no latest_version means no version for this channel
             if (!app.latest_version) return false // skip
-            return getFormattedRegistryApp(app).catch(err => {
+            return getFormattedRegistryApp(client, app).catch(err => {
               console.warn(
                 `Something went wrong when trying to fetch more informations about ${
                   app.slug
