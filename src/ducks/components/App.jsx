@@ -16,6 +16,7 @@ import { Layout, Main } from 'cozy-ui/react/Layout'
 import Alerter from 'cozy-ui/react/Alerter'
 import { IconSprite } from 'cozy-ui/react'
 import compose from 'lodash/flowRight'
+import { withClient } from 'cozy-client'
 
 import { enabledPages } from 'config'
 
@@ -71,7 +72,7 @@ export const mapStateToProps = state => ({
 })
 
 export const mapDispatchToProps = (dispatch, ownProps) => ({
-  initApp: () => dispatch(initApp(ownProps.lang)),
+  initApp: () => dispatch(initApp(ownProps.client, ownProps.lang)),
   restoreAppIfSaved: () => dispatch(restoreAppIfSaved())
 })
 
@@ -79,6 +80,7 @@ export default compose(
   hot(module),
   withRouter,
   translate(),
+  withClient,
   connect(
     mapStateToProps,
     mapDispatchToProps

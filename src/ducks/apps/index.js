@@ -180,11 +180,11 @@ export async function getFormattedInstalledApp(response) {
 }
 
 // only on the app initialisation
-export function initApp(lang) {
+export function initApp(client, lang) {
   return dispatch => {
     dispatch({ type: LOADING_APP })
-    dispatch(initializeRealtime())
-    return dispatch(fetchApps(lang))
+    dispatch(initializeRealtime(client))
+    return dispatch(fetchApps(client, lang))
   }
 }
 
@@ -407,7 +407,7 @@ export async function getFormattedRegistryApp(
   })
 }
 
-export function fetchInstalledApps(lang, fetchingRegistry) {
+export function fetchInstalledApps(client, lang, fetchingRegistry) {
   return async dispatch => {
     try {
       // Start the HTTP requests as soon as possible
@@ -466,7 +466,7 @@ export function fetchInstalledApps(lang, fetchingRegistry) {
   }
 }
 
-export function fetchRegistryApps(lang, channel = DEFAULT_CHANNEL) {
+export function fetchRegistryApps(client, lang, channel = DEFAULT_CHANNEL) {
   return dispatch => {
     dispatch({ type: FETCH_APPS })
     let filterParam = ''
@@ -509,10 +509,10 @@ export function fetchRegistryApps(lang, channel = DEFAULT_CHANNEL) {
   }
 }
 
-export function fetchApps(lang) {
+export function fetchApps(client, lang) {
   return async dispatch => {
-    const fetchingRegistry = dispatch(fetchRegistryApps(lang))
-    return dispatch(fetchInstalledApps(lang, fetchingRegistry))
+    const fetchingRegistry = dispatch(fetchRegistryApps(client, lang))
+    return dispatch(fetchInstalledApps(client, lang, fetchingRegistry))
   }
 }
 
