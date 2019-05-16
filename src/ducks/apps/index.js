@@ -34,6 +34,7 @@ import {
   fetchAppOrKonnector
 } from './client-helpers'
 import { APP_TYPE, APP_STATE, REGISTRY_CHANNELS } from './constants'
+import flatten from 'lodash/flatten'
 
 export { APP_STATE }
 export { APP_TYPE }
@@ -389,42 +390,19 @@ export function fetchInstalledApps(client, lang, fetchingRegistry) {
     const { filterAppType } = storeConfig
     try {
       // Start the HTTP requests as soon as possible
-      let fetchingKonnectors = null
-      let fetchingWebApps = null
-      if (
-        !filterAppType || filterAppType === APP_TYPE.KONNECTOR
-      ) {
-        fetchingKonnectors = fetchUserApps(APP_TYPE.KONNECTOR)
-      }
-      if (
-        !filterAppType || filterAppType === APP_TYPE.WEBAPP
-      ) {
-        fetchingWebApps = fetchUserApps(APP_TYPE.WEBAPP)
-      }
+      const toFetch = [APP_TYPE.KONNECTOR, APP_TYPE.WEBAPP].filter(
+        type => !filterAppType || type === filterAppType
+      )
+      const promises = toFetch.map(type => fetchUserApps(client, type))
       await fetchingRegistry
       dispatch({ type: FETCH_APPS })
-      let installedApps = []
-      if (fetchingWebApps) {
-        let installedWebApps = await fetchingWebApps
-        installedWebApps = installedWebApps.filter(
-          app => !config.notDisplayedApps.includes(app.attributes.slug)
-        )
-        installedApps = installedApps.concat(installedWebApps)
-      }
-      if (fetchingKonnectors) {
-        let installedKonnectors = await fetchingKonnectors
-        installedKonnectors = installedKonnectors.filter(
-          app => !config.notDisplayedApps.includes(app.attributes.slug)
-        )
-        installedApps = installedApps.concat(installedKonnectors)
-      }
-      Promise.all(
-        installedApps.map(app => {
-          return getFormattedInstalledApp(app)
-        })
-      ).then(apps => {
-        return dispatch({ type: FETCH_APPS_SUCCESS, apps, lang })
-      })
+      const shouldBeDisplayed = app => !config.notDisplayedApps.includes(app.attributes.slug)
+      const installedApps = flatten(
+
+        await Promise.all(promises)
+      ).filter(shouldAppBeDisplayed)
+      const apps = await Promise.all(installedApps.map(getFormattedInstalledApp))
+      dispatch({ type: FETCH_APPS_SUCCESS, apps, lang })
     } catch (e) {
       dispatch({ type: FETCH_APPS_FAILURE, error: e })
       throw e
