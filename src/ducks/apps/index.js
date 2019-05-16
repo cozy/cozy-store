@@ -240,23 +240,17 @@ function initializeRealtime(client) {
     const handleAppUpdate = app => dispatch(onAppUpdate(app))
     const handleAppDelete = app => dispatch(onAppDelete(app))
 
-    try {
-      realtime.subscribe('create', APPS_DOCTYPE, handleAppUpdate)
-      realtime.subscribe('update', APPS_DOCTYPE, handleAppUpdate)
-      realtime.subscribe('delete', APPS_DOCTYPE, handleAppDelete)
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.warn(`Cannot initialize realtime for apps: ${error.message}`)
-    }
-    try {
-      realtime.subscribe('create', KONNECTORS_DOCTYPE, handleAppUpdate)
-      realtime.subscribe('update', KONNECTORS_DOCTYPE, handleAppUpdate)
-      realtime.subscribe('delete', KONNECTORS_DOCTYPE, handleAppDelete)
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.warn(
-        `Cannot initialize realtime for konnectors: ${error.message}`
-      )
+    for (let doctype of [APPS_DOCTYPE, KONNECTORS_DOCTYPE]) {
+      try {
+        realtime.subscribe('created', doctype, handleAppUpdate)
+        realtime.subscribe('updated', doctype, handleAppUpdate)
+        realtime.subscribe('deleted', doctype, handleAppDelete)
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.warn(
+          `Cannot initialize realtime for ${doctype}: ${error.message}`
+        )
+      }
     }
   }
 }
