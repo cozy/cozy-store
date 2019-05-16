@@ -417,13 +417,13 @@ export function fetchInstalledApps(client, lang, fetchingRegistry) {
         !storeConfig.filterAppType ||
         storeConfig.filterAppType === APP_TYPE.KONNECTOR
       ) {
-        fetchingKonnectors = cozy.client.fetchJSON('GET', '/konnectors/')
+        fetchingKonnectors = client.stackClient.fetchJSON('GET', '/konnectors/')
       }
       if (
         !storeConfig.filterAppType ||
         storeConfig.filterAppType === APP_TYPE.WEBAPP
       ) {
-        fetchingWebApps = cozy.client.fetchJSON('GET', '/apps/')
+        fetchingWebApps = client.stackClient.fetchJSON('GET', '/apps/')
       }
       await fetchingRegistry
       dispatch({ type: FETCH_APPS })
