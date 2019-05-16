@@ -15,6 +15,7 @@ import { Discover, MyApplications } from 'ducks/apps/Containers'
 import { Layout, Main } from 'cozy-ui/react/Layout'
 import Alerter from 'cozy-ui/react/Alerter'
 import { IconSprite } from 'cozy-ui/react'
+import compose from 'lodash/flowRight'
 
 import { enabledPages } from 'config'
 
@@ -74,13 +75,12 @@ export const mapDispatchToProps = (dispatch, ownProps) => ({
   restoreAppIfSaved: () => dispatch(restoreAppIfSaved())
 })
 
-export default hot(module)(
-  withRouter(
-    translate()(
-      connect(
-        mapStateToProps,
-        mapDispatchToProps
-      )(App)
-    )
+export default compose(
+  hot(module),
+  withRouter,
+  translate(),
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
   )
-)
+)(App)
