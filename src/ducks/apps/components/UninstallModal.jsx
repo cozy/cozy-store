@@ -26,6 +26,8 @@ export class UninstallModal extends Component {
     if (app && !app.installed) {
       onNotInstalled()
     }
+
+    this.handleUninstallApp = this.handleUninstallApp.bind(this)
   }
 
   componentDidUpdate = prevProps => {
@@ -39,7 +41,7 @@ export class UninstallModal extends Component {
     }
   }
 
-  uninstallApp = () => {
+  handleUninstallApp() {
     const { app, uninstallApp } = this.props
     uninstallApp(app)
   }
@@ -118,7 +120,7 @@ export class UninstallModal extends Component {
               disabled={isUninstalling || isInstalling || !!linkedAppError}
               theme="danger"
               icon="delete"
-              onClick={this.uninstallApp}
+              onClick={this.handleUninstallApp}
               label={t('app_modal.uninstall.uninstall')}
               extension="full"
               className="u-mh-half"
