@@ -1,3 +1,5 @@
+import { APP_TYPE } from './constants'
+
 /**
  * Fetch at most 200 apps from the channel
  *
@@ -11,6 +13,19 @@ export const fetchAppsFromChannel = (client, channel, filter) => {
     'GET',
     `/registry?limit=200&versionsChannel=${channel}&latestChannelVersion=${channel}${filterParam}`
   )
+}
+
+/**
+ * Fetch user apps or konnectors.
+ * Adds type property in attributes from stack
+ */
+export const fetchUserApps = async (client, type) => {
+  const route = type === APP_TYPE.KONNECTOR ? '/konnectors/' : '/apps/'
+  const { data } = await client.stackClient.fetchJSON('GET', route)
+  return data.map(x => {
+    x.attributes.type = type
+    return x
+  })
 }
 
 export const fetchAppOrKonnector = (client, doctype, slug) => {

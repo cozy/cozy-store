@@ -28,7 +28,11 @@ import {
   RESTORE_APP,
   SAVE_APP
 } from './reducers'
-import { fetchAppsFromChannel, fetchAppOrKonnector } from './client-helpers'
+import {
+  fetchUserApps,
+  fetchAppsFromChannel,
+  fetchAppOrKonnector
+} from './client-helpers'
 import { APP_TYPE, APP_STATE, REGISTRY_CHANNELS } from './constants'
 
 export { APP_STATE }
@@ -390,23 +394,18 @@ export function fetchInstalledApps(client, lang, fetchingRegistry) {
       if (
         !filterAppType || filterAppType === APP_TYPE.KONNECTOR
       ) {
-        fetchingKonnectors = client.stackClient.fetchJSON('GET', '/konnectors/')
+        fetchingKonnectors = fetchUserApps(APP_TYPE.KONNECTOR)
       }
       if (
         !filterAppType || filterAppType === APP_TYPE.WEBAPP
       ) {
-        fetchingWebApps = client.stackClient.fetchJSON('GET', '/apps/')
+        fetchingWebApps = fetchUserApps(APP_TYPE.WEBAPP)
       }
       await fetchingRegistry
       dispatch({ type: FETCH_APPS })
       let installedApps = []
       if (fetchingWebApps) {
         let installedWebApps = await fetchingWebApps
-        installedWebApps = installedWebApps.map(w => {
-          // FIXME type konnector is missing from stack
-          w.attributes.type = APP_TYPE.WEBAPP
-          return w
-        })
         installedWebApps = installedWebApps.filter(
           app => !config.notDisplayedApps.includes(app.attributes.slug)
         )
@@ -414,11 +413,6 @@ export function fetchInstalledApps(client, lang, fetchingRegistry) {
       }
       if (fetchingKonnectors) {
         let installedKonnectors = await fetchingKonnectors
-        installedKonnectors = installedKonnectors.map(k => {
-          // FIXME type konnector is missing from stack
-          k.attributes.type = APP_TYPE.KONNECTOR
-          return k
-        })
         installedKonnectors = installedKonnectors.filter(
           app => !config.notDisplayedApps.includes(app.attributes.slug)
         )
