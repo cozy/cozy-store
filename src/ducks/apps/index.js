@@ -29,23 +29,11 @@ import {
   SAVE_APP
 } from './reducers'
 import { fetchAppsFromChannel, fetchAppOrKonnector } from './client-helpers'
+import { APP_TYPE, APP_STATE, REGISTRY_CHANNELS } from './constants'
 
-const APP_STATE = {
-  READY: 'ready',
-  INSTALLING: 'installing',
-  ERRORED: 'errored'
-}
-
-export const APP_TYPE = {
-  KONNECTOR: 'konnector',
-  WEBAPP: 'webapp'
-}
-
-export const REGISTRY_CHANNELS = {
-  DEV: 'dev',
-  BETA: 'beta',
-  STABLE: 'stable'
-}
+export { APP_STATE }
+export { APP_TYPE }
+export { REGISTRY_CHANNELS }
 
 const APPS_DOCTYPE = 'io.cozy.apps'
 const KONNECTORS_DOCTYPE = 'io.cozy.konnectors'
