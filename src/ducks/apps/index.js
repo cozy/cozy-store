@@ -198,7 +198,7 @@ export function initAppIntent(lang, slug) {
   }
 }
 
-function onAppUpdate(appResponse) {
+function onAppUpdate(client, appResponse) {
   return async dispatch => {
     if (appResponse.state === APP_STATE.ERRORED) {
       const err = new Error('Error when installing the application')
@@ -211,7 +211,7 @@ function onAppUpdate(appResponse) {
         appResponse.type === APP_TYPE.KONNECTOR || appResponse.type === 'node'
           ? 'konnectors'
           : 'apps'
-      const appFromStack = await cozy.client.fetchJSON(
+      const appFromStack = await client.stackClient.fetchJSON(
         'GET',
         `/${route}/${appResponse.slug}`
       )
@@ -237,7 +237,7 @@ function onAppDelete(appResponse) {
 function initializeRealtime(client) {
   const realtime = new CozyRealtime({ cozyClient: client })
   return dispatch => {
-    const handleAppUpdate = app => dispatch(onAppUpdate(app))
+    const handleAppUpdate = app => dispatch(onAppUpdate(client, app))
     const handleAppDelete = app => dispatch(onAppDelete(app))
 
     for (let doctype of [APPS_DOCTYPE, KONNECTORS_DOCTYPE]) {
