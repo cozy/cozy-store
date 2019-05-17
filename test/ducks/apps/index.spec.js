@@ -19,6 +19,7 @@ import {
 } from 'ducks/apps'
 import { appsReducers } from 'ducks/apps/reducers'
 import _mockRegistryAppsResponse from './_mockRegistryAppsResponse'
+import StackClient from 'cozy-stack-client'
 
 const mockStore = configureStore([thunk])
 const storeReducers = combineReducers({
@@ -39,17 +40,36 @@ describe('Apps duck actions', () => {
     }
   })
 
+  const rejectOrResolve = value => {
+    if (value instanceof Error) {
+      return Promise.reject(value)
+    } else {
+      return Promise.resolve(value)
+    }
+  }
+
+  const setupClient = ({
+    registry = [],
+    apps = { data: [] },
+    konnectors = { data: [] }
+  }) => {
+    global.cozy.client.fetchJSON = jest.fn((method, url) => {
+      if (url.match(/\/registry/)) return rejectOrResolve(registry)
+      if (url.match(/\/apps/)) return rejectOrResolve(apps)
+      if (url.match(/\/konnectors/))
+        return rejectOrResolve(konnectors)
+    })
+  }
+
   it('getAppIconProps should return correct icon props for <AppIcon /> component', () => {
     expect(getAppIconProps()).toMatchSnapshot()
   })
 
   it('initApp initialize realtime and fetch all apps', async () => {
-    global.cozy.client.fetchJSON = jest.fn((method, url) => {
-      if (url.match(/\/registry/))
-        return Promise.resolve(_mockRegistryAppsResponse)
-      if (url.match(/\/apps/)) return Promise.resolve([])
-      if (url.match(/\/konnectors/)) return Promise.resolve([])
+    setupClient({
+      registry: _mockRegistryAppsResponse
     })
+
     const store = mockStore(storeInitialeState)
     await store.dispatch(initApp('en'))
     const actions = store.getActions()
@@ -58,14 +78,10 @@ describe('Apps duck actions', () => {
 
   it('initAppIntent initialize realtime and fetch asked installed app', async () => {
     const testSlug = 'collect'
-    global.cozy.client.fetchJSON = jest.fn((method, url) => {
-      if (url.match(/\/registry/))
-        return Promise.resolve(
-          _mockRegistryAppsResponse.data.find(a => a.slug === testSlug)
-        )
-      if (url.match(/\/apps/)) return Promise.resolve([{ slug: 'collect' }])
-      if (url.match(/\/konnectors/))
-        return Promise.reject(new Error('Mock error'))
+    setupClient({
+      registry: _mockRegistryAppsResponse.data.find(a => a.slug === testSlug),
+      apps: { data: [{ slug: 'collect' }] },
+      konnectors: new Error('Mock error')
     })
     // we have to manually update the store state
     const storeState = {
@@ -81,14 +97,10 @@ describe('Apps duck actions', () => {
 
   it('initAppIntent initialize realtime and fetch asked not installed konnector', async () => {
     const testSlug = 'konnector-bouilligue'
-    global.cozy.client.fetchJSON = jest.fn((method, url) => {
-      if (url.match(/\/registry/))
-        return Promise.resolve(
-          _mockRegistryAppsResponse.data.find(a => a.slug === testSlug)
-        )
-      if (url.match(/\/apps/)) return Promise.resolve([{ slug: 'collect' }])
-      if (url.match(/\/konnectors/))
-        return Promise.reject(new Error('Mock error'))
+    setupClient({
+      registry: _mockRegistryAppsResponse.data.find(a => a.slug === testSlug),
+      apps: { data: [{ slug: 'collect' }] },
+      konnectors: new Error('Mock error')
     })
     // we have to manually update the store state
     const storeState = {
