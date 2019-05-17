@@ -5,7 +5,11 @@ import { mount, shallow } from 'enzyme'
 
 import { InstallAppIntent } from 'ducks/components/intents/InstallAppIntent'
 import AppInstallation from 'ducks/apps/components/AppInstallation'
+import CozyClient, { CozyProvider } from 'cozy-client'
+
 jest.mock('ducks/apps/components/AppInstallation')
+
+AppInstallation.mockImplementation(() => null)
 
 describe('InstallAppIntent component', () => {
   const props = {
@@ -24,19 +28,26 @@ describe('InstallAppIntent component', () => {
     jest.clearAllMocks()
   })
 
+  const client = new CozyClient({})
+
   it('should be rendered correctly', () => {
-    const componentWrapper = shallow(<InstallAppIntent {...props} />)
+    const componentWrapper = shallow(
+      <CozyProvider client={client}>
+        <InstallAppIntent {...props} />
+      </CozyProvider>
+    ).dive()
     const component = componentWrapper.getElement()
 
     expect(component).toMatchSnapshot()
   })
 
-  it('calls AppInstallation correctly', () => {
-    mount(<InstallAppIntent {...props} />)
+  it('should render AppInstallation correctly', () => {
+    const root = mount(
+      <CozyProvider client={client}>
+        <InstallAppIntent {...props} />
+      </CozyProvider>
+    )
 
-    expect(AppInstallation).toHaveBeenCalledTimes(1)
-
-    const call = AppInstallation.mock.calls[0][0]
-    expect(call.appSlug).toBeDefined()
+    expect(root.find(AppInstallation).length).toBe(1)
   })
 })

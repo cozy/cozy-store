@@ -25,7 +25,7 @@ exports[`InstallModal component should be rendered correctly if app found 1`] = 
       secondaryType="secondary"
       size="small"
     >
-      <Connect(Wrapper)
+      <Wrapped
         appSlug="photos"
         onCancel={[Function]}
       />
@@ -59,7 +59,7 @@ exports[`InstallModal component should be rendered correctly to update app with 
       secondaryType="secondary"
       size="small"
     >
-      <Connect(Wrapper)
+      <Wrapped
         appSlug="photos"
         onCancel={[Function]}
       />
@@ -93,7 +93,7 @@ exports[`InstallModal component should be rendered correctly with also app in re
       secondaryType="secondary"
       size="small"
     >
-      <Connect(Wrapper)
+      <Wrapped
         appSlug="photos"
         onCancel={[Function]}
       />
@@ -127,7 +127,7 @@ exports[`InstallModal component should not break the permissions part if no perm
       secondaryType="secondary"
       size="small"
     >
-      <Connect(Wrapper)
+      <Wrapped
         appSlug="photos"
         onCancel={[Function]}
       />

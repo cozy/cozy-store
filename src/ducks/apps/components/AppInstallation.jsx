@@ -21,6 +21,7 @@ import storeConfig from 'config'
 import compose from 'lodash/flowRight'
 
 import { APP_TYPE, getAppBySlug, installAppFromRegistry } from 'ducks/apps'
+import { withClient } from 'cozy-client'
 
 const shouldSkipPermissions = app =>
   flags('skip-low-permissions') &&
@@ -204,12 +205,13 @@ const mapStateToProps = (state, ownProps) => ({
   installError: state.apps.actionError
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
   installApp: (app, channel, isUpdate) =>
-    dispatch(installAppFromRegistry(app, channel, isUpdate))
+    dispatch(installAppFromRegistry(ownProps.client, app, channel, isUpdate))
 })
 
 export default compose(
+  withClient,
   connect(
     mapStateToProps,
     mapDispatchToProps

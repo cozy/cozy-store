@@ -541,7 +541,7 @@ async function _saveAppTerms(terms) {
   }
 }
 
-export function installApp(app, source, isUpdate = false) {
+export function installApp(client, app, source, isUpdate = false) {
   const { slug, type, terms } = app
   return async dispatch => {
     dispatch({ type: INSTALL_APP, slug })
@@ -565,7 +565,10 @@ export function installApp(app, source, isUpdate = false) {
     const verb = isUpdate ? 'PUT' : 'POST'
     const route = type === APP_TYPE.KONNECTOR ? 'konnectors' : 'apps'
     try {
-      await cozy.client.fetchJSON(verb, `/${route}/${slug}?${queryString}`)
+      await client.stackClient.fetchJSON(
+        verb,
+        `/${route}/${slug}?${queryString}`
+      )
     } catch (e) {
       handleError(e)
     }
@@ -573,12 +576,13 @@ export function installApp(app, source, isUpdate = false) {
 }
 
 export function installAppFromRegistry(
+  client,
   app,
   channel = DEFAULT_CHANNEL,
   isUpdate = false
 ) {
   return dispatch => {
     const source = `registry://${app.slug}/${channel}`
-    return dispatch(installApp(app, source, isUpdate))
+    return dispatch(installApp(client, app, source, isUpdate))
   }
 }

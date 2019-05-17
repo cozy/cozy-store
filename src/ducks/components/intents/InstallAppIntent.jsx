@@ -161,6 +161,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 // translate last to pass the lang property to fetchApps()
 export default compose(
   translate(),
+  withClient,
   connect(
     mapStateToProps,
     mapDispatchToProps
