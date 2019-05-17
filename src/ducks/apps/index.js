@@ -254,9 +254,9 @@ function initializeRealtime(client) {
   }
 }
 
-async function _getInstalledInfos(app) {
+async function _getInstalledInfos(client, app) {
   try {
-    let installedApp = await cozy.client.fetchJSON(
+    let installedApp = await client.stackClient.fetchJSON(
       'GET',
       `/${app.type === APP_TYPE.WEBAPP ? 'apps' : 'konnectors'}/${app.slug}`
     )
@@ -302,7 +302,7 @@ export function fetchLatestApp(
     }
     try {
       const formattedApp = await getFormattedRegistryApp(client, app, channel)
-      formattedApp.installed = await _getInstalledInfos(app)
+      formattedApp.installed = await _getInstalledInfos(client, app)
       // dispatch the app only if we are still in fetching status
       // (meant that the fetch has not been cancelled by a RESTORE_APP action)
       if (getState().apps.isAppFetching) {
