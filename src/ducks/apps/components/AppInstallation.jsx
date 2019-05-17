@@ -18,6 +18,7 @@ import Checkbox from 'cozy-ui/react/Checkbox'
 import { getTranslatedManifestProperty } from 'lib/helpers'
 import { hasPendingUpdate } from 'ducks/apps/appStatus'
 import storeConfig from 'config'
+import compose from 'lodash/flowRight'
 
 import { APP_TYPE, getAppBySlug, installAppFromRegistry } from 'ducks/apps'
 
@@ -208,7 +209,10 @@ const mapDispatchToProps = dispatch => ({
     dispatch(installAppFromRegistry(app, channel, isUpdate))
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(translate()(AppInstallation))
+export default compose(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  ),
+  translate()
+)(AppInstallation)
