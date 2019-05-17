@@ -124,7 +124,7 @@ getContext.clearCache = () => {
   contextCache = null
 }
 
-export function _getRegistryAssetsLinks(manifest, appVersion) {
+export function _getRegistryAssetsLinks(client, manifest, appVersion) {
   if (!appVersion && manifest) appVersion = manifest.version
   if (!appVersion) return {}
   const screenshotsLinks =
@@ -132,7 +132,7 @@ export function _getRegistryAssetsLinks(manifest, appVersion) {
     manifest.screenshots.map(name => {
       let fileName = name
       if (fileName[0] === '/') fileName = fileName.slice(1)
-      return `${cozy.client._url}/registry/${
+      return `${client.stackClient.uri}/registry/${
         manifest.slug
       }/${appVersion}/screenshots/${fileName}`
     })
@@ -142,7 +142,7 @@ export function _getRegistryAssetsLinks(manifest, appVersion) {
     manifest.slug &&
     manifest.partnership &&
     manifest.partnership.icon &&
-    `${cozy.client._url}/registry/${
+    `${client.stackClient.uri}/registry/${
       manifest.slug
     }/${appVersion}/partnership_icon`
   return {
@@ -157,6 +157,7 @@ export async function getFormattedInstalledApp(client, response) {
 
   const openingLink = response.links.related
   const { screenshotsLinks, partnershipIconLink } = _getRegistryAssetsLinks(
+    client,
     appAttributes,
     appAttributes.version
   )
@@ -367,7 +368,7 @@ export async function getFormattedRegistryApp(
     screenshotsLinks,
     iconLink,
     partnershipIconLink
-  } = _getRegistryAssetsLinks(manifest, versionFromRegistry)
+  } = _getRegistryAssetsLinks(client, manifest, versionFromRegistry)
   const partnership =
     !!manifest.partnership &&
     Object.assign({}, manifest.partnership, {

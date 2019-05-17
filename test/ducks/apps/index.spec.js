@@ -152,7 +152,6 @@ describe('Apps duck actions', () => {
 })
 
 describe('Apps duck helpers', () => {
-
   let cozyClient
   beforeEach(() => {
     cozyClient = new CozyClient({
@@ -307,18 +306,19 @@ describe('Apps duck helpers', () => {
 
   describe('_getRegistryAssetsLinks', () => {
     it('should handle empty manifest or appVersion', () => {
-      expect(_getRegistryAssetsLinks({})).toStrictEqual({})
-      expect(_getRegistryAssetsLinks()).toStrictEqual({})
-      expect(_getRegistryAssetsLinks({}, '1.0.0')).toMatchSnapshot()
+      expect(_getRegistryAssetsLinks(cozyClient, {})).toStrictEqual({})
+      expect(_getRegistryAssetsLinks(cozyClient)).toStrictEqual({})
+      expect(_getRegistryAssetsLinks(cozyClient, {}, '1.0.0')).toMatchSnapshot()
     })
     it('should handle icon link from manifest slug and version', () => {
       expect(
-        _getRegistryAssetsLinks({ slug: 'mock' }, '1.0.0')
+        _getRegistryAssetsLinks(cozyClient, { slug: 'mock' }, '1.0.0')
       ).toMatchSnapshot()
     })
     it('should handle screenshots links', () => {
       expect(
         _getRegistryAssetsLinks(
+          cozyClient,
           {
             slug: 'mock',
             screenshots: ['screen1.jpg', 'screen2.png', '/screen3.gif']
@@ -330,6 +330,7 @@ describe('Apps duck helpers', () => {
     it('should handle partnership icon link', () => {
       expect(
         _getRegistryAssetsLinks(
+          cozyClient,
           {
             slug: 'mock',
             partnership: {
