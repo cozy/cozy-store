@@ -103,10 +103,10 @@ export function _sanitizeCategories(categoriesList) {
 }
 
 let contextCache
-export function getContext() {
+export function getContext(client) {
   return contextCache
     ? Promise.resolve(contextCache)
-    : cozy.client
+    : client.stackClient
         .fetchJSON('GET', '/settings/context')
         .then(context => {
           contextCache = context
@@ -119,6 +119,9 @@ export function getContext() {
           }
           return {}
         })
+}
+getContext.clearCache = () => {
+  contextCache = null
 }
 
 export function _getRegistryAssetsLinks(manifest, appVersion) {

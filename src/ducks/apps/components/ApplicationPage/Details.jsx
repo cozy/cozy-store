@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 
+import { withClient } from 'cozy-client'
 import { translate } from 'cozy-ui/react/I18n'
-
 import { Button } from 'cozy-ui/react/Button'
 import Icon from 'cozy-ui/react/Icon'
 import Toggle from 'cozy-ui/react/Toggle'
@@ -50,7 +50,7 @@ export class Details extends Component {
       stateUpdate.displayBetaChannel = true
     }
     if (!this.state.displayDevChannel) {
-      const context = await getContext()
+      const context = await getContext(this.props.client)
       if (context && context.attributes && context.attributes.debug) {
         stateUpdate.displayDevChannel = true
       }
@@ -218,4 +218,4 @@ export class Details extends Component {
   }
 }
 
-export default withRouter(translate()(Details))
+export default withClient(withRouter(translate()(Details)))

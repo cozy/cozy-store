@@ -120,35 +120,33 @@ describe('Apps duck actions', () => {
       jest.resetModules()
       jest.resetAllMocks()
     })
-    it('should catch fetch error and not throw error', async () => {
-      // we require to reset the global storage variable
-      global.cozy.client.fetchJSON = jest.fn((method, url) => {
-        if (url === '/settings/context')
-          return Promise.reject(new Error('A mock error'))
+
+    let contextResp
+    beforeEach(() => {
+      StackClient.prototype.fetchJSON = jest.fn((method, url) => {
+        if (url === '/settings/context') return rejectOrResolve(contextResp)
       })
-      expect(await getContext()).toStrictEqual({})
-      expect(global.cozy.client.fetchJSON.mock.calls.length).toBe(1)
+      getContext.clearCache()
+    })
+
+    it('should catch fetch error and not throw error', async () => {
+      contextResp = new Error('A mock error')
+      expect(await getContext(cozyClient)).toStrictEqual({})
+      expect(StackClient.prototype.fetchJSON).toHaveBeenCalledTimes(1)
     })
     it('should return empty object if 404 and fetch only once', async () => {
-      // we require to reset the global storage variable
-      const getContext = require('ducks/apps').getContext
-      global.cozy.client.fetchJSON = jest.fn((method, url) => {
-        if (url === '/settings/context') return Promise.reject({ status: 404 })
-      })
-      expect(await getContext()).toStrictEqual({})
-      expect(await getContext()).toStrictEqual({})
-      expect(global.cozy.client.fetchJSON.mock.calls.length).toBe(1)
+      const err404 = new Error('Not found')
+      err404.status = 404
+      contextResp = err404
+      expect(await getContext(cozyClient)).toStrictEqual({})
+      expect(await getContext(cozyClient)).toStrictEqual({})
+      expect(StackClient.prototype.fetchJSON).toHaveBeenCalledTimes(1)
     })
     it('should fetch correctly the context through the client and fetch only once', async () => {
-      // we require to reset the global storage variable
-      const getContext = require('ducks/apps').getContext
-      const mockContext = { contextData: 'mock' }
-      global.cozy.client.fetchJSON = jest.fn((method, url) => {
-        if (url === '/settings/context') return Promise.resolve(mockContext)
-      })
-      expect(await getContext()).toStrictEqual(mockContext)
-      expect(await getContext()).toStrictEqual(mockContext)
-      expect(global.cozy.client.fetchJSON.mock.calls.length).toBe(1)
+      contextResp = { contextData: 'mock' }
+      expect(await getContext(cozyClient)).toStrictEqual(contextResp)
+      expect(await getContext(cozyClient)).toStrictEqual(contextResp)
+      expect(StackClient.prototype.fetchJSON).toHaveBeenCalledTimes(1)
     })
   })
 })
