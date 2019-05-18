@@ -20,6 +20,7 @@ import {
 import { appsReducers } from 'ducks/apps/reducers'
 import _mockRegistryAppsResponse from './_mockRegistryAppsResponse'
 import StackClient from 'cozy-stack-client'
+import CozyClient from 'cozy-client'
 
 const mockStore = configureStore([thunk])
 const storeReducers = combineReducers({
@@ -31,13 +32,14 @@ describe('Apps duck actions', () => {
   beforeEach(() => {
     jest.resetModules()
     jest.resetAllMocks()
-    global.cozy.client = {
-      _token: {
-        token: '_tOkEn_test_'
-      },
-      _url: '//cozy.tools',
-      fetchJSON: jest.fn(() => Promise.resolve())
-    }
+  })
+
+  let cozyClient
+  beforeEach(() => {
+    cozyClient = new CozyClient({
+      uri: 'https://testcozy.mycozy.cloud',
+      token: 'test-token'
+    })
   })
 
   const rejectOrResolve = value => {
@@ -53,11 +55,10 @@ describe('Apps duck actions', () => {
     apps = { data: [] },
     konnectors = { data: [] }
   }) => {
-    global.cozy.client.fetchJSON = jest.fn((method, url) => {
+    StackClient.prototype.fetchJSON = jest.fn((method, url) => {
       if (url.match(/\/registry/)) return rejectOrResolve(registry)
       if (url.match(/\/apps/)) return rejectOrResolve(apps)
-      if (url.match(/\/konnectors/))
-        return rejectOrResolve(konnectors)
+      if (url.match(/\/konnectors/)) return rejectOrResolve(konnectors)
     })
   }
 
@@ -71,7 +72,7 @@ describe('Apps duck actions', () => {
     })
 
     const store = mockStore(storeInitialeState)
-    await store.dispatch(initApp('en'))
+    await store.dispatch(initApp(cozyClient, 'en'))
     const actions = store.getActions()
     expect(actions).toMatchSnapshot()
   })
@@ -90,7 +91,7 @@ describe('Apps duck actions', () => {
       })
     }
     const store = mockStore(storeState)
-    await store.dispatch(initAppIntent('en', testSlug))
+    await store.dispatch(initAppIntent(cozyClient, 'en', testSlug))
     const actions = store.getActions()
     expect(actions).toMatchSnapshot()
   })
@@ -109,7 +110,7 @@ describe('Apps duck actions', () => {
       })
     }
     const store = mockStore(storeState)
-    await store.dispatch(initAppIntent('en', testSlug))
+    await store.dispatch(initAppIntent(cozyClient, 'en', testSlug))
     const actions = store.getActions()
     expect(actions).toMatchSnapshot()
   })
@@ -153,6 +154,15 @@ describe('Apps duck actions', () => {
 })
 
 describe('Apps duck helpers', () => {
+
+  let cozyClient
+  beforeEach(() => {
+    cozyClient = new CozyClient({
+      uri: 'https://testcozy.mycozy.cloud',
+      token: 'test-token'
+    })
+  })
+
   describe('_sanitizeCategories', () => {
     it('should return the list of the provided expected categories correctly', () => {
       // all of these categories is authorized by config/categories.json
