@@ -28,8 +28,9 @@ async function save(client, terms) {
       await client.save(termsToSave)
     }
   } else {
-    const termsToSave = Object.assign({}, termsAttributes, {
+    const termsToSave = {
       _type: TERMS_DOCTYPE,
+      ...termsAttributes,
       termsId: id,
       accepted: true,
       acceptedAt: new Date()
