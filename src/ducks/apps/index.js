@@ -1,5 +1,4 @@
 /* eslint-env browser */
-/* global cozy */
 
 import config from 'config/apps'
 import storeConfig from 'config'
@@ -509,7 +508,7 @@ export function installApp(client, app, source, isUpdate = false) {
       .join('&')
     if (terms) {
       try {
-        await termUtils.save(terms)
+        await termUtils.save(client, terms)
       } catch (e) {
         handleError(e)
       }
