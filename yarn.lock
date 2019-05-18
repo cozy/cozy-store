@@ -3409,6 +3409,11 @@ cozy-flags@1.6.1:
     detect-node "2.0.4"
     microee "^0.0.6"
 
+cozy-interapp@^0.4.5:
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/cozy-interapp/-/cozy-interapp-0.4.5.tgz#115912a389448ebb8dc532972270b46e15010063"
+  integrity sha512-CuiZ4PIrDj+jcK1sCizFNCC9r8+/sgKXLtDgkpKHRHk+q0lhvqz/fQAVPWiIsZAr9WdbfxaBfsJCoHP/41+G1Q==
+
 cozy-logger@1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/cozy-logger/-/cozy-logger-1.3.1.tgz#27d9578756b318b1460a135cda94475c734b9f39"

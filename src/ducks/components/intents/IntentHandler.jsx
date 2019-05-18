@@ -1,6 +1,7 @@
 import React, { Children, Component } from 'react'
 import { translate } from 'cozy-ui/react/I18n'
-
+import { withClient } from 'cozy-client'
+import Intents from 'cozy-interapp'
 import Spinner from 'cozy-ui/react/Spinner'
 
 const CREATING = 'creating'
@@ -17,14 +18,10 @@ class IntentHandler extends Component {
       status: CREATING
     }
 
-    props.intents
+    const client = this.props.client
+    const intents = new Intents({ client })
+    intents
       .createService()
-      // Free : easy mocking !
-      // Promise.resolve({
-      //   getData: () => ({ slug: <konnector slug> }),
-      //   getIntent: () => ({ action: 'INSTALL', type: 'io.cozy.apps' }),
-      //   terminate: (doc) => { alert(`Installed ${doc.name}`) }
-      // })
       .then(service =>
         this.setState({
           status: CREATED,
@@ -78,4 +75,4 @@ class IntentHandler extends Component {
   }
 }
 
-export default translate()(IntentHandler)
+export default withClient(translate()(IntentHandler))
