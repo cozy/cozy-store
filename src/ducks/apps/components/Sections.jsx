@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
+import PropTypes from 'prop-types'
+
 import { translate } from 'cozy-ui/react/I18n'
 import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
-import { withRouter } from 'react-router-dom'
 
 import {
   getAppsSortedByCategories,
   sortCategoriesAlphabetically,
   getCategoriesSelections
 } from 'lib/helpers'
+
 import AppsSection from 'ducks/apps/components/AppsSection'
 import DropdownFilter from 'ducks/apps/components/DropdownFilter'
 import { APP_TYPE } from 'ducks/apps'
@@ -107,6 +110,16 @@ export class Sections extends Component {
       </div>
     )
   }
+}
+
+Sections.propTypes = {
+  t: PropTypes.func.isRequired,
+  apps: PropTypes.array.isRequired,
+  error: PropTypes.object,
+  onAppClick: PropTypes.func.isRequired,
+  allApps: PropTypes.array.isRequired,
+  query: PropTypes.string,
+  pushQuery: PropTypes.func
 }
 
 export default translate()(withBreakpoints()(withRouter(Sections)))
