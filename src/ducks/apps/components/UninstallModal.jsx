@@ -1,4 +1,3 @@
-/* global cozy */
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
@@ -12,6 +11,7 @@ import { getAppBySlug, uninstallApp } from 'ducks/apps'
 import Modal, { ModalDescription, ModalFooter } from 'cozy-ui/react/Modal'
 import Portal from 'cozy-ui/react/Portal'
 import { withClient } from 'cozy-client'
+import Intents from 'cozy-interapp'
 
 import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
 
@@ -51,7 +51,8 @@ export class UninstallModal extends Component {
     if (this.state.redirecting) return // don't toggle twice
     this.setState(() => ({ redirecting: true }))
     try {
-      await cozy.client.intents.redirect('io.cozy.settings', {
+      const intents = new Intents({ client: this.props.client })
+      await intents.redirect('io.cozy.settings', {
         step: 'connectedDevices'
       })
     } catch (error) {
