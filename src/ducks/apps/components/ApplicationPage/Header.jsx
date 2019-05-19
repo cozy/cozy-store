@@ -1,4 +1,3 @@
-/* global cozy */
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -8,6 +7,8 @@ import AppIcon from 'cozy-ui/react/AppIcon'
 import Button from 'cozy-ui/react/Button'
 import { translate } from 'cozy-ui/react/I18n'
 import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
+import Intents from 'cozy-interapp'
+import { withClient } from 'cozy-client'
 
 import cozySmileIcon from 'assets/icons/icon-cozy-smile.svg'
 import AsyncButton from 'ducks/components/AsyncButton'
@@ -27,7 +28,8 @@ export const Header = ({
   description,
   parent,
   isInstalling,
-  breakpoints = {}
+  breakpoints = {},
+  client
 }) => {
   const { slug, installed, type, related, uninstallable } = app
   const { isMobile } = breakpoints
@@ -51,11 +53,12 @@ export const Header = ({
         {isInstalledAndNothingToReport(app) && !isCurrentAppInstalling ? (
           isKonnector ? (
             <AsyncButton
-              asyncAction={() =>
-                cozy.client.intents.redirect('io.cozy.accounts', {
+              asyncAction={() => {
+                const intents = new Intents({ client })
+                return intents.redirect('io.cozy.accounts', {
                   konnector: app.slug
                 })
-              }
+              }}
               className="c-btn"
               icon="openwith"
               label={t('app_page.konnector.open')}
@@ -107,5 +110,6 @@ export default compose(
     isInstalling: state.apps.isInstalling
   })),
   withBreakpoints(),
-  translate()
+  translate(),
+  withClient
 )(Header)

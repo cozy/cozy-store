@@ -19,7 +19,6 @@ const renderApp = function({ client, lang }) {
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.querySelector('[role=application]')
   const data = root.dataset
-
   const protocol = window.location.protocol
   const client = new CozyClient({
     uri: `${protocol}//${data.cozyDomain}`,
