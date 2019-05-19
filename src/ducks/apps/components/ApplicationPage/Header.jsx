@@ -2,6 +2,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import compose from 'lodash/flowRight'
 
 import AppIcon from 'cozy-ui/react/AppIcon'
 import Button from 'cozy-ui/react/Button'
@@ -101,6 +102,10 @@ export const Header = ({
   )
 }
 
-export default connect(state => ({
-  isInstalling: state.apps.isInstalling
-}))(withBreakpoints()(translate()(Header)))
+export default compose(
+  connect(state => ({
+    isInstalling: state.apps.isInstalling
+  })),
+  withBreakpoints(),
+  translate()
+)(Header)
