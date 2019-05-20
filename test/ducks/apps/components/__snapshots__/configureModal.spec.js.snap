@@ -4,6 +4,7 @@ exports[`ConfigureModal component renders 1`] = `
 <IntentModal
   action="CREATE"
   closable={true}
+  create={[Function]}
   dismissAction={[MockFunction]}
   doctype="io.cozy.accounts"
   height="41rem"

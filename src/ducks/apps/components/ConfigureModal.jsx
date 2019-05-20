@@ -3,10 +3,11 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import IntentModal from 'cozy-ui/react/IntentModal'
 import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
-
+import { withClient } from 'cozy-client'
 import { getAppBySlug } from 'ducks/apps'
-
+import Intents from 'cozy-interapp'
 import { APP_TYPE } from 'ducks/apps'
+import compose from 'lodash/flowRight'
 
 export class ConfigureModal extends Component {
   constructor(props) {
@@ -22,11 +23,17 @@ export class ConfigureModal extends Component {
     }
   }
 
+  componentWillMount() {
+    const { client } = this.props
+    this.intents = new Intents({ client })
+  }
+
   render() {
     const { app, dismissAction, onSuccess, breakpoints = {} } = this.props
     const { isMobile } = breakpoints
     return (
       <IntentModal
+        create={this.intents.create.bind(this.intents)}
         action="CREATE"
         doctype="io.cozy.accounts"
         options={{ slug: app.slug }}
@@ -54,4 +61,8 @@ const mapStateToProps = (state, ownProps) => ({
   app: getAppBySlug(state, ownProps.appSlug)
 })
 
-export default connect(mapStateToProps)(withBreakpoints()(ConfigureModal))
+export default compose(
+  connect(mapStateToProps),
+  withBreakpoints(),
+  withClient
+)(ConfigureModal)
