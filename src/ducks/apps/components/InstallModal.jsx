@@ -5,7 +5,8 @@ import Modal from 'cozy-ui/react/Modal'
 import FocusTrap from 'focus-trap-react'
 import { translate } from 'cozy-ui/react/I18n'
 import Portal from 'cozy-ui/react/Portal'
-
+import { withClient } from 'cozy-client'
+import compose from 'lodash/flowRight'
 import AppInstallation from 'ducks/apps/components/AppInstallation'
 import { hasPendingUpdate } from 'ducks/apps/appStatus'
 import { fetchLatestApp, restoreAppIfSaved } from 'ducks/apps'
@@ -74,13 +75,17 @@ InstallModal.propTypes = {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchLatestApp: app =>
-    dispatch(fetchLatestApp(ownProps.lang, app.slug, undefined, app)),
+    dispatch(
+      fetchLatestApp(ownProps.client, ownProps.lang, app.slug, undefined, app)
+    ),
   restoreAppIfSaved: () => dispatch(restoreAppIfSaved())
 })
 
-export default translate()(
+export default compose(
+  withClient,
+  translate(),
   connect(
     null,
     mapDispatchToProps
-  )(InstallModal)
-)
+  )
+)(InstallModal)
