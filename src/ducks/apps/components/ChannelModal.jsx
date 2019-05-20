@@ -5,6 +5,8 @@ import { translate } from 'cozy-ui/react/I18n'
 import FocusTrap from 'focus-trap-react'
 import Portal from 'cozy-ui/react/Portal'
 import PropTypes from 'prop-types'
+import compose from 'lodash/flowRight'
+import { withClient } from 'cozy-client'
 
 import AppInstallation from 'ducks/apps/components/AppInstallation'
 import getChannel from 'lib/getChannelFromSource'
@@ -93,7 +95,9 @@ ChannelModal.propTypes = {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchLatestApp: (app, channel) =>
-    dispatch(fetchLatestApp(ownProps.lang, app.slug, channel, app)),
+    dispatch(
+      fetchLatestApp(ownProps.client, ownProps.lang, app.slug, channel, app)
+    ),
   restoreAppIfSaved: () => dispatch(restoreAppIfSaved())
 })
 
@@ -101,9 +105,11 @@ const mapStateToProps = (state, ownProps) => ({
   app: getAppBySlug(state, ownProps.appSlug)
 })
 
-export default translate()(
+export default compose(
+  withClient,
+  translate(),
   connect(
     mapStateToProps,
     mapDispatchToProps
-  )(ChannelModal)
-)
+  )
+)(ChannelModal)
