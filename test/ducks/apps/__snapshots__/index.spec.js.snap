@@ -301,7 +301,7 @@ Object {
 exports[`Apps duck helpers _getRegistryAssetsLinks should handle partnership icon link 1`] = `
 Object {
   "iconLink": "/registry/mock/1.0.0/icon",
-  "partnershipIconLink": "//cozy.tools/registry/mock/1.0.0/partnership_icon",
+  "partnershipIconLink": "https://testcozy.mycozy.cloud/registry/mock/1.0.0/partnership_icon",
   "screenshotsLinks": undefined,
 }
 `;
@@ -311,9 +311,9 @@ Object {
   "iconLink": "/registry/mock/1.0.0/icon",
   "partnershipIconLink": undefined,
   "screenshotsLinks": Array [
-    "//cozy.tools/registry/mock/1.0.0/screenshots/screen1.jpg",
-    "//cozy.tools/registry/mock/1.0.0/screenshots/screen2.png",
-    "//cozy.tools/registry/mock/1.0.0/screenshots/screen3.gif",
+    "https://testcozy.mycozy.cloud/registry/mock/1.0.0/screenshots/screen1.jpg",
+    "https://testcozy.mycozy.cloud/registry/mock/1.0.0/screenshots/screen2.png",
+    "https://testcozy.mycozy.cloud/registry/mock/1.0.0/screenshots/screen3.gif",
   ],
 }
 `;

@@ -19,6 +19,8 @@ import {
 } from 'ducks/apps'
 import { appsReducers } from 'ducks/apps/reducers'
 import _mockRegistryAppsResponse from './_mockRegistryAppsResponse'
+import StackClient from 'cozy-stack-client'
+import CozyClient from 'cozy-client'
 
 const mockStore = configureStore([thunk])
 const storeReducers = combineReducers({
@@ -30,42 +32,57 @@ describe('Apps duck actions', () => {
   beforeEach(() => {
     jest.resetModules()
     jest.resetAllMocks()
-    global.cozy.client = {
-      _token: {
-        token: '_tOkEn_test_'
-      },
-      _url: '//cozy.tools',
-      fetchJSON: jest.fn(() => Promise.resolve())
-    }
   })
+
+  let cozyClient
+  beforeEach(() => {
+    cozyClient = new CozyClient({
+      uri: 'https://testcozy.mycozy.cloud',
+      token: 'test-token'
+    })
+  })
+
+  const rejectOrResolve = value => {
+    if (value instanceof Error) {
+      return Promise.reject(value)
+    } else {
+      return Promise.resolve(value)
+    }
+  }
+
+  const setupClient = ({
+    registry = [],
+    apps = { data: [] },
+    konnectors = { data: [] }
+  }) => {
+    StackClient.prototype.fetchJSON = jest.fn((method, url) => {
+      if (url.match(/\/registry/)) return rejectOrResolve(registry)
+      if (url.match(/\/apps/)) return rejectOrResolve(apps)
+      if (url.match(/\/konnectors/)) return rejectOrResolve(konnectors)
+    })
+  }
 
   it('getAppIconProps should return correct icon props for <AppIcon /> component', () => {
     expect(getAppIconProps()).toMatchSnapshot()
   })
 
   it('initApp initialize realtime and fetch all apps', async () => {
-    global.cozy.client.fetchJSON = jest.fn((method, url) => {
-      if (url.match(/\/registry/))
-        return Promise.resolve(_mockRegistryAppsResponse)
-      if (url.match(/\/apps/)) return Promise.resolve([])
-      if (url.match(/\/konnectors/)) return Promise.resolve([])
+    setupClient({
+      registry: _mockRegistryAppsResponse
     })
+
     const store = mockStore(storeInitialeState)
-    await store.dispatch(initApp('en'))
+    await store.dispatch(initApp(cozyClient, 'en'))
     const actions = store.getActions()
     expect(actions).toMatchSnapshot()
   })
 
   it('initAppIntent initialize realtime and fetch asked installed app', async () => {
     const testSlug = 'collect'
-    global.cozy.client.fetchJSON = jest.fn((method, url) => {
-      if (url.match(/\/registry/))
-        return Promise.resolve(
-          _mockRegistryAppsResponse.data.find(a => a.slug === testSlug)
-        )
-      if (url.match(/\/apps/)) return Promise.resolve([{ slug: 'collect' }])
-      if (url.match(/\/konnectors/))
-        return Promise.reject(new Error('Mock error'))
+    setupClient({
+      registry: _mockRegistryAppsResponse.data.find(a => a.slug === testSlug),
+      apps: { data: [{ slug: 'collect' }] },
+      konnectors: new Error('Mock error')
     })
     // we have to manually update the store state
     const storeState = {
@@ -74,21 +91,17 @@ describe('Apps duck actions', () => {
       })
     }
     const store = mockStore(storeState)
-    await store.dispatch(initAppIntent('en', testSlug))
+    await store.dispatch(initAppIntent(cozyClient, 'en', testSlug))
     const actions = store.getActions()
     expect(actions).toMatchSnapshot()
   })
 
   it('initAppIntent initialize realtime and fetch asked not installed konnector', async () => {
     const testSlug = 'konnector-bouilligue'
-    global.cozy.client.fetchJSON = jest.fn((method, url) => {
-      if (url.match(/\/registry/))
-        return Promise.resolve(
-          _mockRegistryAppsResponse.data.find(a => a.slug === testSlug)
-        )
-      if (url.match(/\/apps/)) return Promise.resolve([{ slug: 'collect' }])
-      if (url.match(/\/konnectors/))
-        return Promise.reject(new Error('Mock error'))
+    setupClient({
+      registry: _mockRegistryAppsResponse.data.find(a => a.slug === testSlug),
+      apps: { data: [{ slug: 'collect' }] },
+      konnectors: new Error('Mock error')
     })
     // we have to manually update the store state
     const storeState = {
@@ -97,7 +110,7 @@ describe('Apps duck actions', () => {
       })
     }
     const store = mockStore(storeState)
-    await store.dispatch(initAppIntent('en', testSlug))
+    await store.dispatch(initAppIntent(cozyClient, 'en', testSlug))
     const actions = store.getActions()
     expect(actions).toMatchSnapshot()
   })
@@ -107,40 +120,46 @@ describe('Apps duck actions', () => {
       jest.resetModules()
       jest.resetAllMocks()
     })
-    it('should catch fetch error and not throw error', async () => {
-      // we require to reset the global storage variable
-      global.cozy.client.fetchJSON = jest.fn((method, url) => {
-        if (url === '/settings/context')
-          return Promise.reject(new Error('A mock error'))
+
+    let contextResp
+    beforeEach(() => {
+      StackClient.prototype.fetchJSON = jest.fn((method, url) => {
+        if (url === '/settings/context') return rejectOrResolve(contextResp)
       })
-      expect(await getContext()).toStrictEqual({})
-      expect(global.cozy.client.fetchJSON.mock.calls.length).toBe(1)
+      getContext.clearCache()
+    })
+
+    it('should catch fetch error and not throw error', async () => {
+      contextResp = new Error('A mock error')
+      expect(await getContext(cozyClient)).toStrictEqual({})
+      expect(StackClient.prototype.fetchJSON).toHaveBeenCalledTimes(1)
     })
     it('should return empty object if 404 and fetch only once', async () => {
-      // we require to reset the global storage variable
-      const getContext = require('ducks/apps').getContext
-      global.cozy.client.fetchJSON = jest.fn((method, url) => {
-        if (url === '/settings/context') return Promise.reject({ status: 404 })
-      })
-      expect(await getContext()).toStrictEqual({})
-      expect(await getContext()).toStrictEqual({})
-      expect(global.cozy.client.fetchJSON.mock.calls.length).toBe(1)
+      const err404 = new Error('Not found')
+      err404.status = 404
+      contextResp = err404
+      expect(await getContext(cozyClient)).toStrictEqual({})
+      expect(await getContext(cozyClient)).toStrictEqual({})
+      expect(StackClient.prototype.fetchJSON).toHaveBeenCalledTimes(1)
     })
     it('should fetch correctly the context through the client and fetch only once', async () => {
-      // we require to reset the global storage variable
-      const getContext = require('ducks/apps').getContext
-      const mockContext = { contextData: 'mock' }
-      global.cozy.client.fetchJSON = jest.fn((method, url) => {
-        if (url === '/settings/context') return Promise.resolve(mockContext)
-      })
-      expect(await getContext()).toStrictEqual(mockContext)
-      expect(await getContext()).toStrictEqual(mockContext)
-      expect(global.cozy.client.fetchJSON.mock.calls.length).toBe(1)
+      contextResp = { contextData: 'mock' }
+      expect(await getContext(cozyClient)).toStrictEqual(contextResp)
+      expect(await getContext(cozyClient)).toStrictEqual(contextResp)
+      expect(StackClient.prototype.fetchJSON).toHaveBeenCalledTimes(1)
     })
   })
 })
 
 describe('Apps duck helpers', () => {
+  let cozyClient
+  beforeEach(() => {
+    cozyClient = new CozyClient({
+      uri: 'https://testcozy.mycozy.cloud',
+      token: 'test-token'
+    })
+  })
+
   describe('_sanitizeCategories', () => {
     it('should return the list of the provided expected categories correctly', () => {
       // all of these categories is authorized by config/categories.json
@@ -287,18 +306,19 @@ describe('Apps duck helpers', () => {
 
   describe('_getRegistryAssetsLinks', () => {
     it('should handle empty manifest or appVersion', () => {
-      expect(_getRegistryAssetsLinks({})).toStrictEqual({})
-      expect(_getRegistryAssetsLinks()).toStrictEqual({})
-      expect(_getRegistryAssetsLinks({}, '1.0.0')).toMatchSnapshot()
+      expect(_getRegistryAssetsLinks(cozyClient, {})).toStrictEqual({})
+      expect(_getRegistryAssetsLinks(cozyClient)).toStrictEqual({})
+      expect(_getRegistryAssetsLinks(cozyClient, {}, '1.0.0')).toMatchSnapshot()
     })
     it('should handle icon link from manifest slug and version', () => {
       expect(
-        _getRegistryAssetsLinks({ slug: 'mock' }, '1.0.0')
+        _getRegistryAssetsLinks(cozyClient, { slug: 'mock' }, '1.0.0')
       ).toMatchSnapshot()
     })
     it('should handle screenshots links', () => {
       expect(
         _getRegistryAssetsLinks(
+          cozyClient,
           {
             slug: 'mock',
             screenshots: ['screen1.jpg', 'screen2.png', '/screen3.gif']
@@ -310,6 +330,7 @@ describe('Apps duck helpers', () => {
     it('should handle partnership icon link', () => {
       expect(
         _getRegistryAssetsLinks(
+          cozyClient,
           {
             slug: 'mock',
             partnership: {

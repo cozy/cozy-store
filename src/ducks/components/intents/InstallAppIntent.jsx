@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import compose from 'lodash/flowRight'
+import { withClient } from 'cozy-client'
+
 import { translate } from 'cozy-ui/react/I18n'
 
 import AppInstallation from 'ducks/apps/components/AppInstallation'
@@ -151,15 +154,17 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   initAppIntent: () => {
-    dispatch(initAppIntent(ownProps.lang, ownProps.data.slug))
+    dispatch(initAppIntent(ownProps.client, ownProps.lang, ownProps.data.slug))
   },
   installApp: (app, channel) => dispatch(installAppFromRegistry(app, channel))
 })
 
 // translate last to pass the lang property to fetchApps()
-export default translate()(
+export default compose(
+  withClient,
+  translate(),
   connect(
     mapStateToProps,
     mapDispatchToProps
-  )(InstallAppIntent)
-)
+  )
+)(InstallAppIntent)

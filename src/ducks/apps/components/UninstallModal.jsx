@@ -1,8 +1,8 @@
-/* global cozy */
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import PropTypes from 'prop-types'
+import compose from 'lodash/flowRight'
 
 import { translate } from 'cozy-ui/react/I18n'
 import Alerter from 'cozy-ui/react/Alerter'
@@ -10,6 +10,8 @@ import Button from 'cozy-ui/react/Button'
 import { getAppBySlug, uninstallApp } from 'ducks/apps'
 import Modal, { ModalDescription, ModalFooter } from 'cozy-ui/react/Modal'
 import Portal from 'cozy-ui/react/Portal'
+import { withClient } from 'cozy-client'
+import Intents from 'cozy-interapp'
 
 import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
 
@@ -25,6 +27,8 @@ export class UninstallModal extends Component {
     if (app && !app.installed) {
       onNotInstalled()
     }
+
+    this.handleUninstallApp = this.handleUninstallApp.bind(this)
   }
 
   componentDidUpdate = prevProps => {
@@ -38,7 +42,7 @@ export class UninstallModal extends Component {
     }
   }
 
-  uninstallApp = () => {
+  handleUninstallApp() {
     const { app, uninstallApp } = this.props
     uninstallApp(app)
   }
@@ -47,7 +51,8 @@ export class UninstallModal extends Component {
     if (this.state.redirecting) return // don't toggle twice
     this.setState(() => ({ redirecting: true }))
     try {
-      await cozy.client.intents.redirect('io.cozy.settings', {
+      const intents = new Intents({ client: this.props.client })
+      await intents.redirect('io.cozy.settings', {
         step: 'connectedDevices'
       })
     } catch (error) {
@@ -64,7 +69,8 @@ export class UninstallModal extends Component {
       isInstalling,
       dismissAction,
       t,
-      uninstallError
+      uninstallError,
+      client
     } = this.props
     const linkedAppError =
       uninstallError &&
@@ -80,7 +86,7 @@ export class UninstallModal extends Component {
           <ModalDescription>
             <ReactMarkdownWrapper
               source={t('app_modal.uninstall.description', {
-                cozyName: cozy.client._url.replace(/^\/\//, '')
+                cozyName: client.stackClient.uri.replace(/^\/\//, '')
               })}
             />
             {uninstallError && !linkedAppError && (
@@ -117,7 +123,7 @@ export class UninstallModal extends Component {
               disabled={isUninstalling || isInstalling || !!linkedAppError}
               theme="danger"
               icon="delete"
-              onClick={this.uninstallApp}
+              onClick={this.handleUninstallApp}
               label={t('app_modal.uninstall.uninstall')}
               extension="full"
               className="u-mh-half"
@@ -143,13 +149,18 @@ const mapStateToProps = (state, ownProps) => ({
   uninstallError: state.apps.actionError
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
   uninstallApp: app => {
-    return dispatch(uninstallApp(app))
+    return dispatch(uninstallApp(ownProps.client, app))
   }
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(translate()(withRouter(UninstallModal)))
+export default compose(
+  withClient,
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  ),
+  translate(),
+  withRouter
+)(UninstallModal)

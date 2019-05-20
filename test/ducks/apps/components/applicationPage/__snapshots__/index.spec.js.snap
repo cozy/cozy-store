@@ -147,7 +147,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         namePrefix="Cozy"
         parent="/myapps"
       />
-      <withRouter(Wrapper)
+      <Wrapped
         app={
           Object {
             "categories": Array [
@@ -443,7 +443,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         }
         slug="photos"
       />
-      <withRouter(Wrapper)
+      <Wrapped
         app={
           Object {
             "categories": Array [
@@ -716,7 +716,7 @@ exports[`ApplicationPage component should be rendered correctly with konnector i
         namePrefix=""
         parent="/myapps"
       />
-      <withRouter(Wrapper)
+      <Wrapped
         app={
           Object {
             "categories": Array [
@@ -971,7 +971,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         namePrefix="Cozy"
         parent="/myapps"
       />
-      <withRouter(Wrapper)
+      <Wrapped
         app={
           Object {
             "categories": Array [
@@ -1242,7 +1242,7 @@ exports[`ApplicationPage component should be rendered correctly with provided in
         namePrefix=""
         parent="/myapps"
       />
-      <withRouter(Wrapper)
+      <Wrapped
         app={
           Object {
             "categories": Array [
@@ -1481,7 +1481,7 @@ exports[`ApplicationPage component should be rendered correctly without app desc
         namePrefix=""
         parent="/myapps"
       />
-      <withRouter(Wrapper)
+      <Wrapped
         app={
           Object {
             "categories": Array [
@@ -1867,7 +1867,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         namePrefix="Cozy"
         parent="/myapps"
       />
-      <withRouter(Wrapper)
+      <Wrapped
         app={
           Object {
             "categories": Array [
@@ -2277,7 +2277,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         namePrefix="Cozy"
         parent="/myapps"
       />
-      <withRouter(Wrapper)
+      <Wrapped
         app={
           Object {
             "categories": Array [

@@ -12,7 +12,7 @@ exports[`InstallAppIntent component should be rendered correctly 1`] = `
   <div
     className="coz-intent-content"
   >
-    <Connect(Wrapper)
+    <Wrapped
       appSlug="drive"
       installApp={[Function]}
     />
