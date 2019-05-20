@@ -2,49 +2,46 @@
 
 /* eslint-env jest */
 
-import getFilteredAppsFromSearch from 'lib/getFilteredAppsFromSearch'
+import matcherFromSearch from 'lib/matcherFromSearch'
 import mockApps from '../ducks/apps/_mockApps'
 
-describe('getFilteredAppsFromSearch library', () => {
+describe('matcherFromSearch library', () => {
   it('should filter correctly on type', () => {
-    expect(
-      getFilteredAppsFromSearch(mockApps, '?type=webapp')
-    ).toMatchSnapshot()
+    const matcher = matcherFromSearch({ type: 'webapp' })
+    expect(mockApps.filter(matcher)).toMatchSnapshot()
   })
 
   it('should filter correctly on doctype', () => {
-    expect(
-      getFilteredAppsFromSearch(mockApps, '?doctype=io.mock.doctype2')
-    ).toMatchSnapshot()
+    const matcher = matcherFromSearch({ doctype: 'io.mock.doctype2' })
+    expect(mockApps.filter(matcher)).toMatchSnapshot()
   })
 
   it('should filter correctly on tags', () => {
-    expect(getFilteredAppsFromSearch(mockApps, '?tag=bills')).toMatchSnapshot()
+    const matcher = matcherFromSearch({ tag: 'bills' })
+    expect(mockApps.filter(matcher)).toMatchSnapshot()
   })
 
   it('should filter correctly on category', () => {
-    expect(
-      getFilteredAppsFromSearch(mockApps, '?category=cozy')
-    ).toMatchSnapshot()
+    const matcher = matcherFromSearch({ category: 'cozy' })
+    expect(mockApps.filter(matcher)).toMatchSnapshot()
   })
 
   it('should filter correctly on pending update apps', () => {
-    expect(
-      getFilteredAppsFromSearch(mockApps, '?pendingUpdate=true')
-    ).toMatchSnapshot()
+    const matcher = matcherFromSearch({ pendingUpdate: true })
+    expect(mockApps.filter(matcher)).toMatchSnapshot()
   })
 
   it('should handle correctly multi filters', () => {
-    expect(
-      getFilteredAppsFromSearch(
-        mockApps,
-        '?type=konnector&doctype=io.mock.doctype'
-      )
-    ).toMatchSnapshot()
+    const matcher = matcherFromSearch({
+      type: 'konnector',
+      doctype: 'io.mock.doctype'
+    })
+    expect(mockApps.filter(matcher)).toMatchSnapshot()
   })
 
   it('should not throw error if search is not provided', () => {
-    expect(getFilteredAppsFromSearch(mockApps)).toMatchSnapshot()
+    const matcher = matcherFromSearch()
+    expect(mockApps.filter(matcher)).toMatchSnapshot()
   })
 
   it('should not throw error if app with malformed permission and search on doctype', () => {
@@ -78,9 +75,8 @@ describe('getFilteredAppsFromSearch library', () => {
       isInRegistry: true,
       related: 'http://collect.cozy.mock/'
     }
-    expect(
-      getFilteredAppsFromSearch([malFormedPermApp], '?doctype=io.mock.doctype')
-    ).toMatchSnapshot()
+    const matcher = matcherFromSearch({ doctype: 'io.mock.doctype' })
+    expect([malFormedPermApp].filter(matcher)).toMatchSnapshot()
   })
 
   it('should not throw error if app with no categories and search on category', () => {
@@ -112,8 +108,7 @@ describe('getFilteredAppsFromSearch library', () => {
       isInRegistry: true,
       related: 'http://collect.cozy.mock/'
     }
-    expect(
-      getFilteredAppsFromSearch([appWithoutCategories], '?category=cozy')
-    ).toMatchSnapshot()
+    const matcher = matcherFromSearch({ category: 'cozy' })
+    expect([appWithoutCategories].filter(matcher)).toMatchSnapshot()
   })
 })
