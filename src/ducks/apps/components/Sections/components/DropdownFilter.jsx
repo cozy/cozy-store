@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import SelectBox from 'cozy-ui/react/SelectBox'
 import Icon from 'cozy-ui/react/Icon'
-import { APP_TYPE } from 'ducks/apps'
+import PropTypes from 'prop-types'
 
 const SmallArrow = () => (
   <Icon
@@ -14,60 +14,19 @@ const SmallArrow = () => (
   />
 )
 
-function findOption(value, type, optionsList) {
-  if (type) {
-    return optionsList.find(op => op.value === value && op.type === type)
-  } else {
-    return optionsList.find(op => op.value === value)
-  }
-}
-
+/**
+ * Renders a generic dropdown
+ */
 export class DropdownFilter extends Component {
-  constructor(props) {
-    super(props)
-    this.onSelectChange = this.onSelectChange.bind(this)
-    this.getDefaultOption = this.getDefaultOption.bind(this)
-  }
-
-  onSelectChange(option) {
-    // reset query
-    const { pushQuery } = this.props
-    switch (option.value) {
-      case 'all':
-        return pushQuery()
-      case 'konnectors':
-        return pushQuery(`type=${APP_TYPE.KONNECTOR}`)
-      default:
-        return pushQuery(`type=${option.type}&category=${option.value}`)
-    }
-  }
-
-  getDefaultOption(options = []) {
-    const params = new URLSearchParams(this.props.query)
-    const typeParam = params.get('type')
-    const categoryParam = params.get('category')
-    let option
-    if (typeParam === APP_TYPE.KONNECTOR && !categoryParam) {
-      return findOption('konnectors', null, options)
-    } else if (!typeParam && !categoryParam) {
-      return findOption('all', null, options)
-    }
-    option = findOption(categoryParam, typeParam, options)
-    if (option) return option
-    console.error('No default option for select found')
-    return null
-  }
-
   render() {
-    const { options } = this.props
-    const defaultOption = this.getDefaultOption(options)
+    const { options, defaultValue } = this.props
     return (
       <div className="sto-sections-dropdown">
         <SelectBox
           classNamePrefix="sto-sections-select"
           options={options}
-          onChange={this.onSelectChange}
-          defaultValue={defaultOption}
+          onChange={this.props.onChange}
+          defaultValue={defaultValue}
           components={{
             DropdownIndicator: SmallArrow
           }}
@@ -77,6 +36,11 @@ export class DropdownFilter extends Component {
       </div>
     )
   }
+}
+
+DropdownFilter.propTypes = {
+  options: PropTypes.array.isRequired,
+  defaultValue: PropTypes.object
 }
 
 export default DropdownFilter

@@ -15,8 +15,32 @@ import AppsSection from './components/AppsSection'
 import DropdownFilter from './components/DropdownFilter'
 import { APP_TYPE } from './constants'
 import isNavigationEnabled from './isNavigationEnabled'
+import matches from 'lodash/matches'
+
+const makeOptionMatcherFromSearchParams = params => {
+  const typeParam = params.get('type')
+  const categoryParam = params.get('category')
+  if (typeParam === APP_TYPE.KONNECTOR && !categoryParam) {
+    return matches({ value: 'konnectors' })
+  } else if (!typeParam && !categoryParam) {
+    return matches({ value: 'all' })
+  }
+  return matches({ value: categoryParam, type: typeParam })
+}
 
 export class Sections extends Component {
+  handleFilterChange() {
+    const { pushQuery } = this.props
+    switch (option.value) {
+      case 'all':
+        return pushQuery()
+      case 'konnectors':
+        return this.props.pushQuery(`type=${APP_TYPE.KONNECTOR}`)
+      default:
+        return this.props.pushQuery(`type=${option.type}&category=${option.value}`)
+    }
+  }
+
   render() {
     const {
       t,
@@ -51,14 +75,20 @@ export class Sections extends Component {
 
     const selectOptions = getCategoriesSelections(allApps, t, true)
     const hasNav = isNavigationEnabled(location.search)
+    const dropdownDisplayed = hasNav && (isMobile || isTablet)
+
+    const optionMatcher = makeOptionMatcherFromSearchParams(
+      this.state.searchParams
+    )
+    const defaultFilterValue = selectOptions.find(optionMatcher)
 
     return (
-      <div className={`sto-sections${hasNav ? '' : ' u-mt-half'}`}>
-        {(isMobile || isTablet) && hasNav && (
+      <div className={`sto-sections${dropdownDisplayed ? '' : ' u-mt-half'}`}>
+        {dropdownDisplayed && (
           <DropdownFilter
+            defaultValue={defaultFilterValue}
             options={selectOptions}
-            query={query}
-            pushQuery={pushQuery}
+            onChange={this.handleFilterChange}
           />
         )}
         {!isMobile && !!webAppsCategories.length && (
