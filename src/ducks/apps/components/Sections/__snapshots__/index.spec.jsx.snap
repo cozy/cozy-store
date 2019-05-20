@@ -3,8 +3,12 @@
 exports[`AppsSection component should be rendered correctly with apps list, subtitle and onAppClick 1`] = `
 <div
   className="sto-sections u-mt-half"
+>
+  <h1
+    className="sto-sections-title u-title-h1"
   >
     Applications
+  </h1>
   <div
     className="sto-sections-section"
   >
@@ -1066,6 +1070,26 @@ exports[`AppsSection component should render correctly render message if error p
   This is a test error
 </p>
 `;
+
+exports[`AppsSection component should render dropdown filter on mobile if no nav=false flag provided 1`] = `
+<div
+  className="sto-sections"
+>
+  <DropdownFilter
+    defaultValue={
+      Object {
+        "label": "All categories",
+        "secondary": false,
+        "value": "all",
+      }
+    }
+    onChange={[Function]}
+    options={
+      Array [
+        Object {
+          "label": "All categories",
+          "secondary": false,
+          "value": "all",
         },
         Object {
           "label": "Partners",
@@ -1457,6 +1481,20 @@ exports[`AppsSection component should render correctly render message if error p
   </div>
 </div>
 `;
+
+exports[`AppsSection component should render dropdown filter on tablet if no nav=false flag provided 1`] = `
+<div
+  className="sto-sections"
+>
+  <DropdownFilter
+    defaultValue={
+      Object {
+        "label": "All categories",
+        "secondary": false,
+        "value": "all",
+      }
+    }
+    onChange={[Function]}
     options={
       Array [
         Object {

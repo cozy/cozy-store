@@ -6,11 +6,9 @@ import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
 import { Content } from 'cozy-ui/react/Layout'
 
 import ApplicationRouting from 'ducks/apps/components/ApplicationRouting'
-import Sections from 'ducks/apps/components/Sections'
+import Sections from 'ducks/apps/components/QuerystringSections'
 import AppsLoading from 'ducks/components/AppsLoading'
 import AppVote from 'ducks/components/AppVote'
-
-import getFilteredAppsFromSearch from 'lib/getFilteredAppsFromSearch'
 
 const { BarCenter } = cozy.bar
 
@@ -33,7 +31,6 @@ export class Discover extends Component {
   render() {
     const {
       t,
-      location,
       apps,
       isFetching,
       isAppFetching,
@@ -45,8 +42,6 @@ export class Discover extends Component {
     } = this.props
     const { isExact } = match
     const { isMobile } = breakpoints
-    const query = !!location && location.search
-    const filteredApps = getFilteredAppsFromSearch(apps, query)
     const title = <h2 className="sto-view-title">{t('discover.title')}</h2>
     return (
       <Content className="sto-discover">
@@ -56,12 +51,9 @@ export class Discover extends Component {
           <div className="sto-discover-sections">
             {!isFetching && (
               <Sections
-                apps={filteredApps}
-                allApps={apps}
+                apps={apps}
                 error={fetchError}
                 onAppClick={this.onAppClick}
-                pushQuery={this.pushQuery}
-                query={query}
               />
             )}
           </div>
@@ -69,7 +61,7 @@ export class Discover extends Component {
         </div>
 
         <ApplicationRouting
-          apps={filteredApps}
+          apps={apps}
           isFetching={isFetching}
           isAppFetching={isAppFetching}
           isUninstalling={isUninstalling}

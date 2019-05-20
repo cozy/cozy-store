@@ -56,7 +56,7 @@ describe('AppsSection component', () => {
         allApps={mockApps}
         onAppClick={mockOnAppClick}
         breakpoints={{ isMobile: true }}
-        location={{ search: '?nav=false' }}
+        hasNav={false}
       />
     ).getElement()
     expect(component).toMatchSnapshot()
@@ -73,7 +73,7 @@ describe('AppsSection component', () => {
         allApps={mockApps}
         onAppClick={mockOnAppClick}
         breakpoints={{ isTablet: true }}
-        location={{ search: '?nav=false' }}
+        hasNav={false}
       />
     ).getElement()
     expect(component).toMatchSnapshot()
@@ -90,7 +90,6 @@ describe('AppsSection component', () => {
         allApps={mockApps}
         onAppClick={mockOnAppClick}
         breakpoints={{ isMobile: true }}
-        location={{ search: '' }}
       />
     ).getElement()
     expect(component).toMatchSnapshot()
@@ -107,7 +106,6 @@ describe('AppsSection component', () => {
         allApps={mockApps}
         onAppClick={mockOnAppClick}
         breakpoints={{ isTablet: true }}
-        location={{ search: '' }}
       />
     ).getElement()
     expect(component).toMatchSnapshot()
