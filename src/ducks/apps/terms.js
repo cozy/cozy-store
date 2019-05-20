@@ -1,4 +1,4 @@
-const TERMS_DOCTYPE = 'io.cozy.terms'
+import { TERMS_DOCTYPE } from 'lib/schema'
 
 async function save(client, terms) {
   const { id, ...termsAttributes } = terms

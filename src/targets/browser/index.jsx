@@ -7,6 +7,7 @@ import { render } from 'react-dom'
 import CozyClient from 'cozy-client'
 
 import store from 'lib/store'
+import schema from 'lib/schema'
 
 const renderApp = function({ client, lang }) {
   const Root = require('ducks/components/Root').default
@@ -22,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const protocol = window.location.protocol
   const client = new CozyClient({
     uri: `${protocol}//${data.cozyDomain}`,
-    schema: {},
+    schema,
     token: data.cozyToken
   })
   cozy.bar.init({

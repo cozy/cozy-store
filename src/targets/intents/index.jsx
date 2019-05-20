@@ -9,6 +9,7 @@ import CozyClient, { CozyProvider } from 'cozy-client'
 import I18n from 'cozy-ui/react/I18n'
 import IntentHandler from '../../ducks/components/intents/IntentHandler'
 import InstallAppIntent from '../../ducks/components/intents/InstallAppIntent'
+import schema from 'lib/schema'
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.querySelector('[role=application]')
@@ -17,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const protocol = window.location.protocol
   const client = new CozyClient({
     uri: `${protocol}//${appData.cozyDomain}`,
-    schema: {},
+    schema,
     token: appData.cozyToken
   })
 
