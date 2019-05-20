@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Modal from 'cozy-ui/react/Modal'
-import { translate } from 'cozy-ui/react/I18n'
-import FocusTrap from 'focus-trap-react'
 import Portal from 'cozy-ui/react/Portal'
 import PropTypes from 'prop-types'
 import compose from 'lodash/flowRight'
+
+import FocusTrap from 'focus-trap-react'
+import Modal from 'cozy-ui/react/Modal'
+import { translate } from 'cozy-ui/react/I18n'
 import { withClient } from 'cozy-client'
 
 import AppInstallation from 'ducks/apps/components/AppInstallation'
 import getChannel from 'lib/getChannelFromSource'
-
 import { fetchLatestApp, getAppBySlug, restoreAppIfSaved } from 'ducks/apps'
 
 export class ChannelModal extends Component {
