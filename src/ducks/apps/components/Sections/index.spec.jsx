@@ -5,10 +5,10 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import { tMock } from '../../../jestLib/I18n'
-import { Sections } from 'ducks/apps/components/Sections'
+import { tMock } from 'jestLib/I18n'
+import { Sections } from 'ducks/apps/components/Sections/Sections'
 
-import mockApps from '../_mockApps'
+import mockApps from 'ducks/apps/_mockApps'
 
 describe('AppsSection component', () => {
   it('should be rendered correctly with apps list, subtitle and onAppClick', () => {

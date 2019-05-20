@@ -11,10 +11,10 @@ import {
   getCategoriesSelections
 } from 'lib/helpers'
 
-import AppsSection from 'ducks/apps/components/AppsSection'
-import DropdownFilter from 'ducks/apps/components/DropdownFilter'
-import { APP_TYPE } from 'ducks/apps'
-import isNavigationEnabled from 'lib/isNavigationEnabled'
+import AppsSection from './components/AppsSection'
+import DropdownFilter from './components/DropdownFilter'
+import { APP_TYPE } from './constants'
+import isNavigationEnabled from './isNavigationEnabled'
 
 export class Sections extends Component {
   render() {
