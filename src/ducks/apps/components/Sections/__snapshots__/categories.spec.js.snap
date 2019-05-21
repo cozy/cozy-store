@@ -317,7 +317,6 @@ exports[`getCategoriesSelections helper should return an empty list if no apps p
 exports[`getCategoriesSelections helper should return include the all categories if includeAll option true 1`] = `
 Array [
   Object {
-    "label": "All categories",
     "secondary": false,
     "value": "all",
   },

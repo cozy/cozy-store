@@ -57,14 +57,18 @@ export const addLabel = (cat, t) => ({
   label: t(`app_categories.${cat.value}`)
 })
 
-//
 /**
  * Returns unlabelised/unsorted categories from a list of apps
  * @param  {Array<App>}  apps
  * @param  {Boolean} includeAll - Whether to add an "All" option
  * @return {Array<CategoryOption>}
  */
-export const generateOptionsFromApps = (apps, includeAll = false) => {
+export const generateOptionsFromApps = (
+  apps,
+  includeAll = false,
+  _addLabel
+) => {
+  const addLabel = x => (_addLabel ? _addLabel(x) : x)
   if (!apps || !apps.length) return []
   let appsCategories = includeAll
     ? [
@@ -79,17 +83,24 @@ export const generateOptionsFromApps = (apps, includeAll = false) => {
     const catApps = groupApps(apps.filter(a => a.type === type))
     if (type === APP_TYPE.KONNECTOR) {
       // add konnectors at the end
-      appsCategories.push({
-        value: 'konnectors',
-        secondary: false
-      })
+      appsCategories.push(
+        addLabel({
+          value: 'konnectors',
+          secondary: false
+        })
+      )
     }
-    const categories = Object.keys(catApps).map(cat => ({
-      value: cat,
-      type: type,
-      secondary: type === APP_TYPE.KONNECTOR
-    }))
-    appsCategories = appsCategories.concat(categories)
+    const options = Object.keys(catApps).map(cat => {
+      return addLabel({
+        value: cat,
+        type: type,
+        secondary: type === APP_TYPE.KONNECTOR
+      })
+    })
+    if (_addLabel) {
+      options.sort(sorter)
+    }
+    appsCategories = appsCategories.concat(options)
   }
 
   return appsCategories
