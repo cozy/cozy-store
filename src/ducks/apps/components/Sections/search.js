@@ -37,10 +37,10 @@ const searchAttrToMatcher = {
 
 /**
  * Returns a predicate function to match an app based on
- * a search specificiation.
+ * a search specification.
  *
- * @param  {Object} search - What to search, ex: { type: 'webapp', category: 'banking'}
- * @return {Function}
+ * @param  {Search} search - What to search, ex: { type: 'webapp', category: 'banking'}
+ * @return {Function<App>}
  */
 export const makeMatcherFromSearch = (search = {}) => {
   // Create all predicates from the search object
@@ -53,6 +53,13 @@ export const makeMatcherFromSearch = (search = {}) => {
   return overEvery(predicates)
 }
 
+/**
+ * Returns a predicate to find the corresponding category option for
+ * a search
+ *
+ * @param  {Search}
+ * @return {Function<CategoryOption>}
+ */
 export const makeOptionMatcherFromSearch = (search = {}) => {
   const typeParam = search.type
   const categoryParam = search.category
@@ -63,6 +70,13 @@ export const makeOptionMatcherFromSearch = (search = {}) => {
   }
   return matches({ value: categoryParam, type: typeParam })
 }
+
+/**
+ * Returns a Search from a category option
+ *
+ * @param  {CategoryOption}
+ * @return {Search}
+ */
 export const makeSearchFromOption = option => {
   if (option.value === 'all') {
     return {}

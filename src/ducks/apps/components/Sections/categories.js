@@ -1,11 +1,12 @@
 /**
- * Deal with app categories.
+ * Deal with app category options.
  *
- * Category objects have the following attributes
+ * Category options have the following attributes
  *
  * - value: Slug of the category
  * - label: Translated name of the category
- * - secondary: Whether to be displayed in the select
+ * - secondary: Whether to be displayed as a smaller category
+ *   in the sidebar
  */
 
 import { APP_TYPE } from './constants'
@@ -30,11 +31,17 @@ const multiGroupBy = (iter, grouper) => {
 const getAppCategory = app => app.categories
 export const groupApps = apps => multiGroupBy(apps, getAppCategory)
 
-// Function to sort categories objects
-//
-// Alphabetical sort on label except for
-//   - 'all' value always at the beginning
-//   - 'others' value always at the end
+/**
+ * Function to sort category options
+ *
+ * Alphabetical sort on label except for
+ *   - 'all' value always at the beginning
+ *   - 'others' value always at the end
+ *
+ * @param  {CategoryOption} categoryA
+ * @param  {CategoryOption} categoryB
+ * @return {Number}
+ */
 export const sorter = (categoryA, categoryB) => {
   return (
     (categoryA.value === 'all' && -1) ||
@@ -50,7 +57,13 @@ export const addLabel = (cat, t) => ({
   label: t(`app_categories.${cat.value}`)
 })
 
-// Returns unlabelised/unsorted categories from a list of apps
+//
+/**
+ * Returns unlabelised/unsorted categories from a list of apps
+ * @param  {Array<App>}  apps
+ * @param  {Boolean} includeAll - Whether to add an "All" option
+ * @return {Array<CategoryOption>}
+ */
 export const generateOptionsFromApps = (apps, includeAll = false) => {
   if (!apps || !apps.length) return []
   let appsCategories = includeAll

@@ -1,21 +1,23 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import { translate } from 'cozy-ui/react/I18n'
 import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
 
-
 import AppsSection from './components/AppsSection'
 import DropdownFilter from './components/DropdownFilter'
+
 import { APP_TYPE } from './constants'
-
-
+import * as searchUtils from './search'
+import * as catUtils from './categories'
 
 /**
  * Shows a list of apps grouped by categories.
  *
- * Controls an internal search object to filter the list.
+ * Can be
+ *
+ * - uncontrolled: it controls an internal search object to filter the list.
+ * - controlled: it is controlled by the `search` prop
  */
 export class Sections extends Component {
   constructor(props, context) {
@@ -23,11 +25,11 @@ export class Sections extends Component {
     this.state = {
       search: {}
     }
-    this.handleSearchOptionChange = this.handleSearchOptionChange.bind(this)
+    this.handleCategoryChange = this.handleCategoryChange.bind(this)
   }
 
   // Sets state.search from the option received from the DropdownFilter
-  handleSearchOptionChange(searchOption) {
+  handleCategoryChange(categoryOption) {
     const search = searchUtils.makeSearchFromOption(categoryOption)
     if (!this.props.search) {
       // the component is uncontrolled
@@ -79,7 +81,7 @@ export class Sections extends Component {
           <DropdownFilter
             defaultValue={defaultFilterValue}
             options={selectOptions}
-            onChange={this.handleSearchOptionChange}
+            onChange={this.handleCategoryChange}
           />
         )}
         {!isMobile && !!webAppsCategories.length && (
