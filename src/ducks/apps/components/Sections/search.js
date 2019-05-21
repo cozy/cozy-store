@@ -32,8 +32,14 @@ const searchAttrToMatcher = {
   pendingUpdate: pendingUpdateMatcher
 }
 
-/* From a search object, makes a predicate to match an app */
-const matcherFromSearch = (search = {}) => {
+/**
+ * Returns a predicate function to match an app based on
+ * a search specificiation.
+ *
+ * @param  {Object} search - What to search, ex: { type: 'webapp', category: 'banking'}
+ * @return {Function}
+ */
+const makeMatcherFromSearch = (search = {}) => {
   // Create all predicates from the search object
   const predicates = Object.values(
     mapValues(search, (value, name) => {
@@ -44,4 +50,4 @@ const matcherFromSearch = (search = {}) => {
   return overEvery(predicates)
 }
 
-export default matcherFromSearch
+export default makeMatcherFromSearch

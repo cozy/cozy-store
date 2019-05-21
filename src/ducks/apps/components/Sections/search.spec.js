@@ -2,37 +2,37 @@
 
 /* eslint-env jest */
 
-import matcherFromSearch from 'lib/matcherFromSearch'
-import mockApps from '../ducks/apps/_mockApps'
+import { makeMatcherFromSearch } from './search'
+import mockApps from 'ducks/apps/_mockApps'
 
-describe('matcherFromSearch library', () => {
+describe('makeMatcherFromSearch', () => {
   it('should filter correctly on type', () => {
-    const matcher = matcherFromSearch({ type: 'webapp' })
+    const matcher = makeMatcherFromSearch({ type: 'webapp' })
     expect(mockApps.filter(matcher)).toMatchSnapshot()
   })
 
   it('should filter correctly on doctype', () => {
-    const matcher = matcherFromSearch({ doctype: 'io.mock.doctype2' })
+    const matcher = makeMatcherFromSearch({ doctype: 'io.mock.doctype2' })
     expect(mockApps.filter(matcher)).toMatchSnapshot()
   })
 
   it('should filter correctly on tags', () => {
-    const matcher = matcherFromSearch({ tag: 'bills' })
+    const matcher = makeMatcherFromSearch({ tag: 'bills' })
     expect(mockApps.filter(matcher)).toMatchSnapshot()
   })
 
   it('should filter correctly on category', () => {
-    const matcher = matcherFromSearch({ category: 'cozy' })
+    const matcher = makeMatcherFromSearch({ category: 'cozy' })
     expect(mockApps.filter(matcher)).toMatchSnapshot()
   })
 
   it('should filter correctly on pending update apps', () => {
-    const matcher = matcherFromSearch({ pendingUpdate: true })
+    const matcher = makeMatcherFromSearch({ pendingUpdate: true })
     expect(mockApps.filter(matcher)).toMatchSnapshot()
   })
 
   it('should handle correctly multi filters', () => {
-    const matcher = matcherFromSearch({
+    const matcher = makeMatcherFromSearch({
       type: 'konnector',
       doctype: 'io.mock.doctype'
     })
@@ -40,7 +40,7 @@ describe('matcherFromSearch library', () => {
   })
 
   it('should not throw error if search is not provided', () => {
-    const matcher = matcherFromSearch()
+    const matcher = makeMatcherFromSearch()
     expect(mockApps.filter(matcher)).toMatchSnapshot()
   })
 
@@ -75,7 +75,7 @@ describe('matcherFromSearch library', () => {
       isInRegistry: true,
       related: 'http://collect.cozy.mock/'
     }
-    const matcher = matcherFromSearch({ doctype: 'io.mock.doctype' })
+    const matcher = makeMatcherFromSearch({ doctype: 'io.mock.doctype' })
     expect([malFormedPermApp].filter(matcher)).toMatchSnapshot()
   })
 
@@ -108,7 +108,7 @@ describe('matcherFromSearch library', () => {
       isInRegistry: true,
       related: 'http://collect.cozy.mock/'
     }
-    const matcher = matcherFromSearch({ category: 'cozy' })
+    const matcher = makeMatcherFromSearch({ category: 'cozy' })
     expect([appWithoutCategories].filter(matcher)).toMatchSnapshot()
   })
 })

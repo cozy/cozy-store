@@ -6,7 +6,7 @@ import matches from 'lodash/matches'
 import { translate } from 'cozy-ui/react/I18n'
 import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
 
-import matcherFromSearch from 'lib/matcherFromSearch'
+import matcherFromSearch from './search'
 import * as catUtils from './categories'
 
 import AppsSection from './components/AppsSection'
