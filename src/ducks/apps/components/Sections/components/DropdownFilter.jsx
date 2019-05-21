@@ -8,7 +8,7 @@ const SmallArrow = () => (
   <Icon
     className="sto-sections-dropdown-icon"
     icon="small-arrow"
-    color="#95999D"
+    color="var(--coolGrey)"
     width={16}
     height={16}
   />
