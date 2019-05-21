@@ -1,21 +1,17 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import matches from 'lodash/matches'
 
 import { translate } from 'cozy-ui/react/I18n'
 import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
 
 import matcherFromSearch from 'lib/matcherFromSearch'
-import {
-  getAppsSortedByCategories,
-  sortCategoriesAlphabetically,
-  getCategoriesSelections
-} from 'lib/helpers'
+import * as catUtils from './categories'
 
 import AppsSection from './components/AppsSection'
 import DropdownFilter from './components/DropdownFilter'
 import { APP_TYPE } from './constants'
-import matches from 'lodash/matches'
 
 const makeOptionMatcherFromSearch = (search = {}) => {
   const typeParam = search.type
@@ -82,25 +78,24 @@ export class Sections extends Component {
     const searchMatcher = matcherFromSearch(search)
     const filteredApps = apps.filter(searchMatcher)
 
-    const konnectorsList = getAppsSortedByCategories(
+    const konnectorGroups = catUtils.groupApps(
       filteredApps.filter(a => a.type === APP_TYPE.KONNECTOR)
     )
-    const konnectorsCategories = sortCategoriesAlphabetically(
-      Object.keys(konnectorsList),
-      t
-    )
-
-    const webAppsList = getAppsSortedByCategories(
+    const webAppGroups = catUtils.groupApps(
       filteredApps.filter(a => a.type === APP_TYPE.WEBAPP)
     )
-    const webAppsCategories = sortCategoriesAlphabetically(
-      Object.keys(webAppsList),
-      t
-    )
+    const webAppsCategories = Object.keys(webAppGroups)
+      .map(cat => catUtils.addLabel({ value: cat }, t))
+      .sort(catUtils.sorter)
+    const konnectorsCategories = Object.keys(konnectorGroups)
+      .map(cat => catUtils.addLabel({ value: cat }, t))
+      .sort(catUtils.sorter)
 
-    const selectOptions = getCategoriesSelections(apps, t, true)
     const dropdownDisplayed = hasNav && (isMobile || isTablet)
-
+    const rawSelectOptions = catUtils.generateOptionsFromApps(apps, true)
+    const selectOptions = rawSelectOptions.map(option =>
+      catUtils.addLabel(option, t)
+    )
     const optionMatcher = makeOptionMatcherFromSearch(search)
     const defaultFilterValue = selectOptions.find(optionMatcher)
 
@@ -124,11 +119,11 @@ export class Sections extends Component {
               {webAppsCategories.map(cat => {
                 return (
                   <AppsSection
-                    key={cat}
-                    appsList={webAppsList[cat]}
+                    key={cat.value}
+                    appsList={webAppGroups[cat.value]}
                     subtitle={
                       <h2 className="sto-sections-subtitle u-title-h2">
-                        {t(`app_categories.${cat}`)}
+                        {cat.label}
                       </h2>
                     }
                     onAppClick={onAppClick}
@@ -145,11 +140,11 @@ export class Sections extends Component {
               {konnectorsCategories.map(cat => {
                 return (
                   <AppsSection
-                    key={cat}
-                    appsList={konnectorsList[cat]}
+                    key={cat.value}
+                    appsList={konnectorGroups[cat.value]}
                     subtitle={
                       <h3 className="sto-sections-subtitle-secondary">
-                        {t(`app_categories.${cat}`)}
+                        {cat.label}
                       </h3>
                     }
                     onAppClick={onAppClick}
