@@ -7,13 +7,13 @@ import * as catUtils from './categories'
 import { tMock } from 'jestLib/I18n'
 import mockApps from 'ducks/apps/_mockApps'
 
-describe('getAppsSortedByCategories helper', () => {
+describe('groupApps', () => {
   it('should return apps sorted in a dictionnary by categories', () => {
     expect(catUtils.groupApps(mockApps)).toMatchSnapshot()
   })
 })
 
-describe('sortCategoriesAlphabetically helper', () => {
+describe('sorter', () => {
   const prepareCategories = categoryNames =>
     categoryNames.map(cat =>
       catUtils.addLabel(
@@ -40,7 +40,7 @@ describe('sortCategoriesAlphabetically helper', () => {
   })
 })
 
-describe('getCategoriesSelections helper', () => {
+describe('generateOptionsFromApps', () => {
   const addLabel = x => catUtils.addLabel(x, tMock)
   it('should return a list of categories options for a select input based on the apps list', () => {
     expect(
