@@ -44,6 +44,6 @@ describe('AppsSection component', () => {
       .dive() // shallow on more level on first app item
     appItem.simulate('click')
     expect(mockOnAppClick.mock.calls.length).toBe(1)
-    expect(mockOnAppClick.mock.calls[0][0]).toBe(mockApps[0].slug)
+    expect(mockOnAppClick.mock.calls[0][0]).toBe('konnector-bouilligue')
   })
 })
