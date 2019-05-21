@@ -1,42 +1,16 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import matches from 'lodash/matches'
 
 import { translate } from 'cozy-ui/react/I18n'
 import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
 
-import matcherFromSearch from './search'
-import * as catUtils from './categories'
 
 import AppsSection from './components/AppsSection'
 import DropdownFilter from './components/DropdownFilter'
 import { APP_TYPE } from './constants'
 
-const makeOptionMatcherFromSearch = (search = {}) => {
-  const typeParam = search.type
-  const categoryParam = search.category
-  if (typeParam === APP_TYPE.KONNECTOR && !categoryParam) {
-    return matches({ value: 'konnectors' })
-  } else if (!typeParam && !categoryParam) {
-    return matches({ value: 'all' })
-  }
-  return matches({ value: categoryParam, type: typeParam })
-}
 
-const makeSearchFromOption = option => {
-  if (option.value === 'all') {
-    return {}
-  }
-  const search = {}
-  if (option.value === 'konnectors') {
-    search.type = APP_TYPE.KONNECTOR
-  } else {
-    search.type = option.type
-    search.category = option.value
-  }
-  return search
-}
 
 /**
  * Shows a list of apps grouped by categories.
@@ -54,7 +28,7 @@ export class Sections extends Component {
 
   // Sets state.search from the option received from the DropdownFilter
   handleSearchOptionChange(searchOption) {
-    const search = makeSearchFromOption(searchOption)
+    const search = searchUtils.makeSearchFromOption(categoryOption)
     if (!this.props.search) {
       // the component is uncontrolled
       this.setState({
@@ -75,7 +49,7 @@ export class Sections extends Component {
     // Depending on whether the component is controlled or uncontrolled,
     // search is taken from props or state
     const search = this.props.search || this.state.search
-    const searchMatcher = matcherFromSearch(search)
+    const searchMatcher = searchUtils.makeMatcherFromSearch(search)
     const filteredApps = apps.filter(searchMatcher)
 
     const konnectorGroups = catUtils.groupApps(
@@ -96,7 +70,7 @@ export class Sections extends Component {
     const selectOptions = rawSelectOptions.map(option =>
       catUtils.addLabel(option, t)
     )
-    const optionMatcher = makeOptionMatcherFromSearch(search)
+    const optionMatcher = searchUtils.makeOptionMatcherFromSearch(search)
     const defaultFilterValue = selectOptions.find(optionMatcher)
 
     return (

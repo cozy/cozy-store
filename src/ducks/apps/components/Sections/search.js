@@ -1,5 +1,8 @@
 import overEvery from 'lodash/overEvery'
 import mapValues from 'lodash/mapValues'
+import matches from 'lodash/matches'
+
+import { APP_TYPE } from './constants'
 
 const getDoctypesList = permsObj => {
   const doctypes = []
@@ -39,7 +42,7 @@ const searchAttrToMatcher = {
  * @param  {Object} search - What to search, ex: { type: 'webapp', category: 'banking'}
  * @return {Function}
  */
-const makeMatcherFromSearch = (search = {}) => {
+export const makeMatcherFromSearch = (search = {}) => {
   // Create all predicates from the search object
   const predicates = Object.values(
     mapValues(search, (value, name) => {
@@ -50,4 +53,26 @@ const makeMatcherFromSearch = (search = {}) => {
   return overEvery(predicates)
 }
 
-export default makeMatcherFromSearch
+export const makeOptionMatcherFromSearch = (search = {}) => {
+  const typeParam = search.type
+  const categoryParam = search.category
+  if (typeParam === APP_TYPE.KONNECTOR && !categoryParam) {
+    return matches({ value: 'konnectors' })
+  } else if (!typeParam && !categoryParam) {
+    return matches({ value: 'all' })
+  }
+  return matches({ value: categoryParam, type: typeParam })
+}
+export const makeSearchFromOption = option => {
+  if (option.value === 'all') {
+    return {}
+  }
+  const search = {}
+  if (option.value === 'konnectors') {
+    search.type = APP_TYPE.KONNECTOR
+  } else {
+    search.type = option.type
+    search.category = option.value
+  }
+  return search
+}
