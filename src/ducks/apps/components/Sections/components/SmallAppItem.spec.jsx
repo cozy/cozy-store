@@ -5,8 +5,8 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import { tMock } from '../jestLib/I18n'
-import { SmallAppItem } from 'ducks/components/SmallAppItem'
+import { tMock } from 'jestLib/I18n'
+import { SmallAppItem } from './SmallAppItem'
 
 const appMock = {
   slug: 'test',

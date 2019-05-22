@@ -2,7 +2,7 @@ module.exports = {
   testURL: 'http://localhost/',
   moduleFileExtensions: ['js', 'jsx', 'json', 'styl'],
   setupFiles: ['<rootDir>/test/jestLib/setup.js'],
-  moduleDirectories: ['src', 'node_modules'],
+  moduleDirectories: ['src', 'test', 'node_modules'],
   moduleNameMapper: {
     '^config/(.*)': '<rootDir>/src/config/$1',
     '\\.(png|gif|jpe?g|svg)$': '<rootDir>/test/__mocks__/fileMock.js',

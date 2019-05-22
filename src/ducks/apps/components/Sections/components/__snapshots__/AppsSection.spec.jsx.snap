@@ -14,6 +14,39 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
       app={
         Object {
           "categories": Array [
+            "isp",
+            "telecom",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "icon": "<svg></svg>",
+          "isInRegistry": true,
+          "name": "Bouilligue",
+          "slug": "konnector-bouilligue",
+          "type": "konnector",
+          "uninstallable": true,
+          "versions": Object {
+            "beta": Array [
+              "0.1.0",
+            ],
+            "dev": Array [
+              "0.1.0",
+            ],
+            "stable": Array [
+              "0.1.0",
+            ],
+          },
+        }
+      }
+      name="Bouilligue"
+      namePrefix=""
+      onClick={[Function]}
+    />
+    <Wrapper
+      app={
+        Object {
+          "categories": Array [
             "cozy",
           ],
           "developer": Object {
@@ -134,83 +167,6 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
       app={
         Object {
           "categories": Array [
-            "isp",
-            "telecom",
-          ],
-          "developer": Object {
-            "name": "Cozy",
-          },
-          "icon": "<svg></svg>",
-          "isInRegistry": true,
-          "name": "Bouilligue",
-          "slug": "konnector-bouilligue",
-          "type": "konnector",
-          "uninstallable": true,
-          "versions": Object {
-            "beta": Array [
-              "0.1.0",
-            ],
-            "dev": Array [
-              "0.1.0",
-            ],
-            "stable": Array [
-              "0.1.0",
-            ],
-          },
-        }
-      }
-      name="Bouilligue"
-      namePrefix=""
-      onClick={[Function]}
-    />
-    <Wrapper
-      app={
-        Object {
-          "categories": Array [
-            "transport",
-          ],
-          "developer": Object {
-            "name": "Cozy",
-          },
-          "icon": "<svg></svg>",
-          "installed": true,
-          "isInRegistry": true,
-          "name": "Trinlane",
-          "permissions": Object {
-            "mock": Object {
-              "type": "io.mock.doctype",
-            },
-          },
-          "slug": "konnector-trinlane",
-          "tags": Array [
-            "transport",
-            "files",
-            "bills",
-          ],
-          "type": "konnector",
-          "uninstallable": true,
-          "version": "0.1.0",
-          "versions": Object {
-            "beta": Array [
-              "0.1.0",
-            ],
-            "dev": Array [
-              "0.1.0",
-            ],
-            "stable": Array [
-              "0.1.0",
-            ],
-          },
-        }
-      }
-      name="Trinlane"
-      namePrefix=""
-      onClick={[Function]}
-    />
-    <Wrapper
-      app={
-        Object {
-          "categories": Array [
             "cozy",
           ],
           "developer": Object {
@@ -277,6 +233,50 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
         }
       }
       name="Tasky"
+      namePrefix=""
+      onClick={[Function]}
+    />
+    <Wrapper
+      app={
+        Object {
+          "categories": Array [
+            "transport",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+          },
+          "icon": "<svg></svg>",
+          "installed": true,
+          "isInRegistry": true,
+          "name": "Trinlane",
+          "permissions": Object {
+            "mock": Object {
+              "type": "io.mock.doctype",
+            },
+          },
+          "slug": "konnector-trinlane",
+          "tags": Array [
+            "transport",
+            "files",
+            "bills",
+          ],
+          "type": "konnector",
+          "uninstallable": true,
+          "version": "0.1.0",
+          "versions": Object {
+            "beta": Array [
+              "0.1.0",
+            ],
+            "dev": Array [
+              "0.1.0",
+            ],
+            "stable": Array [
+              "0.1.0",
+            ],
+          },
+        }
+      }
+      name="Trinlane"
       namePrefix=""
       onClick={[Function]}
     />

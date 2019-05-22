@@ -5,10 +5,10 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import { tMock } from '../../../jestLib/I18n'
-import { Sections } from 'ducks/apps/components/Sections'
+import { tMock } from 'jestLib/I18n'
+import { Sections } from 'ducks/apps/components/Sections/Sections'
 
-import mockApps from '../_mockApps'
+import mockApps from 'ducks/apps/_mockApps'
 
 describe('AppsSection component', () => {
   it('should be rendered correctly with apps list, subtitle and onAppClick', () => {
@@ -56,7 +56,7 @@ describe('AppsSection component', () => {
         allApps={mockApps}
         onAppClick={mockOnAppClick}
         breakpoints={{ isMobile: true }}
-        location={{ search: '?nav=false' }}
+        hasNav={false}
       />
     ).getElement()
     expect(component).toMatchSnapshot()
@@ -73,7 +73,7 @@ describe('AppsSection component', () => {
         allApps={mockApps}
         onAppClick={mockOnAppClick}
         breakpoints={{ isTablet: true }}
-        location={{ search: '?nav=false' }}
+        hasNav={false}
       />
     ).getElement()
     expect(component).toMatchSnapshot()
@@ -90,7 +90,6 @@ describe('AppsSection component', () => {
         allApps={mockApps}
         onAppClick={mockOnAppClick}
         breakpoints={{ isMobile: true }}
-        location={{ search: '' }}
       />
     ).getElement()
     expect(component).toMatchSnapshot()
@@ -107,7 +106,6 @@ describe('AppsSection component', () => {
         allApps={mockApps}
         onAppClick={mockOnAppClick}
         breakpoints={{ isTablet: true }}
-        location={{ search: '' }}
       />
     ).getElement()
     expect(component).toMatchSnapshot()

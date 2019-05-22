@@ -5,11 +5,11 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import { tMock } from '../../../jestLib/I18n'
-import { AppsSection } from 'ducks/apps/components/AppsSection'
-import SmallAppItem from 'ducks/components/SmallAppItem'
+import { tMock } from 'jestLib/I18n'
+import { AppsSection } from './AppsSection'
+import SmallAppItem from './SmallAppItem'
 
-import mockApps from '../_mockApps'
+import mockApps from 'ducks/apps/_mockApps'
 
 describe('AppsSection component', () => {
   it('should be rendered correctly with apps list, subtitle and onAppClick', () => {
@@ -44,6 +44,6 @@ describe('AppsSection component', () => {
       .dive() // shallow on more level on first app item
     appItem.simulate('click')
     expect(mockOnAppClick.mock.calls.length).toBe(1)
-    expect(mockOnAppClick.mock.calls[0][0]).toBe(mockApps[0].slug)
+    expect(mockOnAppClick.mock.calls[0][0]).toBe('konnector-bouilligue')
   })
 })

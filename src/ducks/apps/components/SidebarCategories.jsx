@@ -3,7 +3,7 @@ import { translate } from 'cozy-ui/react/I18n'
 import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
 import { withRouter, NavLink as RouterLink } from 'react-router-dom'
 
-import { getCategoriesSelections } from 'lib/helpers'
+import { categoryUtils } from 'ducks/apps/components/Sections'
 
 const getActiveChecker = path => (match, location) =>
   `${location.pathname}${location.search}` === path
@@ -51,10 +51,14 @@ export class SidebarCategories extends Component {
         return null // no list return nothing to the renderer
     }
 
-    const categories = getCategoriesSelections(appsList, t)
+    const addLabel = cat => categoryUtils.addLabel(cat, t)
+    const options = categoryUtils.generateOptionsFromApps(appsList, {
+      includeAll: false,
+      addLabel
+    })
 
     // compute sidebar categories links
-    const linksArray = categories.map(cat => {
+    const linksArray = options.map(cat => {
       if (cat.value === 'konnectors') {
         return renderLink(cat, `${parent}?type=konnector`)
       } else {

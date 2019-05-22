@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`getFilteredAppsFromSearch library should filter correctly on category 1`] = `
+exports[`makeMatcherFromSearch should filter correctly on category 1`] = `
 Array [
   Object {
     "categories": Array [
@@ -111,7 +111,7 @@ Array [
 ]
 `;
 
-exports[`getFilteredAppsFromSearch library should filter correctly on doctype 1`] = `
+exports[`makeMatcherFromSearch should filter correctly on doctype 1`] = `
 Array [
   Object {
     "categories": Array [
@@ -190,7 +190,7 @@ Array [
 ]
 `;
 
-exports[`getFilteredAppsFromSearch library should filter correctly on pending update apps 1`] = `
+exports[`makeMatcherFromSearch should filter correctly on pending update apps 1`] = `
 Array [
   Object {
     "availableVersion": "3.0.0",
@@ -222,7 +222,7 @@ Array [
 ]
 `;
 
-exports[`getFilteredAppsFromSearch library should filter correctly on tags 1`] = `
+exports[`makeMatcherFromSearch should filter correctly on tags 1`] = `
 Array [
   Object {
     "categories": Array [
@@ -310,7 +310,7 @@ Array [
 ]
 `;
 
-exports[`getFilteredAppsFromSearch library should filter correctly on type 1`] = `
+exports[`makeMatcherFromSearch should filter correctly on type 1`] = `
 Array [
   Object {
     "categories": Array [
@@ -473,7 +473,7 @@ Array [
 ]
 `;
 
-exports[`getFilteredAppsFromSearch library should handle correctly multi filters 1`] = `
+exports[`makeMatcherFromSearch should handle correctly multi filters 1`] = `
 Array [
   Object {
     "categories": Array [
@@ -515,11 +515,11 @@ Array [
 ]
 `;
 
-exports[`getFilteredAppsFromSearch library should not throw error if app with malformed permission and search on doctype 1`] = `Array []`;
+exports[`makeMatcherFromSearch should not throw error if app with malformed permission and search on doctype 1`] = `Array []`;
 
-exports[`getFilteredAppsFromSearch library should not throw error if app with no categories and search on category 1`] = `Array []`;
+exports[`makeMatcherFromSearch should not throw error if app with no categories and search on category 1`] = `Array []`;
 
-exports[`getFilteredAppsFromSearch library should not throw error if search is not provided 1`] = `
+exports[`makeMatcherFromSearch should not throw error if search is not provided 1`] = `
 Array [
   Object {
     "categories": Array [

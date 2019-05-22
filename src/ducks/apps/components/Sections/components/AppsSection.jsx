@@ -1,9 +1,9 @@
 import React from 'react'
 import { translate } from 'cozy-ui/react/I18n'
 import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
-import { getTranslatedManifestProperty } from 'lib/helpers'
-
-import SmallAppItem from 'ducks/components/SmallAppItem'
+import { getTranslatedManifestProperty } from '../helpers'
+import sortBy from 'lodash/sortBy'
+import SmallAppItem from './SmallAppItem'
 
 const _renderAppComponent = (app, t, onAppClick, isMobile) => {
   return (
@@ -18,6 +18,8 @@ const _renderAppComponent = (app, t, onAppClick, isMobile) => {
   )
 }
 
+const makeNameGetter = t => app => getTranslatedManifestProperty(app, 'name', t)
+
 export const AppsSection = ({
   t,
   appsList,
@@ -31,7 +33,7 @@ export const AppsSection = ({
       {subtitle}
       {appsList && !!appsList.length && (
         <div className="sto-sections-list">
-          {appsList.map(app =>
+          {sortBy(appsList, makeNameGetter(t)).map(app =>
             _renderAppComponent(app, t, onAppClick, isMobile)
           )}
         </div>

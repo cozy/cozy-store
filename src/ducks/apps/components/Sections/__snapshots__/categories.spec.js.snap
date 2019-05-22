@@ -1,6 +1,106 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`getAppsSortedByCategories helper should return apps sorted in a dictionnary by categories 1`] = `
+exports[`generateOptionsFromApps should return a list of categories options for a select input based on the apps list 1`] = `
+Array [
+  Object {
+    "label": "Partners",
+    "secondary": false,
+    "type": "webapp",
+    "value": "partners",
+  },
+  Object {
+    "label": "The essentials",
+    "secondary": false,
+    "type": "webapp",
+    "value": "cozy",
+  },
+  Object {
+    "label": "Others",
+    "secondary": false,
+    "type": "webapp",
+    "value": "others",
+  },
+  Object {
+    "label": "Services",
+    "secondary": false,
+    "value": "konnectors",
+  },
+  Object {
+    "label": "ISP",
+    "secondary": true,
+    "type": "konnector",
+    "value": "isp",
+  },
+  Object {
+    "label": "Telecom",
+    "secondary": true,
+    "type": "konnector",
+    "value": "telecom",
+  },
+  Object {
+    "label": "Transportation",
+    "secondary": true,
+    "type": "konnector",
+    "value": "transport",
+  },
+]
+`;
+
+exports[`generateOptionsFromApps should return an empty list if empty apps list provided 1`] = `Array []`;
+
+exports[`generateOptionsFromApps should return an empty list if no apps provided 1`] = `Array []`;
+
+exports[`generateOptionsFromApps should return include the all categories if includeAll option true 1`] = `
+Array [
+  Object {
+    "secondary": false,
+    "value": "all",
+  },
+  Object {
+    "label": "Partners",
+    "secondary": false,
+    "type": "webapp",
+    "value": "partners",
+  },
+  Object {
+    "label": "The essentials",
+    "secondary": false,
+    "type": "webapp",
+    "value": "cozy",
+  },
+  Object {
+    "label": "Others",
+    "secondary": false,
+    "type": "webapp",
+    "value": "others",
+  },
+  Object {
+    "label": "Services",
+    "secondary": false,
+    "value": "konnectors",
+  },
+  Object {
+    "label": "ISP",
+    "secondary": true,
+    "type": "konnector",
+    "value": "isp",
+  },
+  Object {
+    "label": "Telecom",
+    "secondary": true,
+    "type": "konnector",
+    "value": "telecom",
+  },
+  Object {
+    "label": "Transportation",
+    "secondary": true,
+    "type": "konnector",
+    "value": "transport",
+  },
+]
+`;
+
+exports[`groupApps should return apps sorted in a dictionnary by categories 1`] = `
 Object {
   "cozy": Array [
     Object {
@@ -264,108 +364,7 @@ Object {
 }
 `;
 
-exports[`getCategoriesSelections helper should return a list of categories options for a select input based on the apps list 1`] = `
-Array [
-  Object {
-    "label": "Partners",
-    "secondary": false,
-    "type": "webapp",
-    "value": "partners",
-  },
-  Object {
-    "label": "The essentials",
-    "secondary": false,
-    "type": "webapp",
-    "value": "cozy",
-  },
-  Object {
-    "label": "Others",
-    "secondary": false,
-    "type": "webapp",
-    "value": "others",
-  },
-  Object {
-    "label": "Services",
-    "secondary": false,
-    "value": "konnectors",
-  },
-  Object {
-    "label": "ISP",
-    "secondary": true,
-    "type": "konnector",
-    "value": "isp",
-  },
-  Object {
-    "label": "Telecom",
-    "secondary": true,
-    "type": "konnector",
-    "value": "telecom",
-  },
-  Object {
-    "label": "Transportation",
-    "secondary": true,
-    "type": "konnector",
-    "value": "transport",
-  },
-]
-`;
-
-exports[`getCategoriesSelections helper should return an empty list if empty apps list provided 1`] = `Array []`;
-
-exports[`getCategoriesSelections helper should return an empty list if no apps provided 1`] = `Array []`;
-
-exports[`getCategoriesSelections helper should return include the all categories if includeAll option true 1`] = `
-Array [
-  Object {
-    "label": "All categories",
-    "secondary": false,
-    "value": "all",
-  },
-  Object {
-    "label": "Partners",
-    "secondary": false,
-    "type": "webapp",
-    "value": "partners",
-  },
-  Object {
-    "label": "The essentials",
-    "secondary": false,
-    "type": "webapp",
-    "value": "cozy",
-  },
-  Object {
-    "label": "Others",
-    "secondary": false,
-    "type": "webapp",
-    "value": "others",
-  },
-  Object {
-    "label": "Services",
-    "secondary": false,
-    "value": "konnectors",
-  },
-  Object {
-    "label": "ISP",
-    "secondary": true,
-    "type": "konnector",
-    "value": "isp",
-  },
-  Object {
-    "label": "Telecom",
-    "secondary": true,
-    "type": "konnector",
-    "value": "telecom",
-  },
-  Object {
-    "label": "Transportation",
-    "secondary": true,
-    "type": "konnector",
-    "value": "transport",
-  },
-]
-`;
-
-exports[`sortCategoriesAlphabetically helper should return a categories list alphabetically except for all and others 1`] = `
+exports[`sorter should return a categories list alphabetically except for all and others 1`] = `
 Array [
   "all",
   "isp",
@@ -375,7 +374,7 @@ Array [
 ]
 `;
 
-exports[`sortCategoriesAlphabetically helper should return a categories list alphabetically except for all and others 2`] = `
+exports[`sorter should return a categories list alphabetically except for all and others 2`] = `
 Array [
   "all",
   "telecom",

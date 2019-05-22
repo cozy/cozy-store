@@ -2,7 +2,7 @@
 
 exports[`AppsSection component should be rendered correctly with apps list, subtitle and onAppClick 1`] = `
 <div
-  className="sto-sections"
+  className="sto-sections u-mt-half"
 >
   <h1
     className="sto-sections-title u-title-h1"
@@ -1076,18 +1076,20 @@ exports[`AppsSection component should render dropdown filter on mobile if no nav
   className="sto-sections"
 >
   <DropdownFilter
+    defaultValue={
+      Object {
+        "label": "All categories",
+        "secondary": false,
+        "value": "all",
+      }
+    }
+    onChange={[Function]}
     options={
       Array [
         Object {
           "label": "All categories",
           "secondary": false,
           "value": "all",
-        },
-        Object {
-          "label": "Partners",
-          "secondary": false,
-          "type": "webapp",
-          "value": "partners",
         },
         Object {
           "label": "The essentials",
@@ -1100,6 +1102,12 @@ exports[`AppsSection component should render dropdown filter on mobile if no nav
           "secondary": false,
           "type": "webapp",
           "value": "others",
+        },
+        Object {
+          "label": "Partners",
+          "secondary": false,
+          "type": "webapp",
+          "value": "partners",
         },
         Object {
           "label": "Services",
@@ -1479,18 +1487,20 @@ exports[`AppsSection component should render dropdown filter on tablet if no nav
   className="sto-sections"
 >
   <DropdownFilter
+    defaultValue={
+      Object {
+        "label": "All categories",
+        "secondary": false,
+        "value": "all",
+      }
+    }
+    onChange={[Function]}
     options={
       Array [
         Object {
           "label": "All categories",
           "secondary": false,
           "value": "all",
-        },
-        Object {
-          "label": "Partners",
-          "secondary": false,
-          "type": "webapp",
-          "value": "partners",
         },
         Object {
           "label": "The essentials",
@@ -1503,6 +1513,12 @@ exports[`AppsSection component should render dropdown filter on tablet if no nav
           "secondary": false,
           "type": "webapp",
           "value": "others",
+        },
+        Object {
+          "label": "Partners",
+          "secondary": false,
+          "type": "webapp",
+          "value": "partners",
         },
         Object {
           "label": "Services",
