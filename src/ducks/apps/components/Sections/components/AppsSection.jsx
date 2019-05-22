@@ -18,7 +18,7 @@ const _renderAppComponent = (app, t, onAppClick, isMobile) => {
   )
 }
 
-const appSorter = t => app => getTranslatedManifestProperty(app, 'name', t)
+const makeNameGetter = t => app => getTranslatedManifestProperty(app, 'name', t)
 
 export const AppsSection = ({
   t,
@@ -33,7 +33,7 @@ export const AppsSection = ({
       {subtitle}
       {appsList && !!appsList.length && (
         <div className="sto-sections-list">
-          {sortBy(appsList, appSorter(t)).map(app =>
+          {sortBy(appsList, makeNameGetter(t)).map(app =>
             _renderAppComponent(app, t, onAppClick, isMobile)
           )}
         </div>
