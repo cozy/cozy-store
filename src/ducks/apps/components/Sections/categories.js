@@ -58,19 +58,19 @@ export const addLabel = (cat, t) => ({
 })
 
 /**
- * Returns unlabelised/unsorted categories from a list of apps
+ * Returns category options from a list of apps
  * @param  {Array<App>}  apps
- * @param  {Boolean} includeAll - Whether to add an "All" option
+ * @param  {Object}  options
+ * @param  {Boolean} options.includeAll - Whether to add an "All" option
+ * @param  {Boolean} options.addLabel - Function to add a label to generated categories.
+ *                                      If passed, generated categories will be sorted.
  * @return {Array<CategoryOption>}
  */
-export const generateOptionsFromApps = (
-  apps,
-  includeAll = false,
-  _addLabel
-) => {
-  const addLabel = x => (_addLabel ? _addLabel(x) : x)
+export const generateOptionsFromApps = (apps, options = {}) => {
+  const includeAll = options.includeAll || false
+  const addLabel = x => (options.addLabel ? options.addLabel(x) : x)
   if (!apps || !apps.length) return []
-  let appsCategories = includeAll
+  let allCategoryOptions = includeAll
     ? [
         {
           value: 'all',
@@ -81,27 +81,29 @@ export const generateOptionsFromApps = (
 
   for (const type of [APP_TYPE.WEBAPP, APP_TYPE.KONNECTOR]) {
     const catApps = groupApps(apps.filter(a => a.type === type))
+    // Add an entry to filter by all konnectors
     if (type === APP_TYPE.KONNECTOR) {
-      // add konnectors at the end
-      appsCategories.push(
+      allCategoryOptions.push(
         addLabel({
           value: 'konnectors',
           secondary: false
         })
       )
     }
-    const options = Object.keys(catApps).map(cat => {
+    const categoryOptions = Object.keys(catApps).map(cat => {
       return addLabel({
         value: cat,
         type: type,
         secondary: type === APP_TYPE.KONNECTOR
       })
     })
-    if (_addLabel) {
-      options.sort(sorter)
+
+    // Since options have been labelled, it's possible to sort them
+    if (options.addLabel) {
+      categoryOptions.sort(sorter)
     }
-    appsCategories = appsCategories.concat(options)
+    allCategoryOptions = allCategoryOptions.concat(categoryOptions)
   }
 
-  return appsCategories
+  return allCategoryOptions
 }

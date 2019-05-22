@@ -44,25 +44,28 @@ describe('generateOptionsFromApps', () => {
   const addLabel = x => catUtils.addLabel(x, tMock)
   it('should return a list of categories options for a select input based on the apps list', () => {
     expect(
-      catUtils.generateOptionsFromApps(mockApps, false, addLabel)
+      catUtils.generateOptionsFromApps(mockApps, {
+        includeAll: false,
+        addLabel
+      })
     ).toMatchSnapshot()
   })
 
   it('should return include the all categories if includeAll option true', () => {
     expect(
-      catUtils.generateOptionsFromApps(mockApps, true, addLabel)
+      catUtils.generateOptionsFromApps(mockApps, { includeAll: true, addLabel })
     ).toMatchSnapshot()
   })
 
   it('should return an empty list if empty apps list provided', () => {
     expect(
-      catUtils.generateOptionsFromApps([], false, addLabel)
+      catUtils.generateOptionsFromApps([], { includeAll: false, addLabel })
     ).toMatchSnapshot()
   })
 
   it('should return an empty list if no apps provided', () => {
     expect(
-      catUtils.generateOptionsFromApps(null, false, addLabel)
+      catUtils.generateOptionsFromApps(null, { includeAll: false, addLabel })
     ).toMatchSnapshot()
   })
 })

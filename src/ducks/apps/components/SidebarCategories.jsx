@@ -52,11 +52,10 @@ export class SidebarCategories extends Component {
     }
 
     const addLabel = cat => categoryUtils.addLabel(cat, t)
-    const options = categoryUtils.generateOptionsFromApps(
-      appsList,
-      false,
+    const options = categoryUtils.generateOptionsFromApps(appsList, {
+      includeAll: false,
       addLabel
-    )
+    })
 
     // compute sidebar categories links
     const linksArray = options.map(cat => {

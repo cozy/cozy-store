@@ -68,7 +68,9 @@ export class Sections extends Component {
       .sort(catUtils.sorter)
 
     const dropdownDisplayed = hasNav && (isMobile || isTablet)
-    const rawSelectOptions = catUtils.generateOptionsFromApps(apps, true)
+    const rawSelectOptions = catUtils.generateOptionsFromApps(apps, {
+      includeAll: true
+    })
     const selectOptions = rawSelectOptions.map(option =>
       catUtils.addLabel(option, t)
     )
