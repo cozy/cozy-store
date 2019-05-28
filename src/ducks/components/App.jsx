@@ -32,7 +32,7 @@ export class App extends Component {
   }
 
   render() {
-    const defaultPart = enabledPages[0]
+    const defaultPart = enabledPages ? enabledPages[0] : 'discover'
     return (
       <Layout>
         {flag('switcher') && <FlagSwitcher />}
