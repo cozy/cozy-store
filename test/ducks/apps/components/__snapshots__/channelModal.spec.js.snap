@@ -25,7 +25,7 @@ exports[`ChannelModal component should be rendered correctly if app found and fr
       secondaryType="secondary"
       size="small"
     >
-      <Wrapped
+      <withClient(Connect(Wrapper))
         appSlug="photos"
         channel="beta"
         onCancel={[Function]}
@@ -61,7 +61,7 @@ exports[`ChannelModal component should not break the permissions part if no perm
       secondaryType="secondary"
       size="small"
     >
-      <Wrapped
+      <withClient(Connect(Wrapper))
         appSlug="photos"
         channel="beta"
         onCancel={[Function]}
