@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InstallRoute component should display install modal if app found in the registry but not installed 1`] = `
-<Wrapped
+<withClient(Wrapper)
   app={
     Object {
       "categories": Array [
@@ -44,7 +44,7 @@ exports[`InstallRoute component should display install modal if app found in the
 `;
 
 exports[`InstallRoute component should display install modal if app found in the registry installed but with available version 1`] = `
-<Wrapped
+<withClient(Wrapper)
   app={
     Object {
       "availableVersion": "3.0.0",
