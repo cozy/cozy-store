@@ -3368,10 +3368,10 @@ cozy-flags@1.9.0:
   dependencies:
     microee "^0.0.6"
 
-cozy-interapp@0.4.5:
-  version "0.4.5"
-  resolved "https://registry.yarnpkg.com/cozy-interapp/-/cozy-interapp-0.4.5.tgz#115912a389448ebb8dc532972270b46e15010063"
-  integrity sha512-CuiZ4PIrDj+jcK1sCizFNCC9r8+/sgKXLtDgkpKHRHk+q0lhvqz/fQAVPWiIsZAr9WdbfxaBfsJCoHP/41+G1Q==
+cozy-interapp@0.4.6:
+  version "0.4.6"
+  resolved "https://registry.yarnpkg.com/cozy-interapp/-/cozy-interapp-0.4.6.tgz#cc4b317be6a7f7ef7591c5a50bc50bb4618067d2"
+  integrity sha512-M7hUyEkvTt2fk7wVgXXfOT6OwPzAVG7+c8par+FQAE4xFpfidMfV2nGkVKo/BbFsn6NXIwJp8wc2F28rVcciKA==
 
 cozy-logger@1.3.1:
   version "1.3.1"
