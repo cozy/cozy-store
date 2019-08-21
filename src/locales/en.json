@@ -223,6 +223,7 @@
         "contacts.groups": "Contacts groups",
         "contacts.accounts": "Accounts linked to the contacts",
         "files": "Files",
+        "identities": "Identities",
         "jobs": "Jobs",
         "konnectors": "Connectors for importing data",
         "konnectors.result": "Connectors results",
