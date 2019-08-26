@@ -63,7 +63,7 @@
     "cozy-realtime": "3.0.1",
     "cozy-ui": "19.41.2",
     "emoji-js": "3.4.1",
-    "eslint-config-prettier": "4.3.0",
+    "eslint-config-prettier": "6.1.0",
     "focus-trap-react": "4.0.1",
     "lodash.get": "4.4.2",
     "node-fetch": "2.6.0",
