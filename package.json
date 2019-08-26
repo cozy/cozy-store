@@ -56,7 +56,7 @@
   },
   "dependencies": {
     "cozy-bar": "7.6.0",
-    "cozy-client": "6.48.0",
+    "cozy-client": "6.58.1",
     "cozy-flags": "1.9.3",
     "cozy-interapp": "0.4.6",
     "cozy-logger": "1.3.1",
