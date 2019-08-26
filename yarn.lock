@@ -2251,22 +2251,6 @@ babel-polyfill@6.26.0:
     core-js "^2.5.0"
     regenerator-runtime "^0.10.5"
 
-babel-preset-cozy-app@1.5.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/babel-preset-cozy-app/-/babel-preset-cozy-app-1.5.1.tgz#a70baeeac71d59a8c87c2e75437e281a328cbb71"
-  integrity sha512-EJkp1gBY0EsUj+bkdGHSAhZua7odKQQQkrSCq1EJDgT3RiLdCwu7XFibUdjH/qNVfYhuNldYjXqI7nGeP5Lr4g==
-  dependencies:
-    "@babel/core" "7.2.2"
-    "@babel/helper-plugin-utils" "7.0.0"
-    "@babel/plugin-proposal-class-properties" "7.3.0"
-    "@babel/plugin-proposal-object-rest-spread" "7.3.2"
-    "@babel/plugin-transform-runtime" "7.2.0"
-    "@babel/preset-env" "7.3.1"
-    "@babel/preset-react" "7.0.0"
-    "@babel/runtime" "7.2.0"
-    browserslist-config-cozy "0.2.0"
-    lodash "4.17.11"
-
 babel-preset-cozy-app@1.5.2:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/babel-preset-cozy-app/-/babel-preset-cozy-app-1.5.2.tgz#56ecfa524b33ee89022f122079eedc6d8da59448"
@@ -2282,6 +2266,22 @@ babel-preset-cozy-app@1.5.2:
     "@babel/runtime" "7.2.0"
     browserslist-config-cozy "0.2.0"
     lodash "4.17.13"
+
+babel-preset-cozy-app@1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/babel-preset-cozy-app/-/babel-preset-cozy-app-1.6.0.tgz#588362c0e8aac5f3468ff07a96312e9bfc8f8319"
+  integrity sha512-aWCopE9ilqgt25hsPdsAq8flUxWNU2Pk0L49Jm50ec17T4DmZSdH4NobmfK6VmA6f2huacA95D5XVqObPmr98A==
+  dependencies:
+    "@babel/core" "7.2.2"
+    "@babel/helper-plugin-utils" "7.0.0"
+    "@babel/plugin-proposal-class-properties" "7.3.0"
+    "@babel/plugin-proposal-object-rest-spread" "7.3.2"
+    "@babel/plugin-transform-runtime" "7.2.0"
+    "@babel/preset-env" "7.3.1"
+    "@babel/preset-react" "7.0.0"
+    "@babel/runtime" "7.2.0"
+    browserslist-config-cozy "0.2.0"
+    lodash "4.17.15"
 
 babel-preset-jest@^23.2.0:
   version "23.2.0"
@@ -8023,15 +8023,15 @@ lodash@4.17.13:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.13.tgz#0bdc3a6adc873d2f4e0c4bac285df91b64fc7b93"
   integrity sha512-vm3/XWXfWtRua0FkUyEHBZy8kCPjErNBT9fJx8Zvs+U6zjqPbTUOpkaoum3O5uiA8sm+yNMHXfYkTUHFoMxFNA==
 
+lodash@4.17.15, lodash@^4.17.13:
+  version "4.17.15"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
+  integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
+
 lodash@^4.14.2, lodash@^4.15.0, lodash@^4.2.1:
   version "4.17.10"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
   integrity sha512-UejweD1pDoXu+AD825lWwp4ZGtSwgnpZxb3JDViD7StjQz+Nb/6l093lx4OQ0foGWNRoc19mWy7BzL+UAK2iVg==
-
-lodash@^4.17.13:
-  version "4.17.15"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
-  integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
 
 log-symbols@^2.2.0:
   version "2.2.0"
