@@ -3006,17 +3006,17 @@ cozy-logger@1.3.1:
   dependencies:
     json-stringify-safe "5.0.1"
 
-cozy-realtime@3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/cozy-realtime/-/cozy-realtime-3.0.1.tgz#be244b4b810992b915920fd10be3c765da5bed6d"
-  integrity sha512-nlSJtIkl29Syq5RW6Y49XvVUp3gJ7Q8Y6J+qHgxinc2ftCXHWpEBvYkvsH5LN+KdHSLIbywy94cO7BHv29pZEQ==
-  dependencies:
-    minilog "3.1.0"
-
 cozy-realtime@3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/cozy-realtime/-/cozy-realtime-3.1.0.tgz#ae06ef1c8174408aae70f5171820275880a4a587"
   integrity sha512-4rLsIFAGlUQWSiMm1jgkzoPqnbH4iSDndeNLFCLhVmM93eJBztWIfXSwFQ2utvOuIvMjHeT5iw7v6GQvwzfBFA==
+  dependencies:
+    minilog "3.1.0"
+
+cozy-realtime@3.1.4:
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/cozy-realtime/-/cozy-realtime-3.1.4.tgz#bfc0cc03b2fb2e16c475361069884a7cb50e77c4"
+  integrity sha512-sdkLoEtdLj0EqhUf1aDCxvYL6u4x9x8m7r6w/+jrv1cDh3ioc6Yr9inihldoiwZylnEU9fTT/7AIrnlrpXRi6w==
   dependencies:
     minilog "3.1.0"
 
