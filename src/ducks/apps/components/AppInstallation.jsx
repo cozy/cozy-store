@@ -19,6 +19,8 @@ import { getTranslatedManifestProperty } from 'lib/helpers'
 import { hasPendingUpdate } from 'ducks/apps/appStatus'
 import storeConfig from 'config'
 import compose from 'lodash/flowRight'
+import get from 'lodash/get'
+import pickBy from 'lodash/pickBy'
 
 import { APP_TYPE, getAppBySlug, installAppFromRegistry } from 'ducks/apps'
 import { withClient } from 'cozy-client'
@@ -115,6 +117,14 @@ export class AppInstallation extends Component {
       )
     }
 
+    const termsCheckboxTranslationOpts = pickBy(
+      {
+        url: get(app, 'terms.url'),
+        partnerName: get(app, 'partnership.name')
+      },
+      Boolean
+    )
+
     return (
       <React.Fragment>
         <ModalHeader title={t('app_modal.install.title')} />
@@ -155,9 +165,17 @@ export class AppInstallation extends Component {
                   disabled={isInstalling}
                 >
                   <ReactMarkdownWrapper
-                    source={t('app_modal.install.terms', {
-                      url: app.terms.url
-                    })}
+                    source={
+                      app.partnership
+                        ? t(
+                            'app_modal.install.termsWithPartnership',
+                            termsCheckboxTranslationOpts
+                          )
+                        : t(
+                            'app_modal.install.terms',
+                            termsCheckboxTranslationOpts
+                          )
+                    }
                   />
                 </Checkbox>
               </div>
