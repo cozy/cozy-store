@@ -23,7 +23,7 @@ export const SmallAppItem = ({ t, app, name, namePrefix, onClick }) => {
           {namePrefix ? `${namePrefix} ${name}` : name}
         </h4>
         {developer.name && (
-          <p className="sto-small-app-item-developer">
+          <p className="sto-small-app-item-developer" title={developer.name}>
             {`${t('app_item.by')} ${developer.name}`}
           </p>
         )}
