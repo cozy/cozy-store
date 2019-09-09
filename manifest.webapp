@@ -79,6 +79,32 @@
         "ALL"
       ]
     },
+    "accounts": {
+      "description": "Required to manage accounts associated to konnectors",
+      "type": "io.cozy.accounts",
+      "verbs": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ]
+    },
+    "files": {
+      "description": "Required to access folders",
+      "type": "io.cozy.files",
+      "verbs": [
+        "GET",
+        "PATCH",
+        "POST"
+      ]
+    },
+     "jobs": {
+      "description": "Required to run the konnectors",
+      "type": "io.cozy.jobs",
+      "verbs": [
+        "ALL"
+      ]
+    },
     "settings": {
       "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
       "type": "io.cozy.settings",
