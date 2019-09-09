@@ -9,6 +9,9 @@ import CozyClient from 'cozy-client'
 import store from 'lib/store'
 import schema from 'lib/schema'
 
+import 'cozy-ui/transpiled/react/stylesheet.css'
+import 'cozy-ui/dist/cozy-ui.min.css'
+
 const renderApp = function({ client, lang }) {
   const Root = require('ducks/components/Root').default
   render(
