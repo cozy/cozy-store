@@ -9,28 +9,38 @@ import Intents from 'cozy-interapp'
 import { APP_TYPE } from 'ducks/apps'
 import compose from 'lodash/flowRight'
 
+import { Routes as HarvestRoutes } from 'cozy-harvest-lib'
+
 export class ConfigureModal extends Component {
   constructor(props) {
     super(props)
     const { app, onNotInstalled, onWebApp } = this.props
 
-    if (!app.installed) {
+    /*  if (!app.installed) {
       onNotInstalled()
     }
 
     if (app.type === APP_TYPE.WEBAPP) {
       onWebApp()
-    }
+    } */
   }
 
   componentWillMount() {
     const { client } = this.props
-    this.intents = new Intents({ client })
+    //this.intents = new Intents({ client })
   }
 
   render() {
     const { app, dismissAction, onSuccess, breakpoints = {} } = this.props
     const { isMobile } = breakpoints
+
+    return (
+      <HarvestRoutes
+        konnectorRoot="/discover/:konnectorSlug/configure"
+        konnector={app}
+        onDismiss={() => history.push('/')}
+      />
+    )
     return (
       <IntentModal
         create={this.intents.create.bind(this.intents)}

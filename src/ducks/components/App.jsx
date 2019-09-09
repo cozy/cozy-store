@@ -36,9 +36,11 @@ export class App extends Component {
     return (
       <Layout>
         {flag('switcher') && <FlagSwitcher />}
-        <Alerter />
+
         <Sidebar />
         <Main>
+          <Alerter />
+
           <Switch>
             <Route path="/redirect" component={IntentRedirect} />
             {enabledPages.map(name => {

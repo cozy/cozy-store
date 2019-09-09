@@ -5,10 +5,11 @@ import ConfigureModal from 'ducks/apps/components/ConfigureModal'
 
 export const ConfigureRoute = ({ getApp, isFetching, parent, redirectTo }) => (
   <Route
-    path={`/${parent}/:appSlug/configure`}
+    path={`/${parent}/:appSlug/configure/`}
     render={({ match }) => {
       if (isFetching) return null
       const app = getApp(match)
+      console.log('app', app)
       if (!app) return redirectTo(`/${parent}`)
       const appPath = `/${parent}/${app.slug}`
       const redirectToApp = () => redirectTo(appPath)
