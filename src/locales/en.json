@@ -214,6 +214,7 @@
       "cozy": {
         "accounts": "Login details",
         "apps": "List of installed applications",
+        "apps.suggestions": "Suggestions of applications",
         "bank.accounts": "Banking accounts",
         "bank.balancehistories": "Bank balances",
         "bank.groups": "Banking groups",
