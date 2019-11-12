@@ -7,6 +7,7 @@
   "fr.maif.maifuser.societaire": "profile",
   "io.cozy.accounts": "accounts",
   "io.cozy.apps": "apps",
+  "io.cozy.apps.suggestions": "apps",
   "io.cozy.bank.accounts": "bank-accounts",
   "io.cozy.bank.groups": "bank-groups",
   "io.cozy.bank.operations": "bank-operations",
