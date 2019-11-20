@@ -17,6 +17,7 @@
   "io.cozy.contacts.groups": "contacts-groups",
   "io.cozy.contacts.accounts": "contacts-accounts",
   "io.cozy.files": "files",
+  "io.cozy.files.versions": "files-versions",
   "io.cozy.identities": "identities",
   "io.cozy.jobs": "task-to-effectuate",
   "io.cozy.konnectors": "konnectors",
