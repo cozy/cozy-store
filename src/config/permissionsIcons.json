@@ -12,6 +12,7 @@
   "io.cozy.bank.groups": "bank-groups",
   "io.cozy.bank.operations": "bank-operations",
   "io.cozy.bank.settings": "settings",
+  "io.cozy.bank.recurrence": "bank-recurrence",
   "io.cozy.bills": "bill",
   "io.cozy.contacts": "contacts",
   "io.cozy.contacts.groups": "contacts-groups",
