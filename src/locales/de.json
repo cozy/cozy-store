@@ -1,0 +1,274 @@
+{
+  "discover": {
+    "title": "Anwendungen",
+    "get_started": "Starte mit Cozy"
+  },
+  "intent": {
+    "install": {
+      "error": {
+        "fetch": "Beim Holen der Dateien ist ein Fehler aufgetreten",
+        "install": "Bei der Installation ist ein Fehler aufgetreten",
+        "installed": "Die Anwendung ist bereits installiert",
+        "unavailable": "Die Anwendung ist nicht verfügbar"
+      },
+      "success": "The application %{appName} is correctly installed.",
+      "terminate": "Got it!"
+    },
+    "service": {
+      "creation": {
+        "error": {
+          "title": "Error during intent service creation"
+        }
+      }
+    }
+  },
+  "myapps": {
+    "title": "Meine Anwendungen"
+  },
+  "nav": {
+    "discover": "Anwendungen",
+    "myapps": "Meine Anwendungen"
+  },
+  "soon": {
+    "title": "Kommt bald",
+    "description": "Die Store Anwendung ist noch nicht komplett verfügbar. Wir arbeiten momentan dran. Für mehr Informationen kannst du uns gerne über contact@cozycloud.cc kontaktieren."
+  },
+  "loading": {
+    "appsFetching": "Lade..."
+  },
+
+  "app_modal": {
+    "uninstall": {
+      "title": "Deinstalliere diese Anwendung",
+      "description": "Diese Anwendung wird von deiner Cozy %{cozyName} entfernt. Bist du dir sicher dass diese Anwendung entfernt werden soll?",
+      "cancel": "Abbruch",
+      "uninstall": "Deinstallieren",
+      "message": {
+        "success": "Diese Anwendung wurde korrekt deinstalliert.",
+        "error": "Etwas ist schiefgelaufen beim deinstallieren dieser Anwendung. Grund: %{message}"
+      },
+      "linked_app": {
+        "error": "A mobile application is linked to this application, it must be revoked to uninstall this application. To do this, you can go on",
+        "link": "your page for managing connected devices"
+      }
+    },
+    "install": {
+      "title": "Datenverbrauch",
+      "cancel": "Abbrechen",
+      "install": "Installieren",
+      "update": "Aktualisieren",
+      "terms": "I have read and I accept [this application related ToS](%{url})",
+      "termsWithPartnership": "I accept [the %{partnerName} Terms of Service](%{url}) and I accept the transmission of my data to its partner Cozy Cloud.",
+      "message": {
+        "version_error": "Etwas ist schiefgelaufen beim Laden der Informationen der Anwendung. Grund: %{message}",
+        "install_error": "Etwas ist schiefgelaufen beim Installieren der Anwendung in deinem Cozy. Grund: %{message}"
+      },
+      "alert": {
+        "install_error": "Something went wrong when installing the application %{name} on your Cozy. Reason: %{message}",
+        "dismiss": "dismiss"
+
+      }
+    },
+    "permissions": {
+      "title": "Berechtigungen"
+    }
+  },
+
+  "app_page": {
+    "back": "Zu­rück zur Liste",
+    "install": "Installieren",
+    "uninstall": "Deinstallieren",
+    "update": "Aktualisieren",
+    "konnector": {
+      "open": "Öffnen",
+      "install": "Installieren",
+      "uninstall": "Deinstallieren"
+    },
+    "permissions": {
+      "button": {
+        "label": "Zeige Berechtigungen"
+      }
+    },
+    "webapp": {
+      "open": "Öffnen"
+    },
+    "maintenance": "Was geschieht?",
+    "interrupted": "Service unterbrochen",
+    "description": "Beschreibung",
+    "changes": "Was gibt's Neues?",
+    "infos": {
+      "title": "Informationen",
+      "categories": "Kategorien",
+      "langs": "Sprachen",
+      "mobile_app": "Mobile Anwendungen",
+      "beta": "Lade die Beta",
+      "dev": "Get Dev",
+      "version": {
+        "title": "Version",
+        "unknown": "Unbekannt"
+      }
+    },
+    "developer_infos": "Entwickler Details",
+    "preview": "Vorschau",
+    "more": "Mehr"
+  },
+
+  "sections": {
+    "applications": "Anwendungen",
+    "konnectors": "Services"
+  },
+
+  "app_vote": {
+    "line1": "Findest du nicht was du suchst?",
+    "line2": "Sag's uns!"
+  },
+
+  "app_item": {
+    "by": "Von",
+    "installed": "Installiert",
+    "maintenance": "In Wartung",
+    "update": "Update available"
+  },
+
+  "app_categories": {
+    "list_separator": ", ",
+    "all": "All categories",
+    "konnectors": "Services",
+    "banking": "Banking",
+    "cozy": "The essentials",
+    "education": "Education",
+    "energy": "Energy",
+    "health": "Health",
+    "host_provider": "Host",
+    "insurance": "Insurance",
+    "isp": "ISP",
+    "online_services": "Online services",
+    "others": "Others",
+    "mes_infos": "MesInfos experimentation",
+    "partners": "Partners",
+    "productivity": "Productivity",
+    "press": "Press",
+    "ptnb": "PTNB experimentation",
+    "public_service": "Public services",
+    "shopping": "Shopping",
+    "social": "Social",
+    "telecom": "Telecom",
+    "transport": "Transportation"
+  },
+
+  "app_langs": {
+    "list_separator": ", ",
+    "fr": "Französisch",
+    "en": "Englisch",
+    "es": "Spanisch",
+    "ja": "Japanisch",
+    "nl": "Niederländisch",
+    "de": "Deutsch",
+    "ru": "Russisch",
+    "nl_NL": "Niederländisch (Niederlande)",
+    "ko": "Koreanisch",
+    "pl": "Polnisch",
+    "pt": "Portugisisch",
+    "da": "Dänisch",
+    "ro_RO": "Rumänisch (Rumänien)",
+    "pt_BR": "Portugisisch (Brasilien)",
+    "zh_CN": "Chinesisch (China)",
+    "ar": "Arabisch",
+    "it": "Italienisch",
+    "ro": "Rumänisch",
+    "eo": "Esperanto",
+    "de_DE": "Deutsch (Deutschland)",
+    "sq": "Albanisch",
+    "tr": "Türkisch",
+    "uk_UA": "Ukrainisch (Ukraine)",
+    "ru_RU": "Russisch (Russland)",
+    "sq_AL": "Albanisch (Albanien)",
+    "ca": "Katalanisch",
+    "ca_ES": "Katalanisch (Spanien)",
+    "zh": "Chinesisch",
+    "zh_TW": "Chinesisch (Taiwan)",
+    "cs": "Tschechisch",
+    "cs_CZ": "Tschechisch (Tschechien)",
+    "el": "Griechisch",
+    "id": "Indonesisch",
+    "it_IT": "Italienisch (Italien)",
+    "sk": "Slowakisch",
+    "sk_SK": "Slowakisch (Slowakei)",
+    "es_CO": "Spanisch (Kolumbien)",
+    "es_ES": "Spanisch (Spanien)",
+    "sv": "Schwedisch"
+  },
+
+  "doctypes": {
+    "com": {
+      "tricount.expenses": "Expenses Tricount",
+      "splitwise.expenses": "Expenses Splitwise"
+    },
+    "cc": {
+      "cozycloud": {
+        "autocategorization": "Categorization model enrichment file",
+        "sentry": "The application logs"
+      }
+    },
+    "io": {
+      "cozy": {
+        "accounts": "Login details",
+        "apps": "List of installed applications",
+        "bank.accounts": "Banking accounts",
+        "bank.balancehistories": "Bank balances",
+        "bank.groups": "Banking groups",
+        "bank.operations": "Bank operations",
+        "bank.settings": "Banks app settings",
+        "bills": "Bills",
+        "contacts": "Contacts",
+        "contacts.groups": "Contacts groups",
+        "contacts.accounts": "Accounts linked to the contacts",
+        "files": "Files",
+        "identities": "Identities",
+        "jobs": "Jobs",
+        "konnectors": "Connectors for importing data",
+        "konnectors.result": "Connectors results",
+        "netflix.views": "Netflix history",
+        "netflix.opinions": "Netflix opinions",
+        "notifications": "Notifications",
+        "oauth.clients": "Connected devices",
+        "permissions": "Delegating permissions",
+        "photos.albums": "Photo albums",
+        "settings": "Settings",
+        "triggers": "Scheduling jobs"
+      }
+    },
+    "fr": {
+      "maif": {
+        "maifuser": {
+          "contrat": "Contract (Maif)",
+          "home": "Home (Maif)",
+          "family": "Family (Maif)",
+          "paymentterms": "Payment terms (Maif)",
+          "sinistre": "Damage (Maif)",
+          "societaire": "Societary (Maif)"
+        }
+      }
+    },
+    "org": {
+      "fing": {
+        "mesinfos": {
+          "insuranceclaim": "Insurance claims (Maif)"
+        }
+      }
+    }
+  },
+
+  "permissions": {
+    "linxo": "Display your banking accounts in your Cozy, thanks to the secured connexion to your bank by our partner Linxo ([linxo.com](https://linxo.com))",
+    "banking": "Display your banking accounts in your Cozy, thanks to the secured connexion to your bank by our partner %{name} ([%{domain}](https://%{domain}))",
+    "reason": "**Grund: **",
+    "developer_default": "Der Entwickler dieser Anwendung",
+    "description": {
+      "only_internal": "%{name} commits to not giving the data used by the application:",
+      "internal": "%{name} commits to not giving the other data used by the application:",
+      "external": "%{name} commits to giving only the following data:",
+      "nothing": "%{appName} doesn't require any data access to work correctly on your Cozy."
+    }
+  }
+}
