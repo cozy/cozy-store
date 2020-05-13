@@ -53,9 +53,6 @@ jobs:
         - if [ "$TRAVIS_SECURE_ENV_VARS" != "false" ]; then chmod 600 /tmp/id_rsa_downcloud_cozy-store; fi
         - if [ "$TRAVIS_SECURE_ENV_VARS" != "false" ]; then ssh-add /tmp/id_rsa_downcloud_cozy-store; fi
         - curl -fsSL https://bootstrap.pypa.io/get-pip.py | python - --user
-        - travis_retry pip install --user transifex-client==0.12.5
-        - install -m0644 .transifexrc.tpl ~/.transifexrc
-        - echo "password = $TX_PASSWD" >> ~/.transifexrc
       script: yarn build
       deploy:
         - provider: script
