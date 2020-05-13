@@ -1,0 +1,274 @@
+{
+  "discover": {
+    "title": "Apps",
+    "get_started": "Beginnen met Cozy"
+  },
+  "intent": {
+    "install": {
+      "error": {
+        "fetch": "Er is een fout opgetreden tijdens het ophalen van de gegevens",
+        "install": "Er is een fout opgetreden tijdens de installatie",
+        "installed": "De app is al geïnstalleerd",
+        "unavailable": "De app is niet beschikbaar"
+      },
+      "success": "De app '%{appName}' is correct geïnstalleerd.",
+      "terminate": "Ik begrijp het!"
+    },
+    "service": {
+      "creation": {
+        "error": {
+          "title": "Fout tijdens creëren van dienst"
+        }
+      }
+    }
+  },
+  "myapps": {
+    "title": "Mijn apps"
+  },
+  "nav": {
+    "discover": "Apps",
+    "myapps": "Mijn apps"
+  },
+  "soon": {
+    "title": "Binnenkort",
+    "description": "De Winkel-app is nog niet volledig beschikbaar, maar we werken er hard aan. Als je meer te weten wilt komen, neem dan contact met ons op: contact@cozycloud.cc"
+  },
+  "loading": {
+    "appsFetching": "Bezig met laden..."
+  },
+
+  "app_modal": {
+    "uninstall": {
+      "title": "Deze app verwijderen",
+      "description": "Deze app wordt verwijderd uit je Cozy %{cozyName}. Weet je zeker dat je __deze app wilt verwijderen__?",
+      "cancel": "Annuleren",
+      "uninstall": "Verwijderen",
+      "message": {
+        "success": "De app is verwijderd.",
+        "error": "Er is een fout opgetreden tijdens het verwijderen van de app. Reden: %{message}"
+      },
+      "linked_app": {
+        "error": "Er is een mobiele app gekoppeld aan deze app. De appmachtiging moet worden ingetrokken voordat deze verwijderd kan worden. Dit kan via",
+        "link": "de pagina waarop je gekoppelde apparaten kunt beheren"
+      }
+    },
+    "install": {
+      "title": "Gegevensgebruik",
+      "cancel": "Annuleren",
+      "install": "Installeren",
+      "update": "Bijwerken",
+      "terms": "Ik heb de [aan deze app verbonden Algemene Voorwaarden](%{url}) gelezen en ga akkoord",
+      "termsWithPartnership": "Ik ga akkoord met [de algemene voorwaarden van %{partnerName} ](%{url}) en het synchroniseren van mijn gegevens naar Cozy Cloud.",
+      "message": {
+        "version_error": "Er is een fout opgetreden tijdens het ophalen van de app-informatie. Reden: %{message}",
+        "install_error": "Er is een fout opgetreden tijdens het installeren van de app. Reden: %{message}"
+      },
+      "alert": {
+        "install_error": "Er is een fout opgetreden tijdens het installeren van de app %{name}. Reden: %{message}",
+        "dismiss": "verwerpen"
+
+      }
+    },
+    "permissions": {
+      "title": "Machtigingen"
+    }
+  },
+
+  "app_page": {
+    "back": "Terug naar de lijst",
+    "install": "Installeren",
+    "uninstall": "Verwijderen",
+    "update": "Bijwerken",
+    "konnector": {
+      "open": "Openen",
+      "install": "Installeren",
+      "uninstall": "Verwijderen"
+    },
+    "permissions": {
+      "button": {
+        "label": "Machtigingen tonen"
+      }
+    },
+    "webapp": {
+      "open": "Openen"
+    },
+    "maintenance": "Wat gebeurt er?",
+    "interrupted": "Dienst onderbroken",
+    "description": "Omschrijving",
+    "changes": "Wijzigingslog",
+    "infos": {
+      "title": "Informatie",
+      "categories": "Categorieën",
+      "langs": "Talen",
+      "mobile_app": "Mobiele app",
+      "beta": "Bèta verkrijgen",
+      "dev": "Ontwikkelingsversie verkrijgen",
+      "version": {
+        "title": "Versie",
+        "unknown": "Onbekend"
+      }
+    },
+    "developer_infos": "Gegevens van ontwikkelaar",
+    "preview": "Voorbeeld",
+    "more": "Meer"
+  },
+
+  "sections": {
+    "applications": "Apps",
+    "konnectors": "Diensten"
+  },
+
+  "app_vote": {
+    "line1": "Niet gevonden wat je zocht?",
+    "line2": "Vertel het ons!"
+  },
+
+  "app_item": {
+    "by": "Door",
+    "installed": "Geïnstalleerd",
+    "maintenance": "In onderhoud",
+    "update": "Update beschikbaar"
+  },
+
+  "app_categories": {
+    "list_separator": ", ",
+    "all": "Alle categorieën",
+    "konnectors": "Diensten",
+    "banking": "Bank",
+    "cozy": "De essentiële dingen",
+    "education": "Educatie",
+    "energy": "Energie",
+    "health": "Gezondheid",
+    "host_provider": "Host",
+    "insurance": "Verzekering",
+    "isp": "Internetprovider",
+    "online_services": "Online diensten",
+    "others": "Overig",
+    "mes_infos": "MesInfos-experiment",
+    "partners": "Partners",
+    "productivity": "Productiviteit",
+    "press": "Pers",
+    "ptnb": "PTNB-experiment",
+    "public_service": "Openbare diensten",
+    "shopping": "Winkelen",
+    "social": "Sociaal",
+    "telecom": "Telecom",
+    "transport": "Vervoer"
+  },
+
+  "app_langs": {
+    "list_separator": ", ",
+    "fr": "Frans",
+    "en": "Engels",
+    "es": "Spaans",
+    "ja": "Japans",
+    "nl": "Nederlands (België)",
+    "de": "Duits",
+    "ru": "Russisch",
+    "nl_NL": "Nederlands (Nederland)",
+    "ko": "Koreaans",
+    "pl": "Pools",
+    "pt": "Portugees",
+    "da": "Deens",
+    "ro_RO": "Romaans (Roemenië)",
+    "pt_BR": "Portugees (Brazilië)",
+    "zh_CN": "Chinees (China)",
+    "ar": "Arabisch",
+    "it": "Italiaans",
+    "ro": "Romaans",
+    "eo": "Esperanto",
+    "de_DE": "Duits (Duitsland)",
+    "sq": "Albanees",
+    "tr": "Turks",
+    "uk_UA": "Oekraïens (Oekraïne)",
+    "ru_RU": "Russisch (Rusland)",
+    "sq_AL": "Albanees (Albanië)",
+    "ca": "Catalaans",
+    "ca_ES": "Catalaans (Spanje)",
+    "zh": "Chinees",
+    "zh_TW": "Chinees (Taiwan)",
+    "cs": "Tsjechisch",
+    "cs_CZ": "Tsjechisch (Tsjechië)",
+    "el": "Grieks",
+    "id": "Indonesisch",
+    "it_IT": "Italiaans (Italië)",
+    "sk": "Slowaaks",
+    "sk_SK": "Slowaaks (Slowakije)",
+    "es_CO": "Spaans (Colombia)",
+    "es_ES": "Spaans (Spanje)",
+    "sv": "Zweeds"
+  },
+
+  "doctypes": {
+    "com": {
+      "tricount.expenses": "Uitgaven (Tricount)",
+      "splitwise.expenses": "Uitgaven (gesplitst)"
+    },
+    "cc": {
+      "cozycloud": {
+        "autocategorization": "Categoriseringsmodel-verrijkingsbestand",
+        "sentry": "De app-logbestanden"
+      }
+    },
+    "io": {
+      "cozy": {
+        "accounts": "Inloggegevens",
+        "apps": "Lijst met geïnstalleerde apps",
+        "bank.accounts": "Bankrekeningen",
+        "bank.balancehistories": "Banksaldi",
+        "bank.groups": "Bankgroepen",
+        "bank.operations": "Bankhandelingen",
+        "bank.settings": "Bank-appinstellingen",
+        "bills": "Rekeningen",
+        "contacts": "Contactpersonen",
+        "contacts.groups": "Contactpersoongroepen",
+        "contacts.accounts": "Accounts gekoppeld aan contactpersonen",
+        "files": "Bestanden",
+        "identities": "Identiteiten",
+        "jobs": "Taken",
+        "konnectors": "Connectors voor het importeren van gegevens",
+        "konnectors.result": "Connectors-resultaten",
+        "netflix.views": "Netflix-geschiedenis",
+        "netflix.opinions": "Netflix-meningen",
+        "notifications": "Meldingen",
+        "oauth.clients": "Verbonden apparaten",
+        "permissions": "Bezig met overdragen van machtigingen...",
+        "photos.albums": "Foto-albums",
+        "settings": "Instellingen",
+        "triggers": "Bezig met inplannen van taken..."
+      }
+    },
+    "fr": {
+      "maif": {
+        "maifuser": {
+          "contrat": "Contract (Maif)",
+          "home": "Thuis (Maif)",
+          "family": "Familie (Maif)",
+          "paymentterms": "Betalingsvoorwaarden (Maif)",
+          "sinistre": "Schade (Maif)",
+          "societaire": "Maatschappelijk (Maif)"
+        }
+      }
+    },
+    "org": {
+      "fing": {
+        "mesinfos": {
+          "insuranceclaim": "Verzekeringsclaims (Maif)"
+        }
+      }
+    }
+  },
+
+  "permissions": {
+    "linxo": "Toon je bankrekeningen in je Cozy, met dank aan de beveiligde verbinding met je bank via onze partner Linxo ([linxo.com](https://linxo.com))",
+    "banking": "Toon je bankrekeningen in je Cozy, met dank aan de beveiligde verbinding met je bank via onze partner %{name} ([%{domain}](https://%{domain}))",
+    "reason": "**Reden:**",
+    "developer_default": "De ontwikkelaar van deze app",
+    "description": {
+      "only_internal": "%{name} verzekert dat de door de app gebruikte gegevens niet worden weggegeven:",
+      "internal": "%{name} verzekert dat de overige door de app gebruikte gegevens niet worden weggegeven:",
+      "external": "%{name} verzekert dat alleen de volgende gegevens worden weggegeven:",
+      "nothing": "%{appName} vereist geen gegevenstoegang om te werken op je Cozy."
+    }
+  }
+}

@@ -1,15 +1,15 @@
 {
   "discover": {
-    "title": "Applications",
-    "get_started": "Get started with Cozy"
+    "title": "Anwendungen",
+    "get_started": "Starte mit Cozy"
   },
   "intent": {
     "install": {
       "error": {
-        "fetch": "An error occured during data fetch",
-        "install": "An error occured during installation",
-        "installed": "Application is already installed",
-        "unavailable": "Application is not available"
+        "fetch": "Beim Holen der Dateien ist ein Fehler aufgetreten",
+        "install": "Bei der Installation ist ein Fehler aufgetreten",
+        "installed": "Die Anwendung ist bereits installiert",
+        "unavailable": "Die Anwendung ist nicht verfügbar"
       },
       "success": "The application %{appName} is correctly installed.",
       "terminate": "Got it!"
@@ -23,29 +23,29 @@
     }
   },
   "myapps": {
-    "title": "My Applications"
+    "title": "Meine Anwendungen"
   },
   "nav": {
-    "discover": "Applications",
-    "myapps": "My Applications"
+    "discover": "Anwendungen",
+    "myapps": "Meine Anwendungen"
   },
   "soon": {
-    "title": "Coming soon",
-    "description": "The Store application is not fully available yet, we are still working on it. For more information, please contact us at contact@cozycloud.cc."
+    "title": "Kommt bald",
+    "description": "Die Store Anwendung ist noch nicht komplett verfügbar. Wir arbeiten momentan dran. Für mehr Informationen kannst du uns gerne über contact@cozycloud.cc kontaktieren."
   },
   "loading": {
-    "appsFetching": "Loading..."
+    "appsFetching": "Lade..."
   },
 
   "app_modal": {
     "uninstall": {
-      "title": "Uninstall this application",
-      "description": "This application is bound to be removed from your Cozy %{cozyName}. Are you sure to __remove this application definitively__?",
-      "cancel": "Cancel",
-      "uninstall": "Uninstall",
+      "title": "Deinstalliere diese Anwendung",
+      "description": "Diese Anwendung wird von deiner Cozy %{cozyName} entfernt. Bist du dir sicher dass diese Anwendung entfernt werden soll?",
+      "cancel": "Abbruch",
+      "uninstall": "Deinstallieren",
       "message": {
-        "success": "The application has correctly been uninstalled.",
-        "error": "Something went wrong when uninstalling this application. Reason: %{message}"
+        "success": "Diese Anwendung wurde korrekt deinstalliert.",
+        "error": "Etwas ist schiefgelaufen beim deinstallieren dieser Anwendung. Grund: %{message}"
       },
       "linked_app": {
         "error": "A mobile application is linked to this application, it must be revoked to uninstall this application. To do this, you can go on",
@@ -53,79 +53,80 @@
       }
     },
     "install": {
-      "title": "Data usage",
-      "cancel": "Cancel",
-      "install": "Install",
-      "update": "Update",
+      "title": "Datenverbrauch",
+      "cancel": "Abbrechen",
+      "install": "Installieren",
+      "update": "Aktualisieren",
       "terms": "I have read and I accept [this application related ToS](%{url})",
       "termsWithPartnership": "I accept [the %{partnerName} Terms of Service](%{url}) and I accept the transmission of my data to its partner Cozy Cloud.",
       "message": {
-        "version_error": "Something went wrong when fetching the application informations. Reason: %{message}",
-        "install_error": "Something went wrong when installing the application on your Cozy. Reason: %{message}"
+        "version_error": "Etwas ist schiefgelaufen beim Laden der Informationen der Anwendung. Grund: %{message}",
+        "install_error": "Etwas ist schiefgelaufen beim Installieren der Anwendung in deinem Cozy. Grund: %{message}"
       },
       "alert": {
         "install_error": "Something went wrong when installing the application %{name} on your Cozy. Reason: %{message}",
         "dismiss": "dismiss"
+
       }
     },
     "permissions": {
-      "title": "Permissions"
+      "title": "Berechtigungen"
     }
   },
 
   "app_page": {
-    "back": "Back to the list",
-    "install": "Install",
-    "uninstall": "Uninstall",
-    "update": "Update",
+    "back": "Zu­rück zur Liste",
+    "install": "Installieren",
+    "uninstall": "Deinstallieren",
+    "update": "Aktualisieren",
     "konnector": {
-      "open": "Open",
-      "install": "Install",
-      "uninstall": "Uninstall"
+      "open": "Öffnen",
+      "install": "Installieren",
+      "uninstall": "Deinstallieren"
     },
     "permissions": {
       "button": {
-        "label": "Show permissions"
+        "label": "Zeige Berechtigungen"
       }
     },
     "webapp": {
-      "open": "Open"
+      "open": "Öffnen"
     },
-    "maintenance": "What happens?",
-    "interrupted": "Service interrupted",
-    "description": "Description",
-    "changes": "What's New?",
+    "maintenance": "Was geschieht?",
+    "interrupted": "Service unterbrochen",
+    "description": "Beschreibung",
+    "changes": "Was gibt's Neues?",
     "infos": {
-      "title": "Informations",
-      "categories": "Categories",
-      "langs": "Languages",
-      "mobile_app": "Mobile Application",
-      "beta": "Get Beta",
+      "title": "Informationen",
+      "categories": "Kategorien",
+      "langs": "Sprachen",
+      "mobile_app": "Mobile Anwendungen",
+      "beta": "Lade die Beta",
       "dev": "Get Dev",
       "version": {
         "title": "Version",
-        "unknown": "Unknown"
+        "unknown": "Unbekannt"
       }
     },
-    "developer_infos": "Developer Details",
-    "preview": "Preview",
-    "more": "More"
+    "developer_infos": "Entwickler Details",
+    "preview": "Vorschau",
+    "more": "Mehr"
   },
 
   "sections": {
-    "applications": "Applications",
+    "applications": "Anwendungen",
     "konnectors": "Services"
   },
 
   "app_vote": {
-    "line1": "You don't find what you want?",
-    "line2": "Tell us!"
+    "line1": "Findest du nicht was du suchst?",
+    "line2": "Sag's uns!"
   },
 
   "app_item": {
-    "by": "By",
-    "installed": "Installed",
-    "maintenance": "In maintenance",
+    "by": "Von",
+    "installed": "Installiert",
+    "maintenance": "In Wartung",
     "update": "Update available"
   },
 
@@ -157,45 +158,45 @@
 
   "app_langs": {
     "list_separator": ", ",
-    "fr": "French",
-    "en": "English",
-    "es": "Spanish",
-    "ja": "Japanese",
-    "nl": "Dutch",
-    "de": "German",
-    "ru": "Russian",
-    "nl_NL": "Dutch (Netherlands)",
-    "ko": "Korean",
-    "pl": "Polish",
-    "pt": "Portuguese",
-    "da": "Danish",
-    "ro_RO": "Romanian (Romania)",
-    "pt_BR": "Portuguese (Brazil)",
-    "zh_CN": "Chinese (China)",
-    "ar": "Arabic",
-    "it": "Italian",
-    "ro": "Romanian",
+    "fr": "Französisch",
+    "en": "Englisch",
+    "es": "Spanisch",
+    "ja": "Japanisch",
+    "nl": "Niederländisch",
+    "de": "Deutsch",
+    "ru": "Russisch",
+    "nl_NL": "Niederländisch (Niederlande)",
+    "ko": "Koreanisch",
+    "pl": "Polnisch",
+    "pt": "Portugisisch",
+    "da": "Dänisch",
+    "ro_RO": "Rumänisch (Rumänien)",
+    "pt_BR": "Portugisisch (Brasilien)",
+    "zh_CN": "Chinesisch (China)",
+    "ar": "Arabisch",
+    "it": "Italienisch",
+    "ro": "Rumänisch",
     "eo": "Esperanto",
-    "de_DE": "German (Germany)",
-    "sq": "Albanian",
-    "tr": "Turkish",
-    "uk_UA": "Ukrainian (Ukraine)",
-    "ru_RU": "Russian (Russia)",
-    "sq_AL": "Albanian (Albania)",
-    "ca": "Catalan",
-    "ca_ES": "Catalan (Spain)",
-    "zh": "Chinese",
-    "zh_TW": "Chinese (Taiwan)",
-    "cs": "Czech",
-    "cs_CZ": "Czech (Czech Republic)",
-    "el": "Greek",
-    "id": "Indonesian",
-    "it_IT": "Italian (Italy)",
-    "sk": "Slovak",
-    "sk_SK": "Sloval (Slovakia)",
-    "es_CO": "Spanish (Colombia)",
-    "es_ES": "Spanish (Spain)",
-    "sv": "Swedish"
+    "de_DE": "Deutsch (Deutschland)",
+    "sq": "Albanisch",
+    "tr": "Türkisch",
+    "uk_UA": "Ukrainisch (Ukraine)",
+    "ru_RU": "Russisch (Russland)",
+    "sq_AL": "Albanisch (Albanien)",
+    "ca": "Katalanisch",
+    "ca_ES": "Katalanisch (Spanien)",
+    "zh": "Chinesisch",
+    "zh_TW": "Chinesisch (Taiwan)",
+    "cs": "Tschechisch",
+    "cs_CZ": "Tschechisch (Tschechien)",
+    "el": "Griechisch",
+    "id": "Indonesisch",
+    "it_IT": "Italienisch (Italien)",
+    "sk": "Slowakisch",
+    "sk_SK": "Slowakisch (Slowakei)",
+    "es_CO": "Spanisch (Kolumbien)",
+    "es_ES": "Spanisch (Spanien)",
+    "sv": "Schwedisch"
   },
 
   "doctypes": {
@@ -213,19 +214,16 @@
       "cozy": {
         "accounts": "Login details",
         "apps": "List of installed applications",
-        "apps.suggestions": "Application suggestions",
         "bank.accounts": "Banking accounts",
         "bank.balancehistories": "Bank balances",
         "bank.groups": "Banking groups",
         "bank.operations": "Bank operations",
         "bank.settings": "Banks app settings",
-        "bank.recurrence": "Banks recurrence groups",
         "bills": "Bills",
         "contacts": "Contacts",
         "contacts.groups": "Contacts groups",
         "contacts.accounts": "Accounts linked to the contacts",
         "files": "Files",
-        "files.versions": "Files versions",
         "identities": "Identities",
         "jobs": "Jobs",
         "konnectors": "Connectors for importing data",
@@ -264,8 +262,8 @@
   "permissions": {
     "linxo": "Display your banking accounts in your Cozy, thanks to the secured connexion to your bank by our partner Linxo ([linxo.com](https://linxo.com))",
     "banking": "Display your banking accounts in your Cozy, thanks to the secured connexion to your bank by our partner %{name} ([%{domain}](https://%{domain}))",
-    "reason": "**Reason: **",
-    "developer_default": "The developer of this application",
+    "reason": "**Grund: **",
+    "developer_default": "Der Entwickler dieser Anwendung",
     "description": {
       "only_internal": "%{name} commits to not giving the data used by the application:",
       "internal": "%{name} commits to not giving the other data used by the application:",

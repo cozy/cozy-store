@@ -10,12 +10,6 @@ build/
 # Coverage
 coverage/
 
-
-# Locales
-**/locales/*
-!**/locales/en.json
-
-
 # transifex
 +.transifexrc
 

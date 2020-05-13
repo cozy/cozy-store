@@ -3,11 +3,11 @@
   "version": "1.9.1",
   "main": "src/index.jsx",
   "scripts": {
-    "tx": "tx pull --all || true",
+    "tx": "tx pull --all",
     "lint": "yarn lint:js && yarn lint:styles",
     "lint:js": "eslint '{src,test}/**/*.{js,jsx}'",
     "lint:styles": "stylint src/styles --config ./.stylintrc",
-    "prebuild": "yarn lint && yarn tx",
+    "prebuild": "yarn lint",
     "build": "yarn build:browser",
     "build:browser": "cozy-scripts build --browser",
     "build:mobile": "cozy-scripts build --mobile",
