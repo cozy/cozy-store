@@ -5,15 +5,19 @@ import { PropTypes } from 'react-proptypes'
 import flags from 'cozy-flags'
 
 import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
-import { ModalDescription, ModalHeader, ModalFooter } from 'cozy-ui/react/Modal'
-import Spinner from 'cozy-ui/react/Spinner'
-import Button from 'cozy-ui/react/Button'
+import {
+  ModalDescription,
+  ModalHeader,
+  ModalFooter
+} from 'cozy-ui/transpiled/react/Modal'
+import Spinner from 'cozy-ui/transpiled/react/Spinner'
+import Button from 'cozy-ui/transpiled/react/Button'
 
 import PermissionsList from 'ducks/apps/components/PermissionsList'
 import Partnership from 'ducks/apps/components/Partnership'
-import { translate } from 'cozy-ui/react/I18n'
-import Alerter from 'cozy-ui/react/Alerter'
-import Checkbox from 'cozy-ui/react/Checkbox'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
+import Alerter from 'cozy-ui/transpiled/react/Alerter'
+import Checkbox from 'cozy-ui/transpiled/react/Checkbox'
 
 import { getTranslatedManifestProperty } from 'lib/helpers'
 import { hasPendingUpdate } from 'ducks/apps/appStatus'

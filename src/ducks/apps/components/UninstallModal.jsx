@@ -4,12 +4,15 @@ import { withRouter } from 'react-router'
 import PropTypes from 'prop-types'
 import compose from 'lodash/flowRight'
 
-import { translate } from 'cozy-ui/react/I18n'
-import Alerter from 'cozy-ui/react/Alerter'
-import Button from 'cozy-ui/react/Button'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
+import Alerter from 'cozy-ui/transpiled/react/Alerter'
+import Button from 'cozy-ui/transpiled/react/Button'
 import { getAppBySlug, uninstallApp } from 'ducks/apps'
-import Modal, { ModalDescription, ModalFooter } from 'cozy-ui/react/Modal'
-import Portal from 'cozy-ui/react/Portal'
+import Modal, {
+  ModalDescription,
+  ModalFooter
+} from 'cozy-ui/transpiled/react/Modal'
+import Portal from 'cozy-ui/transpiled/react/Portal'
 import { withClient } from 'cozy-client'
 import Intents from 'cozy-interapp'
 

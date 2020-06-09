@@ -1,9 +1,9 @@
 /* global cozy */
 import React, { Component } from 'react'
 
-import { translate } from 'cozy-ui/react/I18n'
-import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
-import { Content } from 'cozy-ui/react/Layout'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
+import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
+import { Content } from 'cozy-ui/transpiled/react/Layout'
 
 import ApplicationRouting from 'ducks/apps/components/ApplicationRouting'
 import Sections from 'ducks/apps/components/QuerystringSections'

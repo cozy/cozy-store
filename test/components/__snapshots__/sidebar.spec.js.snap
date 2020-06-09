@@ -8,9 +8,9 @@ exports[`Sidebar component should be rendered correctly 1`] = `
     <React.Fragment>
       <NavItem>
         <NavLink
-          activeClassName="is-active"
+          activeClassName="styles__is-active___2D0jN"
           aria-current="page"
-          className="c-nav-link"
+          className="styles__c-nav-link___3mK6W"
           to="/discover"
         >
           <NavIcon
@@ -28,9 +28,9 @@ exports[`Sidebar component should be rendered correctly 1`] = `
     <React.Fragment>
       <NavItem>
         <NavLink
-          activeClassName="is-active"
+          activeClassName="styles__is-active___2D0jN"
           aria-current="page"
-          className="c-nav-link"
+          className="styles__c-nav-link___3mK6W"
           to="/myapps"
         >
           <NavIcon

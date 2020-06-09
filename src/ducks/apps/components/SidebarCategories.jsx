@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { translate } from 'cozy-ui/react/I18n'
-import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
+import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 import { withRouter, NavLink as RouterLink } from 'react-router-dom'
 
 import { categoryUtils } from 'ducks/apps/components/Sections'

@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Portal from 'cozy-ui/react/Portal'
+import Portal from 'cozy-ui/transpiled/react/Portal'
 import PropTypes from 'prop-types'
 import compose from 'lodash/flowRight'
 
 import FocusTrap from 'focus-trap-react'
-import Modal from 'cozy-ui/react/Modal'
-import { translate } from 'cozy-ui/react/I18n'
+import Modal from 'cozy-ui/transpiled/react/Modal'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
 import { withClient } from 'cozy-client'
 
 import AppInstallation from 'ducks/apps/components/AppInstallation'

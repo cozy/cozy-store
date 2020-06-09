@@ -1,6 +1,6 @@
 'use strict'
 
-import { extend as extendI18n } from 'cozy-ui/react/I18n'
+import { extend as extendI18n } from 'cozy-ui/transpiled/react/I18n'
 import { combineReducers } from 'redux'
 
 // initial loading

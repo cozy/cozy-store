@@ -1,5 +1,5 @@
 import { getTranslatedManifestProperty } from './helpers'
-import { extend as extendI18n } from 'cozy-ui/react/I18n'
+import { extend as extendI18n } from 'cozy-ui/transpiled/react/I18n'
 import { tMock } from 'jestLib/I18n'
 
 describe('getTranslatedManifestProperty helper', () => {

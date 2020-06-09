@@ -1,7 +1,7 @@
 import React from 'react'
 
-import AppIcon from 'cozy-ui/react/AppIcon'
-import { translate } from 'cozy-ui/react/I18n'
+import AppIcon from 'cozy-ui/transpiled/react/AppIcon'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
 
 import { getAppIconProps } from 'ducks/apps'
 import { getCurrentStatusLabel } from 'ducks/apps/appStatus'
