@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Portal from 'cozy-ui/transpiled/react/Portal'
 import PropTypes from 'prop-types'
 import compose from 'lodash/flowRight'
 
-import FocusTrap from 'focus-trap-react'
 import Modal from 'cozy-ui/transpiled/react/Modal'
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 import { withClient } from 'cozy-client'
@@ -23,10 +21,6 @@ export class ChannelModal extends Component {
       onCurrentChannel,
       onNotHandled
     } = props
-
-    this.state = {
-      activeTrap: true
-    }
 
     if (!this.isAppHandled()) {
       onNotHandled()
@@ -54,31 +48,18 @@ export class ChannelModal extends Component {
     this.props.dismissAction()
   }
 
-  unmountTrap = () => {
-    this.setState({ activeTrap: false })
-  }
-
   render() {
     const { app, onSuccess, channel } = this.props
     if (!this.isAppHandled()) return null
     return (
-      <Portal into="body">
-        <Modal dismissAction={this.dismiss} mobileFullscreen>
-          <FocusTrap
-            focusTrapOptions={{
-              onDeactivate: this.unmountTrap,
-              clickOutsideDeactivates: true
-            }}
-          >
-            <AppInstallation
-              appSlug={app.slug}
-              channel={channel}
-              onCancel={this.dismiss}
-              onInstallOrUpdate={onSuccess}
-            />
-          </FocusTrap>
-        </Modal>
-      </Portal>
+      <Modal dismissAction={this.dismiss} mobileFullscreen>
+        <AppInstallation
+          appSlug={app.slug}
+          channel={channel}
+          onCancel={this.dismiss}
+          onInstallOrUpdate={onSuccess}
+        />
+      </Modal>
     )
   }
 }

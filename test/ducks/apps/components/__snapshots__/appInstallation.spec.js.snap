@@ -25,26 +25,38 @@ exports[`AppInstallation component should not install automatically the app if t
   <ModalFooter
     className="sto-install-footer"
   >
-    <div
-      className="sto-install-controls"
+    <FocusTrap
+      _createFocusTrap={[Function]}
+      active={true}
+      focusTrapOptions={
+        Object {
+          "clickOutsideDeactivates": true,
+        }
+      }
+      paused={false}
+      tag="div"
     >
-      <DefaultButton
-        className="u-mh-half"
-        disabled={false}
-        extension="full"
-        label="Cancel"
-        onClick={[MockFunction]}
-        theme="secondary"
-      />
-      <DefaultButton
-        busy={false}
-        className="u-mh-half"
-        extension="full"
-        label="Install"
-        onClick={[Function]}
-        theme="primary"
-      />
-    </div>
+      <div
+        className="sto-install-controls"
+      >
+        <DefaultButton
+          className="u-mh-half"
+          disabled={false}
+          extension="full"
+          label="Cancel"
+          onClick={[MockFunction]}
+          theme="secondary"
+        />
+        <DefaultButton
+          busy={false}
+          className="u-mh-half"
+          extension="full"
+          label="Install"
+          onClick={[Function]}
+          theme="primary"
+        />
+      </div>
+    </FocusTrap>
   </ModalFooter>
 </React.Fragment>
 `;
