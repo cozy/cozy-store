@@ -16,20 +16,21 @@ exports[`InstallModal component should be rendered correctly if app found 1`] = 
     paused={false}
     tag="div"
   >
-    <Unknown
+    <Modal
       closable={true}
       dismissAction={[Function]}
+      into="body"
       mobileFullscreen={true}
       overflowHidden={false}
       primaryType="regular"
       secondaryType="secondary"
       size="small"
     >
-      <withClient(Connect(Wrapper))
+      <withClient(Connect(withI18n(AppInstallation)))
         appSlug="photos"
         onCancel={[Function]}
       />
-    </Unknown>
+    </Modal>
   </FocusTrap>
 </Portal>
 `;
@@ -50,20 +51,21 @@ exports[`InstallModal component should be rendered correctly to update app with 
     paused={false}
     tag="div"
   >
-    <Unknown
+    <Modal
       closable={true}
       dismissAction={[Function]}
+      into="body"
       mobileFullscreen={true}
       overflowHidden={false}
       primaryType="regular"
       secondaryType="secondary"
       size="small"
     >
-      <withClient(Connect(Wrapper))
+      <withClient(Connect(withI18n(AppInstallation)))
         appSlug="photos"
         onCancel={[Function]}
       />
-    </Unknown>
+    </Modal>
   </FocusTrap>
 </Portal>
 `;
@@ -84,20 +86,21 @@ exports[`InstallModal component should be rendered correctly with also app in re
     paused={false}
     tag="div"
   >
-    <Unknown
+    <Modal
       closable={true}
       dismissAction={[Function]}
+      into="body"
       mobileFullscreen={true}
       overflowHidden={false}
       primaryType="regular"
       secondaryType="secondary"
       size="small"
     >
-      <withClient(Connect(Wrapper))
+      <withClient(Connect(withI18n(AppInstallation)))
         appSlug="photos"
         onCancel={[Function]}
       />
-    </Unknown>
+    </Modal>
   </FocusTrap>
 </Portal>
 `;
@@ -118,20 +121,21 @@ exports[`InstallModal component should not break the permissions part if no perm
     paused={false}
     tag="div"
   >
-    <Unknown
+    <Modal
       closable={true}
       dismissAction={[Function]}
+      into="body"
       mobileFullscreen={true}
       overflowHidden={false}
       primaryType="regular"
       secondaryType="secondary"
       size="small"
     >
-      <withClient(Connect(Wrapper))
+      <withClient(Connect(withI18n(AppInstallation)))
         appSlug="photos"
         onCancel={[Function]}
       />
-    </Unknown>
+    </Modal>
   </FocusTrap>
 </Portal>
 `;

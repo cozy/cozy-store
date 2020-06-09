@@ -8,7 +8,7 @@ exports[`AppInstallation component should install automatically the app if the l
     <div
       className="sto-install-loading"
     >
-      <Wrapper
+      <withI18n(Spinner)
         size="xxlarge"
       />
     </div>

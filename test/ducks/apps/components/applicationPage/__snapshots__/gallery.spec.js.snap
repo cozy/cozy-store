@@ -185,8 +185,9 @@ exports[`ApplicationPage gallery component should open a modal and handle onClos
       tabIndex={0}
     />
   </div>
-  <Unknown
+  <Modal
     closable={true}
+    into="body"
     mobileFullscreen={true}
     overflowHidden={false}
     primaryType="regular"
@@ -202,7 +203,7 @@ exports[`ApplicationPage gallery component should open a modal and handle onClos
         src="https://mockcozy.cc/registry/photos/screenshot1.png"
       />
     </ModalContent>
-  </Unknown>
+  </Modal>
 </div>
 `;
 
@@ -242,8 +243,9 @@ exports[`ApplicationPage gallery component should open a modal on image click 1`
       tabIndex={0}
     />
   </div>
-  <Unknown
+  <Modal
     closable={true}
+    into="body"
     mobileFullscreen={true}
     overflowHidden={false}
     primaryType="regular"
@@ -259,7 +261,7 @@ exports[`ApplicationPage gallery component should open a modal on image click 1`
         src="https://mockcozy.cc/registry/photos/screenshot1.png"
       />
     </ModalContent>
-  </Unknown>
+  </Modal>
 </div>
 `;
 

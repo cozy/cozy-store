@@ -154,7 +154,7 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
       onAppClick={[Function]}
     />
   </div>
-  <withRouter(Wrapper)
+  <withRouter(withI18n(ApplicationRouting))
     actionError={null}
     installedApps={
       Array [
@@ -458,7 +458,7 @@ exports[`MyApplications component should be rendered correctly with apps and URL
       onAppClick={[Function]}
     />
   </div>
-  <withRouter(Wrapper)
+  <withRouter(withI18n(ApplicationRouting))
     actionError={null}
     installedApps={
       Array [
@@ -621,7 +621,7 @@ exports[`MyApplications component should display error from props correctly 1`] 
       onAppClick={[Function]}
     />
   </div>
-  <withRouter(Wrapper)
+  <withRouter(withI18n(ApplicationRouting))
     actionError={null}
     installedApps={Array []}
     isFetching={false}
@@ -634,11 +634,11 @@ exports[`MyApplications component should render correctly a spinner if apps is f
 <Content
   className="sto-myapps"
 >
-  <Aware />
+  <withBreakpoints(AppsLoading) />
   <div
     className="sto-list-container"
   />
-  <withRouter(Wrapper)
+  <withRouter(withI18n(ApplicationRouting))
     actionError={null}
     installedApps={Array []}
     isFetching={true}
@@ -808,7 +808,7 @@ exports[`MyApplications component should use BarCenter from cozy-bar in mobile v
       onAppClick={[Function]}
     />
   </div>
-  <withRouter(Wrapper)
+  <withRouter(withI18n(ApplicationRouting))
     actionError={null}
     installedApps={
       Array [

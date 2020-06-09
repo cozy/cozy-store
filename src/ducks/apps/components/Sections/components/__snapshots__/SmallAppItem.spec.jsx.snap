@@ -9,7 +9,7 @@ exports[`SmallAppItem component should render correctly an app 1`] = `
   <div
     className="sto-small-app-item-icon-wrapper"
   >
-    <AppIcon
+    <withClient(AppIcon)
       app={
         Object {
           "developer": Object {
@@ -56,7 +56,7 @@ exports[`SmallAppItem component should render correctly an app in maintenance 1`
   <div
     className="sto-small-app-item-icon-wrapper"
   >
-    <AppIcon
+    <withClient(AppIcon)
       app={
         Object {
           "developer": Object {
@@ -112,7 +112,7 @@ exports[`SmallAppItem component should render correctly an app with iconToLoad (
   <div
     className="sto-small-app-item-icon-wrapper"
   >
-    <AppIcon
+    <withClient(AppIcon)
       app={
         Object {
           "developer": Object {
@@ -166,7 +166,7 @@ exports[`SmallAppItem component should render correctly an app with iconToLoad i
   <div
     className="sto-small-app-item-icon-wrapper"
   >
-    <AppIcon
+    <withClient(AppIcon)
       app={
         Object {
           "developer": Object {
@@ -220,7 +220,7 @@ exports[`SmallAppItem component should render correctly an app without developer
   <div
     className="sto-small-app-item-icon-wrapper"
   >
-    <AppIcon
+    <withClient(AppIcon)
       app={
         Object {
           "editor": "cozy",
@@ -258,7 +258,7 @@ exports[`SmallAppItem component should render correctly an installed app 1`] = `
   <div
     className="sto-small-app-item-icon-wrapper"
   >
-    <AppIcon
+    <withClient(AppIcon)
       app={
         Object {
           "developer": Object {
@@ -311,7 +311,7 @@ exports[`SmallAppItem component should render correctly an installed app without
   <div
     className="sto-small-app-item-icon-wrapper"
   >
-    <AppIcon
+    <withClient(AppIcon)
       app={
         Object {
           "developer": Object {

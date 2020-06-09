@@ -21,7 +21,7 @@ exports[`Sidebar component should be rendered correctly 1`] = `
           </NavText>
         </NavLink>
       </NavItem>
-      <withRouter(Connect(withRouter(Wrapper)))
+      <withRouter(Connect(withRouter(withI18n(withBreakpoints(SidebarCategories)))))
         parent="/discover"
       />
     </React.Fragment>
@@ -41,7 +41,7 @@ exports[`Sidebar component should be rendered correctly 1`] = `
           </NavText>
         </NavLink>
       </NavItem>
-      <withRouter(Connect(withRouter(Wrapper)))
+      <withRouter(Connect(withRouter(withI18n(withBreakpoints(SidebarCategories)))))
         parent="/myapps"
       />
     </React.Fragment>

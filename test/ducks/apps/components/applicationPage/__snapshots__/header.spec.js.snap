@@ -7,7 +7,7 @@ exports[`ApplicationPage header component should be rendered correctly provided 
   <div
     className="sto-app-header-icon"
   >
-    <AppIcon
+    <withClient(AppIcon)
       app={
         Object {
           "editor": "Cozy",
@@ -162,7 +162,7 @@ exports[`ApplicationPage header component should be rendered correctly provided 
   <div
     className="sto-app-header-icon"
   >
-    <AppIcon
+    <withClient(AppIcon)
       app={
         Object {
           "categories": Array [
@@ -310,7 +310,7 @@ exports[`ApplicationPage header component should be rendered correctly provided 
   <div
     className="sto-app-header-icon"
   >
-    <AppIcon
+    <withClient(AppIcon)
       app={
         Object {
           "editor": "Cozy",
@@ -450,7 +450,7 @@ exports[`ApplicationPage header component should display a placeholder if app ic
   <div
     className="sto-app-header-icon"
   >
-    <AppIcon
+    <withClient(AppIcon)
       app={
         Object {
           "categories": Array [

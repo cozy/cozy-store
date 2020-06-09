@@ -16,22 +16,23 @@ exports[`ChannelModal component should be rendered correctly if app found and fr
     paused={false}
     tag="div"
   >
-    <Unknown
+    <Modal
       closable={true}
       dismissAction={[Function]}
+      into="body"
       mobileFullscreen={true}
       overflowHidden={false}
       primaryType="regular"
       secondaryType="secondary"
       size="small"
     >
-      <withClient(Connect(Wrapper))
+      <withClient(Connect(withI18n(AppInstallation)))
         appSlug="photos"
         channel="beta"
         onCancel={[Function]}
         onInstallOrUpdate={[MockFunction]}
       />
-    </Unknown>
+    </Modal>
   </FocusTrap>
 </Portal>
 `;
@@ -52,22 +53,23 @@ exports[`ChannelModal component should not break the permissions part if no perm
     paused={false}
     tag="div"
   >
-    <Unknown
+    <Modal
       closable={true}
       dismissAction={[Function]}
+      into="body"
       mobileFullscreen={true}
       overflowHidden={false}
       primaryType="regular"
       secondaryType="secondary"
       size="small"
     >
-      <withClient(Connect(Wrapper))
+      <withClient(Connect(withI18n(AppInstallation)))
         appSlug="photos"
         channel="beta"
         onCancel={[Function]}
         onInstallOrUpdate={[MockFunction]}
       />
-    </Unknown>
+    </Modal>
   </FocusTrap>
 </Portal>
 `;
