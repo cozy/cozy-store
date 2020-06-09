@@ -45,21 +45,21 @@ export class InstallModal extends Component {
     const { app, redirectToApp, redirectToConfigure } = this.props
     return (
       <Portal into="body">
-        <FocusTrap
-          focusTrapOptions={{
-            onDeactivate: this.unmountTrap,
-            clickOutsideDeactivates: true
-          }}
-        >
-          <Modal dismissAction={this.dismiss} mobileFullscreen>
+        <Modal dismissAction={this.dismiss} mobileFullscreen>
+          <FocusTrap
+            focusTrapOptions={{
+              onDeactivate: this.unmountTrap,
+              clickOutsideDeactivates: true
+            }}
+          >
             <AppInstallation
               appSlug={app.slug}
               onCancel={this.dismiss}
               onKonnectorInstall={redirectToConfigure}
               onInstallOrUpdate={redirectToApp}
             />
-          </Modal>
-        </FocusTrap>
+          </FocusTrap>
+        </Modal>
       </Portal>
     )
   }

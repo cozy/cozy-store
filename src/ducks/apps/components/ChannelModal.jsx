@@ -63,21 +63,21 @@ export class ChannelModal extends Component {
     if (!this.isAppHandled()) return null
     return (
       <Portal into="body">
-        <FocusTrap
-          focusTrapOptions={{
-            onDeactivate: this.unmountTrap,
-            clickOutsideDeactivates: true
-          }}
-        >
-          <Modal dismissAction={this.dismiss} mobileFullscreen>
+        <Modal dismissAction={this.dismiss} mobileFullscreen>
+          <FocusTrap
+            focusTrapOptions={{
+              onDeactivate: this.unmountTrap,
+              clickOutsideDeactivates: true
+            }}
+          >
             <AppInstallation
               appSlug={app.slug}
               channel={channel}
               onCancel={this.dismiss}
               onInstallOrUpdate={onSuccess}
             />
-          </Modal>
-        </FocusTrap>
+          </FocusTrap>
+        </Modal>
       </Portal>
     )
   }

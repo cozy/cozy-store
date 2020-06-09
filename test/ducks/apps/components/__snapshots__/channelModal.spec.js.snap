@@ -4,27 +4,27 @@ exports[`ChannelModal component should be rendered correctly if app found and fr
 <Portal
   into="body"
 >
-  <FocusTrap
-    _createFocusTrap={[Function]}
-    active={true}
-    focusTrapOptions={
-      Object {
-        "clickOutsideDeactivates": true,
-        "onDeactivate": [Function],
-      }
-    }
-    paused={false}
-    tag="div"
+  <Modal
+    closable={true}
+    dismissAction={[Function]}
+    into="body"
+    mobileFullscreen={true}
+    overflowHidden={false}
+    primaryType="regular"
+    secondaryType="secondary"
+    size="small"
   >
-    <Modal
-      closable={true}
-      dismissAction={[Function]}
-      into="body"
-      mobileFullscreen={true}
-      overflowHidden={false}
-      primaryType="regular"
-      secondaryType="secondary"
-      size="small"
+    <FocusTrap
+      _createFocusTrap={[Function]}
+      active={true}
+      focusTrapOptions={
+        Object {
+          "clickOutsideDeactivates": true,
+          "onDeactivate": [Function],
+        }
+      }
+      paused={false}
+      tag="div"
     >
       <withClient(Connect(withI18n(AppInstallation)))
         appSlug="photos"
@@ -32,8 +32,8 @@ exports[`ChannelModal component should be rendered correctly if app found and fr
         onCancel={[Function]}
         onInstallOrUpdate={[MockFunction]}
       />
-    </Modal>
-  </FocusTrap>
+    </FocusTrap>
+  </Modal>
 </Portal>
 `;
 
@@ -41,27 +41,27 @@ exports[`ChannelModal component should not break the permissions part if no perm
 <Portal
   into="body"
 >
-  <FocusTrap
-    _createFocusTrap={[Function]}
-    active={true}
-    focusTrapOptions={
-      Object {
-        "clickOutsideDeactivates": true,
-        "onDeactivate": [Function],
-      }
-    }
-    paused={false}
-    tag="div"
+  <Modal
+    closable={true}
+    dismissAction={[Function]}
+    into="body"
+    mobileFullscreen={true}
+    overflowHidden={false}
+    primaryType="regular"
+    secondaryType="secondary"
+    size="small"
   >
-    <Modal
-      closable={true}
-      dismissAction={[Function]}
-      into="body"
-      mobileFullscreen={true}
-      overflowHidden={false}
-      primaryType="regular"
-      secondaryType="secondary"
-      size="small"
+    <FocusTrap
+      _createFocusTrap={[Function]}
+      active={true}
+      focusTrapOptions={
+        Object {
+          "clickOutsideDeactivates": true,
+          "onDeactivate": [Function],
+        }
+      }
+      paused={false}
+      tag="div"
     >
       <withClient(Connect(withI18n(AppInstallation)))
         appSlug="photos"
@@ -69,7 +69,7 @@ exports[`ChannelModal component should not break the permissions part if no perm
         onCancel={[Function]}
         onInstallOrUpdate={[MockFunction]}
       />
-    </Modal>
-  </FocusTrap>
+    </FocusTrap>
+  </Modal>
 </Portal>
 `;
