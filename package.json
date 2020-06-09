@@ -16,7 +16,7 @@
     "watch:mobile": "cozy-scripts watch --mobile",
     "start": "cozy-scripts start --hot",
     "cozyPublish": "npx cozy-app-publish --token $REGISTRY_TOKEN --prepublish downcloud --postpublish mattermost",
-    "test": "cozy-scripts test --verbose --coverage",
+    "test": "cozy-scripts test",
     "stack:docker": "docker run --rm -it -p 8080:8080 -v \"$(pwd)/build\":/data/cozy-app/app cozy/cozy-app-dev"
   },
   "repository": {
