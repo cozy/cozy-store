@@ -64,6 +64,8 @@ export class AppInstallation extends Component {
           buttonAction: dismiss => dismiss()
         }
       )
+
+      // eslint-disable-next-line no-console
       console.error(error)
     })
     if (isUpdate || isChannelSwitch || app.type !== APP_TYPE.KONNECTOR) {

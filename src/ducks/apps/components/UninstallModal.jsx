@@ -59,6 +59,7 @@ export class UninstallModal extends Component {
         step: 'connectedDevices'
       })
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error(error)
       this.setState({
         redirecting: false
