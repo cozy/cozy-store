@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 const SmallArrow = () => (
   <Icon
     className="sto-sections-dropdown-icon"
-    icon="small-arrow"
+    icon="bottom"
     color="var(--coolGrey)"
     width={16}
     height={16}

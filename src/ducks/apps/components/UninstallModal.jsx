@@ -125,7 +125,7 @@ export class UninstallModal extends Component {
               busy={isUninstalling}
               disabled={isUninstalling || isInstalling || !!linkedAppError}
               theme="danger"
-              icon="delete"
+              icon="trash"
               onClick={this.handleUninstallApp}
               label={t('app_modal.uninstall.uninstall')}
               extension="full"

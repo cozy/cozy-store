@@ -147,7 +147,7 @@ export class ApplicationPage extends Component {
           )}
           <div className="sto-app">
             <Button
-              icon="back"
+              icon="left"
               tag={Link}
               to={`${parent}`}
               className="sto-app-back"
