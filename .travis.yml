@@ -54,12 +54,12 @@ jobs:
       script: yarn build
       deploy:
         - provider: script
-          cleanup: false
+          skip_cleanup: true
           script: yarn cozyPublish
           on:
             branch: master
         - provider: script
-          cleanup: false
+          skip_cleanup: true
           script: yarn cozyPublish
           on:
             tags: true
