@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
-import SelectBox from 'cozy-ui/react/SelectBox'
-import Icon from 'cozy-ui/react/Icon'
+import SelectBox from 'cozy-ui/transpiled/react/SelectBox'
+import Icon from 'cozy-ui/transpiled/react/Icon'
 import PropTypes from 'prop-types'
 
 const SmallArrow = () => (
   <Icon
     className="sto-sections-dropdown-icon"
-    icon="small-arrow"
+    icon="bottom"
     color="var(--coolGrey)"
     width={16}
     height={16}

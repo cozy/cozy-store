@@ -3,12 +3,12 @@ import { connect } from 'react-redux'
 import compose from 'lodash/flowRight'
 import { withClient } from 'cozy-client'
 
-import { translate } from 'cozy-ui/react/I18n'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
 
 import AppInstallation from 'ducks/apps/components/AppInstallation'
 import InstallSuccess from 'ducks/apps/components/InstallSuccess'
-import IntentHeader from 'cozy-ui/react/IntentHeader'
-import Spinner from 'cozy-ui/react/Spinner'
+import IntentHeader from 'cozy-ui/transpiled/react/IntentHeader'
+import Spinner from 'cozy-ui/transpiled/react/Spinner'
 
 import {
   APP_TYPE,

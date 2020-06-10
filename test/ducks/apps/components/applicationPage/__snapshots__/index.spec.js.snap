@@ -21,14 +21,14 @@ exports[`ApplicationPage component should be rendered correctly with app infos f
     >
       <DefaultButton
         className="sto-app-back"
-        icon="back"
+        icon="left"
         label="Back to the list"
         onClick={[Function]}
         subtle={true}
         tag={[Function]}
         to="/myapps"
       />
-      <Connect(Aware)
+      <Connect(withBreakpoints(withI18n(withClient(Header))))
         app={
           Object {
             "categories": Array [
@@ -147,7 +147,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         namePrefix="Cozy"
         parent="/myapps"
       />
-      <withClient(withRouter(Wrapper))
+      <withClient(withRouter(withI18n(Details)))
         app={
           Object {
             "categories": Array [
@@ -307,14 +307,14 @@ exports[`ApplicationPage component should be rendered correctly with app with sc
     >
       <DefaultButton
         className="sto-app-back"
-        icon="back"
+        icon="left"
         label="Back to the list"
         onClick={[Function]}
         subtle={true}
         tag={[Function]}
         to="/myapps"
       />
-      <Connect(Aware)
+      <Connect(withBreakpoints(withI18n(withClient(Header))))
         app={
           Object {
             "categories": Array [
@@ -435,7 +435,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         namePrefix="Cozy"
         parent="/myapps"
       />
-      <Wrapper
+      <withI18n(Gallery)
         images={
           Array [
             "<svg></svg>",
@@ -443,7 +443,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         }
         slug="photos"
       />
-      <withClient(withRouter(Wrapper))
+      <withClient(withRouter(withI18n(Details)))
         app={
           Object {
             "categories": Array [
@@ -605,14 +605,14 @@ exports[`ApplicationPage component should be rendered correctly with konnector i
     >
       <DefaultButton
         className="sto-app-back"
-        icon="back"
+        icon="left"
         label="Back to the list"
         onClick={[Function]}
         subtle={true}
         tag={[Function]}
         to="/myapps"
       />
-      <Connect(Aware)
+      <Connect(withBreakpoints(withI18n(withClient(Header))))
         app={
           Object {
             "categories": Array [
@@ -716,7 +716,7 @@ exports[`ApplicationPage component should be rendered correctly with konnector i
         namePrefix=""
         parent="/myapps"
       />
-      <withClient(withRouter(Wrapper))
+      <withClient(withRouter(withI18n(Details)))
         app={
           Object {
             "categories": Array [
@@ -845,14 +845,14 @@ exports[`ApplicationPage component should be rendered correctly with provided in
     >
       <DefaultButton
         className="sto-app-back"
-        icon="back"
+        icon="left"
         label="Back to the list"
         onClick={[Function]}
         subtle={true}
         tag={[Function]}
         to="/myapps"
       />
-      <Connect(Aware)
+      <Connect(withBreakpoints(withI18n(withClient(Header))))
         app={
           Object {
             "categories": Array [
@@ -971,7 +971,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         namePrefix="Cozy"
         parent="/myapps"
       />
-      <withClient(withRouter(Wrapper))
+      <withClient(withRouter(withI18n(Details)))
         app={
           Object {
             "categories": Array [
@@ -1131,14 +1131,14 @@ exports[`ApplicationPage component should be rendered correctly with provided in
     >
       <DefaultButton
         className="sto-app-back"
-        icon="back"
+        icon="left"
         label="Back to the list"
         onClick={[Function]}
         subtle={true}
         tag={[Function]}
         to="/myapps"
       />
-      <Connect(Aware)
+      <Connect(withBreakpoints(withI18n(withClient(Header))))
         app={
           Object {
             "categories": Array [
@@ -1242,7 +1242,7 @@ exports[`ApplicationPage component should be rendered correctly with provided in
         namePrefix=""
         parent="/myapps"
       />
-      <withClient(withRouter(Wrapper))
+      <withClient(withRouter(withI18n(Details)))
         app={
           Object {
             "categories": Array [
@@ -1371,14 +1371,14 @@ exports[`ApplicationPage component should be rendered correctly without app desc
     >
       <DefaultButton
         className="sto-app-back"
-        icon="back"
+        icon="left"
         label="Back to the list"
         onClick={[Function]}
         subtle={true}
         tag={[Function]}
         to="/myapps"
       />
-      <Connect(Aware)
+      <Connect(withBreakpoints(withI18n(withClient(Header))))
         app={
           Object {
             "categories": Array [
@@ -1481,7 +1481,7 @@ exports[`ApplicationPage component should be rendered correctly without app desc
         namePrefix=""
         parent="/myapps"
       />
-      <withClient(withRouter(Wrapper))
+      <withClient(withRouter(withI18n(Details)))
         app={
           Object {
             "categories": Array [
@@ -1616,7 +1616,7 @@ exports[`ApplicationPage component should render correctly on mobile with the sc
       <div
         className="sto-app-bar"
       >
-        <AppIcon
+        <withClient(AppIcon)
           app={
             Object {
               "categories": Array [
@@ -1741,14 +1741,14 @@ Gestionnaire de photos pour Cozy v3 :tada:",
     >
       <DefaultButton
         className="sto-app-back"
-        icon="back"
+        icon="left"
         label="Back to the list"
         onClick={[Function]}
         subtle={true}
         tag={[Function]}
         to="/myapps"
       />
-      <Connect(Aware)
+      <Connect(withBreakpoints(withI18n(withClient(Header))))
         app={
           Object {
             "categories": Array [
@@ -1867,7 +1867,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         namePrefix="Cozy"
         parent="/myapps"
       />
-      <withClient(withRouter(Wrapper))
+      <withClient(withRouter(withI18n(Details)))
         app={
           Object {
             "categories": Array [
@@ -2026,7 +2026,7 @@ exports[`ApplicationPage component should render correctly on mobile with the sc
       <div
         className="sto-app-bar"
       >
-        <AppIcon
+        <withClient(AppIcon)
           app={
             Object {
               "categories": Array [
@@ -2151,14 +2151,14 @@ Gestionnaire de photos pour Cozy v3 :tada:",
     >
       <DefaultButton
         className="sto-app-back"
-        icon="back"
+        icon="left"
         label="Back to the list"
         onClick={[Function]}
         subtle={true}
         tag={[Function]}
         to="/myapps"
       />
-      <Connect(Aware)
+      <Connect(withBreakpoints(withI18n(withClient(Header))))
         app={
           Object {
             "categories": Array [
@@ -2277,7 +2277,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         namePrefix="Cozy"
         parent="/myapps"
       />
-      <withClient(withRouter(Wrapper))
+      <withClient(withRouter(withI18n(Details)))
         app={
           Object {
             "categories": Array [

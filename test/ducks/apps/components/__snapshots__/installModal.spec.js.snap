@@ -4,33 +4,34 @@ exports[`InstallModal component should be rendered correctly if app found 1`] = 
 <Portal
   into="body"
 >
-  <FocusTrap
-    _createFocusTrap={[Function]}
-    active={true}
-    focusTrapOptions={
-      Object {
-        "clickOutsideDeactivates": true,
-        "onDeactivate": [Function],
-      }
-    }
-    paused={false}
-    tag="div"
+  <Modal
+    closable={true}
+    dismissAction={[Function]}
+    into="body"
+    mobileFullscreen={true}
+    overflowHidden={false}
+    primaryType="regular"
+    secondaryType="secondary"
+    size="small"
   >
-    <Unknown
-      closable={true}
-      dismissAction={[Function]}
-      mobileFullscreen={true}
-      overflowHidden={false}
-      primaryType="regular"
-      secondaryType="secondary"
-      size="small"
+    <FocusTrap
+      _createFocusTrap={[Function]}
+      active={true}
+      focusTrapOptions={
+        Object {
+          "clickOutsideDeactivates": true,
+          "onDeactivate": [Function],
+        }
+      }
+      paused={false}
+      tag="div"
     >
-      <withClient(Connect(Wrapper))
+      <withClient(Connect(withI18n(AppInstallation)))
         appSlug="photos"
         onCancel={[Function]}
       />
-    </Unknown>
-  </FocusTrap>
+    </FocusTrap>
+  </Modal>
 </Portal>
 `;
 
@@ -38,33 +39,34 @@ exports[`InstallModal component should be rendered correctly to update app with 
 <Portal
   into="body"
 >
-  <FocusTrap
-    _createFocusTrap={[Function]}
-    active={true}
-    focusTrapOptions={
-      Object {
-        "clickOutsideDeactivates": true,
-        "onDeactivate": [Function],
-      }
-    }
-    paused={false}
-    tag="div"
+  <Modal
+    closable={true}
+    dismissAction={[Function]}
+    into="body"
+    mobileFullscreen={true}
+    overflowHidden={false}
+    primaryType="regular"
+    secondaryType="secondary"
+    size="small"
   >
-    <Unknown
-      closable={true}
-      dismissAction={[Function]}
-      mobileFullscreen={true}
-      overflowHidden={false}
-      primaryType="regular"
-      secondaryType="secondary"
-      size="small"
+    <FocusTrap
+      _createFocusTrap={[Function]}
+      active={true}
+      focusTrapOptions={
+        Object {
+          "clickOutsideDeactivates": true,
+          "onDeactivate": [Function],
+        }
+      }
+      paused={false}
+      tag="div"
     >
-      <withClient(Connect(Wrapper))
+      <withClient(Connect(withI18n(AppInstallation)))
         appSlug="photos"
         onCancel={[Function]}
       />
-    </Unknown>
-  </FocusTrap>
+    </FocusTrap>
+  </Modal>
 </Portal>
 `;
 
@@ -72,33 +74,34 @@ exports[`InstallModal component should be rendered correctly with also app in re
 <Portal
   into="body"
 >
-  <FocusTrap
-    _createFocusTrap={[Function]}
-    active={true}
-    focusTrapOptions={
-      Object {
-        "clickOutsideDeactivates": true,
-        "onDeactivate": [Function],
-      }
-    }
-    paused={false}
-    tag="div"
+  <Modal
+    closable={true}
+    dismissAction={[Function]}
+    into="body"
+    mobileFullscreen={true}
+    overflowHidden={false}
+    primaryType="regular"
+    secondaryType="secondary"
+    size="small"
   >
-    <Unknown
-      closable={true}
-      dismissAction={[Function]}
-      mobileFullscreen={true}
-      overflowHidden={false}
-      primaryType="regular"
-      secondaryType="secondary"
-      size="small"
+    <FocusTrap
+      _createFocusTrap={[Function]}
+      active={true}
+      focusTrapOptions={
+        Object {
+          "clickOutsideDeactivates": true,
+          "onDeactivate": [Function],
+        }
+      }
+      paused={false}
+      tag="div"
     >
-      <withClient(Connect(Wrapper))
+      <withClient(Connect(withI18n(AppInstallation)))
         appSlug="photos"
         onCancel={[Function]}
       />
-    </Unknown>
-  </FocusTrap>
+    </FocusTrap>
+  </Modal>
 </Portal>
 `;
 
@@ -106,32 +109,33 @@ exports[`InstallModal component should not break the permissions part if no perm
 <Portal
   into="body"
 >
-  <FocusTrap
-    _createFocusTrap={[Function]}
-    active={true}
-    focusTrapOptions={
-      Object {
-        "clickOutsideDeactivates": true,
-        "onDeactivate": [Function],
-      }
-    }
-    paused={false}
-    tag="div"
+  <Modal
+    closable={true}
+    dismissAction={[Function]}
+    into="body"
+    mobileFullscreen={true}
+    overflowHidden={false}
+    primaryType="regular"
+    secondaryType="secondary"
+    size="small"
   >
-    <Unknown
-      closable={true}
-      dismissAction={[Function]}
-      mobileFullscreen={true}
-      overflowHidden={false}
-      primaryType="regular"
-      secondaryType="secondary"
-      size="small"
+    <FocusTrap
+      _createFocusTrap={[Function]}
+      active={true}
+      focusTrapOptions={
+        Object {
+          "clickOutsideDeactivates": true,
+          "onDeactivate": [Function],
+        }
+      }
+      paused={false}
+      tag="div"
     >
-      <withClient(Connect(Wrapper))
+      <withClient(Connect(withI18n(AppInstallation)))
         appSlug="photos"
         onCancel={[Function]}
       />
-    </Unknown>
-  </FocusTrap>
+    </FocusTrap>
+  </Modal>
 </Portal>
 `;

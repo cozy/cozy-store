@@ -93,13 +93,6 @@ describe('ChannelModal component', () => {
     expect(component).toMatchSnapshot()
   })
 
-  it('should handle focus trop correctly', () => {
-    const wrapper = shallow(<ChannelModal {...getMockProps()} />)
-    expect(wrapper.state().activeTrap).toBe(true)
-    wrapper.instance().unmountTrap()
-    expect(wrapper.state().activeTrap).toBe(false)
-  })
-
   it('calls onCurrentChannel if app already on asked channel', () => {
     const mockProps = getMockProps()
     mockProps.app.source = 'registry://photos/beta'

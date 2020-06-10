@@ -2,11 +2,11 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import { translate } from 'cozy-ui/react/I18n'
-import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
-import Button from 'cozy-ui/react/Button'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
+import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
+import Button from 'cozy-ui/transpiled/react/Button'
 import FocusTrap from 'focus-trap-react'
-import AppIcon from 'cozy-ui/react/AppIcon'
+import AppIcon from 'cozy-ui/transpiled/react/AppIcon'
 
 import ApplicationPageLoading from 'ducks/components/ApplicationPageLoading'
 import { getTranslatedManifestProperty } from 'lib/helpers'
@@ -147,7 +147,7 @@ export class ApplicationPage extends Component {
           )}
           <div className="sto-app">
             <Button
-              icon="back"
+              icon="left"
               tag={Link}
               to={`${parent}`}
               className="sto-app-back"

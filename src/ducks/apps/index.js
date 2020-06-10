@@ -430,6 +430,7 @@ export function fetchRegistryApps(client, lang, channel = DEFAULT_CHANNEL) {
             // no latest_version means no version for this channel
             if (!app.latest_version) return false // skip
             return getFormattedRegistryApp(client, app).catch(err => {
+              // eslint-disable-next-line no-console
               console.warn(
                 `Something went wrong when trying to fetch more informations about ${
                   app.slug

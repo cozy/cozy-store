@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import withBreakpoints from 'cozy-ui/react/helpers/withBreakpoints'
+import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 import Placeholder from 'ducks/components/Placeholder'
 
 // subarray = sections, array of subsections

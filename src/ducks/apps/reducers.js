@@ -1,6 +1,6 @@
 'use strict'
 
-import { extend as extendI18n } from 'cozy-ui/react/I18n'
+import { extend as extendI18n } from 'cozy-ui/transpiled/react/I18n'
 import { combineReducers } from 'redux'
 
 // initial loading
@@ -85,6 +85,7 @@ export const list = (state = [], action = {}) => {
           'slug'
         )
       } else {
+        // eslint-disable-next-line no-console
         console.warn('Failed attempt to restore a saved app state.')
         return state
       }

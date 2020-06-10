@@ -13,7 +13,7 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
     className="sto-sections-section"
   >
     <div>
-      <Wrapper
+      <withI18n(withBreakpoints(AppsSection))
         appsList={
           Array [
             Object {
@@ -54,7 +54,7 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
           </h2>
         }
       />
-      <Wrapper
+      <withI18n(withBreakpoints(AppsSection))
         appsList={
           Array [
             Object {
@@ -174,7 +174,7 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
           </h2>
         }
       />
-      <Wrapper
+      <withI18n(withBreakpoints(AppsSection))
         appsList={
           Array [
             Object {
@@ -220,7 +220,7 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
       >
         Services
       </h2>
-      <Wrapper
+      <withI18n(withBreakpoints(AppsSection))
         appsList={
           Array [
             Object {
@@ -260,7 +260,7 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
           </h3>
         }
       />
-      <Wrapper
+      <withI18n(withBreakpoints(AppsSection))
         appsList={
           Array [
             Object {
@@ -300,7 +300,7 @@ exports[`AppsSection component should be rendered correctly with apps list, subt
           </h3>
         }
       />
-      <Wrapper
+      <withI18n(withBreakpoints(AppsSection))
         appsList={
           Array [
             Object {
@@ -364,7 +364,7 @@ exports[`AppsSection component should not render dropdown filter on mobile if na
     className="sto-sections-section"
   >
     <div>
-      <Wrapper
+      <withI18n(withBreakpoints(AppsSection))
         appsList={
           Array [
             Object {
@@ -405,7 +405,7 @@ exports[`AppsSection component should not render dropdown filter on mobile if na
           </h2>
         }
       />
-      <Wrapper
+      <withI18n(withBreakpoints(AppsSection))
         appsList={
           Array [
             Object {
@@ -525,7 +525,7 @@ exports[`AppsSection component should not render dropdown filter on mobile if na
           </h2>
         }
       />
-      <Wrapper
+      <withI18n(withBreakpoints(AppsSection))
         appsList={
           Array [
             Object {
@@ -571,7 +571,7 @@ exports[`AppsSection component should not render dropdown filter on mobile if na
       >
         Services
       </h2>
-      <Wrapper
+      <withI18n(withBreakpoints(AppsSection))
         appsList={
           Array [
             Object {
@@ -611,7 +611,7 @@ exports[`AppsSection component should not render dropdown filter on mobile if na
           </h3>
         }
       />
-      <Wrapper
+      <withI18n(withBreakpoints(AppsSection))
         appsList={
           Array [
             Object {
@@ -651,7 +651,7 @@ exports[`AppsSection component should not render dropdown filter on mobile if na
           </h3>
         }
       />
-      <Wrapper
+      <withI18n(withBreakpoints(AppsSection))
         appsList={
           Array [
             Object {
@@ -720,7 +720,7 @@ exports[`AppsSection component should not render dropdown filter on tablet if na
     className="sto-sections-section"
   >
     <div>
-      <Wrapper
+      <withI18n(withBreakpoints(AppsSection))
         appsList={
           Array [
             Object {
@@ -761,7 +761,7 @@ exports[`AppsSection component should not render dropdown filter on tablet if na
           </h2>
         }
       />
-      <Wrapper
+      <withI18n(withBreakpoints(AppsSection))
         appsList={
           Array [
             Object {
@@ -881,7 +881,7 @@ exports[`AppsSection component should not render dropdown filter on tablet if na
           </h2>
         }
       />
-      <Wrapper
+      <withI18n(withBreakpoints(AppsSection))
         appsList={
           Array [
             Object {
@@ -927,7 +927,7 @@ exports[`AppsSection component should not render dropdown filter on tablet if na
       >
         Services
       </h2>
-      <Wrapper
+      <withI18n(withBreakpoints(AppsSection))
         appsList={
           Array [
             Object {
@@ -967,7 +967,7 @@ exports[`AppsSection component should not render dropdown filter on tablet if na
           </h3>
         }
       />
-      <Wrapper
+      <withI18n(withBreakpoints(AppsSection))
         appsList={
           Array [
             Object {
@@ -1007,7 +1007,7 @@ exports[`AppsSection component should not render dropdown filter on tablet if na
           </h3>
         }
       />
-      <Wrapper
+      <withI18n(withBreakpoints(AppsSection))
         appsList={
           Array [
             Object {
@@ -1139,7 +1139,7 @@ exports[`AppsSection component should render dropdown filter on mobile if no nav
     className="sto-sections-section"
   >
     <div>
-      <Wrapper
+      <withI18n(withBreakpoints(AppsSection))
         appsList={
           Array [
             Object {
@@ -1180,7 +1180,7 @@ exports[`AppsSection component should render dropdown filter on mobile if no nav
           </h2>
         }
       />
-      <Wrapper
+      <withI18n(withBreakpoints(AppsSection))
         appsList={
           Array [
             Object {
@@ -1300,7 +1300,7 @@ exports[`AppsSection component should render dropdown filter on mobile if no nav
           </h2>
         }
       />
-      <Wrapper
+      <withI18n(withBreakpoints(AppsSection))
         appsList={
           Array [
             Object {
@@ -1346,7 +1346,7 @@ exports[`AppsSection component should render dropdown filter on mobile if no nav
       >
         Services
       </h2>
-      <Wrapper
+      <withI18n(withBreakpoints(AppsSection))
         appsList={
           Array [
             Object {
@@ -1386,7 +1386,7 @@ exports[`AppsSection component should render dropdown filter on mobile if no nav
           </h3>
         }
       />
-      <Wrapper
+      <withI18n(withBreakpoints(AppsSection))
         appsList={
           Array [
             Object {
@@ -1426,7 +1426,7 @@ exports[`AppsSection component should render dropdown filter on mobile if no nav
           </h3>
         }
       />
-      <Wrapper
+      <withI18n(withBreakpoints(AppsSection))
         appsList={
           Array [
             Object {
@@ -1555,7 +1555,7 @@ exports[`AppsSection component should render dropdown filter on tablet if no nav
     className="sto-sections-section"
   >
     <div>
-      <Wrapper
+      <withI18n(withBreakpoints(AppsSection))
         appsList={
           Array [
             Object {
@@ -1596,7 +1596,7 @@ exports[`AppsSection component should render dropdown filter on tablet if no nav
           </h2>
         }
       />
-      <Wrapper
+      <withI18n(withBreakpoints(AppsSection))
         appsList={
           Array [
             Object {
@@ -1716,7 +1716,7 @@ exports[`AppsSection component should render dropdown filter on tablet if no nav
           </h2>
         }
       />
-      <Wrapper
+      <withI18n(withBreakpoints(AppsSection))
         appsList={
           Array [
             Object {
@@ -1762,7 +1762,7 @@ exports[`AppsSection component should render dropdown filter on tablet if no nav
       >
         Services
       </h2>
-      <Wrapper
+      <withI18n(withBreakpoints(AppsSection))
         appsList={
           Array [
             Object {
@@ -1802,7 +1802,7 @@ exports[`AppsSection component should render dropdown filter on tablet if no nav
           </h3>
         }
       />
-      <Wrapper
+      <withI18n(withBreakpoints(AppsSection))
         appsList={
           Array [
             Object {
@@ -1842,7 +1842,7 @@ exports[`AppsSection component should render dropdown filter on tablet if no nav
           </h3>
         }
       />
-      <Wrapper
+      <withI18n(withBreakpoints(AppsSection))
         appsList={
           Array [
             Object {

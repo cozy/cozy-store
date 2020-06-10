@@ -7,7 +7,7 @@ exports[`App component only should be mounted correctly 1`] = `
   <Alerter
     into="body"
   />
-  <Wrapper />
+  <withI18n(withBreakpoints(withRouter(Sidebar))) />
   <Main>
     <Switch>
       <Route

@@ -4,9 +4,10 @@ exports[`UninstallModal component should be rendered correctly (app uninstallabl
 <Portal
   into="body"
 >
-  <Unknown
+  <Modal
     className="sto-modal--uninstall"
     closable={true}
+    into="body"
     mobileFullscreen={true}
     overflowHidden={false}
     primaryType="regular"
@@ -32,13 +33,13 @@ exports[`UninstallModal component should be rendered correctly (app uninstallabl
         className="u-mh-half"
         disabled={false}
         extension="full"
-        icon="delete"
+        icon="trash"
         label="Uninstall"
         onClick={[Function]}
         theme="danger"
       />
     </ModalFooter>
-  </Unknown>
+  </Modal>
 </Portal>
 `;
 
@@ -46,9 +47,10 @@ exports[`UninstallModal component should handle correctly error from props 1`] =
 <Portal
   into="body"
 >
-  <Unknown
+  <Modal
     className="sto-modal--uninstall"
     closable={true}
+    into="body"
     mobileFullscreen={true}
     overflowHidden={false}
     primaryType="regular"
@@ -79,13 +81,13 @@ exports[`UninstallModal component should handle correctly error from props 1`] =
         className="u-mh-half"
         disabled={false}
         extension="full"
-        icon="delete"
+        icon="trash"
         label="Uninstall"
         onClick={[Function]}
         theme="danger"
       />
     </ModalFooter>
-  </Unknown>
+  </Modal>
 </Portal>
 `;
 
@@ -93,9 +95,10 @@ exports[`UninstallModal component should handle correctly linked app error 1`] =
 <Portal
   into="body"
 >
-  <Unknown
+  <Modal
     className="sto-modal--uninstall"
     closable={true}
+    into="body"
     mobileFullscreen={true}
     overflowHidden={false}
     primaryType="regular"
@@ -134,12 +137,12 @@ exports[`UninstallModal component should handle correctly linked app error 1`] =
         className="u-mh-half"
         disabled={true}
         extension="full"
-        icon="delete"
+        icon="trash"
         label="Uninstall"
         onClick={[Function]}
         theme="danger"
       />
     </ModalFooter>
-  </Unknown>
+  </Modal>
 </Portal>
 `;

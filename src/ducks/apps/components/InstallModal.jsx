@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import Modal from 'cozy-ui/react/Modal'
+import Modal from 'cozy-ui/transpiled/react/Modal'
 import FocusTrap from 'focus-trap-react'
-import { translate } from 'cozy-ui/react/I18n'
-import Portal from 'cozy-ui/react/Portal'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
+import Portal from 'cozy-ui/transpiled/react/Portal'
 import { withClient } from 'cozy-client'
 import compose from 'lodash/flowRight'
 import AppInstallation from 'ducks/apps/components/AppInstallation'
@@ -45,21 +45,21 @@ export class InstallModal extends Component {
     const { app, redirectToApp, redirectToConfigure } = this.props
     return (
       <Portal into="body">
-        <FocusTrap
-          focusTrapOptions={{
-            onDeactivate: this.unmountTrap,
-            clickOutsideDeactivates: true
-          }}
-        >
-          <Modal dismissAction={this.dismiss} mobileFullscreen>
+        <Modal dismissAction={this.dismiss} mobileFullscreen>
+          <FocusTrap
+            focusTrapOptions={{
+              onDeactivate: this.unmountTrap,
+              clickOutsideDeactivates: true
+            }}
+          >
             <AppInstallation
               appSlug={app.slug}
               onCancel={this.dismiss}
               onKonnectorInstall={redirectToConfigure}
               onInstallOrUpdate={redirectToApp}
             />
-          </Modal>
-        </FocusTrap>
+          </FocusTrap>
+        </Modal>
       </Portal>
     )
   }

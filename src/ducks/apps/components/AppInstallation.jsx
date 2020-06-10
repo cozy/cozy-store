@@ -3,17 +3,22 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { PropTypes } from 'react-proptypes'
 import flags from 'cozy-flags'
+import FocusTrap from 'focus-trap-react'
 
 import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
-import { ModalDescription, ModalHeader, ModalFooter } from 'cozy-ui/react/Modal'
-import Spinner from 'cozy-ui/react/Spinner'
-import Button from 'cozy-ui/react/Button'
+import {
+  ModalDescription,
+  ModalHeader,
+  ModalFooter
+} from 'cozy-ui/transpiled/react/Modal'
+import Spinner from 'cozy-ui/transpiled/react/Spinner'
+import Button from 'cozy-ui/transpiled/react/Button'
 
 import PermissionsList from 'ducks/apps/components/PermissionsList'
 import Partnership from 'ducks/apps/components/Partnership'
-import { translate } from 'cozy-ui/react/I18n'
-import Alerter from 'cozy-ui/react/Alerter'
-import Checkbox from 'cozy-ui/react/Checkbox'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
+import Alerter from 'cozy-ui/transpiled/react/Alerter'
+import Checkbox from 'cozy-ui/transpiled/react/Checkbox'
 
 import { getTranslatedManifestProperty } from 'lib/helpers'
 import { hasPendingUpdate } from 'ducks/apps/appStatus'
@@ -60,6 +65,8 @@ export class AppInstallation extends Component {
           buttonAction: dismiss => dismiss()
         }
       )
+
+      // eslint-disable-next-line no-console
       console.error(error)
     })
     if (isUpdate || isChannelSwitch || app.type !== APP_TYPE.KONNECTOR) {
@@ -149,60 +156,66 @@ export class AppInstallation extends Component {
         )}
         {!isFetchingSomething && !fetchError && (
           <ModalFooter className="sto-install-footer">
-            {installError && (
-              <p className="u-error">
-                {t('app_modal.install.message.install_error', {
-                  message: installError.message
-                })}
-              </p>
-            )}
-            {app.terms && (
-              <div className="sto-install-terms">
-                <Checkbox
-                  className="sto-install-terms-checkbox"
-                  onChange={this.acceptTerms}
-                  checked={isTermsAccepted}
-                  disabled={isInstalling}
-                >
-                  <ReactMarkdownWrapper
-                    source={
-                      app.partnership
-                        ? t(
-                            'app_modal.install.termsWithPartnership',
-                            termsCheckboxTranslationOpts
-                          )
-                        : t(
-                            'app_modal.install.terms',
-                            termsCheckboxTranslationOpts
-                          )
-                    }
-                  />
-                </Checkbox>
+            <FocusTrap
+              focusTrapOptions={{
+                clickOutsideDeactivates: true
+              }}
+            >
+              {installError && (
+                <p className="u-error">
+                  {t('app_modal.install.message.install_error', {
+                    message: installError.message
+                  })}
+                </p>
+              )}
+              {app.terms && (
+                <div className="sto-install-terms">
+                  <Checkbox
+                    className="sto-install-terms-checkbox"
+                    onChange={this.acceptTerms}
+                    checked={isTermsAccepted}
+                    disabled={isInstalling}
+                  >
+                    <ReactMarkdownWrapper
+                      source={
+                        app.partnership
+                          ? t(
+                              'app_modal.install.termsWithPartnership',
+                              termsCheckboxTranslationOpts
+                            )
+                          : t(
+                              'app_modal.install.terms',
+                              termsCheckboxTranslationOpts
+                            )
+                      }
+                    />
+                  </Checkbox>
+                </div>
+              )}
+              <div className="sto-install-controls">
+                <Button
+                  theme="secondary"
+                  onClick={onCancel}
+                  disabled={isCurrentAppInstalling}
+                  label={t('app_modal.install.cancel')}
+                  extension="full"
+                  className="u-mh-half"
+                />
+                <Button
+                  theme="primary"
+                  disabled={!this.isInstallReady() || isInstalling}
+                  busy={isCurrentAppInstalling}
+                  extension="full"
+                  onClick={this.installApp}
+                  label={
+                    hasPendingUpdate(app)
+                      ? t('app_modal.install.update')
+                      : t('app_modal.install.install')
+                  }
+                  className="u-mh-half"
+                />
               </div>
-            )}
-            <div className="sto-install-controls">
-              <Button
-                theme="secondary"
-                onClick={onCancel}
-                disabled={isCurrentAppInstalling}
-                label={t('app_modal.install.cancel')}
-                extension="full"
-                className="u-mh-half"
-              />
-              <Button
-                theme="primary"
-                disabled={!this.isInstallReady() || isInstalling}
-                busy={isCurrentAppInstalling}
-                extension="full"
-                onClick={this.installApp}
-                label={
-                  hasPendingUpdate(app)
-                    ? t('app_modal.install.update')
-                    : t('app_modal.install.install')
-                }
-                className="u-mh-half"
-              />
-            </div>
+            </FocusTrap>
           </ModalFooter>
         )}
       </React.Fragment>
