@@ -14,23 +14,10 @@ exports[`InstallModal component should be rendered correctly if app found 1`] = 
     secondaryType="secondary"
     size="small"
   >
-    <FocusTrap
-      _createFocusTrap={[Function]}
-      active={true}
-      focusTrapOptions={
-        Object {
-          "clickOutsideDeactivates": true,
-          "onDeactivate": [Function],
-        }
-      }
-      paused={false}
-      tag="div"
-    >
-      <withClient(Connect(withI18n(AppInstallation)))
-        appSlug="photos"
-        onCancel={[Function]}
-      />
-    </FocusTrap>
+    <withClient(Connect(withI18n(AppInstallation)))
+      appSlug="photos"
+      onCancel={[Function]}
+    />
   </Modal>
 </Portal>
 `;
@@ -49,23 +36,10 @@ exports[`InstallModal component should be rendered correctly to update app with 
     secondaryType="secondary"
     size="small"
   >
-    <FocusTrap
-      _createFocusTrap={[Function]}
-      active={true}
-      focusTrapOptions={
-        Object {
-          "clickOutsideDeactivates": true,
-          "onDeactivate": [Function],
-        }
-      }
-      paused={false}
-      tag="div"
-    >
-      <withClient(Connect(withI18n(AppInstallation)))
-        appSlug="photos"
-        onCancel={[Function]}
-      />
-    </FocusTrap>
+    <withClient(Connect(withI18n(AppInstallation)))
+      appSlug="photos"
+      onCancel={[Function]}
+    />
   </Modal>
 </Portal>
 `;
@@ -84,23 +58,10 @@ exports[`InstallModal component should be rendered correctly with also app in re
     secondaryType="secondary"
     size="small"
   >
-    <FocusTrap
-      _createFocusTrap={[Function]}
-      active={true}
-      focusTrapOptions={
-        Object {
-          "clickOutsideDeactivates": true,
-          "onDeactivate": [Function],
-        }
-      }
-      paused={false}
-      tag="div"
-    >
-      <withClient(Connect(withI18n(AppInstallation)))
-        appSlug="photos"
-        onCancel={[Function]}
-      />
-    </FocusTrap>
+    <withClient(Connect(withI18n(AppInstallation)))
+      appSlug="photos"
+      onCancel={[Function]}
+    />
   </Modal>
 </Portal>
 `;
@@ -119,23 +80,10 @@ exports[`InstallModal component should not break the permissions part if no perm
     secondaryType="secondary"
     size="small"
   >
-    <FocusTrap
-      _createFocusTrap={[Function]}
-      active={true}
-      focusTrapOptions={
-        Object {
-          "clickOutsideDeactivates": true,
-          "onDeactivate": [Function],
-        }
-      }
-      paused={false}
-      tag="div"
-    >
-      <withClient(Connect(withI18n(AppInstallation)))
-        appSlug="photos"
-        onCancel={[Function]}
-      />
-    </FocusTrap>
+    <withClient(Connect(withI18n(AppInstallation)))
+      appSlug="photos"
+      onCancel={[Function]}
+    />
   </Modal>
 </Portal>
 `;
