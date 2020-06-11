@@ -91,13 +91,6 @@ describe('InstallModal component', () => {
     expect(component).toMatchSnapshot()
   })
 
-  it('should handle focus trop correctly', () => {
-    const wrapper = shallow(<InstallModal {...getMockProps()} />)
-    expect(wrapper.state().activeTrap).toBe(true)
-    wrapper.instance().unmountTrap()
-    expect(wrapper.state().activeTrap).toBe(false)
-  })
-
   it('calls onInstalled if app installed without update', () => {
     const mockProps = getMockProps(true)
     mockProps.app.installed = true
