@@ -52,7 +52,7 @@
     "redux-thunk": "2.3.0",
     "sinon": "7.4.2",
     "sinon-stub-promise": "4.0.0",
-    "stylint": "1.5.9"
+    "stylint": "2.0.0"
   },
   "dependencies": {
     "@material-ui/core": "3.9.4",
