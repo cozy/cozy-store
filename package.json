@@ -45,7 +45,7 @@
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-hot-loader": "4.12.15",
-    "react-markdown": "3.6.0",
+    "react-markdown": "4.3.1",
     "react-test-renderer": "16.8.6",
     "redux-logger": "3.0.6",
     "redux-mock-store": "1.5.3",
