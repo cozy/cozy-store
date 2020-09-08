@@ -18,15 +18,21 @@ const renderApp = function({ client, lang }) {
   )
 }
 
+let client, lang
+
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.querySelector('[role=application]')
   const data = root.dataset
   const protocol = window.location.protocol
-  const client = new CozyClient({
+
+  client = new CozyClient({
     uri: `${protocol}//${data.cozyDomain}`,
     schema,
     token: data.cozyToken
   })
+
+  lang = data.cozyLocale
+
   cozy.bar.init({
     cozyClient: client,
     appEditor: data.cozyAppEditor,
@@ -36,5 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
     replaceTitleOnMobile: true
   })
 
-  renderApp({ client, lang: data.cozyLocale })
+  renderApp({ client, lang })
 })
+
+if (module.hot) {
+  renderApp({ client, lang })
+  module.hot.accept()
+}
