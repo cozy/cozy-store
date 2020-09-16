@@ -3113,19 +3113,25 @@ cozy-client@13.8.3:
     sift "^6.0.0"
     url-search-params-polyfill "^7.0.0"
 
-cozy-client@6.66.0:
-  version "6.66.0"
-  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-6.66.0.tgz#a7e277fc4b893e85275e60b445307cb30cc332ad"
-  integrity sha512-x//RAptC5zyt93tPd43I6SukepMWZFj9b11VpXCxxH+0aWLryQwlNRrrElkIcoze2Cn0XlmUg2DDoyvUuB2SwQ==
+cozy-client@14.5.0:
+  version "14.5.0"
+  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-14.5.0.tgz#394370ba717a632c96698d586d4baa06919de0ec"
+  integrity sha512-W9mdfhqNLk2vFyGhfHJSE7v4Axq6C3f94MRMv/48iGFnXJUKG3otVktgkAGWQG9soKxIRKCxCgI0FMap3o/wcw==
   dependencies:
+    btoa "^1.2.1"
     cozy-device-helper "^1.7.3"
-    cozy-stack-client "^6.66.0"
+    cozy-logger "^1.6.0"
+    cozy-stack-client "^14.1.2"
+    isomorphic-fetch "^2.2.1"
     lodash "^4.17.13"
     microee "^0.0.6"
+    minilog "https://github.com/cozy/minilog.git#master"
+    open "^7.0.2"
     prop-types "^15.6.2"
-    react-redux "^5.0.7"
+    react-redux "^7.2.0"
     redux "^3.7.2"
     redux-thunk "^2.3.0"
+    server-destroy "^1.0.1"
     sift "^6.0.0"
     url-search-params-polyfill "^7.0.0"
 
@@ -3257,10 +3263,10 @@ cozy-stack-client@^13.8.3:
     mime "^2.4.0"
     qs "^6.7.0"
 
-cozy-stack-client@^6.66.0:
-  version "6.66.0"
-  resolved "https://registry.yarnpkg.com/cozy-stack-client/-/cozy-stack-client-6.66.0.tgz#ba217c2d615dd31a9f40ae131644c68c4108b101"
-  integrity sha512-NPdoDplH43nLBlTXVXYCOutRkh3Q+Dib92BGU8F3PanCMjCBXiRUni6I7EhcumwJkXeJVm7qul72X4LYKlOzgA==
+cozy-stack-client@^14.1.2:
+  version "14.1.2"
+  resolved "https://registry.yarnpkg.com/cozy-stack-client/-/cozy-stack-client-14.1.2.tgz#606ce89cabf4def2875cb8749b28b3ee8b96d18f"
+  integrity sha512-0IyYvBQu+vuwN9qe6PHA7khXBQT8TGSjVia7SVTGQ88tEFSLLGXjfZe3pkZQ1ihBdJvmeon12dm0BWeEb+9KZw==
   dependencies:
     detect-node "^2.0.4"
     mime "^2.4.0"
@@ -7496,22 +7502,15 @@ mini-css-extract-plugin@0.5.0:
     schema-utils "^1.0.0"
     webpack-sources "^1.1.0"
 
-minilog@3.1.0:
+minilog@3.1.0, "minilog@https://github.com/cozy/minilog.git#master":
   version "3.1.0"
-  resolved "https://registry.yarnpkg.com/minilog/-/minilog-3.1.0.tgz#d2d0f1887ca363d1acf0ea86d5c4df293b3fb675"
-  integrity sha1-0tDxiHyjY9Gs8OqG1cTfKTs/tnU=
+  resolved "https://github.com/cozy/minilog.git#f01f7d9dfe20981177dd34b9662c2f077d818f82"
   dependencies:
     microee "0.0.6"
 
 "minilog@git+https://github.com/cozy/minilog.git#master":
   version "3.1.0"
   resolved "git+https://github.com/cozy/minilog.git#f01f7d9dfe20981177dd34b9662c2f077d818f82"
-  dependencies:
-    microee "0.0.6"
-
-"minilog@https://github.com/cozy/minilog.git#master":
-  version "3.1.0"
-  resolved "https://github.com/cozy/minilog.git#f01f7d9dfe20981177dd34b9662c2f077d818f82"
   dependencies:
     microee "0.0.6"
 
@@ -9312,7 +9311,7 @@ react-proptypes@1.0.0:
   dependencies:
     prop-types "*"
 
-react-redux@5.1.1, react-redux@^5.0.7:
+react-redux@5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.1.1.tgz#88e368682c7fa80e34e055cd7ac56f5936b0f52f"
   integrity sha512-LE7Ned+cv5qe7tMV5BPYkGQ5Lpg8gzgItK07c67yHvJ8t0iaD9kPFPAli/mYkiyJYrs2pJgExR2ZgsGqlrOApg==
