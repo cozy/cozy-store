@@ -168,9 +168,7 @@ export class Details extends Component {
               </div>
               <div className="sto-app-info-content sto-app-info-content--mobile-apps">
                 {mobileApps.map(a => {
-                  const icon = require(`assets/icons/platforms/icon-${
-                    a.type
-                  }.svg`)
+                  const icon = require(`assets/icons/platforms/icon-${a.type}.svg`)
                   return (
                     <a
                       className="sto-app-info-content-icon"
