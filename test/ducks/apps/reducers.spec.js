@@ -313,9 +313,12 @@ beforeEach(() => {
   // eslint-disable-next-line no-console
   originalWarn = console.warn
   // eslint-disable-next-line no-console
-  console.warn = function (msg) {
+  console.warn = function(msg) {
     // Do not log expected warning
-    if (msg.includes && msg.includes('Failed attempt to restore a saved app state (app: mismis).')) {
+    if (
+      msg.includes &&
+      msg.includes('Failed attempt to restore a saved app state (app: mismis).')
+    ) {
       return
     } else {
       return originalWarn.apply(this, arguments)
@@ -336,7 +339,7 @@ describe('Apps ducks reducers', () => {
   function expectToNotTouchTheState(reducer, action) {
     expect(reducer('default_state', action)).toBe('default_state')
   }
-  Object.keys(reducersTestConfig).slice(0, 1).map(reducerName => {
+  Object.keys(reducersTestConfig).map(reducerName => {
     // for each reducer from the config
     if (reducersTestConfig.hasOwnProperty(reducerName)) {
       describe(reducerName, () => {

@@ -73,13 +73,13 @@ describe('UninstallModal component', () => {
 
   it('calls onNotInstalled', () => {
     const props = { ...getMockProps('photos'), installed: false }
-    const { component } = setup({ props })
+    setup({ props })
     expect(props.onNotInstalled.mock.calls.length).toBe(1)
   })
 
   it('should handle correctly error from props', () => {
     const props = getMockProps('photos', mockError)
-    const { component } = setup({props})
+    const { component } = setup({ props })
     expect(component.getElement()).toMatchSnapshot()
   })
 
