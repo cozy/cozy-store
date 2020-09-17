@@ -1,42 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App component only should be mounted correctly 1`] = `
-<Layout
-  monoColumn={false}
->
-  <Alerter
-    into="body"
-  />
-  <withI18n(withBreakpoints(withRouter(Sidebar))) />
-  <Main>
-    <Switch>
-      <Route
-        component={[Function]}
-        path="/redirect"
-      />
-      <Route
-        component={[Function]}
-        path="/discover"
-      />
-      <Route
-        component={[Function]}
-        path="/myapps"
-      />
-      <React.Fragment>
-        <Redirect
-          exact={true}
-          from="/"
-          push={false}
-          to="/discover"
+<BreakpointsProvider>
+  <Layout
+    monoColumn={false}
+  >
+    <Alerter
+      into="body"
+    />
+    <withI18n(withBreakpoints(withRouter(Sidebar))) />
+    <Main>
+      <Switch>
+        <Route
+          component={[Function]}
+          path="/redirect"
         />
-        <Redirect
-          from="*"
-          push={false}
-          to="/discover"
+        <Route
+          component={[Function]}
+          path="/discover"
         />
-      </React.Fragment>
-    </Switch>
-  </Main>
-  <IconSprite />
-</Layout>
+        <Route
+          component={[Function]}
+          path="/myapps"
+        />
+        <React.Fragment>
+          <Redirect
+            exact={true}
+            from="/"
+            push={false}
+            to="/discover"
+          />
+          <Redirect
+            from="*"
+            push={false}
+            to="/discover"
+          />
+        </React.Fragment>
+      </Switch>
+    </Main>
+    <IconSprite />
+  </Layout>
+</BreakpointsProvider>
 `;
