@@ -52,6 +52,7 @@
     "cozy-ui": "36.6.0",
     "emoji-js": "3.4.1",
     "focus-trap-react": "4.0.1",
+    "fuse.js": "^6.4.1",
     "lodash.get": "4.4.2",
     "node-fetch": "2.6.0",
     "prop-types": "15.7.2",
