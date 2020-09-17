@@ -86,7 +86,7 @@ export const list = (state = [], action = {}) => {
         )
       } else {
         // eslint-disable-next-line no-console
-        console.warn('Failed attempt to restore a saved app state.')
+        console.warn(`Failed attempt to restore a saved app state (app: ${action.app && action.app.slug}).`)
         return state
       }
     case FETCH_APP_SUCCESS:
