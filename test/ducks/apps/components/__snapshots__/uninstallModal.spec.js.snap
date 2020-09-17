@@ -7,6 +7,7 @@ exports[`UninstallModal component should be rendered correctly (app uninstallabl
   <Modal
     className="sto-modal--uninstall"
     closable={true}
+    dismissAction={[MockFunction]}
     into="body"
     mobileFullscreen={true}
     overflowHidden={false}
@@ -27,6 +28,7 @@ exports[`UninstallModal component should be rendered correctly (app uninstallabl
         className="u-mh-half"
         extension="full"
         label="Cancel"
+        onClick={[MockFunction]}
         theme="secondary"
       />
       <DefaultButton
@@ -50,6 +52,7 @@ exports[`UninstallModal component should handle correctly error from props 1`] =
   <Modal
     className="sto-modal--uninstall"
     closable={true}
+    dismissAction={[MockFunction]}
     into="body"
     mobileFullscreen={true}
     overflowHidden={false}
@@ -75,6 +78,7 @@ exports[`UninstallModal component should handle correctly error from props 1`] =
         className="u-mh-half"
         extension="full"
         label="Cancel"
+        onClick={[MockFunction]}
         theme="secondary"
       />
       <DefaultButton
@@ -98,6 +102,7 @@ exports[`UninstallModal component should handle correctly linked app error 1`] =
   <Modal
     className="sto-modal--uninstall"
     closable={true}
+    dismissAction={[MockFunction]}
     into="body"
     mobileFullscreen={true}
     overflowHidden={false}
@@ -131,6 +136,7 @@ exports[`UninstallModal component should handle correctly linked app error 1`] =
         className="u-mh-half"
         extension="full"
         label="Cancel"
+        onClick={[MockFunction]}
         theme="secondary"
       />
       <DefaultButton
