@@ -17,6 +17,8 @@ exports[`InstallModal component should be rendered correctly if app found 1`] = 
     <withClient(Connect(withI18n(AppInstallation)))
       appSlug="photos"
       onCancel={[Function]}
+      onInstallOrUpdate={[MockFunction]}
+      onKonnectorInstall={[MockFunction]}
     />
   </Modal>
 </Portal>
@@ -39,6 +41,8 @@ exports[`InstallModal component should be rendered correctly to update app with 
     <withClient(Connect(withI18n(AppInstallation)))
       appSlug="photos"
       onCancel={[Function]}
+      onInstallOrUpdate={[MockFunction]}
+      onKonnectorInstall={[MockFunction]}
     />
   </Modal>
 </Portal>
@@ -61,6 +65,8 @@ exports[`InstallModal component should be rendered correctly with also app in re
     <withClient(Connect(withI18n(AppInstallation)))
       appSlug="photos"
       onCancel={[Function]}
+      onInstallOrUpdate={[MockFunction]}
+      onKonnectorInstall={[MockFunction]}
     />
   </Modal>
 </Portal>
@@ -83,6 +89,8 @@ exports[`InstallModal component should not break the permissions part if no perm
     <withClient(Connect(withI18n(AppInstallation)))
       appSlug="photos"
       onCancel={[Function]}
+      onInstallOrUpdate={[MockFunction]}
+      onKonnectorInstall={[MockFunction]}
     />
   </Modal>
 </Portal>

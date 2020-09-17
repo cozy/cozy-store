@@ -47,7 +47,9 @@ const getMockProps = (fromRegistry = false) => ({
   }),
   history: {
     push: jest.fn()
-  }
+  },
+  redirectToConfigure: jest.fn(),
+  redirectToApp: jest.fn()
 })
 
 describe('InstallModal component', () => {
