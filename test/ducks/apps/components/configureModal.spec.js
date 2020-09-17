@@ -27,7 +27,7 @@ describe('ConfigureModal component', () => {
 
   const setup = props => {
     const client = new CozyClient({
-      stackClient: { uri: 'https://cozy.tools' }
+      stackClient: { uri: 'https://cozy.tools', on: jest.fn() }
     })
 
     component = shallow(
