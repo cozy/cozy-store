@@ -1,4 +1,8 @@
 {
+  "com.bitwarden.profiles": "passwords",
+  "com.bitwarden.ciphers": "passwords",
+  "com.bitwarden.folders": "passwords",
+  "com.bitwarden.organizations": "passwords",
   "fr.maif.maifuser.contrat": "contract",
   "fr.maif.maifuser.foyer": "family",
   "fr.maif.maifuser.home": "home",

@@ -201,7 +201,11 @@
   "doctypes": {
     "com": {
       "tricount.expenses": "Expenses Tricount",
-      "splitwise.expenses": "Expenses Splitwise"
+      "splitwise.expenses": "Expenses Splitwise",
+      "bitwarden.profiles": "Password manager profiles",
+      "bitwarden.ciphers": "Password manager entries",
+      "bitwarden.folders": "Password manager folders",
+      "bitwarden.organizations": "Password manager organizations"
     },
     "cc": {
       "cozycloud": {
