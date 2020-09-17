@@ -308,6 +308,29 @@ const reducersTestConfig = {
   }
 }
 
+let originalWarn
+beforeEach(() => {
+  // eslint-disable-next-line no-console
+  originalWarn = console.warn
+  // eslint-disable-next-line no-console
+  console.warn = function(msg) {
+    // Do not log expected warning
+    if (
+      msg.includes &&
+      msg.includes('Failed attempt to restore a saved app state (app: mismis).')
+    ) {
+      return
+    } else {
+      return originalWarn.apply(this, arguments)
+    }
+  }
+})
+
+afterEach(() => {
+  // eslint-disable-next-line no-console
+  console.warn = originalWarn
+})
+
 describe('Apps ducks reducers', () => {
   beforeEach(() => {
     jest.resetModules()

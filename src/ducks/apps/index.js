@@ -131,9 +131,7 @@ export function _getRegistryAssetsLinks(client, manifest, appVersion) {
     manifest.screenshots.map(name => {
       let fileName = name
       if (fileName[0] === '/') fileName = fileName.slice(1)
-      return `${client.stackClient.uri}/registry/${
-        manifest.slug
-      }/${appVersion}/screenshots/${fileName}`
+      return `${client.stackClient.uri}/registry/${manifest.slug}/${appVersion}/screenshots/${fileName}`
     })
   const iconLink =
     manifest.slug && `/registry/${manifest.slug}/${appVersion}/icon`
@@ -141,9 +139,7 @@ export function _getRegistryAssetsLinks(client, manifest, appVersion) {
     manifest.slug &&
     manifest.partnership &&
     manifest.partnership.icon &&
-    `${client.stackClient.uri}/registry/${
-      manifest.slug
-    }/${appVersion}/partnership_icon`
+    `${client.stackClient.uri}/registry/${manifest.slug}/${appVersion}/partnership_icon`
   return {
     screenshotsLinks,
     iconLink,
@@ -230,7 +226,7 @@ function onAppDelete(appResponse) {
 }
 
 function initializeRealtime(client) {
-  const realtime = new CozyRealtime({ cozyClient: client })
+  const realtime = new CozyRealtime({ client })
   return dispatch => {
     const handleAppUpdate = app => dispatch(onAppUpdate(client, app))
     const handleAppDelete = app => dispatch(onAppDelete(app))
@@ -432,9 +428,7 @@ export function fetchRegistryApps(client, lang, channel = DEFAULT_CHANNEL) {
             return getFormattedRegistryApp(client, app).catch(err => {
               // eslint-disable-next-line no-console
               console.warn(
-                `Something went wrong when trying to fetch more informations about ${
-                  app.slug
-                } from the registry on ${channel} channel. ${err}`
+                `Something went wrong when trying to fetch more informations about ${app.slug} from the registry on ${channel} channel. ${err}`
               )
               return false // skip
             })

@@ -35,7 +35,9 @@ describe('InstallAppIntent component', () => {
       <CozyProvider client={client}>
         <InstallAppIntent {...props} />
       </CozyProvider>
-    ).dive()
+    )
+      .find(InstallAppIntent)
+      .dive()
     const component = componentWrapper.getElement()
 
     expect(component).toMatchSnapshot()

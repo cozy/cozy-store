@@ -52,40 +52,43 @@ describe('UninstallModal component', () => {
     }
   })
 
-  it('should be rendered correctly (app uninstallable)', () => {
+  const setup = ({ props }) => {
     const component = shallow(
       <UninstallModal
         client={mockClient}
         t={tMock}
-        {...getMockProps('photos')}
+        onSuccess={jest.fn()}
+        dismissAction={jest.fn()}
+        {...props}
       />
-    ).getElement()
-    expect(component).toMatchSnapshot()
+    )
+    return { component }
+  }
+
+  it('should be rendered correctly (app uninstallable)', () => {
+    const props = getMockProps('photos')
+    const { component } = setup({ props })
+    expect(component.getElement()).toMatchSnapshot()
   })
 
   it('calls onNotInstalled', () => {
-    const props = getMockProps('photos')
-    props.installed = false
-    shallow(<UninstallModal client={mockClient} t={tMock} {...props} />)
+    const props = { ...getMockProps('photos'), installed: false }
+    setup({ props })
     expect(props.onNotInstalled.mock.calls.length).toBe(1)
   })
 
   it('should handle correctly error from props', () => {
-    const mockProps = getMockProps('photos', mockError)
-    const component = shallow(
-      <UninstallModal client={mockClient} t={tMock} {...mockProps} />
-    )
+    const props = getMockProps('photos', mockError)
+    const { component } = setup({ props })
     expect(component.getElement()).toMatchSnapshot()
   })
 
   it('should handle correctly linked app error', () => {
-    const mockProps = getMockProps(
+    const props = getMockProps(
       'photos',
       new Error('A linked OAuth client exists for this app')
     )
-    const component = shallow(
-      <UninstallModal client={mockClient} t={tMock} {...mockProps} />
-    )
+    const { component } = setup({ props })
     expect(component.getElement()).toMatchSnapshot()
   })
 })

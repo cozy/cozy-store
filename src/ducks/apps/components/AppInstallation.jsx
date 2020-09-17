@@ -177,6 +177,7 @@ export class AppInstallation extends Component {
                     disabled={isInstalling}
                   >
                     <ReactMarkdownWrapper
+                      className="u-ml-half u-mt-half"
                       source={
                         app.partnership
                           ? t(

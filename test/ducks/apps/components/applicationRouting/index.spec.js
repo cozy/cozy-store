@@ -36,7 +36,6 @@ describe('ApplicationRouting main component', () => {
     const mockProps = getMockProps('myapps')
     const component = shallow(<ApplicationRouting {...mockProps} />)
     expect(component.children().length).toBe(TOTAL_ROUTES)
-    expect(component).toMatchSnapshot()
   })
 
   it('should call history from props with redirectTo', () => {

@@ -213,6 +213,7 @@ Enjoy features to grab your data in you Cozy :tada:"
         >
           <Icon
             height="24px"
+            icon="<svg><text>svg icon</text></svg>"
             spin={false}
             width="24px"
           />
@@ -225,6 +226,7 @@ Enjoy features to grab your data in you Cozy :tada:"
         >
           <Icon
             height="24px"
+            icon="<svg><text>svg icon</text></svg>"
             spin={false}
             width="24px"
           />
@@ -515,6 +517,7 @@ Enjoy features to grab your data in you Cozy :tada:"
         >
           <Icon
             height="24px"
+            icon="<svg><text>svg icon</text></svg>"
             spin={false}
             width="24px"
           />
@@ -527,6 +530,7 @@ Enjoy features to grab your data in you Cozy :tada:"
         >
           <Icon
             height="24px"
+            icon="<svg><text>svg icon</text></svg>"
             spin={false}
             width="24px"
           />
@@ -700,6 +704,7 @@ Enjoy features to grab your data in you Cozy :tada:"
         >
           <Icon
             height="24px"
+            icon="<svg><text>svg icon</text></svg>"
             spin={false}
             width="24px"
           />
@@ -712,6 +717,7 @@ Enjoy features to grab your data in you Cozy :tada:"
         >
           <Icon
             height="24px"
+            icon="<svg><text>svg icon</text></svg>"
             spin={false}
             width="24px"
           />
@@ -867,6 +873,7 @@ Enjoy features to grab your data in you Cozy :tada:"
         >
           <Icon
             height="24px"
+            icon="<svg><text>svg icon</text></svg>"
             spin={false}
             width="24px"
           />
@@ -879,6 +886,7 @@ Enjoy features to grab your data in you Cozy :tada:"
         >
           <Icon
             height="24px"
+            icon="<svg><text>svg icon</text></svg>"
             spin={false}
             width="24px"
           />
@@ -1034,6 +1042,7 @@ Enjoy features to grab your data in you Cozy :tada:"
         >
           <Icon
             height="24px"
+            icon="<svg><text>svg icon</text></svg>"
             spin={false}
             width="24px"
           />
@@ -1046,6 +1055,7 @@ Enjoy features to grab your data in you Cozy :tada:"
         >
           <Icon
             height="24px"
+            icon="<svg><text>svg icon</text></svg>"
             spin={false}
             width="24px"
           />
@@ -1201,6 +1211,7 @@ Enjoy features to grab your data in you Cozy :tada:"
         >
           <Icon
             height="24px"
+            icon="<svg><text>svg icon</text></svg>"
             spin={false}
             width="24px"
           />
@@ -1213,6 +1224,7 @@ Enjoy features to grab your data in you Cozy :tada:"
         >
           <Icon
             height="24px"
+            icon="<svg><text>svg icon</text></svg>"
             spin={false}
             width="24px"
           />
