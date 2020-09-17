@@ -15,6 +15,14 @@ import getChannel from 'lib/getChannelFromSource'
 import { getTranslatedManifestProperty } from 'lib/helpers'
 import { isUnderMaintenance } from 'ducks/apps/appStatus'
 
+import iosIcon from 'assets/icons/platforms/icon-ios.svg'
+import androidIcon from 'assets/icons/platforms/icon-android.svg'
+
+const platformIcons = {
+  ios: iosIcon,
+  android: androidIcon
+}
+
 const isValidUrl = url => {
   if (!url) return null
   return url.match(
@@ -168,7 +176,7 @@ export class Details extends Component {
               </div>
               <div className="sto-app-info-content sto-app-info-content--mobile-apps">
                 {mobileApps.map(a => {
-                  const icon = require(`assets/icons/platforms/icon-${a.type}.svg`)
+                  const icon = platformIcons[a.type]
                   return (
                     <a
                       className="sto-app-info-content-icon"
@@ -177,7 +185,7 @@ export class Details extends Component {
                       rel="noopener noreferrer"
                       key={a.type}
                     >
-                      <Icon icon={icon.default} width="24px" height="24px" />
+                      <Icon icon={icon} width="24px" height="24px" />
                     </a>
                   )
                 })}

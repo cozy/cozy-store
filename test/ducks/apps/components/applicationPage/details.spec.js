@@ -12,6 +12,14 @@ import { REGISTRY_CHANNELS } from 'ducks/apps'
 import mockApp from '../../_mockPhotosRegistryVersion'
 import mockKonnector from '../../_mockPKonnectorTrinlaneRegistryVersion'
 
+jest.mock('assets/icons/platforms/icon-ios.svg', () => {
+  return '<svg><text>svg icon</text></svg>'
+})
+
+jest.mock('assets/icons/platforms/icon-android.svg', () => {
+  return '<svg><text>svg icon</text></svg>'
+})
+
 const appManifest = mockApp.manifest
 const konnectorManifest = mockKonnector.manifest
 
