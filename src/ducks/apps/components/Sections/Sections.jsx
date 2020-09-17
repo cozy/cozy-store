@@ -4,10 +4,9 @@ import PropTypes from 'prop-types'
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 
-import AppsSection from './components/AppsSection'
+import AppSections from 'cozy-ui/transpiled/react/AppSections'
 import DropdownFilter from './components/DropdownFilter'
 
-import { APP_TYPE } from './constants'
 import * as searchUtils from './search'
 import * as catUtils from './categories'
 
@@ -26,6 +25,13 @@ export class Sections extends Component {
       search: {}
     }
     this.handleCategoryChange = this.handleCategoryChange.bind(this)
+  getSearch() {
+    // Depending on whether the component is controlled or uncontrolled,
+    // search is taken from props or state
+    const search = this.props.search || this.state.search
+    return search
+  }
+
   }
 
   // Sets state.search from the option received from the DropdownFilter
@@ -44,28 +50,10 @@ export class Sections extends Component {
 
   render() {
     const { t, apps, error, onAppClick, breakpoints = {}, hasNav } = this.props
+    const search = this.getSearch()
     const { isMobile, isTablet } = breakpoints
 
     if (error) return <p className="u-error">{error.message}</p>
-
-    // Depending on whether the component is controlled or uncontrolled,
-    // search is taken from props or state
-    const search = this.props.search || this.state.search
-    const searchMatcher = searchUtils.makeMatcherFromSearch(search)
-    const filteredApps = apps.filter(searchMatcher)
-
-    const konnectorGroups = catUtils.groupApps(
-      filteredApps.filter(a => a.type === APP_TYPE.KONNECTOR)
-    )
-    const webAppGroups = catUtils.groupApps(
-      filteredApps.filter(a => a.type === APP_TYPE.WEBAPP)
-    )
-    const webAppsCategories = Object.keys(webAppGroups)
-      .map(cat => catUtils.addLabel({ value: cat }, t))
-      .sort(catUtils.sorter)
-    const konnectorsCategories = Object.keys(konnectorGroups)
-      .map(cat => catUtils.addLabel({ value: cat }, t))
-      .sort(catUtils.sorter)
 
     const dropdownDisplayed = hasNav && (isMobile || isTablet)
     const rawSelectOptions = catUtils.generateOptionsFromApps(apps, {
@@ -86,52 +74,8 @@ export class Sections extends Component {
             onChange={this.handleCategoryChange}
           />
         )}
-        {!isMobile && !!webAppsCategories.length && (
-          <h1 className="sto-sections-title u-title-h1">
-            {t('sections.applications')}
-          </h1>
+          <AppSections apps={filteredApps} onAppClick={onAppClick} />
         )}
-        <div className="sto-sections-section">
-          {!!webAppsCategories.length && (
-            <div>
-              {webAppsCategories.map(cat => {
-                return (
-                  <AppsSection
-                    key={cat.value}
-                    appsList={webAppGroups[cat.value]}
-                    subtitle={
-                      <h2 className="sto-sections-subtitle u-title-h2">
-                        {cat.label}
-                      </h2>
-                    }
-                    onAppClick={onAppClick}
-                  />
-                )
-              })}
-            </div>
-          )}
-          {!!konnectorsCategories.length && (
-            <div>
-              <h2 className="sto-sections-subtitle u-title-h2">
-                {t('sections.konnectors')}
-              </h2>
-              {konnectorsCategories.map(cat => {
-                return (
-                  <AppsSection
-                    key={cat.value}
-                    appsList={konnectorGroups[cat.value]}
-                    subtitle={
-                      <h3 className="sto-sections-subtitle-secondary">
-                        {cat.label}
-                      </h3>
-                    }
-                    onAppClick={onAppClick}
-                  />
-                )
-              })}
-            </div>
-          )}
-        </div>
       </div>
     )
   }
