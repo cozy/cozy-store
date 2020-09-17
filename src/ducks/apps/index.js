@@ -226,7 +226,7 @@ function onAppDelete(appResponse) {
 }
 
 function initializeRealtime(client) {
-  const realtime = new CozyRealtime({ cozyClient: client })
+  const realtime = new CozyRealtime({ client })
   return dispatch => {
     const handleAppUpdate = app => dispatch(onAppUpdate(client, app))
     const handleAppDelete = app => dispatch(onAppDelete(app))
