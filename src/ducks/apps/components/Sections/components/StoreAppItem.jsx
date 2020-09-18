@@ -1,6 +1,6 @@
 import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
-import AppTile from 'cozy-ui/transpiled/react/AppSections/components/AppTile'
+import AppTile from 'cozy-ui/transpiled/react/AppTile'
 
 import { getTranslatedManifestProperty } from '../helpers'
 
