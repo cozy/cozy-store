@@ -28,12 +28,8 @@
 }
 
 @media (max-width: 48rem) {
-  /* Add margin for the top dropdown filter */
   .sto-sections {
-    margin-top: 4rem;
-  }
-
-  .sto-sections {
+    margin-top: 1rem;
     margin-left: 1rem;
     margin-right: 1rem;
   }

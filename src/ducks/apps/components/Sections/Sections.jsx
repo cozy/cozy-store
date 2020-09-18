@@ -4,19 +4,19 @@ import Fuse from 'fuse.js'
 import sortBy from 'lodash/sortBy'
 import debounce from 'lodash/debounce'
 
-import { translate } from 'cozy-ui/transpiled/react/I18n'
-import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
-import Field from 'cozy-ui/transpiled/react/Field'
-import { useI18n } from 'cozy-ui/transpiled/react/I18n'
-
+import Input from 'cozy-ui/transpiled/react/Input'
+import InputGroup from 'cozy-ui/transpiled/react/InputGroup'
+import Label from 'cozy-ui/transpiled/react/Label'
+import Icon from 'cozy-ui/transpiled/react/Icon'
+import { translate, useI18n } from 'cozy-ui/transpiled/react/I18n'
+import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 import AppSections from 'cozy-ui/transpiled/react/AppSections'
-import DropdownFilter from './components/DropdownFilter'
+import * as filterUtils from 'cozy-ui/transpiled/react/AppSections/search'
+
+import flag from 'cozy-flags'
 import StoreAppItem from './components/StoreAppItem'
 
-import * as searchUtils from './search'
-import * as catUtils from './categories'
-
-const SearchField = ({ onChange }) => {
+const SearchField = ({ onChange, value }) => {
   const { t } = useI18n()
   const { isMobile } = useBreakpoints()
   const handleChange = useCallback(
@@ -45,6 +45,7 @@ const SearchField = ({ onChange }) => {
           placeholder={t('discover-search-field.placeholder')}
           onChange={handleChange}
           type="text"
+          value={value}
         />
       </InputGroup>
     </>
@@ -83,16 +84,16 @@ export class Sections extends Component {
   constructor(props, context) {
     super(props, context)
     this.state = {
-      search: {},
+      filter: {},
       searchFieldValue: '',
       filteredApps: this.getFilteredApps()
     }
     this.setupFuse()
-    this.handleCategoryChange = this.handleCategoryChange.bind(this)
-    this.handleChangeSearchFieldChange = debounce(
-      this.handleChangeSearchFieldChange.bind(this),
-      500
+    this.handleFilterChange = this.handleFilterChange.bind(this)
+    this.handleChangeSearchFieldChange = this.handleChangeSearchFieldChange.bind(
+      this
     )
+    this.updateSearchResults = debounce(this.updateSearchResults, 300)
   }
 
   setupFuse() {
@@ -108,94 +109,85 @@ export class Sections extends Component {
       ]
     }
 
-    const { apps } = this.props
+    const { filteredApps } = this.state
 
-    const appsForSearch = apps.map(app => ({
+    const appsForSearch = filteredApps.map(app => ({
       ...app,
       doctypes: Object.values(app.permissions).map(x => x.type)
     }))
     this.fuse = new Fuse(appsForSearch, options)
   }
 
-  /** Rename as filter */
-  getSearch() {
-    // Depending on whether the component is controlled or uncontrolled,
-    // search is taken from props or state
-    const search = this.props.search || this.state.search
-    return search
+  componentDidUpdate(prevProps) {
+    if (
+      prevProps.filter !== this.props.filter ||
+      prevProps.apps !== this.props.apps
+    ) {
+      this.updateFilteredApps()
+      this.setState({ searchResults: null, searchFieldValue: '' })
+    }
   }
 
   getFilteredApps() {
-    const search = this.getSearch()
-    const searchMatcher = searchUtils.makeMatcherFromSearch(search)
-    const filteredApps = this.props.apps.filter(searchMatcher)
+    const filter = this.props.filter || this.state.filter
+    const filterMatcher = filterUtils.makeMatcherFromSearch(filter)
+    const filteredApps = this.props.apps.filter(filterMatcher)
     return filteredApps
   }
 
+  updateFilteredApps() {
+    this.setState({ filteredApps: this.getFilteredApps() }, () => {
+      this.setupFuse()
+    })
+  }
+
   handleChangeSearchFieldChange(searchFieldValue) {
+    this.setState({
+      searchFieldValue
+    })
+    this.updateSearchResults(searchFieldValue)
+  }
+
+  /** Performs the fuse search, is debounced in the constructor */
+  updateSearchResults(searchFieldValue) {
     const searchResults = searchFieldValue
       ? this.fuse.search(searchFieldValue)
       : null
-    this.setState({
-      searchFieldValue,
-      searchResults: searchResults ? searchResults : null
-    })
+    this.setState({ searchResults })
   }
 
-  // Sets state.search from the option received from the DropdownFilter
-  handleCategoryChange(categoryOption) {
-    const search = searchUtils.makeSearchFromOption(categoryOption)
-    if (!this.props.search) {
-      // the component is uncontrolled
-      this.setState({
-        search
-      })
+  handleFilterChange(filter) {
+    if (typeof this.props.onFilterChange === 'function') {
+      this.props.onFilterChange(filter)
     }
-    if (typeof this.props.onSearchChange === 'function') {
-      this.props.onSearchChange(search)
-    }
-
-    this.setupFuse()
   }
 
   render() {
-    const { t, apps, error, onAppClick, breakpoints = {}, hasNav } = this.props
-    const search = this.getSearch()
-    const { isMobile, isTablet } = breakpoints
-    const { filteredApps, searchResults } = this.state
+    const { error, onAppClick, filter } = this.props
+    const { searchFieldValue, searchResults } = this.state
 
     if (error) return <p className="u-error">{error.message}</p>
 
-    const dropdownDisplayed = hasNav && (isMobile || isTablet)
-    const rawSelectOptions = catUtils.generateOptionsFromApps(apps, {
-      includeAll: true
-    })
-    const selectOptions = rawSelectOptions.map(option =>
-      catUtils.addLabel(option, t)
-    )
-    const optionMatcher = searchUtils.makeOptionMatcherFromSearch(search)
-    const defaultFilterValue = selectOptions.find(optionMatcher)
-
     return (
-      <div className={`sto-sections${dropdownDisplayed ? '' : ' u-mt-half'}`}>
-        <SearchField
-          value={search}
-          onChange={this.handleChangeSearchFieldChange}
-        />
-        {dropdownDisplayed && (
-          <DropdownFilter
-            defaultValue={defaultFilterValue}
-            options={selectOptions}
-            onChange={this.handleCategoryChange}
+      <div className="sto-sections u-mt-2">
+        {flag('store.search') ? (
+          <SearchField
+            value={searchFieldValue}
+            onChange={this.handleChangeSearchFieldChange}
           />
-        )}
+        ) : null}
         {searchResults ? (
           <SearchResults
             searchResults={searchResults}
             onAppClick={onAppClick}
           />
         ) : (
-          <AppSections apps={filteredApps} onAppClick={onAppClick} />
+          <AppSections
+            search={filter}
+            onSearchChange={this.handleFilterChange}
+            apps={this.props.apps}
+            onAppClick={onAppClick}
+          />
         )}
       </div>
     )
@@ -203,15 +195,10 @@ export class Sections extends Component {
 }
 
 Sections.propTypes = {
-  t: PropTypes.func.isRequired,
   apps: PropTypes.array.isRequired,
   error: PropTypes.object,
   onAppClick: PropTypes.func.isRequired,
-  hasNav: PropTypes.bool
+  onFilterChange: PropTypes.func
 }
 
-Sections.defaultProps = {
-  hasNav: true
-}
-
-export default translate()(withBreakpoints()(Sections))
+export default translate()(Sections)
