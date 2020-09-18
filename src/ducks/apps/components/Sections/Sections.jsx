@@ -85,9 +85,12 @@ export class Sections extends Component {
     super(props, context)
     this.state = {
       filter: {},
-      searchFieldValue: '',
-      filteredApps: this.getFilteredApps()
+      searchFieldValue: ''
     }
+
+    // getFilteredApps must have state.filter already ready
+    this.state.filteredApps = this.getFilteredApps()
+
     this.setupFuse()
     this.handleFilterChange = this.handleFilterChange.bind(this)
     this.handleChangeSearchFieldChange = this.handleChangeSearchFieldChange.bind(
@@ -113,7 +116,9 @@ export class Sections extends Component {
 
     const appsForSearch = filteredApps.map(app => ({
       ...app,
-      doctypes: Object.values(app.permissions).map(x => x.type)
+      doctypes: app.permissions
+        ? Object.values(app.permissions).map(x => x.type)
+        : null
     }))
     this.fuse = new Fuse(appsForSearch, options)
   }
