@@ -202,7 +202,11 @@
   "doctypes": {
     "com": {
       "tricount.expenses": "Dépenses Tricount",
-      "splitwise.expenses": "Dépenses Splitwise"
+      "splitwise.expenses": "Dépenses Splitwise",
+      "bitwarden.profiles": "Profils du gestionnaire de mot de passe",
+      "bitwarden.ciphers": "Entrées du gestionnaire de mot de passe",
+      "bitwarden.folders": "Dossiers du gestionnaire de mot de passe",
+      "bitwarden.organizations": "Dossiers du gestionnaire de mot de passe"
     },
     "cc": {
       "cozycloud": {
@@ -216,10 +220,12 @@
         "apps": "Liste des applications installées",
         "apps.suggestions": "Suggestions d'applications",
       	"bank.accounts": "Comptes bancaires",
+        "bank.accounts.stats": "Statistiques sur les comptes bancaires",
         "bank.balancehistories": "Soldes bancaires",
         "bank.groups": "Groupes de comptes bancaires",
         "bank.operations": "Opérations bancaires",
         "bank.settings": "Paramètres de l'application Banks",
+        "bank.recipients": "Bénéficiaires de virements bancaires",
         "bank.recurrence": "Groupes de récurrence bancaire",
         "bills": "Factures",
         "contacts": "Contacts",
