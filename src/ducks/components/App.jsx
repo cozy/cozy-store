@@ -15,6 +15,8 @@ import { Discover, MyApplications } from 'ducks/apps/Containers'
 import { Layout, Main } from 'cozy-ui/transpiled/react/Layout'
 import Alerter from 'cozy-ui/transpiled/react/Alerter'
 import IconSprite from 'cozy-ui/transpiled/react/Icon/Sprite'
+import { BreakpointsProvider } from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
+
 import compose from 'lodash/flowRight'
 import { withClient } from 'cozy-client'
 
@@ -34,34 +36,36 @@ export class App extends Component {
   render() {
     const defaultPart = enabledPages ? enabledPages[0] : 'discover'
     return (
-      <Layout>
-        {flag('switcher') && <FlagSwitcher />}
-        <Alerter />
-        <Sidebar />
-        <Main>
-          <Switch>
-            <Route path="/redirect" component={IntentRedirect} />
-            {enabledPages.map(name => {
-              if (componentsMap[name]) {
-                return (
-                  <Route
-                    path={`/${name}`}
-                    component={componentsMap[name]}
-                    key={name}
-                  />
-                )
-              }
-            })}
-            {defaultPart && (
-              <Fragment>
-                <Redirect exact from="/" to={`/${defaultPart}`} />
-                <Redirect from="*" to={`/${defaultPart}`} />
-              </Fragment>
-            )}
-          </Switch>
-        </Main>
-        <IconSprite />
-      </Layout>
+      <BreakpointsProvider>
+        <Layout>
+          {flag('switcher') && <FlagSwitcher />}
+          <Alerter />
+          <Sidebar />
+          <Main>
+            <Switch>
+              <Route path="/redirect" component={IntentRedirect} />
+              {enabledPages.map(name => {
+                if (componentsMap[name]) {
+                  return (
+                    <Route
+                      path={`/${name}`}
+                      component={componentsMap[name]}
+                      key={name}
+                    />
+                  )
+                }
+              })}
+              {defaultPart && (
+                <Fragment>
+                  <Redirect exact from="/" to={`/${defaultPart}`} />
+                  <Redirect from="*" to={`/${defaultPart}`} />
+                </Fragment>
+              )}
+            </Switch>
+          </Main>
+          <IconSprite />
+        </Layout>
+      </BreakpointsProvider>
     )
   }
 }

@@ -5,6 +5,7 @@ import 'styles'
 import React from 'react'
 import { render } from 'react-dom'
 import CozyClient from 'cozy-client'
+import flag from 'cozy-flags'
 
 import store from 'lib/store'
 import schema from 'lib/schema'
@@ -17,6 +18,8 @@ const renderApp = function({ client, lang }) {
     document.querySelector('[role=application]')
   )
 }
+
+window.flag = flag
 
 let client, lang
 
