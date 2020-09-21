@@ -74,11 +74,17 @@ const SearchResults = ({ searchResults, onAppClick }) => {
 
 /**
  * Shows a list of apps grouped by categories.
+ * Has a search input. When the search input is filled, only search
+ * results will be shown.
  *
- * Can be
+ * A filter can be used in a controlled or uncontrolled way.
  *
- * - uncontrolled: it controls an internal search object to filter the list.
- * - controlled: it is controlled by the `search` prop
+ * - uncontrolled: it controls an internal filter object (state.filter) to
+ *   filter the list of apps.
+ * - controlled: the `filter` is taken from the props
+ *
+ * Additionally, `apps` that are kept after applying this 1st filter can
+ * be searched through the `state.searchFieldValue` value.
  */
 export class Sections extends Component {
   constructor(props, context) {
