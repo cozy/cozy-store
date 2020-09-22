@@ -94,7 +94,7 @@ export class Sections extends Component {
       searchFieldValue: ''
     }
 
-    // getFilteredApps must have state.filter already ready
+    // getFilteredApps is set here because it needs state.filter already declared
     this.state.filteredApps = this.getFilteredApps()
 
     this.setupFuse()
