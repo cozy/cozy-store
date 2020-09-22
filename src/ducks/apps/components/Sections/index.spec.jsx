@@ -16,6 +16,8 @@ import mockApps from 'ducks/apps/_mockApps'
 import enLocale from '../../../../locales/en.json'
 import flag from 'cozy-flags'
 
+jest.mock('lodash/debounce', () => jest.fn(fn => fn))
+
 const setup = ({ props } = {}) => {
   const client = new CozyClient({})
   const mockOnAppClick = jest.fn()
@@ -57,8 +59,6 @@ describe('AppsSection component', () => {
   })
 })
 
-const sleep = duration => new Promise(resolve => setTimeout(resolve, duration))
-
 describe('Search', () => {
   beforeEach(() => {
     flag('store.search', true)
@@ -71,16 +71,18 @@ describe('Search', () => {
   it('should filter the results', async () => {
     const { root } = setup()
     const input = root.getByPlaceholderText('"SNCF", "telecom", "bills"')
+
     act(() => {
       fireEvent.change(input, { target: { value: 'Bouil' } })
     })
-    await sleep(500)
+
     expect(() => root.getByText('Trinlane')).toThrow()
     expect(() => root.getByText('Bouilligue')).not.toThrow()
+
     act(() => {
       fireEvent.change(input, { target: { value: 'trn' } })
     })
-    await sleep(500)
+
     expect(() => root.getByText('Trinlane')).not.toThrow()
     expect(() => root.getByText('Bouilligue')).toThrow()
   })
