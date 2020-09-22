@@ -278,5 +278,10 @@
       "external": "%{name} commits to giving only the following data:",
       "nothing": "%{appName} doesn't require any data access to work correctly on your Cozy."
     }
+  },
+
+  "discover-search-field": {
+    "label": "Search:",
+    "placeholder": "\"SNCF\", \"telecom\", \"bills\""
   }
 }

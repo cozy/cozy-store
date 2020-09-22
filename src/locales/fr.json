@@ -278,5 +278,10 @@
       "external": "%{name} s’engage à transmettre uniquement les données suivantes :",
       "nothing": "%{appName} ne requiert aucun accès à vos données pour fonctionner correctement sur votre Cozy."
     }
+  },
+
+  "discover-search-field": {
+    "label": "Rechercher :",
+    "placeholder": "\"SNCF\", \"énergie\", \"factures\""
   }
 }

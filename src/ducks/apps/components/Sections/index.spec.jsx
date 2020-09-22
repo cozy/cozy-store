@@ -3,111 +3,87 @@
 /* eslint-env jest */
 
 import React from 'react'
-import { shallow } from 'enzyme'
 
+import CozyClient, { CozyProvider } from 'cozy-client'
+import I18n from 'cozy-ui/transpiled/react/I18n'
+import { BreakpointsProvider } from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
+
+import { render, fireEvent, act } from '@testing-library/react'
 import { tMock } from 'jestLib/I18n'
 import { Sections } from 'ducks/apps/components/Sections/Sections'
 
 import mockApps from 'ducks/apps/_mockApps'
+import enLocale from '../../../../locales/en.json'
+import flag from 'cozy-flags'
+
+jest.mock('lodash/debounce', () => jest.fn(fn => fn))
+
+const setup = ({ props } = {}) => {
+  const client = new CozyClient({})
+  const mockOnAppClick = jest.fn()
+  const root = render(
+    <BreakpointsProvider>
+      <CozyProvider client={client}>
+        <I18n lang="en" dictRequire={() => enLocale}>
+          <Sections
+            t={tMock}
+            lang="en"
+            subtitle="Test Apps"
+            apps={mockApps}
+            onAppClick={mockOnAppClick}
+            error={null}
+            location={{ search: '' }}
+            {...props}
+          />
+        </I18n>
+      </CozyProvider>
+    </BreakpointsProvider>
+  )
+
+  return { root }
+}
 
 describe('AppsSection component', () => {
   it('should be rendered correctly with apps list, subtitle and onAppClick', () => {
-    const mockOnAppClick = jest.fn()
-    const component = shallow(
-      <Sections
-        t={tMock}
-        lang="en"
-        subtitle="Test Apps"
-        apps={mockApps}
-        allApps={mockApps}
-        onAppClick={mockOnAppClick}
-        error={null}
-        location={{ search: '' }}
-      />
-    ).getElement()
-    expect(component).toMatchSnapshot()
+    const { root } = setup()
+    expect(() => root.getByText('Transportation')).not.toThrow()
+    expect(() => root.getByText('Tasky')).not.toThrow()
+    expect(() => root.getByText('Update available')).not.toThrow()
   })
 
   it('should render correctly render message if error provided', () => {
-    const mockOnAppClick = jest.fn()
-    const component = shallow(
-      <Sections
-        t={tMock}
-        lang="en"
-        subtitle="Test Apps"
-        apps={mockApps}
-        allApps={mockApps}
-        onAppClick={mockOnAppClick}
-        error={new Error('This is a test error')}
-        location={{ search: '' }}
-      />
-    ).getElement()
-    expect(component).toMatchSnapshot()
+    const { root } = setup({
+      props: { error: new Error('This is a test error') }
+    })
+    expect(() => root.getByText('This is a test error')).not.toThrow()
+  })
+})
+
+describe('Search', () => {
+  beforeEach(() => {
+    flag('store.search', true)
   })
 
-  it('should not render dropdown filter on mobile if nav=false flag provided', () => {
-    const mockOnAppClick = jest.fn()
-    const component = shallow(
-      <Sections
-        t={tMock}
-        lang="en"
-        subtitle="Test Apps"
-        apps={mockApps}
-        allApps={mockApps}
-        onAppClick={mockOnAppClick}
-        breakpoints={{ isMobile: true }}
-        hasNav={false}
-      />
-    ).getElement()
-    expect(component).toMatchSnapshot()
+  afterEach(() => {
+    flag('store.search', false)
   })
 
-  it('should not render dropdown filter on tablet if nav=false flag provided', () => {
-    const mockOnAppClick = jest.fn()
-    const component = shallow(
-      <Sections
-        t={tMock}
-        lang="en"
-        subtitle="Test Apps"
-        apps={mockApps}
-        allApps={mockApps}
-        onAppClick={mockOnAppClick}
-        breakpoints={{ isTablet: true }}
-        hasNav={false}
-      />
-    ).getElement()
-    expect(component).toMatchSnapshot()
-  })
+  it('should filter the results', async () => {
+    const { root } = setup()
+    const input = root.getByPlaceholderText('"SNCF", "telecom", "bills"')
 
-  it('should render dropdown filter on mobile if no nav=false flag provided', () => {
-    const mockOnAppClick = jest.fn()
-    const component = shallow(
-      <Sections
-        t={tMock}
-        lang="en"
-        subtitle="Test Apps"
-        apps={mockApps}
-        allApps={mockApps}
-        onAppClick={mockOnAppClick}
-        breakpoints={{ isMobile: true }}
-      />
-    ).getElement()
-    expect(component).toMatchSnapshot()
-  })
+    act(() => {
+      fireEvent.change(input, { target: { value: 'Bouil' } })
+    })
 
-  it('should render dropdown filter on tablet if no nav=false flag provided', () => {
-    const mockOnAppClick = jest.fn()
-    const component = shallow(
-      <Sections
-        t={tMock}
-        lang="en"
-        subtitle="Test Apps"
-        apps={mockApps}
-        allApps={mockApps}
-        onAppClick={mockOnAppClick}
-        breakpoints={{ isTablet: true }}
-      />
-    ).getElement()
-    expect(component).toMatchSnapshot()
+    expect(() => root.getByText('Trinlane')).toThrow()
+    expect(() => root.getByText('Bouilligue')).not.toThrow()
+
+    act(() => {
+      fireEvent.change(input, { target: { value: 'trn' } })
+    })
+
+    expect(() => root.getByText('Trinlane')).not.toThrow()
+    expect(() => root.getByText('Bouilligue')).toThrow()
   })
 })
