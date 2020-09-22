@@ -160,7 +160,7 @@ Cozy Settings is developed by Cozy Cloud and distributed under the [AGPL v3 lice
 
 
 [cozy]: https://cozy.io "Cozy Cloud"
-[setup]: https://dev.cozy.io/#set-up-the-development-environment "Cozy dev docs: Set up the Development Environment"
+[setup]: https://docs.cozy.io/en/tutorials/app/#prerequisites "Cozy Developer Documentation: Install the development environment"
 [yarn]: https://yarnpkg.com/
 [yarn-install]: https://yarnpkg.com/en/docs/install
 [cozy-ui]: https://github.com/cozy/cozy-ui

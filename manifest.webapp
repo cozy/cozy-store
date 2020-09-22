@@ -9,20 +9,14 @@
   "categories": [
     "cozy"
   ],
-  "version": "1.0.8",
+  "version": "1.9.3",
   "licence": "AGPL-3.0",
   "source": "https://github.com/cozy/cozy-store.git@build",
   "developer": {
     "name": "Cozy Cloud",
     "url": "https://cozy.io"
   },
-  "locales": {
-    "de": {},
-    "en": {},
-    "fr": {},
-    "nl_NL": {},
-    "pl": {}
-  },
+  "locales": {},
   "intents": [
     {
       "action": "REDIRECT",
@@ -35,7 +29,9 @@
         "doctype",
         "slug",
         "tag",
-        "type"
+        "type",
+        "pendingUpdate",
+        "step"
       ]
     },
     {
@@ -62,13 +58,26 @@
     }
   },
   "permissions": {
+    "terms": {
+      "description": "Required to save accepted applications terms",
+      "type": "io.cozy.terms",
+      "verbs": [
+        "ALL"
+      ]
+    },
     "apps": {
       "description": "Required to manage applications",
-      "type": "io.cozy.apps"
+      "type": "io.cozy.apps",
+      "verbs": [
+        "ALL"
+      ]
     },
     "konnectors": {
       "description": "Required to manage konnectors",
-      "type": "io.cozy.konnectors"
+      "type": "io.cozy.konnectors",
+      "verbs": [
+        "ALL"
+      ]
     },
     "settings": {
       "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
@@ -77,12 +86,5 @@
         "GET"
       ]
     }
-  },
-  "langs": [
-    "de",
-    "en",
-    "fr",
-    "nl_NL",
-    "pl"
-  ]
+  }
 }
