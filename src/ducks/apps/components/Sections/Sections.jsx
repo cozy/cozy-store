@@ -16,6 +16,38 @@ import * as filterUtils from 'cozy-ui/transpiled/react/AppSections/search'
 import flag from 'cozy-flags'
 import StoreAppItem from './components/StoreAppItem'
 
+const fillIndices = (str, indices) => {
+  let cur = 0
+  let res = []
+  for (let idx of indices) {
+    if (idx[0] != cur) {
+      res.push({ idx: [cur, idx[0]], mark: false })
+    }
+    res.push({ idx, mark: true })
+    cur = idx[1]
+  }
+  if (cur != str.length) {
+    res.push({ idx: [cur, str.length], mark: false })
+  }
+
+  return res
+}
+
+const dumpmatches = result => {
+  for (let m of result.matches) {
+    const allindices = fillIndices(m.value, m.indices)
+    console.log(
+      allindices
+        .map(o => {
+          const [start, end] = o.idx
+          const substr = m.value.substring(start, end)
+          return o.mark ? `**${substr}**` : substr
+        })
+        .join('')
+    )
+  }
+}
+
 const SearchField = ({ onChange, value }) => {
   const { t } = useI18n()
   const { isMobile } = useBreakpoints()
@@ -60,7 +92,21 @@ const SearchResults = ({ searchResults, onAppClick }) => {
     <div className="u-mv-1 u-flex u-flex-wrap">
       {sortedSortResults.map(result => {
         const app = result.item
-        return (
+        return flag('store.show-search-score') ? (
+          <div>
+            <StoreAppItem
+              onClick={() => onAppClick(app.slug)}
+              key={app.slug}
+              app={app}
+            />
+            <small
+              onClick={() => dumpmatches(result)}
+              title={JSON.stringify(result.matches, null, 2)}
+            >
+              {result.score.toFixed(2)}
+            </small>
+          </div>
+        ) : (
           <StoreAppItem
             onClick={() => onAppClick(app.slug)}
             key={app.slug}
