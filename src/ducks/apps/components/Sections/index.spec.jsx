@@ -80,7 +80,7 @@ describe('Search', () => {
     expect(() => root.getByText('Bouilligue')).not.toThrow()
 
     act(() => {
-      fireEvent.change(input, { target: { value: 'trn' } })
+      fireEvent.change(input, { target: { value: 'tri' } })
     })
 
     expect(() => root.getByText('Trinlane')).not.toThrow()

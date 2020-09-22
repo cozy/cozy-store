@@ -109,12 +109,16 @@ export class Sections extends Component {
     const { lang } = this.props
     const options = {
       includeScore: true,
+      includeMatches: true,
+      minMatchCharLength: 3,
+      distance: 10,
+      threshold: 0.2,
+      ignoreLocation: true,
       keys: [
-        'name',
+        { name: 'name', weight: 3 },
         'categories',
         `locales.${lang}.short_description`,
-        `locales.${lang}.long_description`,
-        'doctypes'
+        `locales.${lang}.long_description`
       ]
     }
 
