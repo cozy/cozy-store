@@ -36,6 +36,7 @@ const fillIndices = (str, indices) => {
 const dumpmatches = result => {
   for (let m of result.matches) {
     const allindices = fillIndices(m.value, m.indices)
+    // eslint-disable-next-line no-console
     console.log(
       allindices
         .map(o => {
