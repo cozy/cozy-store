@@ -3,6 +3,7 @@
   "version": "1.9.3",
   "main": "src/index.jsx",
   "scripts": {
+    "deploy": "env HUSKY_SKIP_HOOKS=1 git-directory-deploy --directory build/ --branch=${DEPLOY_BRANCH:-build} --repo=${DEPLOY_REPOSITORY:-origin}",
     "tx": "tx pull --all",
     "lint": "yarn lint:js && yarn lint:styles",
     "lint:js": "eslint '{src,test}/**/*.{js,jsx}'",

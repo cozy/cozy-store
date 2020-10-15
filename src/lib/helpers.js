@@ -1,9 +1,9 @@
-import _get from 'lodash.get'
+import get from 'lodash/get'
 
 export const getTranslatedManifestProperty = (app, path, t) => {
-  if (!t || !app || !path) return _get(app, path, '')
+  if (!t || !app || !path) return get(app, path, '')
   return t(`apps.${app.slug}.${path}`, {
-    _: _get(app, path, '')
+    _: get(app, path, '')
   })
 }
 

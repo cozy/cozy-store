@@ -1,76 +1,15 @@
-import React, { Component, useCallback, useMemo } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Fuse from 'fuse.js'
-import sortBy from 'lodash/sortBy'
 import debounce from 'lodash/debounce'
 
-import Input from 'cozy-ui/transpiled/react/Input'
-import InputGroup from 'cozy-ui/transpiled/react/InputGroup'
-import Label from 'cozy-ui/transpiled/react/Label'
-import Icon from 'cozy-ui/transpiled/react/Icon'
-import { translate, useI18n } from 'cozy-ui/transpiled/react/I18n'
-import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
 import AppSections from 'cozy-ui/transpiled/react/AppSections'
 import * as filterUtils from 'cozy-ui/transpiled/react/AppSections/search'
 
 import flag from 'cozy-flags'
-import StoreAppItem from './components/StoreAppItem'
 
-const SearchField = ({ onChange, value }) => {
-  const { t } = useI18n()
-  const { isMobile } = useBreakpoints()
-  const handleChange = useCallback(
-    ev => {
-      onChange(ev.target.value)
-    },
-    [onChange]
-  )
-  return (
-    <>
-      {!isMobile ? (
-        <Label className="u-di u-mr-half" htmlFor="discover-search">
-          {t('discover-search-field.label')}
-        </Label>
-      ) : null}
-      <InputGroup
-        className={isMobile ? '' : 'u-mb-1'}
-        prepend={
-          isMobile ? (
-            <Icon icon="magnifier" className="u-pl-1 u-coolGrey" />
-          ) : null
-        }
-      >
-        <Input
-          id="discover-search"
-          placeholder={t('discover-search-field.placeholder')}
-          onChange={handleChange}
-          type="text"
-          value={value}
-        />
-      </InputGroup>
-    </>
-  )
-}
-
-const SearchResults = ({ searchResults, onAppClick }) => {
-  const sortedSortResults = useMemo(() => {
-    return sortBy(searchResults, result => result.score)
-  }, [searchResults])
-  return (
-    <div className="u-mv-1 u-flex u-flex-wrap">
-      {sortedSortResults.map(result => {
-        const app = result.item
-        return (
-          <StoreAppItem
-            onClick={() => onAppClick(app.slug)}
-            key={app.slug}
-            app={app}
-          />
-        )
-      })}
-    </div>
-  )
-}
+import { SearchField, SearchResults } from 'ducks/search/components'
 
 /**
  * Shows a list of apps grouped by categories.
@@ -109,12 +48,15 @@ export class Sections extends Component {
     const { lang } = this.props
     const options = {
       includeScore: true,
+      includeMatches: true,
+      minMatchCharLength: 3,
+      threshold: 0.2,
+      ignoreLocation: true,
       keys: [
-        'name',
+        { name: 'name', weight: 3 },
         'categories',
         `locales.${lang}.short_description`,
-        `locales.${lang}.long_description`,
-        'doctypes'
+        `locales.${lang}.long_description`
       ]
     }
 
