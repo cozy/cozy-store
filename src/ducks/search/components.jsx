@@ -1,6 +1,7 @@
 import React, { useCallback, useMemo } from 'react'
 import sortBy from 'lodash/sortBy'
 
+import Icon from 'cozy-ui/transpiled/react/Icon'
 import Label from 'cozy-ui/transpiled/react/Label'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
@@ -10,6 +11,8 @@ import Input from 'cozy-ui/transpiled/react/Input'
 import flag from 'cozy-flags'
 
 import StoreAppItem from 'ducks/apps/components/StoreAppItem'
+
+import { dumpMatches } from 'ducks/search/utils'
 
 export const SearchField = ({ onChange, value }) => {
   const { t } = useI18n()

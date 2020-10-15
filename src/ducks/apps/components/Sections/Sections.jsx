@@ -1,17 +1,14 @@
-import React, { Component, useCallback, useMemo } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Fuse from 'fuse.js'
-import sortBy from 'lodash/sortBy'
 import debounce from 'lodash/debounce'
 
-import Icon from 'cozy-ui/transpiled/react/Icon'
-import { translate, useI18n } from 'cozy-ui/transpiled/react/I18n'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
 import AppSections from 'cozy-ui/transpiled/react/AppSections'
 import * as filterUtils from 'cozy-ui/transpiled/react/AppSections/search'
 
 import flag from 'cozy-flags'
 
-import { dumpMatches } from 'ducks/search/utils'
 import { SearchField, SearchResults } from 'ducks/search/components'
 
 /**
