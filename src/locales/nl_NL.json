@@ -1,7 +1,7 @@
 {
   "discover": {
     "title": "Apps",
-    "get_started": "Beginnen met Cozy"
+    "get_started": "Aan de slag met Cozy"
   },
   "intent": {
     "install": {
@@ -17,7 +17,7 @@
     "service": {
       "creation": {
         "error": {
-          "title": "Fout tijdens creëren van dienst"
+          "title": "Fout tijdens opzetten van dienst"
         }
       }
     }
@@ -39,7 +39,7 @@
 
   "app_modal": {
     "uninstall": {
-      "title": "Deze app verwijderen",
+      "title": "App verwijderen",
       "description": "Deze app wordt verwijderd uit je Cozy %{cozyName}. Weet je zeker dat je __deze app wilt verwijderen__?",
       "cancel": "Annuleren",
       "uninstall": "Verwijderen",
@@ -48,7 +48,7 @@
         "error": "Er is een fout opgetreden tijdens het verwijderen van de app. Reden: %{message}"
       },
       "linked_app": {
-        "error": "Er is een mobiele app gekoppeld aan deze app. De appmachtiging moet worden ingetrokken voordat deze verwijderd kan worden. Dit kan via",
+        "error": "Er is een mobiele app gekoppeld aan deze app. De appmachtiging moet worden ingetrokken voordat deze verwijderd kan worden. Dit kan op",
         "link": "de pagina waarop je gekoppelde apparaten kunt beheren"
       }
     },
@@ -60,13 +60,12 @@
       "terms": "Ik heb de [aan deze app verbonden Algemene Voorwaarden](%{url}) gelezen en ga akkoord",
       "termsWithPartnership": "Ik ga akkoord met [de algemene voorwaarden van %{partnerName} ](%{url}) en het synchroniseren van mijn gegevens naar Cozy Cloud.",
       "message": {
-        "version_error": "Er is een fout opgetreden tijdens het ophalen van de app-informatie. Reden: %{message}",
+        "version_error": "Er is een fout opgetreden tijdens het ophalen van de appinformatie. Reden: %{message}",
         "install_error": "Er is een fout opgetreden tijdens het installeren van de app. Reden: %{message}"
       },
       "alert": {
         "install_error": "Er is een fout opgetreden tijdens het installeren van de app %{name}. Reden: %{message}",
         "dismiss": "verwerpen"
-
       }
     },
     "permissions": {
@@ -142,7 +141,7 @@
     "host_provider": "Host",
     "insurance": "Verzekering",
     "isp": "Internetprovider",
-    "online_services": "Online diensten",
+    "online_services": "Online-diensten",
     "others": "Overig",
     "mes_infos": "MesInfos-experiment",
     "partners": "Partners",
@@ -170,12 +169,12 @@
     "pl": "Pools",
     "pt": "Portugees",
     "da": "Deens",
-    "ro_RO": "Romaans (Roemenië)",
+    "ro_RO": "Roemeens (Roemenië)",
     "pt_BR": "Portugees (Brazilië)",
     "zh_CN": "Chinees (China)",
     "ar": "Arabisch",
     "it": "Italiaans",
-    "ro": "Romaans",
+    "ro": "Roemeens",
     "eo": "Esperanto",
     "de_DE": "Duits (Duitsland)",
     "sq": "Albanees",
@@ -202,28 +201,37 @@
   "doctypes": {
     "com": {
       "tricount.expenses": "Uitgaven (Tricount)",
-      "splitwise.expenses": "Uitgaven (gesplitst)"
+      "splitwise.expenses": "Uitgaven (gesplitst)",
+      "bitwarden.profiles": "Wachtwoordbeheerprofielen",
+      "bitwarden.ciphers": "Wachtwoordbeheeritems",
+      "bitwarden.folders": "Wachtwoordbeheermappen",
+      "bitwarden.organizations": "Wachtwoordbeheerorganisaties"
     },
     "cc": {
       "cozycloud": {
         "autocategorization": "Categoriseringsmodel-verrijkingsbestand",
-        "sentry": "De app-logbestanden"
+        "sentry": "De applogboeken"
       }
     },
     "io": {
       "cozy": {
         "accounts": "Inloggegevens",
         "apps": "Lijst met geïnstalleerde apps",
+        "apps.suggestions": "App-suggesties",
         "bank.accounts": "Bankrekeningen",
+        "bank.accounts.stats": "Bankrekeningstatistieken",
         "bank.balancehistories": "Banksaldi",
         "bank.groups": "Bankgroepen",
         "bank.operations": "Bankhandelingen",
         "bank.settings": "Bank-appinstellingen",
+        "bank.recipients": "Bankrekeningontvangers",
+        "bank.recurrence": "Bankherhaalgroepen",
         "bills": "Rekeningen",
         "contacts": "Contactpersonen",
         "contacts.groups": "Contactpersoongroepen",
         "contacts.accounts": "Accounts gekoppeld aan contactpersonen",
         "files": "Bestanden",
+        "files.versions": "Bestandsversies",
         "identities": "Identiteiten",
         "jobs": "Taken",
         "konnectors": "Connectors voor het importeren van gegevens",
@@ -270,5 +278,10 @@
       "external": "%{name} verzekert dat alleen de volgende gegevens worden weggegeven:",
       "nothing": "%{appName} vereist geen gegevenstoegang om te werken op je Cozy."
     }
+  },
+
+  "discover-search-field": {
+    "label": "Zoeken:",
+    "placeholder": "\"NS, \"telecom\", \"rekeningen\""
   }
 }
