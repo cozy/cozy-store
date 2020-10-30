@@ -66,7 +66,6 @@
       "alert": {
         "install_error": "Something went wrong when installing the application %{name} on your Cozy. Reason: %{message}",
         "dismiss": "dismiss"
-
       }
     },
     "permissions": {
@@ -202,7 +201,11 @@
   "doctypes": {
     "com": {
       "tricount.expenses": "Expenses Tricount",
-      "splitwise.expenses": "Expenses Splitwise"
+      "splitwise.expenses": "Expenses Splitwise",
+      "bitwarden.profiles": "Passwortmanager Profile",
+      "bitwarden.ciphers": "Passwortmanager Einträge",
+      "bitwarden.folders": "Passwortmanager Ordner",
+      "bitwarden.organizations": "Passwortmanager Organisationen"
     },
     "cc": {
       "cozycloud": {
@@ -214,16 +217,21 @@
       "cozy": {
         "accounts": "Login details",
         "apps": "List of installed applications",
+        "apps.suggestions": "Anwendungsempfehlungen",
         "bank.accounts": "Banking accounts",
+        "bank.accounts.stats": "Statistiken über Bankkonten",
         "bank.balancehistories": "Bank balances",
         "bank.groups": "Banking groups",
         "bank.operations": "Bank operations",
         "bank.settings": "Banks app settings",
+        "bank.recipients": "Überweisungsempfänger",
+        "bank.recurrence": "Bank Überweisungs-Vorlagen",
         "bills": "Bills",
         "contacts": "Contacts",
         "contacts.groups": "Contacts groups",
         "contacts.accounts": "Accounts linked to the contacts",
         "files": "Files",
+        "files.versions": "Dateiversionen",
         "identities": "Identities",
         "jobs": "Jobs",
         "konnectors": "Connectors for importing data",
@@ -270,5 +278,10 @@
       "external": "%{name} commits to giving only the following data:",
       "nothing": "%{appName} doesn't require any data access to work correctly on your Cozy."
     }
+  },
+
+  "discover-search-field": {
+    "label": "Suche:",
+    "placeholder": "\"SNCF\", \"telecom\", \"bills\""
   }
 }
