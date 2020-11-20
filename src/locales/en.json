@@ -228,6 +228,8 @@
         "bank.recurrence": "Banks recurrence groups",
         "bills": "Bills",
         "contacts": "Contacts",
+        "certified.carbon_copy": "Copie carbone",
+        "certified.electronic_safe": "Coffre-fort numérique",
         "contacts.groups": "Contacts groups",
         "contacts.accounts": "Accounts linked to the contacts",
         "files": "Files",
