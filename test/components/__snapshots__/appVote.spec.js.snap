@@ -20,10 +20,10 @@ exports[`AppVote component should be rendered correctly 1`] = `
     />
     <strong>
       <p>
-        You don't find what you want?
+        Can't find what you're looking for?
       </p>
       <p>
-        Tell us!
+        Let us know!
       </p>
     </strong>
   </div>
