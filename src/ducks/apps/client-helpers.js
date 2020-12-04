@@ -11,7 +11,7 @@ export const fetchAppsFromChannel = (client, channel, filter) => {
   if (filter) filterParam = `&filter[type]=${filter}`
   return client.stackClient.fetchJSON(
     'GET',
-    `/registry?limit=200&versionsChannel=${channel}&latestChannelVersion=${channel}${filterParam}`
+    `/registry?limit=300&versionsChannel=${channel}&latestChannelVersion=${channel}${filterParam}`
   )
 }
 
