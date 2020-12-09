@@ -187,7 +187,6 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
         onAppClick={[Function]}
       />
     </div>
-    <withI18n(AppVote) />
   </div>
   <withRouter(withI18n(ApplicationRouting))
     actionError={null}
@@ -556,7 +555,6 @@ exports[`Discover component should be rendered correctly with apps and URL searc
         onAppClick={[Function]}
       />
     </div>
-    <withI18n(AppVote) />
   </div>
   <withRouter(withI18n(ApplicationRouting))
     actionError={null}
@@ -754,7 +752,6 @@ exports[`Discover component should display error from props correctly 1`] = `
         onAppClick={[Function]}
       />
     </div>
-    <withI18n(AppVote) />
   </div>
   <withRouter(withI18n(ApplicationRouting))
     actionError={null}
@@ -980,7 +977,6 @@ exports[`Discover component should use BarCenter from cozy-bar in mobile view on
         onAppClick={[Function]}
       />
     </div>
-    <withI18n(AppVote) />
   </div>
   <withRouter(withI18n(ApplicationRouting))
     actionError={null}
