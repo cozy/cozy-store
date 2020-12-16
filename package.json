@@ -1,6 +1,6 @@
 {
   "name": "cozy-store",
-  "version": "1.9.4",
+  "version": "1.9.5",
   "main": "src/index.jsx",
   "scripts": {
     "deploy": "env HUSKY_SKIP_HOOKS=1 git-directory-deploy --directory build/ --branch=${DEPLOY_BRANCH:-build} --repo=${DEPLOY_REPOSITORY:-origin}",
