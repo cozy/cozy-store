@@ -20,6 +20,8 @@
   "io.cozy.bank.recurrence": "bank-recurrence",
   "io.cozy.bank.recipients": "contacts",
   "io.cozy.bills": "bill",
+  "io.cozy.certified.carbon_copy": "certified",
+  "io.cozy.certified.electronic_safe": "safe",
   "io.cozy.contacts": "contacts",
   "io.cozy.contacts.groups": "contacts-groups",
   "io.cozy.contacts.accounts": "contacts-accounts",
