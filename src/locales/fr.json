@@ -118,8 +118,8 @@
   },
 
   "app_vote": {
-    "line1": "Vous ne trouvez pas ce que vous cherchiez ?",
-    "line2": "Dites-le nous !"
+    "line1": "Vous ne trouvez pas ce que vous cherchez ?",
+    "line2": "Faites-le nous savoir !"
   },
 
   "app_item": {
@@ -227,8 +227,8 @@
         "bank.recipients": "Bénéficiaires de virements bancaires",
         "bank.recurrence": "Groupes de récurrence bancaire",
         "bills": "Factures",
-        "certified.carbon_copy": "Copie carbone",
-        "certified.electronic_safe": "Coffre-fort numérique",
+        "certified.carbon_copy": "Copie",
+        "certified.electronic_safe": "Coffre-fort électronique",
         "contacts": "Contacts",
         "contacts.groups": "Groupe de contacts",
         "contacts.accounts": "Comptes associés aux contacts",
