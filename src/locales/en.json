@@ -245,6 +245,7 @@
         "permissions": "Delegating permissions",
         "photos.albums": "Photo albums",
         "settings": "Settings",
+        "timeseries.geojson": "Trips",
         "triggers": "Scheduling jobs"
       }
     },
