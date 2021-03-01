@@ -50,7 +50,6 @@ jobs:
         - if [ "$TRAVIS_SECURE_ENV_VARS" != "false" ]; then eval "$(ssh-agent -s)"; fi
         - if [ "$TRAVIS_SECURE_ENV_VARS" != "false" ]; then chmod 600 /tmp/id_rsa_downcloud_cozy-store; fi
         - if [ "$TRAVIS_SECURE_ENV_VARS" != "false" ]; then ssh-add /tmp/id_rsa_downcloud_cozy-store; fi
-        - curl -fsSL https://bootstrap.pypa.io/2.7/get-pip.py | python - --user
       script: yarn build
       deploy:
         - provider: script
