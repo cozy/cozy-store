@@ -245,6 +245,7 @@
         "permissions": "Délégation de permissions",
         "photos.albums": "Albums photos",
         "settings": "Paramètres",
+        "timeseries.geojson": "Déplacements",
         "triggers": "Planification de tâches à exécuter dans le futur"
       }
     },
