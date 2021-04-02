@@ -7,6 +7,8 @@ import store from 'lib/store'
 
 import CozyClient, { CozyProvider } from 'cozy-client'
 import I18n from 'cozy-ui/transpiled/react/I18n'
+import flag from 'cozy-flags'
+
 import IntentHandler from '../../ducks/components/intents/IntentHandler'
 import InstallAppIntent from '../../ducks/components/intents/InstallAppIntent'
 import schema from 'lib/schema'
@@ -21,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     schema,
     token: appData.cozyToken
   })
+  client.registerPlugin(flag.plugin)
 
   render(
     <I18n
