@@ -34,6 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
     token: data.cozyToken
   })
 
+  client.registerPlugin(flag.plugin)
+
   lang = data.cozyLocale
 
   cozy.bar.init({
