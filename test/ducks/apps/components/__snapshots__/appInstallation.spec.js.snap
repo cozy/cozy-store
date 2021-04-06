@@ -1,28 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppInstallation component should install automatically the app if the label is skippable and render the loading modal 1`] = `
-<React.Fragment>
-  <ModalContent
-    className="sto-install-loading-wrapper"
+<div
+  className="sto-install-loading-wrapper"
+>
+  <div
+    className="sto-install-loading"
   >
-    <div
-      className="sto-install-loading"
-    >
-      <withI18n(Spinner)
-        size="xxlarge"
-      />
-    </div>
-  </ModalContent>
-</React.Fragment>
+    <withI18n(Spinner)
+      size="xxlarge"
+    />
+  </div>
+</div>
 `;
 
 exports[`AppInstallation component should not install automatically the app if the label is not skippable and render the permissions modal 1`] = `
 <React.Fragment>
-  <ModalHeader
-    title="Data usage"
-  />
-  <ModalContent />
-  <ModalFooter
+  <React.Fragment />
+  <div
     className="sto-install-footer"
   >
     <FocusTrap
@@ -57,6 +52,6 @@ exports[`AppInstallation component should not install automatically the app if t
         />
       </div>
     </FocusTrap>
-  </ModalFooter>
+  </div>
 </React.Fragment>
 `;
