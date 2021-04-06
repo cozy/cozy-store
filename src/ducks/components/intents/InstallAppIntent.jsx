@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import compose from 'lodash/flowRight'
-import { withClient } from 'cozy-client'
 
+import { withClient } from 'cozy-client'
 import { translate } from 'cozy-ui/transpiled/react/I18n'
+import IntentHeader from 'cozy-ui/transpiled/react/IntentHeader'
+import Spinner from 'cozy-ui/transpiled/react/Spinner'
+import Typography from 'cozy-ui/transpiled/react/Typography'
 
 import AppInstallation from 'ducks/apps/components/AppInstallation'
 import InstallSuccess from 'ducks/apps/components/InstallSuccess'
-import IntentHeader from 'cozy-ui/transpiled/react/IntentHeader'
-import Spinner from 'cozy-ui/transpiled/react/Spinner'
-
 import {
   APP_TYPE,
   getAppBySlug,
@@ -126,12 +126,17 @@ export class InstallAppIntent extends Component {
           {error && <div className="coz-error">{error.message}</div>}
           {isReadyWithoutErrors &&
             (!isInstalled ? (
-              <AppInstallation
-                appSlug={app.slug}
-                installApp={() => this.installApp()}
-                isInstalling={isInstalling}
-                onCancel={onCancel}
-              />
+              <>
+                <Typography variant="h3">
+                  {t('app_modal.install.title')}
+                </Typography>
+                <AppInstallation
+                  appSlug={app.slug}
+                  installApp={() => this.installApp()}
+                  isInstalling={isInstalling}
+                  onCancel={onCancel}
+                />
+              </>
             ) : (
               hasWebappSucceed && (
                 <InstallSuccess app={app} onTerminate={this.handleTerminate} />
