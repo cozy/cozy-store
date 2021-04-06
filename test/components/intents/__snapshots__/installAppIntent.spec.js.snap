@@ -12,10 +12,17 @@ exports[`InstallAppIntent component should be rendered correctly 1`] = `
   <div
     className="coz-intent-content"
   >
-    <withClient(Connect(withI18n(AppInstallation)))
-      appSlug="drive"
-      installApp={[Function]}
-    />
+    <React.Fragment>
+      <ForwardRef(WithStyles)
+        variant="h3"
+      >
+        app_modal.install.title
+      </ForwardRef(WithStyles)>
+      <withClient(Connect(withI18n(AppInstallation)))
+        appSlug="drive"
+        installApp={[Function]}
+      />
+    </React.Fragment>
   </div>
 </div>
 `;
