@@ -4,18 +4,16 @@ import { withRouter } from 'react-router'
 import PropTypes from 'prop-types'
 import compose from 'lodash/flowRight'
 
+import { withClient } from 'cozy-client'
+import Intents from 'cozy-interapp'
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 import Alerter from 'cozy-ui/transpiled/react/Alerter'
 import Button from 'cozy-ui/transpiled/react/Button'
-import { getAppBySlug, uninstallApp } from 'ducks/apps'
-import Modal, {
-  ModalDescription,
-  ModalFooter
-} from 'cozy-ui/transpiled/react/Modal'
-import Portal from 'cozy-ui/transpiled/react/Portal'
-import { withClient } from 'cozy-client'
-import Intents from 'cozy-interapp'
+import { ConfirmDialog } from 'cozy-ui/transpiled/react/CozyDialogs'
+import TrashIcon from 'cozy-ui/transpiled/react/Icons/Trash'
+import Typography from 'cozy-ui/transpiled/react/Typography'
 
+import { getAppBySlug, uninstallApp } from 'ducks/apps'
 import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
 
 export class UninstallModal extends Component {
@@ -79,29 +77,28 @@ export class UninstallModal extends Component {
     const linkedAppError =
       uninstallError &&
       uninstallError.message === 'A linked OAuth client exists for this app'
+
     return (
-      <Portal into="body">
-        <Modal
-          title={t('app_modal.uninstall.title')}
-          dismissAction={dismissAction}
-          mobileFullscreen
-          className="sto-modal--uninstall"
-        >
-          <ModalDescription>
+      <ConfirmDialog
+        open={true}
+        onClose={dismissAction}
+        title={t('app_modal.uninstall.title')}
+        content={
+          <>
             <ReactMarkdownWrapper
               source={t('app_modal.uninstall.description', {
                 cozyName: client.stackClient.uri.replace(/^\/\//, '')
               })}
             />
             {uninstallError && !linkedAppError && (
-              <p className="u-error">
+              <Typography variant="body1" color="error" paragraph>
                 {t('app_modal.uninstall.message.error', {
                   message: uninstallError.message
                 })}
-              </p>
+              </Typography>
             )}
             {linkedAppError && (
-              <p className="u-error">
+              <Typography variant="body1" color="error" paragraph>
                 {t('app_modal.uninstall.linked_app.error')}
                 &nbsp;
                 <a
@@ -111,30 +108,28 @@ export class UninstallModal extends Component {
                   {t('app_modal.uninstall.linked_app.link')}
                 </a>
                 .
-              </p>
+              </Typography>
             )}
-          </ModalDescription>
-          <ModalFooter className="sto-modal-controls">
+          </>
+        }
+        actions={
+          <>
             <Button
               theme="secondary"
               onClick={dismissAction}
               label={t('app_modal.uninstall.cancel')}
-              extension="full"
-              className="u-mh-half"
             />
             <Button
+              theme="danger"
+              onClick={this.handleUninstallApp}
+              icon={TrashIcon}
               busy={isUninstalling}
               disabled={isUninstalling || isInstalling || !!linkedAppError}
-              theme="danger"
-              icon="trash"
-              onClick={this.handleUninstallApp}
               label={t('app_modal.uninstall.uninstall')}
-              extension="full"
-              className="u-mh-half"
             />
-          </ModalFooter>
-        </Modal>
-      </Portal>
+          </>
+        }
+      />
     )
   }
 }
