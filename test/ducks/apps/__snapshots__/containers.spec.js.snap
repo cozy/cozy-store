@@ -1,87 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Apps Containers (connected components): Discover should be rendered correctly at initial store 1`] = `
-<withI18n(withBreakpoints(Discover))
-  actionError={null}
-  apps={Array []}
-  dispatch={[Function]}
-  fetchError={null}
-  installedApps={Array []}
-  isFetching={false}
-  isInstalling={false}
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
-  storeSubscription={
-    Subscription {
-      "listeners": Object {
-        "clear": [Function],
-        "get": [Function],
-        "notify": [Function],
-        "subscribe": [Function],
-      },
-      "onStateChange": [Function],
-      "parentSub": undefined,
-      "store": Object {
+<Context.Provider
+  value={null}
+>
+  <withI18n(withBreakpoints(Discover))
+    actionError={null}
+    apps={Array []}
+    dispatch={[Function]}
+    fetchError={null}
+    installedApps={Array []}
+    isFetching={false}
+    isInstalling={false}
+    store={
+      Object {
         "clearActions": [Function],
         "dispatch": [Function],
         "getActions": [Function],
         "getState": [Function],
         "replaceReducer": [Function],
         "subscribe": [Function],
-      },
-      "unsubscribe": [Function],
+      }
     }
-  }
-/>
+  />
+</Context.Provider>
 `;
 
 exports[`Apps Containers (connected components): MyApplications should be rendered correctly at initial store 1`] = `
-<withI18n(withBreakpoints(MyApplications))
-  actionError={null}
-  apps={Array []}
-  dispatch={[Function]}
-  fetchError={null}
-  installedApps={Array []}
-  isFetching={false}
-  isInstalling={false}
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
-  storeSubscription={
-    Subscription {
-      "listeners": Object {
-        "clear": [Function],
-        "get": [Function],
-        "notify": [Function],
-        "subscribe": [Function],
-      },
-      "onStateChange": [Function],
-      "parentSub": undefined,
-      "store": Object {
+<Context.Provider
+  value={null}
+>
+  <withI18n(withBreakpoints(MyApplications))
+    actionError={null}
+    apps={Array []}
+    dispatch={[Function]}
+    fetchError={null}
+    installedApps={Array []}
+    isFetching={false}
+    isInstalling={false}
+    store={
+      Object {
         "clearActions": [Function],
         "dispatch": [Function],
         "getActions": [Function],
         "getState": [Function],
         "replaceReducer": [Function],
         "subscribe": [Function],
-      },
-      "unsubscribe": [Function],
+      }
     }
-  }
-/>
+  />
+</Context.Provider>
 `;

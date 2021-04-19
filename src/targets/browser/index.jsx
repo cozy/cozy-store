@@ -1,5 +1,8 @@
 /* global cozy */
 
+import 'cozy-ui/transpiled/react/stylesheet.css'
+import 'cozy-ui/dist/cozy-ui.utils.min.css'
+
 import 'styles'
 
 import React from 'react'
@@ -9,7 +12,6 @@ import flag from 'cozy-flags'
 
 import store from 'lib/store'
 import schema from 'lib/schema'
-import 'cozy-ui/transpiled/react/stylesheet.css'
 
 const renderApp = function({ client, lang }) {
   const Root = require('ducks/components/Root').default
