@@ -1,3 +1,7 @@
+[role=application] {
+  overflow: hidden
+}
+
 .sto-app {
   margin: auto 1.7em;
   height: 100vh;
