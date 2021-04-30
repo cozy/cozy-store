@@ -43,7 +43,7 @@
   "dependencies": {
     "@material-ui/core": "3.9.4",
     "@testing-library/react": "^11.0.4",
-    "cozy-bar": "7.15.2",
+    "cozy-bar": "7.16.0",
     "cozy-client": "14.5.0",
     "cozy-device-helper": "1.10.2",
     "cozy-doctypes": "1.72.2",
