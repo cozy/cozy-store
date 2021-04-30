@@ -3139,10 +3139,10 @@ cozy-client@13.8.3:
     sift "^6.0.0"
     url-search-params-polyfill "^7.0.0"
 
-cozy-client@14.5.0:
-  version "14.5.0"
-  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-14.5.0.tgz#394370ba717a632c96698d586d4baa06919de0ec"
-  integrity sha512-W9mdfhqNLk2vFyGhfHJSE7v4Axq6C3f94MRMv/48iGFnXJUKG3otVktgkAGWQG9soKxIRKCxCgI0FMap3o/wcw==
+cozy-client@14.6.0:
+  version "14.6.0"
+  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-14.6.0.tgz#634d6b545a8a7c5e0e07878c50247ec256677e07"
+  integrity sha512-IbaED4CMPpFbiNoceGex+J5LfbnVgiLiYPcyDR/xrwoc4P2gjZ4XFuNfoM7LDe17iSGGetsY+XVaim+UVpzejw==
   dependencies:
     btoa "^1.2.1"
     cozy-device-helper "^1.7.3"
@@ -3151,7 +3151,7 @@ cozy-client@14.5.0:
     isomorphic-fetch "^2.2.1"
     lodash "^4.17.13"
     microee "^0.0.6"
-    minilog "https://github.com/cozy/minilog.git#master"
+    minilog "git+https://github.com/cozy/minilog.git#master"
     open "^7.0.2"
     prop-types "^15.6.2"
     react-redux "^7.2.0"
@@ -7405,6 +7405,13 @@ mini-css-extract-plugin@0.5.0:
 minilog@3.1.0, "minilog@https://github.com/cozy/minilog.git#master":
   version "3.1.0"
   resolved "https://github.com/cozy/minilog.git#f01f7d9dfe20981177dd34b9662c2f077d818f82"
+  dependencies:
+    microee "0.0.6"
+
+"minilog@git+https://github.com/cozy/minilog.git#master":
+  version "3.1.0"
+  uid "6da0aa58759c4f1a1a7e0fd093dbe2a67c035c55"
+  resolved "git+https://github.com/cozy/minilog.git#6da0aa58759c4f1a1a7e0fd093dbe2a67c035c55"
   dependencies:
     microee "0.0.6"
 
