@@ -205,7 +205,13 @@
       "bitwarden.profiles": "Profils du gestionnaire de mot de passe",
       "bitwarden.ciphers": "Entrées du gestionnaire de mot de passe",
       "bitwarden.folders": "Dossiers du gestionnaire de mot de passe",
-      "bitwarden.organizations": "Dossiers du gestionnaire de mot de passe"
+      "bitwarden.organizations": "Dossiers du gestionnaire de mot de passe",
+      "grandlyon": {
+        "enedis.*": "Données de consommation d'électricité",
+        "grdf.*": "Données de consommation de gaz",
+        "egl.*": "Données de consommation d'eau",
+        "ecolyo.*": "Données Ecolyo"
+      }
     },
     "cc": {
       "cozycloud": {
