@@ -1,65 +1,97 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InstallModal component should be rendered correctly if app found 1`] = `
-<Dialog
-  content={
+<Portal
+  into="body"
+>
+  <Modal
+    closable={true}
+    dismissAction={[Function]}
+    into="body"
+    mobileFullscreen={true}
+    overflowHidden={false}
+    primaryType="regular"
+    secondaryType="secondary"
+    size="small"
+  >
     <withClient(Connect(withI18n(AppInstallation)))
       appSlug="photos"
       onCancel={[Function]}
       onInstallOrUpdate={[MockFunction]}
       onKonnectorInstall={[MockFunction]}
     />
-  }
-  onClose={[Function]}
-  open={true}
-  title="app_modal.install.title"
-/>
+  </Modal>
+</Portal>
 `;
 
 exports[`InstallModal component should be rendered correctly to update app with availableVersion 1`] = `
-<Dialog
-  content={
+<Portal
+  into="body"
+>
+  <Modal
+    closable={true}
+    dismissAction={[Function]}
+    into="body"
+    mobileFullscreen={true}
+    overflowHidden={false}
+    primaryType="regular"
+    secondaryType="secondary"
+    size="small"
+  >
     <withClient(Connect(withI18n(AppInstallation)))
       appSlug="photos"
       onCancel={[Function]}
       onInstallOrUpdate={[MockFunction]}
       onKonnectorInstall={[MockFunction]}
     />
-  }
-  onClose={[Function]}
-  open={true}
-  title="app_modal.install.title"
-/>
+  </Modal>
+</Portal>
 `;
 
 exports[`InstallModal component should be rendered correctly with also app in registry 1`] = `
-<Dialog
-  content={
+<Portal
+  into="body"
+>
+  <Modal
+    closable={true}
+    dismissAction={[Function]}
+    into="body"
+    mobileFullscreen={true}
+    overflowHidden={false}
+    primaryType="regular"
+    secondaryType="secondary"
+    size="small"
+  >
     <withClient(Connect(withI18n(AppInstallation)))
       appSlug="photos"
       onCancel={[Function]}
       onInstallOrUpdate={[MockFunction]}
       onKonnectorInstall={[MockFunction]}
     />
-  }
-  onClose={[Function]}
-  open={true}
-  title="app_modal.install.title"
-/>
+  </Modal>
+</Portal>
 `;
 
 exports[`InstallModal component should not break the permissions part if no permissions property found in manifest 1`] = `
-<Dialog
-  content={
+<Portal
+  into="body"
+>
+  <Modal
+    closable={true}
+    dismissAction={[Function]}
+    into="body"
+    mobileFullscreen={true}
+    overflowHidden={false}
+    primaryType="regular"
+    secondaryType="secondary"
+    size="small"
+  >
     <withClient(Connect(withI18n(AppInstallation)))
       appSlug="photos"
       onCancel={[Function]}
       onInstallOrUpdate={[MockFunction]}
       onKonnectorInstall={[MockFunction]}
     />
-  }
-  onClose={[Function]}
-  open={true}
-  title="app_modal.install.title"
-/>
+  </Modal>
+</Portal>
 `;

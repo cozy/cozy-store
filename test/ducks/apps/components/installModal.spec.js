@@ -6,6 +6,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 
 import { InstallModal } from 'ducks/apps/components/InstallModal'
+import AppInstallation from 'ducks/apps/components/AppInstallation'
 
 import mockApps from '../_mockApps'
 import mockAppVersion from '../_mockPhotosRegistryVersion'
@@ -48,8 +49,7 @@ const getMockProps = (fromRegistry = false) => ({
     push: jest.fn()
   },
   redirectToConfigure: jest.fn(),
-  redirectToApp: jest.fn(),
-  t: x => x
+  redirectToApp: jest.fn()
 })
 
 describe('InstallModal component', () => {
@@ -103,7 +103,7 @@ describe('InstallModal component', () => {
   it('call state restoring and dismiss on cancel', () => {
     const mockProps = getMockProps()
     const wrapper = shallow(<InstallModal {...mockProps} />)
-    const installationWrapper = shallow(wrapper.prop('content'))
+    const installationWrapper = wrapper.find(AppInstallation)
     installationWrapper.props().onCancel()
     expect(mockProps.restoreAppIfSaved.mock.calls.length).toBe(1)
     expect(mockProps.dismissAction.mock.calls.length).toBe(1)

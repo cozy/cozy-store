@@ -6,9 +6,13 @@ import flags from 'cozy-flags'
 import FocusTrap from 'focus-trap-react'
 
 import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
+import {
+  ModalDescription,
+  ModalHeader,
+  ModalFooter
+} from 'cozy-ui/transpiled/react/Modal'
 import Spinner from 'cozy-ui/transpiled/react/Spinner'
 import Button from 'cozy-ui/transpiled/react/Button'
-import Typography from 'cozy-ui/transpiled/react/Typography'
 
 import PermissionsList from 'ducks/apps/components/PermissionsList'
 import Partnership from 'ducks/apps/components/Partnership'
@@ -110,11 +114,13 @@ export class AppInstallation extends Component {
 
     if (shouldSkipPermissions(app) && hasInstallation(app)) {
       return (
-        <div className="sto-install-loading-wrapper">
-          <div className="sto-install-loading">
-            <Spinner size="xxlarge" />
-          </div>
-        </div>
+        <React.Fragment>
+          <ModalDescription className="sto-install-loading-wrapper">
+            <div className="sto-install-loading">
+              <Spinner size="xxlarge" />
+            </div>
+          </ModalDescription>
+        </React.Fragment>
       )
     }
 
@@ -127,28 +133,29 @@ export class AppInstallation extends Component {
     )
 
     return (
-      <>
+      <React.Fragment>
+        <ModalHeader title={t('app_modal.install.title')} />
         {isFetchingSomething ? (
-          <div className="sto-install-loading-wrapper">
+          <ModalDescription className="sto-install-loading-wrapper">
             <div className="sto-install-loading">
               <Spinner size="xlarge" />
             </div>
-          </div>
+          </ModalDescription>
         ) : (
-          <>
+          <ModalDescription>
             {app.partnership && <Partnership app={app} />}
             {app.permissions && <PermissionsList app={app} />}
             {fetchError && (
-              <Typography color="error" paragraph>
+              <p className="u-error">
                 {t('app_modal.install.message.version_error', {
                   message: fetchError.message
                 })}
-              </Typography>
+              </p>
             )}
-          </>
+          </ModalDescription>
         )}
         {!isFetchingSomething && !fetchError && (
-          <div className="sto-install-footer">
+          <ModalFooter className="sto-install-footer">
             <FocusTrap
               focusTrapOptions={{
                 clickOutsideDeactivates: true
@@ -210,9 +217,9 @@ export class AppInstallation extends Component {
                 />
               </div>
             </FocusTrap>
-          </div>
+          </ModalFooter>
         )}
-      </>
+      </React.Fragment>
     )
   }
 }

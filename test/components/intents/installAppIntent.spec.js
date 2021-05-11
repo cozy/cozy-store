@@ -21,8 +21,7 @@ describe('InstallAppIntent component', () => {
       cozyAppName: 'Drive',
       cozyIconPath: '/path/to/icon'
     },
-    initAppIntent: jest.fn(),
-    t: x => x
+    initAppIntent: jest.fn()
   }
 
   afterEach(() => {

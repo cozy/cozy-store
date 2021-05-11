@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import compose from 'lodash/flowRight'
-
-import { withClient } from 'cozy-client'
+import Modal from 'cozy-ui/transpiled/react/Modal'
 import { translate } from 'cozy-ui/transpiled/react/I18n'
-import { Dialog } from 'cozy-ui/transpiled/react/CozyDialogs'
-
+import Portal from 'cozy-ui/transpiled/react/Portal'
+import { withClient } from 'cozy-client'
+import compose from 'lodash/flowRight'
 import AppInstallation from 'ducks/apps/components/AppInstallation'
 import { hasPendingUpdate } from 'ducks/apps/appStatus'
 import { fetchLatestApp, restoreAppIfSaved } from 'ducks/apps'
@@ -37,22 +36,19 @@ export class InstallModal extends Component {
   }
 
   render() {
-    const { app, redirectToApp, redirectToConfigure, t } = this.props
+    const { app, redirectToApp, redirectToConfigure } = this.props
 
     return (
-      <Dialog
-        open={true}
-        onClose={this.dismiss}
-        title={t('app_modal.install.title')}
-        content={
+      <Portal into="body">
+        <Modal dismissAction={this.dismiss} mobileFullscreen>
           <AppInstallation
             appSlug={app.slug}
             onCancel={this.dismiss}
             onKonnectorInstall={redirectToConfigure}
             onInstallOrUpdate={redirectToApp}
           />
-        }
-      />
+        </Modal>
+      </Portal>
     )
   }
 }
