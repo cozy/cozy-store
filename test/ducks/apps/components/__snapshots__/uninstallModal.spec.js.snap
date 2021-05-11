@@ -1,103 +1,122 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`UninstallModal component should be rendered correctly (app uninstallable) 1`] = `
-<ConfirmDialog
-  actions={
-    <React.Fragment>
+<Portal
+  into="body"
+>
+  <Modal
+    className="sto-modal--uninstall"
+    closable={true}
+    dismissAction={[MockFunction]}
+    into="body"
+    mobileFullscreen={true}
+    overflowHidden={false}
+    primaryType="regular"
+    secondaryType="secondary"
+    size="small"
+    title="Uninstall this application"
+  >
+    <ModalContent>
+      <ReactMarkdownWrapper
+        source="This application is bound to be removed from your Cozy cozytest.mock.cc. Are you sure to __remove this application definitively__?"
+      />
+    </ModalContent>
+    <ModalFooter
+      className="sto-modal-controls"
+    >
       <DefaultButton
+        className="u-mh-half"
+        extension="full"
         label="Cancel"
         onClick={[MockFunction]}
         theme="secondary"
       />
       <DefaultButton
+        className="u-mh-half"
         disabled={false}
-        icon={[Function]}
+        extension="full"
+        icon="trash"
         label="Uninstall"
         onClick={[Function]}
         theme="danger"
       />
-    </React.Fragment>
-  }
-  content={
-    <React.Fragment>
-      <ReactMarkdownWrapper
-        source="This application is bound to be removed from your Cozy cozytest.mock.cc. Are you sure to __remove this application definitively__?"
-      />
-    </React.Fragment>
-  }
-  onClose={[MockFunction]}
-  open={true}
-  size="small"
-  title="Uninstall this application"
-/>
+    </ModalFooter>
+  </Modal>
+</Portal>
 `;
 
 exports[`UninstallModal component should handle correctly error from props 1`] = `
-<ConfirmDialog
-  actions={
-    <React.Fragment>
+<Portal
+  into="body"
+>
+  <Modal
+    className="sto-modal--uninstall"
+    closable={true}
+    dismissAction={[MockFunction]}
+    into="body"
+    mobileFullscreen={true}
+    overflowHidden={false}
+    primaryType="regular"
+    secondaryType="secondary"
+    size="small"
+    title="Uninstall this application"
+  >
+    <ModalContent>
+      <ReactMarkdownWrapper
+        source="This application is bound to be removed from your Cozy cozytest.mock.cc. Are you sure to __remove this application definitively__?"
+      />
+      <p
+        className="u-error"
+      >
+        Something went wrong when uninstalling this application. Reason: This is a test error
+      </p>
+    </ModalContent>
+    <ModalFooter
+      className="sto-modal-controls"
+    >
       <DefaultButton
+        className="u-mh-half"
+        extension="full"
         label="Cancel"
         onClick={[MockFunction]}
         theme="secondary"
       />
       <DefaultButton
+        className="u-mh-half"
         disabled={false}
-        icon={[Function]}
+        extension="full"
+        icon="trash"
         label="Uninstall"
         onClick={[Function]}
         theme="danger"
       />
-    </React.Fragment>
-  }
-  content={
-    <React.Fragment>
-      <ReactMarkdownWrapper
-        source="This application is bound to be removed from your Cozy cozytest.mock.cc. Are you sure to __remove this application definitively__?"
-      />
-      <ForwardRef(WithStyles)
-        color="error"
-        paragraph={true}
-        variant="body1"
-      >
-        Something went wrong when uninstalling this application. Reason: This is a test error
-      </ForwardRef(WithStyles)>
-    </React.Fragment>
-  }
-  onClose={[MockFunction]}
-  open={true}
-  size="small"
-  title="Uninstall this application"
-/>
+    </ModalFooter>
+  </Modal>
+</Portal>
 `;
 
 exports[`UninstallModal component should handle correctly linked app error 1`] = `
-<ConfirmDialog
-  actions={
-    <React.Fragment>
-      <DefaultButton
-        label="Cancel"
-        onClick={[MockFunction]}
-        theme="secondary"
-      />
-      <DefaultButton
-        disabled={true}
-        icon={[Function]}
-        label="Uninstall"
-        onClick={[Function]}
-        theme="danger"
-      />
-    </React.Fragment>
-  }
-  content={
-    <React.Fragment>
+<Portal
+  into="body"
+>
+  <Modal
+    className="sto-modal--uninstall"
+    closable={true}
+    dismissAction={[MockFunction]}
+    into="body"
+    mobileFullscreen={true}
+    overflowHidden={false}
+    primaryType="regular"
+    secondaryType="secondary"
+    size="small"
+    title="Uninstall this application"
+  >
+    <ModalContent>
       <ReactMarkdownWrapper
         source="This application is bound to be removed from your Cozy cozytest.mock.cc. Are you sure to __remove this application definitively__?"
       />
-      <ForwardRef(WithStyles)
-        color="error"
-        paragraph={true}
-        variant="body1"
+      <p
+        className="u-error"
       >
         A mobile application is linked to this application, it must be revoked to uninstall this application. To do this, you can go on
          
@@ -108,12 +127,28 @@ exports[`UninstallModal component should handle correctly linked app error 1`] =
           your page for managing connected devices
         </a>
         .
-      </ForwardRef(WithStyles)>
-    </React.Fragment>
-  }
-  onClose={[MockFunction]}
-  open={true}
-  size="small"
-  title="Uninstall this application"
-/>
+      </p>
+    </ModalContent>
+    <ModalFooter
+      className="sto-modal-controls"
+    >
+      <DefaultButton
+        className="u-mh-half"
+        extension="full"
+        label="Cancel"
+        onClick={[MockFunction]}
+        theme="secondary"
+      />
+      <DefaultButton
+        className="u-mh-half"
+        disabled={true}
+        extension="full"
+        icon="trash"
+        label="Uninstall"
+        onClick={[Function]}
+        theme="danger"
+      />
+    </ModalFooter>
+  </Modal>
+</Portal>
 `;
