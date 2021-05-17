@@ -21,7 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const client = new CozyClient({
     uri: `${protocol}//${appData.cozyDomain}`,
     schema,
-    token: appData.cozyToken
+    token: appData.cozyToken,
+    store: false
   })
   client.registerPlugin(flag.plugin)
 
