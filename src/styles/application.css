@@ -1,5 +1,5 @@
 [role=application] {
-  overflow: hidden
+  overflow: hidden !important
 }
 
 .sto-app {
