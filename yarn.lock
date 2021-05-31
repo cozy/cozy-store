@@ -773,7 +773,7 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@cozy/minilog@1.0.0":
+"@cozy/minilog@1.0.0", "@cozy/minilog@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@cozy/minilog/-/minilog-1.0.0.tgz#1acc1aad849261e931e255a5f181b638315f7b84"
   integrity sha512-IkDHF9CLh0kQeSEVsou59ar/VehvenpbEUjLfwhckJyOUqZnKAWmXy8qrBgMT5Loxr8Xjs2wmMnj0D67wP00eQ==
@@ -3031,7 +3031,7 @@ cozy-client@22.1.0:
     sift "^6.0.0"
     url-search-params-polyfill "^7.0.0"
 
-cozy-device-helper@1.12.0, cozy-device-helper@^1.10.2, cozy-device-helper@^1.12.0, cozy-device-helper@^1.7.3:
+cozy-device-helper@1.12.0, cozy-device-helper@^1.12.0, cozy-device-helper@^1.7.3:
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/cozy-device-helper/-/cozy-device-helper-1.12.0.tgz#619a24b0d3caf2d3f616a1524daef7c7b71eab7a"
   integrity sha512-7pFbltgkD8rSO0PEf8pd6aBB37RUnNYH7fb3pkbcvo5rk4quCfSLREV94gZwXxowzP4vjZcAumTM09DfI42mJA==
@@ -3094,13 +3094,13 @@ cozy-logger@^1.6.0:
     chalk "^2.4.2"
     json-stringify-safe "5.0.1"
 
-cozy-realtime@3.10.5:
-  version "3.10.5"
-  resolved "https://registry.yarnpkg.com/cozy-realtime/-/cozy-realtime-3.10.5.tgz#aa040bd921a0f83fd0452092d050ee201e090bff"
-  integrity sha512-PISZsNkXzTWwYAbLTjQn1tIi0iVwEAEZQTVNS2eDu46a8EtIGBje8QM/GQoFZdoIi0wtgciW5VvQUEuP/wY+xQ==
+cozy-realtime@3.13.0:
+  version "3.13.0"
+  resolved "https://registry.yarnpkg.com/cozy-realtime/-/cozy-realtime-3.13.0.tgz#aea05fbae2b941005f33b298bbe3fb3943d8faba"
+  integrity sha512-DxG/rV1Kw7FO5bYbBLBxQkEJIDBVhqs/xHRGSqYu4ShkQGR+FCrNB9hWSK3b8nGCS/xcskTZvvS+n765QW/MIg==
   dependencies:
-    cozy-device-helper "^1.10.2"
-    minilog "https://github.com/cozy/minilog.git#master"
+    "@cozy/minilog" "^1.0.0"
+    cozy-device-helper "^1.12.0"
 
 cozy-realtime@3.2.1:
   version "3.2.1"
