@@ -27,25 +27,25 @@ let client, lang
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.querySelector('[role=application]')
-  const data = root.dataset
+  const data = JSON.parse(root.dataset.cozy)
   const protocol = window.location.protocol
 
   client = new CozyClient({
-    uri: `${protocol}//${data.cozyDomain}`,
+    uri: `${protocol}//${data.domain}`,
     schema,
-    token: data.cozyToken
+    token: data.token
   })
 
   client.registerPlugin(flag.plugin)
 
-  lang = data.cozyLocale
+  lang = data.locale
 
   cozy.bar.init({
     cozyClient: client,
-    appEditor: data.cozyAppEditor,
-    appName: data.cozyAppName,
-    iconPath: data.cozyIconPath,
-    lang: data.cozyLocale,
+    appEditor: data.app.editor,
+    appName: data.app.name,
+    iconPath: data.app.icon,
+    lang: data.locale,
     replaceTitleOnMobile: true
   })
 

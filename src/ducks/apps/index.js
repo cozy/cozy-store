@@ -50,7 +50,7 @@ let dataset
 const getDataset = () => {
   if (dataset) return dataset
   const root = document.querySelector('[role=application]')
-  dataset = root && root.dataset
+  dataset = root && JSON.parse(root.dataset.cozy)
   return dataset
 }
 
@@ -59,7 +59,7 @@ const shouldAppBeDisplayed = appAttributes =>
 
 /* Only for the icon fetching */
 export const getAppIconProps = () => ({
-  domain: getDataset() && getDataset().cozyDomain,
+  domain: getDataset() && getDataset().domain,
   secure: window.location.protocol === 'https:'
 })
 
