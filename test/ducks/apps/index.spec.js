@@ -1,7 +1,7 @@
 'use strict'
 
 document.body.innerHTML =
-  '<div role="application" data-cozy-domain="cozy.tools" />'
+  '<div role="application" data-cozy=\'{"domain": "cozy.tools"}\' />'
 window.location.protocol = 'http:'
 
 import configureStore from 'redux-mock-store'

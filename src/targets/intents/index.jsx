@@ -19,16 +19,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const protocol = window.location.protocol
   const client = new CozyClient({
-    uri: `${protocol}//${appData.cozyDomain}`,
+    uri: `${protocol}//${appData.domain}`,
     schema,
-    token: appData.cozyToken,
+    token: appData.token,
     store: false
   })
   client.registerPlugin(flag.plugin)
 
   render(
     <I18n
-      lang={appData.cozyLocale}
+      lang={appData.locale}
       dictRequire={lang => require(`../../locales/${lang}`)}
     >
       <CozyProvider store={store} client={client}>
