@@ -216,7 +216,8 @@
     "cc": {
       "cozycloud": {
         "autocategorization": "Categorization model enrichment file",
-        "sentry": "The application logs"
+        "sentry": "The application logs",
+        "dacc": "Anonymous aggregate statistics"
       }
     },
     "io": {

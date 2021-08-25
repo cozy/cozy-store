@@ -216,7 +216,8 @@
     "cc": {
       "cozycloud": {
         "autocategorization": "Fichier d'enrichissement du modèle de catégorisation",
-        "sentry": "Journaux de l'application"
+        "sentry": "Journaux de l'application",
+        "dacc": "Statistiques agrégées anonymes"
       }
     },
     "io": {
