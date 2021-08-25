@@ -206,6 +206,7 @@
       "bitwarden.ciphers": "Password manager entries",
       "bitwarden.folders": "Password manager folders",
       "bitwarden.organizations": "Password manager organizations",
+      "bitwarden.contacts": "Password manager contacts",
       "grandlyon": {
         "enedis.*": "Electricity consumption data",
         "grdf.*": "Gas consumption data",

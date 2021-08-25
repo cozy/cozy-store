@@ -3,6 +3,7 @@
   "com.bitwarden.ciphers": "passwords",
   "com.bitwarden.folders": "passwords",
   "com.bitwarden.organizations": "passwords",
+  "com.bitwarden.contacts": "passwords",
   "com.grandlyon.enedis.*": "energy",
   "com.grandlyon.grdf.*": "energy",
   "com.grandlyon.egl.*": "energy",
