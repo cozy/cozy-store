@@ -241,6 +241,7 @@
         "contacts.accounts": "Comptes associés aux contacts",
         "files": "Fichiers",
         "files.versions": "Versions des fichiers",
+        "files.*": "Données liées aux fichiers (fichiers, dossiers, versions, ...)",
         "identities": "Identities",
         "jobs": "Tâches à exécuter",
         "konnectors": "Connecteurs pour importer des données",
