@@ -40,6 +40,7 @@
   "io.cozy.oauth.clients": "connected-clients",
   "io.cozy.permissions": "permissions",
   "io.cozy.photos.albums": "photos-album",
+  "io.cozy.photos.settings": "photos-settings",
   "io.cozy.settings": "settings",
   "io.cozy.timeseries.geojson": "location",
   "io.cozy.triggers": "triggers",

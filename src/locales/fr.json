@@ -251,6 +251,7 @@
         "oauth.clients": "Appareils connectés",
         "permissions": "Délégation de permissions",
         "photos.albums": "Albums photos",
+        "photos.settings": "Paramètres des photos",
         "settings": "Paramètres",
         "timeseries.geojson": "Déplacements",
         "triggers": "Planification de tâches à exécuter dans le futur"
