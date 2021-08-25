@@ -253,6 +253,7 @@
         "photos.albums": "Photo albums",
         "photos.settings": "Photo settings",
         "settings": "Settings",
+        "sharings": "Sharing",
         "timeseries.geojson": "Trips",
         "triggers": "Scheduling jobs"
       }
