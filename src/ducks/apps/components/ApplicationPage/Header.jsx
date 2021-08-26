@@ -60,14 +60,12 @@ export const Header = ({
                 })
               }}
               className="c-btn"
-              icon="openwith"
               label={t('app_page.konnector.open')}
             />
           ) : (
             <Button
               onClick={() => openApp(related)}
               className="c-btn"
-              icon="openwith"
               label={t('app_page.webapp.open')}
             />
           )
