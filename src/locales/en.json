@@ -283,9 +283,9 @@
     "reason": "**Reason: **",
     "developer_default": "The developer of this application",
     "description": {
-      "only_internal": "%{name} commits to not giving the data used by the application:",
-      "internal": "%{name} commits to not giving the other data used by the application:",
-      "external": "%{name} commits to giving only the following data:",
+      "only_internal": "This app will not transmit any data to its developer %{name}, it will use it only locally in your Cozy without transmission to anyone:",
+      "internal": "This app will not transmit any data to its developer %{name}, it will use it only locally in your Cozy without transmission to anyone:",
+      "external": "%{name} could use and extract these data from your Cozy only for the following purposes:",
       "nothing": "%{appName} doesn't require any data access to work correctly on your Cozy."
     }
   },
