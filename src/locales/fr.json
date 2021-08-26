@@ -283,7 +283,6 @@
     "reason": "**Motif : **",
     "developer_default": "Le•a développeur•se de cette application",
     "description": {
-      "only_internal": "Cette application ne transmettra aucune de ces données à son éditeur %{name}, elle les utilisera localement dans votre Cozy sans jamais les transmettre à qui que ce soit :",
       "internal": "Cette application ne transmettra aucune de ces données à son éditeur %{name}, elle les utilisera localement dans votre Cozy sans jamais les transmettre à qui que ce soit :",
       "external": "%{name} pourra utiliser et extraire de votre Cozy ces données uniquement pour les motifs suivants :",
       "nothing": "%{appName} ne requiert aucun accès à vos données pour fonctionner correctement sur votre Cozy."
