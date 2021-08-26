@@ -23,11 +23,11 @@
     }
   },
   "myapps": {
-    "title": "My Applications"
+    "title": "Installed"
   },
   "nav": {
     "discover": "Applications",
-    "myapps": "My Applications"
+    "myapps": "Installed"
   },
   "soon": {
     "title": "Coming soon",
