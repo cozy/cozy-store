@@ -8,6 +8,7 @@
   "com.grandlyon.grdf.*": "energy",
   "com.grandlyon.egl.*": "energy",
   "com.grandlyon.ecolyo.*": "ecolyo",
+  "fr.maif.events": "calendar",
   "fr.maif.maifuser.contrat": "contract",
   "fr.maif.maifuser.foyer": "family",
   "fr.maif.maifuser.home": "home",

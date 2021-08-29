@@ -261,6 +261,7 @@
     },
     "fr": {
       "maif": {
+        "events": "Évènements (Maif)",
         "maifuser": {
           "contrat": "Contrat (Maif)",
           "home": "Maison (Maif)",
