@@ -23,6 +23,7 @@
   "io.cozy.apps.suggestions": "apps",
   "io.cozy.bank.accounts": "bank-accounts",
   "io.cozy.bank.accounts.stats": "bank-accounts",
+  "io.cozy.bank.balancehistories": "versioning",
   "io.cozy.bank.groups": "bank-groups",
   "io.cozy.bank.operations": "bank-operations",
   "io.cozy.bank.settings": "settings",
