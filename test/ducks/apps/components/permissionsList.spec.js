@@ -10,6 +10,7 @@ import { PermissionsList } from 'ducks/apps/components/PermissionsList'
 
 import mockAppVersion from '../_mockPhotosRegistryVersion'
 import mockKonnectorVersion from '../_mockPKonnectorTrinlaneRegistryVersion'
+import mockBankKonnectorWithExternalDoctype from '../_mockBankKonnectorWithExternalDoctype'
 
 describe('PermissionsList component', () => {
   beforeAll(() => {
@@ -38,6 +39,13 @@ describe('PermissionsList component', () => {
   it('should be rendered correctly without permissions', () => {
     const component = shallow(
       <PermissionsList t={tMock} app={{ name: 'Mock' }} />
+    ).getElement()
+    expect(component).toMatchSnapshot()
+  })
+
+  it('should be rendered correctly when is a bank with external doctypes permissions', () => {
+    const component = shallow(
+      <PermissionsList t={tMock} app={mockBankKonnectorWithExternalDoctype} />
     ).getElement()
     expect(component).toMatchSnapshot()
   })
