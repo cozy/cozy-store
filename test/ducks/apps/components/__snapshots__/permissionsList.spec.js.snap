@@ -25,70 +25,6 @@ exports[`PermissionsList component should be rendered correctly when is a bank w
       t={[Function]}
       type="io.cozy.accounts"
     />
-  </ul>
-  <div
-    className="sto-perm-list-title"
-  >
-    <Icon
-      className="sto-perm-list-icon"
-      color="#35CE68"
-      icon="test-file-stub"
-      size="24"
-      spin={false}
-    />
-    <p>
-      This app will not transmit any data to its developer The developer of this application, it will use it only locally in your Cozy without transmission to anyone:
-    </p>
-  </div>
-  <ul
-    className="sto-perm-list"
-  >
-    <LocalizedPermission
-      app={
-        Object {
-          "editor": "Cozy",
-          "id": "boursorama",
-          "langs": Array [
-            "en",
-          ],
-          "partnership": Object {
-            "domain": "budget-insight.com",
-            "name": "Budget Insight",
-          },
-          "permissions": Object {
-            "accounts": Object {
-              "description": "This should be replaced by permissions.banking translation",
-              "type": "io.cozy.accounts",
-            },
-            "auto_categorization": Object {
-              "description": "This is a remote doctype",
-              "type": "cc.cozycloud.autocategorization",
-            },
-            "bank_accounts": Object {
-              "description": "This is an internal doctype",
-              "type": "io.cozy.bank.accounts",
-            },
-            "dacc": Object {
-              "description": "This is another remote doctype",
-              "type": "cc.cozycloud.dacc",
-            },
-            "settings": Object {
-              "description": "Required to read user's mail and configure a Budget Insight account",
-              "type": "io.cozy.settings",
-              "verbs": Array [
-                "GET",
-              ],
-            },
-          },
-          "slug": "boursorama83",
-          "type": "konnector",
-        }
-      }
-      description="This is an internal doctype"
-      name="bank_accounts"
-      t={[Function]}
-      type="io.cozy.bank.accounts"
-    />
     <LocalizedPermission
       app={
         Object {
@@ -180,6 +116,70 @@ exports[`PermissionsList component should be rendered correctly when is a bank w
       name="dacc"
       t={[Function]}
       type="cc.cozycloud.dacc"
+    />
+  </ul>
+  <div
+    className="sto-perm-list-title"
+  >
+    <Icon
+      className="sto-perm-list-icon"
+      color="#35CE68"
+      icon="test-file-stub"
+      size="24"
+      spin={false}
+    />
+    <p>
+      This app will not transmit any data to its developer The developer of this application, it will use it only locally in your Cozy without transmission to anyone:
+    </p>
+  </div>
+  <ul
+    className="sto-perm-list"
+  >
+    <LocalizedPermission
+      app={
+        Object {
+          "editor": "Cozy",
+          "id": "boursorama",
+          "langs": Array [
+            "en",
+          ],
+          "partnership": Object {
+            "domain": "budget-insight.com",
+            "name": "Budget Insight",
+          },
+          "permissions": Object {
+            "accounts": Object {
+              "description": "This should be replaced by permissions.banking translation",
+              "type": "io.cozy.accounts",
+            },
+            "auto_categorization": Object {
+              "description": "This is a remote doctype",
+              "type": "cc.cozycloud.autocategorization",
+            },
+            "bank_accounts": Object {
+              "description": "This is an internal doctype",
+              "type": "io.cozy.bank.accounts",
+            },
+            "dacc": Object {
+              "description": "This is another remote doctype",
+              "type": "cc.cozycloud.dacc",
+            },
+            "settings": Object {
+              "description": "Required to read user's mail and configure a Budget Insight account",
+              "type": "io.cozy.settings",
+              "verbs": Array [
+                "GET",
+              ],
+            },
+          },
+          "slug": "boursorama83",
+          "type": "konnector",
+        }
+      }
+      description="This is an internal doctype"
+      name="bank_accounts"
+      t={[Function]}
+      type="io.cozy.bank.accounts"
     />
     <LocalizedPermission
       app={
