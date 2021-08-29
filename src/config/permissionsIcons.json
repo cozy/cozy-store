@@ -42,6 +42,7 @@
   "io.cozy.jobs": "task-to-effectuate",
   "io.cozy.konnectors": "konnectors",
   "io.cozy.konnectors.result": "konnectors-result",
+  "io.cozy.netflix.opinions": "opinions",
   "io.cozy.netflix.views": "versioning",
   "io.cozy.notifications": "notifications",
   "io.cozy.oauth.clients": "connected-clients",
