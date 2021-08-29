@@ -9,6 +9,7 @@ import localAccessIcon from 'assets/icons/icon-cloud-in-cozy.svg'
 import externalIcon from 'assets/icons/icon-cloud-out-cozy.svg'
 
 import LINXO_CONNECTORS from 'config/linxo.json'
+import REMOTE_DOCTYPES from 'config/remote-doctypes.json'
 import PERMISSIONS_ICONS from 'config/permissionsIcons.json'
 
 export const Permission = ({ description, label, type, t }) => {
@@ -49,11 +50,24 @@ const LocalizedPermission = ({ t, app, name, type }) => (
 )
 
 const getProcessedPermissions = (t, app) => {
-  const external = [] // external permissions
+  let external = [] // external permissions
   const externalTypes = [] // use to filter the internal after processing
+
+  external = Object.entries(app.permissions || {})
+    .filter(([, permission]) => REMOTE_DOCTYPES.includes(permission.type))
+    .map(([name, permission]) => (
+      <LocalizedPermission
+        app={app}
+        key={name}
+        {...permission}
+        name={name}
+        t={t}
+      />
+    ))
+
   if (LINXO_CONNECTORS.includes(app.slug)) {
     const linxoType = 'io.cozy.accounts'
-    external.push(
+    external.unshift(
       <Permission
         description={
           app.partnership && app.partnership.name && app.partnership.domain
@@ -73,13 +87,14 @@ const getProcessedPermissions = (t, app) => {
   }
 
   // internal permissions
-  const internal = Object.keys(app.permissions || {})
-    .filter(name => !externalTypes.includes(app.permissions[name].type))
-    .map(name => (
+  const internal = Object.entries(app.permissions || {})
+    .filter(([, permission]) => !REMOTE_DOCTYPES.includes(permission.type))
+    .filter(([, permission]) => !externalTypes.includes(permission.type))
+    .map(([name, permission]) => (
       <LocalizedPermission
         app={app}
         key={name}
-        {...app.permissions[name]}
+        {...permission}
         name={name}
         t={t}
       />
