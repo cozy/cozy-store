@@ -49,57 +49,61 @@ const LocalizedPermission = ({ t, app, name, type }) => (
   />
 )
 
+const getLocalizedPermissions = ({ t, app, permissions }) => {
+  return permissions.map(([name, permission]) => (
+    <LocalizedPermission
+      app={app}
+      key={name}
+      {...permission}
+      name={name}
+      t={t}
+    />
+  ))
+}
+
+const getLinxoPermissions = ({ t, app, linxoDoctypes }) => {
+  return linxoDoctypes.map(linxoType => (
+    <Permission
+      description={
+        app.partnership && app.partnership.name && app.partnership.domain
+          ? t('permissions.banking', {
+              name: app.partnership.name,
+              domain: app.partnership.domain
+            })
+          : t('permissions.linxo')
+      }
+      label={t(`doctypes.${linxoType}`)}
+      type={linxoType}
+      key={linxoType}
+      t={t}
+    />
+  ))
+}
+
 const getProcessedPermissions = (t, app) => {
-  let external = [] // external permissions
-  const externalTypes = [] // use to filter the internal after processing
+  const externalPermissions = Object.entries(app.permissions || {}).filter(
+    ([, permission]) => REMOTE_DOCTYPES.includes(permission.type)
+  )
 
-  external = Object.entries(app.permissions || {})
-    .filter(([, permission]) => REMOTE_DOCTYPES.includes(permission.type))
-    .map(([name, permission]) => (
-      <LocalizedPermission
-        app={app}
-        key={name}
-        {...permission}
-        name={name}
-        t={t}
-      />
-    ))
+  const linxoDoctypes = LINXO_CONNECTORS.includes(app.slug)
+    ? ['io.cozy.accounts']
+    : []
 
-  if (LINXO_CONNECTORS.includes(app.slug)) {
-    const linxoType = 'io.cozy.accounts'
-    external.unshift(
-      <Permission
-        description={
-          app.partnership && app.partnership.name && app.partnership.domain
-            ? t('permissions.banking', {
-                name: app.partnership.name,
-                domain: app.partnership.domain
-              })
-            : t('permissions.linxo')
-        }
-        label={t(`doctypes.${linxoType}`)}
-        type={linxoType}
-        key={linxoType}
-        t={t}
-      />
-    )
-    externalTypes.push(linxoType)
-  }
-
-  // internal permissions
-  const internal = Object.entries(app.permissions || {})
+  const internalPermissions = Object.entries(app.permissions || {})
     .filter(([, permission]) => !REMOTE_DOCTYPES.includes(permission.type))
-    .filter(([, permission]) => !externalTypes.includes(permission.type))
-    .map(([name, permission]) => (
-      <LocalizedPermission
-        app={app}
-        key={name}
-        {...permission}
-        name={name}
-        t={t}
-      />
-    ))
-  return { internalPermissions: internal, externalPermissions: external }
+    .filter(([, permission]) => !linxoDoctypes.includes(permission.type))
+
+  return {
+    internalPermissions: getLocalizedPermissions({
+      t,
+      app,
+      permissions: internalPermissions
+    }),
+    externalPermissions: [
+      ...getLinxoPermissions({ t, app, linxoDoctypes }),
+      ...getLocalizedPermissions({ t, app, permissions: externalPermissions })
+    ]
+  }
 }
 
 export const PermissionsList = ({ t, app }) => {
