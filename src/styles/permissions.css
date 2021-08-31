@@ -8,6 +8,7 @@
 .sto-perm-list-title p {
   margin: 0;
   line-height: 1.5;
+  flex: 1 1 100%;
 }
 
 .sto-perm-list-icon {
