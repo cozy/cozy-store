@@ -17,9 +17,11 @@ describe('InstallAppIntent component', () => {
       slug: 'drive'
     },
     appData: {
-      cozyAppEditor: 'Cozy',
-      cozyAppName: 'Drive',
-      cozyIconPath: '/path/to/icon'
+      app: {
+        editor: 'Cozy',
+        name: 'Drive',
+        icon: '/path/to/icon'
+      }
     },
     initAppIntent: jest.fn()
   }

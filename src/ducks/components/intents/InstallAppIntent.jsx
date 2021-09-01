@@ -117,9 +117,9 @@ export class InstallAppIntent extends Component {
     return (
       <div className="coz-intent-wrapper">
         <IntentHeader
-          appEditor={appData.cozyAppEditor}
-          appName={appData.cozyAppName}
-          appIcon={`../${appData.cozyIconPath}`}
+          appEditor={appData.app.editor}
+          appName={appData.app.name}
+          appIcon={`../${appData.app.icon}`}
         />
         <div className={`coz-intent-content${fetching ? ' --loading' : ''}`}>
           {fetching && <Spinner size="xxlarge" noMargin />}
