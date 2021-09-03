@@ -15,7 +15,7 @@ import schema from 'lib/schema'
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.querySelector('[role=application]')
-  const appData = root.dataset
+  const appData = JSON.parse(root.dataset.cozy)
 
   const protocol = window.location.protocol
   const client = new CozyClient({
