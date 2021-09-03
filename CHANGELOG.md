@@ -7,6 +7,7 @@
 * Add new doctypes ([PR #745](https://github.com/cozy/cozy-store/pull/745) and [PR #752](https://github.com/cozy/cozy-store/pull/752))
 * Remove `open` button's icon ([PR #748](https://github.com/cozy/cozy-store/pull/748))
 * Improve permissions modal to correctly display remote doctypes ([PR #750](https://github.com/cozy/cozy-store/pull/750))
+* Improve UI of App tiles to ease visualisation of installed apps, updatable apps and support multiline title ([PR #763](https://github.com/cozy/cozy-store/pull/763))
 
 ## 🐛 Bug Fixes
 
