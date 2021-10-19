@@ -13,7 +13,11 @@ import { Header } from 'ducks/apps/components/ApplicationPage/Header'
 import mockApp from '../../_mockPhotosRegistryVersion'
 import mockKonnector from '../../_mockPKonnectorTrinlaneRegistryVersion'
 
-window.location.assign = jest.fn()
+delete window.location
+window.location = { assign: jest.fn() }
+window.cozy = {
+  containerApp: 'amiral'
+}
 
 describe('ApplicationPage header component', () => {
   beforeEach(() => {
@@ -84,6 +88,31 @@ describe('ApplicationPage header component', () => {
       .simulate('click')
     expect(window.location.assign.mock.calls.length).toBe(1)
     expect(window.location.assign.mock.calls[0][0]).toBe('#')
+  })
+
+  it('should open the connector in amiral app if in amiral container', () => {
+    const connectorProps = Object.assign({}, mockKonnector.manifest)
+    connectorProps.installed = true
+    connectorProps.icon = '<svg></svg>'
+    const wrapper = shallow(
+      <Header
+        t={tMock}
+        parent="/myapps"
+        app={connectorProps}
+        name={connectorProps.name}
+        description={connectorProps.description}
+        connectorOpenUri="cozy://"
+      />
+    )
+    // open button is the first one
+    wrapper
+      .find(Button)
+      .at(0)
+      .simulate('click')
+    expect(window.location.assign.mock.calls.length).toBe(1)
+    expect(window.location.assign.mock.calls[0][0]).toBe(
+      'cozy://?connector=konnector-trinlane'
+    )
   })
 
   it('should disable the install button if maintenance', () => {

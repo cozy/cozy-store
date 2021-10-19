@@ -8,6 +8,7 @@ import { Content } from 'cozy-ui/transpiled/react/Layout'
 import ApplicationRouting from 'ducks/apps/components/ApplicationRouting'
 import Sections from 'ducks/apps/components/QuerystringSections'
 import AppsLoading from 'ducks/components/AppsLoading'
+import get from 'lodash/get'
 //import AppVote from 'ducks/components/AppVote'
 
 const { BarCenter } = cozy.bar
@@ -17,6 +18,13 @@ export class Discover extends Component {
     super(props)
     this.onAppClick = this.onAppClick.bind(this)
     this.pushQuery = this.pushQuery.bind(this)
+
+    const connectorOpenUri = new URLSearchParams(
+      get(props.location, 'search')
+    ).get('connector_open_uri')
+    if (connectorOpenUri) {
+      this.state = { connectorOpenUri }
+    }
   }
 
   onAppClick(appSlug) {
@@ -40,6 +48,7 @@ export class Discover extends Component {
       breakpoints = {},
       match
     } = this.props
+
     const { isExact } = match
     const { isMobile } = breakpoints
     const title = <h2 className="sto-view-title">{t('discover.title')}</h2>
@@ -75,6 +84,7 @@ export class Discover extends Component {
           isUninstalling={isUninstalling}
           actionError={actionError}
           parent="discover"
+          connectorOpenUri={this.state.connectorOpenUri}
         />
       </Content>
     )

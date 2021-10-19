@@ -43,6 +43,7 @@ export class ApplicationRouting extends Component {
                 getApp={this.getAppFromMatchOrSlug}
                 redirectTo={this.redirectTo}
                 mainPageRef={this.mainPage}
+                connectorOpenUri={this.props.connectorOpenUri}
               />
             )
           }}
