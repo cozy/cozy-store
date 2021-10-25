@@ -46,7 +46,7 @@ export const Header = ({
     : t('app_page.konnector.open')
   const related =
     connectorOpenUri && isKonnector
-      ? connectorOpenUri + '?connector=' + slug
+      ? addSlugToRedirectUri(connectorOpenUri, slug)
       : app.related
   return (
     <div className="sto-app-header">
@@ -109,6 +109,12 @@ export const Header = ({
       </div>
     </div>
   )
+}
+
+function addSlugToRedirectUri(uri, slug) {
+  const url = new URL(uri)
+  url.searchParams.append('connector', slug)
+  return url.href
 }
 
 export default compose(
