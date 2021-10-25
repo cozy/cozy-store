@@ -22,8 +22,9 @@ export class Discover extends Component {
     const connectorOpenUri = new URLSearchParams(
       get(props.location, 'search')
     ).get('connector_open_uri')
+    this.state = {}
     if (connectorOpenUri) {
-      this.state = { connectorOpenUri }
+      this.state.connectorOpenUri = connectorOpenUri
     }
   }
 

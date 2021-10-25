@@ -59,6 +59,7 @@ export class ApplicationRouting extends Component {
           isFetching={isFetching}
           parent={parent}
           redirectTo={this.redirectTo}
+          connectorOpenUri={this.props.connectorOpenUri}
         />
         <UninstallRoute
           getApp={this.getAppFromMatchOrSlug}
