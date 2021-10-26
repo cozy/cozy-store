@@ -3,10 +3,14 @@ import { withRouter } from 'react-router'
 import Sections from './Sections'
 import fromPairs from 'lodash/fromPairs'
 import isNavigationEnabled from 'lib/isNavigationEnabled'
+import omit from 'lodash/omit'
+
+// These query parameters won't be handled by the AppSection component
+const FILTER_BLACK_LIST = ['connector_open_uri']
 
 const getFilterFromQuery = query => {
   const usp = new URLSearchParams(query)
-  return fromPairs(Array.from(usp.entries()))
+  return omit(fromPairs(Array.from(usp.entries())), FILTER_BLACK_LIST)
 }
 
 const queryFromFilter = filter => {

@@ -29,9 +29,10 @@ export const Header = ({
   parent,
   isInstalling,
   breakpoints = {},
-  client
+  client,
+  konnectorOpenUri
 }) => {
-  const { slug, installed, type, related, uninstallable } = app
+  const { slug, installed, type, uninstallable } = app
   const { isMobile } = breakpoints
   const isCurrentAppInstalling = isInstalling === slug
   const openApp = link => {
@@ -40,6 +41,13 @@ export const Header = ({
   const isKonnector = type === APP_TYPE.KONNECTOR
   const isInstallDisabled = !!isUnderMaintenance(app) || isInstalling
   const isUninstallDisabled = !uninstallable || isCurrentAppInstalling
+  const appOrKonnectorLabel = isKonnector
+    ? t('app_page.webapp.open')
+    : t('app_page.konnector.open')
+  const related =
+    konnectorOpenUri && isKonnector
+      ? addSlugToRedirectUri(konnectorOpenUri, slug)
+      : app.related
   return (
     <div className="sto-app-header">
       <div className="sto-app-header-icon">
@@ -51,7 +59,7 @@ export const Header = ({
         </h2>
         <p className="sto-app-header-description">{description}</p>
         {isInstalledAndNothingToReport(app) && !isCurrentAppInstalling ? (
-          isKonnector ? (
+          isKonnector && !konnectorOpenUri ? (
             <AsyncButton
               asyncAction={() => {
                 const intents = new Intents({ client })
@@ -60,13 +68,13 @@ export const Header = ({
                 })
               }}
               className="c-btn"
-              label={t('app_page.konnector.open')}
+              label={appOrKonnectorLabel}
             />
           ) : (
             <Button
               onClick={() => openApp(related)}
               className="c-btn"
-              label={t('app_page.webapp.open')}
+              label={appOrKonnectorLabel}
             />
           )
         ) : (
@@ -101,6 +109,12 @@ export const Header = ({
       </div>
     </div>
   )
+}
+
+function addSlugToRedirectUri(uri, slug) {
+  const url = new URL(uri)
+  url.searchParams.append('konnector', slug)
+  return url.href
 }
 
 export default compose(
