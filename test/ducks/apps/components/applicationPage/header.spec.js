@@ -101,7 +101,7 @@ describe('ApplicationPage header component', () => {
         app={connectorProps}
         name={connectorProps.name}
         description={connectorProps.description}
-        connectorOpenUri="cozy://"
+        konnectorOpenUri="cozy://"
       />
     )
     // open button is the first one
@@ -111,7 +111,7 @@ describe('ApplicationPage header component', () => {
       .simulate('click')
     expect(window.location.assign.mock.calls.length).toBe(1)
     expect(window.location.assign.mock.calls[0][0]).toBe(
-      'cozy://?connector=konnector-trinlane'
+      'cozy://?konnector=konnector-trinlane'
     )
   })
 

@@ -19,12 +19,12 @@ export class Discover extends Component {
     this.onAppClick = this.onAppClick.bind(this)
     this.pushQuery = this.pushQuery.bind(this)
 
-    const connectorOpenUri = new URLSearchParams(
-      get(props.location, 'search')
-    ).get('connector_open_uri')
+    const konnectorOpenUri = new URLSearchParams(
+      get(document.location, 'search')
+    ).get('konnector_open_uri')
     this.state = {}
-    if (connectorOpenUri) {
-      this.state.connectorOpenUri = connectorOpenUri
+    if (konnectorOpenUri) {
+      this.state.konnectorOpenUri = konnectorOpenUri
     }
   }
 
@@ -85,7 +85,7 @@ export class Discover extends Component {
           isUninstalling={isUninstalling}
           actionError={actionError}
           parent="discover"
-          connectorOpenUri={this.state.connectorOpenUri}
+          konnectorOpenUri={this.state.konnectorOpenUri}
         />
       </Content>
     )

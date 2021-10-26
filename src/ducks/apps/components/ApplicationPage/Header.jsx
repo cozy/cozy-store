@@ -30,7 +30,7 @@ export const Header = ({
   isInstalling,
   breakpoints = {},
   client,
-  connectorOpenUri
+  konnectorOpenUri
 }) => {
   const { slug, installed, type, uninstallable } = app
   const { isMobile } = breakpoints
@@ -45,8 +45,8 @@ export const Header = ({
     ? t('app_page.webapp.open')
     : t('app_page.konnector.open')
   const related =
-    connectorOpenUri && isKonnector
-      ? addSlugToRedirectUri(connectorOpenUri, slug)
+    konnectorOpenUri && isKonnector
+      ? addSlugToRedirectUri(konnectorOpenUri, slug)
       : app.related
   return (
     <div className="sto-app-header">
@@ -59,7 +59,7 @@ export const Header = ({
         </h2>
         <p className="sto-app-header-description">{description}</p>
         {isInstalledAndNothingToReport(app) && !isCurrentAppInstalling ? (
-          isKonnector && !connectorOpenUri ? (
+          isKonnector && !konnectorOpenUri ? (
             <AsyncButton
               asyncAction={() => {
                 const intents = new Intents({ client })
@@ -113,7 +113,7 @@ export const Header = ({
 
 function addSlugToRedirectUri(uri, slug) {
   const url = new URL(uri)
-  url.searchParams.append('connector', slug)
+  url.searchParams.append('konnector', slug)
   return url.href
 }
 

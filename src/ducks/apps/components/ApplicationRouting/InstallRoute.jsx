@@ -8,7 +8,7 @@ export const InstallRoute = ({
   isFetching,
   parent,
   redirectTo,
-  connectorOpenUri
+  konnectorOpenUri
 }) => (
   <Route
     path={`/${parent}/:appSlug/install`}
@@ -29,7 +29,7 @@ export const InstallRoute = ({
           app={app}
           onInstalled={redirectToApp}
           dismissAction={redirectToApp}
-          redirectToConfigure={connectorOpenUri ? null : redirectToConfigure}
+          redirectToConfigure={konnectorOpenUri ? null : redirectToConfigure}
           redirectToApp={redirectToApp}
         />
       )
