@@ -3,7 +3,7 @@ import { translate } from 'cozy-ui/transpiled/react/I18n'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 import { withRouter, NavLink as RouterLink } from 'react-router-dom'
 
-import { categoryUtils } from 'ducks/apps/components/Sections'
+import { categoryUtils } from 'cozy-ui/transpiled/react/AppSections'
 
 const getActiveChecker = path => (match, location) =>
   `${location.pathname}${location.search}` === path
