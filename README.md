@@ -93,7 +93,6 @@ yarn link cozy-ui
 
 You can now run the watch task and your project will hot-reload each times a cozy-ui source file is touched.
 
-[Cozy-client-js] is our API library that provides an unified API on top of the cozy-stack. If you need to develop / hack cozy-client-js in parallel of your application, you can use the same trick that we used with [cozy-ui]: yarn linking.
 
 
 ### Tests
