@@ -38,7 +38,7 @@ exports[`App component only should be mounted correctly 1`] = `
         </React.Fragment>
       </Switch>
     </Main>
-    <IconSprite />
+    <Sprite />
   </Layout>
 </BreakpointsProvider>
 `;
