@@ -21,7 +21,7 @@ exports[`ApplicationPage component should be rendered correctly with app infos f
     >
       <DefaultButton
         className="sto-app-back"
-        icon="left"
+        icon={[Function]}
         label="Back to the list"
         onClick={[Function]}
         subtle={true}
@@ -307,7 +307,7 @@ exports[`ApplicationPage component should be rendered correctly with app with sc
     >
       <DefaultButton
         className="sto-app-back"
-        icon="left"
+        icon={[Function]}
         label="Back to the list"
         onClick={[Function]}
         subtle={true}
@@ -605,7 +605,7 @@ exports[`ApplicationPage component should be rendered correctly with konnector i
     >
       <DefaultButton
         className="sto-app-back"
-        icon="left"
+        icon={[Function]}
         label="Back to the list"
         onClick={[Function]}
         subtle={true}
@@ -845,7 +845,7 @@ exports[`ApplicationPage component should be rendered correctly with provided in
     >
       <DefaultButton
         className="sto-app-back"
-        icon="left"
+        icon={[Function]}
         label="Back to the list"
         onClick={[Function]}
         subtle={true}
@@ -1131,7 +1131,7 @@ exports[`ApplicationPage component should be rendered correctly with provided in
     >
       <DefaultButton
         className="sto-app-back"
-        icon="left"
+        icon={[Function]}
         label="Back to the list"
         onClick={[Function]}
         subtle={true}
@@ -1371,7 +1371,7 @@ exports[`ApplicationPage component should be rendered correctly without app desc
     >
       <DefaultButton
         className="sto-app-back"
-        icon="left"
+        icon={[Function]}
         label="Back to the list"
         onClick={[Function]}
         subtle={true}
@@ -1741,7 +1741,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
     >
       <DefaultButton
         className="sto-app-back"
-        icon="left"
+        icon={[Function]}
         label="Back to the list"
         onClick={[Function]}
         subtle={true}
@@ -2151,7 +2151,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
     >
       <DefaultButton
         className="sto-app-back"
-        icon="left"
+        icon={[Function]}
         label="Back to the list"
         onClick={[Function]}
         subtle={true}

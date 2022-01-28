@@ -7,6 +7,7 @@ import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 import InputGroup from 'cozy-ui/transpiled/react/InputGroup'
 import Input from 'cozy-ui/transpiled/react/Input'
+import Magnifier from 'cozy-ui/transpiled/react/Icons/Magnifier'
 
 import flag from 'cozy-flags'
 
@@ -34,7 +35,7 @@ export const SearchField = ({ onChange, value }) => {
         className={isMobile ? '' : 'u-mb-1'}
         prepend={
           isMobile ? (
-            <Icon icon="magnifier" className="u-pl-1 u-coolGrey" />
+            <Icon icon={Magnifier} className="u-pl-1 u-coolGrey" />
           ) : null
         }
       >
