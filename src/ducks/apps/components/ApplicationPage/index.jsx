@@ -7,6 +7,7 @@ import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 import Button from 'cozy-ui/transpiled/react/Button'
 import FocusTrap from 'focus-trap-react'
 import AppIcon from 'cozy-ui/transpiled/react/AppIcon'
+import Left from 'cozy-ui/transpiled/react/Icons/Left'
 
 import ApplicationPageLoading from 'ducks/components/ApplicationPageLoading'
 import { getTranslatedManifestProperty } from 'lib/helpers'
@@ -147,7 +148,7 @@ export class ApplicationPage extends Component {
           )}
           <div className="sto-app">
             <Button
-              icon="left"
+              icon={Left}
               tag={Link}
               to={`${parent}`}
               className="sto-app-back"

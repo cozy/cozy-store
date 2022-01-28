@@ -7,6 +7,7 @@ import compose from 'lodash/flowRight'
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 import Alerter from 'cozy-ui/transpiled/react/Alerter'
 import Button from 'cozy-ui/transpiled/react/Button'
+import Trash from 'cozy-ui/transpiled/react/Icons/Trash'
 import { getAppBySlug, uninstallApp } from 'ducks/apps'
 import Modal, {
   ModalDescription,
@@ -126,7 +127,7 @@ export class UninstallModal extends Component {
               busy={isUninstalling}
               disabled={isUninstalling || isInstalling || !!linkedAppError}
               theme="danger"
-              icon="trash"
+              icon={Trash}
               onClick={this.handleUninstallApp}
               label={t('app_modal.uninstall.uninstall')}
               extension="full"
