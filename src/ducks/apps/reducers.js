@@ -30,7 +30,7 @@ export const INSTALL_APP_SUCCESS = 'INSTALL_APP_SUCCESS'
 export const INSTALL_APP_FAILURE = 'INSTALL_APP_FAILURE'
 
 export function _sortAlphabetically(array, property) {
-  return array.sort((a, b) => a[property] > b[property])
+  return array.sort((a, b) => a[property].localeCompare(b[property]))
 }
 
 export function _isValidApp(app) {
