@@ -221,6 +221,11 @@
         "dacc": "Anonieme gebruiksstatistieken"
       }
     },
+    "eu": {
+      "mycozy": {
+        "dacc": "Anonieme gebruiksstatistieken"
+      }
+    },
     "io": {
       "cozy": {
         "accounts": "Inloggegevens",
