@@ -218,7 +218,12 @@
       "cozycloud": {
         "autocategorization": "Categorization model enrichment file",
         "sentry": "The application logs",
-        "dacc": "Anonymous aggregate statistics"
+        "dacc": "Anonymous aggregated statistics"
+      }
+    },
+    "eu": {
+      "mycozy": {
+        "dacc": "Anonymous aggregated statistics"
       }
     },
     "io": {

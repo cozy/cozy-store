@@ -221,6 +221,11 @@
         "dacc": "Statistiques agrégées anonymes"
       }
     },
+    "eu": {
+      "mycozy": {
+        "dacc": "Statistiques agrégées anonymes"
+      }
+    },
     "io": {
       "cozy": {
         "accounts": "Identifiants",
