@@ -5,22 +5,25 @@ import CozyTheme from 'cozy-ui/transpiled/react/CozyTheme'
 import PiwikHashRouter from 'lib/PiwikHashRouter'
 
 import { CozyProvider } from 'cozy-client'
+import { WebviewIntentProvider } from 'cozy-intent'
 
 import App from 'ducks/components/App'
 
 const Root = ({ client, lang, store }) => {
   return (
-    <CozyTheme variant="normal" className="u-flex-grow-1">
-      <I18n lang={lang} dictRequire={lang => require(`locales/${lang}`)}>
-        <CozyProvider client={client}>
-          <Provider store={store}>
-            <PiwikHashRouter>
-              <App />
-            </PiwikHashRouter>
-          </Provider>
-        </CozyProvider>
-      </I18n>
-    </CozyTheme>
+    <WebviewIntentProvider>
+      <CozyTheme variant="normal" className="u-flex-grow-1">
+        <I18n lang={lang} dictRequire={lang => require(`locales/${lang}`)}>
+          <CozyProvider client={client}>
+            <Provider store={store}>
+              <PiwikHashRouter>
+                <App />
+              </PiwikHashRouter>
+            </Provider>
+          </CozyProvider>
+        </I18n>
+      </CozyTheme>
+    </WebviewIntentProvider>
   )
 }
 
