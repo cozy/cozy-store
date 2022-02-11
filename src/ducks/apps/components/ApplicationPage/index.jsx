@@ -161,7 +161,6 @@ export class ApplicationPage extends Component {
               name={appName}
               description={appShortDesc}
               parent={parent}
-              konnectorOpenUri={this.props.konnectorOpenUri}
             />
             {app.screenshots && !!app.screenshots.length && (
               <Gallery slug={slug} images={app.screenshots} />

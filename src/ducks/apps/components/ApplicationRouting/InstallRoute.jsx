@@ -3,13 +3,7 @@ import { Route } from 'react-router-dom'
 
 import InstallModal from 'ducks/apps/components/InstallModal'
 
-export const InstallRoute = ({
-  getApp,
-  isFetching,
-  parent,
-  redirectTo,
-  konnectorOpenUri
-}) => (
+export const InstallRoute = ({ getApp, isFetching, parent, redirectTo }) => (
   <Route
     path={`/${parent}/:appSlug/install`}
     render={({ match }) => {
@@ -29,7 +23,7 @@ export const InstallRoute = ({
           app={app}
           onInstalled={redirectToApp}
           dismissAction={redirectToApp}
-          redirectToConfigure={konnectorOpenUri ? null : redirectToConfigure}
+          redirectToConfigure={redirectToConfigure}
           redirectToApp={redirectToApp}
         />
       )
