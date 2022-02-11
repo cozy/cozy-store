@@ -3514,6 +3514,13 @@ cozy-flags@2.6.0, cozy-flags@^2.6.0:
   dependencies:
     microee "^0.0.6"
 
+cozy-intent@^1.9.1:
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/cozy-intent/-/cozy-intent-1.9.1.tgz#cea6fb94ccc3f416850709ce11428a3a85862c7a"
+  integrity sha512-fgicf39Qx9NiZLIja/EerSs3y0b/9ZngKD6m0tsrnifnvMG219YHlKjyQTkj8vT9Kbmgv0Aa9j890mSca+hKow==
+  dependencies:
+    post-me "0.4.5"
+
 cozy-interapp@0.4.9:
   version "0.4.9"
   resolved "https://registry.yarnpkg.com/cozy-interapp/-/cozy-interapp-0.4.9.tgz#5ef68d54755cc99c3e154e5a4646b68cbe5f16fd"
@@ -9072,6 +9079,11 @@ posix-character-classes@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
   integrity sha1-AerA/jta9xoqbAL+q7jB/vfgDqs=
+
+post-me@0.4.5:
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/post-me/-/post-me-0.4.5.tgz#6171b721c7b86230c51cfbe48ddea047ef8831ce"
+  integrity sha512-XgPdktF/2M5jglgVDULr9NUb/QNv3bY3g6RG22iTb5MIMtB07/5FJB5fbVmu5Eaopowc6uZx7K3e7x1shPwnXw==
 
 postcss-assets-webpack-plugin@3.0.0:
   version "3.0.0"
