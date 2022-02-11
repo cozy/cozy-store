@@ -9,6 +9,8 @@ import { translate } from 'cozy-ui/transpiled/react/I18n'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 import Intents from 'cozy-interapp'
 import { withClient } from 'cozy-client'
+import { useWebviewIntent } from 'cozy-intent'
+import { isFlagshipApp } from 'cozy-device-helper'
 
 import cozySmileIcon from 'assets/icons/icon-cozy-smile.svg'
 import AsyncButton from 'ducks/components/AsyncButton'
@@ -29,14 +31,28 @@ export const Header = ({
   parent,
   isInstalling,
   breakpoints = {},
-  client,
-  konnectorOpenUri
+  client
 }) => {
+  const webviewIntent = useWebviewIntent()
   const { slug, installed, type, uninstallable } = app
   const { isMobile } = breakpoints
   const isCurrentAppInstalling = isInstalling === slug
-  const openApp = link => {
-    window.location.assign(link)
+  const openApp = () => {
+    if (isFlagshipApp()) {
+      webviewIntent.call('openApp', app.related, app)
+    } else {
+      window.location.assign(app.related)
+    }
+  }
+  const openConnector = () => {
+    if (isFlagshipApp()) {
+      return webviewIntent.call('openApp', app.related, app)
+    } else {
+      const intents = new Intents({ client })
+      return intents.redirect('io.cozy.accounts', {
+        konnector: app.slug
+      })
+    }
   }
   const isKonnector = type === APP_TYPE.KONNECTOR
   const isInstallDisabled = !!isUnderMaintenance(app) || isInstalling
@@ -44,10 +60,6 @@ export const Header = ({
   const appOrKonnectorLabel = isKonnector
     ? t('app_page.webapp.open')
     : t('app_page.konnector.open')
-  const related =
-    konnectorOpenUri && isKonnector
-      ? addSlugToRedirectUri(konnectorOpenUri, slug)
-      : app.related
   return (
     <div className="sto-app-header">
       <div className="sto-app-header-icon">
@@ -59,20 +71,15 @@ export const Header = ({
         </h2>
         <p className="sto-app-header-description">{description}</p>
         {isInstalledAndNothingToReport(app) && !isCurrentAppInstalling ? (
-          isKonnector && !konnectorOpenUri ? (
+          isKonnector ? (
             <AsyncButton
-              asyncAction={() => {
-                const intents = new Intents({ client })
-                return intents.redirect('io.cozy.accounts', {
-                  konnector: app.slug
-                })
-              }}
+              asyncAction={openConnector}
               className="c-btn"
               label={appOrKonnectorLabel}
             />
           ) : (
             <Button
-              onClick={() => openApp(related)}
+              onClick={openApp}
               className="c-btn"
               label={appOrKonnectorLabel}
             />
@@ -109,12 +116,6 @@ export const Header = ({
       </div>
     </div>
   )
-}
-
-function addSlugToRedirectUri(uri, slug) {
-  const url = new URL(uri)
-  url.searchParams.append('konnector', slug)
-  return url.href
 }
 
 export default compose(

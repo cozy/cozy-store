@@ -3,10 +3,19 @@
 /* eslint-env jest */
 
 import React from 'react'
+import { MemoryRouter } from 'react-router-dom'
+import { render, fireEvent } from '@testing-library/react'
 import { shallow } from 'enzyme'
 
-import Button from 'cozy-ui/transpiled/react/Button'
+import CozyClient, { CozyProvider } from 'cozy-client'
+import { isFlagshipApp } from 'cozy-device-helper'
+import { WebviewIntentProvider } from 'cozy-intent'
 
+import Button from 'cozy-ui/transpiled/react/Button'
+import { BreakpointsProvider } from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
+import I18n from 'cozy-ui/transpiled/react/I18n'
+
+import enLocale from '../../../../../src/locales/en.json'
 import { tMock } from '../../../../jestLib/I18n'
 import { Header } from 'ducks/apps/components/ApplicationPage/Header'
 
@@ -19,9 +28,38 @@ window.cozy = {
   containerApp: 'amiral'
 }
 
+jest.mock('cozy-device-helper', () => ({
+  isFlagshipApp: jest.fn()
+}))
+
+const mockIntentRedirect = jest.fn()
+jest.mock('cozy-interapp', () => {
+  return jest.fn().mockImplementation(() => {
+    return {
+      redirect: mockIntentRedirect
+    }
+  })
+})
+
+const AppLike = ({ children, client, webviewService }) => (
+  <MemoryRouter>
+    <BreakpointsProvider>
+      <WebviewIntentProvider webviewService={webviewService}>
+        <CozyProvider client={client}>
+          <I18n lang="en" dictRequire={() => enLocale}>
+            {children}
+          </I18n>
+        </CozyProvider>
+      </WebviewIntentProvider>
+    </BreakpointsProvider>
+  </MemoryRouter>
+)
+
 describe('ApplicationPage header component', () => {
   beforeEach(() => {
     window.location.assign.mockReset()
+    isFlagshipApp.mockReset()
+    mockIntentRedirect.mockReset()
   })
 
   it('should be rendered correctly provided app', () => {
@@ -91,28 +129,73 @@ describe('ApplicationPage header component', () => {
   })
 
   it('should open the connector in amiral app if in amiral container', () => {
+    isFlagshipApp.mockImplementation(() => true)
+
+    const client = new CozyClient({})
+
     const connectorProps = Object.assign({}, mockKonnector.manifest)
     connectorProps.installed = true
-    connectorProps.icon = '<svg></svg>'
-    const wrapper = shallow(
-      <Header
-        t={tMock}
-        parent="/myapps"
-        app={connectorProps}
-        name={connectorProps.name}
-        description={connectorProps.description}
-        konnectorOpenUri="cozy://"
-      />
+
+    const mockWebviewService = {
+      call: jest.fn()
+    }
+
+    const { queryByText } = render(
+      <AppLike client={client} webviewService={mockWebviewService}>
+        <Header
+          t={tMock}
+          parent="/myapps"
+          app={connectorProps}
+          name={connectorProps.name}
+          description={connectorProps.description}
+          konnectorOpenUri="cozy://"
+        />
+      </AppLike>
     )
-    // open button is the first one
-    wrapper
-      .find(Button)
-      .at(0)
-      .simulate('click')
-    expect(window.location.assign.mock.calls.length).toBe(1)
-    expect(window.location.assign.mock.calls[0][0]).toBe(
-      'cozy://?konnector=konnector-trinlane'
+
+    const button = queryByText(enLocale.app_page.konnector.open)
+    fireEvent.click(button)
+
+    expect(mockWebviewService.call).toHaveBeenCalledWith(
+      'openApp',
+      connectorProps.related,
+      connectorProps
     )
+    expect(mockIntentRedirect).not.toHaveBeenCalled()
+  })
+
+  it('should open the connector in browser if NOT in amiral container', () => {
+    isFlagshipApp.mockImplementation(() => false)
+
+    const client = new CozyClient({})
+
+    const connectorProps = Object.assign({}, mockKonnector.manifest)
+    connectorProps.installed = true
+
+    const mockWebviewService = {
+      call: jest.fn()
+    }
+
+    const { queryByText } = render(
+      <AppLike client={client} webviewService={mockWebviewService}>
+        <Header
+          t={tMock}
+          parent="/myapps"
+          app={connectorProps}
+          name={connectorProps.name}
+          description={connectorProps.description}
+          konnectorOpenUri="cozy://"
+        />
+      </AppLike>
+    )
+
+    const button = queryByText(enLocale.app_page.konnector.open)
+    fireEvent.click(button)
+
+    expect(mockWebviewService.call).not.toHaveBeenCalled()
+    expect(mockIntentRedirect).toHaveBeenCalledWith('io.cozy.accounts', {
+      konnector: connectorProps.slug
+    })
   })
 
   it('should disable the install button if maintenance', () => {
