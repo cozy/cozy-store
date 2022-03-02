@@ -1,3 +1,13 @@
+# 1.9.11
+
+## ✨ Features
+
+* Loading App's icons: Should be faster. We now rely on img src=http directly if we are not in OAuth. Otherwise we do a fetch.
+
+## 🔧 Tech
+
+* Upgrading Cozy Client, Cozy UI, Material UI to benefit of new features from our libraries
+
 # 1.9.10
 
 ## ✨ Features
