@@ -12,11 +12,17 @@ import flag from 'cozy-flags'
 
 import reduxConfig from 'lib/store'
 import schema from 'lib/schema'
+let configRedux = reduxConfig()
 
 const renderApp = function({ client, lang, configRedux }) {
   const Root = require('ducks/components/Root').default
   render(
-    <Root client={client} store={configRedux.store} lang={lang} />,
+    <Root
+      client={client}
+      store={configRedux.store}
+      lang={lang}
+      persistor={configRedux.persistor}
+    />,
     document.querySelector('[role=application]')
   )
 }
@@ -48,12 +54,11 @@ document.addEventListener('DOMContentLoaded', () => {
     lang: data.locale,
     replaceTitleOnMobile: true
   })
-  const configRedux = reduxConfig()
 
   renderApp({ client, lang, configRedux })
 })
 
 if (module.hot) {
-  renderApp({ client, lang })
+  renderApp({ client, lang, configRedux })
   module.hot.accept()
 }

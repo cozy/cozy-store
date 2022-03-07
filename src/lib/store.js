@@ -6,12 +6,12 @@ import storage from 'redux-persist/lib/storage' // defaults to localStorage for 
 import appReducers from 'ducks'
 import { createLogger } from 'redux-logger'
 import flag from 'cozy-flags'
+import { isFlagshipApp } from 'cozy-device-helper'
 import {
   shouldEnableTracking,
   getTracker,
   createTrackerMiddleware
 } from 'cozy-ui/transpiled/react/helpers/tracker'
-import { isFlagshipApp } from 'cozy-device-helper'
 
 const loggerMiddleware = createLogger()
 

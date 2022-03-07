@@ -5,6 +5,8 @@ import storeConfig from 'config'
 import AUTHORIZED_CATEGORIES from 'config/categories'
 import { NotUninstallableAppException } from 'lib/exceptions'
 import CozyRealtime from 'cozy-realtime'
+import flag from 'cozy-flags'
+import { isFlagshipApp } from 'cozy-device-helper'
 
 export * from 'ducks/apps/selectors'
 export { appsReducers } from 'ducks/apps/reducers'
@@ -177,8 +179,14 @@ export function getFormattedInstalledApp(client, response) {
 
 // only on the app initialisation
 export function initApp(client, lang) {
+  const showFetching = !(isFlagshipApp() || flag('store.redux-persist'))
+
   return dispatch => {
-    dispatch({ type: LOADING_APP })
+    if (showFetching) {
+      dispatch({
+        type: LOADING_APP
+      })
+    }
     dispatch(initializeRealtime(client))
     return dispatch(fetchApps(client, lang))
   }
@@ -398,7 +406,9 @@ export function fetchInstalledApps(client, lang, fetchingRegistry) {
       )
       const promises = toFetch.map(type => fetchUserApps(client, type))
       await fetchingRegistry
-      dispatch({ type: FETCH_APPS })
+      const showFetching = !(isFlagshipApp() || flag('store.redux-persist'))
+
+      dispatch({ type: FETCH_APPS, showFetching })
       const installedApps = flatten(await Promise.all(promises)).filter(x =>
         shouldAppBeDisplayed(x.attributes)
       )
@@ -415,7 +425,9 @@ export function fetchInstalledApps(client, lang, fetchingRegistry) {
 
 export function fetchRegistryApps(client, lang, channel = DEFAULT_CHANNEL) {
   return dispatch => {
-    dispatch({ type: FETCH_APPS })
+    const showFetching = !(isFlagshipApp() || flag('store.redux-persist'))
+
+    dispatch({ type: FETCH_APPS, showFetching })
     return fetchAppsFromChannel(client, channel, storeConfig.filterAppType)
       .then(response => {
         const apps = response.data

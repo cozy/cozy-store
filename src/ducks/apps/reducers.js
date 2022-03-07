@@ -142,7 +142,7 @@ export const isFetching = (state = false, action = {}) => {
   switch (action.type) {
     case LOADING_APP:
     case FETCH_APPS:
-      return true
+      return action.showFetching !== undefined ? action.showFetching : true
     case FETCH_APPS_SUCCESS:
     case FETCH_APPS_FAILURE:
       return false
