@@ -10,7 +10,8 @@ env:
   global:
     - TARGETS_DEV=recette.cozy.works
     - TARGETS_BETA=betatest.cozy.works
-    - MATTERMOST_CHANNEL=Plateformers-release
+    - MATTERMOST_CHANNEL='{"dev":"Plateformers-release","beta":"Plateformers-release,publication","stable":"Plateformers-release,publication"}'
+
     # to generate secure ENV VARS : travis encrypt MY_VAR=value -r cozy/cozy-store
     # RUNDECK_TOKEN
     - secure: 'UBXl3CoUb33AJ3mKcvZiUHpSppe/YcTLTB2MoiYPyDAlQjNNg4pDLywmPFwg/PmuigconEh29e8XHRHMW7WbdUTWwRKmBS1B6QDCbpXJSrJsupvHCa718Zm6UfMolyZ2t0wZGeabuTF6HJkV+teM2MkBX/baHawIQivUSk7gGLxx3Wa6HgzvCnJbPsVQI75wSlxsVmIX8GeykBN8ZN0drIDPhFJ+lHB5D2MPEJyU/N3DxetLzVtJe8D0PJWOSQ3xyCWEA5HK2gPpXzVni98v4ekEoRBayBGd/rmUVMHxp08vQyuKDv4c+N83vtb1eMmqOV86dkfyfvLGhyhOMzEPcmcTreUhQbwcIzonZPNe/HFfDIrwdaYiy+BIvFs9ETG0d0UW6wHqINBHuu0KOSkM085Sn4XMwJ+iXuuFm0/RwRqdl5SN3H2jnjY3ZIaF3a0cvSUB9b24yaz84ejXPAFKDM3QgJAOJkDQSlifCEbnZ6D7h4EEjIz7WMn7u6eWehZagi2nlLSRc3hQVPuVgCK0mAjqAia4CoGc5Gnf90dV+CLHPCYOnmgLBUfatb8eZej6KFNRf8+Uri6tYJJZfDXTf1O++1hIJJru2bxD1m8uTY4iObCC0HhVrxO+JrCo6rdAbadROuznFtnww/ByaIXmm1pyDuMG10kxlJlDLwhPQsA='
