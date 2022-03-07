@@ -10,13 +10,13 @@ import { render } from 'react-dom'
 import CozyClient from 'cozy-client'
 import flag from 'cozy-flags'
 
-import store from 'lib/store'
+import reduxConfig from 'lib/store'
 import schema from 'lib/schema'
 
-const renderApp = function({ client, lang }) {
+const renderApp = function({ client, lang, configRedux }) {
   const Root = require('ducks/components/Root').default
   render(
-    <Root client={client} store={store} lang={lang} />,
+    <Root client={client} store={configRedux.store} lang={lang} />,
     document.querySelector('[role=application]')
   )
 }
@@ -48,8 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
     lang: data.locale,
     replaceTitleOnMobile: true
   })
+  const configRedux = reduxConfig()
 
-  renderApp({ client, lang })
+  renderApp({ client, lang, configRedux })
 })
 
 if (module.hot) {

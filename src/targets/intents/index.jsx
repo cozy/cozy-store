@@ -3,7 +3,7 @@ import 'styles'
 import { Provider } from 'react-redux'
 import React from 'react'
 import { render } from 'react-dom'
-import store from 'lib/store'
+import reduxConfig from 'lib/store'
 
 import CozyClient, { CozyProvider } from 'cozy-client'
 import I18n from 'cozy-ui/transpiled/react/I18n'
@@ -25,14 +25,14 @@ document.addEventListener('DOMContentLoaded', () => {
     store: false
   })
   client.registerPlugin(flag.plugin)
-
+  const configRedux = reduxConfig()
   render(
     <I18n
       lang={appData.locale}
       dictRequire={lang => require(`../../locales/${lang}`)}
     >
-      <CozyProvider store={store} client={client}>
-        <Provider store={store}>
+      <CozyProvider store={configRedux.store} client={client}>
+        <Provider store={configRedux.store}>
           <IntentHandler appData={appData}>
             <InstallAppIntent action="INSTALL" type="io.cozy.apps" />
           </IntentHandler>
