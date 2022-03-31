@@ -55,7 +55,7 @@
     "cozy-realtime": "3.10.5",
     "cozy-ui": "^62.2.0",
     "dom-helpers": "^5.2.0",
-    "emoji-js": "3.4.1",
+    "emoji-js": "3.7.0",
     "focus-trap-react": "4.0.1",
     "fuse.js": "6.5.3",
     "lodash.get": "4.4.2",
