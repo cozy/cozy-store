@@ -3763,17 +3763,17 @@ cozy-doctypes@1.72.2:
     lodash "4.17.15"
     prop-types "^15.7.2"
 
-cozy-flags@2.6.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/cozy-flags/-/cozy-flags-2.6.0.tgz#c336b154ef94723c151f26ef2782a4d0650b4593"
-  integrity sha512-8Jsdct51bZaUsp5aPbfb/4ZLmktWk/gWMM7uxQPcTpatBHqkFgCRdC7Shn7cYoGDoZ+SUPLk7dVsb5AKydb6EA==
-  dependencies:
-    microee "^0.0.6"
-
 cozy-flags@2.7.1:
   version "2.7.1"
   resolved "https://registry.yarnpkg.com/cozy-flags/-/cozy-flags-2.7.1.tgz#f37251fee248ef9bef079a22bc52954f1a892dfc"
   integrity sha512-TtVhuyMSRADRr4q5LSaRjq6u03S5m1zkZRc8n3q8bfad86FizqGC02m3e/Zh4kWTwnsO0pVW+mzeVSsBqDVT/g==
+  dependencies:
+    microee "^0.0.6"
+
+cozy-flags@2.8.7:
+  version "2.8.7"
+  resolved "https://registry.yarnpkg.com/cozy-flags/-/cozy-flags-2.8.7.tgz#d600019b66c41af6dfff2d1941e78c8284c54a22"
+  integrity sha512-TXi0el5uD2PbM7abpe+MY+lCKWDJUMohALnoRdjSPgiGzKn135NuY+MRcK1pPKOxUMkYT1hh3XGEY2+BD6Q2ng==
   dependencies:
     microee "^0.0.6"
 
@@ -8580,9 +8580,10 @@ ms@^2.0.0:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
   integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
 
-"mui-bottom-sheet@git+https://github.com/cozy/mui-bottom-sheet.git#v1.0.6":
+"mui-bottom-sheet@https://github.com/cozy/mui-bottom-sheet.git#v1.0.6":
   version "1.0.6"
-  resolved "git+https://github.com/cozy/mui-bottom-sheet.git#494c40416ecde95732c864f9b921e7e545075aa5"
+  uid "494c40416ecde95732c864f9b921e7e545075aa5"
+  resolved "https://github.com/cozy/mui-bottom-sheet.git#494c40416ecde95732c864f9b921e7e545075aa5"
   dependencies:
     "@juggle/resize-observer" "^3.1.3"
     jest-environment-jsdom-sixteen "^1.0.3"
