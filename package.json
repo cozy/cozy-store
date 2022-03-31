@@ -63,7 +63,7 @@
     "prop-types": "15.7.2",
     "react": "16.14.0",
     "react-dom": "16.14.0",
-    "react-hot-loader": "4.12.15",
+    "react-hot-loader": "4.13.0",
     "react-markdown": "3.6.0",
     "react-proptypes": "1.0.0",
     "react-redux": "7.2.4",
