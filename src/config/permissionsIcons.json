@@ -1,6 +1,7 @@
 {
   "cc.cozycloud.autocategorization": "category",
   "cc.cozycloud.dacc": "energybreakdown",
+  "cc.cozycloud.errors": "bug-report",
   "cc.cozycloud.sentry": "bug-report",
   "com.bitwarden.profiles": "passwords",
   "com.bitwarden.ciphers": "passwords",
