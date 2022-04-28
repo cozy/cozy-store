@@ -11,6 +11,7 @@ import { ApplicationPage } from 'ducks/apps/components/ApplicationPage'
 
 import mockApp from '../../_mockPhotosRegistryVersion'
 import mockKonnector from '../../_mockPKonnectorTrinlaneRegistryVersion'
+import { createMockClient } from 'cozy-client'
 
 const appManifest = mockApp.manifest
 const konnectorManifest = mockKonnector.manifest
@@ -112,11 +113,14 @@ describe('ApplicationPage component', () => {
   })
 
   it('should render correctly on mobile with the scroll feature', () => {
+    const client = createMockClient({})
     const props = getAppProps(false, null)
     props.breakpoints = {
       isMobile: true
     }
-    const wrapper = shallow(<ApplicationPage t={tMock} {...props} />)
+    const wrapper = shallow(
+      <ApplicationPage t={tMock} {...props} client={client} />
+    )
     expect(wrapper.getElement()).toMatchSnapshot()
     // should not throw error at initial state
     expect(wrapper.state('displayBarIcon')).toBe(false)

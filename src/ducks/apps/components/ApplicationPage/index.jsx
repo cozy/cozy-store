@@ -2,12 +2,15 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
+import { withClient } from 'cozy-client'
+
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 import Button from 'cozy-ui/transpiled/react/Button'
 import FocusTrap from 'focus-trap-react'
 import AppIcon from 'cozy-ui/transpiled/react/AppIcon'
 import Left from 'cozy-ui/transpiled/react/Icons/Left'
+import BarContextProvider from 'cozy-ui/transpiled/react/BarContextProvider'
 
 import ApplicationPageLoading from 'ducks/components/ApplicationPageLoading'
 import { getTranslatedManifestProperty } from 'lib/helpers'
@@ -82,7 +85,8 @@ export class ApplicationPage extends Component {
       breakpoints = {},
       pauseFocusTrap,
       getApp,
-      redirectTo
+      redirectTo,
+      client
     } = this.props
     if (isFetching) return <ApplicationPageLoading />
     const app = getApp(matchRoute)
@@ -135,15 +139,17 @@ export class ApplicationPage extends Component {
         <div className="sto-modal-page-app">
           {isMobile && icon && !iconToLoad && (
             <BarCenter>
-              <div className="sto-app-bar">
-                <AppIcon
-                  app={app}
-                  className={`sto-app-bar-icon ${
-                    !displayBarIcon ? 'sto-app-bar-icon--hidden' : ''
-                  }`}
-                  {...getAppIconProps()}
-                />
-              </div>
+              <BarContextProvider client={client} t={t} store={client.store}>
+                <div className="sto-app-bar">
+                  <AppIcon
+                    app={app}
+                    className={`sto-app-bar-icon ${
+                      !displayBarIcon ? 'sto-app-bar-icon--hidden' : ''
+                    }`}
+                    {...getAppIconProps()}
+                  />
+                </div>
+              </BarContextProvider>
             </BarCenter>
           )}
           <div className="sto-app">
@@ -181,4 +187,4 @@ export class ApplicationPage extends Component {
 }
 
 // translate is needed here for the lang props
-export default translate()(withBreakpoints()(ApplicationPage))
+export default translate()(withBreakpoints()(withClient(ApplicationPage)))

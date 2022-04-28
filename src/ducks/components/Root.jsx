@@ -9,7 +9,8 @@ import { WebviewIntentProvider } from 'cozy-intent'
 
 import App from 'ducks/components/App'
 
-const Root = ({ client, lang, store }) => {
+const Root = ({ client, lang = 'en', store }) => {
+  if (!client) return null
   return (
     <WebviewIntentProvider>
       <CozyTheme variant="normal" className="u-flex-grow-1">
