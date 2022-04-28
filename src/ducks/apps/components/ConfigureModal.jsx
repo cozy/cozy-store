@@ -42,7 +42,7 @@ export class ConfigureModal extends Component {
         mobileFullscreen
         overflowHidden
         size="small"
-        height={!isMobile && '41rem'}
+        {...(!isMobile ? { height: '41rem' } : {})}
         into="body"
       />
     )
