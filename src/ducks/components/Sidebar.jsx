@@ -8,6 +8,7 @@ import Nav, {
   NavText
 } from 'cozy-ui/transpiled/react/Nav'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
+import Sidebar from 'cozy-ui/transpiled/react/Sidebar'
 
 import discoverIcon from 'assets/icons/icon-compass.svg'
 import myAppsIcon from 'assets/icons/icon-cozy-smile.svg'
@@ -27,12 +28,12 @@ const configMap = {
   }
 }
 
-export const Sidebar = React.memo(({ location, t, breakpoints = {} }) => {
+export const StoreSidebar = React.memo(({ location, t, breakpoints = {} }) => {
   const { isMobile, isTablet } = breakpoints
   if (enabledPages.length === 1 && (isMobile || isTablet)) return null
   if (!isNavigationEnabled(location.search)) return null
   return (
-    <aside className="o-sidebar">
+    <Sidebar>
       <Nav>
         {enabledPages.map(name => {
           if (configMap[name]) {
@@ -54,9 +55,9 @@ export const Sidebar = React.memo(({ location, t, breakpoints = {} }) => {
           }
         })}
       </Nav>
-    </aside>
+    </Sidebar>
   )
 })
-Sidebar.displayName = 'Sidebar'
+StoreSidebar.displayName = 'Sidebar'
 
-export default translate()(withBreakpoints()(withRouter(Sidebar)))
+export default translate()(withBreakpoints()(withRouter(StoreSidebar)))

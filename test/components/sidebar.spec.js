@@ -6,9 +6,9 @@ import React from 'react'
 import { shallow } from 'enzyme'
 
 import { tMock } from '../jestLib/I18n'
-import { Sidebar } from 'ducks/components/Sidebar'
+import { StoreSidebar } from 'ducks/components/Sidebar'
 
-describe('Sidebar component', () => {
+describe('StoreSidebar component', () => {
   beforeEach(() => {
     jest.resetModules()
   })
@@ -18,7 +18,7 @@ describe('Sidebar component', () => {
       search: ''
     }
     const component = shallow(
-      <Sidebar t={tMock} location={mockLocation} />
+      <StoreSidebar t={tMock} location={mockLocation} />
     ).getElement()
     expect(component).toMatchSnapshot()
   })
@@ -28,7 +28,7 @@ describe('Sidebar component', () => {
       search: '?nav=false'
     }
     const component = shallow(
-      <Sidebar t={tMock} location={mockLocation} />
+      <StoreSidebar t={tMock} location={mockLocation} />
     ).getElement()
     expect(component).toMatchSnapshot()
   })
@@ -48,9 +48,9 @@ describe('Sidebar component', () => {
     const mockLocation = {
       search: ''
     }
-    const Sidebar = require('ducks/components/Sidebar').Sidebar
+    const StoreSidebar = require('ducks/components/Sidebar').StoreSidebar
     const component = shallow(
-      <Sidebar
+      <StoreSidebar
         t={tMock}
         location={mockLocation}
         breakpoints={{ isMobile: true }}
@@ -74,9 +74,9 @@ describe('Sidebar component', () => {
     const mockLocation = {
       search: ''
     }
-    const Sidebar = require('ducks/components/Sidebar').Sidebar
+    const StoreSidebar = require('ducks/components/Sidebar').StoreSidebar
     const component = shallow(
-      <Sidebar
+      <StoreSidebar
         t={tMock}
         location={mockLocation}
         breakpoints={{ isTablet: true }}

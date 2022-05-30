@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Sidebar component should be rendered correctly 1`] = `
-<aside
-  className="o-sidebar"
->
+exports[`StoreSidebar component should be rendered correctly 1`] = `
+<Sidebar>
   <Nav>
     <React.Fragment>
       <NavItem>
@@ -46,11 +44,11 @@ exports[`Sidebar component should be rendered correctly 1`] = `
       />
     </React.Fragment>
   </Nav>
-</aside>
+</Sidebar>
 `;
 
-exports[`Sidebar component should not render if nav is disabled using search flag 1`] = `null`;
+exports[`StoreSidebar component should not render if nav is disabled using search flag 1`] = `null`;
 
-exports[`Sidebar component should not render if nav is enabled but only one store part is displayed and we are on mobile 1`] = `null`;
+exports[`StoreSidebar component should not render if nav is enabled but only one store part is displayed and we are on mobile 1`] = `null`;
 
-exports[`Sidebar component should not render if nav is enabled but only one store part is displayed and we are on tablet 1`] = `null`;
+exports[`StoreSidebar component should not render if nav is enabled but only one store part is displayed and we are on tablet 1`] = `null`;
