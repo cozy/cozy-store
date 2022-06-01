@@ -2,6 +2,9 @@
   "extends": ["cozy-app/react"],
   "rules": {
     "no-console":1,
-    "react/no-deprecated":1
+    "react/no-deprecated":1,
+    "no-unused-vars": "warn",
+    "no-redeclare": "warn",
+    "no-prototype-builtins": "warn"
   }
 }
