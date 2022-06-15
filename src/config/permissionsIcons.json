@@ -1,6 +1,9 @@
 {
   "cc.cozycloud.autocategorization": "category",
   "cc.cozycloud.dacc": "energybreakdown",
+  "cc.cozycloud.dacc_v2": "energybreakdown",
+  "cc.cozycloud.dacc.dev": "energybreakdown",
+  "cc.cozycloud.dacc.dev_v2": "energybreakdown",
   "cc.cozycloud.errors": "bug-report",
   "cc.cozycloud.sentry": "bug-report",
   "com.bitwarden.profiles": "passwords",
@@ -20,6 +23,7 @@
   "fr.maif.maifuser.sinistre": "sinister",
   "fr.maif.maifuser.societaire": "profile",
   "eu.mycozy.dacc": "energybreakdown",
+  "eu.mycozy.dacc_v2": "energybreakdown",
   "io.cozy.accounts": "accounts",
   "io.cozy.apps": "apps",
   "io.cozy.apps.suggestions": "apps",

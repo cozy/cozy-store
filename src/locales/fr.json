@@ -219,7 +219,10 @@
         "autocategorization": "Fichier d'enrichissement du modèle de catégorisation",
         "errors": "Journaux de l'application",
         "sentry": "Journaux de l'application",
-        "dacc": "Statistiques agrégées anonymes"
+        "dacc": "Statistiques agrégées anonymes",
+        "dacc_v2": "Statistiques agrégées anonymes",
+        "dacc.dev": "Statistiques agrégées anonymes pour le développement",
+        "dacc.dev_v2": "Statistiques agrégées anonymes pour le développement"
       }
     },
     "eu": {
