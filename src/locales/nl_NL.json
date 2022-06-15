@@ -217,13 +217,18 @@
     "cc": {
       "cozycloud": {
         "autocategorization": "Categoriseringsmodel-verrijkingsbestand",
+        "errors": "De applogboeken",
         "sentry": "De applogboeken",
-        "dacc": "Anonieme gebruiksstatistieken"
+        "dacc": "Anonieme gebruiksstatistieken",
+        "dacc_v2": "Anonieme gebruiksstatistieken",
+        "dacc.dev": "Anonieme gebruiksstatistieken voor ontwikkelingsdoeleinden",
+        "dacc.dev_v2": "Anonieme gebruiksstatistieken voor ontwikkelingsdoeleinden"
       }
     },
     "eu": {
       "mycozy": {
-        "dacc": "Anonieme gebruiksstatistieken"
+        "dacc": "Anonieme gebruiksstatistieken",
+        "dacc_v2": "Anonieme gebruiksstatistieken"
       }
     },
     "io": {
@@ -242,6 +247,7 @@
         "bills": "Rekeningen",
         "certified.carbon_copy": "Carbon copy",
         "certified.electronic_safe": "Elektronische kluis",
+        "coachco2.settings": "CoachCO2-appinstellingen",
         "contacts": "Contactpersonen",
         "contacts.groups": "Contactpersoongroepen",
         "contacts.accounts": "Accounts gekoppeld aan contactpersonen",
