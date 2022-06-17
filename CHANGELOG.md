@@ -1,3 +1,9 @@
+# 1.9.12
+
+## 🔧 Tech
+
+* Upgrade cozy-client to get ability to force HTTPs fetches when `window.cozy.isSecureProtocol` is `true`
+
 # 1.9.11
 
 ## ✨ Features
