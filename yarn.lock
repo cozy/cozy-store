@@ -3849,14 +3849,14 @@ cozy-client@^30.0.0:
     sift "^6.0.0"
     url-search-params-polyfill "^8.0.0"
 
-cozy-device-helper@^1.10.2, cozy-device-helper@^1.12.0:
+cozy-device-helper@^1.12.0:
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/cozy-device-helper/-/cozy-device-helper-1.12.0.tgz#619a24b0d3caf2d3f616a1524daef7c7b71eab7a"
   integrity sha512-7pFbltgkD8rSO0PEf8pd6aBB37RUnNYH7fb3pkbcvo5rk4quCfSLREV94gZwXxowzP4vjZcAumTM09DfI42mJA==
   dependencies:
     lodash "^4.17.19"
 
-cozy-device-helper@^1.16.1:
+cozy-device-helper@^1.15.0, cozy-device-helper@^1.16.1:
   version "1.18.0"
   resolved "https://registry.yarnpkg.com/cozy-device-helper/-/cozy-device-helper-1.18.0.tgz#45b37e68c30ec1104c8c40180b472d3662bc2534"
   integrity sha512-/s9X5oUH/Fpu3NKx1RS5T/iYzpfOlBD3tRGGsjth4VDYhqATlApUZLghmzvFvskEeC4eCAvNYfEkyo9UPrZbFQ==
@@ -3933,13 +3933,13 @@ cozy-logger@^1.6.0:
     chalk "^2.4.2"
     json-stringify-safe "5.0.1"
 
-cozy-realtime@3.10.5:
-  version "3.10.5"
-  resolved "https://registry.yarnpkg.com/cozy-realtime/-/cozy-realtime-3.10.5.tgz#aa040bd921a0f83fd0452092d050ee201e090bff"
-  integrity sha512-PISZsNkXzTWwYAbLTjQn1tIi0iVwEAEZQTVNS2eDu46a8EtIGBje8QM/GQoFZdoIi0wtgciW5VvQUEuP/wY+xQ==
+cozy-realtime@3.14.4:
+  version "3.14.4"
+  resolved "https://registry.yarnpkg.com/cozy-realtime/-/cozy-realtime-3.14.4.tgz#fb92d8c39838fa58006e3c6ea5547c445e4bf665"
+  integrity sha512-bI4yq+BDWEWAb7hIi5qMUqlU6Sh4Q3QiWzjTIv5zNkIVb12BW0uVOPPNfNcDRAi0JOzTn5q3FYVJ0pg3KhxaHg==
   dependencies:
-    cozy-device-helper "^1.10.2"
-    minilog "https://github.com/cozy/minilog.git#master"
+    "@cozy/minilog" "^1.0.0"
+    cozy-device-helper "^1.15.0"
 
 cozy-realtime@^4.0.5:
   version "4.1.0"
@@ -8662,12 +8662,6 @@ mini-css-extract-plugin@0.5.0:
     loader-utils "^1.1.0"
     schema-utils "^1.0.0"
     webpack-sources "^1.1.0"
-
-"minilog@https://github.com/cozy/minilog.git#master":
-  version "3.1.0"
-  resolved "https://github.com/cozy/minilog.git#f01f7d9dfe20981177dd34b9662c2f077d818f82"
-  dependencies:
-    microee "0.0.6"
 
 minimalistic-assert@^1.0.0, minimalistic-assert@^1.0.1:
   version "1.0.1"
