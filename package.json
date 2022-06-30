@@ -76,6 +76,6 @@
     "redux-raven-middleware": "1.2.0",
     "redux-thunk": "2.3.0",
     "sinon": "7.5.0",
-    "url-search-params-polyfill": "7.0.0"
+    "url-search-params-polyfill": "7.0.1"
   }
 }
