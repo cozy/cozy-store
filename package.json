@@ -53,7 +53,7 @@
     "cozy-intent": "^2.0.2",
     "cozy-interapp": "0.6.2",
     "cozy-logger": "1.9.0",
-    "cozy-realtime": "3.10.5",
+    "cozy-realtime": "3.14.4",
     "cozy-ui": "^68.2.0",
     "dom-helpers": "^5.2.0",
     "emoji-js": "3.7.0",
