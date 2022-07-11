@@ -1,8 +1,25 @@
+# 1.9.13
+
 # 1.9.12
+
+## ✨ Features
+
+* Add coachco2 settings locales
+* Add cc.cozycloud.errors permission
+* Add locales and icon for new DACC remote-doctype 
+
+## 🐛 Bug Fixes
+
+* Handle Amirale App UI update
+
 
 ## 🔧 Tech
 
 * Upgrade cozy-client to get ability to force HTTPs fetches when `window.cozy.isSecureProtocol` is `true`
+* Update cozy-intent 
+* Fix Proptype issue
+* Fix warnings issues
+
 
 # 1.9.11
 
