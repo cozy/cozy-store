@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
+import { isFlagshipApp } from 'cozy-device-helper'
 
 import InstallModal from 'ducks/apps/components/InstallModal'
 
@@ -17,7 +18,14 @@ export const InstallRoute = ({ getApp, isFetching, parent, redirectTo }) => (
       const appPath = `/${parent}/${(app && app.slug) || ''}`
       const configurePath = `${appPath}/configure`
       const redirectToApp = () => redirectTo(appPath)
-      const redirectToConfigure = () => redirectTo(configurePath)
+      const redirectToConfigure = () => {
+        if (isFlagshipApp()) {
+          redirectToApp()
+        } else {
+          redirectTo(configurePath)
+        }
+      }
+
       return (
         <InstallModal
           app={app}
