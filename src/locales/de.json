@@ -243,6 +243,7 @@
         "permissions": "Delegating permissions",
         "photos.albums": "Photo albums",
         "settings": "Settings",
+        "tags": "Tags",
         "triggers": "Scheduling jobs"
       }
     },
