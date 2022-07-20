@@ -58,6 +58,7 @@
   "io.cozy.photos.settings": "photos-settings",
   "io.cozy.settings": "settings",
   "io.cozy.sharings": "sharings",
+  "io.cozy.tags": "tags",
   "io.cozy.timeseries.geojson": "location",
   "io.cozy.triggers": "triggers",
   "org.fing.mesinfos.client": "profile",

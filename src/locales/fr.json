@@ -266,6 +266,7 @@
         "photos.settings": "Paramètres des photos",
         "settings": "Paramètres",
         "sharings": "Partage",
+        "tags": "Tags",
         "timeseries.geojson": "Déplacements",
         "triggers": "Planification de tâches à exécuter dans le futur"
       }
