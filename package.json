@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/cozy/cozy-store#readme",
   "devDependencies": {
-    "cozy-scripts": "6.3.3",
+    "cozy-scripts": "6.3.8",
     "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "1.15.6",
     "git-directory-deploy": "1.5.1",
