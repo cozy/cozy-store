@@ -3908,10 +3908,10 @@ cozy-interapp@0.4.9:
   resolved "https://registry.yarnpkg.com/cozy-interapp/-/cozy-interapp-0.4.9.tgz#5ef68d54755cc99c3e154e5a4646b68cbe5f16fd"
   integrity sha512-skyjrewnMu5zMfST7vTNGl3jsuWae1Iwfdev6pW9RLgb58M7oBSpsIa3ofRANv5tx0XVQDVSEzWvbFQ84WJPSg==
 
-cozy-interapp@0.6.2:
-  version "0.6.2"
-  resolved "https://registry.yarnpkg.com/cozy-interapp/-/cozy-interapp-0.6.2.tgz#ab0e0062cbaca057023902bbde8825febe5c95a8"
-  integrity sha512-2cz+xGSio+vvgC+MJnOl8/3Pt4IMAnt2jh9/zMU0YgiP8JmPqVRsweRoPOjUmPqhw2xmVvGSWr//IhAfMxi62w==
+cozy-interapp@0.7.4:
+  version "0.7.4"
+  resolved "https://registry.yarnpkg.com/cozy-interapp/-/cozy-interapp-0.7.4.tgz#32fa307f007c16e47d5cc1fbb9f722ecf94db5c1"
+  integrity sha512-2QWMsW9mt04vuKXfCmhuGFT4nZi46pRPaTAQ0GnJAeCedCUuT+RlTaYs25ogSaSLMUt/puR6AgbIK9X7anhZyQ==
 
 cozy-interapp@^0.5.4:
   version "0.5.7"
