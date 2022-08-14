@@ -23,11 +23,11 @@
     }
   },
   "myapps": {
-    "title": "Meine Anwendungen"
+    "title": "Installiert"
   },
   "nav": {
     "discover": "Anwendungen",
-    "myapps": "Meine Anwendungen"
+    "myapps": "Installiert"
   },
   "soon": {
     "title": "Kommt bald",
@@ -118,8 +118,8 @@
   },
 
   "app_vote": {
-    "line1": "Findest du nicht was du suchst?",
-    "line2": "Sag's uns!"
+    "line1": "Sie können nicht finden, was Sie suchen?",
+    "line2": "Lass es uns wissen!"
   },
 
   "app_item": {
@@ -205,37 +205,55 @@
       "bitwarden.profiles": "Passwortmanager Profile",
       "bitwarden.ciphers": "Passwortmanager Einträge",
       "bitwarden.folders": "Passwortmanager Ordner",
-      "bitwarden.organizations": "Passwortmanager Organisationen"
+      "bitwarden.organizations": "Passwort-Manager für gemeinsame Ordner",
+      "bitwarden.contacts": "Passwort-Manager Kontakte",
+      "grandlyon": {
+        "enedis.*": "Daten zum Stromverbrauch",
+        "grdf.*": "Daten zum Gasverbrauch",
+        "egl.*": "Daten zum Wasserverbrauch",
+        "ecolyo.*": "Daten von Ecolyo"
+      }
     },
     "cc": {
       "cozycloud": {
         "autocategorization": "Categorization model enrichment file",
-        "sentry": "The application logs"
+        "errors": "Die Anwendungsprotokolle",
+        "sentry": "The application logs",
+        "dacc": "Anonyme aggregierte Statistiken",
+        "dacc_v2": "Anonyme aggregierte Statistiken",
+        "dacc.dev": "Anonyme aggregierte Statistiken für die Entwicklung",
+        "dacc.dev_v2": "Anonyme aggregierte Statistiken für die Entwicklung"
+      }
+    },
+    "eu": {
+      "mycozy": {
+        "dacc": "Anonyme aggregierte Statistiken",
+        "dacc_v2": "Anonyme aggregierte Statistiken"
       }
     },
     "io": {
       "cozy": {
         "accounts": "Login details",
         "apps": "List of installed applications",
-        "apps.suggestions": "Application suggestions",
+        "apps.suggestions": "Anwendungsempfehlungen",
         "bank.accounts": "Banking accounts",
-        "bank.accounts.stats": "Stats on banking accounts",
+        "bank.accounts.stats": "Statistiken über Bankkonten",
         "bank.balancehistories": "Bank balances",
         "bank.groups": "Banking groups",
         "bank.operations": "Bank operations",
         "bank.settings": "Banks app settings",
-        "bank.recipients": "Banking transfer recipients",
-        "bank.recurrence": "Banks recurrence groups",
+        "bank.recipients": "Überweisungsempfänger",
+        "bank.recurrence": "Bank Überweisungs-Vorlagen",
         "bills": "Bills",
-        "certified.carbon_copy": "Carbon copy",
-        "certified.electronic_safe": "Electronic safe",
-        "coachco2.settings": "CoachCO2 app settings",
+        "certified.carbon_copy": "Durchschrift",
+        "certified.electronic_safe": "Elektronischer Tresor",
+        "coachco2.settings": "Einstellungen der CoachCO2-App",
         "contacts": "Contacts",
         "contacts.groups": "Contacts groups",
         "contacts.accounts": "Accounts linked to the contacts",
         "files": "Files",
-        "files.versions": "Files versions",
-        "files.*": "File-related data (files, folders, versions, ...)",
+        "files.versions": "Dateiversionen",
+        "files.*": "Dateibezogene Daten (Dateien, Verzeichnisse, Versionen, ...)",
         "identities": "Identities",
         "jobs": "Jobs",
         "konnectors": "Connectors for importing data",
@@ -246,16 +264,17 @@
         "oauth.clients": "Connected devices",
         "permissions": "Delegating permissions",
         "photos.albums": "Photo albums",
-        "photos.settings": "Photo settings",
+        "photos.settings": "Foto Einstellungen",
         "settings": "Settings",
-        "sharings": "Sharing",
+        "sharings": "Teilen",
         "tags": "Tags",
-        "timeseries.geojson": "Trips",
+        "timeseries.geojson": "Reisen",
         "triggers": "Scheduling jobs"
       }
     },
     "fr": {
       "maif": {
+        "events": "Ereignisse (Maif)",
         "maifuser": {
           "contrat": "Contract (Maif)",
           "home": "Home (Maif)",
@@ -276,14 +295,13 @@
   },
 
   "permissions": {
-    "linxo": "Display your banking accounts in your Cozy, thanks to the secured connexion to your bank by our partner Linxo ([linxo.com](https://linxo.com))",
-    "banking": "Display your banking accounts in your Cozy, thanks to the secured connexion to your bank by our partner %{name} ([%{domain}](https://%{domain}))",
+    "linxo": "Zeigen Sie Ihre Bankkonten in Ihrem Cozy an, dank der gesicherten Verbindung zu Ihrer Bank durch unseren Partner Linxo ([linxo.com](https://linxo.com))",
+    "banking": "Zeigen Sie Ihre Bankkonten in Ihrem Cozy an, dank der gesicherten Verbindung zu Ihrer Bank durch unseren Partner  %{name} ([%{domain}](https://%{domain}))",
     "reason": "**Grund: **",
     "developer_default": "Der Entwickler dieser Anwendung",
     "description": {
-      "only_internal": "%{name} commits to not giving the data used by the application:",
-      "internal": "%{name} commits to not giving the other data used by the application:",
-      "external": "%{name} commits to giving only the following data:",
+      "internal": "Diese App überträgt keine Daten an den Entwickler %{name}, sondern verwendet sie nur lokal in Ihrem Cozy, ohne sie an Dritte weiterzugeben:",
+      "external": "%{name} kann diese Daten aus Ihrem Cozy nur für folgende Zwecke verwenden und extrahieren:",
       "nothing": "%{appName} doesn't require any data access to work correctly on your Cozy."
     }
   },
