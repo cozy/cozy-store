@@ -16,23 +16,22 @@ export const AppRouter = () => {
 
   return (
     <Switch>
-      <Route path="/redirect" component={IntentRedirect} />
+      <Route path="/redirect">
+        <IntentRedirect />
+      </Route>
       {enabledPages.map(name => {
         if (componentsMap[name]) {
           return (
             <Route
+              key={name}
               path={`/${name}`}
               component={componentsMap[name]}
-              key={name}
             />
           )
         }
       })}
       {defaultPart && (
-        <>
-          <Redirect exact from="/" to={`/${defaultPart}`} />
-          <Redirect from="*" to={`/${defaultPart}`} />
-        </>
+        <Route path="*" render={() => <Redirect to={`/${defaultPart}`} />} />
       )}
     </Switch>
   )
