@@ -1,16 +1,15 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { hot } from 'react-hot-loader'
 
-import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 import flag, { FlagSwitcher } from 'cozy-flags'
 
-import IntentRedirect from 'ducks/components/intents/IntentRedirect'
+import { AppRouter } from 'ducks/components/AppRouter'
 import Sidebar from 'ducks/components/Sidebar'
 
 import { initApp, restoreAppIfSaved } from 'ducks/apps'
-import { Discover, MyApplications } from 'ducks/apps/Containers'
 
 import { Layout, Main } from 'cozy-ui/transpiled/react/Layout'
 import Alerter from 'cozy-ui/transpiled/react/Alerter'
@@ -20,13 +19,6 @@ import { BreakpointsProvider } from 'cozy-ui/transpiled/react/hooks/useBreakpoin
 import compose from 'lodash/flowRight'
 import { withClient } from 'cozy-client'
 
-import { enabledPages } from 'config'
-
-const componentsMap = {
-  discover: Discover,
-  myapps: MyApplications
-}
-
 export class App extends Component {
   constructor(props) {
     super(props)
@@ -34,7 +26,6 @@ export class App extends Component {
   }
 
   render() {
-    const defaultPart = enabledPages ? enabledPages[0] : 'discover'
     return (
       <BreakpointsProvider>
         <Layout>
@@ -42,26 +33,7 @@ export class App extends Component {
           <Alerter />
           <Sidebar />
           <Main>
-            <Switch>
-              <Route path="/redirect" component={IntentRedirect} />
-              {enabledPages.map(name => {
-                if (componentsMap[name]) {
-                  return (
-                    <Route
-                      path={`/${name}`}
-                      component={componentsMap[name]}
-                      key={name}
-                    />
-                  )
-                }
-              })}
-              {defaultPart && (
-                <Fragment>
-                  <Redirect exact from="/" to={`/${defaultPart}`} />
-                  <Redirect from="*" to={`/${defaultPart}`} />
-                </Fragment>
-              )}
-            </Switch>
+            <AppRouter />
           </Main>
           <IconSprite />
         </Layout>
