@@ -1,5 +1,4 @@
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 
 import { getInstalledApps, getRegistryApps } from './index'
@@ -7,6 +6,7 @@ import { getInstalledApps, getRegistryApps } from './index'
 import DiscoverComponent from 'ducks/apps/components/Discover'
 import MyApplicationsComponent from 'ducks/apps/components/MyApplications'
 import SidebarCategoriesComponent from 'ducks/apps/components/SidebarCategories'
+import { AppRouter } from 'ducks/components/AppRouter'
 
 const mapStateToProps = state => ({
   apps: getRegistryApps(state),
@@ -19,18 +19,18 @@ const mapStateToProps = state => ({
   fetchError: state.apps.fetchError
 })
 
+export const AppRouterConnected = connect(mapStateToProps)(AppRouter)
+
 export const Discover = translate()(connect(mapStateToProps)(DiscoverComponent))
 
 export const MyApplications = translate()(
   connect(mapStateToProps)(MyApplicationsComponent)
 )
 
-export const SidebarCategories = withRouter(
-  connect(
-    state => ({
-      apps: getRegistryApps(state),
-      installedApps: getInstalledApps(state)
-    }),
-    null
-  )(SidebarCategoriesComponent)
-)
+export const SidebarCategories = connect(
+  state => ({
+    apps: getRegistryApps(state),
+    installedApps: getInstalledApps(state)
+  }),
+  null
+)(SidebarCategoriesComponent)

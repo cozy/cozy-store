@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
-import { withRouter, NavLink as RouterLink } from 'react-router-dom'
+import { NavLink as RouterLink, useLocation } from 'react-router-dom'
 
 import { categoryUtils } from 'cozy-ui/transpiled/react/AppSections'
 
@@ -73,4 +73,9 @@ export class SidebarCategories extends Component {
   }
 }
 
-export default withRouter(translate()(withBreakpoints()(SidebarCategories)))
+const SidebarCategoriesWrapper = props => {
+  const location = useLocation()
+  return <SidebarCategories {...props} location={location} />
+}
+
+export default translate()(withBreakpoints()(SidebarCategoriesWrapper))

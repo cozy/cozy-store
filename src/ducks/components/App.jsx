@@ -1,12 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { hot } from 'react-hot-loader'
 
-import { withRouter } from 'react-router-dom'
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 import flag, { FlagSwitcher } from 'cozy-flags'
 
-import { AppRouter } from 'ducks/components/AppRouter'
 import Sidebar from 'ducks/components/Sidebar'
 
 import { initApp, restoreAppIfSaved } from 'ducks/apps'
@@ -18,6 +15,7 @@ import { BreakpointsProvider } from 'cozy-ui/transpiled/react/hooks/useBreakpoin
 
 import compose from 'lodash/flowRight'
 import { withClient } from 'cozy-client'
+import { AppRouterConnected } from 'ducks/apps/Containers'
 
 export class App extends Component {
   constructor(props) {
@@ -33,7 +31,7 @@ export class App extends Component {
           <Alerter />
           <Sidebar />
           <Main>
-            <AppRouter />
+            <AppRouterConnected />
           </Main>
           <IconSprite />
         </Layout>
@@ -53,8 +51,6 @@ export const mapDispatchToProps = (dispatch, ownProps) => ({
 })
 
 export default compose(
-  hot(module),
-  withRouter,
   translate(),
   withClient,
   connect(

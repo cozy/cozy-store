@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withRouter, Route } from 'react-router-dom'
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 
@@ -13,17 +13,17 @@ import ApplicationPage from 'ducks/apps/components/ApplicationPage'
 export class ApplicationRouting extends Component {
   mainPage = React.createRef()
 
-  getAppFromMatchOrSlug = (match, slug) => {
+  getAppFromMatchOrSlug = (params, slug) => {
     const appsArray = this.props.apps || this.props.installedApps || []
-    const appSlug = slug || (match && match.params && match.params.appSlug)
+    const appSlug = slug || (params && params.appSlug)
     if (!appsArray.length || !appSlug) return null
     const app = appsArray.find(app => app.slug === appSlug)
     return app
   }
 
   redirectTo = target => {
-    const { history, location } = this.props
-    history.replace(target + location.search)
+    const { navigate, location } = this.props
+    navigate(target + location.search, { replace: true })
     return null
   }
 
@@ -31,55 +31,81 @@ export class ApplicationRouting extends Component {
     const { isFetching, parent } = this.props
     return (
       <div className="sto-modal-page" ref={this.mainPage}>
-        <Route
-          path={`/${parent}/:appSlug`}
-          render={({ match }) => {
-            return (
+        <Routes>
+          <Route
+            path={`/${parent}/:appSlug`}
+            element={
               <ApplicationPage
-                matchRoute={match}
                 parent={parent}
-                pauseFocusTrap={!match.isExact}
                 isFetching={isFetching}
                 getApp={this.getAppFromMatchOrSlug}
                 redirectTo={this.redirectTo}
                 mainPageRef={this.mainPage}
               />
-            )
-          }}
-        />
-        <ChannelRoute
-          getApp={this.getAppFromMatchOrSlug}
-          isFetching={isFetching}
-          parent={parent}
-          redirectTo={this.redirectTo}
-        />
-        <InstallRoute
-          getApp={this.getAppFromMatchOrSlug}
-          isFetching={isFetching}
-          parent={parent}
-          redirectTo={this.redirectTo}
-        />
-        <UninstallRoute
-          getApp={this.getAppFromMatchOrSlug}
-          isFetching={isFetching}
-          parent={parent}
-          redirectTo={this.redirectTo}
-        />
-        <PermissionsRoute
-          getApp={this.getAppFromMatchOrSlug}
-          isFetching={isFetching}
-          parent={parent}
-          redirectTo={this.redirectTo}
-        />
-        <ConfigureRoute
-          getApp={this.getAppFromMatchOrSlug}
-          isFetching={isFetching}
-          parent={parent}
-          redirectTo={this.redirectTo}
-        />
+            }
+          />
+        </Routes>
       </div>
     )
+    // return (
+    //   <div className="sto-modal-page" ref={this.mainPage}>
+    //     <Route
+    //       path={`/${parent}/:appSlug`}
+    //       render={({ match }) => {
+    //         return (
+    //           <ApplicationPage
+    //             matchRoute={match}
+    //             parent={parent}
+    //             pauseFocusTrap={!match.isExact}
+    //             isFetching={isFetching}
+    //             getApp={this.getAppFromMatchOrSlug}
+    //             redirectTo={this.redirectTo}
+    //             mainPageRef={this.mainPage}
+    //           />
+    //         )
+    //       }}
+    //     />
+    //     <ChannelRoute
+    //       getApp={this.getAppFromMatchOrSlug}
+    //       isFetching={isFetching}
+    //       parent={parent}
+    //       redirectTo={this.redirectTo}
+    //     />
+    //     <InstallRoute
+    //       getApp={this.getAppFromMatchOrSlug}
+    //       isFetching={isFetching}
+    //       parent={parent}
+    //       redirectTo={this.redirectTo}
+    //     />
+    //     <UninstallRoute
+    //       getApp={this.getAppFromMatchOrSlug}
+    //       isFetching={isFetching}
+    //       parent={parent}
+    //       redirectTo={this.redirectTo}
+    //     />
+    //     <PermissionsRoute
+    //       getApp={this.getAppFromMatchOrSlug}
+    //       isFetching={isFetching}
+    //       parent={parent}
+    //       redirectTo={this.redirectTo}
+    //     />
+    //     <ConfigureRoute
+    //       getApp={this.getAppFromMatchOrSlug}
+    //       isFetching={isFetching}
+    //       parent={parent}
+    //       redirectTo={this.redirectTo}
+    //     />
+    //   </div>
+    // )
   }
 }
 
-export default withRouter(translate()(ApplicationRouting))
+const ApplicationRoutingWrapper = props => {
+  const navigate = useNavigate()
+  const location = useLocation()
+  return (
+    <ApplicationRouting {...props} navigate={navigate} location={location} />
+  )
+}
+
+export default translate()(ApplicationRoutingWrapper)

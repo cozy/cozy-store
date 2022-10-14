@@ -1,5 +1,7 @@
 /* global cozy */
 import React, { Component } from 'react'
+import { useLocation, useMatch, useNavigate } from 'react-router'
+import { matchPath } from 'react-router-dom'
 
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
@@ -20,12 +22,12 @@ export class Discover extends Component {
   }
 
   onAppClick(appSlug) {
-    this.props.history.push(`/discover/${appSlug}`)
+    this.props.navigate(`/discover/${appSlug}`)
   }
 
   pushQuery(query) {
-    if (!query) return this.props.history.push('/discover')
-    this.props.history.push(`/discover?${query}`)
+    if (!query) return this.props.navigate('/discover')
+    this.props.navigate(`/discover?${query}`)
   }
 
   render() {
@@ -38,10 +40,10 @@ export class Discover extends Component {
       isUninstalling,
       actionError,
       breakpoints = {},
-      match
+      isExact
     } = this.props
 
-    const { isExact } = match
+    // const { isExact } = match
     const { isMobile } = breakpoints
     const title = <h2 className="sto-view-title">{t('discover.title')}</h2>
     return (
@@ -69,17 +71,35 @@ export class Discover extends Component {
           }
         </div>
 
-        <ApplicationRouting
+        {/* <ApplicationRouting
           apps={apps}
           isFetching={isFetching}
           isAppFetching={isAppFetching}
           isUninstalling={isUninstalling}
           actionError={actionError}
           parent="discover"
-        />
+        /> */}
       </Content>
     )
   }
 }
 
-export default translate()(withBreakpoints()(Discover))
+const DiscoverWrapper = props => {
+  const isExact = useMatch('discover')
+  const { pathname } = useLocation()
+  const navigate = useNavigate()
+
+  // const isExact = matchPath(
+  //   {
+  //     path: '/discover',
+  //     caseSensitive: true, // Optional. Should be `true` if the static portions of the `path` should be matched in the same case.
+  //     end: true // Optional. Should be `true` if this pattern should match the entire URL pathname
+  //   },
+  //   pathname
+  // )
+
+  // console.log({ match })
+  return <Discover {...props} isExact={isExact} navigate={navigate} />
+}
+
+export default translate()(withBreakpoints()(DiscoverWrapper))

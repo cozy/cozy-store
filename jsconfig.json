@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "ducks/*": ["./src/ducks/*"],
+      "lib/*": ["./src/lib/*"]
+    }
+  },
+  "exclude": ["node_modules", "build"]
+}
