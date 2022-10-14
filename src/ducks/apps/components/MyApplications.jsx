@@ -1,5 +1,7 @@
 /* global cozy */
 import React, { Component } from 'react'
+import { useLocation, useMatch } from 'react-router'
+import { matchPath } from 'react-router-dom'
 
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
@@ -30,9 +32,10 @@ export class MyApplications extends Component {
       fetchError,
       actionError,
       breakpoints = {},
-      match
+      isExact
     } = this.props
-    const { isExact } = match
+
+    // const { isExact } = match
     const { isMobile } = breakpoints
     const title = <h2 className="sto-view-title">{t('myapps.title')}</h2>
     return (
@@ -49,16 +52,33 @@ export class MyApplications extends Component {
           )}
         </div>
 
-        <ApplicationRouting
+        {/* <ApplicationRouting
           installedApps={installedApps}
           isFetching={isFetching}
           isAppFetching={isAppFetching}
           actionError={actionError}
           parent="myapps"
-        />
+        /> */}
       </Content>
     )
   }
 }
 
-export default translate()(withBreakpoints()(MyApplications))
+const MyApplicationsWrapper = props => {
+  const isExact = useMatch('myapps')
+  const { pathname } = useLocation()
+
+  // const isExact = matchPath(
+  //   {
+  //     path: '/myapps',
+  //     caseSensitive: true, // Optional. Should be `true` if the static portions of the `path` should be matched in the same case.
+  //     end: true // Optional. Should be `true` if this pattern should match the entire URL pathname
+  //   },
+  //   pathname
+  // )
+
+  // console.log({ match })
+  return <MyApplications {...props} isExact={isExact} />
+}
+
+export default translate()(withBreakpoints()(MyApplicationsWrapper))
