@@ -80,6 +80,14 @@ main > [role=main].sto-myapps {
   overflow-y: auto;
 }
 
+.sto-modal-page-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
 .sto-modal-page {
   position: absolute;
   top: 0;

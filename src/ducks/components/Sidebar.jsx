@@ -33,6 +33,9 @@ export const StoreSidebar = React.memo(({ t, breakpoints = {} }) => {
   const { isMobile, isTablet } = breakpoints
   if (enabledPages.length === 1 && (isMobile || isTablet)) return null
   if (!isNavigationEnabled(location.search)) return null
+
+  console.log('YANNICK NavLink.activeClassName', NavLink.activeClassName)
+  console.log('YANNICK NavLink.className', NavLink.className)
   return (
     <Sidebar>
       <Nav>
@@ -43,8 +46,11 @@ export const StoreSidebar = React.memo(({ t, breakpoints = {} }) => {
                 <NavItem>
                   <RouterLink
                     to={`/${name}`}
-                    className={NavLink.className}
-                    activeClassName={NavLink.activeClassName}
+                    // className={NavLink.className}
+                    // activeClassName={NavLink.activeClassName}
+                    className={({ isActive }) =>
+                      isActive ? NavLink.activeClassName + " " + NavLink.className : NavLink.className
+                    }
                   >
                     <NavIcon icon={configMap[name].icon} />
                     <NavText>{t(configMap[name].labelKey)}</NavText>

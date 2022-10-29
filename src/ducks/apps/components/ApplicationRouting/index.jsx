@@ -14,10 +14,14 @@ export class ApplicationRouting extends Component {
   mainPage = React.createRef()
 
   getAppFromMatchOrSlug = (params, slug) => {
+    console.log({params, slug})
     const appsArray = this.props.apps || this.props.installedApps || []
+    console.log({appsArray})
     const appSlug = slug || (params && params.appSlug)
+    console.log({appSlug})
     if (!appsArray.length || !appSlug) return null
     const app = appsArray.find(app => app.slug === appSlug)
+    console.log({app})
     return app
   }
 
