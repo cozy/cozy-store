@@ -1,6 +1,6 @@
 /* global cozy */
 import React, { Component } from 'react'
-import { useLocation, useMatch } from 'react-router'
+import { useLocation, useMatch, useNavigate } from 'react-router'
 import { matchPath } from 'react-router-dom'
 
 import { translate } from 'cozy-ui/transpiled/react/I18n'
@@ -20,7 +20,7 @@ export class MyApplications extends Component {
   }
 
   onAppClick(appSlug) {
-    this.props.history.push(`/myapps/${appSlug}`)
+    this.props.navigate(`/myapps/${appSlug}`)
   }
 
   render() {
@@ -66,19 +66,9 @@ export class MyApplications extends Component {
 
 const MyApplicationsWrapper = props => {
   const isExact = useMatch('myapps')
-  const { pathname } = useLocation()
+  const navigate = useNavigate()
 
-  // const isExact = matchPath(
-  //   {
-  //     path: '/myapps',
-  //     caseSensitive: true, // Optional. Should be `true` if the static portions of the `path` should be matched in the same case.
-  //     end: true // Optional. Should be `true` if this pattern should match the entire URL pathname
-  //   },
-  //   pathname
-  // )
-
-  // console.log({ match })
-  return <MyApplications {...props} isExact={isExact} />
+  return <MyApplications {...props} isExact={isExact} navigate={navigate} />
 }
 
 export default translate()(withBreakpoints()(MyApplicationsWrapper))

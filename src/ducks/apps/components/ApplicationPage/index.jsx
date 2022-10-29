@@ -193,7 +193,7 @@ const ApplicationPageWrapper = props => {
   const params = useParams()
   const isExact = useMatch(`${parent}/:appSlug`)
 
-  return <ApplicationPage {...props} params={params} pauseFocusTrap={isExact} />
+  return <ApplicationPage {...props} params={params} pauseFocusTrap={!isExact} />
 }
 
 // translate is needed here for the lang props

@@ -86,19 +86,8 @@ export class Discover extends Component {
 
 const DiscoverWrapper = props => {
   const isExact = useMatch('discover')
-  const { pathname } = useLocation()
   const navigate = useNavigate()
 
-  // const isExact = matchPath(
-  //   {
-  //     path: '/discover',
-  //     caseSensitive: true, // Optional. Should be `true` if the static portions of the `path` should be matched in the same case.
-  //     end: true // Optional. Should be `true` if this pattern should match the entire URL pathname
-  //   },
-  //   pathname
-  // )
-
-  // console.log({ match })
   return <Discover {...props} isExact={isExact} navigate={navigate} />
 }
 
