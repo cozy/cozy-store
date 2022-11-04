@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { withRouter } from 'react-router-dom'
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 import flag, { FlagSwitcher } from 'cozy-flags'
 
@@ -52,7 +51,6 @@ export const mapDispatchToProps = (dispatch, ownProps) => ({
 })
 
 export default compose(
-  withRouter,
   translate(),
   withClient,
   connect(

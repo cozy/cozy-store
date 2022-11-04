@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router'
 import PropTypes from 'prop-types'
 import compose from 'lodash/flowRight'
 
@@ -166,6 +165,5 @@ export default compose(
     mapStateToProps,
     mapDispatchToProps
   ),
-  translate(),
-  withRouter
+  translate()
 )(UninstallModal)

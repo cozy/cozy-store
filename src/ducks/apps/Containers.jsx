@@ -1,5 +1,4 @@
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 
 import { getInstalledApps, getRegistryApps } from './index'
@@ -25,12 +24,10 @@ export const MyApplications = translate()(
   connect(mapStateToProps)(MyApplicationsComponent)
 )
 
-export const SidebarCategories = withRouter(
-  connect(
-    state => ({
-      apps: getRegistryApps(state),
-      installedApps: getInstalledApps(state)
-    }),
-    null
-  )(SidebarCategoriesComponent)
-)
+export const SidebarCategories = connect(
+  state => ({
+    apps: getRegistryApps(state),
+    installedApps: getInstalledApps(state)
+  }),
+  null
+)(SidebarCategoriesComponent)
