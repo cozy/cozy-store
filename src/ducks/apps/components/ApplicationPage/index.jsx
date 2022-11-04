@@ -156,7 +156,7 @@ export class ApplicationPage extends Component {
             <Button
               icon={Left}
               tag={Link}
-              to={`${parent}`}
+              to={`/${parent}`}
               className="sto-app-back"
               label={t('app_page.back')}
               onClick={this.unmountTrap}
