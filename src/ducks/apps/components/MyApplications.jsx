@@ -52,13 +52,13 @@ export class MyApplications extends Component {
           )}
         </div>
 
-        {/* <ApplicationRouting
+        <ApplicationRouting
           installedApps={installedApps}
           isFetching={isFetching}
           isAppFetching={isAppFetching}
           actionError={actionError}
           parent="myapps"
-        /> */}
+        />
       </Content>
     )
   }

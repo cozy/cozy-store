@@ -1,5 +1,11 @@
 import React, { Component } from 'react'
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
+import {
+  Outlet,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate
+} from 'react-router-dom'
 
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 
@@ -10,18 +16,21 @@ import InstallRoute from 'ducks/apps/components/ApplicationRouting/InstallRoute'
 import UninstallRoute from 'ducks/apps/components/ApplicationRouting/UninstallRoute'
 import ApplicationPage from 'ducks/apps/components/ApplicationPage'
 
+const OutletWrapper = ({ Component }) => (
+  <>
+    <Component />
+    <Outlet />
+  </>
+)
+
 export class ApplicationRouting extends Component {
   mainPage = React.createRef()
 
   getAppFromMatchOrSlug = (params, slug) => {
-    console.log({params, slug})
     const appsArray = this.props.apps || this.props.installedApps || []
-    console.log({appsArray})
     const appSlug = slug || (params && params.appSlug)
-    console.log({appSlug})
     if (!appsArray.length || !appSlug) return null
     const app = appsArray.find(app => app.slug === appSlug)
-    console.log({app})
     return app
   }
 
@@ -37,70 +46,80 @@ export class ApplicationRouting extends Component {
       <div className="sto-modal-page" ref={this.mainPage}>
         <Routes>
           <Route
-            path={`/${parent}/:appSlug`}
+            path={`:appSlug`}
             element={
-              <ApplicationPage
-                parent={parent}
-                isFetching={isFetching}
-                getApp={this.getAppFromMatchOrSlug}
-                redirectTo={this.redirectTo}
-                mainPageRef={this.mainPage}
+              <OutletWrapper
+                Component={() => (
+                  <ApplicationPage
+                    parent={parent}
+                    isFetching={isFetching}
+                    getApp={this.getAppFromMatchOrSlug}
+                    redirectTo={this.redirectTo}
+                    mainPageRef={this.mainPage}
+                  />
+                )}
               />
             }
-          />
+          >
+            <Route
+              path={`channel/:channel`}
+              element={
+                <ChannelRoute
+                  getApp={this.getAppFromMatchOrSlug}
+                  isFetching={isFetching}
+                  parent={parent}
+                  redirectTo={this.redirectTo}
+                />
+              }
+            />
+            <Route
+              path={`install`}
+              element={
+                <InstallRoute
+                  getApp={this.getAppFromMatchOrSlug}
+                  isFetching={isFetching}
+                  parent={parent}
+                  redirectTo={this.redirectTo}
+                />
+              }
+            />
+            <Route
+              path={`uninstall`}
+              element={
+                <UninstallRoute
+                  getApp={this.getAppFromMatchOrSlug}
+                  isFetching={isFetching}
+                  parent={parent}
+                  redirectTo={this.redirectTo}
+                />
+              }
+            />
+            <Route
+              path={`permissions`}
+              element={
+                <PermissionsRoute
+                  getApp={this.getAppFromMatchOrSlug}
+                  isFetching={isFetching}
+                  parent={parent}
+                  redirectTo={this.redirectTo}
+                />
+              }
+            />
+            <Route
+              path={`configure`}
+              element={
+                <ConfigureRoute
+                  getApp={this.getAppFromMatchOrSlug}
+                  isFetching={isFetching}
+                  parent={parent}
+                  redirectTo={this.redirectTo}
+                />
+              }
+            />
+          </Route>
         </Routes>
       </div>
     )
-    // return (
-    //   <div className="sto-modal-page" ref={this.mainPage}>
-    //     <Route
-    //       path={`/${parent}/:appSlug`}
-    //       render={({ match }) => {
-    //         return (
-    //           <ApplicationPage
-    //             matchRoute={match}
-    //             parent={parent}
-    //             pauseFocusTrap={!match.isExact}
-    //             isFetching={isFetching}
-    //             getApp={this.getAppFromMatchOrSlug}
-    //             redirectTo={this.redirectTo}
-    //             mainPageRef={this.mainPage}
-    //           />
-    //         )
-    //       }}
-    //     />
-    //     <ChannelRoute
-    //       getApp={this.getAppFromMatchOrSlug}
-    //       isFetching={isFetching}
-    //       parent={parent}
-    //       redirectTo={this.redirectTo}
-    //     />
-    //     <InstallRoute
-    //       getApp={this.getAppFromMatchOrSlug}
-    //       isFetching={isFetching}
-    //       parent={parent}
-    //       redirectTo={this.redirectTo}
-    //     />
-    //     <UninstallRoute
-    //       getApp={this.getAppFromMatchOrSlug}
-    //       isFetching={isFetching}
-    //       parent={parent}
-    //       redirectTo={this.redirectTo}
-    //     />
-    //     <PermissionsRoute
-    //       getApp={this.getAppFromMatchOrSlug}
-    //       isFetching={isFetching}
-    //       parent={parent}
-    //       redirectTo={this.redirectTo}
-    //     />
-    //     <ConfigureRoute
-    //       getApp={this.getAppFromMatchOrSlug}
-    //       isFetching={isFetching}
-    //       parent={parent}
-    //       redirectTo={this.redirectTo}
-    //     />
-    //   </div>
-    // )
   }
 }
 

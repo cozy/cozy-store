@@ -71,14 +71,14 @@ export class Discover extends Component {
           }
         </div>
 
-        {/* <ApplicationRouting
+        <ApplicationRouting
           apps={apps}
           isFetching={isFetching}
           isAppFetching={isAppFetching}
           isUninstalling={isUninstalling}
           actionError={actionError}
           parent="discover"
-        /> */}
+        />
       </Content>
     )
   }
