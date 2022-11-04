@@ -1,3 +1,4 @@
+import React from 'react'
 import { HashRouter } from 'react-router-dom'
 import {
   shouldEnableTracking,
@@ -14,9 +15,8 @@ const addPiwik = function(history) {
   return history
 }
 
-export default class PiwikHashRouter extends HashRouter {
-  constructor(props) {
-    super(props)
-    this.history = addPiwik(this.history)
-  }
-}
+export const PiwikHashRouter = ({ children }) => (
+  <HashRouter history={addPiwik(history)}>{children}</HashRouter>
+)
+
+export default PiwikHashRouter
