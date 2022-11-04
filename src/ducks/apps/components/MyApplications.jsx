@@ -1,13 +1,11 @@
 /* global cozy */
 import React, { Component } from 'react'
-import { useLocation, useMatch, useNavigate } from 'react-router'
-import { matchPath } from 'react-router-dom'
+import { useMatch, useNavigate } from 'react-router'
 
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 import { Content } from 'cozy-ui/transpiled/react/Layout'
 
-import ApplicationRouting from 'ducks/apps/components/ApplicationRouting'
 import Sections from 'ducks/apps/components/QuerystringSections'
 import AppsLoading from 'ducks/components/AppsLoading'
 
@@ -28,14 +26,11 @@ export class MyApplications extends Component {
       t,
       installedApps,
       isFetching,
-      isAppFetching,
       fetchError,
-      actionError,
       breakpoints = {},
       isExact
     } = this.props
 
-    // const { isExact } = match
     const { isMobile } = breakpoints
     const title = <h2 className="sto-view-title">{t('myapps.title')}</h2>
     return (
@@ -51,14 +46,6 @@ export class MyApplications extends Component {
             />
           )}
         </div>
-
-        {/* <ApplicationRouting
-          installedApps={installedApps}
-          isFetching={isFetching}
-          isAppFetching={isAppFetching}
-          actionError={actionError}
-          parent="myapps"
-        /> */}
       </Content>
     )
   }
