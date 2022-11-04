@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { hot } from 'react-hot-loader'
 
 import { withRouter } from 'react-router-dom'
 import { translate } from 'cozy-ui/transpiled/react/I18n'
@@ -53,7 +52,6 @@ export const mapDispatchToProps = (dispatch, ownProps) => ({
 })
 
 export default compose(
-  hot(module),
   withRouter,
   translate(),
   withClient,
