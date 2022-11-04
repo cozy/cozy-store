@@ -1,5 +1,5 @@
 import React from 'react'
-import { Redirect } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 
 export const IntentRedirect = ({ location }) => {
   const queryString = !!location && location.search
@@ -17,18 +17,18 @@ export const IntentRedirect = ({ location }) => {
   if (query.slug) {
     switch (query.step) {
       case 'install':
-        return <Redirect to={`/discover/${query.slug}/install`} />
+        return <Navigate to={`/discover/${query.slug}/install`} />
       case 'update':
-        return <Redirect to={`/discover/${query.slug}/install`} />
+        return <Navigate to={`/discover/${query.slug}/install`} />
       case 'uninstall':
-        return <Redirect to={`/discover/${query.slug}/uninstall`} />
+        return <Navigate to={`/discover/${query.slug}/uninstall`} />
       case 'permissions':
-        return <Redirect to={`/discover/${query.slug}/permissions`} />
+        return <Navigate to={`/discover/${query.slug}/permissions`} />
       default:
-        return <Redirect to={`/discover/${query.slug}`} />
+        return <Navigate to={`/discover/${query.slug}`} />
     }
   }
-  return <Redirect to={`/discover/${queryString}`} />
+  return <Navigate to={`/discover/${queryString}`} />
 }
 
 export default IntentRedirect
