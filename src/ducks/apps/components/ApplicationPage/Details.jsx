@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import { withClient } from 'cozy-client'
 import { translate } from 'cozy-ui/transpiled/react/I18n'
@@ -45,7 +46,7 @@ export class Details extends Component {
 
   onShowPermissions() {
     const { app, parent } = this.props
-    this.props.history.push(`/${parent}/${app.slug}/permissions`)
+    this.props.navigate(`/${parent}/${app.slug}/permissions`)
   }
 
   async toggleChannels() {
@@ -66,9 +67,9 @@ export class Details extends Component {
   }
 
   onUpdateChannel(checked, channel) {
-    const { app, history, parent } = this.props
+    const { app, navigate, parent } = this.props
     const targetChannel = checked ? channel : REGISTRY_CHANNELS.STABLE
-    history.push(`/${parent}/${app.slug}/channel/${targetChannel}`)
+    navigate(`/${parent}/${app.slug}/channel/${targetChannel}`)
   }
 
   render() {
@@ -223,4 +224,9 @@ export class Details extends Component {
   }
 }
 
-export default withClient(translate()(Details))
+const DetailsWrapper = props => {
+  const navigate = useNavigate()
+  return <Details {...props} navigate={navigate} />
+}
+
+export default withClient(translate()(DetailsWrapper))

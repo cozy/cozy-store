@@ -1,6 +1,6 @@
 /* global cozy */
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useMatch, useParams } from 'react-router-dom'
 
 import { withClient } from 'cozy-client'
 
@@ -79,7 +79,7 @@ export class ApplicationPage extends Component {
     const {
       t,
       parent,
-      matchRoute,
+      params,
       isFetching,
       fetchError,
       breakpoints = {},
@@ -89,7 +89,7 @@ export class ApplicationPage extends Component {
       client
     } = this.props
     if (isFetching) return <ApplicationPageLoading />
-    const app = getApp(matchRoute)
+    const app = getApp(params)
     if (!app) return redirectTo(`/${parent}`)
 
     const { displayBarIcon } = this.state
@@ -186,5 +186,17 @@ export class ApplicationPage extends Component {
   }
 }
 
+const ApplicationPageWrapper = props => {
+  const { parent } = props
+  const params = useParams()
+  const isExact = useMatch(`${parent}/:appSlug`)
+
+  return (
+    <ApplicationPage {...props} params={params} pauseFocusTrap={!isExact} />
+  )
+}
+
 // translate is needed here for the lang props
-export default translate()(withBreakpoints()(withClient(ApplicationPage)))
+export default translate()(
+  withBreakpoints()(withClient(ApplicationPageWrapper))
+)

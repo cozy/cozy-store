@@ -1,5 +1,6 @@
 /* global cozy */
 import React, { Component } from 'react'
+import { useMatch, useNavigate } from 'react-router-dom'
 
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
@@ -20,12 +21,12 @@ export class Discover extends Component {
   }
 
   onAppClick(appSlug) {
-    this.props.history.push(`/discover/${appSlug}`)
+    this.props.navigate(`/discover/${appSlug}`)
   }
 
   pushQuery(query) {
-    if (!query) return this.props.history.push('/discover')
-    this.props.history.push(`/discover?${query}`)
+    if (!query) return this.props.navigate('/discover')
+    this.props.navigate(`/discover?${query}`)
   }
 
   render() {
@@ -38,10 +39,9 @@ export class Discover extends Component {
       isUninstalling,
       actionError,
       breakpoints = {},
-      match
+      isExact
     } = this.props
 
-    const { isExact } = match
     const { isMobile } = breakpoints
     const title = <h2 className="sto-view-title">{t('discover.title')}</h2>
     return (
@@ -82,4 +82,11 @@ export class Discover extends Component {
   }
 }
 
-export default translate()(withBreakpoints()(Discover))
+const DiscoverWrapper = props => {
+  const isExact = useMatch('discover')
+  const navigate = useNavigate()
+
+  return <Discover {...props} isExact={isExact} navigate={navigate} />
+}
+
+export default translate()(withBreakpoints()(DiscoverWrapper))

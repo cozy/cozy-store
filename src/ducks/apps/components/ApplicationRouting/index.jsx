@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
+import {
+  Route,
+  useLocation,
+  useNavigate
+} from 'react-router-dom'
 
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 
@@ -13,17 +17,17 @@ import ApplicationPage from 'ducks/apps/components/ApplicationPage'
 export class ApplicationRouting extends Component {
   mainPage = React.createRef()
 
-  getAppFromMatchOrSlug = (match, slug) => {
+  getAppFromMatchOrSlug = (params, slug) => {
     const appsArray = this.props.apps || this.props.installedApps || []
-    const appSlug = slug || (match && match.params && match.params.appSlug)
+    const appSlug = slug || (params && params.appSlug)
     if (!appsArray.length || !appSlug) return null
     const app = appsArray.find(app => app.slug === appSlug)
     return app
   }
 
   redirectTo = target => {
-    const { history, location } = this.props
-    history.replace(target + location.search)
+    const { navigate, location } = this.props
+    navigate(target + location.search, { replace: true })
     return null
   }
 
@@ -82,4 +86,12 @@ export class ApplicationRouting extends Component {
   }
 }
 
-export default translate()(ApplicationRouting)
+const ApplicationRoutingWrapper = props => {
+  const navigate = useNavigate()
+  const location = useLocation()
+  return (
+    <ApplicationRouting {...props} navigate={navigate} location={location} />
+  )
+}
+
+export default translate()(ApplicationRoutingWrapper)
