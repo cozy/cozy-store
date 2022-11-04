@@ -1,5 +1,6 @@
 /* global cozy */
 import React, { Component } from 'react'
+import { useMatch, useNavigate } from 'react-router-dom'
 
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
@@ -18,7 +19,7 @@ export class MyApplications extends Component {
   }
 
   onAppClick(appSlug) {
-    this.props.history.push(`/myapps/${appSlug}`)
+    this.props.navigate(`/myapps/${appSlug}`)
   }
 
   render() {
@@ -30,9 +31,8 @@ export class MyApplications extends Component {
       fetchError,
       actionError,
       breakpoints = {},
-      match
+      isExact
     } = this.props
-    const { isExact } = match
     const { isMobile } = breakpoints
     const title = <h2 className="sto-view-title">{t('myapps.title')}</h2>
     return (
@@ -61,4 +61,11 @@ export class MyApplications extends Component {
   }
 }
 
-export default translate()(withBreakpoints()(MyApplications))
+const MyApplicationsWrapper = props => {
+  const isExact = useMatch('myapps')
+  const navigate = useNavigate()
+
+  return <MyApplications {...props} isExact={isExact} navigate={navigate} />
+}
+
+export default translate()(withBreakpoints()(MyApplicationsWrapper))

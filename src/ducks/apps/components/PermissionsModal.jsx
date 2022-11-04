@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import Modal, {
   ModalContent,
@@ -11,11 +12,11 @@ import PermissionsList from 'ducks/apps/components/PermissionsList'
 
 export class PermissionsModal extends Component {
   gotoParent() {
-    const { app, parent, history } = this.props
+    const { app, parent, navigate } = this.props
     if (app && app.slug) {
-      history.push(`${parent}/${app.slug}`)
+      navigate(`${parent}/${app.slug}`)
     } else {
-      history.push(`${parent}`)
+      navigate(`${parent}`)
     }
   }
 
@@ -36,4 +37,9 @@ export class PermissionsModal extends Component {
   }
 }
 
-export default translate()(PermissionsModal)
+const PermissionsModalWrapper = props => {
+  const navigate = useNavigate()
+  return <PermissionsModal {...props} navigate={navigate} />
+}
+
+export default translate()(PermissionsModalWrapper)

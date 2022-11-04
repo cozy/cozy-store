@@ -1,4 +1,5 @@
 import React from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import Sections from './Sections'
 import isNavigationEnabled from 'lib/isNavigationEnabled'
 import omit from 'lodash/omit'
@@ -75,13 +76,13 @@ class QuerystringSections extends React.Component {
 
   // Saves filter to query part
   handleFilterChange(filter) {
-    const { history, location } = this.props
+    const { navigate, location } = this.props
     const pathname = location.pathname
     if (Object.keys(filter).length) {
-      history.push(`${pathname}?${queryFromFilter(filter)}`)
+      navigate(`${pathname}?${queryFromFilter(filter)}`)
     } else {
       // Remove the query part if filter is empty
-      history.push(pathname)
+      navigate(pathname)
     }
   }
 
@@ -98,4 +99,12 @@ class QuerystringSections extends React.Component {
   }
 }
 
-export default QuerystringSections
+const QuerystringSectionsWrapper = props => {
+  const navigate = useNavigate()
+  const location = useLocation()
+  return (
+    <QuerystringSections {...props} navigate={navigate} location={location} />
+  )
+}
+
+export default QuerystringSectionsWrapper
