@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withRouter, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 
@@ -82,4 +82,4 @@ export class ApplicationRouting extends Component {
   }
 }
 
-export default withRouter(translate()(ApplicationRouting))
+export default translate()(ApplicationRouting)

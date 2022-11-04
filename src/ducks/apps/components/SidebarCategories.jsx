@@ -92,4 +92,4 @@ export class SidebarCategories extends Component {
   }
 }
 
-export default withRouter(translate()(withBreakpoints()(SidebarCategories)))
+export default translate()(withBreakpoints()(SidebarCategories))

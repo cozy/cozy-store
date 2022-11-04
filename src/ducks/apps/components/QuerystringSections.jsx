@@ -1,5 +1,4 @@
 import React from 'react'
-import { withRouter } from 'react-router'
 import Sections from './Sections'
 import isNavigationEnabled from 'lib/isNavigationEnabled'
 import omit from 'lodash/omit'
@@ -104,4 +103,4 @@ class QuerystringSections extends React.Component {
   }
 }
 
-export default withRouter(QuerystringSections)
+export default QuerystringSections

@@ -60,4 +60,4 @@ export const StoreSidebar = React.memo(({ location, t, breakpoints = {} }) => {
 })
 StoreSidebar.displayName = 'Sidebar'
 
-export default translate()(withBreakpoints()(withRouter(StoreSidebar)))
+export default translate()(withBreakpoints()(StoreSidebar))

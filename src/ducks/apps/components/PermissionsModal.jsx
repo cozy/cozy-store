@@ -7,7 +7,6 @@ import Modal, {
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 import Portal from 'cozy-ui/transpiled/react/Portal'
 
-import { withRouter } from 'react-router-dom'
 import PermissionsList from 'ducks/apps/components/PermissionsList'
 
 export class PermissionsModal extends Component {
@@ -37,4 +36,4 @@ export class PermissionsModal extends Component {
   }
 }
 
-export default withRouter(translate()(PermissionsModal))
+export default translate()(PermissionsModal)

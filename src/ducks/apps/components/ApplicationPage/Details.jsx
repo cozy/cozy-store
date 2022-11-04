@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
 
 import { withClient } from 'cozy-client'
 import { translate } from 'cozy-ui/transpiled/react/I18n'
@@ -224,4 +223,4 @@ export class Details extends Component {
   }
 }
 
-export default withClient(withRouter(translate()(Details)))
+export default withClient(translate()(Details))
