@@ -307,6 +307,6 @@
 
   "discover-search-field": {
     "label": "Rechercher :",
-    "placeholder": "\"SNCF\", \"énergie\", \"factures\""
+    "placeholder": "\"Ameli\", \"énergie\", \"factures\""
   }
 }
