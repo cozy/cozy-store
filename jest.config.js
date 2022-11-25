@@ -16,5 +16,6 @@ module.exports = {
     __TARGET__: 'browser',
     __SENTRY_TOKEN__: 'token',
     cozy: {}
-  }
+  },
+  snapshotSerializers: ['enzyme-to-json/serializer']
 }

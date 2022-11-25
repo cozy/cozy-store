@@ -4,13 +4,12 @@
 
 import React from 'react'
 import { shallow } from 'enzyme'
-import { Route } from 'react-router-dom'
-
+import { useParams } from 'react-router-dom'
 import { UninstallRoute } from 'ducks/apps/components/ApplicationRouting/UninstallRoute'
 
 import mockApps from '../../_mockApps'
 
-const getAppMock = ({ params }) => mockApps.find(a => a.slug === params.appSlug)
+const getAppMock = params => mockApps.find(a => a.slug === params.appSlug)
 
 const getProps = (isFetching = false, getApp = getAppMock) => ({
   isFetching,
@@ -19,35 +18,33 @@ const getProps = (isFetching = false, getApp = getAppMock) => ({
   redirectTo: jest.fn(() => null)
 })
 
+jest.mock('react-router-dom', () => ({
+  useParams: jest.fn()
+}))
+
 describe('UninstallRoute component', () => {
   it('should display uninstall modal if installed app found', () => {
+    // tasky in mockApps is installed and uninstallable
+    useParams.mockReturnValue({ appSlug: 'tasky' })
     const props = getProps()
     const component = shallow(<UninstallRoute {...props} />)
-    const route = component.find(Route).getElement()
-    // tasky in mockApps is installed and uninstallable
-    const routeProps = { match: { params: { appSlug: 'tasky' } } }
-    const resultComponent = route.props.render(routeProps)
-    expect(resultComponent).toMatchSnapshot()
+    expect(component).toMatchSnapshot()
   })
 
   it('should display nothing if isFetching', () => {
+    // photos in mockApps is isInRegistry
+    useParams.mockReturnValue({ appSlug: 'photos' })
     const props = getProps(true)
     const component = shallow(<UninstallRoute {...props} />)
-    const route = component.find(Route).getElement()
-    // photos in mockApps is isInRegistry
-    const routeProps = { match: { params: { appSlug: 'photos' } } }
-    const resultComponent = route.props.render(routeProps)
-    expect(resultComponent).toBe(null)
+    expect(component.isEmptyRender()).toBe(true)
   })
 
   it('should redirectTo parent if no app found', () => {
+    useParams.mockReturnValue({})
     const props = getProps(false, jest.fn())
     const component = shallow(<UninstallRoute {...props} />)
-    const route = component.find(Route).getElement()
-    const routeProps = { match: { params: {} } }
-    const resultComponent = route.props.render(routeProps)
     expect(props.redirectTo.mock.calls.length).toBe(1)
     expect(props.redirectTo.mock.calls[0][0]).toBe(`/${props.parent}`)
-    expect(resultComponent).toBe(null)
+    expect(component.isEmptyRender()).toBe(true)
   })
 })

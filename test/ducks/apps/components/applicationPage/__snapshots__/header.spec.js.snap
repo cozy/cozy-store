@@ -147,7 +147,13 @@ Gestionnaire de photos pour Cozy v3 :tada:",
       icon="test-file-stub"
       label="Install"
       onClick={null}
-      tag={[Function]}
+      tag={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "displayName": "Link",
+          "render": [Function],
+        }
+      }
       theme="primary"
       to="//myapps/photos/install"
     />
@@ -295,7 +301,13 @@ Gestionnaire de photos pour Cozy v3 :tada:",
       icon="test-file-stub"
       label="Install"
       onClick={null}
-      tag={[Function]}
+      tag={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "displayName": "Link",
+          "render": [Function],
+        }
+      }
       theme="primary"
       to="//myapps/photos/install"
     />
@@ -435,7 +447,13 @@ exports[`ApplicationPage header component should be rendered correctly provided 
       icon="test-file-stub"
       label="Install"
       onClick={null}
-      tag={[Function]}
+      tag={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "displayName": "Link",
+          "render": [Function],
+        }
+      }
       theme="primary"
       to="//myapps/konnector-trinlane/install"
     />
@@ -584,7 +602,13 @@ Gestionnaire de photos pour Cozy v3 :tada:",
       icon="test-file-stub"
       label="Install"
       onClick={null}
-      tag={[Function]}
+      tag={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "displayName": "Link",
+          "render": [Function],
+        }
+      }
       theme="primary"
       to="//discover/photos/install"
     />

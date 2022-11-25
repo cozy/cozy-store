@@ -20,9 +20,7 @@ const mockInstalledApps = mockApps.filter(a => a.installed)
 const getMockProps = (
   installedApps = mockInstalledApps,
   isFetching = false,
-  fetchError = null,
-  match = { isExact: true },
-  location = null
+  fetchError = null
 ) => ({
   fetchApps: jest.fn(),
   uninstallApp: jest.fn(),
@@ -30,9 +28,7 @@ const getMockProps = (
   isFetching,
   fetchError,
   actionError: null,
-  history: { push: jest.fn() },
-  match,
-  location
+  navigate: jest.fn()
 })
 
 describe('MyApplications component', () => {
@@ -80,8 +76,8 @@ describe('MyApplications component', () => {
     const component = shallow(<MyApplications t={tMock} {...mockProps} />)
     const instance = component.instance()
     instance.onAppClick(mockInstalledApps[0].slug)
-    expect(mockProps.history.push.mock.calls.length).toBe(1)
-    expect(mockProps.history.push.mock.calls[0][0]).toBe(
+    expect(mockProps.navigate).toHaveBeenCalledTimes(1)
+    expect(mockProps.navigate).toHaveBeenCalledWith(
       `/myapps/${mockInstalledApps[0].slug}`
     )
   })

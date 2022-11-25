@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`UninstallRoute component should display uninstall modal if installed app found 1`] = `
-<withClient(Connect(withI18n(withRouter(UninstallModal))))
+<withClient(Connect(withI18n(UninstallModal)))
   appSlug="tasky"
   dismissAction={[Function]}
   onNotInstalled={[Function]}
