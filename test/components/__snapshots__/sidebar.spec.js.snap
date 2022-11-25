@@ -1,54 +1,105 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`StoreSidebar component should be rendered correctly 1`] = `
-<Sidebar>
-  <Nav>
-    <React.Fragment>
-      <NavItem>
-        <NavLink
-          activeClassName="styles__is-active___2D0jN"
-          aria-current="page"
-          className="styles__c-nav-link___3mK6W"
-          to="/discover"
-        >
-          <NavIcon
-            icon="test-file-stub"
-          />
-          <NavText>
-            Applications
-          </NavText>
-        </NavLink>
-      </NavItem>
-      <withRouter(Connect(withRouter(withI18n(withBreakpoints(SidebarCategories)))))
-        parent="/discover"
+<Routes>
+  <Route
+    path="redirect"
+    render={[Function]}
+  />
+  <Route
+    element={<withI18n(Connect(withI18n(withBreakpoints(DiscoverWrapper)))) />}
+    path="discover/*"
+  />
+  <Route
+    element={<withI18n(Connect(withI18n(withBreakpoints(MyApplicationsWrapper)))) />}
+    path="myapps/*"
+  />
+  <Route
+    element={
+      <Navigate
+        replace={true}
+        to="myapps"
       />
-    </React.Fragment>
-    <React.Fragment>
-      <NavItem>
-        <NavLink
-          activeClassName="styles__is-active___2D0jN"
-          aria-current="page"
-          className="styles__c-nav-link___3mK6W"
-          to="/myapps"
-        >
-          <NavIcon
-            icon="test-file-stub"
-          />
-          <NavText>
-            Installed
-          </NavText>
-        </NavLink>
-      </NavItem>
-      <withRouter(Connect(withRouter(withI18n(withBreakpoints(SidebarCategories)))))
-        parent="/myapps"
-      />
-    </React.Fragment>
-  </Nav>
-</Sidebar>
+    }
+    path="*"
+  />
+</Routes>
 `;
 
-exports[`StoreSidebar component should not render if nav is disabled using search flag 1`] = `null`;
+exports[`StoreSidebar component should not render if nav is disabled using search flag 1`] = `
+<Routes>
+  <Route
+    path="redirect"
+    render={[Function]}
+  />
+  <Route
+    element={<withI18n(Connect(withI18n(withBreakpoints(DiscoverWrapper)))) />}
+    path="discover/*"
+  />
+  <Route
+    element={<withI18n(Connect(withI18n(withBreakpoints(MyApplicationsWrapper)))) />}
+    path="myapps/*"
+  />
+  <Route
+    element={
+      <Navigate
+        replace={true}
+        to="myapps"
+      />
+    }
+    path="*"
+  />
+</Routes>
+`;
 
-exports[`StoreSidebar component should not render if nav is enabled but only one store part is displayed and we are on mobile 1`] = `null`;
+exports[`StoreSidebar component should not render if nav is enabled but only one store part is displayed and we are on mobile 1`] = `
+<Routes>
+  <Route
+    path="redirect"
+    render={[Function]}
+  />
+  <Route
+    element={<withI18n(Connect(withI18n(withBreakpoints(DiscoverWrapper)))) />}
+    path="discover/*"
+  />
+  <Route
+    element={<withI18n(Connect(withI18n(withBreakpoints(MyApplicationsWrapper)))) />}
+    path="myapps/*"
+  />
+  <Route
+    element={
+      <Navigate
+        replace={true}
+        to="myapps"
+      />
+    }
+    path="*"
+  />
+</Routes>
+`;
 
-exports[`StoreSidebar component should not render if nav is enabled but only one store part is displayed and we are on tablet 1`] = `null`;
+exports[`StoreSidebar component should not render if nav is enabled but only one store part is displayed and we are on tablet 1`] = `
+<Routes>
+  <Route
+    path="redirect"
+    render={[Function]}
+  />
+  <Route
+    element={<withI18n(Connect(withI18n(withBreakpoints(DiscoverWrapper)))) />}
+    path="discover/*"
+  />
+  <Route
+    element={<withI18n(Connect(withI18n(withBreakpoints(MyApplicationsWrapper)))) />}
+    path="myapps/*"
+  />
+  <Route
+    element={
+      <Navigate
+        replace={true}
+        to="myapps"
+      />
+    }
+    path="*"
+  />
+</Routes>
+`;

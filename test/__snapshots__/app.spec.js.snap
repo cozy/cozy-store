@@ -8,35 +8,9 @@ exports[`App component only should be mounted correctly 1`] = `
     <Alerter
       into="body"
     />
-    <withI18n(withBreakpoints(withRouter(Sidebar))) />
+    <withI18n(withBreakpoints(Sidebar)) />
     <Main>
-      <Switch>
-        <Route
-          component={[Function]}
-          path="/redirect"
-        />
-        <Route
-          component={[Function]}
-          path="/discover"
-        />
-        <Route
-          component={[Function]}
-          path="/myapps"
-        />
-        <React.Fragment>
-          <Redirect
-            exact={true}
-            from="/"
-            push={false}
-            to="/discover"
-          />
-          <Redirect
-            from="*"
-            push={false}
-            to="/discover"
-          />
-        </React.Fragment>
-      </Switch>
+      <AppRouter />
     </Main>
     <Sprite />
   </Layout>

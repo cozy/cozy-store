@@ -4,6 +4,7 @@
 
 import React from 'react'
 import { shallow } from 'enzyme'
+import { Route } from 'react-router-dom'
 
 import { ApplicationRouting } from 'ducks/apps/components/ApplicationRouting'
 
@@ -23,8 +24,8 @@ const getMockProps = (
   installedApps,
   isFetching,
   parent,
-  history: { push: jest.fn(), replace: jest.fn() },
   location: { search: '' },
+  navigate: jest.fn(),
   uninstallApp: jest.fn().mockName('mockUninstallApp'),
   installApp: jest.fn().mockName('mockInstallApp')
 })
@@ -35,22 +36,16 @@ describe('ApplicationRouting main component', () => {
   it('should render routes components correctly if app found', () => {
     const mockProps = getMockProps('myapps')
     const component = shallow(<ApplicationRouting {...mockProps} />)
-    expect(component.children().length).toBe(TOTAL_ROUTES)
+    expect(component.find(Route).length).toBe(TOTAL_ROUTES)
   })
 
-  it('should call history from props with redirectTo', () => {
+  it('should call navigate from props with redirectTo', () => {
     const mockProps = getMockProps('myapps')
     const component = shallow(<ApplicationRouting {...mockProps} />)
     component.instance().redirectTo('/myapps')
-    expect(mockProps.history.replace.mock.calls.length).toBe(1)
-    expect(mockProps.history.replace.mock.calls[0][0]).toBe('/myapps')
-  })
-
-  it('should call history from props with redirectTo', () => {
-    const mockProps = getMockProps('myapps')
-    const component = shallow(<ApplicationRouting {...mockProps} />)
-    component.instance().redirectTo('/myapps')
-    expect(mockProps.history.replace.mock.calls.length).toBe(1)
-    expect(mockProps.history.replace.mock.calls[0][0]).toBe('/myapps')
+    expect(mockProps.navigate).toHaveBeenCalledTimes(1)
+    expect(mockProps.navigate).toHaveBeenCalledWith('/myapps', {
+      replace: true
+    })
   })
 })

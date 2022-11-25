@@ -7,7 +7,7 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
   <div
     className="sto-list-container"
   >
-    <withRouter(QuerystringSections)
+    <QuerystringSectionsWrapper
       apps={
         Array [
           Object {
@@ -154,7 +154,7 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
       onAppClick={[Function]}
     />
   </div>
-  <withRouter(withI18n(ApplicationRouting))
+  <withI18n(ApplicationRoutingWrapper)
     actionError={null}
     installedApps={
       Array [
@@ -311,7 +311,7 @@ exports[`MyApplications component should be rendered correctly with apps and URL
   <div
     className="sto-list-container"
   >
-    <withRouter(QuerystringSections)
+    <QuerystringSectionsWrapper
       apps={
         Array [
           Object {
@@ -458,7 +458,7 @@ exports[`MyApplications component should be rendered correctly with apps and URL
       onAppClick={[Function]}
     />
   </div>
-  <withRouter(withI18n(ApplicationRouting))
+  <withI18n(ApplicationRoutingWrapper)
     actionError={null}
     installedApps={
       Array [
@@ -615,13 +615,13 @@ exports[`MyApplications component should display error from props correctly 1`] 
   <div
     className="sto-list-container"
   >
-    <withRouter(QuerystringSections)
+    <QuerystringSectionsWrapper
       apps={Array []}
       error={[Error: This is a test error]}
       onAppClick={[Function]}
     />
   </div>
-  <withRouter(withI18n(ApplicationRouting))
+  <withI18n(ApplicationRoutingWrapper)
     actionError={null}
     installedApps={Array []}
     isFetching={false}
@@ -634,11 +634,10 @@ exports[`MyApplications component should render correctly a spinner if apps is f
 <Content
   className="sto-myapps"
 >
-  <withBreakpoints(AppsLoading) />
   <div
     className="sto-list-container"
   />
-  <withRouter(withI18n(ApplicationRouting))
+  <withI18n(ApplicationRoutingWrapper)
     actionError={null}
     installedApps={Array []}
     isFetching={true}
@@ -661,7 +660,7 @@ exports[`MyApplications component should use BarCenter from cozy-bar in mobile v
         Installed
       </h2>
     </BarCenter>
-    <withRouter(QuerystringSections)
+    <QuerystringSectionsWrapper
       apps={
         Array [
           Object {
@@ -808,7 +807,7 @@ exports[`MyApplications component should use BarCenter from cozy-bar in mobile v
       onAppClick={[Function]}
     />
   </div>
-  <withRouter(withI18n(ApplicationRouting))
+  <withI18n(ApplicationRoutingWrapper)
     actionError={null}
     installedApps={
       Array [

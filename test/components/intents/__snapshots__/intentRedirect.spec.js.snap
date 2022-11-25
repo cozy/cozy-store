@@ -1,22 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`IntentRedirect component should be rendered correctly if search for slug 1`] = `
-<Redirect
-  push={false}
+<Navigate
   to="/discover/mock"
 />
 `;
 
 exports[`IntentRedirect component should be rendered correctly if url search provided 1`] = `
-<Redirect
-  push={false}
+<Navigate
   to="/discover/?doctype=io.cozy.apps"
 />
 `;
 
 exports[`IntentRedirect component should handle search param without value 1`] = `
-<Redirect
-  push={false}
+<Navigate
   to="/discover/mock"
 />
 `;

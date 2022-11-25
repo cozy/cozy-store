@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PermissionsRoute component should display permissions modal if app found 1`] = `
-<withRouter(withI18n(PermissionsModal))
+<withI18n(PermissionsModalWrapper)
   app={
     Object {
       "categories": Array [

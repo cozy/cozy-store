@@ -7,6 +7,7 @@ import { shallow } from 'enzyme'
 
 import { tMock } from '../jestLib/I18n'
 import { StoreSidebar } from 'ducks/components/Sidebar'
+import { AppRouter } from 'ducks/components/AppRouter'
 
 describe('StoreSidebar component', () => {
   beforeEach(() => {
@@ -18,7 +19,9 @@ describe('StoreSidebar component', () => {
       search: ''
     }
     const component = shallow(
-      <StoreSidebar t={tMock} location={mockLocation} />
+      <AppRouter>
+        <StoreSidebar t={tMock} location={mockLocation} />
+      </AppRouter>
     ).getElement()
     expect(component).toMatchSnapshot()
   })
@@ -28,7 +31,9 @@ describe('StoreSidebar component', () => {
       search: '?nav=false'
     }
     const component = shallow(
-      <StoreSidebar t={tMock} location={mockLocation} />
+      <AppRouter>
+        <StoreSidebar t={tMock} location={mockLocation} />
+      </AppRouter>
     ).getElement()
     expect(component).toMatchSnapshot()
   })
@@ -50,11 +55,13 @@ describe('StoreSidebar component', () => {
     }
     const StoreSidebar = require('ducks/components/Sidebar').StoreSidebar
     const component = shallow(
-      <StoreSidebar
-        t={tMock}
-        location={mockLocation}
-        breakpoints={{ isMobile: true }}
-      />
+      <AppRouter>
+        <StoreSidebar
+          t={tMock}
+          location={mockLocation}
+          breakpoints={{ isMobile: true }}
+        />
+      </AppRouter>
     ).getElement()
     expect(component).toMatchSnapshot()
   })
@@ -76,11 +83,13 @@ describe('StoreSidebar component', () => {
     }
     const StoreSidebar = require('ducks/components/Sidebar').StoreSidebar
     const component = shallow(
-      <StoreSidebar
-        t={tMock}
-        location={mockLocation}
-        breakpoints={{ isTablet: true }}
-      />
+      <AppRouter>
+        <StoreSidebar
+          t={tMock}
+          location={mockLocation}
+          breakpoints={{ isTablet: true }}
+        />
+      </AppRouter>
     ).getElement()
     expect(component).toMatchSnapshot()
   })

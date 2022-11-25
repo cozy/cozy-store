@@ -24,18 +24,14 @@ const mockRegistyApps = mockApps
 const getMockProps = (
   apps = mockRegistyApps,
   isFetching = false,
-  fetchError = null,
-  match = { isExact: true },
-  location = null
+  fetchError = null
 ) => ({
   fetchApps: jest.fn(),
   apps,
   isFetching,
   fetchError,
   actionError: null,
-  history: { push: jest.fn() },
-  match,
-  location
+  navigate: jest.fn()
 })
 
 describe('Discover component', () => {
@@ -82,8 +78,8 @@ describe('Discover component', () => {
     const component = shallow(<Discover t={tMock} {...mockProps} />)
     const instance = component.instance()
     instance.onAppClick(mockRegistyApps[0].slug)
-    expect(mockProps.history.push.mock.calls.length).toBe(1)
-    expect(mockProps.history.push.mock.calls[0][0]).toBe(
+    expect(mockProps.navigate).toHaveBeenCalledTimes(1)
+    expect(mockProps.navigate).toHaveBeenCalledWith(
       `/discover/${mockRegistyApps[0].slug}`
     )
   })

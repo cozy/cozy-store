@@ -25,8 +25,14 @@ exports[`ApplicationPage component should be rendered correctly with app infos f
         label="Back to the list"
         onClick={[Function]}
         subtle={true}
-        tag={[Function]}
-        to="/myapps"
+        tag={
+          Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "displayName": "Link",
+            "render": [Function],
+          }
+        }
+        to="//myapps"
       />
       <Connect(withBreakpoints(withI18n(withClient(Header))))
         app={
@@ -147,7 +153,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         namePrefix="Cozy"
         parent="/myapps"
       />
-      <withClient(withRouter(withI18n(Details)))
+      <withClient(withI18n(DetailsWrapper))
         app={
           Object {
             "categories": Array [
@@ -311,8 +317,14 @@ exports[`ApplicationPage component should be rendered correctly with app with sc
         label="Back to the list"
         onClick={[Function]}
         subtle={true}
-        tag={[Function]}
-        to="/myapps"
+        tag={
+          Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "displayName": "Link",
+            "render": [Function],
+          }
+        }
+        to="//myapps"
       />
       <Connect(withBreakpoints(withI18n(withClient(Header))))
         app={
@@ -443,7 +455,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         }
         slug="photos"
       />
-      <withClient(withRouter(withI18n(Details)))
+      <withClient(withI18n(DetailsWrapper))
         app={
           Object {
             "categories": Array [
@@ -609,8 +621,14 @@ exports[`ApplicationPage component should be rendered correctly with konnector i
         label="Back to the list"
         onClick={[Function]}
         subtle={true}
-        tag={[Function]}
-        to="/myapps"
+        tag={
+          Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "displayName": "Link",
+            "render": [Function],
+          }
+        }
+        to="//myapps"
       />
       <Connect(withBreakpoints(withI18n(withClient(Header))))
         app={
@@ -716,7 +734,7 @@ exports[`ApplicationPage component should be rendered correctly with konnector i
         namePrefix=""
         parent="/myapps"
       />
-      <withClient(withRouter(withI18n(Details)))
+      <withClient(withI18n(DetailsWrapper))
         app={
           Object {
             "categories": Array [
@@ -849,8 +867,14 @@ exports[`ApplicationPage component should be rendered correctly with provided in
         label="Back to the list"
         onClick={[Function]}
         subtle={true}
-        tag={[Function]}
-        to="/myapps"
+        tag={
+          Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "displayName": "Link",
+            "render": [Function],
+          }
+        }
+        to="//myapps"
       />
       <Connect(withBreakpoints(withI18n(withClient(Header))))
         app={
@@ -971,7 +995,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         namePrefix="Cozy"
         parent="/myapps"
       />
-      <withClient(withRouter(withI18n(Details)))
+      <withClient(withI18n(DetailsWrapper))
         app={
           Object {
             "categories": Array [
@@ -1135,8 +1159,14 @@ exports[`ApplicationPage component should be rendered correctly with provided in
         label="Back to the list"
         onClick={[Function]}
         subtle={true}
-        tag={[Function]}
-        to="/myapps"
+        tag={
+          Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "displayName": "Link",
+            "render": [Function],
+          }
+        }
+        to="//myapps"
       />
       <Connect(withBreakpoints(withI18n(withClient(Header))))
         app={
@@ -1242,7 +1272,7 @@ exports[`ApplicationPage component should be rendered correctly with provided in
         namePrefix=""
         parent="/myapps"
       />
-      <withClient(withRouter(withI18n(Details)))
+      <withClient(withI18n(DetailsWrapper))
         app={
           Object {
             "categories": Array [
@@ -1375,8 +1405,14 @@ exports[`ApplicationPage component should be rendered correctly without app desc
         label="Back to the list"
         onClick={[Function]}
         subtle={true}
-        tag={[Function]}
-        to="/myapps"
+        tag={
+          Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "displayName": "Link",
+            "render": [Function],
+          }
+        }
+        to="//myapps"
       />
       <Connect(withBreakpoints(withI18n(withClient(Header))))
         app={
@@ -1481,7 +1517,7 @@ exports[`ApplicationPage component should be rendered correctly without app desc
         namePrefix=""
         parent="/myapps"
       />
-      <withClient(withRouter(withI18n(Details)))
+      <withClient(withI18n(DetailsWrapper))
         app={
           Object {
             "categories": Array [
@@ -1763,8 +1799,14 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         label="Back to the list"
         onClick={[Function]}
         subtle={true}
-        tag={[Function]}
-        to="/myapps"
+        tag={
+          Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "displayName": "Link",
+            "render": [Function],
+          }
+        }
+        to="//myapps"
       />
       <Connect(withBreakpoints(withI18n(withClient(Header))))
         app={
@@ -1885,7 +1927,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         namePrefix="Cozy"
         parent="/myapps"
       />
-      <withClient(withRouter(withI18n(Details)))
+      <withClient(withI18n(DetailsWrapper))
         app={
           Object {
             "categories": Array [
@@ -2191,8 +2233,14 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         label="Back to the list"
         onClick={[Function]}
         subtle={true}
-        tag={[Function]}
-        to="/myapps"
+        tag={
+          Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "displayName": "Link",
+            "render": [Function],
+          }
+        }
+        to="//myapps"
       />
       <Connect(withBreakpoints(withI18n(withClient(Header))))
         app={
@@ -2313,7 +2361,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         namePrefix="Cozy"
         parent="/myapps"
       />
-      <withClient(withRouter(withI18n(Details)))
+      <withClient(withI18n(DetailsWrapper))
         app={
           Object {
             "categories": Array [
