@@ -14,7 +14,6 @@ import { Sections } from 'ducks/apps/components/Sections/Sections'
 
 import mockApps from 'ducks/apps/_mockApps'
 import enLocale from '../../../../locales/en.json'
-import flag from 'cozy-flags'
 
 jest.mock('lodash/debounce', () => jest.fn(fn => fn))
 
@@ -60,14 +59,6 @@ describe('AppsSection component', () => {
 })
 
 describe('Search', () => {
-  beforeEach(() => {
-    flag('store.search', true)
-  })
-
-  afterEach(() => {
-    flag('store.search', false)
-  })
-
   it('should filter the results', async () => {
     const { root } = setup()
     const input = root.getByPlaceholderText('"Ameli", "telecom", "bills"')
