@@ -7,8 +7,6 @@ import { translate } from 'cozy-ui/transpiled/react/I18n'
 import AppSections from 'cozy-ui/transpiled/react/AppSections'
 import * as filterUtils from 'cozy-ui/transpiled/react/AppSections/search'
 
-import flag from 'cozy-flags'
-
 import { SearchField, SearchResults } from 'ducks/search/components'
 
 /**
@@ -123,12 +121,10 @@ export class Sections extends Component {
 
     return (
       <div className="sto-sections u-mt-2">
-        {flag('store.search') ? (
-          <SearchField
-            value={searchFieldValue}
-            onChange={this.handleChangeSearchFieldChange}
-          />
-        ) : null}
+        <SearchField
+          value={searchFieldValue}
+          onChange={this.handleChangeSearchFieldChange}
+        />
         {searchResults ? (
           <SearchResults
             searchResults={searchResults}
