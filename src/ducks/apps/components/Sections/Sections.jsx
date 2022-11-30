@@ -8,6 +8,7 @@ import AppSections from 'cozy-ui/transpiled/react/AppSections'
 import * as filterUtils from 'cozy-ui/transpiled/react/AppSections/search'
 
 import { SearchField, SearchResults } from 'ducks/search/components'
+import Filters from './components/Filters'
 
 /**
  * Shows a list of apps grouped by categories.
@@ -87,10 +88,13 @@ const Sections = ({ apps, error, onAppClick, filter, onFilterChange }) => {
 
   return (
     <div className="sto-sections u-mt-2">
-      <SearchField
-        value={searchFieldValue}
-        onChange={handleChangeSearchFieldChange}
-      />
+      <div className="u-flex u-flex-items-center u-mb-1">
+        <SearchField
+          value={searchFieldValue}
+          onChange={handleChangeSearchFieldChange}
+        />
+        <Filters onFilterChange={handleFilterChange} />
+      </div>
       {searchResults ? (
         <SearchResults searchResults={searchResults} onAppClick={onAppClick} />
       ) : (

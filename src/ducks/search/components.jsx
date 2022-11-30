@@ -25,14 +25,13 @@ export const SearchField = ({ onChange, value }) => {
     [onChange]
   )
   return (
-    <>
+    <div className="u-flex u-flex-items-center u-flex-grow-1">
       {!isMobile ? (
         <Label className="u-di u-mr-half" htmlFor="discover-search">
           {t('discover-search-field.label')}
         </Label>
       ) : null}
       <InputGroup
-        className={isMobile ? '' : 'u-mb-1'}
         prepend={
           isMobile ? (
             <Icon icon={Magnifier} className="u-pl-1 u-coolGrey" />
@@ -47,7 +46,7 @@ export const SearchField = ({ onChange, value }) => {
           value={value}
         />
       </InputGroup>
-    </>
+    </div>
   )
 }
 
