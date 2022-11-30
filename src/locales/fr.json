@@ -114,7 +114,14 @@
 
   "sections": {
     "applications": "Applications",
-    "konnectors": "Services"
+    "konnectors": "Services",
+    "filters": {
+      "action": "Filtrer",
+      "under_maintenance": {
+        "show": "Afficher les apps en maintenance",
+        "hide": "Masquer les apps en maintenance"
+      }
+    }
   },
 
   "app_vote": {

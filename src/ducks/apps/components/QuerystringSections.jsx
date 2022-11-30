@@ -1,16 +1,45 @@
 import React from 'react'
 import { withRouter } from 'react-router'
 import Sections from './Sections'
-import fromPairs from 'lodash/fromPairs'
 import isNavigationEnabled from 'lib/isNavigationEnabled'
 import omit from 'lodash/omit'
 
 // These query parameters won't be handled by the AppSection component
 const FILTER_BLACK_LIST = ['connector_open_uri']
 
+const parseURLSearchParams = urlParams => {
+  return Array.from(urlParams.keys()).reduce((acc, key) => {
+    const value = urlParams.get(key)
+    if (value) {
+      switch (value) {
+        case 'false': {
+          acc[key] = false
+          break
+        }
+        case 'true': {
+          acc[key] = true
+          break
+        }
+        case 'undefined': {
+          acc[key] = undefined
+          break
+        }
+        case 'null': {
+          acc[key] = null
+          break
+        }
+        default: {
+          acc[key] = value
+        }
+      }
+    }
+    return acc
+  }, {})
+}
+
 const getFilterFromQuery = query => {
   const usp = new URLSearchParams(query)
-  return omit(fromPairs(Array.from(usp.entries())), FILTER_BLACK_LIST)
+  return omit(parseURLSearchParams(usp), FILTER_BLACK_LIST)
 }
 
 const queryFromFilter = filter => {
