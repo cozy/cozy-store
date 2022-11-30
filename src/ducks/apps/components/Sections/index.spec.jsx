@@ -9,8 +9,7 @@ import I18n from 'cozy-ui/transpiled/react/I18n'
 import { BreakpointsProvider } from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 
 import { render, fireEvent, act } from '@testing-library/react'
-import { tMock } from 'jestLib/I18n'
-import { Sections } from 'ducks/apps/components/Sections/Sections'
+import Sections from 'ducks/apps/components/Sections/Sections'
 
 import mockApps from 'ducks/apps/_mockApps'
 import enLocale from '../../../../locales/en.json'
@@ -20,18 +19,16 @@ jest.mock('lodash/debounce', () => jest.fn(fn => fn))
 const setup = ({ props } = {}) => {
   const client = new CozyClient({})
   const mockOnAppClick = jest.fn()
+
   const root = render(
     <BreakpointsProvider>
       <CozyProvider client={client}>
         <I18n lang="en" dictRequire={() => enLocale}>
           <Sections
-            t={tMock}
-            lang="en"
             subtitle="Test Apps"
             apps={mockApps}
             onAppClick={mockOnAppClick}
             error={null}
-            location={{ search: '' }}
             {...props}
           />
         </I18n>

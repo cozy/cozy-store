@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import Fuse from 'fuse.js'
 import debounce from 'lodash/debounce'
 
-import { translate } from 'cozy-ui/transpiled/react/I18n'
+import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import AppSections from 'cozy-ui/transpiled/react/AppSections'
 import * as filterUtils from 'cozy-ui/transpiled/react/AppSections/search'
 
@@ -23,124 +23,86 @@ import { SearchField, SearchResults } from 'ducks/search/components'
  * Additionally, `apps` that are kept after applying this 1st filter can
  * be searched through the `state.searchFieldValue` value.
  */
-export class Sections extends Component {
-  constructor(props, context) {
-    super(props, context)
-    this.state = {
-      filter: {},
-      searchFieldValue: ''
-    }
+const Sections = ({ apps, error, onAppClick, filter, onFilterChange }) => {
+  const { lang } = useI18n()
 
-    // getFilteredApps is set here because it needs state.filter already declared
-    this.state.filteredApps = this.getFilteredApps()
+  const [internalFilter, setInternalFilter] = useState({})
+  const [searchFieldValue, setSearchFieldValue] = useState('')
+  const [searchResults, setSearchResults] = useState(null)
 
-    this.setupFuse()
-    this.handleFilterChange = this.handleFilterChange.bind(this)
-    this.handleChangeSearchFieldChange = this.handleChangeSearchFieldChange.bind(
-      this
-    )
-    this.updateSearchResults = debounce(this.updateSearchResults, 300)
+  const options = {
+    includeScore: true,
+    includeMatches: true,
+    minMatchCharLength: 3,
+    threshold: 0.2,
+    ignoreLocation: true,
+    keys: [
+      { name: 'name', weight: 3 },
+      'categories',
+      `locales.${lang}.short_description`,
+      `locales.${lang}.long_description`
+    ]
   }
 
-  setupFuse() {
-    const { lang } = this.props
-    const options = {
-      includeScore: true,
-      includeMatches: true,
-      minMatchCharLength: 3,
-      threshold: 0.2,
-      ignoreLocation: true,
-      keys: [
-        { name: 'name', weight: 3 },
-        'categories',
-        `locales.${lang}.short_description`,
-        `locales.${lang}.long_description`
-      ]
-    }
-
-    const { filteredApps } = this.state
-
-    const appsForSearch = filteredApps.map(app => ({
+  const appsForSearch = useMemo(() => {
+    const filterMatcher = filterUtils.makeMatcherFromSearch(
+      filter || internalFilter
+    )
+    return apps.filter(filterMatcher).map(app => ({
       ...app,
       doctypes: app.permissions
         ? Object.values(app.permissions).map(x => x.type)
         : null
     }))
-    this.fuse = new Fuse(appsForSearch, options)
+  }, [apps, filter, internalFilter])
+
+  const onSearchChanged = useMemo(
+    () =>
+      debounce(value => {
+        const fuse = new Fuse(appsForSearch, options)
+        setSearchResults(value ? fuse.search(value) : null)
+      }, 300),
+    [appsForSearch, options]
+  )
+
+  useEffect(() => {
+    setSearchFieldValue('')
+    setSearchResults(null)
+  }, [filter, apps])
+
+  const handleChangeSearchFieldChange = value => {
+    setSearchFieldValue(value)
+    onSearchChanged(value)
   }
 
-  componentDidUpdate(prevProps) {
-    if (
-      prevProps.filter !== this.props.filter ||
-      prevProps.apps !== this.props.apps
-    ) {
-      this.updateFilteredApps()
-      this.setState({ searchResults: null, searchFieldValue: '' })
+  const handleFilterChange = filter => {
+    if (typeof onFilterChange === 'function') {
+      onFilterChange(filter)
+    } else {
+      setInternalFilter(filter)
     }
   }
 
-  getFilteredApps() {
-    const filter = this.props.filter || this.state.filter
-    const filterMatcher = filterUtils.makeMatcherFromSearch(filter)
-    const filteredApps = this.props.apps.filter(filterMatcher)
-    return filteredApps
-  }
+  if (error) return <p className="u-error">{error.message}</p>
 
-  updateFilteredApps() {
-    this.setState({ filteredApps: this.getFilteredApps() }, () => {
-      this.setupFuse()
-    })
-  }
-
-  handleChangeSearchFieldChange(searchFieldValue) {
-    this.setState({
-      searchFieldValue
-    })
-    this.updateSearchResults(searchFieldValue)
-  }
-
-  /** Performs the fuse search, is debounced in the constructor */
-  updateSearchResults(searchFieldValue) {
-    const searchResults = searchFieldValue
-      ? this.fuse.search(searchFieldValue)
-      : null
-    this.setState({ searchResults })
-  }
-
-  handleFilterChange(filter) {
-    if (typeof this.props.onFilterChange === 'function') {
-      this.props.onFilterChange(filter)
-    }
-  }
-
-  render() {
-    const { error, onAppClick, filter } = this.props
-    const { searchFieldValue, searchResults } = this.state
-
-    if (error) return <p className="u-error">{error.message}</p>
-
-    return (
-      <div className="sto-sections u-mt-2">
-        <SearchField
-          value={searchFieldValue}
-          onChange={this.handleChangeSearchFieldChange}
+  return (
+    <div className="sto-sections u-mt-2">
+      <SearchField
+        value={searchFieldValue}
+        onChange={handleChangeSearchFieldChange}
+      />
+      {searchResults ? (
+        <SearchResults searchResults={searchResults} onAppClick={onAppClick} />
+      ) : (
+        <AppSections
+          search={filter}
+          onSearchChange={handleFilterChange}
+          apps={apps}
+          onAppClick={onAppClick}
         />
-        {searchResults ? (
-          <SearchResults
-            searchResults={searchResults}
-            onAppClick={onAppClick}
-          />
-        ) : (
-          <AppSections
-            search={filter}
-            onSearchChange={this.handleFilterChange}
-            apps={this.props.apps}
-            onAppClick={onAppClick}
-          />
-        )}
-      </div>
-    )
-  }
+      )}
+    </div>
+  )
 }
 
 Sections.propTypes = {
@@ -150,4 +112,4 @@ Sections.propTypes = {
   onFilterChange: PropTypes.func
 }
 
-export default translate()(Sections)
+export default Sections
