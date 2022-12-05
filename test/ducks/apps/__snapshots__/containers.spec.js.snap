@@ -4,7 +4,7 @@ exports[`Apps Containers (connected components): Discover should be rendered cor
 <Context.Provider
   value={null}
 >
-  <withI18n(withBreakpoints(DiscoverWrapper))
+  <withI18n(withBreakpoints(withRouterUtils(DiscoverWrapper)))
     actionError={null}
     apps={Array []}
     dispatch={[Function]}
@@ -30,7 +30,7 @@ exports[`Apps Containers (connected components): MyApplications should be render
 <Context.Provider
   value={null}
 >
-  <withI18n(withBreakpoints(MyApplicationsWrapper))
+  <withI18n(withBreakpoints(withRouterUtils(MyApplicationsWrapper)))
     actionError={null}
     apps={Array []}
     dispatch={[Function]}

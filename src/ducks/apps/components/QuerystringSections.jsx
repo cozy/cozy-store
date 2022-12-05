@@ -1,7 +1,7 @@
 import React from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
 import Sections from './Sections'
 import isNavigationEnabled from 'lib/isNavigationEnabled'
+import { useNavigateNoUpdates, useLocationNoUpdates } from 'lib/RouterUtils'
 import omit from 'lodash/omit'
 
 // These query parameters won't be handled by the AppSection component
@@ -100,8 +100,8 @@ class QuerystringSections extends React.Component {
 }
 
 const QuerystringSectionsWrapper = props => {
-  const navigate = useNavigate()
-  const location = useLocation()
+  const navigate = useNavigateNoUpdates()
+  const location = useLocationNoUpdates()
   return (
     <QuerystringSections {...props} navigate={navigate} location={location} />
   )

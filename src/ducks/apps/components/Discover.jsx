@@ -1,6 +1,6 @@
 /* global cozy */
 import React, { Component } from 'react'
-import { useMatch, useNavigate } from 'react-router-dom'
+import { useMatch } from 'react-router-dom'
 
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
@@ -10,6 +10,8 @@ import ApplicationRouting from 'ducks/apps/components/ApplicationRouting'
 import Sections from 'ducks/apps/components/QuerystringSections'
 import AppsLoading from 'ducks/components/AppsLoading'
 //import AppVote from 'ducks/components/AppVote'
+
+import { useNavigateNoUpdates, withRouterUtils } from 'lib/RouterUtils'
 
 const { BarCenter } = cozy.bar
 
@@ -84,9 +86,9 @@ export class Discover extends Component {
 
 const DiscoverWrapper = props => {
   const isExact = useMatch('discover')
-  const navigate = useNavigate()
+  const navigate = useNavigateNoUpdates()
 
   return <Discover {...props} isExact={isExact} navigate={navigate} />
 }
 
-export default translate()(withBreakpoints()(DiscoverWrapper))
+export default translate()(withBreakpoints()(withRouterUtils(DiscoverWrapper)))
