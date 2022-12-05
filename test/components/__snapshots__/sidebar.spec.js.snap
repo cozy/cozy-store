@@ -7,11 +7,11 @@ exports[`StoreSidebar component should be rendered correctly 1`] = `
     render={[Function]}
   />
   <Route
-    element={<withI18n(Connect(withI18n(withBreakpoints(DiscoverWrapper)))) />}
+    element={<withI18n(Connect(withI18n(withBreakpoints(withRouterUtils(DiscoverWrapper))))) />}
     path="discover/*"
   />
   <Route
-    element={<withI18n(Connect(withI18n(withBreakpoints(MyApplicationsWrapper)))) />}
+    element={<withI18n(Connect(withI18n(withBreakpoints(withRouterUtils(MyApplicationsWrapper))))) />}
     path="myapps/*"
   />
   <Route
@@ -33,11 +33,11 @@ exports[`StoreSidebar component should not render if nav is disabled using searc
     render={[Function]}
   />
   <Route
-    element={<withI18n(Connect(withI18n(withBreakpoints(DiscoverWrapper)))) />}
+    element={<withI18n(Connect(withI18n(withBreakpoints(withRouterUtils(DiscoverWrapper))))) />}
     path="discover/*"
   />
   <Route
-    element={<withI18n(Connect(withI18n(withBreakpoints(MyApplicationsWrapper)))) />}
+    element={<withI18n(Connect(withI18n(withBreakpoints(withRouterUtils(MyApplicationsWrapper))))) />}
     path="myapps/*"
   />
   <Route
@@ -59,11 +59,11 @@ exports[`StoreSidebar component should not render if nav is enabled but only one
     render={[Function]}
   />
   <Route
-    element={<withI18n(Connect(withI18n(withBreakpoints(DiscoverWrapper)))) />}
+    element={<withI18n(Connect(withI18n(withBreakpoints(withRouterUtils(DiscoverWrapper))))) />}
     path="discover/*"
   />
   <Route
-    element={<withI18n(Connect(withI18n(withBreakpoints(MyApplicationsWrapper)))) />}
+    element={<withI18n(Connect(withI18n(withBreakpoints(withRouterUtils(MyApplicationsWrapper))))) />}
     path="myapps/*"
   />
   <Route
@@ -85,11 +85,11 @@ exports[`StoreSidebar component should not render if nav is enabled but only one
     render={[Function]}
   />
   <Route
-    element={<withI18n(Connect(withI18n(withBreakpoints(DiscoverWrapper)))) />}
+    element={<withI18n(Connect(withI18n(withBreakpoints(withRouterUtils(DiscoverWrapper))))) />}
     path="discover/*"
   />
   <Route
-    element={<withI18n(Connect(withI18n(withBreakpoints(MyApplicationsWrapper)))) />}
+    element={<withI18n(Connect(withI18n(withBreakpoints(withRouterUtils(MyApplicationsWrapper))))) />}
     path="myapps/*"
   />
   <Route

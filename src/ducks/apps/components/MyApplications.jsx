@@ -1,6 +1,6 @@
 /* global cozy */
 import React, { Component } from 'react'
-import { useMatch, useNavigate } from 'react-router-dom'
+import { useMatch } from 'react-router-dom'
 
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
@@ -9,6 +9,8 @@ import { Content } from 'cozy-ui/transpiled/react/Layout'
 import ApplicationRouting from 'ducks/apps/components/ApplicationRouting'
 import Sections from 'ducks/apps/components/QuerystringSections'
 import AppsLoading from 'ducks/components/AppsLoading'
+
+import { useNavigateNoUpdates, withRouterUtils } from 'lib/RouterUtils'
 
 const { BarCenter } = cozy.bar
 
@@ -63,9 +65,11 @@ export class MyApplications extends Component {
 
 const MyApplicationsWrapper = props => {
   const isExact = useMatch('myapps')
-  const navigate = useNavigate()
+  const navigate = useNavigateNoUpdates()
 
   return <MyApplications {...props} isExact={isExact} navigate={navigate} />
 }
 
-export default translate()(withBreakpoints()(MyApplicationsWrapper))
+export default translate()(
+  withBreakpoints()(withRouterUtils(MyApplicationsWrapper))
+)
