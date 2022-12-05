@@ -107,4 +107,4 @@ const QuerystringSectionsWrapper = props => {
   )
 }
 
-export default QuerystringSectionsWrapper
+export default React.memo(QuerystringSectionsWrapper)
