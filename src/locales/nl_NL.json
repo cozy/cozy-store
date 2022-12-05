@@ -114,7 +114,14 @@
 
   "sections": {
     "applications": "Apps",
-    "konnectors": "Diensten"
+    "konnectors": "Diensten",
+    "filters": {
+      "action": "Filter",
+      "under_maintenance": {
+        "show": "Apps in onderhoud tonen",
+        "hide": "Apps in onderhoud verbergen"
+      }
+    }
   },
 
   "app_vote": {
