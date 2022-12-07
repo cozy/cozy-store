@@ -5,16 +5,29 @@ import { withRouter, NavLink as RouterLink } from 'react-router-dom'
 
 import { categoryUtils } from 'cozy-ui/transpiled/react/AppSections'
 
-const getActiveChecker = path => (match, location) =>
-  `${location.pathname}${location.search}` === path
+const getActiveChecker = (parent, cat) => (match, location) => {
+  const urlSearchParams = new URLSearchParams(location.search)
+  const params = Object.fromEntries([...urlSearchParams])
+  if (
+    (parent === location.pathname &&
+      (cat.value === params.category && cat.type === params.type)) ||
+    (cat.value === 'konnectors' &&
+      params.type === 'konnector' &&
+      params.category === undefined)
+  ) {
+    return true
+  }
 
-const renderLink = (cat, path) => (
+  return false
+}
+
+const renderLink = (parent, cat, path) => (
   <li key={path}>
     <RouterLink
       className={`sto-side-menu-item${cat.secondary ? ' --secondary' : ''}`}
       to={path}
       activeClassName="active"
-      isActive={getActiveChecker(path)}
+      isActive={getActiveChecker(parent, cat)}
       exact
     >
       {cat.label}
@@ -57,14 +70,20 @@ export class SidebarCategories extends Component {
       addLabel
     })
 
+    const params = new URLSearchParams(location.search)
+    params.delete('type')
+    params.delete('category')
+    const extraParams = params.toString() !== '' ? '&' + params.toString() : ''
+
     // compute sidebar categories links
     const linksArray = options.map(cat => {
       if (cat.value === 'konnectors') {
-        return renderLink(cat, `${parent}?type=konnector`)
+        return renderLink(parent, cat, `${parent}?type=konnector${extraParams}`)
       } else {
         return renderLink(
+          parent,
           cat,
-          `${parent}?type=${cat.type}&category=${cat.value}`
+          `${parent}?type=${cat.type}&category=${cat.value}${extraParams}`
         )
       }
     })
