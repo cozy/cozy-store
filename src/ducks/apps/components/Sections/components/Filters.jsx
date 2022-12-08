@@ -10,13 +10,18 @@ import SettingIcon from 'cozy-ui/transpiled/react/Icons/Setting'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
+import { useEffect } from 'react'
 
 const { BarRight } = cozy.bar
 
-const Filters = ({ onFilterChange }) => {
+const Filters = ({ filter, onFilterChange }) => {
   const anchorRef = useRef()
   const [menuDisplayed, setMenuDisplayed] = useState(false)
   const [appUnderMaintenance, setAppUnderMaintenance] = useState(true)
+
+  useEffect(() => {
+    setAppUnderMaintenance(filter.underMaintenance == undefined)
+  }, [filter.underMaintenance])
 
   const toggleMenu = () => {
     setMenuDisplayed(!menuDisplayed)
@@ -27,13 +32,15 @@ const Filters = ({ onFilterChange }) => {
   }
 
   const showAppUnderMaintenance = () => {
-    setAppUnderMaintenance(true)
-    onFilterChange({})
+    delete filter.underMaintenance
+    onFilterChange({
+      ...filter
+    })
   }
 
   const hideAppUnderMaintenance = () => {
-    setAppUnderMaintenance(false)
     onFilterChange({
+      ...filter,
       underMaintenance: false
     })
   }
