@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useState, useEffect, useMemo, useRef } from 'react'
 import PropTypes from 'prop-types'
 import Fuse from 'fuse.js'
-import debounce from 'lodash/debounce'
 
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import AppSections from 'cozy-ui/transpiled/react/AppSections'
@@ -27,53 +26,58 @@ import Filters from './components/Filters'
 const Sections = ({ apps, error, onAppClick, filter, onFilterChange }) => {
   const { lang } = useI18n()
 
+  const previousFilter = useRef()
   const [internalFilter, setInternalFilter] = useState({})
   const [searchFieldValue, setSearchFieldValue] = useState('')
-  const [searchResults, setSearchResults] = useState(null)
 
-  const options = {
-    includeScore: true,
-    includeMatches: true,
-    minMatchCharLength: 3,
-    threshold: 0.2,
-    ignoreLocation: true,
-    keys: [
-      { name: 'name', weight: 3 },
-      'categories',
-      `locales.${lang}.short_description`,
-      `locales.${lang}.long_description`
-    ]
-  }
+  const options = useMemo(
+    () => ({
+      includeScore: true,
+      includeMatches: true,
+      minMatchCharLength: 3,
+      threshold: 0.2,
+      ignoreLocation: true,
+      keys: [
+        { name: 'name', weight: 3 },
+        'categories',
+        `locales.${lang}.short_description`,
+        `locales.${lang}.long_description`
+      ]
+    }),
+    [lang]
+  )
 
-  const appsForSearch = useMemo(() => {
+  const fuse = useMemo(() => {
     const filterMatcher = filterUtils.makeMatcherFromSearch(
       filter || internalFilter
     )
-    return apps.filter(filterMatcher).map(app => ({
+    const filteredApps = apps.filter(filterMatcher).map(app => ({
       ...app,
       doctypes: app.permissions
         ? Object.values(app.permissions).map(x => x.type)
         : null
     }))
-  }, [apps, filter, internalFilter])
+    return new Fuse(filteredApps, options)
+  }, [apps, filter, internalFilter, options])
 
-  const onSearchChanged = useMemo(
-    () =>
-      debounce(value => {
-        const fuse = new Fuse(appsForSearch, options)
-        setSearchResults(value ? fuse.search(value) : null)
-      }, 300),
-    [appsForSearch, options]
-  )
+  const searchResults = useMemo(() => {
+    return searchFieldValue ? fuse.search(searchFieldValue) : null
+  }, [fuse, searchFieldValue])
 
   useEffect(() => {
-    setSearchFieldValue('')
-    setSearchResults(null)
-  }, [filter, apps])
+    const currentFilter = filter || internalFilter
+    if (
+      !!previousFilter &&
+      (previousFilter.type !== currentFilter.type ||
+        previousFilter.category !== currentFilter.category)
+    ) {
+      setSearchFieldValue('')
+    }
+    previousFilter.current = currentFilter
+  }, [filter, internalFilter, previousFilter])
 
   const handleChangeSearchFieldChange = value => {
     setSearchFieldValue(value)
-    onSearchChanged(value)
   }
 
   const handleFilterChange = filter => {
@@ -93,7 +97,10 @@ const Sections = ({ apps, error, onAppClick, filter, onFilterChange }) => {
           value={searchFieldValue}
           onChange={handleChangeSearchFieldChange}
         />
-        <Filters onFilterChange={handleFilterChange} />
+        <Filters
+          filter={filter || internalFilter}
+          onFilterChange={handleFilterChange}
+        />
       </div>
       {searchResults ? (
         <SearchResults searchResults={searchResults} onAppClick={onAppClick} />
