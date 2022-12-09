@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
-import { withRouter, NavLink as RouterLink } from 'react-router-dom'
+import { NavLink as RouterLink, useLocation } from 'react-router-dom'
 
 import { categoryUtils } from 'cozy-ui/transpiled/react/AppSections'
 
-const getActiveChecker = (parent, cat) => (match, location) => {
+const getActiveChecker = (parent, cat, location) => {
   const urlSearchParams = new URLSearchParams(location.search)
   const params = Object.fromEntries([...urlSearchParams])
   if (
@@ -21,75 +21,86 @@ const getActiveChecker = (parent, cat) => (match, location) => {
   return false
 }
 
-const renderLink = (parent, cat, path) => (
-  <li key={path}>
-    <RouterLink
-      className={`sto-side-menu-item${cat.secondary ? ' --secondary' : ''}`}
-      to={path}
-      activeClassName="active"
-      isActive={getActiveChecker(parent, cat)}
-      exact
-    >
-      {cat.label}
-    </RouterLink>
-  </li>
-)
+const renderLink = (parent, cat, path, location) => {
+  const isActive = getActiveChecker(parent, cat, location)
 
-export class SidebarCategories extends Component {
-  render() {
-    const {
-      t,
-      apps,
-      installedApps,
-      location,
-      parent,
-      breakpoints = {}
-    } = this.props
-    const { isMobile, isTablet } = breakpoints
-    if (
-      isMobile ||
-      isTablet ||
-      location.pathname.match(new RegExp(parent)) === null
-    )
-      return null
-    let appsList = []
-    switch (parent) {
-      case '/discover':
-        appsList = apps
-        break
-      case '/myapps':
-        appsList = installedApps
-        break
-      default:
-        return null // no list return nothing to the renderer
-    }
+  return (
+    <li key={path}>
+      <RouterLink
+        to={path}
+        end
+        className={() => {
+          const className = `sto-side-menu-item${
+            cat.secondary ? ' --secondary' : ''
+          }`
 
-    const addLabel = cat => categoryUtils.addLabel(cat, t)
-    const options = categoryUtils.generateOptionsFromApps(appsList, {
-      includeAll: false,
-      addLabel
-    })
+          return isActive ? className + ' active' : className
+        }}
+      >
+        {cat.label}
+      </RouterLink>
+    </li>
+  )
+}
 
-    const params = new URLSearchParams(location.search)
-    params.delete('type')
-    params.delete('category')
-    const extraParams = params.toString() !== '' ? '&' + params.toString() : ''
-
-    // compute sidebar categories links
-    const linksArray = options.map(cat => {
-      if (cat.value === 'konnectors') {
-        return renderLink(parent, cat, `${parent}?type=konnector${extraParams}`)
-      } else {
-        return renderLink(
-          parent,
-          cat,
-          `${parent}?type=${cat.type}&category=${cat.value}${extraParams}`
-        )
-      }
-    })
-
-    return <ul className="sto-side-menu">{linksArray}</ul>
+export const SidebarCategories = ({
+  t,
+  apps,
+  installedApps,
+  parent,
+  breakpoints = {}
+}) => {
+  const location = useLocation()
+  const { isMobile, isTablet } = breakpoints
+  if (
+    isMobile ||
+    isTablet ||
+    location.pathname.match(new RegExp(parent)) === null
+  )
+    return null
+  let appsList = []
+  switch (parent) {
+    case '/discover':
+      appsList = apps
+      break
+    case '/myapps':
+      appsList = installedApps
+      break
+    default:
+      return null // no list return nothing to the renderer
   }
+
+  const addLabel = cat => categoryUtils.addLabel(cat, t)
+  const options = categoryUtils.generateOptionsFromApps(appsList, {
+    includeAll: false,
+    addLabel
+  })
+
+  const params = new URLSearchParams(location.search)
+  params.delete('type')
+  params.delete('category')
+  const extraParams = params.toString() !== '' ? '&' + params.toString() : ''
+
+  // compute sidebar categories links
+  const linksArray = options.map(cat => {
+    if (cat.value === 'konnectors') {
+      return renderLink(
+        parent,
+        cat,
+        `${parent}?type=konnector${extraParams}`,
+        location
+      )
+    } else {
+      return renderLink(
+        parent,
+        cat,
+        `${parent}?type=${cat.type}&category=${cat.value}${extraParams}`,
+        location
+      )
+    }
+  })
+
+  return <ul className="sto-side-menu">{linksArray}</ul>
 }
 
 export default translate()(withBreakpoints()(SidebarCategories))

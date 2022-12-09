@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { translate } from 'cozy-ui/transpiled/react/I18n'
-import { NavLink as RouterLink, withRouter } from 'react-router-dom'
+import { NavLink as RouterLink, useLocation } from 'react-router-dom'
 import Nav, {
   NavLink,
   NavItem,
@@ -28,10 +28,12 @@ const configMap = {
   }
 }
 
-export const StoreSidebar = React.memo(({ location, t, breakpoints = {} }) => {
+export const StoreSidebar = React.memo(({ t, breakpoints = {} }) => {
+  const location = useLocation()
   const { isMobile, isTablet } = breakpoints
   if (enabledPages.length === 1 && (isMobile || isTablet)) return null
   if (!isNavigationEnabled(location.search)) return null
+
   return (
     <Sidebar>
       <Nav>
@@ -42,8 +44,11 @@ export const StoreSidebar = React.memo(({ location, t, breakpoints = {} }) => {
                 <NavItem>
                   <RouterLink
                     to={`/${name}`}
-                    className={NavLink.className}
-                    activeClassName={NavLink.activeClassName}
+                    className={({ isActive }) =>
+                      isActive
+                        ? `${NavLink.activeClassName} ${NavLink.className}`
+                        : NavLink.className
+                    }
                   >
                     <NavIcon icon={configMap[name].icon} />
                     <NavText>{t(configMap[name].labelKey)}</NavText>
