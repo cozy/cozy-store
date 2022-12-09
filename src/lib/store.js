@@ -4,11 +4,6 @@ import thunkMiddleware from 'redux-thunk'
 import appReducers from 'ducks'
 import { createLogger } from 'redux-logger'
 import flag from 'cozy-flags'
-import {
-  shouldEnableTracking,
-  getTracker,
-  createTrackerMiddleware
-} from 'cozy-ui/transpiled/react/helpers/tracker'
 
 const loggerMiddleware = createLogger()
 
@@ -20,10 +15,6 @@ const middlewares = [
     ? loggerMiddleware
     : null
 ].filter(Boolean)
-
-if (shouldEnableTracking() && getTracker()) {
-  middlewares.push(createTrackerMiddleware())
-}
 
 export default createStore(
   appReducers,
