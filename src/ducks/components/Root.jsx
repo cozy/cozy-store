@@ -2,7 +2,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { I18n } from 'cozy-ui/transpiled/react/I18n'
 import CozyTheme from 'cozy-ui/transpiled/react/CozyTheme'
-import PiwikHashRouter from 'lib/PiwikHashRouter'
+import { HashRouter } from 'react-router-dom'
 
 import { CozyProvider } from 'cozy-client'
 import { WebviewIntentProvider } from 'cozy-intent'
@@ -17,9 +17,9 @@ const Root = ({ client, lang = 'en', store }) => {
         <I18n lang={lang} dictRequire={lang => require(`locales/${lang}`)}>
           <CozyProvider client={client}>
             <Provider store={store}>
-              <PiwikHashRouter>
+              <HashRouter>
                 <App />
-              </PiwikHashRouter>
+              </HashRouter>
             </Provider>
           </CozyProvider>
         </I18n>
