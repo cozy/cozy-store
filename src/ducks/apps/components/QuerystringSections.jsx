@@ -39,7 +39,12 @@ const parseURLSearchParams = urlParams => {
 
 const getFilterFromQuery = query => {
   const usp = new URLSearchParams(query)
-  return omit(parseURLSearchParams(usp), FILTER_BLACK_LIST)
+  const params = parseURLSearchParams(usp)
+  // Add showMaintenance by default to false
+  if (params.showMaintenance == undefined) {
+    params.showMaintenance = false
+  }
+  return omit(params, FILTER_BLACK_LIST)
 }
 
 const queryFromFilter = filter => {
@@ -66,7 +71,7 @@ class QuerystringSections extends React.Component {
     }
   }
 
-  componentWillUpdate(nextProps) {
+  UNSAFE_componentWillUpdate(nextProps) {
     if (this.props.location !== nextProps.location) {
       this.setState({
         filter: getFilterFromQuery(nextProps.location.search)

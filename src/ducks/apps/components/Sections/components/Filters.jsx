@@ -10,18 +10,14 @@ import SettingIcon from 'cozy-ui/transpiled/react/Icons/Setting'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
-import { useEffect } from 'react'
 
 const { BarRight } = cozy.bar
 
 const Filters = ({ filter, onFilterChange }) => {
   const anchorRef = useRef()
   const [menuDisplayed, setMenuDisplayed] = useState(false)
-  const [appUnderMaintenance, setAppUnderMaintenance] = useState(true)
 
-  useEffect(() => {
-    setAppUnderMaintenance(filter.underMaintenance == undefined)
-  }, [filter.underMaintenance])
+  const areAppsUnderMaintenanceShown = filter.showMaintenance
 
   const toggleMenu = () => {
     setMenuDisplayed(!menuDisplayed)
@@ -32,17 +28,19 @@ const Filters = ({ filter, onFilterChange }) => {
   }
 
   const showAppUnderMaintenance = () => {
-    delete filter.underMaintenance
-    onFilterChange({
-      ...filter
-    })
+    if (!areAppsUnderMaintenanceShown) {
+      onFilterChange({
+        ...filter,
+        showMaintenance: true
+      })
+    }
   }
 
   const hideAppUnderMaintenance = () => {
-    onFilterChange({
-      ...filter,
-      underMaintenance: false
-    })
+    if (areAppsUnderMaintenanceShown) {
+      delete filter.showMaintenance
+      onFilterChange(filter)
+    }
   }
 
   const { isMobile } = useBreakpoints()
@@ -81,13 +79,13 @@ const Filters = ({ filter, onFilterChange }) => {
         >
           <ActionMenuItem
             onClick={showAppUnderMaintenance}
-            left={<ActionMenuRadio checked={appUnderMaintenance} />}
+            left={<ActionMenuRadio checked={areAppsUnderMaintenanceShown} />}
           >
             {t('sections.filters.under_maintenance.show')}
           </ActionMenuItem>
           <ActionMenuItem
             onClick={hideAppUnderMaintenance}
-            left={<ActionMenuRadio checked={!appUnderMaintenance} />}
+            left={<ActionMenuRadio checked={!areAppsUnderMaintenanceShown} />}
           >
             {t('sections.filters.under_maintenance.hide')}
           </ActionMenuItem>
