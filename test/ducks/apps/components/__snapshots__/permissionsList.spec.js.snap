@@ -129,7 +129,7 @@ exports[`PermissionsList component should be rendered correctly when is a bank w
       spin={false}
     />
     <p>
-      This app will not transmit any data to its developer The developer of this application, it will use it only locally in your Cozy without transmission to anyone:
+      You are going to install a connector to facilitate the recovery of your data. It will access the following personal data but will never transmit them to anyone:
     </p>
   </div>
   <ul
@@ -252,7 +252,7 @@ exports[`PermissionsList component should be rendered correctly with konnector p
       spin={false}
     />
     <p>
-      This app will not transmit any data to its developer Cozy, it will use it only locally in your Cozy without transmission to anyone:
+      You are going to install a connector to facilitate the recovery of your data. It will access the following personal data but will never transmit them to anyone:
     </p>
   </div>
   <ul
@@ -695,7 +695,7 @@ exports[`PermissionsList component should be rendered correctly with permissions
       spin={false}
     />
     <p>
-      This app will not transmit any data to its developer Cozy, it will use it only locally in your Cozy without transmission to anyone:
+      You are going to install a connector to facilitate the recovery of your data. It will access the following personal data but will never transmit them to anyone:
     </p>
   </div>
   <ul
