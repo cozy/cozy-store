@@ -3855,16 +3855,17 @@ cozy-client@^27.14.4:
     sift "^6.0.0"
     url-search-params-polyfill "^8.0.0"
 
-cozy-client@^34.2.0:
-  version "34.2.0"
-  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-34.2.0.tgz#d5af57b638b46dc640653e4bc603534353239632"
-  integrity sha512-t4YYXuGlrStQPEmReJm6nrrVWeKh4Jxrwuh4XSEuHCApH775wPGZZfDs1RdtYx/wCFPfI5PVM0BmvCosGju/bw==
+cozy-client@^34.5.0:
+  version "34.5.0"
+  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-34.5.0.tgz#862e62d3cb545fa34a66fdc0457521bc2959cb3b"
+  integrity sha512-oqrJZTg1UtqtsPBMuk4alJP/D3A2JLh0ofzAmikmnxS/wYlsP0Dn6T4Rl6FUWU4udg7wZ+3AU9PkusIWpe4zrg==
   dependencies:
     "@cozy/minilog" "1.0.0"
     "@types/jest" "^26.0.20"
     "@types/lodash" "^4.14.170"
     btoa "^1.2.1"
     cozy-stack-client "^34.1.5"
+    date-fns "2.29.3"
     json-stable-stringify "^1.0.1"
     lodash "^4.17.13"
     microee "^0.0.6"
@@ -4368,6 +4369,11 @@ data-urls@^2.0.0:
     abab "^2.0.3"
     whatwg-mimetype "^2.3.0"
     whatwg-url "^8.0.0"
+
+date-fns@2.29.3:
+  version "2.29.3"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.29.3.tgz#27402d2fc67eb442b511b70bbdf98e6411cd68a8"
+  integrity sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==
 
 date-fns@^1.28.5, date-fns@^1.30.1:
   version "1.30.1"
