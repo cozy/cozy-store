@@ -9,7 +9,7 @@ import { Content } from 'cozy-ui/transpiled/react/Layout'
 import ApplicationRouting from 'ducks/apps/components/ApplicationRouting'
 import Sections from 'ducks/apps/components/QuerystringSections'
 import AppsLoading from 'ducks/components/AppsLoading'
-//import AppVote from 'ducks/components/AppVote'
+import AppVote from 'ducks/components/AppVote'
 
 import { useNavigateNoUpdates, withRouterUtils } from 'lib/RouterUtils'
 
@@ -60,15 +60,7 @@ export class Discover extends Component {
               />
             )}
           </div>
-          {
-            /**
-             * We have disabled this AppVote component since
-             * we have issue with our framaform. We're trying
-             * to find a new solution, so in the mean time
-             * let's remove it
-             */
-            //!isFetching && <AppVote />
-          }
+          {!isFetching && <AppVote />}
         </div>
 
         <ApplicationRouting

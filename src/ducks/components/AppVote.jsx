@@ -4,7 +4,7 @@ import Icon from 'cozy-ui/transpiled/react/Icon'
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 import PopupOpener from 'cozy-ui/transpiled/react/PopupOpener'
 
-const VOTING_LINK = 'https://framaforms.org/collect-1518082910'
+const VOTING_LINK = 'https://feedback.cozy.io/'
 
 export const AppVote = ({ t }) => (
   <PopupOpener

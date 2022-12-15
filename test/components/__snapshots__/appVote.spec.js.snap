@@ -5,7 +5,7 @@ exports[`AppVote component should be rendered correctly 1`] = `
   className="sto-app-vote-wrapper"
   height={700}
   title="Cozy app voting"
-  url="https://framaforms.org/collect-1518082910"
+  url="https://feedback.cozy.io/"
   width={650}
 >
   <div
