@@ -18,7 +18,7 @@ exports[`StoreSidebar component should be rendered correctly 1`] = `
     element={
       <Navigate
         replace={true}
-        to="myapps"
+        to="discover"
       />
     }
     path="*"
@@ -44,7 +44,7 @@ exports[`StoreSidebar component should not render if nav is disabled using searc
     element={
       <Navigate
         replace={true}
-        to="myapps"
+        to="discover"
       />
     }
     path="*"
@@ -70,7 +70,7 @@ exports[`StoreSidebar component should not render if nav is enabled but only one
     element={
       <Navigate
         replace={true}
-        to="myapps"
+        to="discover"
       />
     }
     path="*"
@@ -96,7 +96,7 @@ exports[`StoreSidebar component should not render if nav is enabled but only one
     element={
       <Navigate
         replace={true}
-        to="myapps"
+        to="discover"
       />
     }
     path="*"
