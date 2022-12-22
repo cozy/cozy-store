@@ -24,21 +24,25 @@ exports[`UninstallModal component should be rendered correctly (app uninstallabl
     <ModalFooter
       className="sto-modal-controls"
     >
-      <DefaultButton
-        className="u-mh-half"
-        extension="full"
+      <Buttons
+        className="u-flex-grow-1 u-mh-half"
         label="Cancel"
         onClick={[MockFunction]}
-        theme="secondary"
+        variant="secondary"
       />
-      <DefaultButton
-        className="u-mh-half"
+      <Buttons
+        className="u-flex-grow-1 u-mh-half"
+        color="error"
         disabled={false}
-        extension="full"
-        icon={[Function]}
         label="Uninstall"
         onClick={[Function]}
-        theme="danger"
+        startIcon={
+          <Icon
+            icon={[Function]}
+            spin={false}
+          />
+        }
+        variant="primary"
       />
     </ModalFooter>
   </Modal>
@@ -74,21 +78,25 @@ exports[`UninstallModal component should handle correctly error from props 1`] =
     <ModalFooter
       className="sto-modal-controls"
     >
-      <DefaultButton
-        className="u-mh-half"
-        extension="full"
+      <Buttons
+        className="u-flex-grow-1 u-mh-half"
         label="Cancel"
         onClick={[MockFunction]}
-        theme="secondary"
+        variant="secondary"
       />
-      <DefaultButton
-        className="u-mh-half"
+      <Buttons
+        className="u-flex-grow-1 u-mh-half"
+        color="error"
         disabled={false}
-        extension="full"
-        icon={[Function]}
         label="Uninstall"
         onClick={[Function]}
-        theme="danger"
+        startIcon={
+          <Icon
+            icon={[Function]}
+            spin={false}
+          />
+        }
+        variant="primary"
       />
     </ModalFooter>
   </Modal>
@@ -132,21 +140,25 @@ exports[`UninstallModal component should handle correctly linked app error 1`] =
     <ModalFooter
       className="sto-modal-controls"
     >
-      <DefaultButton
-        className="u-mh-half"
-        extension="full"
+      <Buttons
+        className="u-flex-grow-1 u-mh-half"
         label="Cancel"
         onClick={[MockFunction]}
-        theme="secondary"
+        variant="secondary"
       />
-      <DefaultButton
-        className="u-mh-half"
+      <Buttons
+        className="u-flex-grow-1 u-mh-half"
+        color="error"
         disabled={true}
-        extension="full"
-        icon={[Function]}
         label="Uninstall"
         onClick={[Function]}
-        theme="danger"
+        startIcon={
+          <Icon
+            icon={[Function]}
+            spin={false}
+          />
+        }
+        variant="primary"
       />
     </ModalFooter>
   </Modal>

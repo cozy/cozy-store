@@ -5,8 +5,9 @@ import compose from 'lodash/flowRight'
 
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 import Alerter from 'cozy-ui/transpiled/react/Alerter'
-import Button from 'cozy-ui/transpiled/react/Button'
-import Trash from 'cozy-ui/transpiled/react/Icons/Trash'
+import Buttons from 'cozy-ui/transpiled/react/Buttons'
+import Icon from 'cozy-ui/transpiled/react/Icon'
+import TrashIcon from 'cozy-ui/transpiled/react/Icons/Trash'
 import { getAppBySlug, uninstallApp } from 'ducks/apps'
 import Modal, {
   ModalDescription,
@@ -115,22 +116,21 @@ export class UninstallModal extends Component {
             )}
           </ModalDescription>
           <ModalFooter className="sto-modal-controls">
-            <Button
-              theme="secondary"
+            <Buttons
+              variant="secondary"
               onClick={dismissAction}
               label={t('app_modal.uninstall.cancel')}
-              extension="full"
-              className="u-mh-half"
+              className="u-flex-grow-1 u-mh-half"
             />
-            <Button
-              busy={isUninstalling}
-              disabled={isUninstalling || isInstalling || !!linkedAppError}
-              theme="danger"
-              icon={Trash}
+            <Buttons
+              variant="primary"
               onClick={this.handleUninstallApp}
               label={t('app_modal.uninstall.uninstall')}
-              extension="full"
-              className="u-mh-half"
+              className="u-flex-grow-1 u-mh-half"
+              color="error"
+              startIcon={<Icon icon={TrashIcon} />}
+              busy={isUninstalling}
+              disabled={isUninstalling || isInstalling || !!linkedAppError}
             />
           </ModalFooter>
         </Modal>
