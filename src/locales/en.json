@@ -307,7 +307,10 @@
     "reason": "**Reason: **",
     "developer_default": "The developer of this application",
     "description": {
-      "internal": "You are going to install a connector to facilitate the recovery of your data. It will access the following personal data but will never transmit them to anyone:",
+      "internal": {
+        "konnector": "You are going to install a connector to facilitate the recovery of your data. It will access the following personal data but will never transmit them to anyone:",
+        "webapp": "This app will not transmit any data to its developer %{name}, it will use it only locally in your Cozy without transmission to anyone:"
+      },
       "external": "%{name} could use and extract these data from your Cozy only for the following purposes:",
       "nothing": "%{appName} doesn't require any data access to work correctly on your Cozy."
     }

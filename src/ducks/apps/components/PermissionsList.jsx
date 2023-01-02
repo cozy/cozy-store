@@ -138,7 +138,11 @@ export const PermissionsList = ({ t, app }) => {
             size="24"
             color="#35CE68"
           />
-          <p>{t('permissions.description.internal')}</p>
+          <p>
+            {t(`permissions.description.internal.${app.type}`, {
+              name: developerName
+            })}
+          </p>
         </div>
       )}
       <ul className="sto-perm-list">{internalPermissions}</ul>
