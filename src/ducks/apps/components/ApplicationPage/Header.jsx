@@ -14,8 +14,7 @@ import { isFlagshipApp } from 'cozy-device-helper'
 
 import cozySmileIcon from 'assets/icons/icon-cozy-smile.svg'
 import AsyncButton from 'ducks/components/AsyncButton'
-
-import { APP_TYPE, getAppIconProps } from 'ducks/apps'
+import { APP_TYPE, getAppIconProps, openApp } from 'ducks/apps'
 import {
   hasPendingUpdate,
   isUnderMaintenance,
@@ -37,13 +36,11 @@ export const Header = ({
   const { slug, installed, type, uninstallable } = app
   const { isMobile } = breakpoints
   const isCurrentAppInstalling = isInstalling === slug
-  const openApp = () => {
-    if (isFlagshipApp()) {
-      webviewIntent.call('openApp', app.related, app)
-    } else {
-      window.location.assign(app.related)
-    }
+
+  const handleClick = () => {
+    openApp(webviewIntent, app)
   }
+
   const openConnector = () => {
     if (isFlagshipApp()) {
       return webviewIntent.call('openApp', app.related, app)
@@ -54,12 +51,14 @@ export const Header = ({
       })
     }
   }
+
   const isKonnector = type === APP_TYPE.KONNECTOR
   const isInstallDisabled = !!isUnderMaintenance(app) || isInstalling
   const isUninstallDisabled = !uninstallable || isCurrentAppInstalling
   const appOrKonnectorLabel = isKonnector
     ? t('app_page.webapp.open')
     : t('app_page.konnector.open')
+
   return (
     <div className="sto-app-header">
       <div className="sto-app-header-icon">
@@ -79,7 +78,7 @@ export const Header = ({
             />
           ) : (
             <Button
-              onClick={openApp}
+              onClick={handleClick}
               className="c-btn"
               label={appOrKonnectorLabel}
             />
