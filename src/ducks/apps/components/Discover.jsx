@@ -1,6 +1,6 @@
 /* global cozy */
 import React, { Component } from 'react'
-import { useMatch } from 'react-router-dom'
+import { useMatch, useSearchParams } from 'react-router-dom'
 
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
@@ -23,7 +23,23 @@ export class Discover extends Component {
   }
 
   onAppClick(appSlug) {
-    this.props.navigate(`/discover/${appSlug}`)
+    const { navigate, searchParams } = this.props
+
+    if (searchParams) {
+      const redirectRawPath = searchParams.get('redirectAfterInstall')
+
+      if (redirectRawPath) {
+        const redirectURL = new URL(redirectRawPath)
+        redirectURL.hash += `?connectorSlug=${appSlug}`
+        const encodedRedirectPath = encodeURIComponent(redirectURL.href)
+
+        return navigate(
+          `/discover/${appSlug}?redirectAfterInstall=${encodedRedirectPath}`
+        )
+      }
+    }
+
+    navigate(`/discover/${appSlug}`)
   }
 
   pushQuery(query) {
@@ -46,6 +62,7 @@ export class Discover extends Component {
 
     const { isMobile } = breakpoints
     const title = <h2 className="sto-view-title">{t('discover.title')}</h2>
+
     return (
       <Content className="sto-discover">
         {isExact && isFetching && <AppsLoading />}
@@ -79,8 +96,16 @@ export class Discover extends Component {
 const DiscoverWrapper = props => {
   const isExact = useMatch('discover')
   const navigate = useNavigateNoUpdates()
+  const [searchParams] = useSearchParams()
 
-  return <Discover {...props} isExact={isExact} navigate={navigate} />
+  return (
+    <Discover
+      {...props}
+      isExact={isExact}
+      navigate={navigate}
+      searchParams={searchParams}
+    />
+  )
 }
 
 export default translate()(withBreakpoints()(withRouterUtils(DiscoverWrapper)))
