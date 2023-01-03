@@ -306,7 +306,10 @@
     "reason": "**Motif : **",
     "developer_default": "Le•a développeur•se de cette application",
     "description": {
-      "internal": "Vous allez installer un connecteur pour vous faciliter la récupération de vos données. Il va pour cela accéder aux données personnelles suivantes mais ne les transmettra jamais à qui que ce soit :",
+      "internal": {
+        "konnector": "Vous allez installer un connecteur pour vous faciliter la récupération de vos données. Il va pour cela accéder aux données personnelles suivantes mais ne les transmettra jamais à qui que ce soit :",
+        "webapp": "Cette application ne transmettra aucune de ces données à son éditeur %{name}, elle les utilisera localement dans votre Cozy sans jamais les transmettre à qui que ce soit :"
+      },
       "external": "%{name} pourra utiliser et extraire de votre Cozy ces données uniquement pour les motifs suivants :",
       "nothing": "%{appName} ne requiert aucun accès à vos données pour fonctionner correctement sur votre Cozy."
     }
