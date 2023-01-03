@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { connect } from 'react-redux'
 import compose from 'lodash/flowRight'
 
@@ -32,6 +32,7 @@ export const Header = ({
   breakpoints = {},
   client
 }) => {
+  const { search } = useLocation()
   const webviewIntent = useWebviewIntent()
   const { slug, installed, type, uninstallable } = app
   const { isMobile } = breakpoints
@@ -86,7 +87,7 @@ export const Header = ({
         ) : (
           <Button
             tag={Link}
-            to={`/${parent}/${slug}/install`}
+            to={`/${parent}/${slug}/install${search}`}
             theme="primary"
             extension={isMobile ? 'full' : null}
             disabled={isInstallDisabled}
@@ -103,7 +104,7 @@ export const Header = ({
         {installed && (
           <Button
             tag={Link}
-            to={`/${parent}/${slug}/uninstall`}
+            to={`/${parent}/${slug}/uninstall${search}`}
             theme="secondary"
             extension={isMobile ? 'full' : null}
             className={isMobile ? 'u-mt-1' : null}
