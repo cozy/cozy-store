@@ -3,7 +3,7 @@
 /* eslint-env jest */
 
 import React from 'react'
-import { MemoryRouter } from 'react-router-dom'
+import { MemoryRouter, useLocation } from 'react-router-dom'
 import { render, fireEvent } from '@testing-library/react'
 import { shallow } from 'enzyme'
 
@@ -41,6 +41,11 @@ jest.mock('cozy-interapp', () => {
   })
 })
 
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useLocation: jest.fn()
+}))
+
 const AppLike = ({ children, client, webviewService }) => (
   <MemoryRouter>
     <BreakpointsProvider>
@@ -60,6 +65,7 @@ describe('ApplicationPage header component', () => {
     window.location.assign.mockReset()
     isFlagshipApp.mockReset()
     mockIntentRedirect.mockReset()
+    useLocation.mockReturnValue({ search: '' })
   })
 
   it('should be rendered correctly provided app', () => {

@@ -55,7 +55,7 @@
     "cozy-interapp": "0.7.4",
     "cozy-logger": "1.9.0",
     "cozy-realtime": "3.14.4",
-    "cozy-ui": "^79.0.0",
+    "cozy-ui": "^79.3.0",
     "emoji-js": "3.7.0",
     "focus-trap-react": "4.0.1",
     "fuse.js": "6.5.3",

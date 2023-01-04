@@ -1,13 +1,12 @@
 /* eslint-env browser */
 
+import CozyRealtime from 'cozy-realtime'
+import { isFlagshipApp } from 'cozy-device-helper'
+
 import config from 'config/apps'
 import storeConfig from 'config'
 import AUTHORIZED_CATEGORIES from 'config/categories'
 import { NotUninstallableAppException } from 'lib/exceptions'
-import CozyRealtime from 'cozy-realtime'
-
-export * from 'ducks/apps/selectors'
-export { appsReducers } from 'ducks/apps/reducers'
 import {
   LOADING_APP,
   LOADING_APP_INTENT,
@@ -39,6 +38,8 @@ import flatten from 'lodash/flatten'
 export { APP_STATE }
 export { APP_TYPE }
 export { REGISTRY_CHANNELS }
+export * from 'ducks/apps/selectors'
+export { appsReducers } from 'ducks/apps/reducers'
 
 const APPS_DOCTYPE = 'io.cozy.apps'
 const KONNECTORS_DOCTYPE = 'io.cozy.konnectors'
@@ -529,5 +530,13 @@ export function installAppFromRegistry(
   return dispatch => {
     const source = `registry://${app.slug}/${channel}`
     return dispatch(installApp(client, app, source, isUpdate))
+  }
+}
+
+export const openApp = (webviewIntent, app) => {
+  if (isFlagshipApp()) {
+    webviewIntent.call('openApp', app.related, app)
+  } else {
+    window.location.assign(app.related)
   }
 }

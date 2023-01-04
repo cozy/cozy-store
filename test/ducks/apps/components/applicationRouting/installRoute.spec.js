@@ -4,7 +4,7 @@
 
 import React from 'react'
 import { shallow } from 'enzyme'
-import { useParams } from 'react-router-dom'
+import { useParams, useSearchParams } from 'react-router-dom'
 import { InstallRoute } from 'ducks/apps/components/ApplicationRouting/InstallRoute'
 import mockApps from '../../_mockApps'
 
@@ -18,13 +18,15 @@ const getProps = (isFetching = false, getApp = getAppMock) => ({
 })
 
 jest.mock('react-router-dom', () => ({
-  useParams: jest.fn()
+  useParams: jest.fn(),
+  useSearchParams: jest.fn()
 }))
 
 describe('InstallRoute component', () => {
   it('should display install modal if app found in the registry but not installed', () => {
     // photos in mockApps is isInRegistry
     useParams.mockReturnValue({ appSlug: 'photos' })
+    useSearchParams.mockReturnValue([{ get: jest.fn() }])
     const props = getProps()
     const component = shallow(<InstallRoute {...props} />)
     expect(component).toMatchSnapshot()
@@ -33,6 +35,7 @@ describe('InstallRoute component', () => {
   it('should display install modal if app found in the registry installed but with available version', () => {
     // tasky in mockApps is isInRegistry, installed and availableVersion
     useParams.mockReturnValue({ appSlug: 'tasky' })
+    useSearchParams.mockReturnValue([{ get: jest.fn() }])
     const props = getProps()
     const component = shallow(<InstallRoute {...props} />)
     expect(component).toMatchSnapshot()
@@ -41,6 +44,7 @@ describe('InstallRoute component', () => {
   it('should display nothing if isFetching', () => {
     // photos in mockApps is isInRegistry
     useParams.mockReturnValue({ appSlug: 'photos' })
+    useSearchParams.mockReturnValue([{ get: jest.fn() }])
     const props = getProps(true)
     const component = shallow(<InstallRoute {...props} />)
     expect(component.isEmptyRender()).toBe(true)
@@ -48,6 +52,7 @@ describe('InstallRoute component', () => {
 
   it('should redirectTo parent if no app found', () => {
     useParams.mockReturnValue({})
+    useSearchParams.mockReturnValue([{ get: jest.fn() }])
     const props = getProps(false, jest.fn())
     const component = shallow(<InstallRoute {...props} />)
     expect(props.redirectTo.mock.calls.length).toBe(1)
@@ -57,6 +62,7 @@ describe('InstallRoute component', () => {
 
   it('should redirectTo parent if app found but installed without available version', () => {
     useParams.mockReturnValue({ appSlug: 'collect' })
+    useSearchParams.mockReturnValue([{ get: jest.fn() }])
     const props = getProps(false, jest.fn())
     const component = shallow(<InstallRoute {...props} />)
     expect(props.redirectTo.mock.calls.length).toBe(1)
