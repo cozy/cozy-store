@@ -47,6 +47,7 @@ export class MyApplications extends Component {
               apps={installedApps}
               error={fetchError}
               onAppClick={this.onAppClick}
+              parent="myapps"
             />
           )}
         </div>

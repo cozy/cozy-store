@@ -185,6 +185,7 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
         }
         error={null}
         onAppClick={[Function]}
+        parent="discover"
       />
     </div>
     <withI18n(AppVote) />
@@ -554,6 +555,7 @@ exports[`Discover component should be rendered correctly with apps and URL searc
         }
         error={null}
         onAppClick={[Function]}
+        parent="discover"
       />
     </div>
     <withI18n(AppVote) />
@@ -752,6 +754,7 @@ exports[`Discover component should display error from props correctly 1`] = `
         apps={Array []}
         error={[Error: This is a test error]}
         onAppClick={[Function]}
+        parent="discover"
       />
     </div>
     <withI18n(AppVote) />
@@ -977,6 +980,7 @@ exports[`Discover component should use BarCenter from cozy-bar in mobile view on
         }
         error={null}
         onAppClick={[Function]}
+        parent="discover"
       />
     </div>
     <withI18n(AppVote) />

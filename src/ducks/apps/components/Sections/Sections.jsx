@@ -23,7 +23,14 @@ import Filters from './components/Filters'
  * Additionally, `apps` that are kept after applying this 1st filter can
  * be searched through the `state.searchFieldValue` value.
  */
-const Sections = ({ apps, error, onAppClick, filter, onFilterChange }) => {
+const Sections = ({
+  apps,
+  error,
+  onAppClick,
+  filter,
+  onFilterChange,
+  parent
+}) => {
   const { lang } = useI18n()
 
   const previousFilter = useRef()
@@ -88,6 +95,8 @@ const Sections = ({ apps, error, onAppClick, filter, onFilterChange }) => {
     }
   }
 
+  const hasFilters = parent !== 'myapps'
+
   if (error) return <p className="u-error">{error.message}</p>
 
   return (
@@ -97,10 +106,12 @@ const Sections = ({ apps, error, onAppClick, filter, onFilterChange }) => {
           value={searchFieldValue}
           onChange={handleChangeSearchFieldChange}
         />
-        <Filters
-          filter={filter || internalFilter}
-          onFilterChange={handleFilterChange}
-        />
+        {hasFilters && (
+          <Filters
+            filter={filter || internalFilter}
+            onFilterChange={handleFilterChange}
+          />
+        )}
       </div>
       {searchResults ? (
         <SearchResults searchResults={searchResults} onAppClick={onAppClick} />
