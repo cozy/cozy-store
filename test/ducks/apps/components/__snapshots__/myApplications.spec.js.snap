@@ -7,7 +7,7 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
   <div
     className="sto-list-container"
   >
-    <QuerystringSectionsWrapper
+    <QuerystringSections
       apps={
         Array [
           Object {
@@ -311,7 +311,7 @@ exports[`MyApplications component should be rendered correctly with apps and URL
   <div
     className="sto-list-container"
   >
-    <QuerystringSectionsWrapper
+    <QuerystringSections
       apps={
         Array [
           Object {
@@ -615,7 +615,7 @@ exports[`MyApplications component should display error from props correctly 1`] 
   <div
     className="sto-list-container"
   >
-    <QuerystringSectionsWrapper
+    <QuerystringSections
       apps={Array []}
       error={[Error: This is a test error]}
       onAppClick={[Function]}
@@ -660,7 +660,7 @@ exports[`MyApplications component should use BarCenter from cozy-bar in mobile v
         Installed
       </h2>
     </BarCenter>
-    <QuerystringSectionsWrapper
+    <QuerystringSections
       apps={
         Array [
           Object {

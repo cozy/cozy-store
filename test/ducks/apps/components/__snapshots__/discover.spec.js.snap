@@ -10,7 +10,7 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
     <div
       className="sto-discover-sections"
     >
-      <QuerystringSectionsWrapper
+      <QuerystringSections
         apps={
           Array [
             Object {
@@ -379,7 +379,7 @@ exports[`Discover component should be rendered correctly with apps and URL searc
     <div
       className="sto-discover-sections"
     >
-      <QuerystringSectionsWrapper
+      <QuerystringSections
         apps={
           Array [
             Object {
@@ -748,7 +748,7 @@ exports[`Discover component should display error from props correctly 1`] = `
     <div
       className="sto-discover-sections"
     >
-      <QuerystringSectionsWrapper
+      <QuerystringSections
         apps={Array []}
         error={[Error: This is a test error]}
         onAppClick={[Function]}
@@ -802,7 +802,7 @@ exports[`Discover component should use BarCenter from cozy-bar in mobile view on
     <div
       className="sto-discover-sections"
     >
-      <QuerystringSectionsWrapper
+      <QuerystringSections
         apps={
           Array [
             Object {

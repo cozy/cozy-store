@@ -3,6 +3,7 @@ import Sections from './Sections'
 import isNavigationEnabled from 'lib/isNavigationEnabled'
 import { useNavigateNoUpdates, useLocationNoUpdates } from 'lib/RouterUtils'
 import omit from 'lodash/omit'
+import { useMemo } from 'react'
 
 // These query parameters won't be handled by the AppSection component
 const FILTER_BLACK_LIST = ['connector_open_uri']
@@ -60,29 +61,15 @@ const queryFromFilter = filter => {
  * - restores the filter from the querystring on reload
  * - handles location updates
  */
-class QuerystringSections extends React.Component {
-  constructor(props, context) {
-    super(props, context)
-    this.handleFilterChange = this.handleFilterChange.bind(this)
+const QuerystringSections = props => {
+  const navigate = useNavigateNoUpdates()
+  const { pathname, search } = useLocationNoUpdates()
 
-    // Restores the search from the URL querypart
-    this.state = {
-      filter: getFilterFromQuery(props.location.search)
-    }
-  }
-
-  UNSAFE_componentWillUpdate(nextProps) {
-    if (this.props.location !== nextProps.location) {
-      this.setState({
-        filter: getFilterFromQuery(nextProps.location.search)
-      })
-    }
-  }
+  // Restores the search from the URL querypart
+  const filter = useMemo(() => getFilterFromQuery(search), [search])
 
   // Saves filter to query part
-  handleFilterChange(filter) {
-    const { navigate, location } = this.props
-    const pathname = location.pathname
+  const handleFilterChange = filter => {
     if (Object.keys(filter).length) {
       navigate(`${pathname}?${queryFromFilter(filter)}`)
     } else {
@@ -91,25 +78,14 @@ class QuerystringSections extends React.Component {
     }
   }
 
-  render() {
-    const { location } = this.props
-    return (
-      <Sections
-        {...this.props}
-        hasNav={isNavigationEnabled(location.search)}
-        filter={this.state.filter}
-        onFilterChange={this.handleFilterChange}
-      />
-    )
-  }
-}
-
-const QuerystringSectionsWrapper = props => {
-  const navigate = useNavigateNoUpdates()
-  const location = useLocationNoUpdates()
   return (
-    <QuerystringSections {...props} navigate={navigate} location={location} />
+    <Sections
+      {...props}
+      hasNav={isNavigationEnabled(search)}
+      filter={filter}
+      onFilterChange={handleFilterChange}
+    />
   )
 }
 
-export default QuerystringSectionsWrapper
+export default QuerystringSections
