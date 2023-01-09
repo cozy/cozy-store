@@ -38,11 +38,11 @@ const parseURLSearchParams = urlParams => {
   }, {})
 }
 
-const getFilterFromQuery = query => {
+const getFilterFromQuery = (query, parent) => {
   const usp = new URLSearchParams(query)
   const params = parseURLSearchParams(usp)
   // Add showMaintenance by default to false
-  if (params.showMaintenance == undefined) {
+  if (params.showMaintenance == undefined && parent !== 'myapps') {
     params.showMaintenance = false
   }
   return omit(params, FILTER_BLACK_LIST)
@@ -66,7 +66,7 @@ const QuerystringSections = props => {
   const { pathname, search } = useLocationNoUpdates()
 
   // Restores the search from the URL querypart
-  const filter = useMemo(() => getFilterFromQuery(search), [search])
+  const filter = useMemo(() => getFilterFromQuery(search, parent), [search])
 
   // Saves filter to query part
   const handleFilterChange = filter => {

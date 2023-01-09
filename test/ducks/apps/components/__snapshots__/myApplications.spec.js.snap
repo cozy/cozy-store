@@ -152,6 +152,7 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
       }
       error={null}
       onAppClick={[Function]}
+      parent="myapps"
     />
   </div>
   <withI18n(ApplicationRoutingWrapper)
@@ -456,6 +457,7 @@ exports[`MyApplications component should be rendered correctly with apps and URL
       }
       error={null}
       onAppClick={[Function]}
+      parent="myapps"
     />
   </div>
   <withI18n(ApplicationRoutingWrapper)
@@ -619,6 +621,7 @@ exports[`MyApplications component should display error from props correctly 1`] 
       apps={Array []}
       error={[Error: This is a test error]}
       onAppClick={[Function]}
+      parent="myapps"
     />
   </div>
   <withI18n(ApplicationRoutingWrapper)
@@ -805,6 +808,7 @@ exports[`MyApplications component should use BarCenter from cozy-bar in mobile v
       }
       error={null}
       onAppClick={[Function]}
+      parent="myapps"
     />
   </div>
   <withI18n(ApplicationRoutingWrapper)

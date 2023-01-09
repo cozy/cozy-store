@@ -74,6 +74,7 @@ export class Discover extends Component {
                 apps={apps}
                 error={fetchError}
                 onAppClick={this.onAppClick}
+                parent="discover"
               />
             )}
           </div>
