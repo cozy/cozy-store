@@ -9,7 +9,7 @@
   "categories": [
     "cozy"
   ],
-  "version": "1.9.15",
+  "version": "1.9.16",
   "licence": "AGPL-3.0",
   "source": "https://github.com/cozy/cozy-store.git@build",
   "developer": {
