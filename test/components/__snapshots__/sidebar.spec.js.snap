@@ -3,8 +3,8 @@
 exports[`StoreSidebar component should be rendered correctly 1`] = `
 <Routes>
   <Route
+    element={<IntentRedirect />}
     path="redirect"
-    render={[Function]}
   />
   <Route
     element={<withI18n(Connect(withI18n(withBreakpoints(withRouterUtils(DiscoverWrapper))))) />}
@@ -29,8 +29,8 @@ exports[`StoreSidebar component should be rendered correctly 1`] = `
 exports[`StoreSidebar component should not render if nav is disabled using search flag 1`] = `
 <Routes>
   <Route
+    element={<IntentRedirect />}
     path="redirect"
-    render={[Function]}
   />
   <Route
     element={<withI18n(Connect(withI18n(withBreakpoints(withRouterUtils(DiscoverWrapper))))) />}
@@ -55,8 +55,8 @@ exports[`StoreSidebar component should not render if nav is disabled using searc
 exports[`StoreSidebar component should not render if nav is enabled but only one store part is displayed and we are on mobile 1`] = `
 <Routes>
   <Route
+    element={<IntentRedirect />}
     path="redirect"
-    render={[Function]}
   />
   <Route
     element={<withI18n(Connect(withI18n(withBreakpoints(withRouterUtils(DiscoverWrapper))))) />}
@@ -81,8 +81,8 @@ exports[`StoreSidebar component should not render if nav is enabled but only one
 exports[`StoreSidebar component should not render if nav is enabled but only one store part is displayed and we are on tablet 1`] = `
 <Routes>
   <Route
+    element={<IntentRedirect />}
     path="redirect"
-    render={[Function]}
   />
   <Route
     element={<withI18n(Connect(withI18n(withBreakpoints(withRouterUtils(DiscoverWrapper))))) />}
