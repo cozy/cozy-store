@@ -50,15 +50,19 @@ const LocalizedPermission = ({ t, app, name, type }) => (
 )
 
 const getLocalizedPermissions = ({ t, app, permissions }) => {
-  return permissions.map(([name, permission]) => (
-    <LocalizedPermission
-      app={app}
-      key={name}
-      {...permission}
-      name={name}
-      t={t}
-    />
-  ))
+  return permissions
+    .sort(([, permA], [, permB]) =>
+      t(`doctypes.${permA.type}`) < t(`doctypes.${permB.type}`) ? -1 : 1
+    )
+    .map(([name, permission]) => (
+      <LocalizedPermission
+        app={app}
+        key={name}
+        {...permission}
+        name={name}
+        t={t}
+      />
+    ))
 }
 
 const getLinxoPermissions = ({ t, app, linxoDoctypes }) => {

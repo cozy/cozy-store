@@ -66,10 +66,10 @@ exports[`PermissionsList component should be rendered correctly when is a bank w
           "type": "konnector",
         }
       }
-      description="This is a remote doctype"
-      name="auto_categorization"
+      description="This is another remote doctype"
+      name="dacc"
       t={[Function]}
-      type="cc.cozycloud.autocategorization"
+      type="cc.cozycloud.dacc"
     />
     <LocalizedPermission
       app={
@@ -112,10 +112,10 @@ exports[`PermissionsList component should be rendered correctly when is a bank w
           "type": "konnector",
         }
       }
-      description="This is another remote doctype"
-      name="dacc"
+      description="This is a remote doctype"
+      name="auto_categorization"
       t={[Function]}
-      type="cc.cozycloud.dacc"
+      type="cc.cozycloud.autocategorization"
     />
   </ul>
   <div
@@ -812,6 +812,128 @@ Gestionnaire de photos pour Cozy v3 :tada:",
           "version": "3.0.0",
         }
       }
+      description="Required to to share photos with your contacts"
+      methods={
+        Array [
+          "GET",
+          "POST",
+        ]
+      }
+      name="contacts"
+      t={[Function]}
+      type="io.cozy.contacts"
+    />
+    <LocalizedPermission
+      app={
+        Object {
+          "categories": Array [
+            "cozy",
+          ],
+          "developer": Object {
+            "name": "Cozy",
+            "url": "https://cozy.io",
+          },
+          "editor": "Cozy",
+          "icon": "https://mockcozy.cc/registry/photos/3.0.0/icon.svg",
+          "langs": Array [
+            "en",
+            "fr",
+          ],
+          "licence": "AGPL-3.0",
+          "locales": Object {
+            "en": Object {
+              "changes": "### NEW!!!
+
+ Now on the cozy-store :tada",
+              "long_description": "### Features
+
+Enjoy features to grab your data in you Cozy :tada:",
+              "short_description": "Gestionnaire de photos pour Cozy v3",
+            },
+            "fr": Object {
+              "long_description": "### Photos
+
+Gestionnaire de photos pour Cozy v3 :tada:",
+              "short_description": "Gestionnaire de photos pour Cozy v3",
+            },
+          },
+          "name": "Photos",
+          "name_prefix": "Cozy",
+          "permissions": Object {
+            "albums": Object {
+              "description": "Required to manage photos albums",
+              "methods": Array [
+                "GET",
+                "POST",
+                "PUT",
+              ],
+              "type": "io.cozy.photos.albums",
+            },
+            "apps": Object {
+              "description": "Required by the cozy-bar to display the icons of the apps",
+              "type": "io.cozy.apps",
+              "verbs": Array [
+                "GET",
+              ],
+            },
+            "contacts": Object {
+              "description": "Required to to share photos with your contacts",
+              "methods": Array [
+                "GET",
+                "POST",
+              ],
+              "type": "io.cozy.contacts",
+            },
+            "files": Object {
+              "description": "Required for photo access",
+              "methods": Array [
+                "GET",
+                "POST",
+                "PUT",
+              ],
+              "type": "io.cozy.files",
+            },
+            "settings": Object {
+              "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
+              "type": "io.cozy.settings",
+              "verbs": Array [
+                "GET",
+              ],
+            },
+          },
+          "platforms": Array [
+            Object {
+              "type": "ios",
+              "url": "",
+            },
+            Object {
+              "type": "linux",
+              "url": "",
+            },
+            Object {
+              "type": "android",
+              "url": "https://mock.app",
+            },
+          ],
+          "routes": Object {
+            "/": Object {
+              "folder": "/",
+              "index": "index.html",
+              "public": false,
+            },
+            "/public": Object {
+              "folder": "/public",
+              "index": "index.html",
+              "public": true,
+            },
+          },
+          "short_description": "Photos manager for Cozy v3",
+          "slug": "photos",
+          "source": "https://github.com/cozy/cozy-drive.git@build-photos",
+          "type": "webapp",
+          "version": "3.0.0",
+        }
+      }
       description="Required for photo access"
       methods={
         Array [
@@ -1179,128 +1301,6 @@ Gestionnaire de photos pour Cozy v3 :tada:",
           "version": "3.0.0",
         }
       }
-      description="Required to to share photos with your contacts"
-      methods={
-        Array [
-          "GET",
-          "POST",
-        ]
-      }
-      name="contacts"
-      t={[Function]}
-      type="io.cozy.contacts"
-    />
-    <LocalizedPermission
-      app={
-        Object {
-          "categories": Array [
-            "cozy",
-          ],
-          "developer": Object {
-            "name": "Cozy",
-            "url": "https://cozy.io",
-          },
-          "editor": "Cozy",
-          "icon": "https://mockcozy.cc/registry/photos/3.0.0/icon.svg",
-          "langs": Array [
-            "en",
-            "fr",
-          ],
-          "licence": "AGPL-3.0",
-          "locales": Object {
-            "en": Object {
-              "changes": "### NEW!!!
-
- Now on the cozy-store :tada",
-              "long_description": "### Features
-
-Enjoy features to grab your data in you Cozy :tada:",
-              "short_description": "Gestionnaire de photos pour Cozy v3",
-            },
-            "fr": Object {
-              "long_description": "### Photos
-
-Gestionnaire de photos pour Cozy v3 :tada:",
-              "short_description": "Gestionnaire de photos pour Cozy v3",
-            },
-          },
-          "name": "Photos",
-          "name_prefix": "Cozy",
-          "permissions": Object {
-            "albums": Object {
-              "description": "Required to manage photos albums",
-              "methods": Array [
-                "GET",
-                "POST",
-                "PUT",
-              ],
-              "type": "io.cozy.photos.albums",
-            },
-            "apps": Object {
-              "description": "Required by the cozy-bar to display the icons of the apps",
-              "type": "io.cozy.apps",
-              "verbs": Array [
-                "GET",
-              ],
-            },
-            "contacts": Object {
-              "description": "Required to to share photos with your contacts",
-              "methods": Array [
-                "GET",
-                "POST",
-              ],
-              "type": "io.cozy.contacts",
-            },
-            "files": Object {
-              "description": "Required for photo access",
-              "methods": Array [
-                "GET",
-                "POST",
-                "PUT",
-              ],
-              "type": "io.cozy.files",
-            },
-            "settings": Object {
-              "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
-              "type": "io.cozy.settings",
-              "verbs": Array [
-                "GET",
-              ],
-            },
-          },
-          "platforms": Array [
-            Object {
-              "type": "ios",
-              "url": "",
-            },
-            Object {
-              "type": "linux",
-              "url": "",
-            },
-            Object {
-              "type": "android",
-              "url": "https://mock.app",
-            },
-          ],
-          "routes": Object {
-            "/": Object {
-              "folder": "/",
-              "index": "index.html",
-              "public": false,
-            },
-            "/public": Object {
-              "folder": "/public",
-              "index": "index.html",
-              "public": true,
-            },
-          },
-          "short_description": "Photos manager for Cozy v3",
-          "slug": "photos",
-          "source": "https://github.com/cozy/cozy-drive.git@build-photos",
-          "type": "webapp",
-          "version": "3.0.0",
-        }
-      }
       description="Required by the cozy-bar to display Claudy and know which applications are coming soon"
       name="settings"
       t={[Function]}
@@ -1488,6 +1488,279 @@ exports[`PermissionsList component should be rendered correctly with webapp perm
   <ul
     className="sto-perm-list"
   >
+    <LocalizedPermission
+      app={
+        Object {
+          "_id": "io.cozy.apps/photos",
+          "categories": Array [
+            "cozy",
+          ],
+          "created_at": "2021-11-10T17:43:26.509411+01:00",
+          "developer": Object {
+            "name": "Cozy Cloud",
+            "url": "https://cozy.io",
+          },
+          "editor": "Cozy",
+          "icon": "public/app-icon.svg",
+          "installed": true,
+          "intents": null,
+          "isInRegistry": true,
+          "label": 1,
+          "langs": Array [
+            "en",
+            "fr",
+          ],
+          "licence": "AGPL-3.0",
+          "links": Object {},
+          "locales": Object {},
+          "name": "Photos",
+          "name_prefix": "Cozy",
+          "notifications": null,
+          "permissions": Object {
+            "albums": Object {
+              "description": "Required to manage photos albums",
+              "type": "io.cozy.photos.albums",
+              "verbs": Array [
+                "GET",
+                "POST",
+                "PUT",
+                "PATCH",
+                "DELETE",
+              ],
+            },
+            "apps": Object {
+              "description": "Required by the cozy-bar to display the icons of the apps",
+              "type": "io.cozy.apps",
+              "verbs": Array [
+                "GET",
+                "PUT",
+              ],
+            },
+            "contacts": Object {
+              "description": "Required to to share photos with your contacts",
+              "type": "io.cozy.contacts",
+              "verbs": Array [
+                "GET",
+                "POST",
+              ],
+            },
+            "files": Object {
+              "description": "Required for photo access",
+              "type": "io.cozy.files",
+              "verbs": Array [
+                "GET",
+                "POST",
+                "PUT",
+                "PATCH",
+              ],
+            },
+            "oauth": Object {
+              "description": "Required to display the cozy-desktop banner",
+              "type": "io.cozy.oauth.clients",
+              "verbs": Array [
+                "GET",
+              ],
+            },
+            "photos_settings": Object {
+              "description": "Required to manage photos albums settings",
+              "type": "io.cozy.photos.settings",
+              "verbs": Array [
+                "GET",
+                "POST",
+                "PUT",
+              ],
+            },
+            "reporting": Object {
+              "description": "Allow to report unexpected errors to the support team",
+              "type": "cc.cozycloud.sentry",
+              "verbs": Array [
+                "POST",
+              ],
+            },
+            "settings": Object {
+              "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
+              "type": "io.cozy.settings",
+              "verbs": Array [
+                "GET",
+              ],
+            },
+            "triggers": Object {
+              "description": "Required to re-execute the clustering",
+              "selector": "worker",
+              "type": "io.cozy.triggers",
+              "values": Array [
+                "service",
+              ],
+              "verbs": Array [
+                "POST",
+              ],
+            },
+          },
+          "routes": Object {},
+          "screenshots": Array [],
+          "services": Object {},
+          "slug": "photos",
+          "source": "registry://photos/stable",
+          "state": "ready",
+          "type": "webapp",
+          "uninstallable": true,
+          "updated_at": "2022-04-27T15:12:59.482571+02:00",
+          "version": "1.40.0",
+          "versions": Object {
+            "has_versions": true,
+            "stable": Array [
+              "1.3.1",
+            ],
+          },
+        }
+      }
+      description="Required to display the cozy-desktop banner"
+      name="oauth"
+      t={[Function]}
+      type="io.cozy.oauth.clients"
+      verbs={
+        Array [
+          "GET",
+        ]
+      }
+    />
+    <LocalizedPermission
+      app={
+        Object {
+          "_id": "io.cozy.apps/photos",
+          "categories": Array [
+            "cozy",
+          ],
+          "created_at": "2021-11-10T17:43:26.509411+01:00",
+          "developer": Object {
+            "name": "Cozy Cloud",
+            "url": "https://cozy.io",
+          },
+          "editor": "Cozy",
+          "icon": "public/app-icon.svg",
+          "installed": true,
+          "intents": null,
+          "isInRegistry": true,
+          "label": 1,
+          "langs": Array [
+            "en",
+            "fr",
+          ],
+          "licence": "AGPL-3.0",
+          "links": Object {},
+          "locales": Object {},
+          "name": "Photos",
+          "name_prefix": "Cozy",
+          "notifications": null,
+          "permissions": Object {
+            "albums": Object {
+              "description": "Required to manage photos albums",
+              "type": "io.cozy.photos.albums",
+              "verbs": Array [
+                "GET",
+                "POST",
+                "PUT",
+                "PATCH",
+                "DELETE",
+              ],
+            },
+            "apps": Object {
+              "description": "Required by the cozy-bar to display the icons of the apps",
+              "type": "io.cozy.apps",
+              "verbs": Array [
+                "GET",
+                "PUT",
+              ],
+            },
+            "contacts": Object {
+              "description": "Required to to share photos with your contacts",
+              "type": "io.cozy.contacts",
+              "verbs": Array [
+                "GET",
+                "POST",
+              ],
+            },
+            "files": Object {
+              "description": "Required for photo access",
+              "type": "io.cozy.files",
+              "verbs": Array [
+                "GET",
+                "POST",
+                "PUT",
+                "PATCH",
+              ],
+            },
+            "oauth": Object {
+              "description": "Required to display the cozy-desktop banner",
+              "type": "io.cozy.oauth.clients",
+              "verbs": Array [
+                "GET",
+              ],
+            },
+            "photos_settings": Object {
+              "description": "Required to manage photos albums settings",
+              "type": "io.cozy.photos.settings",
+              "verbs": Array [
+                "GET",
+                "POST",
+                "PUT",
+              ],
+            },
+            "reporting": Object {
+              "description": "Allow to report unexpected errors to the support team",
+              "type": "cc.cozycloud.sentry",
+              "verbs": Array [
+                "POST",
+              ],
+            },
+            "settings": Object {
+              "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
+              "type": "io.cozy.settings",
+              "verbs": Array [
+                "GET",
+              ],
+            },
+            "triggers": Object {
+              "description": "Required to re-execute the clustering",
+              "selector": "worker",
+              "type": "io.cozy.triggers",
+              "values": Array [
+                "service",
+              ],
+              "verbs": Array [
+                "POST",
+              ],
+            },
+          },
+          "routes": Object {},
+          "screenshots": Array [],
+          "services": Object {},
+          "slug": "photos",
+          "source": "registry://photos/stable",
+          "state": "ready",
+          "type": "webapp",
+          "uninstallable": true,
+          "updated_at": "2022-04-27T15:12:59.482571+02:00",
+          "version": "1.40.0",
+          "versions": Object {
+            "has_versions": true,
+            "stable": Array [
+              "1.3.1",
+            ],
+          },
+        }
+      }
+      description="Required to to share photos with your contacts"
+      name="contacts"
+      t={[Function]}
+      type="io.cozy.contacts"
+      verbs={
+        Array [
+          "GET",
+          "POST",
+        ]
+      }
+    />
     <LocalizedPermission
       app={
         Object {
@@ -2168,13 +2441,18 @@ exports[`PermissionsList component should be rendered correctly with webapp perm
           },
         }
       }
-      description="Required to to share photos with your contacts"
-      name="contacts"
+      description="Required to re-execute the clustering"
+      name="triggers"
+      selector="worker"
       t={[Function]}
-      type="io.cozy.contacts"
+      type="io.cozy.triggers"
+      values={
+        Array [
+          "service",
+        ]
+      }
       verbs={
         Array [
-          "GET",
           "POST",
         ]
       }
@@ -2312,284 +2590,6 @@ exports[`PermissionsList component should be rendered correctly with webapp perm
       verbs={
         Array [
           "GET",
-        ]
-      }
-    />
-    <LocalizedPermission
-      app={
-        Object {
-          "_id": "io.cozy.apps/photos",
-          "categories": Array [
-            "cozy",
-          ],
-          "created_at": "2021-11-10T17:43:26.509411+01:00",
-          "developer": Object {
-            "name": "Cozy Cloud",
-            "url": "https://cozy.io",
-          },
-          "editor": "Cozy",
-          "icon": "public/app-icon.svg",
-          "installed": true,
-          "intents": null,
-          "isInRegistry": true,
-          "label": 1,
-          "langs": Array [
-            "en",
-            "fr",
-          ],
-          "licence": "AGPL-3.0",
-          "links": Object {},
-          "locales": Object {},
-          "name": "Photos",
-          "name_prefix": "Cozy",
-          "notifications": null,
-          "permissions": Object {
-            "albums": Object {
-              "description": "Required to manage photos albums",
-              "type": "io.cozy.photos.albums",
-              "verbs": Array [
-                "GET",
-                "POST",
-                "PUT",
-                "PATCH",
-                "DELETE",
-              ],
-            },
-            "apps": Object {
-              "description": "Required by the cozy-bar to display the icons of the apps",
-              "type": "io.cozy.apps",
-              "verbs": Array [
-                "GET",
-                "PUT",
-              ],
-            },
-            "contacts": Object {
-              "description": "Required to to share photos with your contacts",
-              "type": "io.cozy.contacts",
-              "verbs": Array [
-                "GET",
-                "POST",
-              ],
-            },
-            "files": Object {
-              "description": "Required for photo access",
-              "type": "io.cozy.files",
-              "verbs": Array [
-                "GET",
-                "POST",
-                "PUT",
-                "PATCH",
-              ],
-            },
-            "oauth": Object {
-              "description": "Required to display the cozy-desktop banner",
-              "type": "io.cozy.oauth.clients",
-              "verbs": Array [
-                "GET",
-              ],
-            },
-            "photos_settings": Object {
-              "description": "Required to manage photos albums settings",
-              "type": "io.cozy.photos.settings",
-              "verbs": Array [
-                "GET",
-                "POST",
-                "PUT",
-              ],
-            },
-            "reporting": Object {
-              "description": "Allow to report unexpected errors to the support team",
-              "type": "cc.cozycloud.sentry",
-              "verbs": Array [
-                "POST",
-              ],
-            },
-            "settings": Object {
-              "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
-              "type": "io.cozy.settings",
-              "verbs": Array [
-                "GET",
-              ],
-            },
-            "triggers": Object {
-              "description": "Required to re-execute the clustering",
-              "selector": "worker",
-              "type": "io.cozy.triggers",
-              "values": Array [
-                "service",
-              ],
-              "verbs": Array [
-                "POST",
-              ],
-            },
-          },
-          "routes": Object {},
-          "screenshots": Array [],
-          "services": Object {},
-          "slug": "photos",
-          "source": "registry://photos/stable",
-          "state": "ready",
-          "type": "webapp",
-          "uninstallable": true,
-          "updated_at": "2022-04-27T15:12:59.482571+02:00",
-          "version": "1.40.0",
-          "versions": Object {
-            "has_versions": true,
-            "stable": Array [
-              "1.3.1",
-            ],
-          },
-        }
-      }
-      description="Required to display the cozy-desktop banner"
-      name="oauth"
-      t={[Function]}
-      type="io.cozy.oauth.clients"
-      verbs={
-        Array [
-          "GET",
-        ]
-      }
-    />
-    <LocalizedPermission
-      app={
-        Object {
-          "_id": "io.cozy.apps/photos",
-          "categories": Array [
-            "cozy",
-          ],
-          "created_at": "2021-11-10T17:43:26.509411+01:00",
-          "developer": Object {
-            "name": "Cozy Cloud",
-            "url": "https://cozy.io",
-          },
-          "editor": "Cozy",
-          "icon": "public/app-icon.svg",
-          "installed": true,
-          "intents": null,
-          "isInRegistry": true,
-          "label": 1,
-          "langs": Array [
-            "en",
-            "fr",
-          ],
-          "licence": "AGPL-3.0",
-          "links": Object {},
-          "locales": Object {},
-          "name": "Photos",
-          "name_prefix": "Cozy",
-          "notifications": null,
-          "permissions": Object {
-            "albums": Object {
-              "description": "Required to manage photos albums",
-              "type": "io.cozy.photos.albums",
-              "verbs": Array [
-                "GET",
-                "POST",
-                "PUT",
-                "PATCH",
-                "DELETE",
-              ],
-            },
-            "apps": Object {
-              "description": "Required by the cozy-bar to display the icons of the apps",
-              "type": "io.cozy.apps",
-              "verbs": Array [
-                "GET",
-                "PUT",
-              ],
-            },
-            "contacts": Object {
-              "description": "Required to to share photos with your contacts",
-              "type": "io.cozy.contacts",
-              "verbs": Array [
-                "GET",
-                "POST",
-              ],
-            },
-            "files": Object {
-              "description": "Required for photo access",
-              "type": "io.cozy.files",
-              "verbs": Array [
-                "GET",
-                "POST",
-                "PUT",
-                "PATCH",
-              ],
-            },
-            "oauth": Object {
-              "description": "Required to display the cozy-desktop banner",
-              "type": "io.cozy.oauth.clients",
-              "verbs": Array [
-                "GET",
-              ],
-            },
-            "photos_settings": Object {
-              "description": "Required to manage photos albums settings",
-              "type": "io.cozy.photos.settings",
-              "verbs": Array [
-                "GET",
-                "POST",
-                "PUT",
-              ],
-            },
-            "reporting": Object {
-              "description": "Allow to report unexpected errors to the support team",
-              "type": "cc.cozycloud.sentry",
-              "verbs": Array [
-                "POST",
-              ],
-            },
-            "settings": Object {
-              "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
-              "type": "io.cozy.settings",
-              "verbs": Array [
-                "GET",
-              ],
-            },
-            "triggers": Object {
-              "description": "Required to re-execute the clustering",
-              "selector": "worker",
-              "type": "io.cozy.triggers",
-              "values": Array [
-                "service",
-              ],
-              "verbs": Array [
-                "POST",
-              ],
-            },
-          },
-          "routes": Object {},
-          "screenshots": Array [],
-          "services": Object {},
-          "slug": "photos",
-          "source": "registry://photos/stable",
-          "state": "ready",
-          "type": "webapp",
-          "uninstallable": true,
-          "updated_at": "2022-04-27T15:12:59.482571+02:00",
-          "version": "1.40.0",
-          "versions": Object {
-            "has_versions": true,
-            "stable": Array [
-              "1.3.1",
-            ],
-          },
-        }
-      }
-      description="Required to re-execute the clustering"
-      name="triggers"
-      selector="worker"
-      t={[Function]}
-      type="io.cozy.triggers"
-      values={
-        Array [
-          "service",
-        ]
-      }
-      verbs={
-        Array [
-          "POST",
         ]
       }
     />
