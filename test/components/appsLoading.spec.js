@@ -4,6 +4,7 @@
 
 import React from 'react'
 import { shallow } from 'enzyme'
+import {render, screen} from '@testing-library/react'
 
 import {
   AppsLoading,
@@ -14,7 +15,7 @@ global.Math.random = () => 1 // remove random for testing
 
 describe('AppsLoading component', () => {
   it('should be rendered correctly and never be updated', () => {
-    const wrapper = shallow(<AppsLoading />)
+    const wrapper = render(<AppsLoading />)
     const shouldUpdate = wrapper.instance().shouldComponentUpdate()
     expect(shouldUpdate).toBe(false)
   })
