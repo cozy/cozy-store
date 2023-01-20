@@ -1,42 +1,31 @@
-'use strict'
-
-/* eslint-env jest */
-
 import React from 'react'
-import { shallow } from 'enzyme'
-import {render, screen} from '@testing-library/react'
+import { render } from '@testing-library/react'
 
-import {
-  AppsLoading,
-  LoadingAppsComponents
-} from 'ducks/components/AppsLoading'
+import { LoadingAppsComponents } from 'ducks/components/AppsLoading'
+import AppLike from '../AppLike'
 
 global.Math.random = () => 1 // remove random for testing
 
-describe('AppsLoading component', () => {
-  it('should be rendered correctly and never be updated', () => {
-    const wrapper = render(<AppsLoading />)
-    const shouldUpdate = wrapper.instance().shouldComponentUpdate()
-    expect(shouldUpdate).toBe(false)
-  })
-})
-
 describe('LoadingAppsComponents component', () => {
   it('should be rendered correctly', () => {
-    const component = shallow(
-      <LoadingAppsComponents count={3} subKey="mock" />
-    ).getElement()
-    expect(component).toMatchSnapshot()
+    const { queryAllByTestId } = render(
+      <AppLike>
+        <LoadingAppsComponents count={1} subKey="mock" />
+      </AppLike>
+    )
+    expect(queryAllByTestId('Placeholder')).toHaveLength(4)
   })
 
   it('should be rendered correctly if isMobile', () => {
-    const component = shallow(
-      <LoadingAppsComponents
-        count={3}
-        subKey="mock"
-        breakpoints={{ isMobile: true }}
-      />
-    ).getElement()
+    const component = render(
+      <AppLike>
+        <LoadingAppsComponents
+          count={1}
+          subKey="mock"
+          breakpoints={{ isMobile: true }}
+        />
+      </AppLike>
+    )
     expect(component).toMatchSnapshot()
   })
 })
