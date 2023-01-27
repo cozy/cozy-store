@@ -1,9 +1,6 @@
-'use strict'
-
-/* eslint-env jest */
-
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
+import '@testing-library/jest-dom'
 
 import ReactMarkdownWrapper, {
   reactMarkdownRendererOptions
@@ -11,38 +8,72 @@ import ReactMarkdownWrapper, {
 
 describe('ReactMarkdownWrapper component', () => {
   it('should be rendered correctly', () => {
-    const component = shallow(
-      <ReactMarkdownWrapper source="Test [link]() __strong__" />
-    ).getElement()
-    expect(component).toMatchSnapshot()
+    const { getByText, getByRole } = render(
+      <ReactMarkdownWrapper source="Test [linkName]() __strongName__" />
+    )
+    expect(getByText('Test')).toBeInTheDocument()
+
+    const link = getByRole('link', { name: 'linkName' })
+    expect(link).toBeInTheDocument()
+    expect(link.getAttribute('class')).toBe('md-link')
+    expect(link.getAttribute('href')).toBe('')
+    expect(link.getAttribute('rel')).toBe('noopener noreferrer')
+    expect(link.getAttribute('target')).toBe('_blank')
+
+    const strong = getByText('strongName')
+    expect(strong).toBeInTheDocument()
+    expect(strong.tagName).toBe('STRONG')
   })
   it('should handle correctly markdown with emojis', () => {
-    const component = shallow(
+    const { getByRole, getByText } = render(
       <ReactMarkdownWrapper
-        source={'### Heading 3\n\nThis is a `test` :tada:'}
+        source={'### Heading 3\n\nThis is a `codeName` :tada:'}
         parseEmoji
       />
-    ).getElement()
-    expect(component).toMatchSnapshot()
+    )
+    expect(
+      getByRole('heading', { level: 3, name: 'Heading 3' })
+    ).toBeInTheDocument()
+
+    const paragraph = getByText('This is a')
+    expect(paragraph).toBeInTheDocument()
+    expect(paragraph.tagName).toBe('P')
+
+    const codeName = getByText('codeName')
+    expect(codeName).toBeInTheDocument()
+    expect(codeName.tagName).toBe('CODE')
+
+    const img = getByRole('img')
+    expect(img).toBeInTheDocument()
+    expect(img.getAttribute('src')).toBe('/emoji-data/img-apple-64/1f389.png')
   })
   it('should not render if no source provided', () => {
-    const component = shallow(<ReactMarkdownWrapper />).getElement()
-    expect(component).toMatchSnapshot()
+    const { container } = render(<ReactMarkdownWrapper />)
+    expect(container).toMatchInlineSnapshot('<div />')
   })
   it('should have correct link renderer options', () => {
-    const component = shallow(
+    const { getByRole } = render(
       <reactMarkdownRendererOptions.link href="#">
         <div />
       </reactMarkdownRendererOptions.link>
-    ).getElement()
-    expect(component).toMatchSnapshot()
+    )
+
+    const link = getByRole('link')
+    expect(link).toBeInTheDocument()
+    expect(link.getAttribute('class')).toBe('md-link')
+    expect(link.getAttribute('href')).toBe('#')
+    expect(link.getAttribute('rel')).toBe('noopener noreferrer')
+    expect(link.getAttribute('target')).toBe('_blank')
   })
   it('should have correct heading renderer options', () => {
-    const component = shallow(
+    const { getByRole } = render(
       <reactMarkdownRendererOptions.heading level="3">
         MyHeading
       </reactMarkdownRendererOptions.heading>
-    ).getElement()
-    expect(component).toMatchSnapshot()
+    )
+
+    const heading = getByRole('heading', { level: 3, name: 'MyHeading' })
+    expect(heading).toBeInTheDocument()
+    expect(heading.getAttribute('class')).toBe('md-title md-title--h3')
   })
 })
