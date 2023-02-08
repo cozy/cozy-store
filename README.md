@@ -133,7 +133,7 @@ Localization and translations are handled by [Transifex][tx], which is used by a
 
 As a _translator_, you can login to [Transifex][tx-signin] (using your Github account) and claim an access to the [app repository][tx-app]. Locales are pulled when app is build before publishing.
 
-As a _developer_, you must [configure the transifex client][tx-client], and claim an access as _maintainer_ is the [app repository][tx-app]. Then please **only update** the source locale file (usually `en.json` in client and/or server parts), and push it to Transifex repository using the `tx push -s` command.
+As a _developer_, you just have to modify json in `/src/locales`. New locales will be automatically added to Transifex. If you need to pull or push manually locales, you can use [Transifex CLI](tx-cli). If you were using a [transifex-client](tx-client), you must move to [Transifex CLI](tx-cli) to be compatible with the v3 API.
 
 
 ### Maintainer
@@ -173,8 +173,9 @@ Cozy Settings is developed by Cozy Cloud and distributed under the [AGPL v3 lice
 [contribute]: CONTRIBUTING.md
 [tx]: https://www.transifex.com/cozy/
 [tx-signin]: https://www.transifex.com/signin/
-[tx-app]: https://www.transifex.com/cozy/cozy-settings/dashboard/
-[tx-client]: http://docs.transifex.com/client/
+[tx-app]: https://www.transifex.com/cozy/cozy-store/dashboard/
+[tx-cli]: https://developers.transifex.com/docs/cli
+[tx-client]: https://github.com/transifex/transifex-client
 [libera]: https://web.libera.chat/#cozycloud
 [forum]: https://forum.cozy.io/
 [github]: https://github.com/cozy/
