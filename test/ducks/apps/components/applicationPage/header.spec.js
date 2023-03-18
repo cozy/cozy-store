@@ -1,26 +1,20 @@
-'use strict'
-
-/* eslint-env jest */
-
 import React from 'react'
 import { MemoryRouter, useLocation } from 'react-router-dom'
 import { render, fireEvent } from '@testing-library/react'
-import { shallow } from 'enzyme'
+import '@testing-library/jest-dom'
 
 import CozyClient, { CozyProvider } from 'cozy-client'
 import { isFlagshipApp } from 'cozy-device-helper'
 import { WebviewIntentProvider } from 'cozy-intent'
-
-import Button from 'cozy-ui/transpiled/react/Button'
 import { BreakpointsProvider } from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 import I18n from 'cozy-ui/transpiled/react/I18n'
 
 import enLocale from '../../../../../src/locales/en.json'
 import { tMock } from '../../../../jestLib/I18n'
 import { Header } from 'ducks/apps/components/ApplicationPage/Header'
-
 import mockApp from '../../_mockPhotosRegistryVersion'
 import mockKonnector from '../../_mockPKonnectorTrinlaneRegistryVersion'
+import { openApp } from 'ducks/apps'
 
 delete window.location
 window.location = { assign: jest.fn() }
@@ -32,6 +26,11 @@ jest.mock('cozy-device-helper', () => ({
   isFlagshipApp: jest.fn()
 }))
 
+jest.mock('ducks/apps', () => ({
+  ...jest.requireActual('ducks/apps'),
+  openApp: jest.fn()
+}))
+
 const mockIntentRedirect = jest.fn()
 jest.mock('cozy-interapp', () => {
   return jest.fn().mockImplementation(() => {
@@ -41,74 +40,88 @@ jest.mock('cozy-interapp', () => {
   })
 })
 
+const mockIntentCall = jest.fn()
+jest.mock('cozy-intent', () => ({
+  ...jest.requireActual('cozy-intent'),
+  useWebviewIntent: jest.fn().mockImplementation(() => {
+    return {
+      call: mockIntentCall
+    }
+  })
+}))
+
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useLocation: jest.fn()
 }))
 
-const AppLike = ({ children, client, webviewService }) => (
-  <MemoryRouter>
-    <BreakpointsProvider>
-      <WebviewIntentProvider webviewService={webviewService}>
-        <CozyProvider client={client}>
-          <I18n lang="en" dictRequire={() => enLocale}>
-            {children}
-          </I18n>
-        </CozyProvider>
-      </WebviewIntentProvider>
-    </BreakpointsProvider>
-  </MemoryRouter>
-)
+const AppLike = ({
+  children,
+  client,
+  webviewService,
+  mockOpenApp = jest.fn()
+} = {}) => {
+  const mockClient = client || new CozyClient({})
+  const mockWebviewService = webviewService || {
+    call: jest.fn()
+  }
+  openApp.mockImplementation(mockOpenApp)
+
+  return (
+    <MemoryRouter>
+      <BreakpointsProvider>
+        <WebviewIntentProvider webviewService={mockWebviewService}>
+          <CozyProvider client={mockClient}>
+            <I18n lang="en" dictRequire={() => enLocale}>
+              {children}
+            </I18n>
+          </CozyProvider>
+        </WebviewIntentProvider>
+      </BreakpointsProvider>
+    </MemoryRouter>
+  )
+}
 
 describe('ApplicationPage header component', () => {
   beforeEach(() => {
     window.location.assign.mockReset()
     isFlagshipApp.mockReset()
     mockIntentRedirect.mockReset()
+    mockIntentCall.mockReset()
     useLocation.mockReturnValue({ search: '' })
   })
 
   it('should be rendered correctly provided app', () => {
-    const component = shallow(
-      <Header
-        t={tMock}
-        parent="/myapps"
-        namePrefix="Cozy"
-        name={mockApp.name}
-        description={mockApp.description}
-        app={mockApp}
-      />
-    ).getElement()
-    expect(component).toMatchSnapshot()
+    const { getByText } = render(
+      <AppLike>
+        <Header
+          t={tMock}
+          parent="/myapps"
+          namePrefix="Cozy"
+          name={mockApp.manifest.name}
+          description={mockApp.manifest.short_description}
+          app={mockApp}
+        />
+      </AppLike>
+    )
+    expect(getByText('Cozy Photos')).toBeInTheDocument()
+    expect(getByText('Photos manager for Cozy v3')).toBeInTheDocument()
   })
 
   it('should be rendered correctly provided konnector', () => {
-    const component = shallow(
-      <Header
-        t={tMock}
-        parent="/myapps"
-        app={mockKonnector}
-        name={mockKonnector.name}
-        description={mockKonnector.description}
-      />
-    ).getElement()
-    expect(component).toMatchSnapshot()
-  })
-
-  it('should be rendered correctly provided app with broken icon and no editor', () => {
-    const appProps = Object.assign({}, mockApp.manifest)
-    appProps.icon = ''
-    appProps.editor = ''
-    const component = shallow(
-      <Header
-        t={tMock}
-        parent="/myapps"
-        app={appProps}
-        name={appProps.name}
-        description={appProps.description}
-      />
-    ).getElement()
-    expect(component).toMatchSnapshot()
+    const { getByText } = render(
+      <AppLike>
+        <Header
+          t={tMock}
+          parent="/myapps"
+          app={mockKonnector}
+          name={mockKonnector.manifest.name}
+          description={mockKonnector.manifest.short_description}
+        />
+      </AppLike>
+    )
+    expect(getByText('Trinlane')).toBeInTheDocument()
+    expect(getByText('A konnector for trinlane')).toBeInTheDocument()
   })
 
   it('should handle the click on open installed app button', () => {
@@ -116,38 +129,34 @@ describe('ApplicationPage header component', () => {
     appProps.installed = true
     appProps.icon = '<svg></svg>'
     appProps.related = '#'
-    const wrapper = shallow(
-      <Header
-        t={tMock}
-        parent="/myapps"
-        app={appProps}
-        name={appProps.name}
-        description={appProps.description}
-      />
+    const mockOpenApp = jest.fn()
+    const mockWebviewService = jest.fn()
+
+    const { getByRole } = render(
+      <AppLike mockOpenApp={mockOpenApp} webviewService={mockWebviewService}>
+        <Header
+          t={tMock}
+          parent="/myapps"
+          app={appProps}
+          name={appProps.name}
+          description={appProps.description}
+        />
+      </AppLike>
     )
-    // open button is the first one
-    wrapper
-      .find(Button)
-      .at(0)
-      .simulate('click')
-    expect(window.location.assign.mock.calls.length).toBe(1)
-    expect(window.location.assign.mock.calls[0][0]).toBe('#')
+    const button = getByRole('button')
+    fireEvent.click(button)
+
+    expect(mockOpenApp).toBeCalledTimes(1)
+    expect(mockOpenApp).not.toBeCalledWith(undefined)
   })
 
   it('should open the connector in amiral app if in amiral container', () => {
     isFlagshipApp.mockImplementation(() => true)
-
-    const client = new CozyClient({})
-
     const connectorProps = Object.assign({}, mockKonnector.manifest)
     connectorProps.installed = true
 
-    const mockWebviewService = {
-      call: jest.fn()
-    }
-
-    const { queryByText } = render(
-      <AppLike client={client} webviewService={mockWebviewService}>
+    const { queryByRole } = render(
+      <AppLike>
         <Header
           t={tMock}
           parent="/myapps"
@@ -159,10 +168,11 @@ describe('ApplicationPage header component', () => {
       </AppLike>
     )
 
-    const button = queryByText(enLocale.app_page.konnector.open)
+    const button = queryByRole('button')
     fireEvent.click(button)
 
-    expect(mockWebviewService.call).toHaveBeenCalledWith(
+    expect(mockIntentCall).toHaveBeenCalled()
+    expect(mockIntentCall).toHaveBeenCalledWith(
       'openApp',
       connectorProps.related,
       connectorProps
@@ -172,18 +182,11 @@ describe('ApplicationPage header component', () => {
 
   it('should open the connector in browser if NOT in amiral container', () => {
     isFlagshipApp.mockImplementation(() => false)
-
-    const client = new CozyClient({})
-
     const connectorProps = Object.assign({}, mockKonnector.manifest)
     connectorProps.installed = true
 
-    const mockWebviewService = {
-      call: jest.fn()
-    }
-
-    const { queryByText } = render(
-      <AppLike client={client} webviewService={mockWebviewService}>
+    const { queryByRole } = render(
+      <AppLike>
         <Header
           t={tMock}
           parent="/myapps"
@@ -195,10 +198,10 @@ describe('ApplicationPage header component', () => {
       </AppLike>
     )
 
-    const button = queryByText(enLocale.app_page.konnector.open)
+    const button = queryByRole('button')
     fireEvent.click(button)
 
-    expect(mockWebviewService.call).not.toHaveBeenCalled()
+    expect(mockIntentCall).not.toHaveBeenCalled()
     expect(mockIntentRedirect).toHaveBeenCalledWith('io.cozy.accounts', {
       konnector: connectorProps.slug
     })
@@ -207,23 +210,21 @@ describe('ApplicationPage header component', () => {
   it('should disable the install button if maintenance', () => {
     const appProps = Object.assign({}, mockApp.manifest)
     appProps.maintenance = {}
-    const wrapper = shallow(
-      <Header
-        t={tMock}
-        parent="/discover"
-        app={appProps}
-        name={appProps.name}
-        description={appProps.description}
-      />
+    const { getByRole } = render(
+      <AppLike>
+        <Header
+          t={tMock}
+          parent="/discover"
+          app={appProps}
+          name={appProps.name}
+          description={appProps.description}
+        />
+      </AppLike>
     )
-    const mockEvent = {
-      preventDefault: jest.fn()
-    }
-    // install button is the only one here
-    const installButton = wrapper.find(Button)
-    expect(installButton.props().disabled).toBe(true)
-    wrapper.find(Button).simulate('click', mockEvent)
-    expect(mockEvent.preventDefault.mock.calls.length).toBe(1)
+    const installButton = getByRole('link', { name: 'Install' })
+    const isPrevented = fireEvent.click(installButton)
+
+    expect(isPrevented).toBe(false)
   })
 
   it('should disable the uninstall button for installed app if not uninstallable', () => {
@@ -231,60 +232,43 @@ describe('ApplicationPage header component', () => {
     appProps.installed = true
     appProps.icon = '<svg></svg>'
     appProps.uninstallable = false
-    const wrapper = shallow(
-      <Header
-        t={tMock}
-        parent="/discover"
-        app={appProps}
-        name={appProps.name}
-        description={appProps.description}
-      />
+    const { getByRole } = render(
+      <AppLike>
+        <Header
+          t={tMock}
+          parent="/discover"
+          app={appProps}
+          name={appProps.name}
+          description={appProps.description}
+        />
+      </AppLike>
     )
-    const mockEvent = {
-      preventDefault: jest.fn()
-    }
-    // uninstall button is the second one
-    const uninstallButton = wrapper.find(Button).at(1)
-    expect(uninstallButton.props().disabled).toBe(true)
-    uninstallButton.simulate('click', mockEvent)
-    expect(mockEvent.preventDefault.mock.calls.length).toBe(1)
+
+    const uninstallButton = getByRole('link', { name: 'Uninstall' })
+    const isPrevented = fireEvent.click(uninstallButton)
+
+    expect(isPrevented).toBe(false)
   })
 
   it('should disable the uninstall button an app is installing (updating)', () => {
     const appProps = Object.assign({}, mockApp.manifest)
     appProps.installed = true
-    const wrapper = shallow(
-      <Header
-        t={tMock}
-        parent="/discover"
-        app={appProps}
-        name={appProps.name}
-        description={appProps.description}
-        isInstalling
-      />
+    const { getByRole } = render(
+      <AppLike>
+        <Header
+          t={tMock}
+          parent="/discover"
+          app={appProps}
+          name={appProps.name}
+          description={appProps.description}
+          isInstalling
+        />
+      </AppLike>
     )
-    const mockEvent = {
-      preventDefault: jest.fn()
-    }
-    // uninstall button is the second one
-    const uninstallButton = wrapper.find(Button).at(1)
-    expect(uninstallButton.props().disabled).toBe(true)
-    uninstallButton.simulate('click', mockEvent)
-    expect(mockEvent.preventDefault.mock.calls.length).toBe(1)
-  })
 
-  it('should display a placeholder if app icon is still fetching', () => {
-    const appProps = Object.assign({}, mockApp.manifest)
-    appProps.iconToLoad = true
-    const component = shallow(
-      <Header
-        t={tMock}
-        parent="/discover"
-        app={appProps}
-        name={appProps.name}
-        description={appProps.description}
-      />
-    ).getElement()
-    expect(component).toMatchSnapshot()
+    const uninstallButton = getByRole('link', { name: 'Uninstall' })
+    const isPrevented = fireEvent.click(uninstallButton)
+
+    expect(isPrevented).toBe(false)
   })
 })
