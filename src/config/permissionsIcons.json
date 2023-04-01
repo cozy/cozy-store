@@ -45,6 +45,7 @@
   "io.cozy.files": "files",
   "io.cozy.files.versions": "files-versions",
   "io.cozy.files.*": "files",
+  "io.cozy.home.settings": "home",
   "io.cozy.identities": "identities",
   "io.cozy.jobs": "task-to-effectuate",
   "io.cozy.konnectors": "konnectors",
