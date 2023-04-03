@@ -300,7 +300,10 @@
     "reason": "**Grund: **",
     "developer_default": "Der Entwickler dieser Anwendung",
     "description": {
-      "internal": "Diese App überträgt keine Daten an den Entwickler %{name}, sondern verwendet sie nur lokal in Ihrem Cozy, ohne sie an Dritte weiterzugeben:",
+      "internal": {
+        "konnector": "Sie werden einen Connector zwischen Ihrer Personal Cloud und diesem Dienst installieren, um die Wiederherstellung Ihrer Daten zu erleichtern. Zu diesem Zweck wird er auf die folgenden personenbezogenen Daten zugreifen, diese jedoch niemals an Dritte weitergeben:",
+        "webapp": "Diese App überträgt keine Daten an den Entwickler %{name}, sondern verwendet sie nur lokal in Ihrem Cozy, ohne sie an Dritte weiterzugeben:"
+      },
       "external": "%{name} kann diese Daten aus Ihrem Cozy nur für folgende Zwecke verwenden und extrahieren:",
       "nothing": "%{appName} doesn't require any data access to work correctly on your Cozy."
     }

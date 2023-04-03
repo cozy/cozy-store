@@ -385,7 +385,11 @@ main > [role=main].sto-myapps {
 
 @media (max-width: 48rem) {
   .sto-app-details {
-    flex-direction: column-reverse;
+    flex-direction: column;
+  }
+
+  .sto-app-description {
+    margin-bottom: 1.5rem;
   }
 
   .sto-app-descriptions,
