@@ -129,7 +129,7 @@ exports[`PermissionsList component should be rendered correctly when is a bank w
       spin={false}
     />
     <p>
-      You are going to install a connector to facilitate the recovery of your data. It will access the following personal data but will never transmit them to anyone:
+      You are going to install a Connector between your Personal Cloud and this service to facilitate the recovery of your data. It will access the following personal data but will never transmit them to anyone:
     </p>
   </div>
   <ul
@@ -252,7 +252,7 @@ exports[`PermissionsList component should be rendered correctly with konnector p
       spin={false}
     />
     <p>
-      You are going to install a connector to facilitate the recovery of your data. It will access the following personal data but will never transmit them to anyone:
+      You are going to install a Connector between your Personal Cloud and this service to facilitate the recovery of your data. It will access the following personal data but will never transmit them to anyone:
     </p>
   </div>
   <ul

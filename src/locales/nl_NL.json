@@ -300,7 +300,10 @@
     "reason": "**Reden:**",
     "developer_default": "De ontwikkelaar van deze app",
     "description": {
-      "internal": "Deze app stuurt geen gegevens naar %{name} (de ontwikkelaar), maar slaat ze lokaal op in je Cozy:",
+      "internal": {
+        "konnector": "U gaat een Connector installeren tussen uw Personal Cloud en deze dienst om het herstel van uw gegevens te vergemakkelijken. Om dit te doen, zal hij toegang hebben tot de volgende persoonlijke gegevens, maar zal deze nooit aan iemand doorgeven:",
+        "webapp": "Deze app stuurt geen gegevens naar %{name} (de ontwikkelaar), maar slaat ze lokaal op in je Cozy:"
+      },
       "external": "%name kan je Cozy-gegevens uitlezen en gebruiken voor de volgende doeleinden:",
       "nothing": "%{appName} vereist geen gegevenstoegang om te werken op je Cozy."
     }
