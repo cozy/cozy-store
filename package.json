@@ -31,6 +31,8 @@
   },
   "homepage": "https://github.com/cozy/cozy-store#readme",
   "devDependencies": {
+    "@testing-library/jest-dom": "5.16.5",
+    "@testing-library/react": "11.2.7",
     "cozy-scripts": "6.3.8",
     "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "1.15.6",
@@ -44,7 +46,6 @@
   "dependencies": {
     "@cozy/minilog": "^1.0.0",
     "@material-ui/core": "4.12.4",
-    "@testing-library/react": "11.2.7",
     "cozy-app-publish": "^0.27.2",
     "cozy-bar": "^7.19.1",
     "cozy-client": "^34.10.1",
