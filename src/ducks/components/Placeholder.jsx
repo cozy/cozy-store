@@ -15,6 +15,7 @@ export const Placeholder = ({ width, height, autoMargin, className }) => {
         'sto-sections-placeholder' + (className ? ' ' + className : '')
       }
       style={style}
+      data-testid="Placeholder"
     />
   )
 }

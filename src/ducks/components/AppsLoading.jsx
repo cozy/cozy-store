@@ -1,16 +1,21 @@
-import React, { Component } from 'react'
-import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
+import React, { memo } from 'react'
+
+import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
+
 import Placeholder from 'ducks/components/Placeholder'
 
 // subarray = sections, array of subsections
 // number = number of loading items per subsection
 const LOADING_SECTIONS = [[5, 3, 9], [12, 8]]
 
-export const LoadingAppsComponents = ({ count, subKey, breakpoints = {} }) => {
+export const LoadingAppsComponents = ({ count, subKey }) => {
+  const breakpoints = useBreakpoints()
+
   let loadingApps = []
   const { isMobile } = breakpoints
   const iconSize = isMobile ? '2.5rem' : '3rem'
   const widthMax = isMobile ? 5 : 8
+
   for (let i = 1; i <= count; i++) {
     loadingApps.push(
       <div className="sto-small-app-item" key={`${subKey}-${i}`}>
@@ -46,41 +51,34 @@ export const LoadingAppsComponents = ({ count, subKey, breakpoints = {} }) => {
   return <div className="sto-sections-list">{loadingApps}</div>
 }
 
-export class AppsLoading extends Component {
-  shouldComponentUpdate() {
-    return false // always render this view only once
-  }
+export const AppsLoading = memo(() => {
+  return (
+    <div className="sto-sections --loading">
+      {LOADING_SECTIONS.map((subsection, subIndex) => {
+        return (
+          <div className="sto-sections-section" key={subIndex}>
+            <h2 className="sto-sections-title">
+              <Placeholder width={[8, 12]} height="1.75rem" />
+            </h2>
+            {subsection.map((subsectionCount, i) => {
+              return (
+                <div className="sto-sections-apps" key={`${subIndex}-${i}`}>
+                  <h3 className="sto-sections-subtitle">
+                    <Placeholder width={[4, 6]} height="1.25rem" />
+                  </h3>
+                  <LoadingAppsComponents
+                    count={subsectionCount}
+                    subKey={`${subIndex}-${i}`}
+                  />
+                </div>
+              )
+            })}
+          </div>
+        )
+      })}
+    </div>
+  )
+})
+AppsLoading.displayName = 'AppsLoading'
 
-  render() {
-    const { breakpoints } = this.props
-    return (
-      <div className="sto-sections --loading">
-        {LOADING_SECTIONS.map((subsection, subIndex) => {
-          return (
-            <div className="sto-sections-section" key={subIndex}>
-              <h2 className="sto-sections-title">
-                <Placeholder width={[8, 12]} height="1.75rem" />
-              </h2>
-              {subsection.map((subsectionCount, i) => {
-                return (
-                  <div className="sto-sections-apps" key={`${subIndex}-${i}`}>
-                    <h3 className="sto-sections-subtitle">
-                      <Placeholder width={[4, 6]} height="1.25rem" />
-                    </h3>
-                    <LoadingAppsComponents
-                      count={subsectionCount}
-                      subKey={`${subIndex}-${i}`}
-                      breakpoints={breakpoints}
-                    />
-                  </div>
-                )
-              })}
-            </div>
-          )
-        })}
-      </div>
-    )
-  }
-}
-
-export default withBreakpoints()(AppsLoading)
+export default AppsLoading

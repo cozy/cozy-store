@@ -1,7 +1,8 @@
+import compose from 'lodash/flowRight'
+
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { connect } from 'react-redux'
-import compose from 'lodash/flowRight'
 
 import AppIcon from 'cozy-ui/transpiled/react/AppIcon'
 import Button from 'cozy-ui/transpiled/react/Button'
