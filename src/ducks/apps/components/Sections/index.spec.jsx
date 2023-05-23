@@ -58,7 +58,7 @@ describe('AppsSection component', () => {
 describe('Search', () => {
   it('should filter the results', async () => {
     const { root } = setup()
-    const input = root.getByPlaceholderText('"Ameli", "telecom", "bills"')
+    const input = root.getByPlaceholderText('"CAF", "telecom", "bills"')
 
     act(() => {
       fireEvent.change(input, { target: { value: 'Bouil' } })
