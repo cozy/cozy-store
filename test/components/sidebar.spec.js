@@ -1,13 +1,41 @@
-'use strict'
-
-/* eslint-env jest */
-
 import React from 'react'
-import { shallow } from 'enzyme'
+import { useLocation } from 'react-router-dom'
+import { render } from '@testing-library/react'
+import '@testing-library/jest-dom'
 
 import { tMock } from '../jestLib/I18n'
-import { StoreSidebar } from 'ducks/components/Sidebar'
-import { AppRouter } from 'ducks/components/AppRouter'
+import { StoreSidebar as StoreSidebarOriginal } from 'ducks/components/Sidebar'
+import AppLike from '../AppLike'
+
+/* eslint-disable react/display-name */
+jest.mock('ducks/apps/Containers', () => ({
+  ...jest.requireActual('ducks/apps/Containers'),
+  Discover: () => <div data-testid="Discover" />,
+  MyApplications: () => <div data-testid="MyApplications" />,
+  SidebarCategories: () => <div data-testid="SidebarCategories" />
+}))
+/* eslint-enable react/display-name */
+
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useLocation: jest.fn()
+}))
+
+const setup = ({ searchParams = '', breakpoints, refreshComponent } = {}) => {
+  const StoreSidebar = refreshComponent
+    ? require('ducks/components/Sidebar').StoreSidebar
+    : StoreSidebarOriginal
+
+  useLocation.mockImplementation(() => {
+    return { search: searchParams }
+  })
+
+  return render(
+    <AppLike>
+      <StoreSidebar t={tMock} {...(breakpoints && { breakpoints })} />
+    </AppLike>
+  )
+}
 
 describe('StoreSidebar component', () => {
   beforeEach(() => {
@@ -15,27 +43,15 @@ describe('StoreSidebar component', () => {
   })
 
   it('should be rendered correctly', () => {
-    const mockLocation = {
-      search: ''
-    }
-    const component = shallow(
-      <AppRouter>
-        <StoreSidebar t={tMock} location={mockLocation} />
-      </AppRouter>
-    ).getElement()
-    expect(component).toMatchSnapshot()
+    const { getByRole } = setup({ searchParams: '' })
+
+    expect(getByRole('complementary')).toBeInTheDocument() // Implicit ARIA role of <aside> element
   })
 
   it('should not render if nav is disabled using search flag', () => {
-    const mockLocation = {
-      search: '?nav=false'
-    }
-    const component = shallow(
-      <AppRouter>
-        <StoreSidebar t={tMock} location={mockLocation} />
-      </AppRouter>
-    ).getElement()
-    expect(component).toMatchSnapshot()
+    const { queryByRole } = setup({ searchParams: '?nav=false' })
+
+    expect(queryByRole('complementary')).toBeNull() // Implicit ARIA role of <aside> element
   })
 
   it('should not render if nav is enabled but only one store part is displayed and we are on mobile', () => {
@@ -50,20 +66,13 @@ describe('StoreSidebar component', () => {
         }
       }
     })
-    const mockLocation = {
-      search: ''
-    }
-    const StoreSidebar = require('ducks/components/Sidebar').StoreSidebar
-    const component = shallow(
-      <AppRouter>
-        <StoreSidebar
-          t={tMock}
-          location={mockLocation}
-          breakpoints={{ isMobile: true }}
-        />
-      </AppRouter>
-    ).getElement()
-    expect(component).toMatchSnapshot()
+
+    const { queryByRole } = setup({
+      breakpoints: { isMobile: true },
+      refreshComponent: true
+    })
+
+    expect(queryByRole('complementary')).toBeNull() // Implicit ARIA role of <aside> element
   })
 
   it('should not render if nav is enabled but only one store part is displayed and we are on tablet', () => {
@@ -78,19 +87,12 @@ describe('StoreSidebar component', () => {
         }
       }
     })
-    const mockLocation = {
-      search: ''
-    }
-    const StoreSidebar = require('ducks/components/Sidebar').StoreSidebar
-    const component = shallow(
-      <AppRouter>
-        <StoreSidebar
-          t={tMock}
-          location={mockLocation}
-          breakpoints={{ isTablet: true }}
-        />
-      </AppRouter>
-    ).getElement()
-    expect(component).toMatchSnapshot()
+
+    const { queryByRole } = setup({
+      breakpoints: { isTablet: true },
+      refreshComponent: true
+    })
+
+    expect(queryByRole('complementary')).toBeNull() // Implicit ARIA role of <aside> element
   })
 })

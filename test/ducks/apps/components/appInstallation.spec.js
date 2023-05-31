@@ -1,9 +1,7 @@
-'use strict'
-
-/* eslint-env jest */
-
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
+import '@testing-library/jest-dom'
+
 import flags from 'cozy-flags'
 
 import { tMock } from '../../../jestLib/I18n'
@@ -27,7 +25,7 @@ describe('AppInstallation component', () => {
       label: storeConfig.default.authorizedLabelLimit
     })
     const mockInstallProp = jest.fn(() => Promise.resolve())
-    const component = shallow(
+    const { container, getByRole } = render(
       <AppInstallation
         t={tMock}
         appSlug={mockApp.slug}
@@ -38,7 +36,8 @@ describe('AppInstallation component', () => {
     )
     expect(mockInstallProp).toHaveBeenCalledTimes(1)
     expect(AppInstallation.prototype.installApp).toHaveBeenCalledTimes(1)
-    expect(component.getElement()).toMatchSnapshot()
+    expect(container.querySelector('.sto-install-loading')).toBeInTheDocument()
+    expect(getByRole('progressbar')).toBeInTheDocument()
     flags('skip-low-permissions', false)
   })
 
@@ -48,7 +47,7 @@ describe('AppInstallation component', () => {
       label: storeConfig.default.authorizedLabelLimit + 1
     })
     const mockInstallProp = jest.fn(() => Promise.resolve())
-    const component = shallow(
+    const { container, getByRole } = render(
       <AppInstallation
         t={tMock}
         appSlug={mockApp.slug}
@@ -59,7 +58,9 @@ describe('AppInstallation component', () => {
     )
     expect(mockInstallProp).not.toHaveBeenCalled()
     expect(AppInstallation.prototype.installApp).not.toHaveBeenCalled()
-    expect(component.getElement()).toMatchSnapshot()
+    expect(container.querySelector('.sto-install-controls')).toBeInTheDocument()
+    expect(getByRole('button', { name: 'Cancel' })).toBeInTheDocument()
+    expect(getByRole('button', { name: 'Install' })).toBeInTheDocument()
     flags('skip-low-permissions', false)
   })
 })

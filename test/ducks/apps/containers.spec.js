@@ -1,12 +1,10 @@
-'use strict'
-
-/* eslint-env jest */
-
 import React from 'react'
-import { shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
+import { render } from '@testing-library/react'
+import '@testing-library/jest-dom'
 
 import { MyApplications, Discover } from 'ducks/apps/Containers'
+import AppLike from '../../AppLike'
 
 const mockStore = configureStore()
 
@@ -23,17 +21,21 @@ describe('Apps Containers (connected components):', () => {
 
   it('MyApplications should be rendered correctly at initial store', () => {
     const store = mockStore(initialState)
-    const component = shallow(<MyApplications store={store} />)
-      .dive()
-      .getElement()
-    expect(component).toMatchSnapshot()
+    const { container } = render(
+      <AppLike>
+        <MyApplications store={store} />
+      </AppLike>
+    )
+    expect(container.querySelector('.sto-myapps')).toBeInTheDocument()
   })
 
   it('Discover should be rendered correctly at initial store', () => {
     const store = mockStore(initialState)
-    const component = shallow(<Discover store={store} />)
-      .dive()
-      .getElement()
-    expect(component).toMatchSnapshot()
+    const { container } = render(
+      <AppLike>
+        <Discover store={store} />
+      </AppLike>
+    )
+    expect(container.querySelector('.sto-discover')).toBeInTheDocument()
   })
 })
