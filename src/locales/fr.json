@@ -318,5 +318,14 @@
   "discover-search-field": {
     "label": "Rechercher :",
     "placeholder": "\"CAF\", \"énergie\", \"factures\""
+  },
+
+  "pushBanners": {
+    "download": "Télécharger",
+    "no-thanks": "Non merci !",
+    "text": {
+      "AA": "Emportez votre cloud personnel avec vous : installer notre app Cozy !",
+      "pass": "Vos mots de passe en sécurité dans votre poche : téléchargez Cozy Pass sur votre mobile"
+    }
   }
 }
