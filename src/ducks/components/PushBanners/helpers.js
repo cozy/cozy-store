@@ -1,21 +1,24 @@
-import BannerForAA from './BannerForAA'
+import BannerForFlagshipApp from './BannerForFlagshipApp'
 import BannerForPass from './BannerForPass'
 
 export const makePushBanner = (oAuthClients, setting) => {
-  const hasAAClient = oAuthClients.some(
+  const hasFlagshipAppClient = oAuthClients.some(
     oAuthClient => oAuthClient.software_id === 'amiral'
   )
   const hasPassClient = oAuthClients.some(
     oAuthClient => oAuthClient.software_id === 'io.cozy.pass.mobile'
   )
 
-  const { hideAA = false, hidePassMobile = false } = setting.pushBanners || {
-    hideAA: false,
+  const {
+    hideFlagshipApp = false,
+    hidePassMobile = false
+  } = setting.pushBanners || {
+    hideFlagshipApp: false,
     hidePassMobile: false
   }
 
-  if (!hasAAClient && !hideAA) {
-    return BannerForAA
+  if (!hasFlagshipAppClient && !hideFlagshipApp) {
+    return BannerForFlagshipApp
   }
 
   if (!hasPassClient && !hidePassMobile) {

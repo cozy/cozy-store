@@ -1,50 +1,50 @@
 import { makePushBanner } from './helpers'
 
-jest.mock('./BannerForAA', () => 'BannerForAA')
+jest.mock('./BannerForFlagshipApp', () => 'BannerForFlagshipApp')
 jest.mock('./BannerForPass', () => 'BannerForPass')
 
 describe('makePushBanner', () => {
-  describe('should return the banner for AA', () => {
-    it('when no oAuth client installed for AA and Pass mobile and switches not set in database', () => {
+  describe('should return the banner for FlagshipApp', () => {
+    it('when no oAuth client installed for FlagshipApp and Pass mobile and switches not set in database', () => {
       const res = makePushBanner([{ software_id: 'other_client' }], {})
 
-      expect(res).toBe('BannerForAA')
+      expect(res).toBe('BannerForFlagshipApp')
     })
 
-    it('when no oAuth client installed for AA and Pass mobile and AA banner not dismissed', () => {
+    it('when no oAuth client installed for FlagshipApp and Pass mobile and FlagshipApp banner not dismissed', () => {
       const res = makePushBanner([{ software_id: 'other_client' }], {
         pushBanners: {
-          hideAA: false,
+          hideFlagshipApp: false,
           hidePassMobile: false
         }
       })
 
-      expect(res).toBe('BannerForAA')
+      expect(res).toBe('BannerForFlagshipApp')
     })
 
-    it('when no oAuth client installed for AA even if there is one for Pass mobile', () => {
+    it('when no oAuth client installed for FlagshipApp even if there is one for Pass mobile', () => {
       const res = makePushBanner([{ software_id: 'io.cozy.pass.mobile' }], {
         pushBanners: {
-          hideAA: false,
+          hideFlagshipApp: false,
           hidePassMobile: false
         }
       })
 
-      expect(res).toBe('BannerForAA')
+      expect(res).toBe('BannerForFlagshipApp')
     })
   })
 
   describe('should return the banner for Pass', () => {
-    it('when oAuth client installed for AA but not for Pass mobile and switches not set in database', () => {
+    it('when oAuth client installed for FlagshipApp but not for Pass mobile and switches not set in database', () => {
       const res = makePushBanner([{ software_id: 'amiral' }], {})
 
       expect(res).toBe('BannerForPass')
     })
 
-    it('when oAuth client installed for AA but not for Pass mobile', () => {
+    it('when oAuth client installed for FlagshipApp but not for Pass mobile', () => {
       const res = makePushBanner([{ software_id: 'amiral' }], {
         pushBanners: {
-          hideAA: false,
+          hideFlagshipApp: false,
           hidePassMobile: false
         }
       })
@@ -52,10 +52,10 @@ describe('makePushBanner', () => {
       expect(res).toBe('BannerForPass')
     })
 
-    it('when no oAuth client installed for AA but AA banner already dismissed', () => {
+    it('when no oAuth client installed for FlagshipApp but FlagshipApp banner already dismissed', () => {
       const res = makePushBanner([{ software_id: 'other_client' }], {
         pushBanners: {
-          hideAA: true,
+          hideFlagshipApp: true,
           hidePassMobile: false
         }
       })
@@ -65,12 +65,12 @@ describe('makePushBanner', () => {
   })
 
   describe('should return no banner', () => {
-    it('when oAuth client installed for AA and Pass', () => {
+    it('when oAuth client installed for FlagshipApp and Pass', () => {
       const res = makePushBanner(
         [{ software_id: 'amiral' }, { software_id: 'io.cozy.pass.mobile' }],
         {
           pushBanners: {
-            hideAA: false,
+            hideFlagshipApp: false,
             hidePassMobile: false
           }
         }
@@ -79,10 +79,10 @@ describe('makePushBanner', () => {
       expect(res).toBeNull()
     })
 
-    it('when oAuth client installed for AA but Pass banner already dismissed', () => {
+    it('when oAuth client installed for FlagshipApp but Pass banner already dismissed', () => {
       const res = makePushBanner([{ software_id: 'amiral' }], {
         pushBanners: {
-          hideAA: false,
+          hideFlagshipApp: false,
           hidePassMobile: true
         }
       })
@@ -90,10 +90,10 @@ describe('makePushBanner', () => {
       expect(res).toBeNull()
     })
 
-    it('when oAuth client installed for Pass and AA banner already dismissed', () => {
+    it('when oAuth client installed for Pass and FlagshipApp banner already dismissed', () => {
       const res = makePushBanner([{ software_id: 'io.cozy.pass.mobile' }], {
         pushBanners: {
-          hideAA: true,
+          hideFlagshipApp: true,
           hidePassMobile: false
         }
       })
@@ -101,10 +101,10 @@ describe('makePushBanner', () => {
       expect(res).toBeNull()
     })
 
-    it('when no oAuth client installed for AA but AA banner and Pass banner already dismissed', () => {
+    it('when no oAuth client installed for FlagshipApp but FlagshipApp banner and Pass banner already dismissed', () => {
       const res = makePushBanner([{ software_id: 'other_client' }], {
         pushBanners: {
-          hideAA: true,
+          hideFlagshipApp: true,
           hidePassMobile: true
         }
       })
