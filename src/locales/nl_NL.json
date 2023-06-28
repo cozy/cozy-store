@@ -114,14 +114,7 @@
 
   "sections": {
     "applications": "Apps",
-    "konnectors": "Diensten",
-    "filters": {
-      "action": "Filter",
-      "under_maintenance": {
-        "show": "Apps in onderhoud tonen",
-        "hide": "Apps in onderhoud verbergen"
-      }
-    }
+    "konnectors": "Diensten"
   },
 
   "app_vote": {
@@ -261,7 +254,6 @@
         "files": "Bestanden",
         "files.versions": "Bestandsversies",
         "files.*": "Bestandsgerelateerde gegevens (mappen, bestanden, etc.)",
-        "home.settings": "Startscherminstellingen",
         "identities": "Identiteiten",
         "jobs": "Taken",
         "konnectors": "Connectors voor het importeren van gegevens",
@@ -309,7 +301,7 @@
     "developer_default": "De ontwikkelaar van deze app",
     "description": {
       "internal": {
-        "konnector": "Je staat op het punt om een Connector te installeren die je persoonlijke cloud met deze dienst verbindt om het herstel van je gegevens te vereenvoudigen. De connector heeft toegang tot de volgende gegevens, maar zal deze nooit delen:",
+        "konnector": "U gaat een Connector installeren tussen uw Personal Cloud en deze dienst om het herstel van uw gegevens te vergemakkelijken. Om dit te doen, zal hij toegang hebben tot de volgende persoonlijke gegevens, maar zal deze nooit aan iemand doorgeven:",
         "webapp": "Deze app stuurt geen gegevens naar %{name} (de ontwikkelaar), maar slaat ze lokaal op in je Cozy:"
       },
       "external": "%name kan je Cozy-gegevens uitlezen en gebruiken voor de volgende doeleinden:",
@@ -320,5 +312,14 @@
   "discover-search-field": {
     "label": "Zoeken:",
     "placeholder": "\"NS, \"telecom\", \"rekeningen\""
+  },
+
+  "pushBanners": {
+    "download": "Downloaden",
+    "no-thanks": "Nee, dank je!",
+    "text": {
+      "flagshipApp": "Neem je persoonlijke cloud met je mee: installeer onze Cozy app!",
+      "pass": "Uw wachtwoorden veilig op zak: download Cozy Pass naar uw mobiele telefoon"
+    }
   }
 }
