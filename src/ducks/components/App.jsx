@@ -12,7 +12,7 @@ import { BreakpointsProvider } from 'cozy-ui/transpiled/react/hooks/useBreakpoin
 
 import { initApp, restoreAppIfSaved } from 'ducks/apps'
 import { AppRouter } from 'ducks/components/AppRouter'
-import PushBanners from 'ducks/components/PushBanners'
+import PushBannersLoader from 'ducks/components/PushBanners'
 import Sidebar from 'ducks/components/Sidebar'
 
 export class App extends Component {
@@ -29,7 +29,7 @@ export class App extends Component {
           <Alerter />
           <Sidebar />
           <Main>
-            {!flag('cozy.pushbanners.hide') && <PushBanners />}
+            {!flag('cozy.pushbanners.hide') && <PushBannersLoader />}
             <AppRouter />
           </Main>
           <IconSprite />

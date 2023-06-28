@@ -2,18 +2,11 @@ import BannerForAA from './BannerForAA'
 import BannerForPass from './BannerForPass'
 
 export const makePushBanner = (oAuthClients, setting) => {
-  const { hasAAClient, hasPassClient } = oAuthClients.reduce(
-    (acc, curr) => {
-      if (curr.software_id === 'io.cozy.pass.mobile') {
-        acc.hasPassClient = true
-      }
-      if (curr.software_id === 'amiral') {
-        acc.hasAAClient = true
-      }
-
-      return acc
-    },
-    { hasAAClient: false, hasPassClient: false }
+  const hasAAClient = oAuthClients.some(
+    oAuthClient => oAuthClient.software_id === 'amiral'
+  )
+  const hasPassClient = oAuthClients.some(
+    oAuthClient => oAuthClient.software_id === 'io.cozy.pass.mobile'
   )
 
   const { hideAA = false, hidePassMobile = false } = setting.pushBanners || {
@@ -21,17 +14,12 @@ export const makePushBanner = (oAuthClients, setting) => {
     hidePassMobile: false
   }
 
-  if (!hasAAClient) {
-    if (!hideAA) {
-      return BannerForAA
-    }
-    if (!hidePassMobile) {
-      return BannerForPass
-    }
-  } else {
-    if (!hasPassClient && !hidePassMobile) {
-      return BannerForPass
-    }
+  if (!hasAAClient && !hideAA) {
+    return BannerForAA
+  }
+
+  if (!hasPassClient && !hidePassMobile) {
+    return BannerForPass
   }
 
   return null
