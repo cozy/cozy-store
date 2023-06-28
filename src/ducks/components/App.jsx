@@ -1,21 +1,19 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import compose from 'lodash/flowRight'
 
-import { translate } from 'cozy-ui/transpiled/react/I18n'
 import flag, { FlagSwitcher } from 'cozy-flags'
-
-import { AppRouter } from 'ducks/components/AppRouter'
-import Sidebar from 'ducks/components/Sidebar'
-
-import { initApp, restoreAppIfSaved } from 'ducks/apps'
-
+import { withClient } from 'cozy-client'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
 import { Layout, Main } from 'cozy-ui/transpiled/react/Layout'
 import Alerter from 'cozy-ui/transpiled/react/Alerter'
 import IconSprite from 'cozy-ui/transpiled/react/Icon/Sprite'
 import { BreakpointsProvider } from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 
-import compose from 'lodash/flowRight'
-import { withClient } from 'cozy-client'
+import { initApp, restoreAppIfSaved } from 'ducks/apps'
+import { AppRouter } from 'ducks/components/AppRouter'
+import PushBannersLoader from 'ducks/components/PushBanners'
+import Sidebar from 'ducks/components/Sidebar'
 
 export class App extends Component {
   constructor(props) {
@@ -31,6 +29,7 @@ export class App extends Component {
           <Alerter />
           <Sidebar />
           <Main>
+            {!flag('cozy.pushbanners.hide') && <PushBannersLoader />}
             <AppRouter />
           </Main>
           <IconSprite />

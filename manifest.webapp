@@ -80,8 +80,12 @@
       ]
     },
     "settings": {
-      "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
-      "type": "io.cozy.settings",
+      "description": "Required by the push banners and the cozy-bar to display Claudy and know which applications are coming soon",
+      "type": "io.cozy.settings"
+    },
+    "oAuthClients": {
+      "description": "Required by the push banners",
+      "type": "io.cozy.oauth.clients",
       "verbs": [
         "GET"
       ]

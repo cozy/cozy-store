@@ -286,5 +286,14 @@
       "external": "%{name} commits to giving only the following data:",
       "nothing": "%{appName} doesn't require any data access to work correctly on your Cozy."
     }
+  },
+
+  "pushBanners": {
+    "download": "Pobierz",
+    "no-thanks": "Nie, dziękuję!",
+    "text": {
+      "flagshipApp": "Zabierz swoją osobistą chmurę ze sobą: zainstaluj naszą aplikację Cozy!",
+      "pass": "Bezpieczne hasła w kieszeni: pobierz Cozy Pass na swój telefon komórkowy"
+    }
   }
 }

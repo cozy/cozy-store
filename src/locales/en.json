@@ -320,5 +320,14 @@
   "discover-search-field": {
     "label": "Search:",
     "placeholder": "\"CAF\", \"telecom\", \"bills\""
+  },
+
+  "pushBanners": {
+    "download": "Download",
+    "no-thanks": "No thanks!",
+    "text": {
+      "flagshipApp": "Take your personnal cloud with you: install Cozy on all your devices!",
+      "pass": "Your passwords vault in your pocket at all time: download Cozy Pass on your mobile"
+    }
   }
 }
