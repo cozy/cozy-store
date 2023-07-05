@@ -18,7 +18,7 @@ const BannerForFlagshipApp = ({
   const downloadLink = !isMobile()
     ? `https://cozy.io/${lang}/download`
     : isIOS()
-    ? `https://apps.apple.com/${lang}/app/my-cozy/id1600636174`
+    ? `https://apps.apple.com/${lang}/app/id1600636174`
     : `https://play.google.com/store/apps/details?id=io.cozy.flagship.mobile&hl=${lang}`
 
   const handleClick = () => {

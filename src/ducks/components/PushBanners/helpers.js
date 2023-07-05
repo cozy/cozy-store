@@ -6,7 +6,7 @@ export const makePushBanner = (oAuthClients, setting) => {
     oAuthClient => oAuthClient.software_id === 'amiral'
   )
   const hasPassClient = oAuthClients.some(
-    oAuthClient => oAuthClient.software_id === 'io.cozy.pass.mobile'
+    oAuthClient => oAuthClient.software_id === 'github.com/bitwarden/mobile'
   )
 
   const {
