@@ -23,12 +23,15 @@ describe('makePushBanner', () => {
     })
 
     it('when no oAuth client installed for FlagshipApp even if there is one for Pass mobile', () => {
-      const res = makePushBanner([{ software_id: 'io.cozy.pass.mobile' }], {
-        pushBanners: {
-          hideFlagshipApp: false,
-          hidePassMobile: false
+      const res = makePushBanner(
+        [{ software_id: 'github.com/bitwarden/mobile' }],
+        {
+          pushBanners: {
+            hideFlagshipApp: false,
+            hidePassMobile: false
+          }
         }
-      })
+      )
 
       expect(res).toBe('BannerForFlagshipApp')
     })
@@ -67,7 +70,10 @@ describe('makePushBanner', () => {
   describe('should return no banner', () => {
     it('when oAuth client installed for FlagshipApp and Pass', () => {
       const res = makePushBanner(
-        [{ software_id: 'amiral' }, { software_id: 'io.cozy.pass.mobile' }],
+        [
+          { software_id: 'amiral' },
+          { software_id: 'github.com/bitwarden/mobile' }
+        ],
         {
           pushBanners: {
             hideFlagshipApp: false,
@@ -91,12 +97,15 @@ describe('makePushBanner', () => {
     })
 
     it('when oAuth client installed for Pass and FlagshipApp banner already dismissed', () => {
-      const res = makePushBanner([{ software_id: 'io.cozy.pass.mobile' }], {
-        pushBanners: {
-          hideFlagshipApp: true,
-          hidePassMobile: false
+      const res = makePushBanner(
+        [{ software_id: 'github.com/bitwarden/mobile' }],
+        {
+          pushBanners: {
+            hideFlagshipApp: true,
+            hidePassMobile: false
+          }
         }
-      })
+      )
 
       expect(res).toBeNull()
     })
