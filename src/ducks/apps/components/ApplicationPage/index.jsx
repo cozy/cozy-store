@@ -1,6 +1,7 @@
 /* global cozy */
 import React, { Component } from 'react'
 import { Link, useMatch, useParams } from 'react-router-dom'
+import { useLocationNoUpdates } from 'lib/RouterUtils'
 
 import { withClient } from 'cozy-client'
 
@@ -79,6 +80,7 @@ export class ApplicationPage extends Component {
     const {
       t,
       parent,
+      search,
       params,
       isFetching,
       fetchError,
@@ -156,7 +158,7 @@ export class ApplicationPage extends Component {
             <Button
               icon={Left}
               tag={Link}
-              to={`/${parent}`}
+              to={`/${parent}${search}`}
               className="sto-app-back"
               label={t('app_page.back')}
               onClick={this.unmountTrap}
@@ -189,10 +191,16 @@ export class ApplicationPage extends Component {
 const ApplicationPageWrapper = props => {
   const { parent } = props
   const params = useParams()
+  const { search } = useLocationNoUpdates()
   const isExact = useMatch(`${parent}/:appSlug`)
 
   return (
-    <ApplicationPage {...props} params={params} pauseFocusTrap={!isExact} />
+    <ApplicationPage
+      {...props}
+      params={params}
+      search={search}
+      pauseFocusTrap={!isExact}
+    />
   )
 }
 
