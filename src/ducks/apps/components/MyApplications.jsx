@@ -1,6 +1,6 @@
 /* global cozy */
 import React, { Component } from 'react'
-import { useMatch } from 'react-router-dom'
+import { useMatch, useSearchParams } from 'react-router-dom'
 
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
@@ -21,7 +21,10 @@ export class MyApplications extends Component {
   }
 
   onAppClick(appSlug) {
-    this.props.navigate(`/myapps/${appSlug}`)
+    const { searchParams } = this.props
+
+    const search = searchParams.size > 0 ? `?${searchParams.toString()}` : ''
+    this.props.navigate(`/myapps/${appSlug}${search}`)
   }
 
   render() {
@@ -67,8 +70,16 @@ export class MyApplications extends Component {
 const MyApplicationsWrapper = props => {
   const isExact = useMatch('myapps')
   const navigate = useNavigateNoUpdates()
+  const [searchParams] = useSearchParams()
 
-  return <MyApplications {...props} isExact={isExact} navigate={navigate} />
+  return (
+    <MyApplications
+      {...props}
+      isExact={isExact}
+      navigate={navigate}
+      searchParams={searchParams}
+    />
+  )
 }
 
 export default translate()(
