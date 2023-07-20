@@ -1,101 +1,103 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ApplicationPage details component should be rendered correctly provided app with no description, no platforms, no langs and no changes no version 1`] = `
-<div
-  className="sto-app-details"
->
+<div>
   <div
-    className="sto-app-descriptions"
+    class="sto-app-details"
   >
-    
-    
-  </div>
-  <div
-    className="sto-app-additional-details"
-  >
-    <h3
-      className="u-title-h3"
-    >
-      Informations
-    </h3>
     <div
-      className="sto-app-info"
+      class="sto-app-descriptions"
     >
-      <div
-        className="sto-app-info-header"
-      >
-        Categories
-      </div>
-      <div
-        className="sto-app-info-content"
-      >
-        The essentials
-      </div>
+      
+      
     </div>
     <div
-      className="sto-app-info"
+      class="sto-app-additional-details"
     >
-      <div
-        className="sto-app-info-header"
-      >
-        Version
-      </div>
-      <div
-        className="sto-app-info-content"
-      >
-        <span
-          onDoubleClick={[Function]}
-        >
-          0.1.0
-        </span>
-      </div>
-    </div>
-    <div
-      className="sto-app-info"
-    >
-      <div
-        className="sto-app-info-header"
-      >
-        Languages
-      </div>
-      <div
-        className="sto-app-info-content"
-      >
-        English, French
-      </div>
-    </div>
-    <div>
-      <Button
-        align="center"
-        className="sto-app-permissions-button"
-        label="Show permissions"
-        onClick={[Function]}
-        size="normal"
-        subtle={true}
-        tag="button"
-        type="submit"
-      />
-    </div>
-    <div>
       <h3
-        className="u-title-h3"
+        class="u-title-h3"
       >
-        Developer Details
+        Informations
       </h3>
       <div
-        className="sto-app-developer-infos"
+        class="sto-app-info"
       >
-        <span>
-          Cozy
-        </span>
-        <a
-          className="sto-app-developer-link"
-          href="https://cozy.io"
-          rel="noopener noreferrer"
-          target="_blank"
+        <div
+          class="sto-app-info-header"
         >
-          https://cozy.io
-        </a>
+          Categories
+        </div>
+        <div
+          class="sto-app-info-content"
+        >
+          The essentials
+        </div>
+      </div>
+      <div
+        class="sto-app-info"
+      >
+        <div
+          class="sto-app-info-header"
+        >
+          Version
+        </div>
+        <div
+          class="sto-app-info-content"
+        >
+          <span
+            data-testid="toggleChannels"
+          >
+            0.1.0
+          </span>
+        </div>
+      </div>
+      <div
+        class="sto-app-info"
+      >
+        <div
+          class="sto-app-info-header"
+        >
+          Languages
+        </div>
+        <div
+          class="sto-app-info-content"
+        >
+          English, French
+        </div>
+      </div>
+      <div>
+        <button
+          class="styles__c-btn___-2Vnj styles__c-btn--subtle___OknKf styles__c-btn--center___16_Xh sto-app-permissions-button"
+          type="submit"
+        >
+          <span>
+            <span>
+              Show permissions
+            </span>
+          </span>
+        </button>
+      </div>
+      <div>
+        <h3
+          class="u-title-h3"
+        >
+          Developer Details
+        </h3>
+        <div
+          class="sto-app-developer-infos"
+        >
+          <span>
+            Cozy
+          </span>
+          <a
+            class="sto-app-developer-link"
+            href="https://cozy.io"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            https://cozy.io
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -103,168 +105,194 @@ exports[`ApplicationPage details component should be rendered correctly provided
 `;
 
 exports[`ApplicationPage details component should be rendered correctly with provided app 1`] = `
-<div
-  className="sto-app-details"
->
+<div>
   <div
-    className="sto-app-descriptions"
+    class="sto-app-details"
   >
     <div
-      className="sto-app-description"
+      class="sto-app-descriptions"
+    >
+      <div
+        class="sto-app-description"
+      >
+        <h3
+          class="u-title-h3"
+        >
+          Description
+        </h3>
+        <div>
+          <h3
+            class="md-title md-title--h3"
+          >
+            Features
+          </h3>
+          <p
+            class="md-paragraph"
+          >
+            Enjoy features to grab your data in you Cozy 
+            <span>
+              <img
+                class="emoji"
+                data-codepoints="1f389"
+                src="/emoji-data/img-apple-64/1f389.png"
+              />
+            </span>
+          </p>
+        </div>
+      </div>
+      <div
+        class="sto-app-changes"
+      >
+        <h3
+          class="u-title-h3"
+        >
+          What's New?
+        </h3>
+        <div>
+          <h3
+            class="md-title md-title--h3"
+          >
+            NEW!!!
+          </h3>
+          <p
+            class="md-paragraph"
+          >
+             Now on the cozy-store :tada
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sto-app-additional-details"
     >
       <h3
-        className="u-title-h3"
+        class="u-title-h3"
       >
-        Description
-      </h3>
-      <ReactMarkdownWrapper
-        parseEmoji={true}
-        source="### Features
-
-Enjoy features to grab your data in you Cozy :tada:"
-      />
-    </div>
-    <div
-      className="sto-app-changes"
-    >
-      <h3
-        className="u-title-h3"
-      >
-        What's New?
-      </h3>
-      <ReactMarkdownWrapper
-        parseEmoji={true}
-        source="### NEW!!!
-
- Now on the cozy-store :tada"
-      />
-    </div>
-  </div>
-  <div
-    className="sto-app-additional-details"
-  >
-    <h3
-      className="u-title-h3"
-    >
-      Informations
-    </h3>
-    <div
-      className="sto-app-info"
-    >
-      <div
-        className="sto-app-info-header"
-      >
-        Categories
-      </div>
-      <div
-        className="sto-app-info-content"
-      >
-        The essentials
-      </div>
-    </div>
-    <div
-      className="sto-app-info"
-    >
-      <div
-        className="sto-app-info-header"
-      >
-        Version
-      </div>
-      <div
-        className="sto-app-info-content"
-      >
-        <span
-          onDoubleClick={[Function]}
-        >
-          0.1.0
-        </span>
-      </div>
-    </div>
-    <div
-      className="sto-app-info"
-    >
-      <div
-        className="sto-app-info-header"
-      >
-        Languages
-      </div>
-      <div
-        className="sto-app-info-content"
-      >
-        English, French
-      </div>
-    </div>
-    <div
-      className="sto-app-info"
-    >
-      <div
-        className="sto-app-info-header"
-      >
-        Mobile Application
-      </div>
-      <div
-        className="sto-app-info-content sto-app-info-content--mobile-apps"
-      >
-        <a
-          className="sto-app-info-content-icon"
-          href={null}
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <Icon
-            height="24px"
-            icon="<svg><text>svg icon</text></svg>"
-            spin={false}
-            width="24px"
-          />
-        </a>
-        <a
-          className="sto-app-info-content-icon"
-          href="https://mock.app"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <Icon
-            height="24px"
-            icon="<svg><text>svg icon</text></svg>"
-            spin={false}
-            width="24px"
-          />
-        </a>
-      </div>
-    </div>
-    <div>
-      <Button
-        align="center"
-        className="sto-app-permissions-button"
-        label="Show permissions"
-        onClick={[Function]}
-        size="normal"
-        subtle={true}
-        tag="button"
-        type="submit"
-      />
-    </div>
-    <div>
-      <h3
-        className="u-title-h3"
-      >
-        Developer Details
+        Informations
       </h3>
       <div
-        className="sto-app-developer-infos"
+        class="sto-app-info"
       >
-        <span>
-          Cozy
-        </span>
-        <a
-          className="sto-app-developer-link"
-          href="https://cozy.io"
-          rel="noopener noreferrer"
-          target="_blank"
+        <div
+          class="sto-app-info-header"
         >
-          https://cozy.io
-        </a>
+          Categories
+        </div>
+        <div
+          class="sto-app-info-content"
+        >
+          The essentials
+        </div>
+      </div>
+      <div
+        class="sto-app-info"
+      >
+        <div
+          class="sto-app-info-header"
+        >
+          Version
+        </div>
+        <div
+          class="sto-app-info-content"
+        >
+          <span
+            data-testid="toggleChannels"
+          >
+            0.1.0
+          </span>
+        </div>
+      </div>
+      <div
+        class="sto-app-info"
+      >
+        <div
+          class="sto-app-info-header"
+        >
+          Languages
+        </div>
+        <div
+          class="sto-app-info-content"
+        >
+          English, French
+        </div>
+      </div>
+      <div
+        class="sto-app-info"
+      >
+        <div
+          class="sto-app-info-header"
+        >
+          Mobile Application
+        </div>
+        <div
+          class="sto-app-info-content sto-app-info-content--mobile-apps"
+        >
+          <a
+            class="sto-app-info-content-icon"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <svg
+              class="styles__icon___23x3R"
+              height="24px"
+              width="24px"
+            >
+              <use
+                xlink:href="#<svg><text>svg icon</text></svg>"
+              />
+            </svg>
+          </a>
+          <a
+            class="sto-app-info-content-icon"
+            href="https://mock.app"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <svg
+              class="styles__icon___23x3R"
+              height="24px"
+              width="24px"
+            >
+              <use
+                xlink:href="#<svg><text>svg icon</text></svg>"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <button
+          class="styles__c-btn___-2Vnj styles__c-btn--subtle___OknKf styles__c-btn--center___16_Xh sto-app-permissions-button"
+          type="submit"
+        >
+          <span>
+            <span>
+              Show permissions
+            </span>
+          </span>
+        </button>
+      </div>
+      <div>
+        <h3
+          class="u-title-h3"
+        >
+          Developer Details
+        </h3>
+        <div
+          class="sto-app-developer-infos"
+        >
+          <span>
+            Cozy
+          </span>
+          <a
+            class="sto-app-developer-link"
+            href="https://cozy.io"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            https://cozy.io
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -272,98 +300,100 @@ Enjoy features to grab your data in you Cozy :tada:"
 `;
 
 exports[`ApplicationPage details component should be rendered correctly with provided konnector 1`] = `
-<div
-  className="sto-app-details"
->
+<div>
   <div
-    className="sto-app-descriptions"
-  />
-  <div
-    className="sto-app-additional-details"
+    class="sto-app-details"
   >
-    <h3
-      className="u-title-h3"
-    >
-      Informations
-    </h3>
     <div
-      className="sto-app-info"
-    >
-      <div
-        className="sto-app-info-header"
-      >
-        Categories
-      </div>
-      <div
-        className="sto-app-info-content"
-      >
-        Transportation
-      </div>
-    </div>
+      class="sto-app-descriptions"
+    />
     <div
-      className="sto-app-info"
+      class="sto-app-additional-details"
     >
-      <div
-        className="sto-app-info-header"
-      >
-        Version
-      </div>
-      <div
-        className="sto-app-info-content"
-      >
-        <span
-          onDoubleClick={[Function]}
-        >
-          Unknown
-        </span>
-      </div>
-    </div>
-    <div
-      className="sto-app-info"
-    >
-      <div
-        className="sto-app-info-header"
-      >
-        Languages
-      </div>
-      <div
-        className="sto-app-info-content"
-      >
-        French, English
-      </div>
-    </div>
-    <div>
-      <Button
-        align="center"
-        className="sto-app-permissions-button"
-        label="Show permissions"
-        onClick={[Function]}
-        size="normal"
-        subtle={true}
-        tag="button"
-        type="submit"
-      />
-    </div>
-    <div>
       <h3
-        className="u-title-h3"
+        class="u-title-h3"
       >
-        Developer Details
+        Informations
       </h3>
       <div
-        className="sto-app-developer-infos"
+        class="sto-app-info"
       >
-        <span>
-          Cozy
-        </span>
-        <a
-          className="sto-app-developer-link"
-          href="https://cozy.io"
-          rel="noopener noreferrer"
-          target="_blank"
+        <div
+          class="sto-app-info-header"
         >
-          https://cozy.io
-        </a>
+          Categories
+        </div>
+        <div
+          class="sto-app-info-content"
+        >
+          Transportation
+        </div>
+      </div>
+      <div
+        class="sto-app-info"
+      >
+        <div
+          class="sto-app-info-header"
+        >
+          Version
+        </div>
+        <div
+          class="sto-app-info-content"
+        >
+          <span
+            data-testid="toggleChannels"
+          >
+            Unknown
+          </span>
+        </div>
+      </div>
+      <div
+        class="sto-app-info"
+      >
+        <div
+          class="sto-app-info-header"
+        >
+          Languages
+        </div>
+        <div
+          class="sto-app-info-content"
+        >
+          French, English
+        </div>
+      </div>
+      <div>
+        <button
+          class="styles__c-btn___-2Vnj styles__c-btn--subtle___OknKf styles__c-btn--center___16_Xh sto-app-permissions-button"
+          type="submit"
+        >
+          <span>
+            <span>
+              Show permissions
+            </span>
+          </span>
+        </button>
+      </div>
+      <div>
+        <h3
+          class="u-title-h3"
+        >
+          Developer Details
+        </h3>
+        <div
+          class="sto-app-developer-infos"
+        >
+          <span>
+            Cozy
+          </span>
+          <a
+            class="sto-app-developer-link"
+            href="https://cozy.io"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            https://cozy.io
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -371,204 +401,248 @@ exports[`ApplicationPage details component should be rendered correctly with pro
 `;
 
 exports[`ApplicationPage details component should handle channel switching if with installed app from registry provided 1`] = `
-<div
-  className="sto-app-details"
->
+<div>
   <div
-    className="sto-app-descriptions"
+    class="sto-app-details"
   >
     <div
-      className="sto-app-description"
+      class="sto-app-descriptions"
+    >
+      <div
+        class="sto-app-description"
+      >
+        <h3
+          class="u-title-h3"
+        >
+          Description
+        </h3>
+        <div>
+          <h3
+            class="md-title md-title--h3"
+          >
+            Features
+          </h3>
+          <p
+            class="md-paragraph"
+          >
+            Enjoy features to grab your data in you Cozy 
+            <span>
+              <img
+                class="emoji"
+                data-codepoints="1f389"
+                src="/emoji-data/img-apple-64/1f389.png"
+              />
+            </span>
+          </p>
+        </div>
+      </div>
+      <div
+        class="sto-app-changes"
+      >
+        <h3
+          class="u-title-h3"
+        >
+          What's New?
+        </h3>
+        <div>
+          <h3
+            class="md-title md-title--h3"
+          >
+            NEW!!!
+          </h3>
+          <p
+            class="md-paragraph"
+          >
+             Now on the cozy-store :tada
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sto-app-additional-details"
     >
       <h3
-        className="u-title-h3"
+        class="u-title-h3"
       >
-        Description
-      </h3>
-      <ReactMarkdownWrapper
-        parseEmoji={true}
-        source="### Features
-
-Enjoy features to grab your data in you Cozy :tada:"
-      />
-    </div>
-    <div
-      className="sto-app-changes"
-    >
-      <h3
-        className="u-title-h3"
-      >
-        What's New?
-      </h3>
-      <ReactMarkdownWrapper
-        parseEmoji={true}
-        source="### NEW!!!
-
- Now on the cozy-store :tada"
-      />
-    </div>
-  </div>
-  <div
-    className="sto-app-additional-details"
-  >
-    <h3
-      className="u-title-h3"
-    >
-      Informations
-    </h3>
-    <div
-      className="sto-app-info"
-    >
-      <div
-        className="sto-app-info-header"
-      >
-        Categories
-      </div>
-      <div
-        className="sto-app-info-content"
-      >
-        The essentials
-      </div>
-    </div>
-    <div
-      className="sto-app-info"
-    >
-      <div
-        className="sto-app-info-header"
-      >
-        Version
-      </div>
-      <div
-        className="sto-app-info-content"
-      >
-        <span
-          onDoubleClick={[Function]}
-        >
-          0.1.0
-        </span>
-      </div>
-    </div>
-    <div
-      className="sto-app-info"
-    >
-      <div
-        className="sto-app-info-header"
-      >
-        Get Beta
-      </div>
-      <div
-        className="sto-app-info-content"
-      >
-        <Toggle
-          checked={false}
-          id="sto-app-undefined-beta-toggle"
-          onToggle={[Function]}
-        />
-      </div>
-    </div>
-    <div
-      className="sto-app-info"
-    >
-      <div
-        className="sto-app-info-header"
-      >
-        Get Dev
-      </div>
-      <div
-        className="sto-app-info-content"
-      >
-        <Toggle
-          checked={false}
-          id="sto-app-undefined-dev-toggle"
-          onToggle={[Function]}
-        />
-      </div>
-    </div>
-    <div
-      className="sto-app-info"
-    >
-      <div
-        className="sto-app-info-header"
-      >
-        Languages
-      </div>
-      <div
-        className="sto-app-info-content"
-      >
-        English, French
-      </div>
-    </div>
-    <div
-      className="sto-app-info"
-    >
-      <div
-        className="sto-app-info-header"
-      >
-        Mobile Application
-      </div>
-      <div
-        className="sto-app-info-content sto-app-info-content--mobile-apps"
-      >
-        <a
-          className="sto-app-info-content-icon"
-          href={null}
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <Icon
-            height="24px"
-            icon="<svg><text>svg icon</text></svg>"
-            spin={false}
-            width="24px"
-          />
-        </a>
-        <a
-          className="sto-app-info-content-icon"
-          href="https://mock.app"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <Icon
-            height="24px"
-            icon="<svg><text>svg icon</text></svg>"
-            spin={false}
-            width="24px"
-          />
-        </a>
-      </div>
-    </div>
-    <div>
-      <Button
-        align="center"
-        className="sto-app-permissions-button"
-        label="Show permissions"
-        onClick={[Function]}
-        size="normal"
-        subtle={true}
-        tag="button"
-        type="submit"
-      />
-    </div>
-    <div>
-      <h3
-        className="u-title-h3"
-      >
-        Developer Details
+        Informations
       </h3>
       <div
-        className="sto-app-developer-infos"
+        class="sto-app-info"
       >
-        <span>
-          Cozy
-        </span>
-        <a
-          className="sto-app-developer-link"
-          href="https://cozy.io"
-          rel="noopener noreferrer"
-          target="_blank"
+        <div
+          class="sto-app-info-header"
         >
-          https://cozy.io
-        </a>
+          Categories
+        </div>
+        <div
+          class="sto-app-info-content"
+        >
+          The essentials
+        </div>
+      </div>
+      <div
+        class="sto-app-info"
+      >
+        <div
+          class="sto-app-info-header"
+        >
+          Version
+        </div>
+        <div
+          class="sto-app-info-content"
+        >
+          <span
+            data-testid="toggleChannels"
+          >
+            0.1.0
+          </span>
+        </div>
+      </div>
+      <div
+        class="sto-app-info"
+        data-testid="betaToggle"
+      >
+        <div
+          class="sto-app-info-header"
+        >
+          Get Beta
+        </div>
+        <div
+          class="sto-app-info-content"
+        >
+          <span
+            class="styles__toggle___3zVsE"
+          >
+            <input
+              class="styles__checkbox___3ko96"
+              id="sto-app-undefined-beta-toggle"
+              type="checkbox"
+            />
+            <label
+              class="styles__label___3jY1f"
+              for="sto-app-undefined-beta-toggle"
+            />
+          </span>
+        </div>
+      </div>
+      <div
+        class="sto-app-info"
+        data-testid="devToggle"
+      >
+        <div
+          class="sto-app-info-header"
+        >
+          Get Dev
+        </div>
+        <div
+          class="sto-app-info-content"
+        >
+          <span
+            class="styles__toggle___3zVsE"
+          >
+            <input
+              class="styles__checkbox___3ko96"
+              id="sto-app-undefined-dev-toggle"
+              type="checkbox"
+            />
+            <label
+              class="styles__label___3jY1f"
+              for="sto-app-undefined-dev-toggle"
+            />
+          </span>
+        </div>
+      </div>
+      <div
+        class="sto-app-info"
+      >
+        <div
+          class="sto-app-info-header"
+        >
+          Languages
+        </div>
+        <div
+          class="sto-app-info-content"
+        >
+          English, French
+        </div>
+      </div>
+      <div
+        class="sto-app-info"
+      >
+        <div
+          class="sto-app-info-header"
+        >
+          Mobile Application
+        </div>
+        <div
+          class="sto-app-info-content sto-app-info-content--mobile-apps"
+        >
+          <a
+            class="sto-app-info-content-icon"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <svg
+              class="styles__icon___23x3R"
+              height="24px"
+              width="24px"
+            >
+              <use
+                xlink:href="#<svg><text>svg icon</text></svg>"
+              />
+            </svg>
+          </a>
+          <a
+            class="sto-app-info-content-icon"
+            href="https://mock.app"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <svg
+              class="styles__icon___23x3R"
+              height="24px"
+              width="24px"
+            >
+              <use
+                xlink:href="#<svg><text>svg icon</text></svg>"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <button
+          class="styles__c-btn___-2Vnj styles__c-btn--subtle___OknKf styles__c-btn--center___16_Xh sto-app-permissions-button"
+          type="submit"
+        >
+          <span>
+            <span>
+              Show permissions
+            </span>
+          </span>
+        </button>
+      </div>
+      <div>
+        <h3
+          class="u-title-h3"
+        >
+          Developer Details
+        </h3>
+        <div
+          class="sto-app-developer-infos"
+        >
+          <span>
+            Cozy
+          </span>
+          <a
+            class="sto-app-developer-link"
+            href="https://cozy.io"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            https://cozy.io
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -576,186 +650,221 @@ Enjoy features to grab your data in you Cozy :tada:"
 `;
 
 exports[`ApplicationPage details component should not suggest Dev channel switching if the context is not in debug mode 1`] = `
-<div
-  className="sto-app-details"
->
+<div>
   <div
-    className="sto-app-descriptions"
+    class="sto-app-details"
   >
     <div
-      className="sto-app-description"
+      class="sto-app-descriptions"
+    >
+      <div
+        class="sto-app-description"
+      >
+        <h3
+          class="u-title-h3"
+        >
+          Description
+        </h3>
+        <div>
+          <h3
+            class="md-title md-title--h3"
+          >
+            Features
+          </h3>
+          <p
+            class="md-paragraph"
+          >
+            Enjoy features to grab your data in you Cozy 
+            <span>
+              <img
+                class="emoji"
+                data-codepoints="1f389"
+                src="/emoji-data/img-apple-64/1f389.png"
+              />
+            </span>
+          </p>
+        </div>
+      </div>
+      <div
+        class="sto-app-changes"
+      >
+        <h3
+          class="u-title-h3"
+        >
+          What's New?
+        </h3>
+        <div>
+          <h3
+            class="md-title md-title--h3"
+          >
+            NEW!!!
+          </h3>
+          <p
+            class="md-paragraph"
+          >
+             Now on the cozy-store :tada
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sto-app-additional-details"
     >
       <h3
-        className="u-title-h3"
+        class="u-title-h3"
       >
-        Description
-      </h3>
-      <ReactMarkdownWrapper
-        parseEmoji={true}
-        source="### Features
-
-Enjoy features to grab your data in you Cozy :tada:"
-      />
-    </div>
-    <div
-      className="sto-app-changes"
-    >
-      <h3
-        className="u-title-h3"
-      >
-        What's New?
-      </h3>
-      <ReactMarkdownWrapper
-        parseEmoji={true}
-        source="### NEW!!!
-
- Now on the cozy-store :tada"
-      />
-    </div>
-  </div>
-  <div
-    className="sto-app-additional-details"
-  >
-    <h3
-      className="u-title-h3"
-    >
-      Informations
-    </h3>
-    <div
-      className="sto-app-info"
-    >
-      <div
-        className="sto-app-info-header"
-      >
-        Categories
-      </div>
-      <div
-        className="sto-app-info-content"
-      >
-        The essentials
-      </div>
-    </div>
-    <div
-      className="sto-app-info"
-    >
-      <div
-        className="sto-app-info-header"
-      >
-        Version
-      </div>
-      <div
-        className="sto-app-info-content"
-      >
-        <span
-          onDoubleClick={[Function]}
-        >
-          0.1.0
-        </span>
-      </div>
-    </div>
-    <div
-      className="sto-app-info"
-    >
-      <div
-        className="sto-app-info-header"
-      >
-        Get Beta
-      </div>
-      <div
-        className="sto-app-info-content"
-      >
-        <Toggle
-          checked={false}
-          id="sto-app-undefined-beta-toggle"
-          onToggle={[Function]}
-        />
-      </div>
-    </div>
-    <div
-      className="sto-app-info"
-    >
-      <div
-        className="sto-app-info-header"
-      >
-        Languages
-      </div>
-      <div
-        className="sto-app-info-content"
-      >
-        English, French
-      </div>
-    </div>
-    <div
-      className="sto-app-info"
-    >
-      <div
-        className="sto-app-info-header"
-      >
-        Mobile Application
-      </div>
-      <div
-        className="sto-app-info-content sto-app-info-content--mobile-apps"
-      >
-        <a
-          className="sto-app-info-content-icon"
-          href={null}
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <Icon
-            height="24px"
-            icon="<svg><text>svg icon</text></svg>"
-            spin={false}
-            width="24px"
-          />
-        </a>
-        <a
-          className="sto-app-info-content-icon"
-          href="https://mock.app"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <Icon
-            height="24px"
-            icon="<svg><text>svg icon</text></svg>"
-            spin={false}
-            width="24px"
-          />
-        </a>
-      </div>
-    </div>
-    <div>
-      <Button
-        align="center"
-        className="sto-app-permissions-button"
-        label="Show permissions"
-        onClick={[Function]}
-        size="normal"
-        subtle={true}
-        tag="button"
-        type="submit"
-      />
-    </div>
-    <div>
-      <h3
-        className="u-title-h3"
-      >
-        Developer Details
+        Informations
       </h3>
       <div
-        className="sto-app-developer-infos"
+        class="sto-app-info"
       >
-        <span>
-          Cozy
-        </span>
-        <a
-          className="sto-app-developer-link"
-          href="https://cozy.io"
-          rel="noopener noreferrer"
-          target="_blank"
+        <div
+          class="sto-app-info-header"
         >
-          https://cozy.io
-        </a>
+          Categories
+        </div>
+        <div
+          class="sto-app-info-content"
+        >
+          The essentials
+        </div>
+      </div>
+      <div
+        class="sto-app-info"
+      >
+        <div
+          class="sto-app-info-header"
+        >
+          Version
+        </div>
+        <div
+          class="sto-app-info-content"
+        >
+          <span
+            data-testid="toggleChannels"
+          >
+            0.1.0
+          </span>
+        </div>
+      </div>
+      <div
+        class="sto-app-info"
+        data-testid="betaToggle"
+      >
+        <div
+          class="sto-app-info-header"
+        >
+          Get Beta
+        </div>
+        <div
+          class="sto-app-info-content"
+        >
+          <span
+            class="styles__toggle___3zVsE"
+          >
+            <input
+              class="styles__checkbox___3ko96"
+              id="sto-app-undefined-beta-toggle"
+              type="checkbox"
+            />
+            <label
+              class="styles__label___3jY1f"
+              for="sto-app-undefined-beta-toggle"
+            />
+          </span>
+        </div>
+      </div>
+      <div
+        class="sto-app-info"
+      >
+        <div
+          class="sto-app-info-header"
+        >
+          Languages
+        </div>
+        <div
+          class="sto-app-info-content"
+        >
+          English, French
+        </div>
+      </div>
+      <div
+        class="sto-app-info"
+      >
+        <div
+          class="sto-app-info-header"
+        >
+          Mobile Application
+        </div>
+        <div
+          class="sto-app-info-content sto-app-info-content--mobile-apps"
+        >
+          <a
+            class="sto-app-info-content-icon"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <svg
+              class="styles__icon___23x3R"
+              height="24px"
+              width="24px"
+            >
+              <use
+                xlink:href="#<svg><text>svg icon</text></svg>"
+              />
+            </svg>
+          </a>
+          <a
+            class="sto-app-info-content-icon"
+            href="https://mock.app"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <svg
+              class="styles__icon___23x3R"
+              height="24px"
+              width="24px"
+            >
+              <use
+                xlink:href="#<svg><text>svg icon</text></svg>"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <button
+          class="styles__c-btn___-2Vnj styles__c-btn--subtle___OknKf styles__c-btn--center___16_Xh sto-app-permissions-button"
+          type="submit"
+        >
+          <span>
+            <span>
+              Show permissions
+            </span>
+          </span>
+        </button>
+      </div>
+      <div>
+        <h3
+          class="u-title-h3"
+        >
+          Developer Details
+        </h3>
+        <div
+          class="sto-app-developer-infos"
+        >
+          <span>
+            Cozy
+          </span>
+          <a
+            class="sto-app-developer-link"
+            href="https://cozy.io"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            https://cozy.io
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -763,168 +872,194 @@ Enjoy features to grab your data in you Cozy :tada:"
 `;
 
 exports[`ApplicationPage details component should not suggest channel switching if the app is not from registry and not installed 1`] = `
-<div
-  className="sto-app-details"
->
+<div>
   <div
-    className="sto-app-descriptions"
+    class="sto-app-details"
   >
     <div
-      className="sto-app-description"
+      class="sto-app-descriptions"
+    >
+      <div
+        class="sto-app-description"
+      >
+        <h3
+          class="u-title-h3"
+        >
+          Description
+        </h3>
+        <div>
+          <h3
+            class="md-title md-title--h3"
+          >
+            Features
+          </h3>
+          <p
+            class="md-paragraph"
+          >
+            Enjoy features to grab your data in you Cozy 
+            <span>
+              <img
+                class="emoji"
+                data-codepoints="1f389"
+                src="/emoji-data/img-apple-64/1f389.png"
+              />
+            </span>
+          </p>
+        </div>
+      </div>
+      <div
+        class="sto-app-changes"
+      >
+        <h3
+          class="u-title-h3"
+        >
+          What's New?
+        </h3>
+        <div>
+          <h3
+            class="md-title md-title--h3"
+          >
+            NEW!!!
+          </h3>
+          <p
+            class="md-paragraph"
+          >
+             Now on the cozy-store :tada
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sto-app-additional-details"
     >
       <h3
-        className="u-title-h3"
+        class="u-title-h3"
       >
-        Description
-      </h3>
-      <ReactMarkdownWrapper
-        parseEmoji={true}
-        source="### Features
-
-Enjoy features to grab your data in you Cozy :tada:"
-      />
-    </div>
-    <div
-      className="sto-app-changes"
-    >
-      <h3
-        className="u-title-h3"
-      >
-        What's New?
-      </h3>
-      <ReactMarkdownWrapper
-        parseEmoji={true}
-        source="### NEW!!!
-
- Now on the cozy-store :tada"
-      />
-    </div>
-  </div>
-  <div
-    className="sto-app-additional-details"
-  >
-    <h3
-      className="u-title-h3"
-    >
-      Informations
-    </h3>
-    <div
-      className="sto-app-info"
-    >
-      <div
-        className="sto-app-info-header"
-      >
-        Categories
-      </div>
-      <div
-        className="sto-app-info-content"
-      >
-        The essentials
-      </div>
-    </div>
-    <div
-      className="sto-app-info"
-    >
-      <div
-        className="sto-app-info-header"
-      >
-        Version
-      </div>
-      <div
-        className="sto-app-info-content"
-      >
-        <span
-          onDoubleClick={[Function]}
-        >
-          0.1.0
-        </span>
-      </div>
-    </div>
-    <div
-      className="sto-app-info"
-    >
-      <div
-        className="sto-app-info-header"
-      >
-        Languages
-      </div>
-      <div
-        className="sto-app-info-content"
-      >
-        English, French
-      </div>
-    </div>
-    <div
-      className="sto-app-info"
-    >
-      <div
-        className="sto-app-info-header"
-      >
-        Mobile Application
-      </div>
-      <div
-        className="sto-app-info-content sto-app-info-content--mobile-apps"
-      >
-        <a
-          className="sto-app-info-content-icon"
-          href={null}
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <Icon
-            height="24px"
-            icon="<svg><text>svg icon</text></svg>"
-            spin={false}
-            width="24px"
-          />
-        </a>
-        <a
-          className="sto-app-info-content-icon"
-          href="https://mock.app"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <Icon
-            height="24px"
-            icon="<svg><text>svg icon</text></svg>"
-            spin={false}
-            width="24px"
-          />
-        </a>
-      </div>
-    </div>
-    <div>
-      <Button
-        align="center"
-        className="sto-app-permissions-button"
-        label="Show permissions"
-        onClick={[Function]}
-        size="normal"
-        subtle={true}
-        tag="button"
-        type="submit"
-      />
-    </div>
-    <div>
-      <h3
-        className="u-title-h3"
-      >
-        Developer Details
+        Informations
       </h3>
       <div
-        className="sto-app-developer-infos"
+        class="sto-app-info"
       >
-        <span>
-          Cozy
-        </span>
-        <a
-          className="sto-app-developer-link"
-          href="https://cozy.io"
-          rel="noopener noreferrer"
-          target="_blank"
+        <div
+          class="sto-app-info-header"
         >
-          https://cozy.io
-        </a>
+          Categories
+        </div>
+        <div
+          class="sto-app-info-content"
+        >
+          The essentials
+        </div>
+      </div>
+      <div
+        class="sto-app-info"
+      >
+        <div
+          class="sto-app-info-header"
+        >
+          Version
+        </div>
+        <div
+          class="sto-app-info-content"
+        >
+          <span
+            data-testid="toggleChannels"
+          >
+            0.1.0
+          </span>
+        </div>
+      </div>
+      <div
+        class="sto-app-info"
+      >
+        <div
+          class="sto-app-info-header"
+        >
+          Languages
+        </div>
+        <div
+          class="sto-app-info-content"
+        >
+          English, French
+        </div>
+      </div>
+      <div
+        class="sto-app-info"
+      >
+        <div
+          class="sto-app-info-header"
+        >
+          Mobile Application
+        </div>
+        <div
+          class="sto-app-info-content sto-app-info-content--mobile-apps"
+        >
+          <a
+            class="sto-app-info-content-icon"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <svg
+              class="styles__icon___23x3R"
+              height="24px"
+              width="24px"
+            >
+              <use
+                xlink:href="#<svg><text>svg icon</text></svg>"
+              />
+            </svg>
+          </a>
+          <a
+            class="sto-app-info-content-icon"
+            href="https://mock.app"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <svg
+              class="styles__icon___23x3R"
+              height="24px"
+              width="24px"
+            >
+              <use
+                xlink:href="#<svg><text>svg icon</text></svg>"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <button
+          class="styles__c-btn___-2Vnj styles__c-btn--subtle___OknKf styles__c-btn--center___16_Xh sto-app-permissions-button"
+          type="submit"
+        >
+          <span>
+            <span>
+              Show permissions
+            </span>
+          </span>
+        </button>
+      </div>
+      <div>
+        <h3
+          class="u-title-h3"
+        >
+          Developer Details
+        </h3>
+        <div
+          class="sto-app-developer-infos"
+        >
+          <span>
+            Cozy
+          </span>
+          <a
+            class="sto-app-developer-link"
+            href="https://cozy.io"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            https://cozy.io
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -932,168 +1067,194 @@ Enjoy features to grab your data in you Cozy :tada:"
 `;
 
 exports[`ApplicationPage details component should not suggest channel switching if the app is not installed 1`] = `
-<div
-  className="sto-app-details"
->
+<div>
   <div
-    className="sto-app-descriptions"
+    class="sto-app-details"
   >
     <div
-      className="sto-app-description"
+      class="sto-app-descriptions"
+    >
+      <div
+        class="sto-app-description"
+      >
+        <h3
+          class="u-title-h3"
+        >
+          Description
+        </h3>
+        <div>
+          <h3
+            class="md-title md-title--h3"
+          >
+            Features
+          </h3>
+          <p
+            class="md-paragraph"
+          >
+            Enjoy features to grab your data in you Cozy 
+            <span>
+              <img
+                class="emoji"
+                data-codepoints="1f389"
+                src="/emoji-data/img-apple-64/1f389.png"
+              />
+            </span>
+          </p>
+        </div>
+      </div>
+      <div
+        class="sto-app-changes"
+      >
+        <h3
+          class="u-title-h3"
+        >
+          What's New?
+        </h3>
+        <div>
+          <h3
+            class="md-title md-title--h3"
+          >
+            NEW!!!
+          </h3>
+          <p
+            class="md-paragraph"
+          >
+             Now on the cozy-store :tada
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sto-app-additional-details"
     >
       <h3
-        className="u-title-h3"
+        class="u-title-h3"
       >
-        Description
-      </h3>
-      <ReactMarkdownWrapper
-        parseEmoji={true}
-        source="### Features
-
-Enjoy features to grab your data in you Cozy :tada:"
-      />
-    </div>
-    <div
-      className="sto-app-changes"
-    >
-      <h3
-        className="u-title-h3"
-      >
-        What's New?
-      </h3>
-      <ReactMarkdownWrapper
-        parseEmoji={true}
-        source="### NEW!!!
-
- Now on the cozy-store :tada"
-      />
-    </div>
-  </div>
-  <div
-    className="sto-app-additional-details"
-  >
-    <h3
-      className="u-title-h3"
-    >
-      Informations
-    </h3>
-    <div
-      className="sto-app-info"
-    >
-      <div
-        className="sto-app-info-header"
-      >
-        Categories
-      </div>
-      <div
-        className="sto-app-info-content"
-      >
-        The essentials
-      </div>
-    </div>
-    <div
-      className="sto-app-info"
-    >
-      <div
-        className="sto-app-info-header"
-      >
-        Version
-      </div>
-      <div
-        className="sto-app-info-content"
-      >
-        <span
-          onDoubleClick={[Function]}
-        >
-          0.1.0
-        </span>
-      </div>
-    </div>
-    <div
-      className="sto-app-info"
-    >
-      <div
-        className="sto-app-info-header"
-      >
-        Languages
-      </div>
-      <div
-        className="sto-app-info-content"
-      >
-        English, French
-      </div>
-    </div>
-    <div
-      className="sto-app-info"
-    >
-      <div
-        className="sto-app-info-header"
-      >
-        Mobile Application
-      </div>
-      <div
-        className="sto-app-info-content sto-app-info-content--mobile-apps"
-      >
-        <a
-          className="sto-app-info-content-icon"
-          href={null}
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <Icon
-            height="24px"
-            icon="<svg><text>svg icon</text></svg>"
-            spin={false}
-            width="24px"
-          />
-        </a>
-        <a
-          className="sto-app-info-content-icon"
-          href="https://mock.app"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <Icon
-            height="24px"
-            icon="<svg><text>svg icon</text></svg>"
-            spin={false}
-            width="24px"
-          />
-        </a>
-      </div>
-    </div>
-    <div>
-      <Button
-        align="center"
-        className="sto-app-permissions-button"
-        label="Show permissions"
-        onClick={[Function]}
-        size="normal"
-        subtle={true}
-        tag="button"
-        type="submit"
-      />
-    </div>
-    <div>
-      <h3
-        className="u-title-h3"
-      >
-        Developer Details
+        Informations
       </h3>
       <div
-        className="sto-app-developer-infos"
+        class="sto-app-info"
       >
-        <span>
-          Cozy
-        </span>
-        <a
-          className="sto-app-developer-link"
-          href="https://cozy.io"
-          rel="noopener noreferrer"
-          target="_blank"
+        <div
+          class="sto-app-info-header"
         >
-          https://cozy.io
-        </a>
+          Categories
+        </div>
+        <div
+          class="sto-app-info-content"
+        >
+          The essentials
+        </div>
+      </div>
+      <div
+        class="sto-app-info"
+      >
+        <div
+          class="sto-app-info-header"
+        >
+          Version
+        </div>
+        <div
+          class="sto-app-info-content"
+        >
+          <span
+            data-testid="toggleChannels"
+          >
+            0.1.0
+          </span>
+        </div>
+      </div>
+      <div
+        class="sto-app-info"
+      >
+        <div
+          class="sto-app-info-header"
+        >
+          Languages
+        </div>
+        <div
+          class="sto-app-info-content"
+        >
+          English, French
+        </div>
+      </div>
+      <div
+        class="sto-app-info"
+      >
+        <div
+          class="sto-app-info-header"
+        >
+          Mobile Application
+        </div>
+        <div
+          class="sto-app-info-content sto-app-info-content--mobile-apps"
+        >
+          <a
+            class="sto-app-info-content-icon"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <svg
+              class="styles__icon___23x3R"
+              height="24px"
+              width="24px"
+            >
+              <use
+                xlink:href="#<svg><text>svg icon</text></svg>"
+              />
+            </svg>
+          </a>
+          <a
+            class="sto-app-info-content-icon"
+            href="https://mock.app"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <svg
+              class="styles__icon___23x3R"
+              height="24px"
+              width="24px"
+            >
+              <use
+                xlink:href="#<svg><text>svg icon</text></svg>"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <button
+          class="styles__c-btn___-2Vnj styles__c-btn--subtle___OknKf styles__c-btn--center___16_Xh sto-app-permissions-button"
+          type="submit"
+        >
+          <span>
+            <span>
+              Show permissions
+            </span>
+          </span>
+        </button>
+      </div>
+      <div>
+        <h3
+          class="u-title-h3"
+        >
+          Developer Details
+        </h3>
+        <div
+          class="sto-app-developer-infos"
+        >
+          <span>
+            Cozy
+          </span>
+          <a
+            class="sto-app-developer-link"
+            href="https://cozy.io"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            https://cozy.io
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -1101,168 +1262,194 @@ Enjoy features to grab your data in you Cozy :tada:"
 `;
 
 exports[`ApplicationPage details component should not suggest channel switching if the installed app is not from registry 1`] = `
-<div
-  className="sto-app-details"
->
+<div>
   <div
-    className="sto-app-descriptions"
+    class="sto-app-details"
   >
     <div
-      className="sto-app-description"
+      class="sto-app-descriptions"
+    >
+      <div
+        class="sto-app-description"
+      >
+        <h3
+          class="u-title-h3"
+        >
+          Description
+        </h3>
+        <div>
+          <h3
+            class="md-title md-title--h3"
+          >
+            Features
+          </h3>
+          <p
+            class="md-paragraph"
+          >
+            Enjoy features to grab your data in you Cozy 
+            <span>
+              <img
+                class="emoji"
+                data-codepoints="1f389"
+                src="/emoji-data/img-apple-64/1f389.png"
+              />
+            </span>
+          </p>
+        </div>
+      </div>
+      <div
+        class="sto-app-changes"
+      >
+        <h3
+          class="u-title-h3"
+        >
+          What's New?
+        </h3>
+        <div>
+          <h3
+            class="md-title md-title--h3"
+          >
+            NEW!!!
+          </h3>
+          <p
+            class="md-paragraph"
+          >
+             Now on the cozy-store :tada
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sto-app-additional-details"
     >
       <h3
-        className="u-title-h3"
+        class="u-title-h3"
       >
-        Description
-      </h3>
-      <ReactMarkdownWrapper
-        parseEmoji={true}
-        source="### Features
-
-Enjoy features to grab your data in you Cozy :tada:"
-      />
-    </div>
-    <div
-      className="sto-app-changes"
-    >
-      <h3
-        className="u-title-h3"
-      >
-        What's New?
-      </h3>
-      <ReactMarkdownWrapper
-        parseEmoji={true}
-        source="### NEW!!!
-
- Now on the cozy-store :tada"
-      />
-    </div>
-  </div>
-  <div
-    className="sto-app-additional-details"
-  >
-    <h3
-      className="u-title-h3"
-    >
-      Informations
-    </h3>
-    <div
-      className="sto-app-info"
-    >
-      <div
-        className="sto-app-info-header"
-      >
-        Categories
-      </div>
-      <div
-        className="sto-app-info-content"
-      >
-        The essentials
-      </div>
-    </div>
-    <div
-      className="sto-app-info"
-    >
-      <div
-        className="sto-app-info-header"
-      >
-        Version
-      </div>
-      <div
-        className="sto-app-info-content"
-      >
-        <span
-          onDoubleClick={[Function]}
-        >
-          0.1.0
-        </span>
-      </div>
-    </div>
-    <div
-      className="sto-app-info"
-    >
-      <div
-        className="sto-app-info-header"
-      >
-        Languages
-      </div>
-      <div
-        className="sto-app-info-content"
-      >
-        English, French
-      </div>
-    </div>
-    <div
-      className="sto-app-info"
-    >
-      <div
-        className="sto-app-info-header"
-      >
-        Mobile Application
-      </div>
-      <div
-        className="sto-app-info-content sto-app-info-content--mobile-apps"
-      >
-        <a
-          className="sto-app-info-content-icon"
-          href={null}
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <Icon
-            height="24px"
-            icon="<svg><text>svg icon</text></svg>"
-            spin={false}
-            width="24px"
-          />
-        </a>
-        <a
-          className="sto-app-info-content-icon"
-          href="https://mock.app"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <Icon
-            height="24px"
-            icon="<svg><text>svg icon</text></svg>"
-            spin={false}
-            width="24px"
-          />
-        </a>
-      </div>
-    </div>
-    <div>
-      <Button
-        align="center"
-        className="sto-app-permissions-button"
-        label="Show permissions"
-        onClick={[Function]}
-        size="normal"
-        subtle={true}
-        tag="button"
-        type="submit"
-      />
-    </div>
-    <div>
-      <h3
-        className="u-title-h3"
-      >
-        Developer Details
+        Informations
       </h3>
       <div
-        className="sto-app-developer-infos"
+        class="sto-app-info"
       >
-        <span>
-          Cozy
-        </span>
-        <a
-          className="sto-app-developer-link"
-          href="https://cozy.io"
-          rel="noopener noreferrer"
-          target="_blank"
+        <div
+          class="sto-app-info-header"
         >
-          https://cozy.io
-        </a>
+          Categories
+        </div>
+        <div
+          class="sto-app-info-content"
+        >
+          The essentials
+        </div>
+      </div>
+      <div
+        class="sto-app-info"
+      >
+        <div
+          class="sto-app-info-header"
+        >
+          Version
+        </div>
+        <div
+          class="sto-app-info-content"
+        >
+          <span
+            data-testid="toggleChannels"
+          >
+            0.1.0
+          </span>
+        </div>
+      </div>
+      <div
+        class="sto-app-info"
+      >
+        <div
+          class="sto-app-info-header"
+        >
+          Languages
+        </div>
+        <div
+          class="sto-app-info-content"
+        >
+          English, French
+        </div>
+      </div>
+      <div
+        class="sto-app-info"
+      >
+        <div
+          class="sto-app-info-header"
+        >
+          Mobile Application
+        </div>
+        <div
+          class="sto-app-info-content sto-app-info-content--mobile-apps"
+        >
+          <a
+            class="sto-app-info-content-icon"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <svg
+              class="styles__icon___23x3R"
+              height="24px"
+              width="24px"
+            >
+              <use
+                xlink:href="#<svg><text>svg icon</text></svg>"
+              />
+            </svg>
+          </a>
+          <a
+            class="sto-app-info-content-icon"
+            href="https://mock.app"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <svg
+              class="styles__icon___23x3R"
+              height="24px"
+              width="24px"
+            >
+              <use
+                xlink:href="#<svg><text>svg icon</text></svg>"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <button
+          class="styles__c-btn___-2Vnj styles__c-btn--subtle___OknKf styles__c-btn--center___16_Xh sto-app-permissions-button"
+          type="submit"
+        >
+          <span>
+            <span>
+              Show permissions
+            </span>
+          </span>
+        </button>
+      </div>
+      <div>
+        <h3
+          class="u-title-h3"
+        >
+          Developer Details
+        </h3>
+        <div
+          class="sto-app-developer-infos"
+        >
+          <span>
+            Cozy
+          </span>
+          <a
+            class="sto-app-developer-link"
+            href="https://cozy.io"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            https://cozy.io
+          </a>
+        </div>
       </div>
     </div>
   </div>

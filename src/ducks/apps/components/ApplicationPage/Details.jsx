@@ -124,13 +124,13 @@ export const Details = ({ app, description, changes, parent, mobileApps }) => {
             {t('app_page.infos.version.title')}
           </div>
           <div className="sto-app-info-content">
-            <span onDoubleClick={toggleChannels}>
+            <span onDoubleClick={toggleChannels} data-testid="toggleChannels">
               {displayedVersion || t('app_page.infos.version.unknown')}
             </span>
           </div>
         </div>
         {(displayBetaChannel || displayDevChannel) && (
-          <div className="sto-app-info">
+          <div className="sto-app-info" data-testid="betaToggle">
             <div className="sto-app-info-header">
               {t('app_page.infos.beta')}
             </div>
@@ -144,7 +144,7 @@ export const Details = ({ app, description, changes, parent, mobileApps }) => {
           </div>
         )}
         {displayDevChannel && (
-          <div className="sto-app-info">
+          <div className="sto-app-info" data-testid="devToggle">
             <div className="sto-app-info-header">{t('app_page.infos.dev')}</div>
             <div className="sto-app-info-content">
               <Toggle
