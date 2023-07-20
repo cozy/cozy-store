@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 import { useClient } from 'cozy-client'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
@@ -38,6 +38,7 @@ export const Details = ({ app, description, changes, parent, mobileApps }) => {
   const client = useClient()
   const { t } = useI18n()
   const navigate = useNavigate()
+  const { search } = useLocation()
 
   const [displayBetaChannel, setDisplayBetaChannel] = useState(
     appChannel === REGISTRY_CHANNELS.BETA
@@ -62,7 +63,7 @@ export const Details = ({ app, description, changes, parent, mobileApps }) => {
     (shortVersion && shortVersion.length && shortVersion[1]) || version
 
   const onShowPermissions = () => {
-    navigate(`/${parent}/${app.slug}/permissions`)
+    navigate(`/${parent}/${app.slug}/permissions${search}`)
   }
 
   const toggleChannels = async () => {
@@ -87,7 +88,7 @@ export const Details = ({ app, description, changes, parent, mobileApps }) => {
 
   const onUpdateChannel = (checked, channel) => {
     const targetChannel = checked ? channel : REGISTRY_CHANNELS.STABLE
-    navigate(`/${parent}/${app.slug}/channel/${targetChannel}`)
+    navigate(`/${parent}/${app.slug}/channel/${targetChannel}${search}`)
   }
 
   return (
