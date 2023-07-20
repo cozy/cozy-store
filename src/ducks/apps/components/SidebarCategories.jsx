@@ -5,12 +5,12 @@ import { NavLink as RouterLink, useLocation } from 'react-router-dom'
 
 import { categoryUtils } from 'cozy-ui/transpiled/react/AppSections'
 
-const getActiveChecker = (parent, cat, location) => {
+const getActiveChecker = (cat, location) => {
   const urlSearchParams = new URLSearchParams(location.search)
   const params = Object.fromEntries([...urlSearchParams])
+
   if (
-    (parent === location.pathname &&
-      (cat.value === params.category && cat.type === params.type)) ||
+    (cat.value === params.category && cat.type === params.type) ||
     (cat.value === 'konnectors' &&
       params.type === 'konnector' &&
       params.category === undefined)
@@ -21,8 +21,8 @@ const getActiveChecker = (parent, cat, location) => {
   return false
 }
 
-const renderLink = (parent, cat, path, location) => {
-  const isActive = getActiveChecker(parent, cat, location)
+const renderLink = (cat, path, location) => {
+  const isActive = getActiveChecker(cat, location)
 
   return (
     <li key={path}>
@@ -84,15 +84,9 @@ export const SidebarCategories = ({
   // compute sidebar categories links
   const linksArray = options.map(cat => {
     if (cat.value === 'konnectors') {
-      return renderLink(
-        parent,
-        cat,
-        `${parent}?type=konnector${extraParams}`,
-        location
-      )
+      return renderLink(cat, `${parent}?type=konnector${extraParams}`, location)
     } else {
       return renderLink(
-        parent,
         cat,
         `${parent}?type=${cat.type}&category=${cat.value}${extraParams}`,
         location
