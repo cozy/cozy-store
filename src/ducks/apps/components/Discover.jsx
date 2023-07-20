@@ -19,7 +19,6 @@ export class Discover extends Component {
   constructor(props) {
     super(props)
     this.onAppClick = this.onAppClick.bind(this)
-    this.pushQuery = this.pushQuery.bind(this)
   }
 
   onAppClick(appSlug) {
@@ -40,11 +39,6 @@ export class Discover extends Component {
     }
 
     navigate(`/discover/${appSlug}`)
-  }
-
-  pushQuery(query) {
-    if (!query) return this.props.navigate('/discover')
-    this.props.navigate(`/discover?${query}`)
   }
 
   render() {
