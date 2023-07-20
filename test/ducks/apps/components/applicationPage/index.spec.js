@@ -34,7 +34,8 @@ const getAppProps = (installed, related, screenshots = []) => {
     lang: 'en',
     mainPageRef: mockRef,
     parent: '/myapps',
-    redirectTo: jest.fn()
+    redirectTo: jest.fn(),
+    search: ''
   }
 }
 
@@ -59,7 +60,8 @@ const getKonnectorProps = (installed, keepDescription = true) => {
       icon: 'https://mockcozy.cc/registry/konnector-trinlane/icon'
     }),
     parent: '/myapps',
-    mainPageRef: mockRef
+    mainPageRef: mockRef,
+    search: ''
   }
 }
 

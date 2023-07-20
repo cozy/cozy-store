@@ -31,7 +31,8 @@ const getMockProps = (
   isFetching,
   fetchError,
   actionError: null,
-  navigate: jest.fn()
+  navigate: jest.fn(),
+  searchParams: new URLSearchParams()
 })
 
 describe('Discover component', () => {

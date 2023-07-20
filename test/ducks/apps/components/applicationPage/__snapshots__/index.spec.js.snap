@@ -153,7 +153,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         namePrefix="Cozy"
         parent="/myapps"
       />
-      <withClient(withI18n(DetailsWrapper))
+      <Details
         app={
           Object {
             "categories": Array [
@@ -455,7 +455,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         }
         slug="photos"
       />
-      <withClient(withI18n(DetailsWrapper))
+      <Details
         app={
           Object {
             "categories": Array [
@@ -734,7 +734,7 @@ exports[`ApplicationPage component should be rendered correctly with konnector i
         namePrefix=""
         parent="/myapps"
       />
-      <withClient(withI18n(DetailsWrapper))
+      <Details
         app={
           Object {
             "categories": Array [
@@ -995,7 +995,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         namePrefix="Cozy"
         parent="/myapps"
       />
-      <withClient(withI18n(DetailsWrapper))
+      <Details
         app={
           Object {
             "categories": Array [
@@ -1272,7 +1272,7 @@ exports[`ApplicationPage component should be rendered correctly with provided in
         namePrefix=""
         parent="/myapps"
       />
-      <withClient(withI18n(DetailsWrapper))
+      <Details
         app={
           Object {
             "categories": Array [
@@ -1517,7 +1517,7 @@ exports[`ApplicationPage component should be rendered correctly without app desc
         namePrefix=""
         parent="/myapps"
       />
-      <withClient(withI18n(DetailsWrapper))
+      <Details
         app={
           Object {
             "categories": Array [
@@ -1927,7 +1927,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         namePrefix="Cozy"
         parent="/myapps"
       />
-      <withClient(withI18n(DetailsWrapper))
+      <Details
         app={
           Object {
             "categories": Array [
@@ -2361,7 +2361,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         namePrefix="Cozy"
         parent="/myapps"
       />
-      <withClient(withI18n(DetailsWrapper))
+      <Details
         app={
           Object {
             "categories": Array [

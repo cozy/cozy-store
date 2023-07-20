@@ -19,7 +19,8 @@ const getProps = (isFetching = false, getApp = getAppMock) => ({
 })
 
 jest.mock('react-router-dom', () => ({
-  useParams: jest.fn()
+  useParams: jest.fn(),
+  useLocation: jest.fn()
 }))
 
 describe('UninstallRoute component', () => {
