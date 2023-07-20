@@ -38,7 +38,8 @@ export class Discover extends Component {
       }
     }
 
-    navigate(`/discover/${appSlug}`)
+    const search = searchParams.size > 0 ? `?${searchParams.toString()}` : ''
+    navigate(`/discover/${appSlug}${search}`)
   }
 
   render() {
