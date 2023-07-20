@@ -74,9 +74,9 @@ const Sections = ({
   useEffect(() => {
     const currentFilter = filter || internalFilter
     if (
-      !!previousFilter &&
-      (previousFilter.type !== currentFilter.type ||
-        previousFilter.category !== currentFilter.category)
+      !!previousFilter.current &&
+      (previousFilter.current.type !== currentFilter.type ||
+        previousFilter.current.category !== currentFilter.category)
     ) {
       setSearchFieldValue('')
     }
