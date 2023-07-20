@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 import Modal, {
   ModalContent,
@@ -13,12 +13,13 @@ import PermissionsList from 'ducks/apps/components/PermissionsList'
 export const PermissionsModal = ({ app, parent }) => {
   const { t } = useI18n()
   const navigate = useNavigate()
+  const { search } = useLocation()
 
   const gotoParent = () => {
     if (app && app.slug) {
-      navigate(`${parent}/${app.slug}`)
+      navigate(`${parent}/${app.slug}${search}`)
     } else {
-      navigate(`${parent}`)
+      navigate(`${parent}${search}`)
     }
   }
 

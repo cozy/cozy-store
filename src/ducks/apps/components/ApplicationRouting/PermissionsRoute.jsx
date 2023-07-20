@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 
 import PermissionsModal from 'ducks/apps/components/PermissionsModal'
 
@@ -10,12 +10,13 @@ export const PermissionsRoute = ({
   redirectTo
 }) => {
   const params = useParams()
+  const { search } = useLocation()
 
   if (isFetching) return null
 
   const app = getApp(params)
 
-  if (!app) return redirectTo(`/${parent}`)
+  if (!app) return redirectTo(`/${parent}${search}`)
 
   return <PermissionsModal app={app} parent={`/${parent}`} />
 }
