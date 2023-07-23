@@ -83,6 +83,20 @@ describe('Discover component', () => {
     expect(mockProps.navigate).toHaveBeenCalledWith(`/discover/collect`)
   })
 
+  it('should transfer search params when navigating to app page', () => {
+    const mockProps = getMockProps()
+    mockProps.searchParams.set('type', 'konnector')
+    mockProps.searchParams.set('category', 'isp')
+    mockProps.searchParams.size = 2 // Bug: URLSearchParams have undefined size when run in tests so we have to enforce it
+    const component = shallow(<Discover t={tMock} {...mockProps} />)
+    const instance = component.instance()
+    instance.onAppClick(mockRegistyApps[0].slug)
+    expect(mockProps.navigate).toHaveBeenCalledTimes(1)
+    expect(mockProps.navigate).toHaveBeenCalledWith(
+      `/discover/collect?type=konnector&category=isp`
+    )
+  })
+
   it('should define the correct onAppClick function to pass to sections with redirectAfterInstall search params, and so replace __APPSLUG__', () => {
     const mockProps = getMockProps()
     mockProps.searchParams.set(

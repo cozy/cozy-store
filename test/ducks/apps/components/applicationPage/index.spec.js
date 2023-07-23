@@ -155,4 +155,16 @@ describe('ApplicationPage component', () => {
     ).getElement()
     expect(component).toMatchSnapshot()
   })
+
+  it('should put search content on back button URL', () => {
+    const props = getAppProps(true, 'https://photos.mockcozy.cc')
+    const component = shallow(
+      <ApplicationPage
+        t={tMock}
+        {...props}
+        search="type=konnector&category=isp"
+      />
+    ).getElement()
+    expect(component).toMatchSnapshot()
+  })
 })

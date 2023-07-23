@@ -1624,6 +1624,298 @@ exports[`ApplicationPage component should be rendered correctly without app desc
 </FocusTrap>
 `;
 
+exports[`ApplicationPage component should put search content on back button URL 1`] = `
+<FocusTrap
+  _createFocusTrap={[Function]}
+  active={true}
+  focusTrapOptions={
+    Object {
+      "clickOutsideDeactivates": true,
+      "onDeactivate": [Function],
+    }
+  }
+  paused={false}
+  tag="div"
+>
+  <div
+    className="sto-modal-page-app"
+  >
+    <div
+      className="sto-app"
+    >
+      <DefaultButton
+        className="sto-app-back"
+        icon={[Function]}
+        label="Back to the list"
+        onClick={[Function]}
+        subtle={true}
+        tag={
+          Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "displayName": "Link",
+            "render": [Function],
+          }
+        }
+        to="//myappstype=konnector&category=isp"
+      />
+      <Connect(withBreakpoints(withI18n(withClient(Header))))
+        app={
+          Object {
+            "categories": Array [
+              "cozy",
+            ],
+            "developer": Object {
+              "name": "Cozy",
+              "url": "https://cozy.io",
+            },
+            "editor": "Cozy",
+            "icon": "https://mockcozy.cc/registry/photos/icon",
+            "installed": true,
+            "langs": Array [
+              "en",
+              "fr",
+            ],
+            "licence": "AGPL-3.0",
+            "locales": Object {
+              "en": Object {
+                "changes": "### NEW!!!
+
+ Now on the cozy-store :tada",
+                "long_description": "### Features
+
+Enjoy features to grab your data in you Cozy :tada:",
+                "short_description": "Gestionnaire de photos pour Cozy v3",
+              },
+              "fr": Object {
+                "long_description": "### Photos
+
+Gestionnaire de photos pour Cozy v3 :tada:",
+                "short_description": "Gestionnaire de photos pour Cozy v3",
+              },
+            },
+            "name": "Photos",
+            "name_prefix": "Cozy",
+            "permissions": Object {
+              "albums": Object {
+                "description": "Required to manage photos albums",
+                "methods": Array [
+                  "GET",
+                  "POST",
+                  "PUT",
+                ],
+                "type": "io.cozy.photos.albums",
+              },
+              "apps": Object {
+                "description": "Required by the cozy-bar to display the icons of the apps",
+                "type": "io.cozy.apps",
+                "verbs": Array [
+                  "GET",
+                ],
+              },
+              "contacts": Object {
+                "description": "Required to to share photos with your contacts",
+                "methods": Array [
+                  "GET",
+                  "POST",
+                ],
+                "type": "io.cozy.contacts",
+              },
+              "files": Object {
+                "description": "Required for photo access",
+                "methods": Array [
+                  "GET",
+                  "POST",
+                  "PUT",
+                ],
+                "type": "io.cozy.files",
+              },
+              "settings": Object {
+                "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
+                "type": "io.cozy.settings",
+                "verbs": Array [
+                  "GET",
+                ],
+              },
+            },
+            "platforms": Array [
+              Object {
+                "type": "ios",
+                "url": "",
+              },
+              Object {
+                "type": "linux",
+                "url": "",
+              },
+              Object {
+                "type": "android",
+                "url": "https://mock.app",
+              },
+            ],
+            "related": "https://photos.mockcozy.cc",
+            "routes": Object {
+              "/": Object {
+                "folder": "/",
+                "index": "index.html",
+                "public": false,
+              },
+              "/public": Object {
+                "folder": "/public",
+                "index": "index.html",
+                "public": true,
+              },
+            },
+            "screenshots": Array [],
+            "short_description": "Photos manager for Cozy v3",
+            "slug": "photos",
+            "source": "https://github.com/cozy/cozy-drive.git@build-photos",
+            "type": "webapp",
+            "version": "3.0.0",
+          }
+        }
+        description="Gestionnaire de photos pour Cozy v3"
+        name="Photos"
+        namePrefix="Cozy"
+        parent="/myapps"
+      />
+      <Details
+        app={
+          Object {
+            "categories": Array [
+              "cozy",
+            ],
+            "developer": Object {
+              "name": "Cozy",
+              "url": "https://cozy.io",
+            },
+            "editor": "Cozy",
+            "icon": "https://mockcozy.cc/registry/photos/icon",
+            "installed": true,
+            "langs": Array [
+              "en",
+              "fr",
+            ],
+            "licence": "AGPL-3.0",
+            "locales": Object {
+              "en": Object {
+                "changes": "### NEW!!!
+
+ Now on the cozy-store :tada",
+                "long_description": "### Features
+
+Enjoy features to grab your data in you Cozy :tada:",
+                "short_description": "Gestionnaire de photos pour Cozy v3",
+              },
+              "fr": Object {
+                "long_description": "### Photos
+
+Gestionnaire de photos pour Cozy v3 :tada:",
+                "short_description": "Gestionnaire de photos pour Cozy v3",
+              },
+            },
+            "name": "Photos",
+            "name_prefix": "Cozy",
+            "permissions": Object {
+              "albums": Object {
+                "description": "Required to manage photos albums",
+                "methods": Array [
+                  "GET",
+                  "POST",
+                  "PUT",
+                ],
+                "type": "io.cozy.photos.albums",
+              },
+              "apps": Object {
+                "description": "Required by the cozy-bar to display the icons of the apps",
+                "type": "io.cozy.apps",
+                "verbs": Array [
+                  "GET",
+                ],
+              },
+              "contacts": Object {
+                "description": "Required to to share photos with your contacts",
+                "methods": Array [
+                  "GET",
+                  "POST",
+                ],
+                "type": "io.cozy.contacts",
+              },
+              "files": Object {
+                "description": "Required for photo access",
+                "methods": Array [
+                  "GET",
+                  "POST",
+                  "PUT",
+                ],
+                "type": "io.cozy.files",
+              },
+              "settings": Object {
+                "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
+                "type": "io.cozy.settings",
+                "verbs": Array [
+                  "GET",
+                ],
+              },
+            },
+            "platforms": Array [
+              Object {
+                "type": "ios",
+                "url": "",
+              },
+              Object {
+                "type": "linux",
+                "url": "",
+              },
+              Object {
+                "type": "android",
+                "url": "https://mock.app",
+              },
+            ],
+            "related": "https://photos.mockcozy.cc",
+            "routes": Object {
+              "/": Object {
+                "folder": "/",
+                "index": "index.html",
+                "public": false,
+              },
+              "/public": Object {
+                "folder": "/public",
+                "index": "index.html",
+                "public": true,
+              },
+            },
+            "screenshots": Array [],
+            "short_description": "Photos manager for Cozy v3",
+            "slug": "photos",
+            "source": "https://github.com/cozy/cozy-drive.git@build-photos",
+            "type": "webapp",
+            "version": "3.0.0",
+          }
+        }
+        changes="### NEW!!!
+
+ Now on the cozy-store :tada"
+        description="### Features
+
+Enjoy features to grab your data in you Cozy :tada:"
+        mobileApps={
+          Array [
+            Object {
+              "type": "ios",
+              "url": "",
+            },
+            Object {
+              "type": "android",
+              "url": "https://mock.app",
+            },
+          ]
+        }
+        parent="/myapps"
+      />
+    </div>
+  </div>
+</FocusTrap>
+`;
+
 exports[`ApplicationPage component should render correctly an error message if fetchError 1`] = `
 <p
   className="u-error"
