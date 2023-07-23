@@ -97,4 +97,18 @@ describe('MyApplications component', () => {
     expect(componentMobile.find(BarCenter).length).toBe(1)
     expect(componentMobile.getElement()).toMatchSnapshot()
   })
+
+  it('should transfer search params when navigating to app page', () => {
+    const mockProps = getMockProps()
+    mockProps.searchParams.set('type', 'konnector')
+    mockProps.searchParams.set('category', 'isp')
+    mockProps.searchParams.size = 2 // Bug: URLSearchParams have undefined size when run in tests so we have to enforce it
+    const component = shallow(<MyApplications t={tMock} {...mockProps} />)
+    const instance = component.instance()
+    instance.onAppClick(mockInstalledApps[0].slug)
+    expect(mockProps.navigate).toHaveBeenCalledTimes(1)
+    expect(mockProps.navigate).toHaveBeenCalledWith(
+      `/myapps/collect?type=konnector&category=isp`
+    )
+  })
 })
