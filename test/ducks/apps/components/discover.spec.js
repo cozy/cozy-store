@@ -85,16 +85,11 @@ describe('Discover component', () => {
 
   it('should define the correct onAppClick function to pass to sections with redirectAfterInstall search params, and so replace __APPSLUG__', () => {
     const mockProps = getMockProps()
-    const component = shallow(
-      <Discover
-        t={tMock}
-        {...mockProps}
-        searchParams={{
-          get: () =>
-            'http://mespapiers.mycozy.cloud/#/paper/files/energy_invoice/harvest/'
-        }}
-      />
+    mockProps.searchParams.set(
+      'redirectAfterInstall',
+      'http://mespapiers.mycozy.cloud/#/paper/files/energy_invoice/harvest/'
     )
+    const component = shallow(<Discover t={tMock} {...mockProps} />)
     const instance = component.instance()
     instance.onAppClick(mockRegistyApps[0].slug)
     expect(mockProps.navigate).toHaveBeenCalledTimes(1)
@@ -105,15 +100,11 @@ describe('Discover component', () => {
 
   it('should encode uri when using redirectAfterInstall search params', () => {
     const mockProps = getMockProps()
-    const component = shallow(
-      <Discover
-        t={tMock}
-        {...mockProps}
-        searchParams={{
-          get: () => 'http://mydomain/#/paper?param1=val1&param2=val2'
-        }}
-      />
+    mockProps.searchParams.set(
+      'redirectAfterInstall',
+      'http://mydomain/#/paper?param1=val1&param2=val2'
     )
+    const component = shallow(<Discover t={tMock} {...mockProps} />)
     const instance = component.instance()
     instance.onAppClick(mockRegistyApps[0].slug)
     expect(mockProps.navigate).toHaveBeenCalledTimes(1)
