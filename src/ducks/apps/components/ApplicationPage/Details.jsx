@@ -34,21 +34,16 @@ export const Details = ({ app, description, changes, parent, mobileApps }) => {
   const { source, slug, langs, categories, developer, version } = app
 
   const appChannel = getChannel(source)
+  const isBeta = appChannel === REGISTRY_CHANNELS.BETA
+  const isDev = appChannel === REGISTRY_CHANNELS.DEV
 
   const client = useClient()
   const { t } = useI18n()
   const navigate = useNavigate()
   const { search } = useLocation()
+  const [displayBetaChannel, setDisplayBetaChannel] = useState(isBeta)
+  const [displayDevChannel, setDisplayDevChannel] = useState(isDev)
 
-  const [displayBetaChannel, setDisplayBetaChannel] = useState(
-    appChannel === REGISTRY_CHANNELS.BETA
-  )
-  const [displayDevChannel, setDisplayDevChannel] = useState(
-    appChannel === REGISTRY_CHANNELS.DEV
-  )
-
-  const isBeta = appChannel === REGISTRY_CHANNELS.BETA
-  const isDev = appChannel === REGISTRY_CHANNELS.DEV
   const langsInfos = langs && langs.map(l => t(`app_langs.${l}`))
   const categoriesInfos =
     categories &&
