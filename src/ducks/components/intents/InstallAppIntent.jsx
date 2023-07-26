@@ -93,7 +93,7 @@ export class InstallAppIntent extends Component {
       onCancel,
       t
     } = this.props
-    const { installAppIntentUpdated } = data || {}
+    const { installAppIntentUpdated, withoutInstallSuccess } = data || {}
     const { hasWebappSucceed } = this.state
 
     const fetching = isFetching || isAppFetching
@@ -109,6 +109,11 @@ export class InstallAppIntent extends Component {
     )
     const error = !!errorKey && new Error(t(errorKey))
     const isReadyWithoutErrors = isReady && !error
+
+    if (hasWebappSucceed && withoutInstallSuccess) {
+      this.handleTerminate()
+      return null
+    }
 
     if (installAppIntentUpdated) {
       return (
