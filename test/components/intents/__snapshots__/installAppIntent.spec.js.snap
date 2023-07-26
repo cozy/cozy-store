@@ -1,21 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InstallAppIntent component should be rendered correctly 1`] = `
-<div
-  className="coz-intent-wrapper"
->
-  <IntentHeader
-    appEditor="Cozy"
-    appIcon="..//path/to/icon"
-    appName="Drive"
-  />
-  <div
-    className="coz-intent-content"
-  >
-    <withClient(Connect(withI18n(AppInstallation)))
-      appSlug="drive"
-      installApp={[Function]}
-    />
-  </div>
-</div>
+<InstallAppIntentContent
+  app={
+    Object {
+      "slug": "drive",
+    }
+  }
+  appData={
+    Object {
+      "app": Object {
+        "editor": "Cozy",
+        "icon": "/path/to/icon",
+        "name": "Drive",
+      },
+    }
+  }
+  error={false}
+  hasWebappSucceed={false}
+  installApp={[Function]}
+  isInstalled={false}
+  isReadyWithoutErrors={true}
+  onTerminate={[Function]}
+/>
 `;

@@ -1,14 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import compose from 'lodash/flowRight'
-import { withClient } from 'cozy-client'
-
-import { translate } from 'cozy-ui/transpiled/react/I18n'
-
-import AppInstallation from 'ducks/apps/components/depredated/AppInstallation'
-import InstallSuccess from 'ducks/apps/components/depredated/InstallSuccess'
-import IntentHeader from 'cozy-ui/transpiled/react/IntentHeader'
-import Spinner from 'cozy-ui/transpiled/react/Spinner'
 
 import {
   APP_TYPE,
@@ -16,6 +7,7 @@ import {
   installAppFromRegistry,
   initAppIntent
 } from 'ducks/apps'
+import InstallAppIntentContent from 'ducks/components/deprecated/InstallAppIntentContent'
 
 const errorKeys = {
   alreadyInstalledError: 'intent.install.error.installed',
@@ -103,7 +95,7 @@ export class InstallAppIntent extends Component {
 
     const fetching = isFetching || isAppFetching
     const isReady = !fetchError && !fetching && !isAppFetching
-    const isInstalled = app && app.installed
+    const isInstalled = !!app?.installed
 
     const appError = isReady && !app
     const alreadyInstalledError = !isInstalled && app && app.installed
@@ -114,31 +106,21 @@ export class InstallAppIntent extends Component {
     )
     const error = !!errorKey && new Error(t(errorKey))
     const isReadyWithoutErrors = isReady && !error
+
     return (
-      <div className="coz-intent-wrapper">
-        <IntentHeader
-          appEditor={appData.app.editor}
-          appName={appData.app.name}
-          appIcon={`../${appData.app.icon}`}
-        />
-        <div className={`coz-intent-content${fetching ? ' --loading' : ''}`}>
-          {fetching && <Spinner size="xxlarge" noMargin />}
-          {error && <div className="coz-error">{error.message}</div>}
-          {isReadyWithoutErrors &&
-            (!isInstalled ? (
-              <AppInstallation
-                appSlug={app.slug}
-                installApp={() => this.installApp()}
-                isInstalling={isInstalling}
-                onCancel={onCancel}
-              />
-            ) : (
-              hasWebappSucceed && (
-                <InstallSuccess app={app} onTerminate={this.handleTerminate} />
-              )
-            ))}
-        </div>
-      </div>
+      <InstallAppIntentContent
+        appData={appData}
+        app={app}
+        fetching={fetching}
+        error={error}
+        isReadyWithoutErrors={isReadyWithoutErrors}
+        isInstalled={isInstalled}
+        installApp={this.installApp}
+        onTerminate={this.handleTerminate}
+        isInstalling={isInstalling}
+        onCancel={onCancel}
+        hasWebappSucceed={hasWebappSucceed}
+      />
     )
   }
 }
@@ -160,11 +142,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 })
 
 // translate last to pass the lang property to fetchApps()
-export default compose(
-  withClient,
-  translate(),
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
 )(InstallAppIntent)
