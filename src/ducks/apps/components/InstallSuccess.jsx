@@ -1,26 +1,31 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { ModalContent, ModalHeader } from 'cozy-ui/transpiled/react/Modal'
-import { translate } from 'cozy-ui/transpiled/react/I18n'
+import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import Button from 'cozy-ui/transpiled/react/Button'
 import AppIcon from 'cozy-ui/transpiled/react/AppIcon'
+
 import { getAppIconProps } from 'ducks/apps'
 
-export class InstallSuccess extends PureComponent {
-  render() {
-    const { t, app, onTerminate } = this.props
-    return (
-      <React.Fragment>
-        <ModalHeader className="sto-install-success-header">
-          <AppIcon app={app} className="sto-app-icon" {...getAppIconProps()} />
-        </ModalHeader>
-        <ModalContent className="sto-install-success-content">
-          <p>{t('intent.install.success', { appName: app.name })}</p>
-          <Button label={t('intent.install.terminate')} onClick={onTerminate} />
-        </ModalContent>
-      </React.Fragment>
-    )
-  }
+export const InstallSuccess = ({ app, onTerminate }) => {
+  const { t } = useI18n()
+
+  return (
+    <>
+      <div className="sto-install-success-header">
+        <AppIcon app={app} className="sto-app-icon" {...getAppIconProps()} />
+      </div>
+      <div className="sto-install-success-content">
+        <p>{t('intent.install.success', { appName: app.name })}</p>
+        <Button label={t('intent.install.terminate')} onClick={onTerminate} />
+      </div>
+    </>
+  )
 }
 
-export default translate()(InstallSuccess)
+InstallSuccess.propTypes = {
+  app: PropTypes.object.isRequired,
+  onTerminate: PropTypes.func.isRequired
+}
+
+export default InstallSuccess

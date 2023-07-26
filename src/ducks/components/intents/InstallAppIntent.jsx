@@ -6,7 +6,7 @@ import { withClient } from 'cozy-client'
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 
 import AppInstallation from 'ducks/apps/components/AppInstallation'
-import InstallSuccess from 'ducks/apps/components/InstallSuccess'
+import InstallSuccess from 'ducks/apps/components/depredated/InstallSuccess'
 import IntentHeader from 'cozy-ui/transpiled/react/IntentHeader'
 import Spinner from 'cozy-ui/transpiled/react/Spinner'
 
