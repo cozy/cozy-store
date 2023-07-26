@@ -7,7 +7,8 @@ import {
   installAppFromRegistry,
   initAppIntent
 } from 'ducks/apps'
-import InstallAppIntentContent from 'ducks/components/deprecated/InstallAppIntentContent'
+import InstallAppIntentContent from 'ducks/components/InstallAppIntentContent'
+import InstallAppIntentContentDeprecated from 'ducks/components/deprecated/InstallAppIntentContent'
 
 const errorKeys = {
   alreadyInstalledError: 'intent.install.error.installed',
@@ -83,6 +84,7 @@ export class InstallAppIntent extends Component {
     const {
       app,
       appData,
+      data,
       fetchError,
       installError,
       isFetching,
@@ -91,6 +93,7 @@ export class InstallAppIntent extends Component {
       onCancel,
       t
     } = this.props
+    const { installAppIntentUpdated } = data || {}
     const { hasWebappSucceed } = this.state
 
     const fetching = isFetching || isAppFetching
@@ -107,8 +110,26 @@ export class InstallAppIntent extends Component {
     const error = !!errorKey && new Error(t(errorKey))
     const isReadyWithoutErrors = isReady && !error
 
+    if (installAppIntentUpdated) {
+      return (
+        <InstallAppIntentContent
+          appData={appData}
+          app={app}
+          fetching={fetching}
+          error={error}
+          isReadyWithoutErrors={isReadyWithoutErrors}
+          isInstalled={isInstalled}
+          installApp={this.installApp}
+          onTerminate={this.handleTerminate}
+          isInstalling={isInstalling}
+          onCancel={onCancel}
+          hasWebappSucceed={hasWebappSucceed}
+        />
+      )
+    }
+
     return (
-      <InstallAppIntentContent
+      <InstallAppIntentContentDeprecated
         appData={appData}
         app={app}
         fetching={fetching}
