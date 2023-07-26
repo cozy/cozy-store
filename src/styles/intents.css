@@ -12,6 +12,9 @@
 
 .coz-intent-content {
   width: 100%;
+  height: calc(100% - 1rem);
+}
+.coz-intent-content.--deprecated {
   height: calc(100% - 3rem);
 }
 

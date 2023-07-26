@@ -29,7 +29,11 @@ const InstallAppIntentContent = ({
         appName={appData.app.name}
         appIcon={`../${appData.app.icon}`}
       />
-      <div className={`coz-intent-content${fetching ? ' --loading' : ''}`}>
+      <div
+        className={`coz-intent-content --deprecated${
+          fetching ? ' --loading' : ''
+        }`}
+      >
         {fetching && <Spinner size="xxlarge" noMargin />}
         {error && <div className="coz-error">{error.message}</div>}
         {isReadyWithoutErrors &&
