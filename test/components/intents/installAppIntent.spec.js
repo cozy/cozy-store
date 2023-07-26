@@ -4,10 +4,10 @@ import React from 'react'
 import { mount, shallow } from 'enzyme'
 
 import { InstallAppIntent } from 'ducks/components/intents/InstallAppIntent'
-import AppInstallation from 'ducks/apps/components/AppInstallation'
+import AppInstallation from 'ducks/apps/components/deprecated/AppInstallation'
 import CozyClient, { CozyProvider } from 'cozy-client'
 
-jest.mock('ducks/apps/components/AppInstallation')
+jest.mock('ducks/apps/components/deprecated/AppInstallation')
 
 AppInstallation.mockImplementation(() => null)
 

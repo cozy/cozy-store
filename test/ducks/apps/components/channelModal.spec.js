@@ -6,7 +6,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 
 import { ChannelModal } from 'ducks/apps/components/ChannelModal'
-import AppInstallation from 'ducks/apps/components/AppInstallation'
+import AppInstallation from 'ducks/apps/components/deprecated/AppInstallation'
 
 import mockApps from '../_mockApps'
 import mockAppVersion from '../_mockPhotosRegistryVersion'

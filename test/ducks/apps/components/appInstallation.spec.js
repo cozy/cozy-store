@@ -5,7 +5,7 @@ import '@testing-library/jest-dom'
 import flags from 'cozy-flags'
 
 import { tMock } from '../../../jestLib/I18n'
-import { AppInstallation } from 'ducks/apps/components/AppInstallation'
+import { AppInstallation } from 'ducks/apps/components/deprecated/AppInstallation'
 import storeConfig from 'config'
 
 import mockRegistryApp from '../_mockPhotosRegistryVersion'

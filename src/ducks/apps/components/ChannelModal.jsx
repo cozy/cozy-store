@@ -7,7 +7,7 @@ import Modal from 'cozy-ui/transpiled/react/Modal'
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 import { withClient } from 'cozy-client'
 
-import AppInstallation from 'ducks/apps/components/AppInstallation'
+import AppInstallation from 'ducks/apps/components/deprecated/AppInstallation'
 import getChannel from 'lib/getChannelFromSource'
 import { fetchLatestApp, getAppBySlug, restoreAppIfSaved } from 'ducks/apps'
 
