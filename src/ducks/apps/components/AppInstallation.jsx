@@ -15,16 +15,16 @@ import { connect } from 'react-redux'
 
 import { withClient } from 'cozy-client'
 import flags from 'cozy-flags'
-import Alerter from 'cozy-ui/transpiled/react/Alerter'
-import Button from 'cozy-ui/transpiled/react/Button'
 import Checkbox from 'cozy-ui/transpiled/react/Checkbox'
 import { translate } from 'cozy-ui/transpiled/react/I18n'
+import Spinner from 'cozy-ui/transpiled/react/Spinner'
+import Alerter from 'cozy-ui/transpiled/react/deprecated/Alerter'
+import Button from 'cozy-ui/transpiled/react/deprecated/Button'
 import {
   ModalDescription,
   ModalHeader,
   ModalFooter
-} from 'cozy-ui/transpiled/react/Modal'
-import Spinner from 'cozy-ui/transpiled/react/Spinner'
+} from 'cozy-ui/transpiled/react/deprecated/Modal'
 
 const shouldSkipPermissions = app =>
   flags('skip-low-permissions') &&

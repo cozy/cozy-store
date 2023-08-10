@@ -8,8 +8,8 @@ import { connect } from 'react-redux'
 
 import { withClient } from 'cozy-client'
 import { translate } from 'cozy-ui/transpiled/react/I18n'
-import Modal from 'cozy-ui/transpiled/react/Modal'
 import Portal from 'cozy-ui/transpiled/react/Portal'
+import Modal from 'cozy-ui/transpiled/react/deprecated/Modal'
 
 export class InstallModal extends Component {
   constructor(props) {

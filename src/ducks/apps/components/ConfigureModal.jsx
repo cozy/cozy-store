@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 
 import { withClient } from 'cozy-client'
 import Intents from 'cozy-interapp'
-import IntentModal from 'cozy-ui/transpiled/react/IntentModal'
+import IntentModal from 'cozy-ui/transpiled/react/deprecated/IntentModal'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 
 export class ConfigureModal extends Component {

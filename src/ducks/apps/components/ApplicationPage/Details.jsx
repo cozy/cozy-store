@@ -7,6 +7,7 @@ import { Button } from 'cozy-ui/transpiled/react/Button'
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import Toggle from 'cozy-ui/transpiled/react/Toggle'
+import { Button } from 'cozy-ui/transpiled/react/deprecated/Button'
 
 const platformIcons = {
   ios: iosIcon,
