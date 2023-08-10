@@ -2,16 +2,16 @@
 
 /* eslint-env jest */
 
-import React from 'react'
-import { shallow } from 'enzyme'
-
-import { extend as extendI18n } from 'cozy-ui/transpiled/react/I18n'
-import { tMock } from '../../../../jestLib/I18n'
 import { ApplicationPage } from 'ducks/apps/components/ApplicationPage'
+import { shallow } from 'enzyme'
+import React from 'react'
 
-import mockApp from '../../_mockPhotosRegistryVersion'
-import mockKonnector from '../../_mockPKonnectorTrinlaneRegistryVersion'
 import { createMockClient } from 'cozy-client'
+import { extend as extendI18n } from 'cozy-ui/transpiled/react/I18n'
+
+import { tMock } from '../../../../jestLib/I18n'
+import mockKonnector from '../../_mockPKonnectorTrinlaneRegistryVersion'
+import mockApp from '../../_mockPhotosRegistryVersion'
 
 const appManifest = mockApp.manifest
 const konnectorManifest = mockKonnector.manifest

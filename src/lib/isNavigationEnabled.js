@@ -1,3 +1,4 @@
+/* eslint-disable no-redeclare */
 import 'url-search-params-polyfill'
 
 const isNavigationEnabled = (search = '') => {

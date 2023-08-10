@@ -1,17 +1,16 @@
-import 'styles'
-
-import { Provider } from 'react-redux'
+import schema from 'lib/schema'
+import store from 'lib/store'
 import React from 'react'
 import { render } from 'react-dom'
-import store from 'lib/store'
+import { Provider } from 'react-redux'
+import 'styles'
 
 import CozyClient, { CozyProvider } from 'cozy-client'
-import I18n from 'cozy-ui/transpiled/react/I18n'
 import flag from 'cozy-flags'
+import I18n from 'cozy-ui/transpiled/react/I18n'
 
-import IntentHandler from '../../ducks/components/intents/IntentHandler'
 import InstallAppIntent from '../../ducks/components/intents/InstallAppIntent'
-import schema from 'lib/schema'
+import IntentHandler from '../../ducks/components/intents/IntentHandler'
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.querySelector('[role=application]')

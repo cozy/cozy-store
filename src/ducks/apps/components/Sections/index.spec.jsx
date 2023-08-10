@@ -2,16 +2,15 @@
 
 /* eslint-env jest */
 
+import { render, fireEvent, act } from '@testing-library/react'
+import mockApps from 'ducks/apps/_mockApps'
+import Sections from 'ducks/apps/components/Sections/Sections'
 import React from 'react'
 
 import CozyClient, { CozyProvider } from 'cozy-client'
 import I18n from 'cozy-ui/transpiled/react/I18n'
 import { BreakpointsProvider } from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 
-import { render, fireEvent, act } from '@testing-library/react'
-import Sections from 'ducks/apps/components/Sections/Sections'
-
-import mockApps from 'ducks/apps/_mockApps'
 import enLocale from '../../../../locales/en.json'
 
 jest.mock('lodash/debounce', () => jest.fn(fn => fn))

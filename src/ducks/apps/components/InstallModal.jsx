@@ -1,14 +1,15 @@
+import { fetchLatestApp, restoreAppIfSaved } from 'ducks/apps'
+import { hasPendingUpdate } from 'ducks/apps/appStatus'
+import AppInstallation from 'ducks/apps/components/AppInstallation'
+import compose from 'lodash/flowRight'
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-import Modal from 'cozy-ui/transpiled/react/Modal'
-import { translate } from 'cozy-ui/transpiled/react/I18n'
-import Portal from 'cozy-ui/transpiled/react/Portal'
+
 import { withClient } from 'cozy-client'
-import compose from 'lodash/flowRight'
-import AppInstallation from 'ducks/apps/components/AppInstallation'
-import { hasPendingUpdate } from 'ducks/apps/appStatus'
-import { fetchLatestApp, restoreAppIfSaved } from 'ducks/apps'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
+import Modal from 'cozy-ui/transpiled/react/Modal'
+import Portal from 'cozy-ui/transpiled/react/Portal'
 
 export class InstallModal extends Component {
   constructor(props) {

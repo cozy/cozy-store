@@ -14,6 +14,7 @@ import { getContext } from 'ducks/apps'
 
 import mockApp from '../../_mockPhotosRegistryVersion'
 import mockKonnector from '../../_mockPKonnectorTrinlaneRegistryVersion'
+import mockApp from '../../_mockPhotosRegistryVersion'
 
 import enLocale from '../../../../../src/locales/en.json'
 

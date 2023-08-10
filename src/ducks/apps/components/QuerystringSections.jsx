@@ -1,9 +1,10 @@
-import React from 'react'
-import Sections from './Sections'
-import isNavigationEnabled from 'lib/isNavigationEnabled'
 import { useNavigateNoUpdates, useLocationNoUpdates } from 'lib/RouterUtils'
+import isNavigationEnabled from 'lib/isNavigationEnabled'
 import omit from 'lodash/omit'
+import React from 'react'
 import { useMemo } from 'react'
+
+import Sections from './Sections'
 
 // These query parameters won't be handled by the AppSection component
 const FILTER_BLACK_LIST = ['connector_open_uri']

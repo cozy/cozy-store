@@ -1,6 +1,7 @@
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
+import { translate } from 'cozy-ui/transpiled/react/I18n'
 import Modal, {
   ModalContent,
   ModalHeader

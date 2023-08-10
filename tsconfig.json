@@ -1,0 +1,12 @@
+{
+  "extends": "cozy-tsconfig",
+  "compilerOptions": {
+    "paths": {
+      "ducks/*": ["./src/ducks/*"],
+      "lib/*": ["./src/lib/*"],
+      "config/*": ["./src/config/*"],
+      "styles/*": ["./src/styles/*"]
+    }
+  },
+  "include": ["./src/**/*"],
+}

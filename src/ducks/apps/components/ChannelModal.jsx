@@ -1,15 +1,14 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-import compose from 'lodash/flowRight'
-
-import Modal from 'cozy-ui/transpiled/react/Modal'
-import { translate } from 'cozy-ui/transpiled/react/I18n'
-import { withClient } from 'cozy-client'
-
+import { fetchLatestApp, getAppBySlug, restoreAppIfSaved } from 'ducks/apps'
 import AppInstallation from 'ducks/apps/components/AppInstallation'
 import getChannel from 'lib/getChannelFromSource'
-import { fetchLatestApp, getAppBySlug, restoreAppIfSaved } from 'ducks/apps'
+import compose from 'lodash/flowRight'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
+import { withClient } from 'cozy-client'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
+import Modal from 'cozy-ui/transpiled/react/Modal'
 
 export class ChannelModal extends Component {
   constructor(props) {

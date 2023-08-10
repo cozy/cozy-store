@@ -1,21 +1,19 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import compose from 'lodash/flowRight'
-import { withClient } from 'cozy-client'
-
-import { translate } from 'cozy-ui/transpiled/react/I18n'
-
-import AppInstallation from 'ducks/apps/components/AppInstallation'
-import InstallSuccess from 'ducks/apps/components/InstallSuccess'
-import IntentHeader from 'cozy-ui/transpiled/react/IntentHeader'
-import Spinner from 'cozy-ui/transpiled/react/Spinner'
-
 import {
   APP_TYPE,
   getAppBySlug,
   installAppFromRegistry,
   initAppIntent
 } from 'ducks/apps'
+import AppInstallation from 'ducks/apps/components/AppInstallation'
+import InstallSuccess from 'ducks/apps/components/InstallSuccess'
+import compose from 'lodash/flowRight'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
+import { withClient } from 'cozy-client'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
+import IntentHeader from 'cozy-ui/transpiled/react/IntentHeader'
+import Spinner from 'cozy-ui/transpiled/react/Spinner'
 
 const errorKeys = {
   alreadyInstalledError: 'intent.install.error.installed',

@@ -3,12 +3,11 @@
 /* eslint-env jest */
 /* global cozy */
 
-import React from 'react'
+import { MyApplications } from 'ducks/apps/components/MyApplications'
 import { shallow } from 'enzyme'
+import React from 'react'
 
 import { tMock } from '../../../jestLib/I18n'
-import { MyApplications } from 'ducks/apps/components/MyApplications'
-
 import mockApps from '../_mockApps'
 
 const { BarCenter } = cozy.bar

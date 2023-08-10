@@ -2,11 +2,10 @@
 
 /* eslint-env jest */
 
-import React from 'react'
-import { shallow } from 'enzyme'
-import { useLocation } from 'react-router-dom'
-
 import { IntentRedirect } from 'ducks/components/intents/IntentRedirect'
+import { shallow } from 'enzyme'
+import React from 'react'
+import { useLocation } from 'react-router-dom'
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),

@@ -1,12 +1,20 @@
 /* eslint-env browser */
 
-import CozyRealtime from 'cozy-realtime'
-import { isFlagshipApp } from 'cozy-device-helper'
-
-import config from 'config/apps'
 import storeConfig from 'config'
+import config from 'config/apps'
 import AUTHORIZED_CATEGORIES from 'config/categories'
 import { NotUninstallableAppException } from 'lib/exceptions'
+import flatten from 'lodash/flatten'
+
+import { isFlagshipApp } from 'cozy-device-helper'
+import CozyRealtime from 'cozy-realtime'
+
+import {
+  fetchUserApps,
+  fetchAppsFromChannel,
+  fetchAppOrKonnector
+} from './client-helpers'
+import { APP_TYPE, APP_STATE, REGISTRY_CHANNELS } from './constants'
 import {
   LOADING_APP,
   LOADING_APP_INTENT,
@@ -26,14 +34,7 @@ import {
   RESTORE_APP,
   SAVE_APP
 } from './reducers'
-import {
-  fetchUserApps,
-  fetchAppsFromChannel,
-  fetchAppOrKonnector
-} from './client-helpers'
-import { APP_TYPE, APP_STATE, REGISTRY_CHANNELS } from './constants'
 import termUtils from './terms'
-import flatten from 'lodash/flatten'
 
 export { APP_STATE }
 export { APP_TYPE }

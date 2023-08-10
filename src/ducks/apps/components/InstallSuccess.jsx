@@ -1,10 +1,10 @@
+import { getAppIconProps } from 'ducks/apps'
 import React, { PureComponent } from 'react'
 
-import { ModalContent, ModalHeader } from 'cozy-ui/transpiled/react/Modal'
-import { translate } from 'cozy-ui/transpiled/react/I18n'
-import Button from 'cozy-ui/transpiled/react/Button'
 import AppIcon from 'cozy-ui/transpiled/react/AppIcon'
-import { getAppIconProps } from 'ducks/apps'
+import Button from 'cozy-ui/transpiled/react/Button'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
+import { ModalContent, ModalHeader } from 'cozy-ui/transpiled/react/Modal'
 
 export class InstallSuccess extends PureComponent {
   render() {

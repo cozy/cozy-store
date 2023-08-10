@@ -1,19 +1,16 @@
-import React, { useCallback, useMemo } from 'react'
+import StoreAppItem from 'ducks/apps/components/StoreAppItem'
+import { dumpMatches } from 'ducks/search/utils'
 import sortBy from 'lodash/sortBy'
-
-import Icon from 'cozy-ui/transpiled/react/Icon'
-import Label from 'cozy-ui/transpiled/react/Label'
-import { useI18n } from 'cozy-ui/transpiled/react/I18n'
-import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
-import InputGroup from 'cozy-ui/transpiled/react/InputGroup'
-import Input from 'cozy-ui/transpiled/react/Input'
-import Magnifier from 'cozy-ui/transpiled/react/Icons/Magnifier'
+import React, { useCallback, useMemo } from 'react'
 
 import flag from 'cozy-flags'
-
-import StoreAppItem from 'ducks/apps/components/StoreAppItem'
-
-import { dumpMatches } from 'ducks/search/utils'
+import { useI18n } from 'cozy-ui/transpiled/react/I18n'
+import Icon from 'cozy-ui/transpiled/react/Icon'
+import Magnifier from 'cozy-ui/transpiled/react/Icons/Magnifier'
+import Input from 'cozy-ui/transpiled/react/Input'
+import InputGroup from 'cozy-ui/transpiled/react/InputGroup'
+import Label from 'cozy-ui/transpiled/react/Label'
+import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 
 export const SearchField = ({ onChange, value }) => {
   const { t } = useI18n()

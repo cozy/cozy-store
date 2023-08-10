@@ -14,16 +14,22 @@ import Left from 'cozy-ui/transpiled/react/Icons/Left'
 import BarContextProvider from 'cozy-ui/transpiled/react/BarContextProvider'
 
 import ApplicationPageLoading from 'ducks/components/ApplicationPageLoading'
+import FocusTrap from 'focus-trap-react'
 import { getTranslatedManifestProperty } from 'lib/helpers'
-import Header from 'ducks/apps/components/ApplicationPage/Header'
-import Gallery from 'ducks/apps/components/ApplicationPage/Gallery'
-import Details from 'ducks/apps/components/ApplicationPage/Details'
-
 import {
   preventBackgroundScroll,
   unpreventBackgroundScroll
 } from 'lib/scrollHelpers.js'
-import { getAppIconProps } from 'ducks/apps'
+import React, { Component } from 'react'
+import { Link, useMatch, useParams } from 'react-router-dom'
+
+import { withClient } from 'cozy-client'
+import AppIcon from 'cozy-ui/transpiled/react/AppIcon'
+import BarContextProvider from 'cozy-ui/transpiled/react/BarContextProvider'
+import Button from 'cozy-ui/transpiled/react/Button'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
+import Left from 'cozy-ui/transpiled/react/Icons/Left'
+import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 
 const MOBILE_PLATFORMS = ['ios', 'android']
 const isMobilePlatform = name => MOBILE_PLATFORMS.includes(name)

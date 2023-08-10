@@ -2,13 +2,12 @@
 
 /* eslint-env jest */
 
-import React from 'react'
-import { shallow } from 'enzyme'
-
 import {
   AppsLoading,
   LoadingAppsComponents
 } from 'ducks/components/AppsLoading'
+import { shallow } from 'enzyme'
+import React from 'react'
 
 global.Math.random = () => 1 // remove random for testing
 

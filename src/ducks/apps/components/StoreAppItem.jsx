@@ -1,6 +1,7 @@
 import React from 'react'
-import { useI18n } from 'cozy-ui/transpiled/react/I18n'
+
 import AppTile from 'cozy-ui/transpiled/react/AppTile'
+import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
 import { getTranslatedManifestProperty } from './helpers'
 

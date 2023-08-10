@@ -1,8 +1,7 @@
-import React from 'react'
-import { Navigate, Route, Routes } from 'react-router-dom'
-
 import { Discover, MyApplications } from 'ducks/apps/Containers'
 import IntentRedirect from 'ducks/components/intents/IntentRedirect'
+import React from 'react'
+import { Navigate, Route, Routes } from 'react-router-dom'
 
 export const AppRouter = () => {
   return (

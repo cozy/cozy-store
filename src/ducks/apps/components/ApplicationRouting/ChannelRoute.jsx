@@ -1,8 +1,7 @@
+import { REGISTRY_CHANNELS } from 'ducks/apps'
+import ChannelModal from 'ducks/apps/components/ChannelModal'
 import React from 'react'
 import { useParams } from 'react-router-dom'
-
-import ChannelModal from 'ducks/apps/components/ChannelModal'
-import { REGISTRY_CHANNELS } from 'ducks/apps'
 
 export const ChannelRoute = ({ getApp, isFetching, parent, redirectTo }) => {
   const params = useParams()

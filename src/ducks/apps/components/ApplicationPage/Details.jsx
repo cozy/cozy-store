@@ -4,19 +4,9 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { useClient } from 'cozy-client'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import { Button } from 'cozy-ui/transpiled/react/Button'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import Toggle from 'cozy-ui/transpiled/react/Toggle'
-
-import Maintenance from 'ducks/apps/components/ApplicationPage/Maintenance'
-
-import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
-import { getContext, REGISTRY_CHANNELS } from 'ducks/apps'
-import getChannel from 'lib/getChannelFromSource'
-import { getTranslatedManifestProperty } from 'lib/helpers'
-import { isUnderMaintenance } from 'ducks/apps/appStatus'
-
-import iosIcon from 'assets/icons/platforms/icon-ios.svg'
-import androidIcon from 'assets/icons/platforms/icon-android.svg'
 
 const platformIcons = {
   ios: iosIcon,

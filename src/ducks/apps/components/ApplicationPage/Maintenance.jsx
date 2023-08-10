@@ -1,9 +1,8 @@
+import maintenanceIllu from 'assets/illustrations/maintenance.svg'
+import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
 import React from 'react'
 
 import { translate } from 'cozy-ui/transpiled/react/I18n'
-import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
-
-import maintenanceIllu from 'assets/illustrations/maintenance.svg'
 
 export const Maintenance = ({ t, slug }) => {
   const shortDesc = t(`apps.${slug}.maintenance.short_message`)

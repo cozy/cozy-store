@@ -1,9 +1,9 @@
 import React from 'react'
-import { translate } from 'cozy-ui/transpiled/react/I18n'
-import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 import { NavLink as RouterLink, useLocation } from 'react-router-dom'
 
 import { categoryUtils } from 'cozy-ui/transpiled/react/AppSections'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
+import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 
 const getActiveChecker = (cat, location) => {
   const urlSearchParams = new URLSearchParams(location.search)
