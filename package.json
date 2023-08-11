@@ -33,7 +33,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "11.2.7",
-    "cozy-scripts": "6.3.8",
+    "cozy-scripts": "6.4.0",
     "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "1.15.6",
     "enzyme-to-json": "^3.6.2",
