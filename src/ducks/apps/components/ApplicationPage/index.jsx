@@ -1,20 +1,11 @@
 /* global cozy */
-import React, { Component } from 'react'
-import { Link, useMatch, useParams } from 'react-router-dom'
-import { useLocationNoUpdates } from 'lib/RouterUtils'
-
-import { withClient } from 'cozy-client'
-
-import { translate } from 'cozy-ui/transpiled/react/I18n'
-import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
-import Button from 'cozy-ui/transpiled/react/Button'
-import FocusTrap from 'focus-trap-react'
-import AppIcon from 'cozy-ui/transpiled/react/AppIcon'
-import Left from 'cozy-ui/transpiled/react/Icons/Left'
-import BarContextProvider from 'cozy-ui/transpiled/react/BarContextProvider'
-
+import { getAppIconProps } from 'ducks/apps'
+import Details from 'ducks/apps/components/ApplicationPage/Details'
+import Gallery from 'ducks/apps/components/ApplicationPage/Gallery'
+import Header from 'ducks/apps/components/ApplicationPage/Header'
 import ApplicationPageLoading from 'ducks/components/ApplicationPageLoading'
 import FocusTrap from 'focus-trap-react'
+import { useLocationNoUpdates } from 'lib/RouterUtils'
 import { getTranslatedManifestProperty } from 'lib/helpers'
 import {
   preventBackgroundScroll,

@@ -67,7 +67,7 @@ exports[`ApplicationPage details component should be rendered correctly provided
       </div>
       <div>
         <button
-          class="styles__c-btn___-2Vnj styles__c-btn--subtle___OknKf styles__c-btn--center___16_Xh sto-app-permissions-button"
+          class="styles__c-btn___3kXsk styles__c-btn--subtle___2rRQ0 styles__c-btn--center___Nny0n sto-app-permissions-button"
           type="submit"
         >
           <span>
@@ -262,7 +262,7 @@ exports[`ApplicationPage details component should be rendered correctly with pro
       </div>
       <div>
         <button
-          class="styles__c-btn___-2Vnj styles__c-btn--subtle___OknKf styles__c-btn--center___16_Xh sto-app-permissions-button"
+          class="styles__c-btn___3kXsk styles__c-btn--subtle___2rRQ0 styles__c-btn--center___Nny0n sto-app-permissions-button"
           type="submit"
         >
           <span>
@@ -363,7 +363,7 @@ exports[`ApplicationPage details component should be rendered correctly with pro
       </div>
       <div>
         <button
-          class="styles__c-btn___-2Vnj styles__c-btn--subtle___OknKf styles__c-btn--center___16_Xh sto-app-permissions-button"
+          class="styles__c-btn___3kXsk styles__c-btn--subtle___2rRQ0 styles__c-btn--center___Nny0n sto-app-permissions-button"
           type="submit"
         >
           <span>
@@ -612,7 +612,7 @@ exports[`ApplicationPage details component should handle channel switching if wi
       </div>
       <div>
         <button
-          class="styles__c-btn___-2Vnj styles__c-btn--subtle___OknKf styles__c-btn--center___16_Xh sto-app-permissions-button"
+          class="styles__c-btn___3kXsk styles__c-btn--subtle___2rRQ0 styles__c-btn--center___Nny0n sto-app-permissions-button"
           type="submit"
         >
           <span>
@@ -834,7 +834,7 @@ exports[`ApplicationPage details component should not suggest Dev channel switch
       </div>
       <div>
         <button
-          class="styles__c-btn___-2Vnj styles__c-btn--subtle___OknKf styles__c-btn--center___16_Xh sto-app-permissions-button"
+          class="styles__c-btn___3kXsk styles__c-btn--subtle___2rRQ0 styles__c-btn--center___Nny0n sto-app-permissions-button"
           type="submit"
         >
           <span>
@@ -1029,7 +1029,7 @@ exports[`ApplicationPage details component should not suggest channel switching 
       </div>
       <div>
         <button
-          class="styles__c-btn___-2Vnj styles__c-btn--subtle___OknKf styles__c-btn--center___16_Xh sto-app-permissions-button"
+          class="styles__c-btn___3kXsk styles__c-btn--subtle___2rRQ0 styles__c-btn--center___Nny0n sto-app-permissions-button"
           type="submit"
         >
           <span>
@@ -1224,7 +1224,7 @@ exports[`ApplicationPage details component should not suggest channel switching 
       </div>
       <div>
         <button
-          class="styles__c-btn___-2Vnj styles__c-btn--subtle___OknKf styles__c-btn--center___16_Xh sto-app-permissions-button"
+          class="styles__c-btn___3kXsk styles__c-btn--subtle___2rRQ0 styles__c-btn--center___Nny0n sto-app-permissions-button"
           type="submit"
         >
           <span>
@@ -1419,7 +1419,7 @@ exports[`ApplicationPage details component should not suggest channel switching 
       </div>
       <div>
         <button
-          class="styles__c-btn___-2Vnj styles__c-btn--subtle___OknKf styles__c-btn--center___16_Xh sto-app-permissions-button"
+          class="styles__c-btn___3kXsk styles__c-btn--subtle___2rRQ0 styles__c-btn--center___Nny0n sto-app-permissions-button"
           type="submit"
         >
           <span>

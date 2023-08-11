@@ -2,21 +2,18 @@
 
 /* eslint-env jest */
 
+import { render, fireEvent } from '@testing-library/react'
+import { getContext } from 'ducks/apps'
+import { Details } from 'ducks/apps/components/ApplicationPage/Details'
 import React from 'react'
 import { MemoryRouter } from 'react-router-dom'
-import { render, fireEvent } from '@testing-library/react'
 
 import CozyClient, { CozyProvider } from 'cozy-client'
 import I18n from 'cozy-ui/transpiled/react/I18n'
 
-import { Details } from 'ducks/apps/components/ApplicationPage/Details'
-import { getContext } from 'ducks/apps'
-
-import mockApp from '../../_mockPhotosRegistryVersion'
+import enLocale from '../../../../../src/locales/en.json'
 import mockKonnector from '../../_mockPKonnectorTrinlaneRegistryVersion'
 import mockApp from '../../_mockPhotosRegistryVersion'
-
-import enLocale from '../../../../../src/locales/en.json'
 
 jest.mock('assets/icons/platforms/icon-ios.svg', () => {
   return '<svg><text>svg icon</text></svg>'
