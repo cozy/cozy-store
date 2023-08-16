@@ -1,8 +1,8 @@
+import appReducers from 'ducks'
 import { createStore, applyMiddleware, compose } from 'redux'
+import { createLogger } from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
 
-import appReducers from 'ducks'
-import { createLogger } from 'redux-logger'
 import flag from 'cozy-flags'
 
 const loggerMiddleware = createLogger()

@@ -2,12 +2,11 @@
 
 /* eslint-env jest */
 
-import React from 'react'
+import { Partnership } from 'ducks/apps/components/Partnership'
 import { shallow } from 'enzyme'
+import React from 'react'
 
 import { tMock } from '../../../jestLib/I18n'
-import { Partnership } from 'ducks/apps/components/Partnership'
-
 import mockAppVersion from '../_mockPhotosRegistryVersion'
 
 const appWithPartnership = Object.assign({}, mockAppVersion, {

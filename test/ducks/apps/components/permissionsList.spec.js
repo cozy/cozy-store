@@ -2,15 +2,14 @@
 
 /* eslint-env jest */
 
-import React from 'react'
+import { PermissionsList } from 'ducks/apps/components/PermissionsList'
 import { shallow } from 'enzyme'
+import React from 'react'
 
 import { tMock } from '../../../jestLib/I18n'
-import { PermissionsList } from 'ducks/apps/components/PermissionsList'
-
-import mockAppVersion from '../_mockPhotosRegistryVersion'
-import mockKonnectorVersion from '../_mockPKonnectorTrinlaneRegistryVersion'
 import mockBankKonnectorWithExternalDoctype from '../_mockBankKonnectorWithExternalDoctype'
+import mockKonnectorVersion from '../_mockPKonnectorTrinlaneRegistryVersion'
+import mockAppVersion from '../_mockPhotosRegistryVersion'
 import { webapp } from '../_mockWebappRegistryVersion'
 
 describe('PermissionsList component', () => {

@@ -1,4 +1,5 @@
 import fetch from 'node-fetch'
+
 import CozyClient from 'cozy-client'
 import log from 'cozy-logger'
 

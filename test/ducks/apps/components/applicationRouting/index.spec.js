@@ -2,11 +2,10 @@
 
 /* eslint-env jest */
 
-import React from 'react'
-import { shallow } from 'enzyme'
-import { Route } from 'react-router-dom'
-
 import { ApplicationRouting } from 'ducks/apps/components/ApplicationRouting'
+import { shallow } from 'enzyme'
+import React from 'react'
+import { Route } from 'react-router-dom'
 
 import mockApps from '../../_mockApps'
 

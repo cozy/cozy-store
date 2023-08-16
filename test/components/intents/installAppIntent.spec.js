@@ -1,10 +1,10 @@
 /* eslint-env jest */
 
-import React from 'react'
-import { mount, shallow } from 'enzyme'
-
-import { InstallAppIntent } from 'ducks/components/intents/InstallAppIntent'
 import AppInstallation from 'ducks/apps/components/AppInstallation'
+import { InstallAppIntent } from 'ducks/components/intents/InstallAppIntent'
+import { mount, shallow } from 'enzyme'
+import React from 'react'
+
 import CozyClient, { CozyProvider } from 'cozy-client'
 
 jest.mock('ducks/apps/components/AppInstallation')

@@ -1,19 +1,18 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import compose from 'lodash/flowRight'
-
-import flag, { FlagSwitcher } from 'cozy-flags'
-import { withClient } from 'cozy-client'
-import { translate } from 'cozy-ui/transpiled/react/I18n'
-import { Layout, Main } from 'cozy-ui/transpiled/react/Layout'
-import Alerter from 'cozy-ui/transpiled/react/Alerter'
-import IconSprite from 'cozy-ui/transpiled/react/Icon/Sprite'
-import { BreakpointsProvider } from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
-
 import { initApp, restoreAppIfSaved } from 'ducks/apps'
 import { AppRouter } from 'ducks/components/AppRouter'
 import PushBannersLoader from 'ducks/components/PushBanners'
 import Sidebar from 'ducks/components/Sidebar'
+import compose from 'lodash/flowRight'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
+import { withClient } from 'cozy-client'
+import flag, { FlagSwitcher } from 'cozy-flags'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
+import IconSprite from 'cozy-ui/transpiled/react/Icon/Sprite'
+import { Layout, Main } from 'cozy-ui/transpiled/react/Layout'
+import Alerter from 'cozy-ui/transpiled/react/deprecated/Alerter'
+import { BreakpointsProvider } from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 
 export class App extends Component {
   constructor(props) {

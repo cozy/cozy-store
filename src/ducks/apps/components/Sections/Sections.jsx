@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react'
-import PropTypes from 'prop-types'
+import { SearchField, SearchResults } from 'ducks/search/components'
 import Fuse from 'fuse.js'
+import PropTypes from 'prop-types'
+import React, { useState, useEffect, useMemo, useRef } from 'react'
 
-import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import AppSections from 'cozy-ui/transpiled/react/AppSections'
 import * as filterUtils from 'cozy-ui/transpiled/react/AppSections/search'
+import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
-import { SearchField, SearchResults } from 'ducks/search/components'
 import Filters from './components/Filters'
 
 /**

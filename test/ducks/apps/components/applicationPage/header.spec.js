@@ -1,20 +1,20 @@
+import '@testing-library/jest-dom'
+import { render, fireEvent } from '@testing-library/react'
+import { openApp } from 'ducks/apps'
+import { Header } from 'ducks/apps/components/ApplicationPage/Header'
 import React from 'react'
 import { MemoryRouter, useLocation } from 'react-router-dom'
-import { render, fireEvent } from '@testing-library/react'
-import '@testing-library/jest-dom'
 
 import CozyClient, { CozyProvider } from 'cozy-client'
 import { isFlagshipApp } from 'cozy-device-helper'
 import { WebviewIntentProvider } from 'cozy-intent'
-import { BreakpointsProvider } from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 import I18n from 'cozy-ui/transpiled/react/I18n'
+import { BreakpointsProvider } from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 
 import enLocale from '../../../../../src/locales/en.json'
 import { tMock } from '../../../../jestLib/I18n'
-import { Header } from 'ducks/apps/components/ApplicationPage/Header'
-import mockApp from '../../_mockPhotosRegistryVersion'
 import mockKonnector from '../../_mockPKonnectorTrinlaneRegistryVersion'
-import { openApp } from 'ducks/apps'
+import mockApp from '../../_mockPhotosRegistryVersion'
 
 delete window.location
 window.location = { assign: jest.fn() }

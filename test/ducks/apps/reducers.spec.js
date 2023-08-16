@@ -1,8 +1,7 @@
+/* eslint-disable no-prototype-builtins */
 'use strict'
 
 /* eslint-env jest */
-
-import _get from 'lodash.get'
 
 import {
   LOADING_APP,
@@ -33,6 +32,8 @@ import {
   _consolidateApps,
   _sortAlphabetically
 } from 'ducks/apps/reducers'
+import _get from 'lodash/get'
+
 import mockApps from './_mockApps'
 import mockApp from './_mockPhotosRegistryVersion'
 

@@ -6,11 +6,12 @@ import {
   isQueryLoading,
   hasQueryBeenLoaded
 } from 'cozy-client'
+
+import PushBanners from './PushBanners'
 import {
   buildOauthClientsQuery,
   buildDisplaySettingsQuery
 } from '../../queries'
-import PushBanners from './PushBanners'
 
 const PushBannersLoader = () => {
   const oAuthClientsQuery = buildOauthClientsQuery()

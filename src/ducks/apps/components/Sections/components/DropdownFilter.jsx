@@ -1,9 +1,9 @@
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 
-import SelectBox from 'cozy-ui/transpiled/react/SelectBox'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import Bottom from 'cozy-ui/transpiled/react/Icons/Bottom'
-import PropTypes from 'prop-types'
+import SelectBox from 'cozy-ui/transpiled/react/SelectBox'
 
 const SmallArrow = () => (
   <Icon

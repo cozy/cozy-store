@@ -4,10 +4,6 @@ document.body.innerHTML =
   '<div role="application" data-cozy=\'{"domain": "cozy.tools"}\' />'
 window.location.protocol = 'http:'
 
-import configureStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-import { combineReducers } from 'redux'
-
 import {
   initApp,
   initAppIntent,
@@ -18,9 +14,14 @@ import {
   _sanitizeManifest
 } from 'ducks/apps'
 import { appsReducers } from 'ducks/apps/reducers'
-import _mockRegistryAppsResponse from './_mockRegistryAppsResponse'
-import StackClient from 'cozy-stack-client'
+import { combineReducers } from 'redux'
+import configureStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
+
 import CozyClient from 'cozy-client'
+import StackClient from 'cozy-stack-client'
+
+import _mockRegistryAppsResponse from './_mockRegistryAppsResponse'
 
 const mockStore = configureStore([thunk])
 const storeReducers = combineReducers({

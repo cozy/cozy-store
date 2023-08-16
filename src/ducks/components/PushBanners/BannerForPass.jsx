@@ -3,10 +3,10 @@ import React from 'react'
 import { useClient } from 'cozy-client'
 import { isMobile, isIOS } from 'cozy-device-helper'
 import Banner from 'cozy-ui/transpiled/react/Banner'
-import Icon from 'cozy-ui/transpiled/react/Icon'
 import Button from 'cozy-ui/transpiled/react/Buttons'
-import DevicePhoneIcon from 'cozy-ui/transpiled/react/Icons/DevicePhone'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
+import Icon from 'cozy-ui/transpiled/react/Icon'
+import DevicePhoneIcon from 'cozy-ui/transpiled/react/Icons/DevicePhone'
 
 const BannerForPass = ({ setting }) => {
   const { t, lang } = useI18n()

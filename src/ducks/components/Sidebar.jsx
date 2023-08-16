@@ -1,21 +1,20 @@
+import discoverIcon from 'assets/icons/icon-compass.svg'
+import myAppsIcon from 'assets/icons/icon-cozy-smile.svg'
+import { enabledPages } from 'config'
+import { SidebarCategories } from 'ducks/apps/Containers'
+import isNavigationEnabled from 'lib/isNavigationEnabled'
 import React, { Fragment } from 'react'
-import { translate } from 'cozy-ui/transpiled/react/I18n'
 import { NavLink as RouterLink, useLocation } from 'react-router-dom'
+
+import { translate } from 'cozy-ui/transpiled/react/I18n'
 import Nav, {
   NavLink,
   NavItem,
   NavIcon,
   NavText
 } from 'cozy-ui/transpiled/react/Nav'
-import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 import Sidebar from 'cozy-ui/transpiled/react/Sidebar'
-
-import discoverIcon from 'assets/icons/icon-compass.svg'
-import myAppsIcon from 'assets/icons/icon-cozy-smile.svg'
-
-import { SidebarCategories } from 'ducks/apps/Containers'
-import { enabledPages } from 'config'
-import isNavigationEnabled from 'lib/isNavigationEnabled'
+import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 
 const configMap = {
   discover: {

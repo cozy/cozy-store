@@ -2,10 +2,9 @@
 
 /* eslint-env jest */
 
-import React from 'react'
-import { shallow } from 'enzyme'
-
 import Placeholder from 'ducks/components/Placeholder'
+import { shallow } from 'enzyme'
+import React from 'react'
 
 global.Math.random = () => 1 // remove random for testing
 

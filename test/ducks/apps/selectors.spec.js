@@ -7,6 +7,7 @@ import {
   getInstalledApps,
   getRegistryApps
 } from 'ducks/apps/selectors'
+
 import mockApps from './_mockApps'
 
 const mockInstalledApps = mockApps.filter(a => a.installed)

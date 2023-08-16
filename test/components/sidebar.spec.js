@@ -1,11 +1,11 @@
+import '@testing-library/jest-dom'
+import { render } from '@testing-library/react'
+import { StoreSidebar as StoreSidebarOriginal } from 'ducks/components/Sidebar'
 import React from 'react'
 import { useLocation } from 'react-router-dom'
-import { render } from '@testing-library/react'
-import '@testing-library/jest-dom'
 
-import { tMock } from '../jestLib/I18n'
-import { StoreSidebar as StoreSidebarOriginal } from 'ducks/components/Sidebar'
 import AppLike from '../AppLike'
+import { tMock } from '../jestLib/I18n'
 
 /* eslint-disable react/display-name */
 jest.mock('ducks/apps/Containers', () => ({

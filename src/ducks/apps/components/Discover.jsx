@@ -1,17 +1,15 @@
 /* global cozy */
+import ApplicationRouting from 'ducks/apps/components/ApplicationRouting'
+import Sections from 'ducks/apps/components/QuerystringSections'
+import AppVote from 'ducks/components/AppVote'
+import AppsLoading from 'ducks/components/AppsLoading'
+import { useNavigateNoUpdates, withRouterUtils } from 'lib/RouterUtils'
 import React, { Component } from 'react'
 import { useMatch, useSearchParams } from 'react-router-dom'
 
 import { translate } from 'cozy-ui/transpiled/react/I18n'
-import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 import { Content } from 'cozy-ui/transpiled/react/Layout'
-
-import ApplicationRouting from 'ducks/apps/components/ApplicationRouting'
-import Sections from 'ducks/apps/components/QuerystringSections'
-import AppsLoading from 'ducks/components/AppsLoading'
-import AppVote from 'ducks/components/AppVote'
-
-import { useNavigateNoUpdates, withRouterUtils } from 'lib/RouterUtils'
+import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 
 const { BarCenter } = cozy.bar
 

@@ -1,12 +1,11 @@
+import { openApp } from 'ducks/apps'
+import InstallModal from 'ducks/apps/components/InstallModal'
 import React from 'react'
 import { useParams, useSearchParams } from 'react-router-dom'
 
+import { useClient, deconstructCozyWebLinkWithSlug } from 'cozy-client'
 import { isFlagshipApp } from 'cozy-device-helper'
 import { useWebviewIntent } from 'cozy-intent'
-import { useClient, deconstructCozyWebLinkWithSlug } from 'cozy-client'
-
-import InstallModal from 'ducks/apps/components/InstallModal'
-import { openApp } from 'ducks/apps'
 
 export const InstallRoute = ({ getApp, isFetching, parent, redirectTo }) => {
   const params = useParams()

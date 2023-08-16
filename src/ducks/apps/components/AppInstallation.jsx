@@ -1,34 +1,30 @@
-import React, { Component } from 'react'
-
-import { connect } from 'react-redux'
-import { PropTypes } from 'react-proptypes'
-import flags from 'cozy-flags'
-import FocusTrap from 'focus-trap-react'
-
+import storeConfig from 'config'
+import { APP_TYPE, getAppBySlug, installAppFromRegistry } from 'ducks/apps'
+import { hasPendingUpdate } from 'ducks/apps/appStatus'
+import Partnership from 'ducks/apps/components/Partnership'
+import PermissionsList from 'ducks/apps/components/PermissionsList'
 import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
+import FocusTrap from 'focus-trap-react'
+import { getTranslatedManifestProperty } from 'lib/helpers'
+import compose from 'lodash/flowRight'
+import get from 'lodash/get'
+import pickBy from 'lodash/pickBy'
+import React, { Component } from 'react'
+import { PropTypes } from 'react-proptypes'
+import { connect } from 'react-redux'
+
+import { withClient } from 'cozy-client'
+import flags from 'cozy-flags'
+import Checkbox from 'cozy-ui/transpiled/react/Checkbox'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
+import Spinner from 'cozy-ui/transpiled/react/Spinner'
+import Alerter from 'cozy-ui/transpiled/react/deprecated/Alerter'
+import Button from 'cozy-ui/transpiled/react/deprecated/Button'
 import {
   ModalDescription,
   ModalHeader,
   ModalFooter
-} from 'cozy-ui/transpiled/react/Modal'
-import Spinner from 'cozy-ui/transpiled/react/Spinner'
-import Button from 'cozy-ui/transpiled/react/Button'
-
-import PermissionsList from 'ducks/apps/components/PermissionsList'
-import Partnership from 'ducks/apps/components/Partnership'
-import { translate } from 'cozy-ui/transpiled/react/I18n'
-import Alerter from 'cozy-ui/transpiled/react/Alerter'
-import Checkbox from 'cozy-ui/transpiled/react/Checkbox'
-
-import { getTranslatedManifestProperty } from 'lib/helpers'
-import { hasPendingUpdate } from 'ducks/apps/appStatus'
-import storeConfig from 'config'
-import compose from 'lodash/flowRight'
-import get from 'lodash/get'
-import pickBy from 'lodash/pickBy'
-
-import { APP_TYPE, getAppBySlug, installAppFromRegistry } from 'ducks/apps'
-import { withClient } from 'cozy-client'
+} from 'cozy-ui/transpiled/react/deprecated/Modal'
 
 const shouldSkipPermissions = app =>
   flags('skip-low-permissions') &&

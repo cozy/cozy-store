@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
-import { translate } from 'cozy-ui/transpiled/react/I18n'
-import { getTranslatedManifestProperty } from 'lib/helpers'
 import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
+import { getTranslatedManifestProperty } from 'lib/helpers'
+import React, { Component } from 'react'
+
+import { translate } from 'cozy-ui/transpiled/react/I18n'
 
 export class Partnership extends Component {
   constructor(props) {

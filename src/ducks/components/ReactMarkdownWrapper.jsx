@@ -1,6 +1,6 @@
+import Emoji from 'emoji-js'
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
-import Emoji from 'emoji-js'
 
 const emojiParser = new Emoji()
 

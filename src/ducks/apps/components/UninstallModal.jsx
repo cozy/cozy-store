@@ -1,23 +1,22 @@
+import { getAppBySlug, uninstallApp } from 'ducks/apps'
+import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
+import compose from 'lodash/flowRight'
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-import compose from 'lodash/flowRight'
 
-import { translate } from 'cozy-ui/transpiled/react/I18n'
-import Alerter from 'cozy-ui/transpiled/react/Alerter'
+import { withClient } from 'cozy-client'
+import Intents from 'cozy-interapp'
 import Buttons from 'cozy-ui/transpiled/react/Buttons'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import TrashIcon from 'cozy-ui/transpiled/react/Icons/Trash'
-import { getAppBySlug, uninstallApp } from 'ducks/apps'
+import Portal from 'cozy-ui/transpiled/react/Portal'
+import Alerter from 'cozy-ui/transpiled/react/deprecated/Alerter'
 import Modal, {
   ModalDescription,
   ModalFooter
-} from 'cozy-ui/transpiled/react/Modal'
-import Portal from 'cozy-ui/transpiled/react/Portal'
-import { withClient } from 'cozy-client'
-import Intents from 'cozy-interapp'
-
-import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
+} from 'cozy-ui/transpiled/react/deprecated/Modal'
 
 export class UninstallModal extends Component {
   constructor(props) {

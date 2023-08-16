@@ -1,10 +1,9 @@
 {
   "extends": ["cozy-app/react"],
+  "parserOptions": {
+    "project": ["./tsconfig.json"]
+  },
   "rules": {
-    "no-console":1,
-    "react/no-deprecated":1,
-    "no-unused-vars": "warn",
-    "no-redeclare": "warn",
-    "no-prototype-builtins": "warn"
+    "no-console": 1
   }
 }

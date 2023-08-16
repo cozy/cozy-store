@@ -2,11 +2,11 @@
 
 /* eslint-env jest */
 
-import React from 'react'
+import { Gallery } from 'ducks/apps/components/ApplicationPage/Gallery'
 import { shallow } from 'enzyme'
+import React from 'react'
 
 import { tMock } from '../../../../jestLib/I18n'
-import { Gallery } from 'ducks/apps/components/ApplicationPage/Gallery'
 
 const getProps = () => {
   return {

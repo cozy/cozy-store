@@ -1,3 +1,9 @@
+import ApplicationPage from 'ducks/apps/components/ApplicationPage'
+import ChannelRoute from 'ducks/apps/components/ApplicationRouting/ChannelRoute'
+import ConfigureRoute from 'ducks/apps/components/ApplicationRouting/ConfigureRoute'
+import InstallRoute from 'ducks/apps/components/ApplicationRouting/InstallRoute'
+import PermissionsRoute from 'ducks/apps/components/ApplicationRouting/PermissionsRoute'
+import UninstallRoute from 'ducks/apps/components/ApplicationRouting/UninstallRoute'
 import React, { Component } from 'react'
 import {
   Outlet,
@@ -8,13 +14,6 @@ import {
 } from 'react-router-dom'
 
 import { translate } from 'cozy-ui/transpiled/react/I18n'
-
-import ChannelRoute from 'ducks/apps/components/ApplicationRouting/ChannelRoute'
-import PermissionsRoute from 'ducks/apps/components/ApplicationRouting/PermissionsRoute'
-import ConfigureRoute from 'ducks/apps/components/ApplicationRouting/ConfigureRoute'
-import InstallRoute from 'ducks/apps/components/ApplicationRouting/InstallRoute'
-import UninstallRoute from 'ducks/apps/components/ApplicationRouting/UninstallRoute'
-import ApplicationPage from 'ducks/apps/components/ApplicationPage'
 
 const OutletWrapper = ({ Component }) => (
   <>
@@ -46,7 +45,7 @@ export class ApplicationRouting extends Component {
       <div className="sto-modal-page" ref={this.mainPage}>
         <Routes>
           <Route
-            path={`:appSlug`}
+            path=":appSlug"
             element={
               <OutletWrapper
                 Component={() => (
@@ -62,7 +61,7 @@ export class ApplicationRouting extends Component {
             }
           >
             <Route
-              path={`channel/:channel`}
+              path="channel/:channel"
               element={
                 <ChannelRoute
                   getApp={this.getAppFromMatchOrSlug}
@@ -73,7 +72,7 @@ export class ApplicationRouting extends Component {
               }
             />
             <Route
-              path={`install`}
+              path="install"
               element={
                 <InstallRoute
                   getApp={this.getAppFromMatchOrSlug}
@@ -84,7 +83,7 @@ export class ApplicationRouting extends Component {
               }
             />
             <Route
-              path={`uninstall`}
+              path="uninstall"
               element={
                 <UninstallRoute
                   getApp={this.getAppFromMatchOrSlug}
@@ -95,7 +94,7 @@ export class ApplicationRouting extends Component {
               }
             />
             <Route
-              path={`permissions`}
+              path="permissions"
               element={
                 <PermissionsRoute
                   getApp={this.getAppFromMatchOrSlug}
@@ -106,7 +105,7 @@ export class ApplicationRouting extends Component {
               }
             />
             <Route
-              path={`configure`}
+              path="configure"
               element={
                 <ConfigureRoute
                   getApp={this.getAppFromMatchOrSlug}

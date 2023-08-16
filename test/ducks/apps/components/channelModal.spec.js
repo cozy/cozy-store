@@ -2,11 +2,12 @@
 
 /* eslint-env jest */
 
-import React from 'react'
-import { shallow } from 'enzyme'
-
-import { ChannelModal } from 'ducks/apps/components/ChannelModal'
 import AppInstallation from 'ducks/apps/components/AppInstallation'
+import { ChannelModal } from 'ducks/apps/components/ChannelModal'
+import { shallow } from 'enzyme'
+import React from 'react'
+import sinon from 'sinon'
+import sinonStubPromise from 'sinon-stub-promise'
 
 import mockApps from '../_mockApps'
 import mockAppVersion from '../_mockPhotosRegistryVersion'
@@ -14,8 +15,6 @@ import mockAppVersion from '../_mockPhotosRegistryVersion'
 /* SinonJS is used here to stub Promise in order to be synchronous.
 In this way, (p)React will call setState synchronously. It will allow
 to assert the component state juste after */
-import sinon from 'sinon'
-import sinonStubPromise from 'sinon-stub-promise'
 sinonStubPromise(sinon)
 
 const mockError = new Error('This is a test error')

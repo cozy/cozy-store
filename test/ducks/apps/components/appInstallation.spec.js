@@ -1,13 +1,12 @@
-import React from 'react'
-import { render } from '@testing-library/react'
 import '@testing-library/jest-dom'
+import { render } from '@testing-library/react'
+import storeConfig from 'config'
+import { AppInstallation } from 'ducks/apps/components/AppInstallation'
+import React from 'react'
 
 import flags from 'cozy-flags'
 
 import { tMock } from '../../../jestLib/I18n'
-import { AppInstallation } from 'ducks/apps/components/AppInstallation'
-import storeConfig from 'config'
-
 import mockRegistryApp from '../_mockPhotosRegistryVersion'
 
 describe('AppInstallation component', () => {

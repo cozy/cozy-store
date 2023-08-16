@@ -1,15 +1,16 @@
 /* global cozy */
 import React, { useState, useRef } from 'react'
+
 import Button from 'cozy-ui/transpiled/react/Buttons'
+import { useI18n } from 'cozy-ui/transpiled/react/I18n'
+import Icon from 'cozy-ui/transpiled/react/Icon'
 import IconButton from 'cozy-ui/transpiled/react/IconButton'
+import SettingIcon from 'cozy-ui/transpiled/react/Icons/Setting'
 import ActionMenu, {
   ActionMenuItem,
   ActionMenuRadio
-} from 'cozy-ui/transpiled/react/ActionMenu'
-import SettingIcon from 'cozy-ui/transpiled/react/Icons/Setting'
-import Icon from 'cozy-ui/transpiled/react/Icon'
+} from 'cozy-ui/transpiled/react/deprecated/ActionMenu'
 import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
-import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
 const { BarRight } = cozy.bar
 

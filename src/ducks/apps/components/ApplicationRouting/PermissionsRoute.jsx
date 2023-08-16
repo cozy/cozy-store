@@ -1,7 +1,6 @@
+import PermissionsModal from 'ducks/apps/components/PermissionsModal'
 import React from 'react'
 import { useLocation, useParams } from 'react-router-dom'
-
-import PermissionsModal from 'ducks/apps/components/PermissionsModal'
 
 export const PermissionsRoute = ({
   getApp,

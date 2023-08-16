@@ -1,26 +1,24 @@
-import compose from 'lodash/flowRight'
-
-import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import { connect } from 'react-redux'
-
-import AppIcon from 'cozy-ui/transpiled/react/AppIcon'
-import Button from 'cozy-ui/transpiled/react/Button'
-import { translate } from 'cozy-ui/transpiled/react/I18n'
-import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
-import Intents from 'cozy-interapp'
-import { withClient } from 'cozy-client'
-import { useWebviewIntent } from 'cozy-intent'
-import { isFlagshipApp } from 'cozy-device-helper'
-
 import cozySmileIcon from 'assets/icons/icon-cozy-smile.svg'
-import AsyncButton from 'ducks/components/AsyncButton'
 import { APP_TYPE, getAppIconProps, openApp } from 'ducks/apps'
 import {
   hasPendingUpdate,
   isUnderMaintenance,
   isInstalledAndNothingToReport
 } from 'ducks/apps/appStatus'
+import AsyncButton from 'ducks/components/AsyncButton'
+import compose from 'lodash/flowRight'
+import React from 'react'
+import { connect } from 'react-redux'
+import { Link, useLocation } from 'react-router-dom'
+
+import { withClient } from 'cozy-client'
+import { isFlagshipApp } from 'cozy-device-helper'
+import { useWebviewIntent } from 'cozy-intent'
+import Intents from 'cozy-interapp'
+import AppIcon from 'cozy-ui/transpiled/react/AppIcon'
+import { translate } from 'cozy-ui/transpiled/react/I18n'
+import Button from 'cozy-ui/transpiled/react/deprecated/Button'
+import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 
 export const Header = ({
   t,
