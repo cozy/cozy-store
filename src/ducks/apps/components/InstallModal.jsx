@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 
 import { withClient } from 'cozy-client'
 import { translate } from 'cozy-ui/transpiled/react/I18n'
+import IntentHeader from 'cozy-ui/transpiled/react/IntentHeader'
 import Portal from 'cozy-ui/transpiled/react/Portal'
 import Modal from 'cozy-ui/transpiled/react/deprecated/Modal'
 
@@ -37,11 +38,23 @@ export class InstallModal extends Component {
   }
 
   render() {
-    const { app, redirectToApp, redirectToConfigure } = this.props
+    const { app, redirectToApp, redirectToConfigure, intentData } = this.props
+    const { appData } = intentData || {}
 
     return (
       <Portal into="body">
-        <Modal dismissAction={this.dismiss} mobileFullscreen>
+        <Modal
+          dismissAction={this.dismiss}
+          mobileFullscreen
+          closable={!intentData}
+        >
+          {intentData && (
+            <IntentHeader
+              appEditor={appData.app.editor}
+              appName={appData.app.name}
+              appIcon={`../${appData.app.icon}`}
+            />
+          )}
           <AppInstallation
             appSlug={app.slug}
             onCancel={this.dismiss}
@@ -59,7 +72,16 @@ InstallModal.propTypes = {
   dismissAction: PropTypes.func.isRequired,
   onInstalled: PropTypes.func.isRequired,
   redirectToConfigure: PropTypes.func.isRequired,
-  redirectToApp: PropTypes.func.isRequired
+  redirectToApp: PropTypes.func.isRequired,
+  intentData: PropTypes.object,
+  /* With Redux */
+  fetchLatestApp: PropTypes.func.isRequired,
+  restoreAppIfSaved: PropTypes.func.isRequired,
+  /* With HOC */
+  client: PropTypes.object.isRequired,
+  f: PropTypes.func.isRequired,
+  lang: PropTypes.string.isRequired,
+  t: PropTypes.func.isRequired
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

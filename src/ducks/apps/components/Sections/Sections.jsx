@@ -29,7 +29,9 @@ const Sections = ({
   onAppClick,
   filter,
   onFilterChange,
-  parent
+  parent,
+  showFilterDropdown,
+  intentData
 }) => {
   const { lang } = useI18n()
 
@@ -99,6 +101,14 @@ const Sections = ({
 
   if (error) return <p className="u-error">{error.message}</p>
 
+  const componentsProps = {
+    ...(!!intentData && {
+      appsSection: {
+        disableClick: app => app.installed
+      }
+    })
+  }
+
   return (
     <div className="sto-sections u-mt-2">
       <div className="u-flex u-flex-items-center u-mb-1">
@@ -106,7 +116,7 @@ const Sections = ({
           value={searchFieldValue}
           onChange={handleChangeSearchFieldChange}
         />
-        {hasFilters && (
+        {!intentData && hasFilters && (
           <Filters
             filter={filter || internalFilter}
             onFilterChange={handleFilterChange}
@@ -118,9 +128,11 @@ const Sections = ({
       ) : (
         <AppSections
           search={filter}
+          showFilterDropdown={showFilterDropdown}
           onSearchChange={handleFilterChange}
           apps={apps}
           onAppClick={onAppClick}
+          componentsProps={componentsProps}
         />
       )}
     </div>
@@ -130,8 +142,15 @@ const Sections = ({
 Sections.propTypes = {
   apps: PropTypes.array.isRequired,
   error: PropTypes.object,
+  filter: PropTypes.object,
+  intentData: PropTypes.shape({
+    appData: PropTypes.object,
+    data: PropTypes.object
+  }),
   onAppClick: PropTypes.func.isRequired,
-  onFilterChange: PropTypes.func
+  onFilterChange: PropTypes.func,
+  parent: PropTypes.string.isRequired,
+  showFilterDropdown: PropTypes.bool
 }
 
 export default Sections

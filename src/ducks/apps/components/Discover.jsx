@@ -4,6 +4,7 @@ import Sections from 'ducks/apps/components/QuerystringSections'
 import AppVote from 'ducks/components/AppVote'
 import AppsLoading from 'ducks/components/AppsLoading'
 import { useNavigateNoUpdates, withRouterUtils } from 'lib/RouterUtils'
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { useMatch, useSearchParams } from 'react-router-dom'
 
@@ -11,7 +12,8 @@ import { translate } from 'cozy-ui/transpiled/react/I18n'
 import { Content } from 'cozy-ui/transpiled/react/Layout'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 
-const { BarCenter } = cozy.bar
+// In case we are in an Intent, `cozy.bar` is undefined and it's not a big deal since we don't need the cozy-bar to be displayed on an intent
+const { BarCenter } = cozy.bar || {}
 
 export class Discover extends Component {
   constructor(props) {
@@ -21,21 +23,6 @@ export class Discover extends Component {
 
   onAppClick(appSlug) {
     const { navigate, searchParams } = this.props
-
-    if (searchParams) {
-      const redirectRawPath = searchParams.get('redirectAfterInstall')
-
-      if (redirectRawPath) {
-        const redirectURL = new URL(redirectRawPath)
-        redirectURL.hash += `?connectorSlug=${appSlug}`
-        const encodedRedirectPath = encodeURIComponent(redirectURL.href)
-
-        return navigate(
-          `/discover/${appSlug}?redirectAfterInstall=${encodedRedirectPath}`
-        )
-      }
-    }
-
     const search = searchParams.size > 0 ? `?${searchParams.toString()}` : ''
     navigate(`/discover/${appSlug}${search}`)
   }
@@ -50,7 +37,9 @@ export class Discover extends Component {
       isUninstalling,
       actionError,
       breakpoints = {},
-      isExact
+      isExact,
+      intentData,
+      onTerminate
     } = this.props
 
     const { isMobile } = breakpoints
@@ -60,18 +49,19 @@ export class Discover extends Component {
       <Content className="sto-discover">
         {isExact && isFetching && <AppsLoading />}
         <div className="sto-list-container">
-          {isMobile && <BarCenter>{title}</BarCenter>}
+          {isMobile && !intentData && <BarCenter>{title}</BarCenter>}
           <div className="sto-discover-sections">
             {!isFetching && (
               <Sections
                 apps={apps}
                 error={fetchError}
                 onAppClick={this.onAppClick}
+                intentData={intentData}
                 parent="discover"
               />
             )}
           </div>
-          {!isFetching && <AppVote />}
+          {!isFetching && !intentData && <AppVote />}
         </div>
 
         <ApplicationRouting
@@ -80,6 +70,8 @@ export class Discover extends Component {
           isAppFetching={isAppFetching}
           isUninstalling={isUninstalling}
           actionError={actionError}
+          intentData={intentData}
+          onTerminate={onTerminate}
           parent="discover"
         />
       </Content>
@@ -100,6 +92,23 @@ const DiscoverWrapper = props => {
       searchParams={searchParams}
     />
   )
+}
+
+DiscoverWrapper.propTypes = {
+  apps: PropTypes.array,
+  isFetching: PropTypes.bool.isRequired,
+  isAppFetching: PropTypes.bool.isRequired,
+  isUninstalling: PropTypes.bool.isRequired,
+  fetchError: PropTypes.object,
+  actionError: PropTypes.object,
+  intentData: PropTypes.shape({
+    appData: PropTypes.object,
+    data: PropTypes.object
+  }),
+  onTerminate: PropTypes.func,
+  /* With HOC */
+  breakpoints: PropTypes.object.isRequired,
+  t: PropTypes.func.isRequired
 }
 
 export default translate()(withBreakpoints()(withRouterUtils(DiscoverWrapper)))

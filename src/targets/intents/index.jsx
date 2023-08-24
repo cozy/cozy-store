@@ -1,16 +1,20 @@
+/* eslint-disable import/order */
+import 'cozy-ui/dist/cozy-ui.utils.min.css'
+import 'cozy-ui/transpiled/react/stylesheet.css'
+import 'styles'
+
+import { BreakpointsProvider } from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
+import InstallAppIntent from 'ducks/components/intents/InstallAppIntent'
+import IntentHandler from 'ducks/components/intents/IntentHandler'
 import schema from 'lib/schema'
 import store from 'lib/store'
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import 'styles'
 
 import CozyClient, { CozyProvider } from 'cozy-client'
 import flag from 'cozy-flags'
 import I18n from 'cozy-ui/transpiled/react/I18n'
-
-import InstallAppIntent from '../../ducks/components/intents/InstallAppIntent'
-import IntentHandler from '../../ducks/components/intents/IntentHandler'
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.querySelector('[role=application]')
@@ -32,9 +36,11 @@ document.addEventListener('DOMContentLoaded', () => {
     >
       <CozyProvider store={store} client={client}>
         <Provider store={store}>
-          <IntentHandler appData={appData}>
-            <InstallAppIntent action="INSTALL" type="io.cozy.apps" />
-          </IntentHandler>
+          <BreakpointsProvider>
+            <IntentHandler appData={appData}>
+              <InstallAppIntent action="INSTALL" type="io.cozy.apps" />
+            </IntentHandler>
+          </BreakpointsProvider>
         </Provider>
       </CozyProvider>
     </I18n>,

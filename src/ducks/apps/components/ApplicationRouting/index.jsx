@@ -4,6 +4,7 @@ import ConfigureRoute from 'ducks/apps/components/ApplicationRouting/ConfigureRo
 import InstallRoute from 'ducks/apps/components/ApplicationRouting/InstallRoute'
 import PermissionsRoute from 'ducks/apps/components/ApplicationRouting/PermissionsRoute'
 import UninstallRoute from 'ducks/apps/components/ApplicationRouting/UninstallRoute'
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import {
   Outlet,
@@ -13,14 +14,14 @@ import {
   useNavigate
 } from 'react-router-dom'
 
-import { translate } from 'cozy-ui/transpiled/react/I18n'
-
 const OutletWrapper = ({ Component }) => (
   <>
     <Component />
     <Outlet />
   </>
 )
+
+const intentStyle = { maxHeight: '100%' }
 
 export class ApplicationRouting extends Component {
   mainPage = React.createRef()
@@ -40,9 +41,14 @@ export class ApplicationRouting extends Component {
   }
 
   render() {
-    const { isFetching, parent } = this.props
+    const { isFetching, parent, intentData, onTerminate } = this.props
+
     return (
-      <div className="sto-modal-page" ref={this.mainPage}>
+      <div
+        className="sto-modal-page"
+        style={intentData ? intentStyle : undefined}
+        ref={this.mainPage}
+      >
         <Routes>
           <Route
             path=":appSlug"
@@ -55,6 +61,7 @@ export class ApplicationRouting extends Component {
                     getApp={this.getAppFromMatchOrSlug}
                     redirectTo={this.redirectTo}
                     mainPageRef={this.mainPage}
+                    intentData={intentData}
                   />
                 )}
               />
@@ -79,6 +86,8 @@ export class ApplicationRouting extends Component {
                   isFetching={isFetching}
                   parent={parent}
                   redirectTo={this.redirectTo}
+                  intentData={intentData}
+                  onTerminate={onTerminate}
                 />
               }
             />
@@ -101,6 +110,7 @@ export class ApplicationRouting extends Component {
                   isFetching={isFetching}
                   parent={parent}
                   redirectTo={this.redirectTo}
+                  intentData={intentData}
                 />
               }
             />
@@ -130,4 +140,19 @@ const ApplicationRoutingWrapper = props => {
   )
 }
 
-export default translate()(ApplicationRoutingWrapper)
+ApplicationRoutingWrapper.propTypes = {
+  isAppFetching: PropTypes.bool.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  parent: PropTypes.string.isRequired,
+  apps: PropTypes.array,
+  actionError: PropTypes.object,
+  installedApps: PropTypes.array,
+  intentData: PropTypes.shape({
+    appData: PropTypes.object,
+    data: PropTypes.object
+  }),
+  isUninstalling: PropTypes.bool,
+  onTerminate: PropTypes.func
+}
+
+export default ApplicationRoutingWrapper

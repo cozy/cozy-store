@@ -69,7 +69,8 @@
       }
     },
     "permissions": {
-      "title": "Permissions"
+      "title": "Permissions",
+      "back": "Retour"
     }
   },
 

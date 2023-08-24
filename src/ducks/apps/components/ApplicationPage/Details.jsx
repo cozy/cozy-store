@@ -6,6 +6,7 @@ import Maintenance from 'ducks/apps/components/ApplicationPage/Maintenance'
 import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
 import getChannel from 'lib/getChannelFromSource'
 import { getTranslatedManifestProperty } from 'lib/helpers'
+import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
@@ -209,6 +210,18 @@ export const Details = ({ app, description, changes, parent, mobileApps }) => {
       </div>
     </div>
   )
+}
+
+Details.propTypes = {
+  app: PropTypes.object.isRequired,
+  parent: PropTypes.string.isRequired,
+  changes: PropTypes.string,
+  description: PropTypes.string,
+  intentData: PropTypes.shape({
+    appData: PropTypes.object,
+    data: PropTypes.object
+  }),
+  mobileApps: PropTypes.array
 }
 
 export default Details
