@@ -46,7 +46,7 @@ const getAppProps = () => {
   }
 }
 
-const getKonnectorProps = () => {
+const getKonnectorProps = ({ withIntent } = {}) => {
   return {
     description: konnectorManifest.locales.en.long_description,
     changes: konnectorManifest.locales.en.changes,
@@ -54,7 +54,16 @@ const getKonnectorProps = () => {
       categories: konnectorManifest.categories,
       langs: konnectorManifest.langs,
       developer: konnectorManifest.developer
-    }
+    },
+    ...(withIntent && {
+      intentData: {
+        data: {
+          slug: 'slug',
+          category: 'category'
+        },
+        appData: {}
+      }
+    })
   }
 }
 
@@ -90,6 +99,15 @@ describe('ApplicationPage details component', () => {
     const { container } = render(
       <AppLike>
         <Details {...getKonnectorProps()} />
+      </AppLike>
+    )
+    expect(container).toMatchSnapshot()
+  })
+
+  it('should be rendered correctly with provided konnector in Intent', () => {
+    const { container } = render(
+      <AppLike>
+        <Details {...getKonnectorProps({ withIntent: true })} />
       </AppLike>
     )
     expect(container).toMatchSnapshot()

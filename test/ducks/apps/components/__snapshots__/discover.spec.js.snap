@@ -190,7 +190,7 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
     </div>
     <withI18n(AppVote) />
   </div>
-  <withI18n(ApplicationRoutingWrapper)
+  <ApplicationRoutingWrapper
     actionError={null}
     apps={
       Array [
@@ -560,7 +560,7 @@ exports[`Discover component should be rendered correctly with apps and URL searc
     </div>
     <withI18n(AppVote) />
   </div>
-  <withI18n(ApplicationRoutingWrapper)
+  <ApplicationRoutingWrapper
     actionError={null}
     apps={
       Array [
@@ -759,7 +759,7 @@ exports[`Discover component should display error from props correctly 1`] = `
     </div>
     <withI18n(AppVote) />
   </div>
-  <withI18n(ApplicationRoutingWrapper)
+  <ApplicationRoutingWrapper
     actionError={null}
     apps={Array []}
     isFetching={false}
@@ -779,7 +779,7 @@ exports[`Discover component should render correctly a spinner if apps is fetchin
       className="sto-discover-sections"
     />
   </div>
-  <withI18n(ApplicationRoutingWrapper)
+  <ApplicationRoutingWrapper
     actionError={null}
     apps={Array []}
     isFetching={true}
@@ -985,7 +985,7 @@ exports[`Discover component should use BarCenter from cozy-bar in mobile view on
     </div>
     <withI18n(AppVote) />
   </div>
-  <withI18n(ApplicationRoutingWrapper)
+  <ApplicationRoutingWrapper
     actionError={null}
     apps={
       Array [
