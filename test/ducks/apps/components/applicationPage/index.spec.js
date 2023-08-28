@@ -35,7 +35,8 @@ const getAppProps = (installed, related, screenshots = []) => {
     mainPageRef: mockRef,
     parent: '/myapps',
     redirectTo: jest.fn(),
-    search: ''
+    search: '',
+    breakpoints: {}
   }
 }
 
@@ -61,7 +62,8 @@ const getKonnectorProps = (installed, keepDescription = true) => {
     }),
     parent: '/myapps',
     mainPageRef: mockRef,
-    search: ''
+    search: '',
+    breakpoints: {}
   }
 }
 

@@ -11,6 +11,7 @@ import {
   preventBackgroundScroll,
   unpreventBackgroundScroll
 } from 'lib/scrollHelpers.js'
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { Link, useMatch, useParams } from 'react-router-dom'
 
@@ -24,8 +25,10 @@ import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 
 const MOBILE_PLATFORMS = ['ios', 'android']
 const isMobilePlatform = name => MOBILE_PLATFORMS.includes(name)
+const intentStyle = { marginTop: '1.5rem' }
 
-const { BarCenter } = cozy.bar
+// In case we are in an Intent, `cozy.bar` is undefined and it's not a big deal since we don't need the cozy-bar to be displayed on an intent
+const { BarCenter } = cozy.bar || {}
 
 export class ApplicationPage extends Component {
   constructor(props) {
@@ -81,11 +84,12 @@ export class ApplicationPage extends Component {
       params,
       isFetching,
       fetchError,
-      breakpoints = {},
+      breakpoints,
       pauseFocusTrap,
       getApp,
       redirectTo,
-      client
+      client,
+      intentData
     } = this.props
     if (isFetching) return <ApplicationPageLoading />
     const app = getApp(params)
@@ -127,6 +131,11 @@ export class ApplicationPage extends Component {
         }
         return mobilePlatforms
       }, [])
+
+    const styleProp = {
+      ...(intentData && { style: { height: '100vh' } })
+    }
+
     return (
       <FocusTrap
         focusTrapOptions={{
@@ -135,8 +144,8 @@ export class ApplicationPage extends Component {
         }}
         paused={pauseFocusTrap}
       >
-        <div className="sto-modal-page-app">
-          {isMobile && icon && !iconToLoad && (
+        <div className="sto-modal-page-app" {...styleProp}>
+          {isMobile && icon && !iconToLoad && !intentData && (
             <BarCenter>
               <BarContextProvider client={client} t={t} store={client.store}>
                 <div className="sto-app-bar">
@@ -151,16 +160,18 @@ export class ApplicationPage extends Component {
               </BarContextProvider>
             </BarCenter>
           )}
-          <div className="sto-app">
-            <Button
-              icon={Left}
-              tag={Link}
-              to={`/${parent}${search}`}
-              className="sto-app-back"
-              label={t('app_page.back')}
-              onClick={this.unmountTrap}
-              subtle
-            />
+          <div className="sto-app" style={intentData ? intentStyle : undefined}>
+            {!intentData?.data?.slug && (
+              <Button
+                icon={Left}
+                tag={Link}
+                to={`/${parent}${search}`}
+                className="sto-app-back"
+                label={t('app_page.back')}
+                onClick={this.unmountTrap}
+                subtle
+              />
+            )}
             <Header
               app={app}
               namePrefix={namePrefix}
@@ -199,6 +210,24 @@ const ApplicationPageWrapper = props => {
       pauseFocusTrap={!isExact}
     />
   )
+}
+
+ApplicationPageWrapper.propTypes = {
+  getApp: PropTypes.func.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  mainPageRef: PropTypes.object.isRequired,
+  parent: PropTypes.string.isRequired,
+  redirectTo: PropTypes.func.isRequired,
+  intentData: PropTypes.shape({
+    appData: PropTypes.object,
+    data: PropTypes.object
+  }),
+  /* With HOC */
+  breakpoints: PropTypes.object.isRequired,
+  client: PropTypes.object.isRequired,
+  f: PropTypes.func.isRequired,
+  lang: PropTypes.string.isRequired,
+  t: PropTypes.func.isRequired
 }
 
 // translate is needed here for the lang props

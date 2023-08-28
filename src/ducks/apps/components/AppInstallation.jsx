@@ -1,6 +1,6 @@
 import storeConfig from 'config'
 import { APP_TYPE, getAppBySlug, installAppFromRegistry } from 'ducks/apps'
-import { hasPendingUpdate } from 'ducks/apps/appStatus'
+import { hasPendingUpdate, isUnderMaintenance } from 'ducks/apps/appStatus'
 import Partnership from 'ducks/apps/components/Partnership'
 import PermissionsList from 'ducks/apps/components/PermissionsList'
 import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
@@ -90,7 +90,9 @@ export class AppInstallation extends Component {
     const isCurrentAppInstalling = isInstalling === app.slug
     const isTermsReady =
       shouldSkipPermissions(app) || (!app.terms || this.state.isTermsAccepted)
-    return !isCurrentAppInstalling && isTermsReady
+    const underMaintenance = isUnderMaintenance(app)
+
+    return !isCurrentAppInstalling && isTermsReady && !underMaintenance
   }
 
   render() {

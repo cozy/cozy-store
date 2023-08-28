@@ -37,7 +37,9 @@
     {
       "action": "INSTALL",
       "data": [
-        "slug"
+        "slug",
+        "category",
+        "pageToDisplay"
       ],
       "href": "/intents",
       "type": [

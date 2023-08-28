@@ -1,6 +1,7 @@
 import { useNavigateNoUpdates, useLocationNoUpdates } from 'lib/RouterUtils'
 import isNavigationEnabled from 'lib/isNavigationEnabled'
 import omit from 'lodash/omit'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { useMemo } from 'react'
 
@@ -63,6 +64,7 @@ const queryFromFilter = filter => {
  * - handles location updates
  */
 const QuerystringSections = props => {
+  const { intentData } = props
   const navigate = useNavigateNoUpdates()
   const { pathname, search } = useLocationNoUpdates()
 
@@ -71,6 +73,16 @@ const QuerystringSections = props => {
     props.parent,
     search
   ])
+
+  const filterUpdated = useMemo(() => {
+    if (intentData) {
+      return {
+        ...filter,
+        ...(intentData.data?.category && { category: intentData.data.category })
+      }
+    }
+    return filter
+  }, [filter, intentData])
 
   // Saves filter to query part
   const handleFilterChange = filter => {
@@ -86,10 +98,22 @@ const QuerystringSections = props => {
     <Sections
       {...props}
       hasNav={isNavigationEnabled(search)}
-      filter={filter}
+      filter={filterUpdated}
       onFilterChange={handleFilterChange}
+      showFilterDropdown={!intentData}
     />
   )
+}
+
+QuerystringSections.propTypes = {
+  apps: PropTypes.array.isRequired,
+  error: PropTypes.object,
+  intentData: PropTypes.shape({
+    appData: PropTypes.object,
+    data: PropTypes.object
+  }),
+  onAppClick: PropTypes.func.isRequired,
+  parent: PropTypes.string.isRequired
 }
 
 export default QuerystringSections

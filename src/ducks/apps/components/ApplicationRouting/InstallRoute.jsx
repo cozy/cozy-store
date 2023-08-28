@@ -1,51 +1,38 @@
-import { openApp } from 'ducks/apps'
+import { redirectToConfigure } from 'ducks/apps/components/ApplicationRouting/helpers'
 import InstallModal from 'ducks/apps/components/InstallModal'
+import PropTypes from 'prop-types'
 import React from 'react'
-import { useParams, useSearchParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
-import { useClient, deconstructCozyWebLinkWithSlug } from 'cozy-client'
-import { isFlagshipApp } from 'cozy-device-helper'
-import { useWebviewIntent } from 'cozy-intent'
-
-export const InstallRoute = ({ getApp, isFetching, parent, redirectTo }) => {
+export const InstallRoute = ({
+  getApp,
+  isFetching,
+  parent,
+  redirectTo,
+  intentData,
+  onTerminate
+}) => {
   const params = useParams()
-  const [searchParams] = useSearchParams()
-  const webviewIntent = useWebviewIntent()
-  const client = useClient()
 
   if (isFetching) return null
 
   const app = getApp(params)
-
   if (!app) {
     return redirectTo(`/${parent}`)
   }
 
   const appPath = `/${parent}/${(app && app.slug) || ''}`
-  const configurePath = `${appPath}/configure`
-
   const redirectToApp = () => redirectTo(appPath)
 
-  const redirectToConfigure = () => {
-    const redirectionPath = searchParams.get('redirectAfterInstall')
-
-    if (redirectionPath) {
-      const subDomainType = client.getInstanceOptions().subdomain
-      const { slug } = deconstructCozyWebLinkWithSlug(
-        redirectionPath,
-        subDomainType
-      )
-      return openApp(webviewIntent, {
-        slug,
-        related: redirectionPath
-      })
-    }
-
-    if (isFlagshipApp()) {
-      redirectToApp()
-    } else {
-      redirectTo(configurePath)
-    }
+  const handleRedirectToConfigure = async () => {
+    redirectToConfigure({
+      intentData,
+      compose: intentData?.serviceCompose,
+      app,
+      parent,
+      redirectTo,
+      onTerminate
+    })
   }
 
   return (
@@ -53,10 +40,23 @@ export const InstallRoute = ({ getApp, isFetching, parent, redirectTo }) => {
       app={app}
       onInstalled={redirectToApp}
       dismissAction={redirectToApp}
-      redirectToConfigure={redirectToConfigure}
+      redirectToConfigure={handleRedirectToConfigure}
       redirectToApp={redirectToApp}
+      intentData={intentData}
     />
   )
+}
+
+InstallRoute.propTypes = {
+  getApp: PropTypes.func.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  parent: PropTypes.string.isRequired,
+  redirectTo: PropTypes.func.isRequired,
+  intentData: PropTypes.shape({
+    appData: PropTypes.object,
+    data: PropTypes.object
+  }),
+  onTerminate: PropTypes.func
 }
 
 export default InstallRoute

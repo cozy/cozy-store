@@ -12,9 +12,35 @@ exports[`InstallAppIntent component should be rendered correctly 1`] = `
   <div
     className="coz-intent-content"
   >
-    <withClient(Connect(withI18n(AppInstallation)))
-      appSlug="drive"
-      installApp={[Function]}
+    <InstallAppIntentContent
+      app={
+        Object {
+          "slug": "drive",
+        }
+      }
+      appData={
+        Object {
+          "app": Object {
+            "editor": "Cozy",
+            "icon": "/path/to/icon",
+            "name": "Drive",
+          },
+        }
+      }
+      hasWebappSucceed={false}
+      initAppIntent={
+        [MockFunction] {
+          "calls": Array [
+            Array [],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        }
+      }
     />
   </div>
 </div>
