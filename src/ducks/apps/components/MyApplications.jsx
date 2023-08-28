@@ -10,7 +10,7 @@ import { translate } from 'cozy-ui/transpiled/react/I18n'
 import { Content } from 'cozy-ui/transpiled/react/Layout'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 
-const { BarCenter } = cozy.bar
+const { BarCenter } = cozy.bar || {}
 
 export class MyApplications extends Component {
   constructor(props) {

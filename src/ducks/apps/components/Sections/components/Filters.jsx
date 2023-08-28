@@ -12,7 +12,7 @@ import ActionMenu, {
 } from 'cozy-ui/transpiled/react/deprecated/ActionMenu'
 import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 
-const { BarRight } = cozy.bar
+const { BarRight } = cozy.bar || {}
 
 const Filters = ({ filter, onFilterChange }) => {
   const anchorRef = useRef()
