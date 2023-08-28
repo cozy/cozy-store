@@ -12,9 +12,6 @@ import { translate } from 'cozy-ui/transpiled/react/I18n'
 import { Content } from 'cozy-ui/transpiled/react/Layout'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 
-// In case we are in an Intent, `cozy.bar` is undefined and it's not a big deal since we don't need the cozy-bar to be displayed on an intent
-const { BarCenter } = cozy.bar || {}
-
 export class Discover extends Component {
   constructor(props) {
     super(props)
@@ -44,6 +41,9 @@ export class Discover extends Component {
 
     const { isMobile } = breakpoints
     const title = <h2 className="sto-view-title">{t('discover.title')}</h2>
+
+    // In case we are in an Intent, `cozy.bar` is undefined and it's not a big deal since we don't need the cozy-bar to be displayed on an intent
+    const { BarCenter } = cozy.bar || {}
 
     return (
       <Content className="sto-discover">

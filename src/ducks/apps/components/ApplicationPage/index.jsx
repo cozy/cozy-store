@@ -27,9 +27,6 @@ const MOBILE_PLATFORMS = ['ios', 'android']
 const isMobilePlatform = name => MOBILE_PLATFORMS.includes(name)
 const intentStyle = { marginTop: '1.5rem' }
 
-// In case we are in an Intent, `cozy.bar` is undefined and it's not a big deal since we don't need the cozy-bar to be displayed on an intent
-const { BarCenter } = cozy.bar || {}
-
 export class ApplicationPage extends Component {
   constructor(props) {
     super(props)
@@ -91,6 +88,8 @@ export class ApplicationPage extends Component {
       client,
       intentData
     } = this.props
+    // In case we are in an Intent, `cozy.bar` is undefined and it's not a big deal since we don't need the cozy-bar to be displayed on an intent
+    const { BarCenter } = cozy.bar || {}
     if (isFetching) return <ApplicationPageLoading />
     const app = getApp(params)
     if (!app) return redirectTo(`/${parent}`)
