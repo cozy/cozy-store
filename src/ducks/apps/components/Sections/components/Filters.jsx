@@ -12,8 +12,6 @@ import ActionMenu, {
 } from 'cozy-ui/transpiled/react/deprecated/ActionMenu'
 import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 
-const { BarRight } = cozy.bar
-
 const Filters = ({ filter, onFilterChange }) => {
   const anchorRef = useRef()
   const [menuDisplayed, setMenuDisplayed] = useState(false)
@@ -46,6 +44,7 @@ const Filters = ({ filter, onFilterChange }) => {
 
   const { isMobile } = useBreakpoints()
   const { t } = useI18n()
+  const { BarRight } = cozy.bar
 
   return (
     <>

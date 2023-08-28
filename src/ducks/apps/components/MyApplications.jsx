@@ -10,8 +10,6 @@ import { translate } from 'cozy-ui/transpiled/react/I18n'
 import { Content } from 'cozy-ui/transpiled/react/Layout'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 
-const { BarCenter } = cozy.bar
-
 export class MyApplications extends Component {
   constructor(props) {
     super(props)
@@ -37,6 +35,8 @@ export class MyApplications extends Component {
       isExact
     } = this.props
     const { isMobile } = breakpoints
+    const { BarCenter } = cozy.bar
+
     const title = <h2 className="sto-view-title">{t('myapps.title')}</h2>
     return (
       <Content className="sto-myapps">
