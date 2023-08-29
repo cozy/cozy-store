@@ -13,6 +13,7 @@
 .coz-intent-content {
   width: 100%;
   height: calc(100% - 3rem);
+  overflow-y: auto;
 }
 
 .coz-intent.--loading,
