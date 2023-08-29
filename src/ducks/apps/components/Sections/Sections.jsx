@@ -105,6 +105,9 @@ const Sections = ({
     ...(!!intentData && {
       appsSection: {
         disableClick: app => app.installed
+      },
+      searchResults: {
+        disableClick: app => app.installed
       }
     })
   }
@@ -127,7 +130,7 @@ const Sections = ({
         <SearchResults
           searchResults={searchResults}
           onAppClick={onAppClick}
-          disabled={!!intentData}
+          {...componentsProps?.searchResults}
         />
       ) : (
         <AppSections

@@ -1,6 +1,7 @@
 import StoreAppItem from 'ducks/apps/components/StoreAppItem'
 import { dumpMatches } from 'ducks/search/utils'
 import sortBy from 'lodash/sortBy'
+import PropTypes from 'prop-types'
 import React, { useCallback, useMemo } from 'react'
 
 import flag from 'cozy-flags'
@@ -47,7 +48,7 @@ export const SearchField = ({ onChange, value }) => {
   )
 }
 
-export const SearchResults = ({ searchResults, onAppClick, disabled }) => {
+export const SearchResults = ({ searchResults, onAppClick, disableClick }) => {
   const sortedSortResults = useMemo(() => {
     return sortBy(searchResults, result => result.score)
   }, [searchResults])
@@ -55,10 +56,11 @@ export const SearchResults = ({ searchResults, onAppClick, disabled }) => {
     <div className="u-mv-1 u-flex u-flex-wrap">
       {sortedSortResults.map(result => {
         const app = result.item
+        const isDisableClick = disableClick?.(app)
         return flag('store.show-search-score') ? (
           <div>
             <StoreAppItem
-              onClick={() => !disabled && onAppClick(app.slug)}
+              onClick={() => !isDisableClick && onAppClick(app.slug)}
               key={app.slug}
               app={app}
             />
@@ -71,7 +73,7 @@ export const SearchResults = ({ searchResults, onAppClick, disabled }) => {
           </div>
         ) : (
           <StoreAppItem
-            onClick={() => !disabled && onAppClick(app.slug)}
+            onClick={() => !isDisableClick && onAppClick(app.slug)}
             key={app.slug}
             app={app}
           />
@@ -79,4 +81,10 @@ export const SearchResults = ({ searchResults, onAppClick, disabled }) => {
       })}
     </div>
   )
+}
+
+SearchResults.propTypes = {
+  onAppClick: PropTypes.func.isRequired,
+  disableClick: PropTypes.func,
+  searchResults: PropTypes.array
 }
