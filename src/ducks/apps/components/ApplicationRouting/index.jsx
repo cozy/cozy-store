@@ -21,8 +21,6 @@ const OutletWrapper = ({ Component }) => (
   </>
 )
 
-const intentStyle = { maxHeight: '100%' }
-
 export class ApplicationRouting extends Component {
   mainPage = React.createRef()
 
@@ -45,8 +43,9 @@ export class ApplicationRouting extends Component {
 
     return (
       <div
-        className="sto-modal-page"
-        style={intentData ? intentStyle : undefined}
+        className={`sto-modal-page${
+          intentData ? ' sto-modal-page-intent' : ''
+        }`}
         ref={this.mainPage}
       >
         <Routes>

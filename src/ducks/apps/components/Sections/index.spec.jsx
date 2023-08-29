@@ -97,7 +97,7 @@ describe('AppsSection component', () => {
       expect(mockOnAppClick).toBeCalled()
     })
 
-    it("should call onAppClick when clicking on the app, even if it's already installed", () => {
+    it("should not call onAppClick when clicking on the app, if it's already installed", () => {
       const trinlaneApp = mockApps.find(app => app.name === 'Trinlane') || {}
       const mockTrinlaneApp = [{ ...trinlaneApp, installed: true }]
       const mockOnAppClick = jest.fn()
@@ -158,7 +158,7 @@ describe('Search', () => {
   })
 
   describe('In Intent', () => {
-    it("should call onAppClick when clicking on the app, even if it's already installed", () => {
+    it("should not call onAppClick when clicking on the app, if it's already installed", () => {
       const trinlaneApp = mockApps.find(app => app.name === 'Trinlane') || {}
       const mockTrinlaneApp = [{ ...trinlaneApp, installed: true }]
       const mockOnAppClick = jest.fn()
