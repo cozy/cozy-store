@@ -47,7 +47,7 @@ export const SearchField = ({ onChange, value }) => {
   )
 }
 
-export const SearchResults = ({ searchResults, onAppClick }) => {
+export const SearchResults = ({ searchResults, onAppClick, disabled }) => {
   const sortedSortResults = useMemo(() => {
     return sortBy(searchResults, result => result.score)
   }, [searchResults])
@@ -58,7 +58,7 @@ export const SearchResults = ({ searchResults, onAppClick }) => {
         return flag('store.show-search-score') ? (
           <div>
             <StoreAppItem
-              onClick={() => onAppClick(app.slug)}
+              onClick={() => !disabled && onAppClick(app.slug)}
               key={app.slug}
               app={app}
             />
@@ -71,7 +71,7 @@ export const SearchResults = ({ searchResults, onAppClick }) => {
           </div>
         ) : (
           <StoreAppItem
-            onClick={() => onAppClick(app.slug)}
+            onClick={() => !disabled && onAppClick(app.slug)}
             key={app.slug}
             app={app}
           />
