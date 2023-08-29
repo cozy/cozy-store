@@ -124,7 +124,11 @@ const Sections = ({
         )}
       </div>
       {searchResults ? (
-        <SearchResults searchResults={searchResults} onAppClick={onAppClick} />
+        <SearchResults
+          searchResults={searchResults}
+          onAppClick={onAppClick}
+          disabled={!!intentData}
+        />
       ) : (
         <AppSections
           search={filter}
