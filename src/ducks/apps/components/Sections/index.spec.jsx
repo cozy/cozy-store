@@ -6,6 +6,7 @@ import { render, fireEvent, act } from '@testing-library/react'
 import mockApps from 'ducks/apps/_mockApps'
 import Sections from 'ducks/apps/components/Sections/Sections'
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 
 import CozyClient, { CozyProvider } from 'cozy-client'
 import I18n from 'cozy-ui/transpiled/react/I18n'
@@ -14,6 +15,14 @@ import { BreakpointsProvider } from 'cozy-ui/transpiled/react/hooks/useBreakpoin
 import enLocale from '../../../../locales/en.json'
 
 jest.mock('lodash/debounce', () => jest.fn(fn => fn))
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useLocation: jest.fn()
+}))
+
+useLocation.mockImplementation(() => {
+  return { pathname: '/discover' }
+})
 
 const setup = ({ props } = {}) => {
   const client = new CozyClient({})
