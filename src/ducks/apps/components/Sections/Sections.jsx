@@ -2,6 +2,7 @@ import { SearchField, SearchResults } from 'ducks/search/components'
 import Fuse from 'fuse.js'
 import PropTypes from 'prop-types'
 import React, { useState, useEffect, useMemo, useRef } from 'react'
+import { useLocation } from 'react-router-dom'
 
 import AppSections from 'cozy-ui/transpiled/react/AppSections'
 import * as filterUtils from 'cozy-ui/transpiled/react/AppSections/search'
@@ -29,7 +30,6 @@ const Sections = ({
   onAppClick,
   filter,
   onFilterChange,
-  parent,
   showFilterDropdown,
   intentData
 }) => {
@@ -38,6 +38,7 @@ const Sections = ({
   const previousFilter = useRef()
   const [internalFilter, setInternalFilter] = useState({})
   const [searchFieldValue, setSearchFieldValue] = useState('')
+  const { pathname } = useLocation()
 
   const options = useMemo(
     () => ({
@@ -97,7 +98,7 @@ const Sections = ({
     }
   }
 
-  const hasFilters = parent !== 'myapps'
+  const hasFilters = pathname === '/discover'
 
   if (error) return <p className="u-error">{error.message}</p>
 
@@ -156,7 +157,6 @@ Sections.propTypes = {
   }),
   onAppClick: PropTypes.func.isRequired,
   onFilterChange: PropTypes.func,
-  parent: PropTypes.string.isRequired,
   showFilterDropdown: PropTypes.bool
 }
 
