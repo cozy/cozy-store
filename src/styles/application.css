@@ -96,6 +96,10 @@ main > [role=main].sto-myapps {
     z-index: 1;
   }
 
+  .sto-modal-page-intent {
+    max-height: calc(100% - 3rem);
+  }
+
   .sto-modal-page-app {
     height: calc(100vh - 6rem)
   }

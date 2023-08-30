@@ -25,8 +25,8 @@ const setup = ({ props } = {}) => {
         <I18n lang="en" dictRequire={() => enLocale}>
           <Sections
             subtitle="Test Apps"
-            apps={mockApps}
-            onAppClick={mockOnAppClick}
+            apps={props?.mockApps || mockApps}
+            onAppClick={props?.onAppClick || mockOnAppClick}
             error={null}
             {...props}
           />
@@ -52,6 +52,68 @@ describe('AppsSection component', () => {
     })
     expect(() => root.getByText('This is a test error')).not.toThrow()
   })
+
+  it("should call onAppClick when clicking on the app, if it's not installed", () => {
+    const trinlaneApp = mockApps.find(app => app.name === 'Trinlane') || {}
+    const mockTrinlaneApp = [{ ...trinlaneApp, installed: false }]
+    const mockOnAppClick = jest.fn()
+    const { root } = setup({
+      props: { onAppClick: mockOnAppClick, mockApps: mockTrinlaneApp }
+    })
+
+    expect(() => root.getByText('Trinlane')).not.toThrow()
+    fireEvent.click(root.getByText('Trinlane'))
+    expect(mockOnAppClick).toBeCalled()
+  })
+
+  it("should call onAppClick when clicking on the app, even if it's already installed", () => {
+    const trinlaneApp = mockApps.find(app => app.name === 'Trinlane') || {}
+    const mockTrinlaneApp = [{ ...trinlaneApp, installed: true }]
+    const mockOnAppClick = jest.fn()
+    const { root } = setup({
+      props: { onAppClick: mockOnAppClick, mockApps: mockTrinlaneApp }
+    })
+
+    expect(() => root.getByText('Trinlane')).not.toThrow()
+    fireEvent.click(root.getByText('Trinlane'))
+    expect(mockOnAppClick).toBeCalled()
+  })
+
+  describe('In Intent', () => {
+    it("should call onAppClick when clicking on the app, if it's not installed", () => {
+      const trinlaneApp = mockApps.find(app => app.name === 'Trinlane') || {}
+      const mockTrinlaneApp = [{ ...trinlaneApp, installed: false }]
+      const mockOnAppClick = jest.fn()
+      const { root } = setup({
+        props: {
+          intentData: { data: {} },
+          onAppClick: mockOnAppClick,
+          mockApps: mockTrinlaneApp
+        }
+      })
+
+      expect(() => root.getByText('Trinlane')).not.toThrow()
+      fireEvent.click(root.getByText('Trinlane'))
+      expect(mockOnAppClick).toBeCalled()
+    })
+
+    it("should not call onAppClick when clicking on the app, if it's already installed", () => {
+      const trinlaneApp = mockApps.find(app => app.name === 'Trinlane') || {}
+      const mockTrinlaneApp = [{ ...trinlaneApp, installed: true }]
+      const mockOnAppClick = jest.fn()
+      const { root } = setup({
+        props: {
+          intentData: { data: {} },
+          onAppClick: mockOnAppClick,
+          mockApps: mockTrinlaneApp
+        }
+      })
+
+      expect(() => root.getByText('Trinlane')).not.toThrow()
+      fireEvent.click(root.getByText('Trinlane'))
+      expect(mockOnAppClick).not.toBeCalled()
+    })
+  })
 })
 
 describe('Search', () => {
@@ -72,5 +134,50 @@ describe('Search', () => {
 
     expect(() => root.getByText('Trinlane')).not.toThrow()
     expect(() => root.getByText('Bouilligue')).toThrow()
+  })
+
+  it("should call onAppClick when clicking on the app, if it's not installed", () => {
+    const trinlaneApp = mockApps.find(app => app.name === 'Trinlane') || {}
+    const mockTrinlaneApp = [{ ...trinlaneApp, installed: false }]
+    const mockOnAppClick = jest.fn()
+    const { root } = setup({
+      props: {
+        onAppClick: mockOnAppClick,
+        mockApps: mockTrinlaneApp
+      }
+    })
+
+    const input = root.getByPlaceholderText('"CAF", "telecom", "bills"')
+    act(() => {
+      fireEvent.change(input, { target: { value: 'Tri' } })
+    })
+    expect(() => root.getByText('Trinlane')).not.toThrow()
+
+    fireEvent.click(root.getByText('Trinlane'))
+    expect(mockOnAppClick).toBeCalled()
+  })
+
+  describe('In Intent', () => {
+    it("should not call onAppClick when clicking on the app, if it's already installed", () => {
+      const trinlaneApp = mockApps.find(app => app.name === 'Trinlane') || {}
+      const mockTrinlaneApp = [{ ...trinlaneApp, installed: true }]
+      const mockOnAppClick = jest.fn()
+      const { root } = setup({
+        props: {
+          intentData: { data: {} },
+          onAppClick: mockOnAppClick,
+          mockApps: mockTrinlaneApp
+        }
+      })
+
+      const input = root.getByPlaceholderText('"CAF", "telecom", "bills"')
+      act(() => {
+        fireEvent.change(input, { target: { value: 'Tri' } })
+      })
+      expect(() => root.getByText('Trinlane')).not.toThrow()
+
+      fireEvent.click(root.getByText('Trinlane'))
+      expect(mockOnAppClick).not.toBeCalled()
+    })
   })
 })
