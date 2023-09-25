@@ -3,19 +3,15 @@ import { APP_TYPE, getAppBySlug, installAppFromRegistry } from 'ducks/apps'
 import { hasPendingUpdate, isUnderMaintenance } from 'ducks/apps/appStatus'
 import Partnership from 'ducks/apps/components/Partnership'
 import PermissionsList from 'ducks/apps/components/PermissionsList'
-import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
 import FocusTrap from 'focus-trap-react'
 import { getTranslatedManifestProperty } from 'lib/helpers'
 import compose from 'lodash/flowRight'
-import get from 'lodash/get'
-import pickBy from 'lodash/pickBy'
 import React, { Component } from 'react'
 import { PropTypes } from 'react-proptypes'
 import { connect } from 'react-redux'
 
 import { withClient } from 'cozy-client'
 import flags from 'cozy-flags'
-import Checkbox from 'cozy-ui/transpiled/react/Checkbox'
 import { translate } from 'cozy-ui/transpiled/react/I18n'
 import Spinner from 'cozy-ui/transpiled/react/Spinner'
 import Alerter from 'cozy-ui/transpiled/react/deprecated/Alerter'
@@ -36,7 +32,6 @@ export class AppInstallation extends Component {
   constructor(props) {
     super(props)
     const { app } = props
-    this.state = { isTermsAccepted: false }
     this.installApp = this.installApp.bind(this)
     if (shouldSkipPermissions(app) && hasInstallation(app)) {
       this.installApp()
@@ -79,20 +74,12 @@ export class AppInstallation extends Component {
     }
   }
 
-  acceptTerms = () => {
-    this.setState(state => ({
-      isTermsAccepted: !state.isTermsAccepted
-    }))
-  }
-
   isInstallReady = () => {
     const { app, isInstalling } = this.props
     const isCurrentAppInstalling = isInstalling === app.slug
-    const isTermsReady =
-      shouldSkipPermissions(app) || (!app.terms || this.state.isTermsAccepted)
     const underMaintenance = isUnderMaintenance(app)
 
-    return !isCurrentAppInstalling && isTermsReady && !underMaintenance
+    return !isCurrentAppInstalling && !underMaintenance
   }
 
   render() {
@@ -106,7 +93,6 @@ export class AppInstallation extends Component {
       onCancel,
       t
     } = this.props
-    const { isTermsAccepted } = this.state
     const isFetchingSomething = isFetching || isAppFetching
     const isCurrentAppInstalling = isInstalling === app.slug
 
@@ -121,14 +107,6 @@ export class AppInstallation extends Component {
         </React.Fragment>
       )
     }
-
-    const termsCheckboxTranslationOpts = pickBy(
-      {
-        url: get(app, 'terms.url'),
-        partnerName: get(app, 'partnership.name')
-      },
-      Boolean
-    )
 
     return (
       <React.Fragment>
@@ -165,31 +143,6 @@ export class AppInstallation extends Component {
                     message: installError.message
                   })}
                 </p>
-              )}
-              {app.terms && (
-                <div className="sto-install-terms">
-                  <Checkbox
-                    className="sto-install-terms-checkbox"
-                    onChange={this.acceptTerms}
-                    checked={isTermsAccepted}
-                    disabled={isInstalling}
-                  >
-                    <ReactMarkdownWrapper
-                      className="u-ml-half u-mt-half"
-                      source={
-                        app.partnership
-                          ? t(
-                              'app_modal.install.termsWithPartnership',
-                              termsCheckboxTranslationOpts
-                            )
-                          : t(
-                              'app_modal.install.terms',
-                              termsCheckboxTranslationOpts
-                            )
-                      }
-                    />
-                  </Checkbox>
-                </div>
               )}
               <div className="sto-install-controls">
                 <Button

@@ -57,8 +57,6 @@
       "cancel": "Annuler",
       "install": "Installer",
       "update": "Mettre à jour",
-      "terms": "J'ai lu et j'accepte [les CGU liées à cette application](%{url})",
-      "termsWithPartnership": "Je valide [les Conditions Générales de %{partnerName}](%{url}) et j'accepte la transmission de mes données à son partenaire Cozy Cloud.",
       "message": {
         "version_error": "Une erreur s'est produite lors de la récupération des informations de cette application. Raison : %{message}",
         "install_error": "Une erreur s'est produite lors de l'installation de cette application sur votre Cozy. Raison : %{message}"

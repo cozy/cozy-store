@@ -57,8 +57,6 @@
       "cancel": "Annuleren",
       "install": "Installeren",
       "update": "Bijwerken",
-      "terms": "Ik heb de [aan deze app verbonden Algemene Voorwaarden](%{url}) gelezen en ga akkoord",
-      "termsWithPartnership": "Ik ga akkoord met [de algemene voorwaarden van %{partnerName} ](%{url}) en het synchroniseren van mijn gegevens naar Cozy Cloud.",
       "message": {
         "version_error": "Er is een fout opgetreden tijdens het ophalen van de appinformatie. Reden: %{message}",
         "install_error": "Er is een fout opgetreden tijdens het installeren van de app. Reden: %{message}"

@@ -57,8 +57,6 @@
       "cancel": "Abbrechen",
       "install": "Installieren",
       "update": "Aktualisieren",
-      "terms": "I have read and I accept [this application related ToS](%{url})",
-      "termsWithPartnership": "I accept [the %{partnerName} Terms of Service](%{url}) and I accept the transmission of my data to its partner Cozy Cloud.",
       "message": {
         "version_error": "Etwas ist schiefgelaufen beim Laden der Informationen der Anwendung. Grund: %{message}",
         "install_error": "Etwas ist schiefgelaufen beim Installieren der Anwendung in deinem Cozy. Grund: %{message}"
