@@ -34,7 +34,6 @@ import {
   RESTORE_APP,
   SAVE_APP
 } from './reducers'
-import termUtils from './terms'
 
 export { APP_STATE }
 export { APP_TYPE }
@@ -489,7 +488,7 @@ export function uninstallApp(client, app) {
 }
 
 export function installApp(client, app, source, isUpdate = false) {
-  const { slug, type, terms } = app
+  const { slug, type } = app
   return async dispatch => {
     dispatch({ type: INSTALL_APP, slug })
     const handleError = e => {
@@ -502,13 +501,6 @@ export function installApp(client, app, source, isUpdate = false) {
     const queryString = Object.keys(args)
       .map(k => k + '=' + args[k])
       .join('&')
-    if (terms) {
-      try {
-        await termUtils.save(client, terms)
-      } catch (e) {
-        handleError(e)
-      }
-    }
     const verb = isUpdate ? 'PUT' : 'POST'
     const route = type === APP_TYPE.KONNECTOR ? 'konnectors' : 'apps'
     try {
