@@ -5373,16 +5373,16 @@ cozy-client@^27.14.4:
     sift "^6.0.0"
     url-search-params-polyfill "^8.0.0"
 
-cozy-client@^40.2.0:
-  version "40.2.0"
-  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-40.2.0.tgz#477341a3257a498eb1f462fd07856b56b817acd0"
-  integrity sha512-gNBiEAQwHXv5z9X9bCHTTtH/zeDfASdwiD8SlecHiC0+M+EUDTqhTu11/Wl1GlYkef7cpsoVbDiymBS/eqA/eQ==
+cozy-client@^41.8.1:
+  version "41.8.1"
+  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-41.8.1.tgz#3ac52546ea87a0a4bfa03b8c43acc4bd54e5e6ed"
+  integrity sha512-gUxUgRIxiBwRnSmOiLUjL2mqiaeHg2vfzXIQ47d1RdWQ64g4nNwgSXEY0rvCk2MaVVqACEcKVNKvK+CyxUp+Gw==
   dependencies:
     "@cozy/minilog" "1.0.0"
     "@types/jest" "^26.0.20"
     "@types/lodash" "^4.14.170"
     btoa "^1.2.1"
-    cozy-stack-client "^40.2.0"
+    cozy-stack-client "^41.2.0"
     date-fns "2.29.3"
     json-stable-stringify "^1.0.1"
     lodash "^4.17.13"
@@ -5575,10 +5575,10 @@ cozy-stack-client@^27.26.0:
     mime "^2.4.0"
     qs "^6.7.0"
 
-cozy-stack-client@^40.2.0:
-  version "40.2.0"
-  resolved "https://registry.yarnpkg.com/cozy-stack-client/-/cozy-stack-client-40.2.0.tgz#e1b1845dd0360efc1774dfeda3ee57b134484a01"
-  integrity sha512-vhLnEoRlsdvrtAVjM3gKX6VPUprtu8b0Uu7mlZwjL0gyPgBVCTaqUF4w2I1kH+xvvZuuLTp//vJFfZhXuF1vkg==
+cozy-stack-client@^41.2.0:
+  version "41.2.0"
+  resolved "https://registry.yarnpkg.com/cozy-stack-client/-/cozy-stack-client-41.2.0.tgz#0844c2680a6a5c70dba5caccaa2dbd23a78c3c20"
+  integrity sha512-q6y9YUg2Qxd9cK86a2sw1IgdlJSOJa1rMRh0/GSMeGIQ6seKmmheRl/aF/KeHoXkyDV9T7OkE+vF8dmDLU2cAQ==
   dependencies:
     detect-node "^2.0.4"
     mime "^2.4.0"
@@ -11094,9 +11094,9 @@ ms@^2.0.0:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
   integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
 
-"mui-bottom-sheet@git+https://github.com/cozy/mui-bottom-sheet.git#v1.0.9":
+"mui-bottom-sheet@https://github.com/cozy/mui-bottom-sheet.git#v1.0.9":
   version "1.0.8"
-  resolved "git+https://github.com/cozy/mui-bottom-sheet.git#3dc4c2a245ab39079bc2f73546bccf80847be14c"
+  resolved "https://github.com/cozy/mui-bottom-sheet.git#3dc4c2a245ab39079bc2f73546bccf80847be14c"
   dependencies:
     "@juggle/resize-observer" "^3.1.3"
     jest-environment-jsdom-sixteen "^1.0.3"
