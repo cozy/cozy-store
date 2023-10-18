@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { useClient } from 'cozy-client'
-import { isMobile, isIOS } from 'cozy-device-helper'
+import { getFlagshipDownloadLink } from 'cozy-client/dist/models/utils'
 import Banner from 'cozy-ui/transpiled/react/Banner'
 import Button from 'cozy-ui/transpiled/react/Buttons'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
@@ -15,11 +15,7 @@ const BannerForFlagshipApp = ({
   const { t, lang } = useI18n()
   const client = useClient()
 
-  const downloadLink = !isMobile()
-    ? `https://cozy.io/${lang}/download`
-    : isIOS()
-    ? `https://apps.apple.com/${lang}/app/id1600636174`
-    : `https://play.google.com/store/apps/details?id=io.cozy.flagship.mobile&hl=${lang}`
+  const downloadLink = getFlagshipDownloadLink(lang)
 
   const handleClick = () => {
     setHasDismissedFlagshipAppBanner(true)
