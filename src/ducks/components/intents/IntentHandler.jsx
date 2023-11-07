@@ -2,8 +2,8 @@ import React, { Children, Component } from 'react'
 
 import { withClient } from 'cozy-client'
 import Intents from 'cozy-interapp'
-import { translate } from 'cozy-ui/transpiled/react/I18n'
 import Spinner from 'cozy-ui/transpiled/react/Spinner'
+import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
 
 const CREATING = 'creating'
 const CREATED = 'created'

@@ -2,12 +2,12 @@ import PermissionsList from 'ducks/apps/components/PermissionsList'
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
-import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import Portal from 'cozy-ui/transpiled/react/Portal'
 import Modal, {
   ModalContent,
   ModalHeader
 } from 'cozy-ui/transpiled/react/deprecated/Modal'
+import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
 export const PermissionsModal = ({ app, parent }) => {
   const { t } = useI18n()

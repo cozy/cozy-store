@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
-import { translate } from 'cozy-ui/transpiled/react/I18n'
 import Modal, { ModalContent } from 'cozy-ui/transpiled/react/deprecated/Modal'
+import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
 
 export class Gallery extends Component {
   constructor(props) {

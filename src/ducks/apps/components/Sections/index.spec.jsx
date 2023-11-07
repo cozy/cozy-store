@@ -9,8 +9,8 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 
 import CozyClient, { CozyProvider } from 'cozy-client'
-import I18n from 'cozy-ui/transpiled/react/I18n'
-import { BreakpointsProvider } from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
+import { BreakpointsProvider } from 'cozy-ui/transpiled/react/providers/Breakpoints'
+import I18n from 'cozy-ui/transpiled/react/providers/I18n'
 
 import enLocale from '../../../../locales/en.json'
 

@@ -3,7 +3,7 @@ import 'cozy-ui/dist/cozy-ui.utils.min.css'
 import 'cozy-ui/transpiled/react/stylesheet.css'
 import 'styles'
 
-import { BreakpointsProvider } from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
+import { BreakpointsProvider } from 'cozy-ui/transpiled/react/providers/Breakpoints'
 import InstallAppIntent from 'ducks/components/intents/InstallAppIntent'
 import IntentHandler from 'ducks/components/intents/IntentHandler'
 import schema from 'lib/schema'

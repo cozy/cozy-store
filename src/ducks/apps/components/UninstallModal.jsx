@@ -8,7 +8,6 @@ import { connect } from 'react-redux'
 import { withClient } from 'cozy-client'
 import Intents from 'cozy-interapp'
 import Buttons from 'cozy-ui/transpiled/react/Buttons'
-import { translate } from 'cozy-ui/transpiled/react/I18n'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import TrashIcon from 'cozy-ui/transpiled/react/Icons/Trash'
 import Portal from 'cozy-ui/transpiled/react/Portal'
@@ -17,6 +16,7 @@ import Modal, {
   ModalDescription,
   ModalFooter
 } from 'cozy-ui/transpiled/react/deprecated/Modal'
+import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
 
 export class UninstallModal extends Component {
   constructor(props) {

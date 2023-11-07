@@ -7,10 +7,10 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { withClient } from 'cozy-client'
-import { translate } from 'cozy-ui/transpiled/react/I18n'
 import IntentHeader from 'cozy-ui/transpiled/react/IntentHeader'
 import Portal from 'cozy-ui/transpiled/react/Portal'
 import Modal from 'cozy-ui/transpiled/react/deprecated/Modal'
+import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
 
 export class InstallModal extends Component {
   constructor(props) {

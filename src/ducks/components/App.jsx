@@ -8,11 +8,11 @@ import { connect } from 'react-redux'
 
 import { withClient } from 'cozy-client'
 import flag, { FlagSwitcher } from 'cozy-flags'
-import { translate } from 'cozy-ui/transpiled/react/I18n'
 import IconSprite from 'cozy-ui/transpiled/react/Icon/Sprite'
 import { Layout, Main } from 'cozy-ui/transpiled/react/Layout'
 import Alerter from 'cozy-ui/transpiled/react/deprecated/Alerter'
-import { BreakpointsProvider } from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
+import { BreakpointsProvider } from 'cozy-ui/transpiled/react/providers/Breakpoints'
+import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
 
 export class App extends Component {
   constructor(props) {

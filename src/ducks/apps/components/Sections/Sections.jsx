@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom'
 
 import AppSections from 'cozy-ui/transpiled/react/AppSections'
 import * as filterUtils from 'cozy-ui/transpiled/react/AppSections/search'
-import { useI18n } from 'cozy-ui/transpiled/react/I18n'
+import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
 import Filters from './components/Filters'
 

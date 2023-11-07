@@ -7,8 +7,8 @@ import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
 import { getTranslatedManifestProperty } from 'lib/helpers'
 import React from 'react'
 
-import { translate } from 'cozy-ui/transpiled/react/I18n'
 import Icon from 'cozy-ui/transpiled/react/Icon'
+import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
 
 export const Permission = ({ description, label, type, t }) => {
   const permIconName = PERMISSIONS_ICONS[type] || 'fallback'

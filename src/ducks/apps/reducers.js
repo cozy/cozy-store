@@ -2,7 +2,7 @@
 
 import { combineReducers } from 'redux'
 
-import { extend as extendI18n } from 'cozy-ui/transpiled/react/I18n'
+import { extend as extendI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
 // initial loading
 export const LOADING_APP = 'LOADING_APP'

@@ -8,9 +8,9 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { useMatch, useSearchParams } from 'react-router-dom'
 
-import { translate } from 'cozy-ui/transpiled/react/I18n'
 import { Content } from 'cozy-ui/transpiled/react/Layout'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
+import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
 
 export class Discover extends Component {
   constructor(props) {

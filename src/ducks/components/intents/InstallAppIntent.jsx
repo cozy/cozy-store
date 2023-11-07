@@ -14,9 +14,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { withClient } from 'cozy-client'
-import { translate } from 'cozy-ui/transpiled/react/I18n'
 import IntentHeader from 'cozy-ui/transpiled/react/IntentHeader'
 import Spinner from 'cozy-ui/transpiled/react/Spinner'
+import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
 
 const errorKeys = {
   alreadyInstalledError: 'intent.install.error.installed',
