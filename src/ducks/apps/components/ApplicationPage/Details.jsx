@@ -11,10 +11,10 @@ import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 import { useClient } from 'cozy-client'
-import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import Toggle from 'cozy-ui/transpiled/react/Toggle'
 import { Button } from 'cozy-ui/transpiled/react/deprecated/Button'
+import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
 const platformIcons = {
   ios: iosIcon,

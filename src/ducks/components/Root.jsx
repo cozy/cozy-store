@@ -5,8 +5,8 @@ import { HashRouter } from 'react-router-dom'
 
 import { CozyProvider } from 'cozy-client'
 import { WebviewIntentProvider } from 'cozy-intent'
-import CozyTheme from 'cozy-ui/transpiled/react/CozyTheme'
-import { I18n } from 'cozy-ui/transpiled/react/I18n'
+import CozyTheme from 'cozy-ui/transpiled/react/providers/CozyTheme'
+import { I18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
 const Root = ({ client, lang = 'en', store }) => {
   if (!client) return null

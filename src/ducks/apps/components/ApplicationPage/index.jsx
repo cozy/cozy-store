@@ -18,10 +18,10 @@ import { Link, useMatch, useParams } from 'react-router-dom'
 import { withClient } from 'cozy-client'
 import AppIcon from 'cozy-ui/transpiled/react/AppIcon'
 import BarContextProvider from 'cozy-ui/transpiled/react/BarContextProvider'
-import { translate } from 'cozy-ui/transpiled/react/I18n'
 import Left from 'cozy-ui/transpiled/react/Icons/Left'
 import Button from 'cozy-ui/transpiled/react/deprecated/Button'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
+import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
 
 const MOBILE_PLATFORMS = ['ios', 'android']
 const isMobilePlatform = name => MOBILE_PLATFORMS.includes(name)

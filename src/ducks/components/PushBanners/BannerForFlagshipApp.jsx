@@ -4,9 +4,9 @@ import { useClient } from 'cozy-client'
 import { getFlagshipDownloadLink } from 'cozy-client/dist/models/utils'
 import Banner from 'cozy-ui/transpiled/react/Banner'
 import Button from 'cozy-ui/transpiled/react/Buttons'
-import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import DevicePhoneIcon from 'cozy-ui/transpiled/react/Icons/DevicePhone'
+import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
 const BannerForFlagshipApp = ({
   setting,

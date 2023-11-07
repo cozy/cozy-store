@@ -5,14 +5,14 @@ import ActionsMenu from 'cozy-ui/transpiled/react/ActionsMenu'
 import { makeActions } from 'cozy-ui/transpiled/react/ActionsMenu/Actions'
 import ActionsMenuItem from 'cozy-ui/transpiled/react/ActionsMenu/ActionsMenuItem'
 import Button from 'cozy-ui/transpiled/react/Buttons'
-import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import IconButton from 'cozy-ui/transpiled/react/IconButton'
 import SettingIcon from 'cozy-ui/transpiled/react/Icons/Setting'
 import ListItemIcon from 'cozy-ui/transpiled/react/ListItemIcon'
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 import Radio from 'cozy-ui/transpiled/react/Radios'
-import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
+import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
+import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
 const Filters = ({ filter, onFilterChange }) => {
   const anchorRef = useRef(null)

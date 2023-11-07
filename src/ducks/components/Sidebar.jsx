@@ -6,7 +6,6 @@ import isNavigationEnabled from 'lib/isNavigationEnabled'
 import React, { Fragment } from 'react'
 import { NavLink as RouterLink, useLocation } from 'react-router-dom'
 
-import { translate } from 'cozy-ui/transpiled/react/I18n'
 import Nav, {
   NavLink,
   NavItem,
@@ -15,6 +14,7 @@ import Nav, {
 } from 'cozy-ui/transpiled/react/Nav'
 import Sidebar from 'cozy-ui/transpiled/react/Sidebar'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
+import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
 
 const configMap = {
   discover: {

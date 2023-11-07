@@ -1,9 +1,9 @@
 import voteIllustration from 'assets/icons/app-vote.svg'
 import React from 'react'
 
-import { translate } from 'cozy-ui/transpiled/react/I18n'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import PopupOpener from 'cozy-ui/transpiled/react/PopupOpener'
+import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
 
 const VOTING_LINK = 'https://feedback.cozy.io/'
 
