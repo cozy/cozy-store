@@ -5,7 +5,8 @@ import Icon from 'cozy-ui/transpiled/react/Icon'
 import PopupOpener from 'cozy-ui/transpiled/react/PopupOpener'
 import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
 
-const VOTING_LINK = 'https://feedback.cozy.io/'
+const VOTING_LINK =
+  'https://portal.productboard.com/apgt1jwdsjitcdcz888fbjxt/tabs/5-wish-list'
 
 export const AppVote = ({ t }) => (
   <PopupOpener

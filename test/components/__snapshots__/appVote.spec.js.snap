@@ -5,7 +5,7 @@ exports[`AppVote component should be rendered correctly 1`] = `
   className="sto-app-vote-wrapper"
   height={700}
   title="Cozy app voting"
-  url="https://feedback.cozy.io/"
+  url="https://portal.productboard.com/apgt1jwdsjitcdcz888fbjxt/tabs/5-wish-list"
   width={650}
 >
   <div
