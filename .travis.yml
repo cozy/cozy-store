@@ -4,8 +4,8 @@ node_js:
 branches:
   only:
     - master
-    # tags
-    - /^\d+\.\d+\.\d+(\-beta.\d+)?$/
+    # detect also branch like release/x.y.z or release/x.y.z-beta.n
+    - /^release\/\d+\.\d+\.\d+(\-beta.\d+)?$/
 env:
   global:
     - TARGETS_DEV=recette.cozy.works
