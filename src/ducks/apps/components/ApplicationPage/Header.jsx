@@ -15,11 +15,13 @@ import { withClient } from 'cozy-client'
 import { isFlagshipApp } from 'cozy-device-helper'
 import { useWebviewIntent } from 'cozy-intent'
 import Intents from 'cozy-interapp'
-import log from 'cozy-logger'
+import minilog from 'cozy-minilog'
 import AppIcon from 'cozy-ui/transpiled/react/AppIcon'
 import Button from 'cozy-ui/transpiled/react/deprecated/Button'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
+
+const log = minilog('Header')
 
 export const Header = ({
   t,
@@ -57,7 +59,7 @@ export const Header = ({
             return service.terminate(app)
           }
         } catch (error) {
-          log('info', error, 'openConnector')
+          log.error('Error on openConnector', error)
         }
       }
 
