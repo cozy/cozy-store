@@ -15,6 +15,7 @@ import { withClient } from 'cozy-client'
 import { isFlagshipApp } from 'cozy-device-helper'
 import { useWebviewIntent } from 'cozy-intent'
 import Intents from 'cozy-interapp'
+import log from 'cozy-logger'
 import AppIcon from 'cozy-ui/transpiled/react/AppIcon'
 import Button from 'cozy-ui/transpiled/react/deprecated/Button'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
@@ -29,7 +30,8 @@ export const Header = ({
   parent,
   isInstalling,
   breakpoints = {},
-  client
+  client,
+  intentData
 }) => {
   const { search } = useLocation()
   const webviewIntent = useWebviewIntent()
@@ -41,11 +43,24 @@ export const Header = ({
     openApp(webviewIntent, app)
   }
 
-  const openConnector = () => {
+  const openConnector = async () => {
     if (isFlagshipApp()) {
       return webviewIntent.call('openApp', app.related, app)
     } else {
       const intents = new Intents({ client })
+      // `intents.createService` throw an error if executed outside of an Intent iframe or if it is called without intentId.
+      if (intentData) {
+        try {
+          const service = await intents.createService()
+
+          if (intentData.data.terminateIfInstalled) {
+            return service.terminate(app)
+          }
+        } catch (error) {
+          log('info', error, 'openConnector')
+        }
+      }
+
       return intents.redirect('io.cozy.accounts', {
         konnector: app.slug
       })

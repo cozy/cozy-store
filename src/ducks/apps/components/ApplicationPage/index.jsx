@@ -177,6 +177,7 @@ export class ApplicationPage extends Component {
               name={appName}
               description={appShortDesc}
               parent={parent}
+              intentData={intentData}
             />
             {app.screenshots && !!app.screenshots.length && (
               <Gallery slug={slug} images={app.screenshots} />

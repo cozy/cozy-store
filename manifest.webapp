@@ -39,7 +39,8 @@
       "data": [
         "slug",
         "category",
-        "pageToDisplay"
+        "pageToDisplay",
+        "terminateIfInstalled"
       ],
       "href": "/intents",
       "type": [

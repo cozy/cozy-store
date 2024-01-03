@@ -106,7 +106,7 @@ describe('AppsSection component', () => {
       expect(mockOnAppClick).toBeCalled()
     })
 
-    it("should not call onAppClick when clicking on the app, if it's already installed", () => {
+    it("should call onAppClick when clicking on the app, if it's already installed", () => {
       const trinlaneApp = mockApps.find(app => app.name === 'Trinlane') || {}
       const mockTrinlaneApp = [{ ...trinlaneApp, installed: true }]
       const mockOnAppClick = jest.fn()
@@ -120,7 +120,7 @@ describe('AppsSection component', () => {
 
       expect(() => root.getByText('Trinlane')).not.toThrow()
       fireEvent.click(root.getByText('Trinlane'))
-      expect(mockOnAppClick).not.toBeCalled()
+      expect(mockOnAppClick).toBeCalled()
     })
   })
 })
@@ -167,7 +167,7 @@ describe('Search', () => {
   })
 
   describe('In Intent', () => {
-    it("should not call onAppClick when clicking on the app, if it's already installed", () => {
+    it("should call onAppClick when clicking on the app, if it's already installed", () => {
       const trinlaneApp = mockApps.find(app => app.name === 'Trinlane') || {}
       const mockTrinlaneApp = [{ ...trinlaneApp, installed: true }]
       const mockOnAppClick = jest.fn()
@@ -186,7 +186,7 @@ describe('Search', () => {
       expect(() => root.getByText('Trinlane')).not.toThrow()
 
       fireEvent.click(root.getByText('Trinlane'))
-      expect(mockOnAppClick).not.toBeCalled()
+      expect(mockOnAppClick).toBeCalled()
     })
   })
 })
