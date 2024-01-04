@@ -33,11 +33,12 @@ const AppLike = ({ children } = {}) => {
 const setup = ({
   slug = undefined,
   category = undefined,
+  qualificationLabels = undefined,
   pageToDisplay = undefined,
   isInstalled = false,
   hasWebappSucceed = false
 } = {}) => {
-  const data = { pageToDisplay, category, slug }
+  const data = { pageToDisplay, category, slug, qualificationLabels }
   const props = {
     data,
     isInstalled,
@@ -80,10 +81,11 @@ describe('InstallAppIntentContent component', () => {
   })
 
   describe('App is not installed', () => {
-    it('should be render AppInstallation if "pageToDisplay" & "category" props are falsy', () => {
+    it('should be render AppInstallation if "pageToDisplay", "qualificationLabels" & "category" props are falsy', () => {
       const { getByTestId, queryByTestId } = setup({
         pageToDisplay: undefined,
-        category: undefined
+        category: undefined,
+        qualificationLabels: undefined
       })
       expect(getByTestId('AppInstallation')).toBeInTheDocument()
       expect(queryByTestId('OpenAppsIntentRoutes')).toBeNull()
@@ -93,7 +95,8 @@ describe('InstallAppIntentContent component', () => {
     it('should be render OpenAppsIntentRoutes if "pageToDisplay" prop is defined & not equal to "permissions"', () => {
       const { getByTestId, queryByTestId } = setup({
         pageToDisplay: 'details',
-        category: undefined
+        category: undefined,
+        qualificationLabels: undefined
       })
       expect(getByTestId('OpenAppsIntentRoutes')).toBeInTheDocument()
       expect(queryByTestId('AppInstallation')).toBeNull()
@@ -103,7 +106,8 @@ describe('InstallAppIntentContent component', () => {
     it('should be render OpenAppsIntentRoutes if "category" prop is truthy even if "pageToDisplay" is undefined', () => {
       const { getByTestId, queryByTestId } = setup({
         pageToDisplay: undefined,
-        category: 'energy'
+        category: 'energy',
+        qualificationLabels: undefined
       })
       expect(getByTestId('OpenAppsIntentRoutes')).toBeInTheDocument()
       expect(queryByTestId('AppInstallation')).toBeNull()
@@ -113,7 +117,52 @@ describe('InstallAppIntentContent component', () => {
     it('should be render OpenAppsIntentRoutes if "category" prop is truthy even if "pageToDisplay" is et to "permission"', () => {
       const { getByTestId, queryByTestId } = setup({
         pageToDisplay: 'permissions',
-        category: 'energy'
+        category: 'energy',
+        qualificationLabels: undefined
+      })
+      expect(getByTestId('OpenAppsIntentRoutes')).toBeInTheDocument()
+      expect(queryByTestId('AppInstallation')).toBeNull()
+      expect(queryByTestId('InstallSuccess')).toBeNull()
+    })
+
+    it('should be render OpenAppsIntentRoutes if "category" & "qualificationLabels" props are truthy even if "pageToDisplay" is undefined', () => {
+      const { getByTestId, queryByTestId } = setup({
+        pageToDisplay: undefined,
+        category: 'energy',
+        qualificationLabels: 'pay_sheet'
+      })
+      expect(getByTestId('OpenAppsIntentRoutes')).toBeInTheDocument()
+      expect(queryByTestId('AppInstallation')).toBeNull()
+      expect(queryByTestId('InstallSuccess')).toBeNull()
+    })
+
+    it('should be render OpenAppsIntentRoutes if "category" & "qualificationLabels" props are truthy even if "pageToDisplay" is et to "permission"', () => {
+      const { getByTestId, queryByTestId } = setup({
+        pageToDisplay: 'permissions',
+        category: 'energy',
+        qualificationLabels: 'pay_sheet'
+      })
+      expect(getByTestId('OpenAppsIntentRoutes')).toBeInTheDocument()
+      expect(queryByTestId('AppInstallation')).toBeNull()
+      expect(queryByTestId('InstallSuccess')).toBeNull()
+    })
+
+    it('should be render OpenAppsIntentRoutes if "qualificationLabels" prop is truthy even if "pageToDisplay" is undefined', () => {
+      const { getByTestId, queryByTestId } = setup({
+        pageToDisplay: undefined,
+        category: undefined,
+        qualificationLabels: 'pay_sheet'
+      })
+      expect(getByTestId('OpenAppsIntentRoutes')).toBeInTheDocument()
+      expect(queryByTestId('AppInstallation')).toBeNull()
+      expect(queryByTestId('InstallSuccess')).toBeNull()
+    })
+
+    it('should be render OpenAppsIntentRoutes if "qualificationLabels" prop is truthy even if "pageToDisplay" is et to "permission"', () => {
+      const { getByTestId, queryByTestId } = setup({
+        pageToDisplay: 'permissions',
+        category: undefined,
+        qualificationLabels: 'pay_sheet'
       })
       expect(getByTestId('OpenAppsIntentRoutes')).toBeInTheDocument()
       expect(queryByTestId('AppInstallation')).toBeNull()
