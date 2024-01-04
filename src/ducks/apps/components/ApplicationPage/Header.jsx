@@ -14,11 +14,12 @@ import { Link, useLocation } from 'react-router-dom'
 import { withClient } from 'cozy-client'
 import { isFlagshipApp } from 'cozy-device-helper'
 import { useWebviewIntent } from 'cozy-intent'
-import Intents from 'cozy-interapp'
 import AppIcon from 'cozy-ui/transpiled/react/AppIcon'
 import Button from 'cozy-ui/transpiled/react/deprecated/Button'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
+
+import { handleIntent } from './helpers'
 
 export const Header = ({
   t,
@@ -29,7 +30,8 @@ export const Header = ({
   parent,
   isInstalling,
   breakpoints = {},
-  client
+  client,
+  intentData
 }) => {
   const { search } = useLocation()
   const webviewIntent = useWebviewIntent()
@@ -41,14 +43,11 @@ export const Header = ({
     openApp(webviewIntent, app)
   }
 
-  const openConnector = () => {
+  const openConnector = async () => {
     if (isFlagshipApp()) {
       return webviewIntent.call('openApp', app.related, app)
     } else {
-      const intents = new Intents({ client })
-      return intents.redirect('io.cozy.accounts', {
-        konnector: app.slug
-      })
+      handleIntent(client, intentData, app)
     }
   }
 

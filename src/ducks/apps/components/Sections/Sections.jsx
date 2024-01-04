@@ -102,17 +102,6 @@ const Sections = ({
 
   if (error) return <p className="u-error">{error.message}</p>
 
-  const componentsProps = {
-    ...(!!intentData && {
-      appsSection: {
-        disableClick: app => app.installed
-      },
-      searchResults: {
-        disableClick: app => app.installed
-      }
-    })
-  }
-
   return (
     <div className="sto-sections u-mt-2">
       <div className="u-flex u-flex-items-center u-mb-1">
@@ -128,11 +117,7 @@ const Sections = ({
         )}
       </div>
       {searchResults ? (
-        <SearchResults
-          searchResults={searchResults}
-          onAppClick={onAppClick}
-          {...componentsProps?.searchResults}
-        />
+        <SearchResults searchResults={searchResults} onAppClick={onAppClick} />
       ) : (
         <AppSections
           search={filter}
@@ -140,7 +125,6 @@ const Sections = ({
           onSearchChange={handleFilterChange}
           apps={apps}
           onAppClick={onAppClick}
-          componentsProps={componentsProps}
         />
       )}
     </div>
