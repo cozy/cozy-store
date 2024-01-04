@@ -114,13 +114,13 @@ export class InstallAppIntent extends Component {
       t
     } = this.props
     const { hasWebappSucceed } = this.state
-    const { category } = data || {}
+    const { category, qualificationLabels } = data || {}
 
     const fetching = isFetching || isAppFetching
     const isReady = !fetchError && !fetching && !isAppFetching
     const isInstalled = app && app.installed
 
-    const appError = isReady && !app && !category
+    const appError = isReady && !app && !category && !qualificationLabels
     const errors = {
       alreadyInstalledError: isInstalled,
       fetchError,

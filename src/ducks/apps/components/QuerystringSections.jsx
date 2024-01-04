@@ -79,7 +79,12 @@ const QuerystringSections = props => {
       return {
         ...filter,
         type: 'konnector',
-        ...(intentData.data?.category && { category: intentData.data.category })
+        ...(intentData.data?.category && {
+          category: intentData.data.category
+        }),
+        ...(intentData.data?.qualificationLabels && {
+          qualificationLabels: intentData.data.qualificationLabels
+        })
       }
     }
     return filter

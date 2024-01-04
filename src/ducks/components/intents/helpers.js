@@ -1,4 +1,8 @@
 export const isPermissionsPageToDisplay = data => {
-  const { pageToDisplay, category } = data || {}
-  return !category && (!pageToDisplay || pageToDisplay === 'permissions')
+  const { pageToDisplay, category, qualificationLabels } = data || {}
+  return (
+    !category &&
+    !qualificationLabels &&
+    (!pageToDisplay || pageToDisplay === 'permissions')
+  )
 }

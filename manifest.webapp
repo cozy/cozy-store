@@ -39,6 +39,7 @@
       "data": [
         "slug",
         "category",
+        "qualificationLabels",
         "pageToDisplay",
         "terminateIfInstalled"
       ],
