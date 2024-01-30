@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  pointer-events: none; /* Prevents click events on the wrapper */
 }
 
 .sto-app-vote {
@@ -16,6 +17,7 @@
   border-radius: 2px;
   border: 1px var(--silver) dashed;
   padding: 0 1rem;
+  pointer-events: all; /* Allows click events on the vote component */
 }
 
 .sto-app-vote:hover,
