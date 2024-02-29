@@ -1,10 +1,13 @@
 language: node_js
 node_js:
   - '16'
+dist: jammy
+cache:
+  npm: false
 branches:
   only:
     - master
-    # tags
+     # detect also tag like x.y.z or x.y.z-beta.n as travis consider them to be branches
     - /^\d+\.\d+\.\d+(\-beta.\d+)?$/
 env:
   global:
@@ -23,30 +26,25 @@ env:
     - secure: Rzwv3lOB33fDHFmeRx/Rc4dhn+2GmaTebF/BnmRlxom5MKfKILD2LYq9gUK0jrPDiJjubsC57ySCfGdsBHwT8YnGubKOskH2jDDaD4bIZHaQUHDgGWOIph84Jqf4FP/x2jMSR5jyM4HLkmnFtWACa7saKaIp79/zZLIbas/RjSACw1SqdpHQw7SBSYeALJGmyDTcwcf5wE2tRrhTCsUNuhKrCvB9STNsJT5lWSCsi7WjcKGj3h5OQSMc58A+QYesgwxOx1omZIWBT2+qlNd4Hw3+nciGAI+IhpLJ4Utj+DIIukMzFyrHXHuQPl9875sXwOqPP8TaTO+B5gZs39abvgueDxQhg7IiTAcGvm9RukZSpYU3V/Lusdpsxpmv8wxBdUcOJ2YEn2TD0+D/kFEdhQyKiB9EKGDtCOEryrbfU+XviexaHq1mcVO7Ho6vbTkY6hKOdavvV7jVP2tO5G43BD2zI5dtd3M78pWsdiWr5/U9t3YRvOCFE6J75fu1ThjH0DeOd401gCY8ooQdiq+meKONB8jVsKxqkBeRrXm8z3fGS6dQyfyLMbEX/ZiZkhKwxXG8FF+nJjFpM32Cn/vO67xi8fy2uayG8b0dw1SMUAIxKWh4L4xvpHf8ZsBOXBi+JEQXkaAxdzGtDd5/4G+ZSFCljjYD8PwGCJ7XQSfXuI8=
     # REGISTRY_TOKEN
     - secure: lG8EXRnx6k/pS5ABk1UJl1743VSEU9GXmya/z0cIhgeSiQ9IWpQoS3Kdk5ZDgm35Sm/MnBvcfFPbqsWGLIXGYBEV9TW7kf7I0JL/x8doG+otau2fHT54J1yC4lzpJbxgwnmsEo6iusaiqTthrDO4BV5tboB0YarJIfZ56q/ASGB/18oTafItVC73x8iH9hiX6n1MjqFyVAfmyBoUAOKI4m83ijB+LyqbOLWpZg3LCD5LxbIRAqG/+a/AOBRl5gvH9z5+ZIJZD2JYBlkhnQL9rZ65Q2lLH5N8BbaC/85IZTEUb4zBV0qgO9suZepMM5TNmYKy7Ix70z+FgAEwGkLEEB2KbMya9ZoL+mu+ImffsSs2CIT9OJxNpT0yWwRnXUvI7VgT8bJuirMTWCVPDO5qmW7uKED0PFd7Q/7MnqWQhqoHAt4xa7lYQvKbfs8ISMbiWlLXyaqRT3hdrZnBJ89Vrotu5eu2ce5sCgS4FcKEAWZ0NwATqkJHMf23H88gD7VrIqYQpX/DM5vuw2rCAVcBcbdOI5CEyt8foF6Ib9aSNGd7whLLcTxue7x7vPj658nfzS8hiZQcBiyQvKiLy5lGfBQ7T7edilFWX91HfnO2dACWtZJfVw0DrXu8G6HKuJM77wwrMZanTXw82oWxiyCRn0EGgmYYBNFn5dj3Vzd/ZmM=
-cache: yarn
 stages:
   - prebuild
   - build
 jobs:
   include:
-    - name: 'Lint'
-      stage: 'prebuild'
-      before_install:
-        # The default version of yarn on travis is very old and does not install the correct version of eslint-preset-cozy-app
-        - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.17.3
-        - export PATH=$HOME/.yarn/bin:$PATH
+    - name: "Lint"
+      stage: "prebuild"
       script: yarn lint
-    - name: 'Tests'
-      stage: 'prebuild'
-      before_install:
-        - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.17.3
-        - export PATH=$HOME/.yarn/bin:$PATH
+    - name: "Unit tests node 16"
+      stage: "prebuild"
+      node_js: 16
+      script: yarn test
+    - name: "Unit tests node 20"
+      stage: "prebuild"
+      node_js: 20
       script: yarn test
     - name: 'Build app'
       stage: 'build'
       before_install:
-        - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.17.3
-        - export PATH=$HOME/.yarn/bin:$PATH
         - if [ "$TRAVIS_SECURE_ENV_VARS" != "false" ]; then openssl aes-256-cbc -K $encrypted_e8e75da126d5_key -iv $encrypted_e8e75da126d5_iv -in deploy/id_rsa_downcloud_cozy-store.enc -out /tmp/id_rsa_downcloud_cozy-store -d; fi
         - if [ "$TRAVIS_SECURE_ENV_VARS" != "false" ]; then eval "$(ssh-agent -s)"; fi
         - if [ "$TRAVIS_SECURE_ENV_VARS" != "false" ]; then chmod 600 /tmp/id_rsa_downcloud_cozy-store; fi
