@@ -93,8 +93,9 @@ export class InstallAppIntent extends Component {
       this.setState(() => ({
         hasKonnectorSucceed: true
       }))
-      onTerminate(this.props.app)
     }
+
+    onTerminate(app)
   }
 
   handleTerminate = () => {
@@ -116,7 +117,9 @@ export class InstallAppIntent extends Component {
     const { hasWebappSucceed } = this.state
     const { category, qualificationLabels } = data || {}
 
-    const fetching = isFetching || isAppFetching
+    // If `hasWebappSucceed` is true, we assume we're in the process of executing the onSuccess callback,
+    // In that case we want to display the spinner instead of nothing
+    const fetching = isFetching || isAppFetching || hasWebappSucceed
     const isReady = !fetchError && !fetching && !isAppFetching
     const isInstalled = app && app.installed
 
@@ -127,8 +130,12 @@ export class InstallAppIntent extends Component {
       installError,
       appError
     }
+    // If the app is installed, we don't want to display that it is already installed as it is redundant
     const errorKey = Object.keys(errors).reduce(
-      (final, key) => (errors[key] ? errorKeys[key] : final),
+      (final, key) =>
+        errors[key] && !(hasWebappSucceed && key === 'alreadyInstalledError')
+          ? errorKeys[key]
+          : final,
       null
     )
     const error = !!errorKey && new Error(t(errorKey))
