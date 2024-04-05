@@ -38,7 +38,7 @@
     "@typescript-eslint/eslint-plugin": "5.54.0",
     "@typescript-eslint/parser": "5.54.0",
     "babel-preset-cozy-app": "^2.1.0",
-    "cozy-scripts": "^8.1.1",
+    "cozy-scripts": "^8.3.0",
     "cozy-tsconfig": "^1.2.0",
     "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "1.15.6",
