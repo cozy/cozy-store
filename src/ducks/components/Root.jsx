@@ -3,6 +3,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { HashRouter } from 'react-router-dom'
 
+import { BarProvider } from 'cozy-bar'
 import { CozyProvider } from 'cozy-client'
 import { WebviewIntentProvider } from 'cozy-intent'
 import CozyTheme from 'cozy-ui/transpiled/react/providers/CozyTheme'
@@ -16,9 +17,11 @@ const Root = ({ client, lang = 'en', store }) => {
         <I18n lang={lang} dictRequire={lang => require(`locales/${lang}`)}>
           <CozyProvider client={client}>
             <Provider store={store}>
-              <HashRouter>
-                <App />
-              </HashRouter>
+              <BarProvider>
+                <HashRouter>
+                  <App />
+                </HashRouter>
+              </BarProvider>
             </Provider>
           </CozyProvider>
         </I18n>

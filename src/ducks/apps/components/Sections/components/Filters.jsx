@@ -1,6 +1,6 @@
-/* global cozy */
 import React, { useState, useRef, forwardRef } from 'react'
 
+import { BarRight } from 'cozy-bar'
 import ActionsMenu from 'cozy-ui/transpiled/react/ActionsMenu'
 import { makeActions } from 'cozy-ui/transpiled/react/ActionsMenu/Actions'
 import ActionsMenuItem from 'cozy-ui/transpiled/react/ActionsMenu/ActionsMenuItem'
@@ -30,7 +30,6 @@ const Filters = ({ filter, onFilterChange }) => {
 
   const { isMobile } = useBreakpoints()
   const { t } = useI18n()
-  const { BarRight } = cozy.bar
 
   const showAppUnderMaintenance = () => ({
     name: 'showAppUnderMaintenance',

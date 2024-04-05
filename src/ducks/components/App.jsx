@@ -6,6 +6,7 @@ import compose from 'lodash/flowRight'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import { BarComponent } from 'cozy-bar'
 import { withClient } from 'cozy-client'
 import flag, { FlagSwitcher } from 'cozy-flags'
 import IconSprite from 'cozy-ui/transpiled/react/Icon/Sprite'
@@ -24,6 +25,7 @@ export class App extends Component {
     return (
       <BreakpointsProvider>
         <Layout>
+          <BarComponent />
           {flag('switcher') && <FlagSwitcher />}
           <Alerter />
           <Sidebar />

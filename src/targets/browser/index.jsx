@@ -1,10 +1,10 @@
-/* global cozy */
 import schema from 'lib/schema'
 import store from 'lib/store'
 import React from 'react'
 import { render } from 'react-dom'
 import 'styles'
 
+import 'cozy-bar/dist/stylesheet.css'
 import CozyClient from 'cozy-client'
 import flag from 'cozy-flags'
 import 'cozy-ui/dist/cozy-ui.utils.min.css'
@@ -37,14 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   lang = data.locale
 
-  cozy.bar.init({
-    cozyClient: client,
-    appEditor: data.app.editor,
-    appName: data.app.name,
-    iconPath: data.app.icon,
-    lang: data.locale,
-    replaceTitleOnMobile: true
-  })
+  // replaceTitleOnMobile: true
 
   renderApp({ client, lang })
 })
