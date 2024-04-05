@@ -1,4 +1,3 @@
-/* global cozy */
 import ApplicationRouting from 'ducks/apps/components/ApplicationRouting'
 import Sections from 'ducks/apps/components/QuerystringSections'
 import AppsLoading from 'ducks/components/AppsLoading'
@@ -6,6 +5,7 @@ import { useNavigateNoUpdates, withRouterUtils } from 'lib/RouterUtils'
 import React, { Component } from 'react'
 import { useMatch, useSearchParams } from 'react-router-dom'
 
+import { BarCenter } from 'cozy-bar'
 import { Content } from 'cozy-ui/transpiled/react/Layout'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
@@ -35,7 +35,6 @@ export class MyApplications extends Component {
       isExact
     } = this.props
     const { isMobile } = breakpoints
-    const { BarCenter } = cozy.bar
 
     const title = <h2 className="sto-view-title">{t('myapps.title')}</h2>
     return (

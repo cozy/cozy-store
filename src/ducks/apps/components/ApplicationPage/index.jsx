@@ -1,4 +1,3 @@
-/* global cozy */
 import { getAppIconProps } from 'ducks/apps'
 import Details from 'ducks/apps/components/ApplicationPage/Details'
 import Gallery from 'ducks/apps/components/ApplicationPage/Gallery'
@@ -15,9 +14,8 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { Link, useMatch, useParams } from 'react-router-dom'
 
-import { withClient } from 'cozy-client'
+import { BarCenter } from 'cozy-bar'
 import AppIcon from 'cozy-ui/transpiled/react/AppIcon'
-import BarContextProvider from 'cozy-ui/transpiled/react/BarContextProvider'
 import Left from 'cozy-ui/transpiled/react/Icons/Left'
 import Button from 'cozy-ui/transpiled/react/deprecated/Button'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
@@ -85,11 +83,9 @@ export class ApplicationPage extends Component {
       pauseFocusTrap,
       getApp,
       redirectTo,
-      client,
       intentData
     } = this.props
-    // In case we are in an Intent, `cozy.bar` is undefined and it's not a big deal since we don't need the cozy-bar to be displayed on an intent
-    const { BarCenter } = cozy.bar || {}
+
     if (isFetching) return <ApplicationPageLoading />
     const app = getApp(params)
     if (!app) return redirectTo(`/${parent}`)
@@ -146,17 +142,15 @@ export class ApplicationPage extends Component {
         <div className="sto-modal-page-app" {...styleProp}>
           {isMobile && icon && !iconToLoad && !intentData && (
             <BarCenter>
-              <BarContextProvider client={client} t={t} store={client.store}>
-                <div className="sto-app-bar">
-                  <AppIcon
-                    app={app}
-                    className={`sto-app-bar-icon ${
-                      !displayBarIcon ? 'sto-app-bar-icon--hidden' : ''
-                    }`}
-                    {...getAppIconProps()}
-                  />
-                </div>
-              </BarContextProvider>
+              <div className="sto-app-bar">
+                <AppIcon
+                  app={app}
+                  className={`sto-app-bar-icon ${
+                    !displayBarIcon ? 'sto-app-bar-icon--hidden' : ''
+                  }`}
+                  {...getAppIconProps()}
+                />
+              </div>
             </BarCenter>
           )}
           <div className="sto-app" style={intentData ? intentStyle : undefined}>
@@ -224,13 +218,10 @@ ApplicationPageWrapper.propTypes = {
   }),
   /* With HOC */
   breakpoints: PropTypes.object.isRequired,
-  client: PropTypes.object.isRequired,
   f: PropTypes.func.isRequired,
   lang: PropTypes.string.isRequired,
   t: PropTypes.func.isRequired
 }
 
 // translate is needed here for the lang props
-export default translate()(
-  withBreakpoints()(withClient(ApplicationPageWrapper))
-)
+export default translate()(withBreakpoints()(ApplicationPageWrapper))

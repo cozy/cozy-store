@@ -1,4 +1,3 @@
-/* global cozy */
 import ApplicationRouting from 'ducks/apps/components/ApplicationRouting'
 import Sections from 'ducks/apps/components/QuerystringSections'
 import AppVote from 'ducks/components/AppVote'
@@ -8,6 +7,7 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { useMatch, useSearchParams } from 'react-router-dom'
 
+import { BarCenter } from 'cozy-bar'
 import { Content } from 'cozy-ui/transpiled/react/Layout'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
@@ -41,9 +41,6 @@ export class Discover extends Component {
 
     const { isMobile } = breakpoints
     const title = <h2 className="sto-view-title">{t('discover.title')}</h2>
-
-    // In case we are in an Intent, `cozy.bar` is undefined and it's not a big deal since we don't need the cozy-bar to be displayed on an intent
-    const { BarCenter } = cozy.bar || {}
 
     return (
       <Content className="sto-discover">
