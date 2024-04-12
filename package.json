@@ -61,7 +61,7 @@
   "dependencies": {
     "@cozy/minilog": "^1.0.0",
     "cozy-app-publish": "^0.27.2",
-    "cozy-bar": "^7.19.1",
+    "cozy-bar": "^7.31.1",
     "cozy-client": "^41.8.1",
     "cozy-device-helper": "^2.1.0",
     "cozy-doctypes": "1.85.0",
