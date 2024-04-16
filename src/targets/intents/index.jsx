@@ -7,7 +7,7 @@ import { BreakpointsProvider } from 'cozy-ui/transpiled/react/providers/Breakpoi
 import InstallAppIntent from 'ducks/components/intents/InstallAppIntent'
 import IntentHandler from 'ducks/components/intents/IntentHandler'
 import schema from 'lib/schema'
-import store from 'lib/store'
+import { configureStore } from 'lib/store'
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
@@ -29,20 +29,22 @@ document.addEventListener('DOMContentLoaded', () => {
   })
   client.registerPlugin(flag.plugin)
 
+  const store = configureStore({ client })
+
   render(
     <I18n
       lang={appData.locale}
       dictRequire={lang => require(`../../locales/${lang}`)}
     >
-      <CozyProvider store={store} client={client}>
-        <Provider store={store}>
+      <Provider store={store}>
+        <CozyProvider client={client}>
           <BreakpointsProvider>
             <IntentHandler appData={appData}>
               <InstallAppIntent action="INSTALL" type="io.cozy.apps" />
             </IntentHandler>
           </BreakpointsProvider>
-        </Provider>
-      </CozyProvider>
+        </CozyProvider>
+      </Provider>
     </I18n>,
     document.querySelector('[role=application]')
   )

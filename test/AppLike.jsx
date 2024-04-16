@@ -9,16 +9,16 @@ import I18n from 'cozy-ui/transpiled/react/providers/I18n'
 
 import enLocale from '../src/locales/en.json'
 
-const AppLike = ({ children, client }) => (
-  <CozyProvider client={client || createMockClient({})}>
-    <I18n dictRequire={() => enLocale} lang="en">
-      <BreakpointsProvider>
-        <Provider store={store}>
+const AppLike = ({ children, store, client }) => (
+  <Provider store={store || (client && client.store)}>
+    <CozyProvider client={client || createMockClient({})}>
+      <I18n dictRequire={() => enLocale} lang="en">
+        <BreakpointsProvider>
           <HashRouter>{children}</HashRouter>
-        </Provider>
-      </BreakpointsProvider>
-    </I18n>
-  </CozyProvider>
+        </BreakpointsProvider>
+      </I18n>
+    </CozyProvider>
+  </Provider>
 )
 
 export default AppLike
