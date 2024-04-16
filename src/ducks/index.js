@@ -1,8 +1,19 @@
 import { appsReducers } from 'ducks/apps'
 import { combineReducers } from 'redux'
 
-const storeApp = combineReducers({
-  apps: appsReducers
-})
+const createRootReducer = client => {
+  const reducers = {
+    apps: appsReducers,
+    cozy: client.reducer()
+  }
 
-export default storeApp
+  const appReducer = combineReducers(reducers)
+
+  const rootReducer = (state, action) => {
+    return appReducer(state, action)
+  }
+
+  return rootReducer
+}
+
+export { createRootReducer }

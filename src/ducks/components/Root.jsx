@@ -15,15 +15,15 @@ const Root = ({ client, lang = 'en', store }) => {
     <WebviewIntentProvider>
       <CozyTheme variant="normal" className="u-flex-grow-1">
         <I18n lang={lang} dictRequire={lang => require(`locales/${lang}`)}>
-          <CozyProvider client={client}>
-            <Provider store={store}>
+          <Provider store={store}>
+            <CozyProvider client={client}>
               <BarProvider>
                 <HashRouter>
                   <App />
                 </HashRouter>
               </BarProvider>
-            </Provider>
-          </CozyProvider>
+            </CozyProvider>
+          </Provider>
         </I18n>
       </CozyTheme>
     </WebviewIntentProvider>
