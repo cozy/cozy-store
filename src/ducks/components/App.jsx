@@ -25,7 +25,7 @@ export class App extends Component {
     return (
       <BreakpointsProvider>
         <Layout>
-          <BarComponent />
+          <BarComponent replaceTitleOnMobile disableInternalStore />
           {flag('switcher') && <FlagSwitcher />}
           <Alerter />
           <Sidebar />
