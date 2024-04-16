@@ -1,9 +1,12 @@
 import { appsReducers } from 'ducks/apps'
 import { combineReducers } from 'redux'
 
+import { barReducers } from 'cozy-bar'
+
 const createRootReducer = client => {
   const reducers = {
     apps: appsReducers,
+    ...barReducers,
     cozy: client.reducer()
   }
 
