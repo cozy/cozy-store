@@ -5,6 +5,10 @@ exports[`App component only should be mounted correctly 1`] = `
   <Layout
     monoColumn={false}
   >
+    <BarComponent
+      disableInternalStore={true}
+      replaceTitleOnMobile={true}
+    />
     <Alerter
       into="body"
     />

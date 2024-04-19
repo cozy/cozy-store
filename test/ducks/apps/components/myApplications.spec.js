@@ -1,16 +1,13 @@
 'use strict'
 
-/* eslint-env jest */
-/* global cozy */
-
 import { MyApplications } from 'ducks/apps/components/MyApplications'
 import { shallow } from 'enzyme'
 import React from 'react'
 
+import { BarCenter } from 'cozy-bar'
+
 import { tMock } from '../../../jestLib/I18n'
 import mockApps from '../_mockApps'
-
-const { BarCenter } = cozy.bar
 
 const mockMyApplicationsError = new Error('This is a test error')
 
