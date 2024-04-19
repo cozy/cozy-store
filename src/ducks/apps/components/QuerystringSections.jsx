@@ -64,6 +64,7 @@ const queryFromFilter = filter => {
  * - handles location updates
  */
 const QuerystringSections = props => {
+  console.log('QuerystringSections', props)
   const { intentData } = props
   const navigate = useNavigateNoUpdates()
   const { pathname, search } = useLocationNoUpdates()
@@ -75,10 +76,14 @@ const QuerystringSections = props => {
   ])
 
   const filterUpdated = useMemo(() => {
+    console.log('intentData', intentData)
     if (intentData) {
       return {
         ...filter,
         type: 'konnector',
+        ...(intentData.data?.slugList && {
+          slugList: intentData.data.slugList
+        }),
         ...(intentData.data?.category && {
           category: intentData.data.category
         }),
@@ -87,8 +92,13 @@ const QuerystringSections = props => {
         })
       }
     }
+    return {
+      slugList: ['mondediplo', 'cesu']
+    }
     return filter
   }, [filter, intentData])
+
+  console.log('filterUpdated', filterUpdated)
 
   // Saves filter to query part
   const handleFilterChange = filter => {

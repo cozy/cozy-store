@@ -33,6 +33,7 @@ export class InstallAppIntent extends Component {
 
   componentDidMount() {
     const { data } = this.props
+    console.log('InstallAppIntent componentDidMount', data)
     if (isPermissionsPageToDisplay(data)) {
       this.props.initAppIntent()
     } else {
@@ -115,7 +116,7 @@ export class InstallAppIntent extends Component {
       t
     } = this.props
     const { hasWebappSucceed } = this.state
-    const { category, qualificationLabels } = data || {}
+    const { category, qualificationLabels, slugList } = data || {}
 
     // If `hasWebappSucceed` is true, we assume we're in the process of executing the onSuccess callback,
     // In that case we want to display the spinner instead of nothing
@@ -123,7 +124,8 @@ export class InstallAppIntent extends Component {
     const isReady = !fetchError && !fetching && !isAppFetching
     const isInstalled = app && app.installed
 
-    const appError = isReady && !app && !category && !qualificationLabels
+    const appError =
+      isReady && !app && !category && !qualificationLabels && !slugList
     const errors = {
       alreadyInstalledError: isInstalled,
       fetchError,
