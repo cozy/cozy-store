@@ -11,9 +11,7 @@ branches:
     - /^\d+\.\d+\.\d+(\-beta.\d+)?$/
 env:
   global:
-    - TARGETS_DEV=recette.cozy.works
-    - TARGETS_BETA=betatest.cozy.works
-    - MATTERMOST_CHANNEL='{"dev":"Plateformers-release","beta":"Plateformers-release,publication","stable":"Plateformers-release,publication"}'
+    - MATTERMOST_CHANNEL='{"dev":"app-store","beta":"app-store,publication","stable":"app-store,publication"}'
 
     # to generate secure ENV VARS : travis encrypt MY_VAR=value -r cozy/cozy-store
     # RUNDECK_TOKEN
