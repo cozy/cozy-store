@@ -5,15 +5,25 @@ import 'cozy-ui/dist/cozy-ui.utils.min.css'
 // eslint-disable-next-line import/order
 import 'cozy-ui/transpiled/react/stylesheet.css'
 
+import { captureConsoleIntegration } from '@sentry/integrations'
+import * as Sentry from '@sentry/react'
 import schema from 'lib/schema'
 import { configureStore } from 'lib/store'
 import React from 'react'
 import { render } from 'react-dom'
+import {
+  useLocation,
+  useNavigationType,
+  createRoutesFromChildren,
+  matchRoutes
+} from 'react-router-dom'
 import 'styles'
 
 import 'cozy-bar/dist/stylesheet.css'
 import CozyClient from 'cozy-client'
 import flag from 'cozy-flags'
+
+import manifest from '../../../manifest.webapp'
 
 window.flag = flag
 
@@ -35,6 +45,25 @@ const init = () => {
 
   const store = configureStore({ client })
   const Root = require('ducks/components/Root').default
+
+  Sentry.init({
+    dsn: 'https://facf9d254f2513714c781ff0d416c7cf@errors.cozycloud.cc/76',
+    environment: process.env.NODE_ENV,
+    release: manifest.version,
+    integrations: [
+      captureConsoleIntegration({ levels: ['error'] }), // We also want to capture the `console.error` to, among other things, report the logs present in the `try/catch`
+      Sentry.reactRouterV6BrowserTracingIntegration({
+        useEffect: React.useEffect,
+        useLocation,
+        useNavigationType,
+        createRoutesFromChildren,
+        matchRoutes
+      })
+    ],
+    tracesSampleRate: 0.1,
+    // React log these warnings(bad Proptypes), in a console.error, it is not relevant to report this type of information to Sentry
+    ignoreErrors: [/^Warning: /]
+  })
 
   render(
     <Root client={client} store={store} lang={lang} />,
