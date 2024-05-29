@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/react'
 import { createRootReducer } from 'ducks/index'
 import { createStore, applyMiddleware, compose } from 'redux'
 import { createLogger } from 'redux-logger'
@@ -18,11 +19,23 @@ const configureStore = ({ client, setStoreToClient = true }) => {
       : null
   ].filter(Boolean)
 
+  const sentryReduxEnhancer = Sentry.createReduxEnhancer({
+    actionTransformer: ({ type, queryId }) => ({
+      type,
+      queryId
+    }),
+    stateTransformer: () => null,
+    attachReduxState: false
+  })
+
   const rootReducer = createRootReducer(client)
 
   const store = createStore(
     rootReducer,
-    composeEnhancers(applyMiddleware.apply(null, middlewares))
+    composeEnhancers(
+      applyMiddleware.apply(null, middlewares),
+      sentryReduxEnhancer
+    )
   )
 
   if (setStoreToClient) {
