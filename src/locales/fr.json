@@ -148,7 +148,7 @@
     "health": "Santé",
     "host_provider": "Hébergeur",
     "insurance": "Assurance",
-    "isp": "Internet",
+    "isp": "Mobile et Internet",
     "online_services": "Services en ligne",
     "others": "Autres",
     "mes_infos": "Expérimentation MesInfos",
@@ -159,7 +159,6 @@
     "public_service": "Services publics",
     "shopping": "Shopping",
     "social": "Social",
-    "telecom": "Mobile",
     "transport": "Voyage et transport",
     "pro": "Travail"
   },
