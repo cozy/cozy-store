@@ -1,8 +1,7 @@
 @keyframes placeHolderShimmer {
-  0% { background-position: -20rem 0; }
-  80% { background-position: 20rem 0; }
-  80.1% { background-position: -20rem 0; }
-  100% { background-position: -20rem 0; }
+  0% { background-color: var(--disabledTextColor); }
+  50% { background-color: var(--contrastBackgroundColor); }
+  100% { background-color: var(--disabledTextColor); }
 }
 
 .sto-sections-placeholder {
@@ -12,10 +11,9 @@
   animation-name: placeHolderShimmer;
   animation-timing-function: linear;
   background-position: -20rem 0;
-  background-image: linear-gradient(to right, var(--silver) 0%, #fcfcfc 50%, var(--silver) 100%);
   background-size: 20rem 20rem;
   background-repeat: no-repeat;
-  background-color: var(--silver);
+  background-color: var(--disabledTextColor);
   border-radius: 0.15rem;
   height: 0.75rem;
   max-width: 100%;

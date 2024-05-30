@@ -16,7 +16,7 @@
   margin: 0;
   border-radius: 4px 0 0 4px;
   font-size: .875rem;
-  color: var(--charcoalGrey);
+  color: var(--actionColorActive);
   text-decoration: none;
   font-weight: bold;
 }
@@ -29,12 +29,12 @@
 }
 
 .sto-side-menu-item:hover:not(.active) {
-  background-color: var(--silver);
+  background-color: var(--actionColorHover);
 }
 
 
 .sto-side-menu-item.active {
-  color: white;
-  border-right: 1px solid var(--slateGrey);
-  background-color: var(--slateGrey);
+  color: var(--primaryContrastTextColor);
+  border-right: 1px solid var(--actionColorActive);
+  background-color: var(--actionColorActive);
 }
