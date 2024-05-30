@@ -2,7 +2,7 @@ import { getAppIconProps } from 'ducks/apps'
 import React, { PureComponent } from 'react'
 
 import AppIcon from 'cozy-ui/transpiled/react/AppIcon'
-import Button from 'cozy-ui/transpiled/react/deprecated/Button'
+import Button from 'cozy-ui/transpiled/react/Buttons'
 import {
   ModalContent,
   ModalHeader

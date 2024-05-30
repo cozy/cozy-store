@@ -2,11 +2,12 @@ import PermissionsList from 'ducks/apps/components/PermissionsList'
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
+import Button from 'cozy-ui/transpiled/react/Buttons'
+import Icon from 'cozy-ui/transpiled/react/Icon'
 import Left from 'cozy-ui/transpiled/react/Icons/Left'
 import IntentHeader from 'cozy-ui/transpiled/react/IntentHeader'
 import Portal from 'cozy-ui/transpiled/react/Portal'
 import Typography from 'cozy-ui/transpiled/react/Typography'
-import Button from 'cozy-ui/transpiled/react/deprecated/Button'
 import Modal, { ModalContent } from 'cozy-ui/transpiled/react/deprecated/Modal'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
@@ -26,11 +27,11 @@ export const IntentPermissionsModal = ({ app, parent, intentData }) => {
         />
         <ModalContent>
           <Button
-            icon={Left}
+            startIcon={<Icon icon={Left} />}
             className="sto-app-back"
             label={t('app_modal.permissions.back')}
             onClick={() => navigate(`${parent}/${app.slug}${search}`)}
-            subtle
+            variant="text"
           />
           <Typography variant="h5" className="u-ta-center">
             {t('app_modal.permissions.title')}
