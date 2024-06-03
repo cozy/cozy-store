@@ -15,10 +15,10 @@ import { connect } from 'react-redux'
 
 import { withClient } from 'cozy-client'
 import flags from 'cozy-flags'
+import Button from 'cozy-ui/transpiled/react/Buttons'
 import Checkbox from 'cozy-ui/transpiled/react/Checkbox'
 import Spinner from 'cozy-ui/transpiled/react/Spinner'
 import Alerter from 'cozy-ui/transpiled/react/deprecated/Alerter'
-import Button from 'cozy-ui/transpiled/react/deprecated/Button'
 import {
   ModalDescription,
   ModalHeader,
@@ -193,18 +193,17 @@ export class AppInstallation extends Component {
               )}
               <div className="sto-install-controls">
                 <Button
-                  theme="secondary"
+                  variant="secondary"
                   onClick={onCancel}
                   disabled={isCurrentAppInstalling}
                   label={t('app_modal.install.cancel')}
-                  extension="full"
+                  fullWidth
                   className="u-mh-half"
                 />
                 <Button
-                  theme="primary"
                   disabled={!this.isInstallReady() || isInstalling}
                   busy={isCurrentAppInstalling}
-                  extension="full"
+                  fullWidth
                   onClick={this.installApp}
                   label={
                     hasPendingUpdate(app)

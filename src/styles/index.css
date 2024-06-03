@@ -25,7 +25,7 @@
 
 .md-link,
 .md-link:visited {
-    color: var(--dodgerBlue);
+    color: var(--primaryColor);
     text-decoration: none;
 }
 

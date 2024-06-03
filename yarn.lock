@@ -5385,7 +5385,7 @@ cozy-bar@12.2.4:
     redux-persist "5.10.0"
     redux-thunk "2.3.0"
 
-cozy-client@47.6.0:
+cozy-client@^47.6.0:
   version "47.6.0"
   resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-47.6.0.tgz#ed151e75003aa3eeda657d398d18958aadaa6e1c"
   integrity sha512-hBALCB//rdMg2bj3k8dVHRaYFG0CQ7vF9u58BufYuNoJFB4HKh9R/KFSXH0+wkvDjUOK4olYjoz+7xH6bZmEPQ==
@@ -5563,10 +5563,10 @@ cozy-tsconfig@^1.2.0:
   resolved "https://registry.yarnpkg.com/cozy-tsconfig/-/cozy-tsconfig-1.2.0.tgz#17e61f960f139fae4d26cbac2254b9ab632b269e"
   integrity sha512-TRHnY9goF3FzVlUbP7BcHxuN2XAA4AmppT4fHHZmTKaSwYTByVR1Al+riFMDbce94kJZ1wzl9WNLWQuqzGZ6Cw==
 
-cozy-ui@107.1.0:
-  version "107.1.0"
-  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-107.1.0.tgz#03e327cc57a6651a04307032e3bcd144c362070b"
-  integrity sha512-SYHi5dovc8DMR4qmAqolb4dZ6UOmyYdUihiCoC1wMH3v2Jx6I0lhYhpiucvrU1mrEVKEIAG1Z+ebVlpPrvov7Q==
+cozy-ui@^107.2.0:
+  version "107.2.0"
+  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-107.2.0.tgz#8b92f401ba1847f50a7d4f20c2cfc4dca5c9dd4e"
+  integrity sha512-mI8i2KBqCXuda5kcfieKSXf7m4/aN+1fvKOxQDqcDtDDWMnEOVe9LSO4sHKd8y5oBfthJRdipDulGDlMJsryYA==
   dependencies:
     "@babel/runtime" "^7.3.4"
     "@material-ui/core" "4.12.3"

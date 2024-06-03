@@ -23,7 +23,7 @@
 
 .sto-sections-subtitle-secondary {
   font-size: 13px;
-  color: var(--coolGrey);
+  color: var(--secondaryTextColor);
   text-transform: uppercase;
 }
 

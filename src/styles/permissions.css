@@ -35,7 +35,7 @@
 }
 
 .sto-perm-description {
-  color: var(--coolGrey);
+  color: var(--secondaryTextColor);
   font-size: .7em;
 }
 
@@ -46,7 +46,7 @@
 }
 
 .sto-perm-description-detail a {
-  color: var(--coolGrey);
+  color: var(--secondaryTextColor);
 }
 
 .sto-perm-title {

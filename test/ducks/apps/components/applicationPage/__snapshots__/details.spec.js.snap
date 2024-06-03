@@ -67,14 +67,18 @@ exports[`ApplicationPage details component should be rendered correctly provided
       </div>
       <div>
         <button
-          class="styles__c-btn___3kXsk styles__c-btn--subtle___2rRQ0 styles__c-btn--center___Nny0n sto-app-permissions-button"
-          type="submit"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text customColor-primary sto-app-permissions-button MuiButton-textPrimary MuiButton-disableElevation"
+          tabindex="0"
+          type="button"
         >
-          <span>
-            <span>
-              Show permissions
-            </span>
+          <span
+            class="MuiButton-label"
+          >
+            Show permissions
           </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
         </button>
       </div>
       <div>
@@ -262,14 +266,18 @@ exports[`ApplicationPage details component should be rendered correctly with pro
       </div>
       <div>
         <button
-          class="styles__c-btn___3kXsk styles__c-btn--subtle___2rRQ0 styles__c-btn--center___Nny0n sto-app-permissions-button"
-          type="submit"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text customColor-primary sto-app-permissions-button MuiButton-textPrimary MuiButton-disableElevation"
+          tabindex="0"
+          type="button"
         >
-          <span>
-            <span>
-              Show permissions
-            </span>
+          <span
+            class="MuiButton-label"
+          >
+            Show permissions
           </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
         </button>
       </div>
       <div>
@@ -363,14 +371,18 @@ exports[`ApplicationPage details component should be rendered correctly with pro
       </div>
       <div>
         <button
-          class="styles__c-btn___3kXsk styles__c-btn--subtle___2rRQ0 styles__c-btn--center___Nny0n sto-app-permissions-button"
-          type="submit"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text customColor-primary sto-app-permissions-button MuiButton-textPrimary MuiButton-disableElevation"
+          tabindex="0"
+          type="button"
         >
-          <span>
-            <span>
-              Show permissions
-            </span>
+          <span
+            class="MuiButton-label"
+          >
+            Show permissions
           </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
         </button>
       </div>
       <div>
@@ -464,14 +476,18 @@ exports[`ApplicationPage details component should be rendered correctly with pro
       </div>
       <div>
         <button
-          class="styles__c-btn___3kXsk styles__c-btn--subtle___2rRQ0 styles__c-btn--center___Nny0n sto-app-permissions-button"
-          type="submit"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text customColor-primary sto-app-permissions-button MuiButton-textPrimary MuiButton-disableElevation"
+          tabindex="0"
+          type="button"
         >
-          <span>
-            <span>
-              Show permissions
-            </span>
+          <span
+            class="MuiButton-label"
+          >
+            Show permissions
           </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
         </button>
       </div>
       <div>
@@ -713,14 +729,18 @@ exports[`ApplicationPage details component should handle channel switching if wi
       </div>
       <div>
         <button
-          class="styles__c-btn___3kXsk styles__c-btn--subtle___2rRQ0 styles__c-btn--center___Nny0n sto-app-permissions-button"
-          type="submit"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text customColor-primary sto-app-permissions-button MuiButton-textPrimary MuiButton-disableElevation"
+          tabindex="0"
+          type="button"
         >
-          <span>
-            <span>
-              Show permissions
-            </span>
+          <span
+            class="MuiButton-label"
+          >
+            Show permissions
           </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
         </button>
       </div>
       <div>
@@ -935,14 +955,18 @@ exports[`ApplicationPage details component should not suggest Dev channel switch
       </div>
       <div>
         <button
-          class="styles__c-btn___3kXsk styles__c-btn--subtle___2rRQ0 styles__c-btn--center___Nny0n sto-app-permissions-button"
-          type="submit"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text customColor-primary sto-app-permissions-button MuiButton-textPrimary MuiButton-disableElevation"
+          tabindex="0"
+          type="button"
         >
-          <span>
-            <span>
-              Show permissions
-            </span>
+          <span
+            class="MuiButton-label"
+          >
+            Show permissions
           </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
         </button>
       </div>
       <div>
@@ -1130,14 +1154,18 @@ exports[`ApplicationPage details component should not suggest channel switching 
       </div>
       <div>
         <button
-          class="styles__c-btn___3kXsk styles__c-btn--subtle___2rRQ0 styles__c-btn--center___Nny0n sto-app-permissions-button"
-          type="submit"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text customColor-primary sto-app-permissions-button MuiButton-textPrimary MuiButton-disableElevation"
+          tabindex="0"
+          type="button"
         >
-          <span>
-            <span>
-              Show permissions
-            </span>
+          <span
+            class="MuiButton-label"
+          >
+            Show permissions
           </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
         </button>
       </div>
       <div>
@@ -1325,14 +1353,18 @@ exports[`ApplicationPage details component should not suggest channel switching 
       </div>
       <div>
         <button
-          class="styles__c-btn___3kXsk styles__c-btn--subtle___2rRQ0 styles__c-btn--center___Nny0n sto-app-permissions-button"
-          type="submit"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text customColor-primary sto-app-permissions-button MuiButton-textPrimary MuiButton-disableElevation"
+          tabindex="0"
+          type="button"
         >
-          <span>
-            <span>
-              Show permissions
-            </span>
+          <span
+            class="MuiButton-label"
+          >
+            Show permissions
           </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
         </button>
       </div>
       <div>
@@ -1520,14 +1552,18 @@ exports[`ApplicationPage details component should not suggest channel switching 
       </div>
       <div>
         <button
-          class="styles__c-btn___3kXsk styles__c-btn--subtle___2rRQ0 styles__c-btn--center___Nny0n sto-app-permissions-button"
-          type="submit"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text customColor-primary sto-app-permissions-button MuiButton-textPrimary MuiButton-disableElevation"
+          tabindex="0"
+          type="button"
         >
-          <span>
-            <span>
-              Show permissions
-            </span>
+          <span
+            class="MuiButton-label"
+          >
+            Show permissions
           </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
         </button>
       </div>
       <div>

@@ -15,7 +15,7 @@
   align-items: center;
   margin: -1rem 1rem 3rem 1rem;
   border-radius: 2px;
-  border: 1px var(--silver) dashed;
+  border: 1px var(--borderColor) dashed;
   padding: 0 1rem;
   pointer-events: all; /* Allows click events on the vote component */
 }
@@ -23,7 +23,7 @@
 .sto-app-vote:hover,
 .sto-app-vote:active,
 .sto-app-vote:focus {
-  background-color: var(--paleGrey);
+  background-color: var(--defaultBackgroundColor);
   cursor: pointer;
 }
 

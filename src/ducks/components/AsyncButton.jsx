@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
-import Button from 'cozy-ui/transpiled/react/deprecated/Button'
+import Button from 'cozy-ui/transpiled/react/Buttons'
+import Icon from 'cozy-ui/transpiled/react/Icon'
 
 const IDLE = 'idle'
 const WORKING = 'working'
@@ -35,7 +36,7 @@ class AsyncButton extends Component {
         busy={isWorking}
         className={this.props.className}
         disabled={isWorking || !isFunctional}
-        icon={this.props.icon}
+        startIcon={<Icon icon={this.props.icon} />}
         label={this.props.label}
         onClick={this.asyncAction}
       />

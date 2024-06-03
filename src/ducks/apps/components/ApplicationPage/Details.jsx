@@ -11,9 +11,9 @@ import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 import { useClient } from 'cozy-client'
+import Button from 'cozy-ui/transpiled/react/Buttons'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import Toggle from 'cozy-ui/transpiled/react/Toggle'
-import { Button } from 'cozy-ui/transpiled/react/deprecated/Button'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
 const platformIcons = {
@@ -186,7 +186,7 @@ export const Details = ({ app, description, changes, parent, mobileApps }) => {
             label={t('app_page.permissions.button.label')}
             className="sto-app-permissions-button"
             onClick={() => onShowPermissions()}
-            subtle
+            variant="text"
           />
         </div>
         {developerName && (

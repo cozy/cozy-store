@@ -5,7 +5,7 @@
 .sto-app {
   margin: auto 1.7em;
   height: 100vh;
-  background-color: white;
+  background-color: var(--paperBackgroundColor);
   max-width: 75rem;
 }
 
@@ -24,7 +24,7 @@
   align-items: center;
   margin-top: 1.5rem;
   text-decoration: none;
-  color: var(--slateGrey)!important;
+  color: var(--secondaryTextColor)!important;
 }
 
 .sto-app-bar {
@@ -84,7 +84,7 @@ main > [role=main].sto-myapps {
   position: absolute;
   top: 0;
   width: 100%;
-  background: white;
+  background: var(--paperBackgroundColor);
   overflow-y: auto;
 }
 
@@ -248,12 +248,12 @@ main > [role=main].sto-myapps {
   display: flex;
   align-items: center;
   flex-direction: column;
-  color: var(--pomegranate);
+  color: var(--errorColor);
 }
 
 .sto-app-maintenance-header .u-title-h3 {
   margin-top: 1rem;
-  color: var(--pomegranate);
+  color: var(--errorColor);
 }
 
 .sto-app-maintenance-header-desc {
@@ -295,7 +295,7 @@ main > [role=main].sto-myapps {
 }
 
 .sto-app-descriptions .md-title {
-  color: var(--slateGrey)
+  color: var(--secondaryTextColor)
 }
 
 .sto-app-description {
@@ -322,8 +322,8 @@ main > [role=main].sto-myapps {
   margin: .2rem 0 0;
   padding-left: 0;
   border: 0;
-  color: var(--dodgerBlue);
-  background-color: white;
+  color: var(--primaryColor);
+  background-color: var(--paperBackgroundColor);
   text-transform: uppercase;
   font-weight: 700;
   font-size: 1rem;
@@ -353,7 +353,7 @@ main > [role=main].sto-myapps {
   display: flex;
   flex-direction: column;
   width: 35%;
-  color: var(--coolGrey);
+  color: var(--secondaryTextColor);
   line-height: 1.5rem;
 }
 
@@ -384,7 +384,7 @@ main > [role=main].sto-myapps {
   margin-top: .5rem;
   display: inline-table;
   text-decoration: none;
-  color: var(--dodgerBlue);
+  color: var(--primaryColor);
 }
 
 @media (max-width: 48rem) {
