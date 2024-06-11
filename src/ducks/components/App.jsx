@@ -8,7 +8,8 @@ import { connect } from 'react-redux'
 
 import { BarComponent } from 'cozy-bar'
 import { withClient } from 'cozy-client'
-import flag, { FlagSwitcher } from 'cozy-flags'
+import CozyDevTools from 'cozy-client/dist/devtools'
+import flag from 'cozy-flags'
 import IconSprite from 'cozy-ui/transpiled/react/Icon/Sprite'
 import { Layout, Main } from 'cozy-ui/transpiled/react/Layout'
 import Alerter from 'cozy-ui/transpiled/react/deprecated/Alerter'
@@ -26,7 +27,7 @@ export class App extends Component {
       <BreakpointsProvider>
         <Layout>
           <BarComponent replaceTitleOnMobile disableInternalStore />
-          {flag('switcher') && <FlagSwitcher />}
+          {flag('debug') && <CozyDevTools />}
           <Alerter />
           <Sidebar />
           <Main>
