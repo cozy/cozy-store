@@ -4,6 +4,7 @@ import 'cozy-ui/transpiled/react/stylesheet.css'
 import 'styles'
 
 import { BreakpointsProvider } from 'cozy-ui/transpiled/react/providers/Breakpoints'
+import CozyTheme from 'cozy-ui/transpiled/react/providers/CozyTheme'
 import InstallAppIntent from 'ducks/components/intents/InstallAppIntent'
 import IntentHandler from 'ducks/components/intents/IntentHandler'
 import schema from 'lib/schema'
@@ -38,11 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
     >
       <Provider store={store}>
         <CozyProvider client={client}>
-          <BreakpointsProvider>
-            <IntentHandler appData={appData}>
-              <InstallAppIntent action="INSTALL" type="io.cozy.apps" />
-            </IntentHandler>
-          </BreakpointsProvider>
+          <CozyTheme>
+            <BreakpointsProvider>
+              <IntentHandler appData={appData}>
+                <InstallAppIntent action="INSTALL" type="io.cozy.apps" />
+              </IntentHandler>
+            </BreakpointsProvider>
+          </CozyTheme>
         </CozyProvider>
       </Provider>
     </I18n>,
