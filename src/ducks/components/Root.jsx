@@ -13,19 +13,19 @@ const Root = ({ client, lang = 'en', store }) => {
   if (!client) return null
   return (
     <WebviewIntentProvider>
-      <CozyTheme variant="normal" className="u-flex-grow-1">
-        <I18n lang={lang} dictRequire={lang => require(`locales/${lang}`)}>
-          <Provider store={store}>
-            <CozyProvider client={client}>
+      <I18n lang={lang} dictRequire={lang => require(`locales/${lang}`)}>
+        <Provider store={store}>
+          <CozyProvider client={client}>
+            <CozyTheme variant="normal" className="u-flex-grow-1">
               <BarProvider>
                 <HashRouter>
                   <App />
                 </HashRouter>
               </BarProvider>
-            </CozyProvider>
-          </Provider>
-        </I18n>
-      </CozyTheme>
+            </CozyTheme>
+          </CozyProvider>
+        </Provider>
+      </I18n>
     </WebviewIntentProvider>
   )
 }
