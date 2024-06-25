@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import { HashRouter } from 'react-router-dom'
 
 import { BarProvider } from 'cozy-bar'
-import { CozyProvider } from 'cozy-client'
+import { CozyProvider, RealTimeQueries } from 'cozy-client'
 import { WebviewIntentProvider } from 'cozy-intent'
 import CozyTheme from 'cozy-ui/transpiled/react/providers/CozyTheme'
 import { I18n } from 'cozy-ui/transpiled/react/providers/I18n'
@@ -17,6 +17,7 @@ const Root = ({ client, lang = 'en', store }) => {
         <Provider store={store}>
           <CozyProvider client={client}>
             <CozyTheme variant="normal" className="u-flex-grow-1">
+              <RealTimeQueries doctype="io.cozy.settings" />
               <BarProvider>
                 <HashRouter>
                   <App />

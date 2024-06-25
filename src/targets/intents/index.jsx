@@ -13,8 +13,9 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 
-import CozyClient, { CozyProvider } from 'cozy-client'
+import CozyClient, { CozyProvider, RealTimeQueries } from 'cozy-client'
 import flag from 'cozy-flags'
+import { RealtimePlugin } from 'cozy-realtime'
 import I18n from 'cozy-ui/transpiled/react/I18n'
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -28,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     token: appData.token,
     store: false
   })
+  client.registerPlugin(RealtimePlugin)
   client.registerPlugin(flag.plugin)
 
   const store = configureStore({ client })
@@ -40,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <Provider store={store}>
         <CozyProvider client={client}>
           <CozyTheme>
+            <RealTimeQueries doctype="io.cozy.settings" />
             <BreakpointsProvider>
               <IntentHandler appData={appData}>
                 <InstallAppIntent action="INSTALL" type="io.cozy.apps" />
