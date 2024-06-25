@@ -22,6 +22,7 @@ import 'styles'
 import 'cozy-bar/dist/stylesheet.css'
 import CozyClient from 'cozy-client'
 import flag from 'cozy-flags'
+import { RealtimePlugin } from 'cozy-realtime'
 
 import manifest from '../../../manifest.webapp'
 
@@ -39,6 +40,7 @@ const init = () => {
     store: false
   })
 
+  client.registerPlugin(RealtimePlugin)
   client.registerPlugin(flag.plugin)
 
   const lang = data.locale
