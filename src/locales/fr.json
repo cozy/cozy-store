@@ -161,7 +161,10 @@
     "social": "Social",
     "telecom": "Mobile",
     "transport": "Voyage et transport",
-    "pro": "Travail"
+    "pro": "Travail",
+    "tech": "Tech",
+    "clouds": "Clouds & coffres",
+    "finance": "Emploi & finance"
   },
 
   "app_langs": {

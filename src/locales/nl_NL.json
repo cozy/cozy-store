@@ -161,7 +161,10 @@
     "social": "Sociaal",
     "telecom": "Telecom",
     "transport": "Vervoer",
-    "pro": "Werk"
+    "pro": "Werk",
+    "tech": "Tech",
+    "clouds": "Wolken & digitale gewelven",
+    "finance": "Werkgelegenheid & financiën"
   },
 
   "app_langs": {

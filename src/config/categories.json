@@ -1,8 +1,10 @@
 [
   "banking",
+  "clouds",
   "cozy",
-  "energy",
   "education",
+  "energy",
+  "finance",
   "health",
   "host_provider",
   "insurance",
@@ -11,12 +13,13 @@
   "online_services",
   "partners",
   "press",
+  "pro",
   "productivity",
   "ptnb",
   "public_service",
   "shopping",
   "social",
+  "tech",
   "telecom",
-  "transport",
-  "pro"
+  "transport"
 ]
