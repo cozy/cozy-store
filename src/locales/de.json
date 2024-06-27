@@ -152,7 +152,10 @@
     "shopping": "Shopping",
     "social": "Social",
     "telecom": "Telecom",
-    "transport": "Transportation"
+    "transport": "Transportation",
+    "tech": "Tech",
+    "clouds": "Clouds & digitale schließfächer",
+    "finance": "Beschäftigung & finanzen"
   },
 
   "app_langs": {
