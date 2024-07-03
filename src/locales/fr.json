@@ -332,5 +332,7 @@
       "flagshipApp": "Emportez votre cloud personnel avec vous : installez notre app Cozy !",
       "pass": "Vos mots de passe en sécurité dans votre poche : téléchargez Cozy Pass sur votre mobile"
     }
-  }
+  },
+
+  "home_config_magic_folder": "/Settings/Home"
 }
