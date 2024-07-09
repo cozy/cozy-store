@@ -2,14 +2,14 @@
   "extends": "cozy-tsconfig",
   "include": ["./src/**/*"],
   "exclude": ["node_modules"],
-  "emitDeclarationOnly": false,
-  "noEmit": true,
   "compilerOptions": {
+    "emitDeclarationOnly": false,
+    "noEmit": true,
     "paths": {
       "ducks/*": ["./src/ducks/*"],
       "lib/*": ["./src/lib/*"],
       "config/*": ["./src/config/*"],
       "styles/*": ["./src/styles/*"]
     }
-  },
+  }
 }
