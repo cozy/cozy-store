@@ -8,9 +8,9 @@ export enum ShortcutType {
 }
 
 export enum ShortcutCategory {
-  ApplicationsToutatice = 'Applications Toutatice',
-  Espaces = 'Espaces',
-  Info = 'Info'
+  ApplicationsToutatice = 'alternativeStore',
+  Espaces = 'espaces',
+  Info = 'info'
 }
 
 // Define the source shortcut interface

@@ -42,7 +42,6 @@ export class Discover extends Component {
 
     const { isMobile } = breakpoints
     const title = <h2 className="sto-view-title">{t('discover.title')}</h2>
-
     return (
       <Content className="sto-discover">
         {isExact && isFetching && <AppsLoading />}
@@ -81,11 +80,12 @@ const DiscoverWrapper = props => {
   const isExact = useMatch('discover')
   const navigate = useNavigateNoUpdates()
   const [searchParams] = useSearchParams()
-  useAlternativeStore()
-
+  const altApps = useAlternativeStore()
+  console.log('altApps', altApps)
   return (
     <Discover
       {...props}
+      apps={[...altApps, ...props.apps]}
       isExact={isExact}
       navigate={navigate}
       searchParams={searchParams}

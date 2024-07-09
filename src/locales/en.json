@@ -164,7 +164,10 @@
     "pro": "Work",
     "tech": "Tech",
     "clouds": "Clouds and vaults",
-    "finance": "Employment and finance"
+    "finance": "Employment and finance",
+    "alternativeStore": "Applications Toutatice",
+    "espaces": "Espaces",
+    "info": "Info"
   },
 
   "app_langs": {
