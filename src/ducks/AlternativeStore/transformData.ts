@@ -1,5 +1,4 @@
 import {
-  ToutaticeCategories,
   ToutaticeFlag,
   ToutaticeSourceShortcut,
   ShortcutType,
@@ -9,47 +8,55 @@ import {
 export const transformData = (
   data: ToutaticeSourceShortcut[],
   config: ToutaticeFlag
-): ToutaticeCategories => {
-  const result: ToutaticeCategories = {
-    [ShortcutCategory.ApplicationsToutatice]: [],
-    [ShortcutCategory.Info]: [],
-    [ShortcutCategory.Espaces]: []
+): ToutaticeSourceShortcut[] => {
+  const categoryPathMap: { [key: string]: ShortcutCategory } = {
+    [config.categories['Applications Toutatice']]:
+      ShortcutCategory.ApplicationsToutatice,
+    [config.categories['Espaces']]: ShortcutCategory.Espaces,
+    [config.categories['Info']]: ShortcutCategory.Info
   }
 
-  data.forEach(file => {
+  return data.map(file => {
     const metadataType = file.metadata.type as ShortcutType | undefined
     const filePath = file.path
 
-    if (!filePath) return
+    if (!filePath) return file
 
     const isStorePath = filePath.startsWith(config.store)
+    let category: ShortcutCategory | undefined
 
-    const newFile = {
-      ...file,
-      installed: !isStorePath
+    // Determine category based on store path and metadata type first
+    if (isStorePath) {
+      if (metadataType === ShortcutType.Info) {
+        category = ShortcutCategory.Info
+      } else if (
+        metadataType === ShortcutType.Triskell ||
+        metadataType === ShortcutType.Perso
+      ) {
+        category = ShortcutCategory.Espaces
+      } else {
+        category = ShortcutCategory.ApplicationsToutatice
+      }
+    } else {
+      // Determine category based on file path
+      for (const [path, cat] of Object.entries(categoryPathMap)) {
+        if (filePath.startsWith(path)) {
+          category = cat
+          break
+        }
+      }
     }
 
-    if (
-      filePath.startsWith(config.categories[ShortcutCategory.Info]) ||
-      (isStorePath && metadataType === ShortcutType.Info)
-    ) {
-      result[ShortcutCategory.Info].push(newFile)
-    } else if (
-      filePath.startsWith(config.categories[ShortcutCategory.Espaces]) ||
-      (isStorePath &&
-        (metadataType === ShortcutType.Triskell ||
-          metadataType === ShortcutType.Perso))
-    ) {
-      result[ShortcutCategory.Espaces].push(newFile)
-    } else if (
-      filePath.startsWith(
-        config.categories[ShortcutCategory.ApplicationsToutatice]
-      ) ||
-      isStorePath
-    ) {
-      result[ShortcutCategory.ApplicationsToutatice].push(newFile)
+    // Default to Applications Toutatice if no category is found
+    if (!category) {
+      category = ShortcutCategory.ApplicationsToutatice
+    }
+
+    return {
+      ...file,
+      installed: !isStorePath,
+      categories: [category],
+      type: 'webapp'
     }
   })
-
-  return result
 }

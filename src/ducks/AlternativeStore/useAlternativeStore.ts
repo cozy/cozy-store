@@ -1,22 +1,28 @@
+import { useMemo } from 'react'
 import { useQuery } from 'cozy-client'
+import flag from 'cozy-flags'
 
 import { buildShortcutsQuery } from 'ducks/queries'
-import { ToutaticeCategories } from 'ducks/AlternativeStore/types'
+import { transformData } from 'ducks/AlternativeStore/transformData'
+import {
+  ToutaticeSourceShortcut,
+  ToutaticeFlag
+} from 'ducks/AlternativeStore/types'
 
-export const useAlternativeStore = (): ToutaticeCategories => {
+export const useAlternativeStore = (): ToutaticeSourceShortcut[] => {
   const shortcutsQuery = buildShortcutsQuery()
   const { data, fetchStatus } = useQuery(
     shortcutsQuery.definition,
     shortcutsQuery.options
-  ) as { data: ToutaticeCategories; fetchStatus: string }
+  ) as { data: ToutaticeSourceShortcut[]; fetchStatus: string }
+  const config = flag('store.alternative-source') as ToutaticeFlag | undefined
 
-  if (fetchStatus !== 'loaded') {
-    return {
-      'Applications Toutatice': [],
-      Info: [],
-      Espaces: []
+  const transformedData = useMemo(() => {
+    if (fetchStatus !== 'loaded' || !config) {
+      return []
     }
-  }
+    return transformData(data, config)
+  }, [data, fetchStatus, config])
 
-  return data
+  return transformedData
 }
