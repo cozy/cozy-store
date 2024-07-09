@@ -6,7 +6,7 @@ interface QueryConfig {
   options: QueryOptions
 }
 
-type QueryBuilder<T = void> = (params: T) => QueryConfig
+type QueryBuilder<T = void> = (params?: T) => QueryConfig
 
 const fetchPolicy = CozyClient.fetchPolicies.olderThan(30 * 1000) // 30s
 
@@ -28,71 +28,14 @@ export const buildDisplaySettingsQuery: QueryBuilder = () => ({
   }
 })
 
-interface MkHomeCustomShortcutsDirConnParams {
-  currentFolderId?: string
-  type?: string
-  sortAttribute?: string
-  sortOrder?: string
-}
-
-export const mkHomeCustomShorcutsDirConn: QueryBuilder<
-  MkHomeCustomShortcutsDirConnParams
-> = ({
-  currentFolderId = '',
-  type = 'directory',
-  sortAttribute = 'name',
-  sortOrder = 'asc'
-}) => ({
+export const buildShortcutsQuery: QueryBuilder<string[]> = () => ({
   definition: Q('io.cozy.files')
     .where({
-      dir_id: currentFolderId,
-      type,
-      [sortAttribute]: { $gt: null }
+      class: 'shortcut'
     })
-    .partialIndex({
-      _id: {
-        $ne: 'io.cozy.files.trash-dir'
-      }
-    })
-    .indexFields(['dir_id', 'type', sortAttribute])
-    .sortBy([
-      { dir_id: sortOrder },
-      { type: sortOrder },
-      { [sortAttribute]: sortOrder }
-    ])
-    .limitBy(100),
+    .indexFields(['class']),
   options: {
-    as: `${type} ${currentFolderId} ${sortAttribute} ${sortOrder}`,
-    fetchPolicy
-  }
-})
-
-export const mkHomeCustomShorcutsConn: QueryBuilder<string[]> = foldersId => ({
-  definition: Q('io.cozy.files')
-    .where({
-      class: 'shortcut',
-      dir_id: {
-        $in: foldersId
-      },
-      name: { $gt: null }
-    })
-    .indexFields(['class', 'dir_id', 'name'])
-    .sortBy([{ class: 'asc' }, { dir_id: 'asc' }, { name: 'asc' }])
-    .limitBy(100),
-  options: {
-    as: 'home-shortcuts',
-    fetchPolicy
-  }
-})
-
-export const mkHomeMagicFolderConn: QueryBuilder<
-  (key: string) => string
-> = t => ({
-  definition: Q('io.cozy.files')
-    .where({ path: t('home_config_magic_folder') })
-    .indexFields(['path']),
-  options: {
-    as: 'home/io.cozy.files/path=magic-folder',
+    as: 'io.cozy.files/class=shortcut',
     fetchPolicy
   }
 })

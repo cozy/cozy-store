@@ -2,22 +2,16 @@ import ApplicationRouting from 'ducks/apps/components/ApplicationRouting'
 import Sections from 'ducks/apps/components/QuerystringSections'
 import AppVote from 'ducks/components/AppVote'
 import AppsLoading from 'ducks/components/AppsLoading'
-import {
-  mkHomeMagicFolderConn,
-  mkHomeCustomShorcutsDirConn,
-  mkHomeCustomShorcutsConn
-} from 'ducks/queries'
 import { useNavigateNoUpdates, withRouterUtils } from 'lib/RouterUtils'
 import PropTypes from 'prop-types'
-import React, { Component, useEffect } from 'react'
+import React, { Component } from 'react'
 import { useMatch, useSearchParams } from 'react-router-dom'
 
 import { BarCenter } from 'cozy-bar'
-import { useQuery } from 'cozy-client'
 import { Content } from 'cozy-ui/transpiled/react/Layout'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
-import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
+import { useAlternativeStore } from 'ducks/AlternativeStore/useAlternativeStore'
 
 export class Discover extends Component {
   constructor(props) {
@@ -87,36 +81,7 @@ const DiscoverWrapper = props => {
   const isExact = useMatch('discover')
   const navigate = useNavigateNoUpdates()
   const [searchParams] = useSearchParams()
-  const { t } = useI18n()
-
-  // Temp code to test the queries
-  const homeMagicFolderConn = mkHomeMagicFolderConn(t)
-  const magicHomeFolder = useQuery(
-    homeMagicFolderConn.definition,
-    homeMagicFolderConn.options
-  )
-  const magicHomeFolderId = magicHomeFolder?.data?.[0]?._id
-
-  const homeCustomShorcutsDirConn = mkHomeCustomShorcutsDirConn({
-    currentFolderId: magicHomeFolderId
-  })
-  const customShortcutsDir = useQuery(
-    homeCustomShorcutsDirConn.definition,
-    homeCustomShorcutsDirConn.options
-  )
-  const dirIds = customShortcutsDir.data?.map(folder => folder._id)
-
-  const homeCustomShorcutsConn = mkHomeCustomShorcutsConn(dirIds)
-  const customShortcuts = useQuery(homeCustomShorcutsConn.definition, {
-    ...homeCustomShorcutsConn.options,
-    enabled: Boolean(dirIds && dirIds.length > 0)
-  })
-
-  useEffect(() => {
-    console.log('magicHomeFolder', magicHomeFolder)
-    console.log('customShortcutsDir', customShortcutsDir)
-    console.log('customShortcuts', customShortcuts)
-  }, [customShortcutsDir, customShortcuts, magicHomeFolder])
+  useAlternativeStore()
 
   return (
     <Discover
