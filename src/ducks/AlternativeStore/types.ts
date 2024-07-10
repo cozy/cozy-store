@@ -1,44 +1,25 @@
 import { FileMetadata, IOCozyFile } from 'cozy-client/types/types'
 
-// Define enums for types and categories
-export enum ShortcutType {
-  Info = 'info',
-  Triskell = 'triskell',
-  Perso = 'perso'
-}
-
-export enum ShortcutCategory {
-  ApplicationsToutatice = 'alternativeStore',
-  Espaces = 'espaces',
-  Info = 'info'
-}
-
 // Define the source shortcut interface
-export interface ToutaticeSourceShortcut extends IOCozyFile {
+export interface AltStoreSourceShortcut extends IOCozyFile {
   metadata: FileMetadata & {
-    type?: ShortcutType | string
+    type?: string
   }
   path?: string
 }
 
 // Define the shortcut interface with category inferred from type
-export interface ToutaticeShortcut extends ToutaticeSourceShortcut {
+export interface AltStoreShortcut extends AltStoreSourceShortcut {
   installed: boolean
 }
 
 // Define flag interface
-export interface ToutaticeFlag {
+export interface AltStoreConfig {
   store: string
   categories: {
-    [ShortcutCategory.ApplicationsToutatice]: string
-    [ShortcutCategory.Espaces]: string
-    [ShortcutCategory.Info]: string
+    [key: string]: string // This allows for dynamic category keys
   }
-}
-
-// Define categories interface
-export interface ToutaticeCategories {
-  [ShortcutCategory.ApplicationsToutatice]: ToutaticeShortcut[]
-  [ShortcutCategory.Espaces]: ToutaticeShortcut[]
-  [ShortcutCategory.Info]: ToutaticeShortcut[]
+  fileTypeMappings: {
+    [fileType: string]: string // Map file types to category names
+  }
 }
