@@ -5,17 +5,17 @@ import flag from 'cozy-flags'
 import { buildShortcutsQuery } from 'ducks/queries'
 import { transformData } from 'ducks/AlternativeStore/transformData'
 import {
-  ToutaticeSourceShortcut,
-  ToutaticeFlag
+  AltStoreSourceShortcut,
+  AltStoreConfig
 } from 'ducks/AlternativeStore/types'
 
-export const useAlternativeStore = (): ToutaticeSourceShortcut[] => {
+export const useAlternativeStore = (): AltStoreSourceShortcut[] => {
   const shortcutsQuery = buildShortcutsQuery()
   const { data, fetchStatus } = useQuery(
     shortcutsQuery.definition,
     shortcutsQuery.options
-  ) as { data: ToutaticeSourceShortcut[]; fetchStatus: string }
-  const config = flag('store.alternative-source') as ToutaticeFlag | undefined
+  ) as { data: AltStoreSourceShortcut[]; fetchStatus: string }
+  const config = flag('store.alternative-source') as AltStoreConfig | undefined
 
   const transformedData = useMemo(() => {
     if (fetchStatus !== 'loaded' || !config) {
