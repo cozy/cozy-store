@@ -49,7 +49,10 @@ export const transformData = (
     return {
       ...file,
       installed: !isStorePath,
-      categories: [category]
+      categories: [category],
+      type: 'webapp',
+      slug: file.id,
+      name: file.name.replace('.url', '')
     }
   })
 }
