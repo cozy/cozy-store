@@ -69,10 +69,10 @@ const QuerystringSections = props => {
   const { pathname, search } = useLocationNoUpdates()
 
   // Restores the search from the URL querypart
-  const filter = useMemo(() => getFilterFromQuery(search, props.parent), [
-    props.parent,
-    search
-  ])
+  const filter = useMemo(
+    () => getFilterFromQuery(search, props.parent),
+    [props.parent, search]
+  )
 
   const filterUpdated = useMemo(() => {
     if (intentData) {

@@ -94,11 +94,11 @@ class UnavailableSettingsException extends Error {
 }
 
 const errorStatuses = {
-  '401': UnauthorizedStackException,
-  '403': ForbiddenException,
-  '404': NotFoundException,
-  '405': MethodNotAllowedException,
-  '500': ServerErrorException
+  401: UnauthorizedStackException,
+  403: ForbiddenException,
+  404: NotFoundException,
+  405: MethodNotAllowedException,
+  500: ServerErrorException
 }
 
 export {

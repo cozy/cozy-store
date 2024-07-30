@@ -39,10 +39,7 @@ const getMockProps = (fromRegistry = false) => ({
         .returnsPromise()
         .resolves(mockApps.find(a => a.slug === app.slug))()
     }
-    return sinon
-      .stub()
-      .returnsPromise()
-      .rejects(mockError)()
+    return sinon.stub().returnsPromise().rejects(mockError)()
   }),
   history: {
     push: jest.fn()
