@@ -108,18 +108,18 @@ export function getContext(client) {
   return contextCache
     ? Promise.resolve(contextCache)
     : client.stackClient
-      .fetchJSON('GET', '/settings/context')
-      .then(context => {
-        contextCache = context
-        return context
-      })
-      .catch(error => {
-        if (error.status && error.status === 404) {
-          contextCache = {}
-          return contextCache
-        }
-        return {}
-      })
+        .fetchJSON('GET', '/settings/context')
+        .then(context => {
+          contextCache = context
+          return context
+        })
+        .catch(error => {
+          if (error.status && error.status === 404) {
+            contextCache = {}
+            return contextCache
+          }
+          return {}
+        })
 }
 getContext.clearCache = () => {
   contextCache = null
