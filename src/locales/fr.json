@@ -163,8 +163,11 @@
     "transport": "Voyage et transport",
     "pro": "Travail",
     "tech": "Tech",
-    "clouds": "Clouds et coffres",
-    "finance": "Emploi et finance"
+    "clouds": "Clouds & coffres",
+    "finance": "Emploi & finance",
+    "applicationsToutatice": "Applications Toutatice",
+    "espaces": "Espaces",
+    "info": "Info"
   },
 
   "app_langs": {

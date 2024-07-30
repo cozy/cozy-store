@@ -12,8 +12,8 @@ import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
 
 export const Permission = ({ description, label, type, t }) => {
   const permIconName = PERMISSIONS_ICONS[type] || 'fallback'
-  const permIcon = require(`assets/icons/permissions/${permIconName}.svg`)
-    .default
+  const permIcon =
+    require(`assets/icons/permissions/${permIconName}.svg`).default
   return (
     <li className="sto-perm-list-item">
       <div className="sto-perm-label">

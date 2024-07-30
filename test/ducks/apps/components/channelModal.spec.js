@@ -39,10 +39,7 @@ const getMockProps = () => ({
         .returnsPromise()
         .resolves(mockApps.find(a => a.slug === app.slug))()
     }
-    return sinon
-      .stub()
-      .returnsPromise()
-      .rejects(mockError)()
+    return sinon.stub().returnsPromise().rejects(mockError)()
   })
 })
 

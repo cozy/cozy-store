@@ -1,8 +1,6 @@
 // cozy-ui css import should be done before any other import
 // otherwise the themes will not be supplied and the app crashes
-// eslint-disable-next-line import/order
 import 'cozy-ui/dist/cozy-ui.utils.min.css'
-// eslint-disable-next-line import/order
 import 'cozy-ui/transpiled/react/stylesheet.css'
 
 import { captureConsoleIntegration } from '@sentry/integrations'
