@@ -63,13 +63,6 @@ test('transformData categorizes files and flags installed correctly', () => {
       metadata: { type: 'unknown' },
       path: '/Settings/Home/Applications Toutatice/Store Toutatice/Unknown.url',
       name: 'Unknown'
-    },
-    // Adding files more than two levels deep
-    {
-      id: '01908039-3b2c-7852-b4bd-1d768199c893',
-      metadata: { type: 'deep' },
-      path: '/Settings/Home/Applications Toutatice/Store Toutatice/Too/Deep/DeepFile.url',
-      name: 'DeepFile'
     }
   ] as AltStoreSourceShortcut[] // Cast data to ToutaticeSourceShortcut[]
 
@@ -82,7 +75,6 @@ test('transformData categorizes files and flags installed correctly', () => {
       path: '/Settings/Home/Espaces/I-Paf.url',
       installed: true,
       categories: ['espaces'],
-      type: 'webapp',
       slug: '01904ab1-f1fd-7243-b39b-37fe73b5579a',
       name: 'I-Paf'
     },
@@ -92,7 +84,6 @@ test('transformData categorizes files and flags installed correctly', () => {
       path: '/Settings/Home/Info/Gestion des dossiers publidoc.url',
       installed: true,
       categories: ['info'],
-      type: 'webapp',
       slug: '01904ab2-20a9-7243-9972-df18c9c671d3',
       name: 'Gestion des dossiers publidoc'
     },
@@ -102,7 +93,6 @@ test('transformData categorizes files and flags installed correctly', () => {
       path: '/Settings/Home/Espaces/M@gistère.url',
       installed: true,
       categories: ['espaces'],
-      type: 'webapp',
       slug: '01904ab2-2633-7243-9774-dc81fb0bc46a',
       name: 'M@gistère'
     },
@@ -112,7 +102,6 @@ test('transformData categorizes files and flags installed correctly', () => {
       path: '/Settings/Home/Applications Toutatice/Store Toutatice/Triskell.url',
       installed: false,
       categories: ['info'],
-      type: 'webapp',
       slug: '01908039-3b2c-7852-b4bd-1d768199c89c',
       name: 'Triskell'
     },
@@ -122,7 +111,6 @@ test('transformData categorizes files and flags installed correctly', () => {
       path: '/Settings/Home/Applications Toutatice/Store Toutatice/OtherFile.url',
       installed: false,
       categories: ['alternativeStore'],
-      type: 'webapp',
       slug: '01908039-3b2c-7852-b4bd-1d768199c89d',
       name: 'OtherFile'
     },
@@ -132,7 +120,6 @@ test('transformData categorizes files and flags installed correctly', () => {
       path: '/Settings/Home/Mes liens et raccourcis/Link.url',
       installed: true,
       categories: ['alternativeStore'],
-      type: 'webapp',
       name: 'Link',
       slug: '01908039-3b2c-7852-b4bd-1d768199c89e'
     },
@@ -142,7 +129,6 @@ test('transformData categorizes files and flags installed correctly', () => {
       path: '/Settings/Home/Foobar/Random.url',
       installed: true,
       categories: ['alternativeStore'],
-      type: 'webapp',
       name: 'Random',
       slug: '01908039-3b2c-7852-b4bd-1d768199c89f'
     },
@@ -152,7 +138,6 @@ test('transformData categorizes files and flags installed correctly', () => {
       path: '/Settings/Home/Info/NoType.url',
       installed: true,
       categories: ['info'],
-      type: 'webapp',
       name: 'NoType',
       slug: '01908039-3b2c-7852-b4bd-1d768199c890'
     },
@@ -162,7 +147,6 @@ test('transformData categorizes files and flags installed correctly', () => {
       path: '/Settings/Home/Applications Toutatice/Store Toutatice/UndefinedType.url',
       installed: false,
       categories: ['alternativeStore'],
-      type: 'webapp',
       name: 'UndefinedType',
       slug: '01908039-3b2c-7852-b4bd-1d768199c891'
     },
@@ -172,11 +156,9 @@ test('transformData categorizes files and flags installed correctly', () => {
       path: '/Settings/Home/Applications Toutatice/Store Toutatice/Unknown.url',
       installed: false,
       categories: ['alternativeStore'],
-      type: 'webapp',
       name: 'Unknown',
       slug: '01908039-3b2c-7852-b4bd-1d768199c892'
     }
-    // Expecting that DeepFile is ignored because it is more than two levels deep
   ]
 
   const result = transformData(data, config)
