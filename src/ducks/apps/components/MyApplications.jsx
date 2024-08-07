@@ -10,6 +10,8 @@ import { Content } from 'cozy-ui/transpiled/react/Layout'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
 
+import { useAlternativeStore } from 'ducks/AlternativeStore/useAlternativeStore'
+
 export class MyApplications extends Component {
   constructor(props) {
     super(props)
@@ -68,10 +70,13 @@ const MyApplicationsWrapper = props => {
   const isExact = useMatch('myapps')
   const navigate = useNavigateNoUpdates()
   const [searchParams] = useSearchParams()
+  const { alternativeApps } = useAlternativeStore()
+  const installedAltApps = alternativeApps.filter(app => app.installed)
 
   return (
     <MyApplications
       {...props}
+      installedApps={[...props.installedApps, ...installedAltApps]}
       isExact={isExact}
       navigate={navigate}
       searchParams={searchParams}

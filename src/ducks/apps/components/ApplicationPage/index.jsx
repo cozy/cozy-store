@@ -109,11 +109,9 @@ export class ApplicationPage extends Component {
       'short_description',
       t
     )
-    const appLongDesc = getTranslatedManifestProperty(
-      app,
-      'long_description',
-      t
-    )
+    const appLongDesc =
+      getTranslatedManifestProperty(app, 'long_description', t) ||
+      app.attributes?.metadata?.description
     const appChanges = getTranslatedManifestProperty(app, 'changes', t)
     const mobileApps =
       app.platforms &&

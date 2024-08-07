@@ -48,11 +48,10 @@ export const transformData = (
 
     return {
       ...file,
+      name: file.name.replace('.url', ''),
       installed: !isStorePath,
       categories: [category],
-      type: 'webapp',
-      slug: file.id,
-      name: file.name.replace('.url', '')
+      slug: file.id // This is much easier than refactoring the whole app
     }
   })
 }

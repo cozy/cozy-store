@@ -37,7 +37,8 @@ export class Discover extends Component {
       breakpoints = {},
       isExact,
       intentData,
-      onTerminate
+      onTerminate,
+      alternativeStore
     } = this.props
 
     const { isMobile } = breakpoints
@@ -55,6 +56,7 @@ export class Discover extends Component {
                 onAppClick={this.onAppClick}
                 intentData={intentData}
                 parent="discover"
+                alternativeStore={alternativeStore}
               />
             )}
           </div>
@@ -80,12 +82,12 @@ const DiscoverWrapper = props => {
   const isExact = useMatch('discover')
   const navigate = useNavigateNoUpdates()
   const [searchParams] = useSearchParams()
-  const altApps = useAlternativeStore()
-  console.log('altApps', altApps)
+  const { alternativeApps } = useAlternativeStore()
+
   return (
     <Discover
       {...props}
-      apps={[...altApps, ...props.apps]}
+      apps={[...alternativeApps, ...props.apps]}
       isExact={isExact}
       navigate={navigate}
       searchParams={searchParams}

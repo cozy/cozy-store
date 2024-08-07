@@ -31,7 +31,8 @@ const Sections = ({
   filter,
   onFilterChange,
   showFilterDropdown,
-  intentData
+  intentData,
+  alternativeStore
 }) => {
   const { lang } = useI18n()
 
@@ -125,6 +126,7 @@ const Sections = ({
           onSearchChange={handleFilterChange}
           apps={apps}
           onAppClick={onAppClick}
+          alternativeStore={alternativeStore}
         />
       )}
     </div>

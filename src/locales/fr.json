@@ -36,7 +36,6 @@
   "loading": {
     "appsFetching": "Chargement..."
   },
-
   "app_modal": {
     "uninstall": {
       "title": "Désinstaller l'application",
@@ -73,10 +72,10 @@
       "back": "Retour"
     }
   },
-
   "app_page": {
     "back": "Retour à la liste",
     "install": "Installer",
+    "favorite": "Ajouter à la page d'accueil",
     "uninstall": "Désinstaller",
     "update": "Mettre à jour",
     "konnector": {
@@ -112,10 +111,10 @@
     "preview": "Prévisualisation",
     "more": "Plus"
   },
-
   "sections": {
     "applications": "Applications",
     "konnectors": "Services",
+    "shortcuts": "Raccourcis",
     "filters": {
       "action": "Filtrer",
       "under_maintenance": {
@@ -124,19 +123,16 @@
       }
     }
   },
-
   "app_vote": {
     "line1": "Vous ne trouvez pas ce que vous cherchiez ?",
     "line2": "Dites-le nous !"
   },
-
   "app_item": {
     "by": "Par",
     "installed": "Installée",
     "maintenance": "En maintenance",
     "update": "Mise à jour dispo."
   },
-
   "app_categories": {
     "list_separator": ", ",
     "all": "Toutes les catégories",
@@ -165,11 +161,11 @@
     "tech": "Tech",
     "clouds": "Clouds & coffres",
     "finance": "Emploi & finance",
-    "applicationsToutatice": "Applications Toutatice",
+    "alternativeStore": "Applications Toutatice",
     "espaces": "Espaces",
-    "info": "Info"
+    "info": "Info",
+    "shortcuts": "Raccourcis"
   },
-
   "app_langs": {
     "list_separator": ", ",
     "fr": "Français",
@@ -212,7 +208,6 @@
     "es_ES": "Espagnol (Espagne)",
     "sv": "Suedois"
   },
-
   "doctypes": {
     "com": {
       "tricount.expenses": "Dépenses Tricount",
@@ -307,7 +302,6 @@
       }
     }
   },
-
   "permissions": {
     "linxo": "Afficher vos comptes bancaires dans votre Cozy, grâce à la connexion sécurisée à votre banque par notre partenaire Linxo ([linxo.com](https://linxo.com))",
     "banking": "Afficher vos comptes bancaires dans votre Cozy, grâce à la connexion sécurisée à votre banque par notre partenaire %{name} ([%{domain}](https://%{domain}))",
@@ -322,12 +316,10 @@
       "nothing": "%{appName} ne requiert aucun accès à vos données pour fonctionner correctement sur votre Cozy."
     }
   },
-
   "discover-search-field": {
     "label": "Rechercher :",
     "placeholder": "\"CAF\", \"énergie\", \"factures\""
   },
-
   "pushBanners": {
     "download": "Télécharger",
     "no-thanks": "Non merci !",
@@ -336,6 +328,5 @@
       "pass": "Vos mots de passe en sécurité dans votre poche : téléchargez Cozy Pass sur votre mobile"
     }
   },
-
   "home_config_magic_folder": "/Settings/Home"
 }

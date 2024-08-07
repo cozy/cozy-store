@@ -36,7 +36,6 @@
   "loading": {
     "appsFetching": "Loading..."
   },
-
   "app_modal": {
     "uninstall": {
       "title": "Uninstall this application",
@@ -73,10 +72,10 @@
       "back": "Back"
     }
   },
-
   "app_page": {
     "back": "Back to the list",
     "install": "Install",
+    "favorite": "Add to home page",
     "uninstall": "Uninstall",
     "update": "Update",
     "konnector": {
@@ -112,10 +111,10 @@
     "preview": "Preview",
     "more": "More"
   },
-
   "sections": {
     "applications": "Applications",
     "konnectors": "Services",
+    "shortcuts": "Shortcuts",
     "filters": {
       "action": "Filter",
       "under_maintenance": {
@@ -124,19 +123,16 @@
       }
     }
   },
-
   "app_vote": {
     "line1": "Can't find what you're looking for?",
     "line2": "Let us know!"
   },
-
   "app_item": {
     "by": "By",
     "installed": "Installed",
     "maintenance": "In maintenance",
     "update": "Update available"
   },
-
   "app_categories": {
     "list_separator": ", ",
     "all": "All categories",
@@ -165,11 +161,11 @@
     "tech": "Tech",
     "clouds": "Clouds and vaults",
     "finance": "Employment and finance",
-    "applicationsToutatice": "Applications Toutatice",
+    "alternativeStore": "Applications Toutatice",
     "espaces": "Espaces",
-    "info": "Info"
+    "info": "Info",
+    "shortcuts": "Shortcuts"
   },
-
   "app_langs": {
     "list_separator": ", ",
     "fr": "French",
@@ -212,7 +208,6 @@
     "es_ES": "Spanish (Spain)",
     "sv": "Swedish"
   },
-
   "doctypes": {
     "com": {
       "tricount.expenses": "Expenses Tricount",
@@ -309,7 +304,6 @@
       }
     }
   },
-
   "permissions": {
     "linxo": "Display your banking accounts in your Cozy, thanks to the secured connection to your bank by our partner Linxo ([linxo.com](https://linxo.com))",
     "banking": "Display your banking accounts in your Cozy, thanks to the secured connection to your bank by our partner %{name} ([%{domain}](https://%{domain}))",
@@ -324,12 +318,10 @@
       "nothing": "%{appName} doesn't require any data access to work correctly on your Cozy."
     }
   },
-
   "discover-search-field": {
     "label": "Search:",
     "placeholder": "\"CAF\", \"telecom\", \"bills\""
   },
-
   "pushBanners": {
     "download": "Download",
     "no-thanks": "No thanks!",

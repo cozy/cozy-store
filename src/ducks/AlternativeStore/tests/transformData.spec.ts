@@ -63,6 +63,13 @@ test('transformData categorizes files and flags installed correctly', () => {
       metadata: { type: 'unknown' },
       path: '/Settings/Home/Applications Toutatice/Store Toutatice/Unknown.url',
       name: 'Unknown'
+    },
+    // Adding files more than two levels deep
+    {
+      id: '01908039-3b2c-7852-b4bd-1d768199c893',
+      metadata: { type: 'deep' },
+      path: '/Settings/Home/Applications Toutatice/Store Toutatice/Too/Deep/DeepFile.url',
+      name: 'DeepFile'
     }
   ] as AltStoreSourceShortcut[] // Cast data to ToutaticeSourceShortcut[]
 
@@ -114,7 +121,7 @@ test('transformData categorizes files and flags installed correctly', () => {
       metadata: { type: 'other' },
       path: '/Settings/Home/Applications Toutatice/Store Toutatice/OtherFile.url',
       installed: false,
-      categories: ['applicationsToutatice'],
+      categories: ['alternativeStore'],
       type: 'webapp',
       slug: '01908039-3b2c-7852-b4bd-1d768199c89d',
       name: 'OtherFile'
@@ -124,7 +131,7 @@ test('transformData categorizes files and flags installed correctly', () => {
       metadata: { type: 'link' },
       path: '/Settings/Home/Mes liens et raccourcis/Link.url',
       installed: true,
-      categories: ['applicationsToutatice'],
+      categories: ['alternativeStore'],
       type: 'webapp',
       name: 'Link',
       slug: '01908039-3b2c-7852-b4bd-1d768199c89e'
@@ -134,7 +141,7 @@ test('transformData categorizes files and flags installed correctly', () => {
       metadata: { type: 'perso' },
       path: '/Settings/Home/Foobar/Random.url',
       installed: true,
-      categories: ['applicationsToutatice'],
+      categories: ['alternativeStore'],
       type: 'webapp',
       name: 'Random',
       slug: '01908039-3b2c-7852-b4bd-1d768199c89f'
@@ -154,7 +161,7 @@ test('transformData categorizes files and flags installed correctly', () => {
       metadata: { type: undefined },
       path: '/Settings/Home/Applications Toutatice/Store Toutatice/UndefinedType.url',
       installed: false,
-      categories: ['applicationsToutatice'],
+      categories: ['alternativeStore'],
       type: 'webapp',
       name: 'UndefinedType',
       slug: '01908039-3b2c-7852-b4bd-1d768199c891'
@@ -164,11 +171,12 @@ test('transformData categorizes files and flags installed correctly', () => {
       metadata: { type: 'unknown' },
       path: '/Settings/Home/Applications Toutatice/Store Toutatice/Unknown.url',
       installed: false,
-      categories: ['applicationsToutatice'],
+      categories: ['alternativeStore'],
       type: 'webapp',
       name: 'Unknown',
       slug: '01908039-3b2c-7852-b4bd-1d768199c892'
     }
+    // Expecting that DeepFile is ignored because it is more than two levels deep
   ]
 
   const result = transformData(data, config)
