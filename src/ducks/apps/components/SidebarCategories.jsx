@@ -53,7 +53,7 @@ export const SidebarCategories = ({
 }) => {
   const location = useLocation()
   const { isMobile, isTablet } = breakpoints
-  const altApps = useAlternativeStore()
+  const { alternativeApps } = useAlternativeStore()
 
   if (
     isMobile ||
@@ -73,7 +73,7 @@ export const SidebarCategories = ({
       return null // no list return nothing to the renderer
   }
 
-  appsList = appsList.concat(altApps)
+  appsList = appsList.concat(alternativeApps)
 
   const addLabel = cat => categoryUtils.addLabel(cat, t)
   const options = categoryUtils.generateOptionsFromApps(appsList, {
@@ -90,6 +90,8 @@ export const SidebarCategories = ({
   const linksArray = options.map(cat => {
     if (cat.value === 'konnectors') {
       return renderLink(cat, `${parent}?type=konnector${extraParams}`, location)
+    } else if (cat.value === 'shortcuts') {
+      return renderLink(cat, `${parent}?type=file${extraParams}`, location)
     } else {
       return renderLink(
         cat,

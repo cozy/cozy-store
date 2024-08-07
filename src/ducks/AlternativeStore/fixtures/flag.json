@@ -1,7 +1,7 @@
 {
   "store": "/Settings/Home/Applications Toutatice/Store Toutatice",
   "categories": {
-    "applicationsToutatice": "/Settings/Home/Applications Toutatice",
+    "alternativeStore": "/Settings/Home/Applications Toutatice",
     "espaces": "/Settings/Home/Espaces",
     "info": "/Settings/Home/Info"
   },
@@ -9,6 +9,6 @@
     "info": "info",
     "triskell": "espaces",
     "perso": "espaces",
-    "default": "applicationsToutatice"
+    "default": "alternativeStore"
   }
 }

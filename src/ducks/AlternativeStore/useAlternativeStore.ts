@@ -9,7 +9,9 @@ import {
   AltStoreConfig
 } from 'ducks/AlternativeStore/types'
 
-export const useAlternativeStore = (): AltStoreSourceShortcut[] => {
+export const useAlternativeStore = (): {
+  alternativeApps: AltStoreSourceShortcut[]
+} => {
   const shortcutsQuery = buildShortcutsQuery()
   const { data, fetchStatus } = useQuery(
     shortcutsQuery.definition,
@@ -17,12 +19,12 @@ export const useAlternativeStore = (): AltStoreSourceShortcut[] => {
   ) as { data: AltStoreSourceShortcut[]; fetchStatus: string }
   const config = flag('store.alternative-source') as AltStoreConfig | undefined
 
-  const transformedData = useMemo(() => {
+  const alternativeApps = useMemo(() => {
     if (fetchStatus !== 'loaded' || !config) {
       return []
     }
     return transformData(data, config)
   }, [data, fetchStatus, config])
 
-  return transformedData
+  return { alternativeApps }
 }
