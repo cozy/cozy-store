@@ -49,10 +49,10 @@ export const Details = ({ app, description, changes, parent, mobileApps }) => {
     categories.map(c => t(`app_categories.${c}`))
   const developerName =
     (developer && getTranslatedManifestProperty(app, 'developer.name', t)) ||
-    app.attributes.metadata?.source
+    app.attributes?.metadata?.source
   const developerUrl =
     (developer && getTranslatedManifestProperty(app, 'developer.url', t)) ||
-    app.attributes.metadata?.url
+    app.attributes?.metadata?.url
   const shortVersion = version && version.match(/^(\d+\.\d+\.\d+)-.*$/)
   const displayedVersion =
     ((shortVersion && shortVersion.length && shortVersion[1]) || version) ?? '-' // If no version, display a dash
