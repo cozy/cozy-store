@@ -161,9 +161,6 @@
     "tech": "Tech",
     "clouds": "Clouds & coffres",
     "finance": "Emploi & finance",
-    "alternativeStore": "Applications Toutatice",
-    "espaces": "Espaces",
-    "info": "Info",
     "shortcuts": "Raccourcis"
   },
   "app_langs": {
@@ -327,6 +324,5 @@
       "flagshipApp": "Emportez votre cloud personnel avec vous : installez notre app Cozy !",
       "pass": "Vos mots de passe en sécurité dans votre poche : téléchargez Cozy Pass sur votre mobile"
     }
-  },
-  "home_config_magic_folder": "/Settings/Home"
+  }
 }

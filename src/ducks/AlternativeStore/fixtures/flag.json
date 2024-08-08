@@ -1,14 +1,14 @@
 {
-  "store": "/Settings/Home/Applications Toutatice/Store Toutatice",
+  "store": "/Settings/Home/Applications Foobar/Store Foobar",
   "categories": {
-    "alternativeStore": "/Settings/Home/Applications Toutatice",
-    "espaces": "/Settings/Home/Espaces",
-    "info": "/Settings/Home/Info"
+    "alternativeStore": "/Settings/Home/Applications Foobar",
+    "barfoo": "/Settings/Home/Barfoo",
+    "foobaz": "/Settings/Home/Foobaz"
   },
   "fileTypeMappings": {
-    "info": "info",
-    "triskell": "espaces",
-    "perso": "espaces",
+    "foobaz": "foobaz",
+    "quxbaz": "barfoo",
+    "perso": "barfoo",
     "default": "alternativeStore"
   }
 }
