@@ -28,14 +28,14 @@ export const buildDisplaySettingsQuery: QueryBuilder = () => ({
   }
 })
 
-export const buildShortcutsQuery: QueryBuilder<string[]> = () => ({
+export const buildShortcutsQuery: QueryBuilder = () => ({
   definition: Q('io.cozy.files')
     .where({
       class: 'shortcut'
     })
     .indexFields(['class']),
   options: {
-    as: 'io.cozy.files/class=shortcut',
+    as: 'io.cozy.files/class/shortcut',
     fetchPolicy
   }
 })
