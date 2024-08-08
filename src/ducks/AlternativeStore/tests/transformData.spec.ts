@@ -7,31 +7,31 @@ test('transformData categorizes files and flags installed correctly', () => {
     {
       id: '01904ab1-f1fd-7243-b39b-37fe73b5579a',
       metadata: { type: 'perso' },
-      path: '/Settings/Home/Espaces/I-Paf.url',
+      path: '/Settings/Home/Barfoo/I-Paf.url',
       name: 'I-Paf'
     },
     {
       id: '01904ab2-20a9-7243-9972-df18c9c671d3',
-      metadata: { type: 'info' },
-      path: '/Settings/Home/Info/Gestion des dossiers publidoc.url',
+      metadata: { type: 'foobaz' },
+      path: '/Settings/Home/Foobaz/Gestion des dossiers publidoc.url',
       name: 'Gestion des dossiers publidoc'
     },
     {
       id: '01904ab2-2633-7243-9774-dc81fb0bc46a',
       metadata: { type: 'triskell' },
-      path: '/Settings/Home/Espaces/M@gistère.url',
+      path: '/Settings/Home/Barfoo/M@gistère.url',
       name: 'M@gistère'
     },
     {
       id: '01908039-3b2c-7852-b4bd-1d768199c89c',
-      metadata: { type: 'info' },
-      path: '/Settings/Home/Applications Toutatice/Store Toutatice/Triskell.url',
+      metadata: { type: 'foobaz' },
+      path: '/Settings/Home/Applications Foobar/Store Foobar/Triskell.url',
       name: 'Triskell'
     },
     {
       id: '01908039-3b2c-7852-b4bd-1d768199c89d',
       metadata: { type: 'other' },
-      path: '/Settings/Home/Applications Toutatice/Store Toutatice/OtherFile.url',
+      path: '/Settings/Home/Applications Foobar/Store Foobar/OtherFile.url',
       name: 'OtherFile'
     },
     {
@@ -49,19 +49,19 @@ test('transformData categorizes files and flags installed correctly', () => {
     {
       id: '01908039-3b2c-7852-b4bd-1d768199c890',
       metadata: {},
-      path: '/Settings/Home/Info/NoType.url',
+      path: '/Settings/Home/Foobaz/NoType.url',
       name: 'NoType'
     },
     {
       id: '01908039-3b2c-7852-b4bd-1d768199c891',
       metadata: { type: undefined },
-      path: '/Settings/Home/Applications Toutatice/Store Toutatice/UndefinedType.url',
+      path: '/Settings/Home/Applications Foobar/Store Foobar/UndefinedType.url',
       name: 'UndefinedType'
     },
     {
       id: '01908039-3b2c-7852-b4bd-1d768199c892',
       metadata: { type: 'unknown' },
-      path: '/Settings/Home/Applications Toutatice/Store Toutatice/Unknown.url',
+      path: '/Settings/Home/Applications Foobar/Store Foobar/Unknown.url',
       name: 'Unknown'
     }
   ] as AltStoreSourceShortcut[] // Cast data to ToutaticeSourceShortcut[]
@@ -72,43 +72,43 @@ test('transformData categorizes files and flags installed correctly', () => {
     {
       id: '01904ab1-f1fd-7243-b39b-37fe73b5579a',
       metadata: { type: 'perso' },
-      path: '/Settings/Home/Espaces/I-Paf.url',
+      path: '/Settings/Home/Barfoo/I-Paf.url',
       installed: true,
-      categories: ['espaces'],
+      categories: ['barfoo'],
       slug: '01904ab1-f1fd-7243-b39b-37fe73b5579a',
       name: 'I-Paf'
     },
     {
       id: '01904ab2-20a9-7243-9972-df18c9c671d3',
-      metadata: { type: 'info' },
-      path: '/Settings/Home/Info/Gestion des dossiers publidoc.url',
+      metadata: { type: 'foobaz' },
+      path: '/Settings/Home/Foobaz/Gestion des dossiers publidoc.url',
       installed: true,
-      categories: ['info'],
+      categories: ['foobaz'],
       slug: '01904ab2-20a9-7243-9972-df18c9c671d3',
       name: 'Gestion des dossiers publidoc'
     },
     {
       id: '01904ab2-2633-7243-9774-dc81fb0bc46a',
       metadata: { type: 'triskell' },
-      path: '/Settings/Home/Espaces/M@gistère.url',
+      path: '/Settings/Home/Barfoo/M@gistère.url',
       installed: true,
-      categories: ['espaces'],
+      categories: ['barfoo'],
       slug: '01904ab2-2633-7243-9774-dc81fb0bc46a',
       name: 'M@gistère'
     },
     {
       id: '01908039-3b2c-7852-b4bd-1d768199c89c',
-      metadata: { type: 'info' },
-      path: '/Settings/Home/Applications Toutatice/Store Toutatice/Triskell.url',
+      metadata: { type: 'foobaz' },
+      path: '/Settings/Home/Applications Foobar/Store Foobar/Triskell.url',
       installed: false,
-      categories: ['info'],
+      categories: ['foobaz'],
       slug: '01908039-3b2c-7852-b4bd-1d768199c89c',
       name: 'Triskell'
     },
     {
       id: '01908039-3b2c-7852-b4bd-1d768199c89d',
       metadata: { type: 'other' },
-      path: '/Settings/Home/Applications Toutatice/Store Toutatice/OtherFile.url',
+      path: '/Settings/Home/Applications Foobar/Store Foobar/OtherFile.url',
       installed: false,
       categories: ['alternativeStore'],
       slug: '01908039-3b2c-7852-b4bd-1d768199c89d',
@@ -135,16 +135,16 @@ test('transformData categorizes files and flags installed correctly', () => {
     {
       id: '01908039-3b2c-7852-b4bd-1d768199c890',
       metadata: {},
-      path: '/Settings/Home/Info/NoType.url',
+      path: '/Settings/Home/Foobaz/NoType.url',
       installed: true,
-      categories: ['info'],
+      categories: ['foobaz'],
       name: 'NoType',
       slug: '01908039-3b2c-7852-b4bd-1d768199c890'
     },
     {
       id: '01908039-3b2c-7852-b4bd-1d768199c891',
       metadata: { type: undefined },
-      path: '/Settings/Home/Applications Toutatice/Store Toutatice/UndefinedType.url',
+      path: '/Settings/Home/Applications Foobar/Store Foobar/UndefinedType.url',
       installed: false,
       categories: ['alternativeStore'],
       name: 'UndefinedType',
@@ -153,7 +153,7 @@ test('transformData categorizes files and flags installed correctly', () => {
     {
       id: '01908039-3b2c-7852-b4bd-1d768199c892',
       metadata: { type: 'unknown' },
-      path: '/Settings/Home/Applications Toutatice/Store Toutatice/Unknown.url',
+      path: '/Settings/Home/Applications Foobar/Store Foobar/Unknown.url',
       installed: false,
       categories: ['alternativeStore'],
       name: 'Unknown',
