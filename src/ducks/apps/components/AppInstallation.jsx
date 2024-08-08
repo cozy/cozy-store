@@ -89,7 +89,7 @@ export class AppInstallation extends Component {
     const { app, isInstalling } = this.props
     const isCurrentAppInstalling = isInstalling === app.slug
     const isTermsReady =
-      shouldSkipPermissions(app) || (!app.terms || this.state.isTermsAccepted)
+      shouldSkipPermissions(app) || !app.terms || this.state.isTermsAccepted
     const underMaintenance = isUnderMaintenance(app)
 
     return !isCurrentAppInstalling && isTermsReady && !underMaintenance
@@ -241,9 +241,6 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 
 export default compose(
   withClient,
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  ),
+  connect(mapStateToProps, mapDispatchToProps),
   translate()
 )(AppInstallation)

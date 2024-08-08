@@ -95,8 +95,5 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 export default compose(
   withClient,
   translate(),
-  connect(
-    null,
-    mapDispatchToProps
-  )
+  connect(null, mapDispatchToProps)
 )(InstallModal)

@@ -88,8 +88,5 @@ const mapStateToProps = (state, ownProps) => ({
 export default compose(
   withClient,
   translate(),
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )
+  connect(mapStateToProps, mapDispatchToProps)
 )(ChannelModal)

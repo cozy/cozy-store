@@ -160,9 +160,6 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 
 export default compose(
   withClient,
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  ),
+  connect(mapStateToProps, mapDispatchToProps),
   translate()
 )(UninstallModal)
