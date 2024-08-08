@@ -1,6 +1,6 @@
 module.exports = {
   testURL: 'http://localhost/',
-  moduleFileExtensions: ['js', 'jsx', 'json', 'styl'],
+  moduleFileExtensions: ['js', 'jsx', 'json', 'styl', 'ts', 'tsx'],
   setupFiles: ['<rootDir>/test/jestLib/setup.js'],
   moduleDirectories: ['src', 'test', 'node_modules'],
   moduleNameMapper: {
