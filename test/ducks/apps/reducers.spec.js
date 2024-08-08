@@ -364,9 +364,10 @@ describe('Apps ducks reducers', () => {
                 const params = reducerConfig[actionName]
                 if (Array.isArray(params.multiple)) {
                   params.multiple.forEach(unitParams => {
-                    _get(expect(reducer(unitParams[0], action)), unitParams[1])(
-                      unitParams[2]
-                    )
+                    _get(
+                      expect(reducer(unitParams[0], action)),
+                      unitParams[1]
+                    )(unitParams[2])
                   })
                 } else {
                   _get(expect(reducer(params[0], action)), params[1])(params[2])
