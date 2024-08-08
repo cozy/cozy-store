@@ -23,9 +23,15 @@ const getMockProps = (slug, uninstallError = null) => ({
   parent: '/myapps',
   uninstallApp: jest.fn(appSlug => {
     if (['drive', 'collect'].includes(appSlug)) {
-      return sinon.stub().returnsPromise().rejects(mockError)()
+      return sinon
+        .stub()
+        .returnsPromise()
+        .rejects(mockError)()
     }
-    return sinon.stub().returnsPromise().resolves({})()
+    return sinon
+      .stub()
+      .returnsPromise()
+      .resolves({})()
   }),
   history: {
     push: jest.fn()

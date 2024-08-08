@@ -13,8 +13,13 @@ import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
 export class ChannelModal extends Component {
   constructor(props) {
     super(props)
-    const { app, channel, fetchLatestApp, onCurrentChannel, onNotHandled } =
-      props
+    const {
+      app,
+      channel,
+      fetchLatestApp,
+      onCurrentChannel,
+      onNotHandled
+    } = props
 
     if (!this.isAppHandled()) {
       onNotHandled()

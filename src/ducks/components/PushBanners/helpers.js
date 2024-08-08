@@ -9,11 +9,13 @@ export const makePushBanner = (oAuthClients, setting) => {
     oAuthClient => oAuthClient.software_id === 'github.com/bitwarden/mobile'
   )
 
-  const { hideFlagshipApp = false, hidePassMobile = false } =
-    setting.pushBanners || {
-      hideFlagshipApp: false,
-      hidePassMobile: false
-    }
+  const {
+    hideFlagshipApp = false,
+    hidePassMobile = false
+  } = setting.pushBanners || {
+    hideFlagshipApp: false,
+    hidePassMobile: false
+  }
 
   if (!hasFlagshipAppClient && !hideFlagshipApp) {
     return BannerForFlagshipApp
