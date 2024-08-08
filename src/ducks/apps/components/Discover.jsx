@@ -37,8 +37,7 @@ export class Discover extends Component {
       breakpoints = {},
       isExact,
       intentData,
-      onTerminate,
-      alternativeStore
+      onTerminate
     } = this.props
 
     const { isMobile } = breakpoints
@@ -56,7 +55,6 @@ export class Discover extends Component {
                 onAppClick={this.onAppClick}
                 intentData={intentData}
                 parent="discover"
-                alternativeStore={alternativeStore}
               />
             )}
           </div>
