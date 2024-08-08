@@ -7,8 +7,10 @@ const PushBanners = ({ oAuthClients, setting }) => {
   const { hash, pathname, search } = useLocation()
   const path = hash + pathname + search
   const prevPath = useRef(path)
-  const [hasDismissedFlagshipAppBanner, setHasDismissedFlagshipAppBanner] =
-    useState(false)
+  const [
+    hasDismissedFlagshipAppBanner,
+    setHasDismissedFlagshipAppBanner
+  ] = useState(false)
   const [showBanner, setShowBanner] = useState(true)
 
   const PushBanner = makePushBanner(oAuthClients, setting)

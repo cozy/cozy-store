@@ -1,6 +1,6 @@
-/** ******************************************************************************************/
+/********************************************************************************************/
 /* Code from: https://github.com/remix-run/react-router/issues/7634#issuecomment-1025113528 */
-/** ******************************************************************************************/
+/********************************************************************************************/
 
 import React from 'react'
 import {
@@ -123,9 +123,8 @@ export const withRouterUtils = WrappedComponent => {
       </RouterUtils>
     )
   }
-  Wrapped.displayName = `withRouterUtils(${
-    WrappedComponent.displayName || WrappedComponent.name
-  })`
+  Wrapped.displayName = `withRouterUtils(${WrappedComponent.displayName ||
+    WrappedComponent.name})`
   return Wrapped
 }
 

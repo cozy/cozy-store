@@ -314,7 +314,7 @@ beforeEach(() => {
   // eslint-disable-next-line no-console
   originalWarn = console.warn
   // eslint-disable-next-line no-console
-  console.warn = function (msg) {
+  console.warn = function(msg) {
     // Do not log expected warning
     if (
       msg.includes &&

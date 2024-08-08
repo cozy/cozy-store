@@ -360,8 +360,11 @@ export async function getFormattedRegistryApp(
   }
 
   const versionFromRegistry = version.version
-  const { screenshotsLinks, iconLink, partnershipIconLink } =
-    _getRegistryAssetsLinks(client, manifest, versionFromRegistry)
+  const {
+    screenshotsLinks,
+    iconLink,
+    partnershipIconLink
+  } = _getRegistryAssetsLinks(client, manifest, versionFromRegistry)
   const partnership =
     !!manifest.partnership &&
     Object.assign({}, manifest.partnership, {
