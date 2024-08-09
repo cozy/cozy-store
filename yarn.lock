@@ -5385,16 +5385,16 @@ cozy-bar@^12.3.0:
     redux-persist "5.10.0"
     redux-thunk "2.3.0"
 
-cozy-client@^48.8.0:
-  version "48.8.0"
-  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-48.8.0.tgz#66bfe0d1866013080ca39083faf6dd0d59548c33"
-  integrity sha512-o/TmAlgn0xbdxrV928eVYtORE1g0Xykx32LeT83iQaRe26F4mnz4WVpcwizNH1zV7OTue8LNhLHPHZypCO23AQ==
+cozy-client@^48.13.1:
+  version "48.13.1"
+  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-48.13.1.tgz#c37968ae13b03ea74d38c7c5f10bb66d8eeedd95"
+  integrity sha512-1xxT80PE70Lgbi+OsueTYNCN7HOZdPzQOl8SrysMHAw92CIYA3PeEwdUbSqIOh958hijbCj+ngTMCBEMkHSwDA==
   dependencies:
     "@cozy/minilog" "1.0.0"
     "@types/jest" "^26.0.20"
     "@types/lodash" "^4.14.170"
     btoa "^1.2.1"
-    cozy-stack-client "^48.6.0"
+    cozy-stack-client "^48.12.0"
     date-fns "2.29.3"
     json-stable-stringify "^1.0.1"
     lodash "^4.17.13"
@@ -5549,10 +5549,10 @@ cozy-scripts@^8.3.0:
     webpack-dev-server "3.10.3"
     webpack-merge "4.2.2"
 
-cozy-stack-client@^48.6.0:
-  version "48.6.0"
-  resolved "https://registry.yarnpkg.com/cozy-stack-client/-/cozy-stack-client-48.6.0.tgz#c2d2697fcc9061c87425a2f9abc69aff41a94882"
-  integrity sha512-pYrGc1ZWJPWZ2jshBb+IRvGHl8ByHcRCqkgSaAsEzcrlrZzxPWnkSAVekZrPbSDx+Pwg2UE/d8puCF+wEtk+6w==
+cozy-stack-client@^48.12.0:
+  version "48.12.0"
+  resolved "https://registry.yarnpkg.com/cozy-stack-client/-/cozy-stack-client-48.12.0.tgz#e7453215df0711b34eaf2fc076a18ebf799a16ee"
+  integrity sha512-DzCjKwKqGn+XQsxFt/hQVG4YcdupdcGs3Mxtb7Y0JmYiTUTiQar+IWL7k6RuFbCu2Bw+Gm/newtnUct7tbXW0g==
   dependencies:
     detect-node "^2.0.4"
     mime "^2.4.0"
