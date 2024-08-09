@@ -1,3 +1,4 @@
+import { useAlternativeStore } from 'ducks/AlternativeStore/useAlternativeStore'
 import ApplicationRouting from 'ducks/apps/components/ApplicationRouting'
 import Sections from 'ducks/apps/components/QuerystringSections'
 import AppsLoading from 'ducks/components/AppsLoading'
@@ -9,8 +10,6 @@ import { BarCenter } from 'cozy-bar'
 import { Content } from 'cozy-ui/transpiled/react/Layout'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import { useAlternativeStore } from 'ducks/AlternativeStore/useAlternativeStore'
 
 export class MyApplications extends Component {
   constructor(props) {
@@ -70,13 +69,12 @@ const MyApplicationsWrapper = props => {
   const isExact = useMatch('myapps')
   const navigate = useNavigateNoUpdates()
   const [searchParams] = useSearchParams()
-  const { alternativeApps } = useAlternativeStore()
-  const installedAltApps = alternativeApps.filter(app => app.installed)
+  const { installedAlternativeApps } = useAlternativeStore()
 
   return (
     <MyApplications
       {...props}
-      installedApps={[...props.installedApps, ...installedAltApps]}
+      installedApps={[...props.installedApps, ...installedAlternativeApps]}
       isExact={isExact}
       navigate={navigate}
       searchParams={searchParams}

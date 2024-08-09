@@ -1,6 +1,8 @@
-export const generateI18nConfig = (categories?: {
-  [key: string]: string
-}): {
+import { IOCozyApp, IOCozyFile, IOCozyKonnector } from 'cozy-client/types/types'
+
+export const generateI18nConfig = (
+  categories?: Record<string, string>
+): {
   en: Record<string, string>
   fr: Record<string, string>
 } => {
@@ -11,7 +13,7 @@ export const generateI18nConfig = (categories?: {
   for (const [key, value] of Object.entries(categories)) {
     // Extract the final part of the path as the display name
     const displayName =
-      value?.split('/').pop() ?? ''.replace(/([A-Z])/g, ' $1').trim()
+      value.split('/').pop() ?? ''.replace(/([A-Z])/g, ' $1').trim()
 
     i18nConfig[`app_categories.${key}`] = displayName
   }
@@ -21,3 +23,10 @@ export const generateI18nConfig = (categories?: {
     fr: i18nConfig
   }
 }
+
+export const isShortcutFile = (file: IOCozyFile): boolean =>
+  file.class === 'shortcut'
+
+export const isAppOrKonnectorFile = (
+  file: IOCozyApp | IOCozyKonnector
+): boolean => file.type === 'webapp' || file.type === 'konnector'

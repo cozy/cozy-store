@@ -94,11 +94,6 @@
         "GET"
       ]
     },
-    "home": {
-      "description": "Required to manage default redirection update",
-      "type": "io.cozy.home.settings",
-      "verbs": ["GET", "POST", "PUT"]
-    },
     "files": {
       "description": "Required to access folders",
       "type": "io.cozy.files",

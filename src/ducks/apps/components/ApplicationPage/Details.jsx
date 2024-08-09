@@ -1,5 +1,9 @@
 import androidIcon from 'assets/icons/platforms/icon-android.svg'
 import iosIcon from 'assets/icons/platforms/icon-ios.svg'
+import {
+  isAppOrKonnectorFile,
+  isShortcutFile
+} from 'ducks/AlternativeStore/helpers'
 import { getContext, REGISTRY_CHANNELS } from 'ducks/apps'
 import { isUnderMaintenance } from 'ducks/apps/appStatus'
 import Maintenance from 'ducks/apps/components/ApplicationPage/Maintenance'
@@ -49,7 +53,7 @@ export const Details = ({ app, description, changes, parent, mobileApps }) => {
     categories.map(c => t(`app_categories.${c}`))
   const developerName =
     (developer && getTranslatedManifestProperty(app, 'developer.name', t)) ||
-    app.attributes?.metadata?.source
+    (isShortcutFile(app) && app.attributes?.metadata?.source)
   const developerUrl =
     (developer && getTranslatedManifestProperty(app, 'developer.url', t)) ||
     app.attributes?.metadata?.url
@@ -184,7 +188,7 @@ export const Details = ({ app, description, changes, parent, mobileApps }) => {
           </div>
         )}
 
-        {app.type !== 'file' && (
+        {isAppOrKonnectorFile(app) && (
           <div>
             <Button
               label={t('app_page.permissions.button.label')}

@@ -1,3 +1,4 @@
+import { isShortcutFile } from 'ducks/AlternativeStore/helpers'
 import { getAppIconProps } from 'ducks/apps'
 import Details from 'ducks/apps/components/ApplicationPage/Details'
 import Gallery from 'ducks/apps/components/ApplicationPage/Gallery'
@@ -111,7 +112,7 @@ export class ApplicationPage extends Component {
     )
     const appLongDesc =
       getTranslatedManifestProperty(app, 'long_description', t) ||
-      app.attributes?.metadata?.description
+      (isShortcutFile(app) && app.attributes?.metadata?.source)
     const appChanges = getTranslatedManifestProperty(app, 'changes', t)
     const mobileApps =
       app.platforms &&

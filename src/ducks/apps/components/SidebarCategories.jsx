@@ -1,10 +1,10 @@
+import { useAlternativeStore } from 'ducks/AlternativeStore/useAlternativeStore'
 import React from 'react'
 import { NavLink as RouterLink, useLocation } from 'react-router-dom'
 
 import { categoryUtils } from 'cozy-ui/transpiled/react/AppSections'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
-import { useAlternativeStore } from 'ducks/AlternativeStore/useAlternativeStore'
 
 const getActiveChecker = (cat, location) => {
   const urlSearchParams = new URLSearchParams(location.search)
@@ -64,16 +64,16 @@ export const SidebarCategories = ({
   let appsList = []
   switch (parent) {
     case '/discover':
-      appsList = apps
+      appsList = apps.concat(alternativeApps)
       break
     case '/myapps':
-      appsList = installedApps
+      appsList = installedApps.concat(
+        alternativeApps.filter(app => app.installed)
+      )
       break
     default:
       return null // no list return nothing to the renderer
   }
-
-  appsList = appsList.concat(alternativeApps)
 
   const addLabel = cat => categoryUtils.addLabel(cat, t)
   const options = categoryUtils.generateOptionsFromApps(appsList, {

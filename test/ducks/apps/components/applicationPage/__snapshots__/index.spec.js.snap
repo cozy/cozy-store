@@ -834,6 +834,7 @@ exports[`ApplicationPage component should be rendered correctly with konnector i
           }
         }
         changes=""
+        description={false}
         parent="/myapps"
       />
     </div>
@@ -1371,6 +1372,7 @@ exports[`ApplicationPage component should be rendered correctly with provided in
           }
         }
         changes=""
+        description={false}
         parent="/myapps"
       />
     </div>
@@ -1614,6 +1616,7 @@ exports[`ApplicationPage component should be rendered correctly without app desc
           }
         }
         changes=""
+        description={false}
         parent="/myapps"
       />
     </div>

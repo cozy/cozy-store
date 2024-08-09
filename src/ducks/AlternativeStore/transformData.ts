@@ -1,57 +1,64 @@
 import {
-  AltStoreConfig,
-  AltStoreSourceShortcut
+  AlternativeShortcut,
+  AlternativeStoreConfig
 } from 'ducks/AlternativeStore/types'
 
+import { IOCozyFile } from 'cozy-client/types/types'
+
 export const transformData = (
-  data: AltStoreSourceShortcut[],
-  config: AltStoreConfig
-): AltStoreSourceShortcut[] => {
-  const categoryPathMap: { [key: string]: string } = {}
+  data: IOCozyFile[],
+  config: AlternativeStoreConfig
+): AlternativeShortcut[] => {
+  const categoryPathMap: Record<string, string> = {}
   for (const [key, path] of Object.entries(config.categories)) {
     categoryPathMap[path] = key
   }
 
-  const fileTypeMappings: { [key: string]: string } = {}
+  const fileTypeMappings: Record<string, string> = {}
   for (const [fileType, categoryName] of Object.entries(
     config.fileTypeMappings
   )) {
     fileTypeMappings[fileType] = categoryName
   }
 
-  return data.map(file => {
-    const metadataType = file.metadata.type || 'default' // Handle undefined type
-    const filePath = file.path
+  return data
+    .filter(file => {
+      const filePath = file.path ?? ''
+      const isStorePath = filePath.startsWith(config.store || '')
+      const matchesCategoryPath = Object.keys(categoryPathMap).some(path =>
+        filePath.startsWith(path)
+      )
 
-    if (!filePath) return file
+      // Filter out files that do not match any valid paths
+      return isStorePath || matchesCategoryPath
+    })
+    .map(file => {
+      const metadataType = file.metadata.type ?? 'default'
+      const filePath = file.path
 
-    const isStorePath = filePath.startsWith(config.store)
-    let category: string | undefined
+      if (!filePath) return file
 
-    // Determine category based on store path and metadata type first
-    if (isStorePath) {
-      // Use fileTypeMappings to determine category based on metadata type
-      category = fileTypeMappings[metadataType] || fileTypeMappings['default']
-    } else {
-      // Determine category based on file path
-      for (const [path, cat] of Object.entries(categoryPathMap)) {
-        if (filePath.startsWith(path)) {
-          category = cat
-          break
+      const isStorePath = filePath.startsWith(config.store)
+
+      let category = fileTypeMappings[metadataType] || fileTypeMappings.default
+
+      // If the file is not in the store path and no specific category was found based on metadata type,
+      // determine the category based on the file path
+      if (!isStorePath && !fileTypeMappings[metadataType]) {
+        for (const [path, cat] of Object.entries(categoryPathMap)) {
+          if (filePath.startsWith(path)) {
+            category = cat
+            break
+          }
         }
       }
-      // If no category found based on path, use the default category
-      if (!category) {
-        category = fileTypeMappings['default']
-      }
-    }
 
-    return {
-      ...file,
-      name: file.name.replace('.url', ''),
-      installed: !isStorePath,
-      categories: [category],
-      slug: file.id // This is much easier than refactoring the whole app
-    }
-  })
+      return {
+        ...file,
+        name: file.name.replace('.url', ''),
+        installed: !isStorePath,
+        categories: [category],
+        slug: file.id // This is much easier than refactoring the whole app
+      }
+    })
 }

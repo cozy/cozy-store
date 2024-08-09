@@ -1,25 +1,11 @@
-import { FileMetadata, IOCozyFile } from 'cozy-client/types/types'
+import { IOCozyFile } from 'cozy-client/types/types'
 
-// Define the source shortcut interface
-export interface AltStoreSourceShortcut extends IOCozyFile {
-  metadata: FileMetadata & {
-    type?: string
-  }
-  path?: string
-}
-
-// Define the shortcut interface with category inferred from type
-export interface AltStoreShortcut extends AltStoreSourceShortcut {
-  installed: boolean
-}
-
-// Define flag interface
-export interface AltStoreConfig {
+export interface AlternativeStoreConfig {
   store: string
-  categories: {
-    [key: string]: string // This allows for dynamic category keys
-  }
-  fileTypeMappings: {
-    [fileType: string]: string // Map file types to category names
-  }
+  categories: Record<string, string>
+  fileTypeMappings: Record<string, string>
+}
+
+export interface AlternativeShortcut extends IOCozyFile {
+  installed?: boolean
 }
