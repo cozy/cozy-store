@@ -1,4 +1,5 @@
 import cozySmileIcon from 'assets/icons/icon-cozy-smile.svg'
+import { isShortcutFile } from 'ducks/AlternativeStore/helpers'
 import { APP_TYPE, getAppIconProps, openApp } from 'ducks/apps'
 import {
   hasPendingUpdate,
@@ -43,9 +44,9 @@ export const Header = ({
     if (shortcutInfos) {
       const url = shortcutInfos.data?.attributes?.url
 
-      return url
-        ? window.open(shortcutInfos.data?.attributes?.url, '_blank')
-        : null
+      if (!url) return
+
+      return window.open(url, '_blank')
     }
 
     openApp(webviewIntent, app)
@@ -103,7 +104,7 @@ export const Header = ({
             label={
               hasPendingUpdate(app)
                 ? t('app_page.update')
-                : app.class === 'shortcut'
+                : isShortcutFile(app)
                 ? t('app_page.favorite')
                 : t('app_page.install')
             }
