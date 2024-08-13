@@ -53,7 +53,7 @@ export const SidebarCategories = ({
 }) => {
   const location = useLocation()
   const { isMobile, isTablet } = breakpoints
-  const { alternativeApps } = useAlternativeStore()
+  const { alternativeApps, installedAlternativeApps } = useAlternativeStore()
 
   if (
     isMobile ||
@@ -67,9 +67,7 @@ export const SidebarCategories = ({
       appsList = apps.concat(alternativeApps)
       break
     case '/myapps':
-      appsList = installedApps.concat(
-        alternativeApps.filter(app => app.installed)
-      )
+      appsList = installedApps.concat(installedAlternativeApps)
       break
     default:
       return null // no list return nothing to the renderer
