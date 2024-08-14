@@ -37,7 +37,8 @@ const getAppProps = () => {
       categories: appManifest.categories,
       langs: appManifest.langs,
       version: '0.1.0-dev123',
-      developer: appManifest.developer
+      developer: appManifest.developer,
+      type: 'webapp'
     },
     mobileApps: [
       { type: 'ios', url: '' },
@@ -53,7 +54,8 @@ const getKonnectorProps = ({ withIntent } = {}) => {
     app: {
       categories: konnectorManifest.categories,
       langs: konnectorManifest.langs,
-      developer: konnectorManifest.developer
+      developer: konnectorManifest.developer,
+      type: 'konnector'
     },
     ...(withIntent && {
       intentData: {
