@@ -4770,22 +4770,10 @@ camelcase@^6.0.0:
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-6.2.0.tgz#924af881c9d525ac9d87f40d964e5cea982a1809"
   integrity sha512-c7wVvbw3f37nuobQNtgsgG9POC9qMbNuMQmTCqZv23b6MIz0fcYpBiOlv9gEN/hdLdnZTDQhg6e9Dq5M1vKvfg==
 
-caniuse-lite@^1.0.30001039, caniuse-lite@^1.0.30001125:
-  version "1.0.30001131"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001131.tgz#afad8a28fc2b7a0d3ae9407e71085a0ead905d54"
-  integrity sha512-4QYi6Mal4MMfQMSqGIRPGbKIbZygeN83QsWq1ixpUwvtfgAZot5BrCKzGygvZaV+CnELdTwD0S4cqUNozq7/Cw==
-
-caniuse-lite@^1.0.30001259:
-  version "1.0.30001260"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001260.tgz#e3be3f34ddad735ca4a2736fa9e768ef34316270"
-  integrity sha512-Fhjc/k8725ItmrvW5QomzxLeojewxvqiYCKeFcfFEhut28IVLdpHU19dneOmltZQIE5HNbawj1HYD+1f2bM1Dg==
-  dependencies:
-    nanocolors "^0.1.0"
-
-caniuse-lite@^1.0.30001517:
-  version "1.0.30001519"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001519.tgz#3e7b8b8a7077e78b0eb054d69e6edf5c7df35601"
-  integrity sha512-0QHgqR+Jv4bxHMp8kZ1Kn8CH55OikjKJ6JmKkZYP1F3D7w+lnFXF70nG5eNfsZS89jadi5Ywy5UCSKLAglIRkg==
+caniuse-lite@^1.0.30001039, caniuse-lite@^1.0.30001125, caniuse-lite@^1.0.30001259, caniuse-lite@^1.0.30001517:
+  version "1.0.30001651"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001651.tgz"
+  integrity sha512-9Cf+Xv1jJNe1xPZLGuUXLNkE1BoDkqRqYyFJ9TDYSqhduqA4hu4oR9HluGoWYQC/aj8WHjsGVV+bwkh0+tegRg==
 
 capture-exit@^2.0.0:
   version "2.0.0"
@@ -5563,10 +5551,10 @@ cozy-tsconfig@^1.2.0:
   resolved "https://registry.yarnpkg.com/cozy-tsconfig/-/cozy-tsconfig-1.2.0.tgz#17e61f960f139fae4d26cbac2254b9ab632b269e"
   integrity sha512-TRHnY9goF3FzVlUbP7BcHxuN2XAA4AmppT4fHHZmTKaSwYTByVR1Al+riFMDbce94kJZ1wzl9WNLWQuqzGZ6Cw==
 
-cozy-ui@^111.1.1:
-  version "111.1.1"
-  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-111.1.1.tgz#df17f6c4e4a5044b1639ac74d4b7000dee595b3b"
-  integrity sha512-l2sqWRY4vwr20M5NKukP9+2o0A3pD/rRib9JMeerTgV5Zwzxp0+a303RAmFV0FVH4V0ccPNxM6WnuMz3H/pNhQ==
+cozy-ui@^111.7.0:
+  version "111.7.0"
+  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-111.7.0.tgz#d40a236addffb5aca390ae929b7486d88ae2d9ee"
+  integrity sha512-RcTsCkFhMiPt8KITyM41GROWenJx/sI3cmp79unuibHx03Tr2KSDmExO0nqApfUHPR3Lior4TS4EE/NSLfUpMg==
   dependencies:
     "@babel/runtime" "^7.3.4"
     "@material-ui/core" "4.12.3"
@@ -11175,7 +11163,7 @@ nanoclone@^0.2.1:
   resolved "https://registry.yarnpkg.com/nanoclone/-/nanoclone-0.2.1.tgz#dd4090f8f1a110d26bb32c49ed2f5b9235209ed4"
   integrity sha512-wynEP02LmIbLpcYw8uBKpcfF6dmg2vcpKqxeH5UcoKEYdExslsdUA4ugFauuaeYdTB76ez6gJW8XAZ6CgkXYxA==
 
-nanocolors@^0.1.0, nanocolors@^0.1.5:
+nanocolors@^0.1.5:
   version "0.1.12"
   resolved "https://registry.yarnpkg.com/nanocolors/-/nanocolors-0.1.12.tgz#8577482c58cbd7b5bb1681db4cf48f11a87fd5f6"
   integrity sha512-2nMHqg1x5PU+unxX7PGY7AuYxl2qDx7PSrTRjizr8sxdd3l/3hBuWWaki62qmtYm2U5i4Z5E7GbjlyDFhs9/EQ==

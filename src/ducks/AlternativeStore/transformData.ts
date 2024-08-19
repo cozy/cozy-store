@@ -33,6 +33,7 @@ export const transformData = (
       return isStorePath || matchesCategoryPath
     })
     .map(file => {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const metadataType = file.metadata.type ?? 'default'
       const filePath = file.path
 
@@ -40,10 +41,12 @@ export const transformData = (
 
       const isStorePath = filePath.startsWith(config.store)
 
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       let category = fileTypeMappings[metadataType] || fileTypeMappings.default
 
       // If the file is not in the store path and no specific category was found based on metadata type,
       // determine the category based on the file path
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       if (!isStorePath && !fileTypeMappings[metadataType]) {
         for (const [path, cat] of Object.entries(categoryPathMap)) {
           if (filePath.startsWith(path)) {
