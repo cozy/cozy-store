@@ -1,3 +1,4 @@
+import { useAlternativeStore } from 'ducks/AlternativeStore/useAlternativeStore'
 import React from 'react'
 import { NavLink as RouterLink, useLocation } from 'react-router-dom'
 
@@ -52,6 +53,8 @@ export const SidebarCategories = ({
 }) => {
   const location = useLocation()
   const { isMobile, isTablet } = breakpoints
+  const { alternativeApps, installedAlternativeApps } = useAlternativeStore()
+
   if (
     isMobile ||
     isTablet ||
@@ -61,10 +64,10 @@ export const SidebarCategories = ({
   let appsList = []
   switch (parent) {
     case '/discover':
-      appsList = apps
+      appsList = apps.concat(alternativeApps)
       break
     case '/myapps':
-      appsList = installedApps
+      appsList = installedApps.concat(installedAlternativeApps)
       break
     default:
       return null // no list return nothing to the renderer
@@ -85,6 +88,8 @@ export const SidebarCategories = ({
   const linksArray = options.map(cat => {
     if (cat.value === 'konnectors') {
       return renderLink(cat, `${parent}?type=konnector${extraParams}`, location)
+    } else if (cat.value === 'shortcuts') {
+      return renderLink(cat, `${parent}?type=file${extraParams}`, location)
     } else {
       return renderLink(
         cat,

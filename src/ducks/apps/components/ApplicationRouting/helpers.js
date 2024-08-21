@@ -24,11 +24,7 @@ export const redirectToConfigure = async ({
         This results in a `CSP:frame-ancestors` problem
         It is therefore necessary to favor the use of the `compose` service of `cozy-inter-app` which will add the new `iframe` next to the first
       */
-      await compose(
-        'CREATE',
-        'io.cozy.accounts',
-        { slug: app.slug }
-      )
+      await compose('CREATE', 'io.cozy.accounts', { slug: app.slug })
     } else {
       onTerminate(app)
     }

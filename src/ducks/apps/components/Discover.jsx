@@ -11,6 +11,7 @@ import { BarCenter } from 'cozy-bar'
 import { Content } from 'cozy-ui/transpiled/react/Layout'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
+import { useAlternativeStore } from 'ducks/AlternativeStore/useAlternativeStore'
 
 export class Discover extends Component {
   constructor(props) {
@@ -41,7 +42,6 @@ export class Discover extends Component {
 
     const { isMobile } = breakpoints
     const title = <h2 className="sto-view-title">{t('discover.title')}</h2>
-
     return (
       <Content className="sto-discover">
         {isExact && isFetching && <AppsLoading />}
@@ -80,10 +80,12 @@ const DiscoverWrapper = props => {
   const isExact = useMatch('discover')
   const navigate = useNavigateNoUpdates()
   const [searchParams] = useSearchParams()
+  const { alternativeApps } = useAlternativeStore()
 
   return (
     <Discover
       {...props}
+      apps={[...alternativeApps, ...props.apps]}
       isExact={isExact}
       navigate={navigate}
       searchParams={searchParams}

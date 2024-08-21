@@ -69,11 +69,7 @@ export class InstallAppIntent extends Component {
 
       if (app.type === APP_TYPE.KONNECTOR) {
         if (enableConfiguration) {
-          await compose(
-            'CREATE',
-            'io.cozy.accounts',
-            { slug: app.slug }
-          )
+          await compose('CREATE', 'io.cozy.accounts', { slug: app.slug })
         } else {
           return this.handleTerminate(app)
         }
@@ -212,8 +208,5 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 export default compose(
   withClient,
   translate(),
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )
+  connect(mapStateToProps, mapDispatchToProps)
 )(InstallAppIntent)

@@ -1,3 +1,4 @@
+import { useAlternativeStore } from 'ducks/AlternativeStore/useAlternativeStore'
 import ApplicationRouting from 'ducks/apps/components/ApplicationRouting'
 import Sections from 'ducks/apps/components/QuerystringSections'
 import AppsLoading from 'ducks/components/AppsLoading'
@@ -68,10 +69,12 @@ const MyApplicationsWrapper = props => {
   const isExact = useMatch('myapps')
   const navigate = useNavigateNoUpdates()
   const [searchParams] = useSearchParams()
+  const { installedAlternativeApps } = useAlternativeStore()
 
   return (
     <MyApplications
       {...props}
+      installedApps={[...props.installedApps, ...installedAlternativeApps]}
       isExact={isExact}
       navigate={navigate}
       searchParams={searchParams}

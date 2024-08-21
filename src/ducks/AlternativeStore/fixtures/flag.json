@@ -1,0 +1,14 @@
+{
+  "store": "/Settings/Home/Applications Foobar/Store Foobar",
+  "categories": {
+    "alternativeStore": "/Settings/Home/Applications Foobar",
+    "barfoo": "/Settings/Home/Barfoo",
+    "foobaz": "/Settings/Home/Foobaz"
+  },
+  "fileTypeMappings": {
+    "foobaz": "foobaz",
+    "quxbaz": "barfoo",
+    "perso": "barfoo",
+    "default": "alternativeStore"
+  }
+}

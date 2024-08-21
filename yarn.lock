@@ -4770,22 +4770,10 @@ camelcase@^6.0.0:
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-6.2.0.tgz#924af881c9d525ac9d87f40d964e5cea982a1809"
   integrity sha512-c7wVvbw3f37nuobQNtgsgG9POC9qMbNuMQmTCqZv23b6MIz0fcYpBiOlv9gEN/hdLdnZTDQhg6e9Dq5M1vKvfg==
 
-caniuse-lite@^1.0.30001039, caniuse-lite@^1.0.30001125:
-  version "1.0.30001131"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001131.tgz#afad8a28fc2b7a0d3ae9407e71085a0ead905d54"
-  integrity sha512-4QYi6Mal4MMfQMSqGIRPGbKIbZygeN83QsWq1ixpUwvtfgAZot5BrCKzGygvZaV+CnELdTwD0S4cqUNozq7/Cw==
-
-caniuse-lite@^1.0.30001259:
-  version "1.0.30001260"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001260.tgz#e3be3f34ddad735ca4a2736fa9e768ef34316270"
-  integrity sha512-Fhjc/k8725ItmrvW5QomzxLeojewxvqiYCKeFcfFEhut28IVLdpHU19dneOmltZQIE5HNbawj1HYD+1f2bM1Dg==
-  dependencies:
-    nanocolors "^0.1.0"
-
-caniuse-lite@^1.0.30001517:
-  version "1.0.30001519"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001519.tgz#3e7b8b8a7077e78b0eb054d69e6edf5c7df35601"
-  integrity sha512-0QHgqR+Jv4bxHMp8kZ1Kn8CH55OikjKJ6JmKkZYP1F3D7w+lnFXF70nG5eNfsZS89jadi5Ywy5UCSKLAglIRkg==
+caniuse-lite@^1.0.30001039, caniuse-lite@^1.0.30001125, caniuse-lite@^1.0.30001259, caniuse-lite@^1.0.30001517:
+  version "1.0.30001651"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001651.tgz"
+  integrity sha512-9Cf+Xv1jJNe1xPZLGuUXLNkE1BoDkqRqYyFJ9TDYSqhduqA4hu4oR9HluGoWYQC/aj8WHjsGVV+bwkh0+tegRg==
 
 capture-exit@^2.0.0:
   version "2.0.0"
@@ -5385,16 +5373,16 @@ cozy-bar@^12.3.0:
     redux-persist "5.10.0"
     redux-thunk "2.3.0"
 
-cozy-client@^48.8.0:
-  version "48.8.0"
-  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-48.8.0.tgz#66bfe0d1866013080ca39083faf6dd0d59548c33"
-  integrity sha512-o/TmAlgn0xbdxrV928eVYtORE1g0Xykx32LeT83iQaRe26F4mnz4WVpcwizNH1zV7OTue8LNhLHPHZypCO23AQ==
+cozy-client@^48.13.1:
+  version "48.13.1"
+  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-48.13.1.tgz#c37968ae13b03ea74d38c7c5f10bb66d8eeedd95"
+  integrity sha512-1xxT80PE70Lgbi+OsueTYNCN7HOZdPzQOl8SrysMHAw92CIYA3PeEwdUbSqIOh958hijbCj+ngTMCBEMkHSwDA==
   dependencies:
     "@cozy/minilog" "1.0.0"
     "@types/jest" "^26.0.20"
     "@types/lodash" "^4.14.170"
     btoa "^1.2.1"
-    cozy-stack-client "^48.6.0"
+    cozy-stack-client "^48.12.0"
     date-fns "2.29.3"
     json-stable-stringify "^1.0.1"
     lodash "^4.17.13"
@@ -5435,10 +5423,10 @@ cozy-doctypes@1.85.0:
     lodash "^4.17.19"
     prop-types "^15.7.2"
 
-cozy-flags@3.2.2:
-  version "3.2.2"
-  resolved "https://registry.yarnpkg.com/cozy-flags/-/cozy-flags-3.2.2.tgz#778b148ec6db0d9d9988fee43952e4b21547fb71"
-  integrity sha512-IWp/naaY+F9baSkLOjzi4M2UYHdIYAAiUBYGRempu3UbFQ1muCeclsut0OBy4oD8f8ENG4HhDQAdwSBAULOoFw==
+cozy-flags@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/cozy-flags/-/cozy-flags-4.0.0.tgz#047f9a93f826808bfd23ab206d0bf8235c162237"
+  integrity sha512-us+XDoqPCnDflu7gJrZAmE5SDmkIx2QEhs+fItQOf2JjnGpfBvmIhLMv51/P5INPL4bAQSUHE6ddwNFwOruqBw==
   dependencies:
     microee "^0.0.6"
 
@@ -5549,10 +5537,10 @@ cozy-scripts@^8.3.0:
     webpack-dev-server "3.10.3"
     webpack-merge "4.2.2"
 
-cozy-stack-client@^48.6.0:
-  version "48.6.0"
-  resolved "https://registry.yarnpkg.com/cozy-stack-client/-/cozy-stack-client-48.6.0.tgz#c2d2697fcc9061c87425a2f9abc69aff41a94882"
-  integrity sha512-pYrGc1ZWJPWZ2jshBb+IRvGHl8ByHcRCqkgSaAsEzcrlrZzxPWnkSAVekZrPbSDx+Pwg2UE/d8puCF+wEtk+6w==
+cozy-stack-client@^48.12.0:
+  version "48.12.0"
+  resolved "https://registry.yarnpkg.com/cozy-stack-client/-/cozy-stack-client-48.12.0.tgz#e7453215df0711b34eaf2fc076a18ebf799a16ee"
+  integrity sha512-DzCjKwKqGn+XQsxFt/hQVG4YcdupdcGs3Mxtb7Y0JmYiTUTiQar+IWL7k6RuFbCu2Bw+Gm/newtnUct7tbXW0g==
   dependencies:
     detect-node "^2.0.4"
     mime "^2.4.0"
@@ -5563,10 +5551,10 @@ cozy-tsconfig@^1.2.0:
   resolved "https://registry.yarnpkg.com/cozy-tsconfig/-/cozy-tsconfig-1.2.0.tgz#17e61f960f139fae4d26cbac2254b9ab632b269e"
   integrity sha512-TRHnY9goF3FzVlUbP7BcHxuN2XAA4AmppT4fHHZmTKaSwYTByVR1Al+riFMDbce94kJZ1wzl9WNLWQuqzGZ6Cw==
 
-cozy-ui@^111.1.1:
-  version "111.1.1"
-  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-111.1.1.tgz#df17f6c4e4a5044b1639ac74d4b7000dee595b3b"
-  integrity sha512-l2sqWRY4vwr20M5NKukP9+2o0A3pD/rRib9JMeerTgV5Zwzxp0+a303RAmFV0FVH4V0ccPNxM6WnuMz3H/pNhQ==
+cozy-ui@^111.7.0:
+  version "111.7.0"
+  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-111.7.0.tgz#d40a236addffb5aca390ae929b7486d88ae2d9ee"
+  integrity sha512-RcTsCkFhMiPt8KITyM41GROWenJx/sI3cmp79unuibHx03Tr2KSDmExO0nqApfUHPR3Lior4TS4EE/NSLfUpMg==
   dependencies:
     "@babel/runtime" "^7.3.4"
     "@material-ui/core" "4.12.3"
@@ -11175,7 +11163,7 @@ nanoclone@^0.2.1:
   resolved "https://registry.yarnpkg.com/nanoclone/-/nanoclone-0.2.1.tgz#dd4090f8f1a110d26bb32c49ed2f5b9235209ed4"
   integrity sha512-wynEP02LmIbLpcYw8uBKpcfF6dmg2vcpKqxeH5UcoKEYdExslsdUA4ugFauuaeYdTB76ez6gJW8XAZ6CgkXYxA==
 
-nanocolors@^0.1.0, nanocolors@^0.1.5:
+nanocolors@^0.1.5:
   version "0.1.12"
   resolved "https://registry.yarnpkg.com/nanocolors/-/nanocolors-0.1.12.tgz#8577482c58cbd7b5bb1681db4cf48f11a87fd5f6"
   integrity sha512-2nMHqg1x5PU+unxX7PGY7AuYxl2qDx7PSrTRjizr8sxdd3l/3hBuWWaki62qmtYm2U5i4Z5E7GbjlyDFhs9/EQ==
@@ -12506,6 +12494,11 @@ prettier@1.18.2:
   version "1.18.2"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.18.2.tgz#6823e7c5900017b4bd3acf46fe9ac4b4d7bda9ea"
   integrity sha512-OeHeMc0JhFE9idD4ZdtNibzY0+TPHSpSSb9h8FqtP+YnoZZ1sl8Vc9b1sasjfymH3SonAF4QcA2+mzHPhMvIiw==
+
+prettier@1.19:
+  version "1.19.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.19.1.tgz#f7d7f5ff8a9cd872a7be4ca142095956a60797cb"
+  integrity sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew==
 
 pretty-error@^2.0.2:
   version "2.1.1"

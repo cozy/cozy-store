@@ -83,9 +83,9 @@ const getLinxoPermissions = ({ t, app, linxoDoctypes }) => {
 }
 
 const getProcessedPermissions = (t, app) => {
-  const externalPermissions = Object.entries(app.permissions || {}).filter(
-    ([, permission]) => REMOTE_DOCTYPES.includes(permission.type)
-  )
+  const externalPermissions = Object.entries(
+    app.permissions || {}
+  ).filter(([, permission]) => REMOTE_DOCTYPES.includes(permission.type))
 
   const linxoDoctypes = LINXO_CONNECTORS.includes(app.slug)
     ? ['io.cozy.accounts']

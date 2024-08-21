@@ -5,7 +5,10 @@ import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 
 // subarray = sections, array of subsections
 // number = number of loading items per subsection
-const LOADING_SECTIONS = [[5, 3, 9], [12, 8]]
+const LOADING_SECTIONS = [
+  [5, 3, 9],
+  [12, 8]
+]
 
 export const LoadingAppsComponents = ({ count, subKey, breakpoints = {} }) => {
   let loadingApps = []

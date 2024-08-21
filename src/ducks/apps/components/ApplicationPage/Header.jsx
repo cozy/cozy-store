@@ -1,4 +1,5 @@
 import cozySmileIcon from 'assets/icons/icon-cozy-smile.svg'
+import { isShortcutFile } from 'ducks/AlternativeStore/helpers'
 import { APP_TYPE, getAppIconProps, openApp } from 'ducks/apps'
 import {
   hasPendingUpdate,
@@ -11,7 +12,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom'
 
-import { withClient } from 'cozy-client'
+import { withClient, useFetchShortcut } from 'cozy-client'
 import { isFlagshipApp } from 'cozy-device-helper'
 import { useWebviewIntent } from 'cozy-intent'
 import AppIcon from 'cozy-ui/transpiled/react/AppIcon'
@@ -20,7 +21,6 @@ import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
 
 import { handleIntent } from './helpers'
-
 export const Header = ({
   t,
   app,
@@ -38,8 +38,17 @@ export const Header = ({
   const { slug, installed, type, uninstallable } = app
   const { isMobile } = breakpoints
   const isCurrentAppInstalling = isInstalling === slug
+  const { shortcutInfos } = useFetchShortcut(client, app.id)
 
   const handleClick = () => {
+    if (shortcutInfos) {
+      const url = shortcutInfos.data?.attributes?.url
+
+      if (!url) return
+
+      return window.open(url, '_blank')
+    }
+
     openApp(webviewIntent, app)
   }
 
@@ -95,6 +104,8 @@ export const Header = ({
             label={
               hasPendingUpdate(app)
                 ? t('app_page.update')
+                : isShortcutFile(app)
+                ? t('app_page.favorite')
                 : t('app_page.install')
             }
           />

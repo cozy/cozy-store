@@ -1,5 +1,9 @@
 import androidIcon from 'assets/icons/platforms/icon-android.svg'
 import iosIcon from 'assets/icons/platforms/icon-ios.svg'
+import {
+  isAppOrKonnectorFile,
+  isShortcutFile
+} from 'ducks/AlternativeStore/helpers'
 import { getContext, REGISTRY_CHANNELS } from 'ducks/apps'
 import { isUnderMaintenance } from 'ducks/apps/appStatus'
 import Maintenance from 'ducks/apps/components/ApplicationPage/Maintenance'
@@ -48,12 +52,14 @@ export const Details = ({ app, description, changes, parent, mobileApps }) => {
     !!categories.length &&
     categories.map(c => t(`app_categories.${c}`))
   const developerName =
-    developer && getTranslatedManifestProperty(app, 'developer.name', t)
+    (developer && getTranslatedManifestProperty(app, 'developer.name', t)) ||
+    (isShortcutFile(app) && app.attributes?.metadata?.source)
   const developerUrl =
-    developer && getTranslatedManifestProperty(app, 'developer.url', t)
+    (developer && getTranslatedManifestProperty(app, 'developer.url', t)) ||
+    app.attributes?.metadata?.url
   const shortVersion = version && version.match(/^(\d+\.\d+\.\d+)-.*$/)
   const displayedVersion =
-    (shortVersion && shortVersion.length && shortVersion[1]) || version
+    ((shortVersion && shortVersion.length && shortVersion[1]) || version) ?? '-' // If no version, display a dash
 
   const onShowPermissions = () => {
     navigate(`/${parent}/${app.slug}/permissions${search}`)
@@ -181,14 +187,18 @@ export const Details = ({ app, description, changes, parent, mobileApps }) => {
             </div>
           </div>
         )}
-        <div>
-          <Button
-            label={t('app_page.permissions.button.label')}
-            className="sto-app-permissions-button"
-            onClick={() => onShowPermissions()}
-            variant="text"
-          />
-        </div>
+
+        {isAppOrKonnectorFile(app) && (
+          <div>
+            <Button
+              label={t('app_page.permissions.button.label')}
+              className="sto-app-permissions-button"
+              onClick={() => onShowPermissions()}
+              variant="text"
+            />
+          </div>
+        )}
+
         {developerName && (
           <div>
             <h3 className="u-title-h3">{t('app_page.developer_infos')}</h3>
