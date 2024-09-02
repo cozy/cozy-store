@@ -6,6 +6,8 @@
   "cc.cozycloud.dacc.dev_v2": "energybreakdown",
   "cc.cozycloud.errors": "bug-report",
   "cc.cozycloud.sentry": "bug-report",
+  "cc.cozycloud.announcements.dev": "announcement",
+  "cc.cozycloud.announcements.dev.uploads": "announcement",
   "com.bitwarden.profiles": "passwords",
   "com.bitwarden.ciphers": "passwords",
   "com.bitwarden.folders": "passwords",
