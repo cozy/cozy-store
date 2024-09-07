@@ -5430,11 +5430,12 @@ cozy-flags@^4.0.0:
   dependencies:
     microee "^0.0.6"
 
-cozy-intent@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/cozy-intent/-/cozy-intent-2.0.2.tgz#81330389c7b8cfc1433608a435873b362691931c"
-  integrity sha512-E+9WqbYhFiV/KCGFArSJu/jcvdliI58Vfa3ajrJFRV2AsPtej6wN5qfn6Wex53xpdTAZSjLfmYAQLNt0cl6xGw==
+cozy-intent@^2.22.0:
+  version "2.22.0"
+  resolved "https://registry.yarnpkg.com/cozy-intent/-/cozy-intent-2.22.0.tgz#a4333463ca934d2a5cfe34a23b0d6f0e50d27934"
+  integrity sha512-aCIlwLuia5llX36eubgbkah3vR3709V7VFDWl2hndvdmyjZBHh1siJUlJxpA5nYayqJkLy7aC4bdfGpTetgoCQ==
   dependencies:
+    cozy-minilog "^3.3.1"
     post-me "0.4.5"
 
 cozy-interapp@0.9.0:
