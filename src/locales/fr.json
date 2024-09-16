@@ -114,7 +114,6 @@
   "sections": {
     "applications": "Applications",
     "konnectors": "Services",
-    "shortcuts": "Raccourcis",
     "filters": {
       "action": "Filtrer",
       "under_maintenance": {
@@ -161,7 +160,7 @@
     "tech": "Tech",
     "clouds": "Clouds & coffres",
     "finance": "Emploi & finance",
-    "shortcuts": "Raccourcis"
+    "shortcuts": "App supplémentaires"
   },
   "app_langs": {
     "list_separator": ", ",
