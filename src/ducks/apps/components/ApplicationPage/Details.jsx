@@ -1,9 +1,6 @@
 import androidIcon from 'assets/icons/platforms/icon-android.svg'
 import iosIcon from 'assets/icons/platforms/icon-ios.svg'
-import {
-  isAppOrKonnectorFile,
-  isShortcutFile
-} from 'ducks/AlternativeStore/helpers'
+import { isAppOrKonnectorFile } from 'ducks/AlternativeStore/helpers'
 import { getContext, REGISTRY_CHANNELS } from 'ducks/apps'
 import { isUnderMaintenance } from 'ducks/apps/appStatus'
 import Maintenance from 'ducks/apps/components/ApplicationPage/Maintenance'
@@ -52,11 +49,9 @@ export const Details = ({ app, description, changes, parent, mobileApps }) => {
     !!categories.length &&
     categories.map(c => t(`app_categories.${c}`))
   const developerName =
-    (developer && getTranslatedManifestProperty(app, 'developer.name', t)) ||
-    (isShortcutFile(app) && app.attributes?.metadata?.source)
+    developer && getTranslatedManifestProperty(app, 'developer.name', t)
   const developerUrl =
-    (developer && getTranslatedManifestProperty(app, 'developer.url', t)) ||
-    app.attributes?.metadata?.url
+    developer && getTranslatedManifestProperty(app, 'developer.url', t)
   const shortVersion = version && version.match(/^(\d+\.\d+\.\d+)-.*$/)
   const displayedVersion =
     ((shortVersion && shortVersion.length && shortVersion[1]) || version) ?? '-' // If no version, display a dash

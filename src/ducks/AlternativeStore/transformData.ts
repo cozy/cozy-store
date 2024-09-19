@@ -33,8 +33,7 @@ export const transformData = (
       return isStorePath || matchesCategoryPath
     })
     .map(file => {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      const metadataType = file.metadata.type ?? 'default'
+      const metadataCategory = file.metadata.target?.category ?? 'default'
       const filePath = file.path
 
       if (!filePath) return file
@@ -42,12 +41,13 @@ export const transformData = (
       const isStorePath = filePath.startsWith(config.store)
 
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-      let category = fileTypeMappings[metadataType] || fileTypeMappings.default
+      let category =
+        fileTypeMappings[metadataCategory] || fileTypeMappings.default
 
       // If the file is not in the store path and no specific category was found based on metadata type,
       // determine the category based on the file path
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-      if (!isStorePath && !fileTypeMappings[metadataType]) {
+      if (!isStorePath && !fileTypeMappings[metadataCategory]) {
         for (const [path, cat] of Object.entries(categoryPathMap)) {
           if (filePath.startsWith(path)) {
             category = cat
@@ -59,9 +59,13 @@ export const transformData = (
       return {
         ...file,
         name: file.name.replace('.url', ''),
+        long_description: file.metadata.target?.description,
         installed: !isStorePath,
         categories: [category],
-        slug: file.id // This is much easier than refactoring the whole app
+        slug: file.id, // This is much easier than refactoring the whole app
+        developer: {
+          name: file.metadata.externalDataSource?.source
+        }
       }
     })
 }
