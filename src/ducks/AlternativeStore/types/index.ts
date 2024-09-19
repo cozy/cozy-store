@@ -8,4 +8,8 @@ export interface AlternativeStoreConfig {
 
 export interface AlternativeShortcut extends IOCozyFile {
   installed?: boolean
+  long_description?: string
+  developer?: {
+    name?: string
+  }
 }
