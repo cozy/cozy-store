@@ -1,3 +1,4 @@
+import { useAlternativeStore } from 'ducks/AlternativeStore/useAlternativeStore'
 import ApplicationRouting from 'ducks/apps/components/ApplicationRouting'
 import Sections from 'ducks/apps/components/QuerystringSections'
 import AppVote from 'ducks/components/AppVote'
@@ -11,7 +12,6 @@ import { BarCenter } from 'cozy-bar'
 import { Content } from 'cozy-ui/transpiled/react/Layout'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
-import { useAlternativeStore } from 'ducks/AlternativeStore/useAlternativeStore'
 
 export class Discover extends Component {
   constructor(props) {
