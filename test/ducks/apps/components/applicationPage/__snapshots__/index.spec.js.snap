@@ -34,7 +34,7 @@ exports[`ApplicationPage component should be rendered correctly with app infos f
         }
         to="//myapps"
       />
-      <Connect(withBreakpoints(withI18n(withClient(Header))))
+      <Connect(Header)
         app={
           Object {
             "categories": Array [
@@ -326,7 +326,7 @@ exports[`ApplicationPage component should be rendered correctly with app with sc
         }
         to="//myapps"
       />
-      <Connect(withBreakpoints(withI18n(withClient(Header))))
+      <Connect(Header)
         app={
           Object {
             "categories": Array [
@@ -630,7 +630,7 @@ exports[`ApplicationPage component should be rendered correctly with konnector i
         }
         to="//myapps"
       />
-      <Connect(withBreakpoints(withI18n(withClient(Header))))
+      <Connect(Header)
         app={
           Object {
             "categories": Array [
@@ -876,7 +876,7 @@ exports[`ApplicationPage component should be rendered correctly with provided in
         }
         to="//myapps"
       />
-      <Connect(withBreakpoints(withI18n(withClient(Header))))
+      <Connect(Header)
         app={
           Object {
             "categories": Array [
@@ -1168,7 +1168,7 @@ exports[`ApplicationPage component should be rendered correctly with provided in
         }
         to="//myapps"
       />
-      <Connect(withBreakpoints(withI18n(withClient(Header))))
+      <Connect(Header)
         app={
           Object {
             "categories": Array [
@@ -1414,7 +1414,7 @@ exports[`ApplicationPage component should be rendered correctly without app desc
         }
         to="//myapps"
       />
-      <Connect(withBreakpoints(withI18n(withClient(Header))))
+      <Connect(Header)
         app={
           Object {
             "categories": Array [
@@ -1658,7 +1658,7 @@ exports[`ApplicationPage component should put search content on back button URL 
         }
         to="//myappstype=konnector&category=isp"
       />
-      <Connect(withBreakpoints(withI18n(withClient(Header))))
+      <Connect(Header)
         app={
           Object {
             "categories": Array [
@@ -2082,7 +2082,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         }
         to="//myapps"
       />
-      <Connect(withBreakpoints(withI18n(withClient(Header))))
+      <Connect(Header)
         app={
           Object {
             "categories": Array [
@@ -2498,7 +2498,7 @@ Gestionnaire de photos pour Cozy v3 :tada:",
         }
         to="//myapps"
       />
-      <Connect(withBreakpoints(withI18n(withClient(Header))))
+      <Connect(Header)
         app={
           Object {
             "categories": Array [
