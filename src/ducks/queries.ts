@@ -2,7 +2,7 @@ import CozyClient, { Q, QueryDefinition } from 'cozy-client'
 import { QueryOptions } from 'cozy-client/types/types'
 
 interface QueryConfig {
-  definition: QueryDefinition
+  definition: QueryDefinition | (() => QueryDefinition)
   options: QueryOptions
 }
 
@@ -37,5 +37,24 @@ export const buildShortcutsQuery: QueryBuilder = () => ({
   options: {
     as: 'io.cozy.files/class/shortcut',
     fetchPolicy
+  }
+})
+
+export const buildFileFromPathQuery: QueryBuilder<string> = path => ({
+  definition: Q('io.cozy.files').where({
+    path
+  }),
+  options: {
+    as: `io.cozy.files/path/${path ?? 'unknown'}`,
+    fetchPolicy
+  }
+})
+
+export const buildFileByIdQuery: QueryBuilder<string> = fileId => ({
+  definition: () => Q('io.cozy.files').getById(fileId ?? 'unknown'),
+  options: {
+    as: `io.cozy.files/${fileId ?? 'unknown'}`,
+    fetchPolicy,
+    singleDocData: true
   }
 })
