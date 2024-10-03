@@ -75,7 +75,6 @@
   "app_page": {
     "back": "Retour à la liste",
     "install": "Installer",
-    "favorite": "Ajouter à la page d'accueil",
     "uninstall": "Désinstaller",
     "update": "Mettre à jour",
     "konnector": {
@@ -329,5 +328,13 @@
       "flagshipApp": "Emportez votre cloud personnel avec vous : installez notre app Cozy !",
       "pass": "Vos mots de passe en sécurité dans votre poche : téléchargez Cozy Pass sur votre mobile"
     }
+  },
+  "HeaderShortcutActions": {
+    "add": "Ajouter à la page d'accueil",
+    "remove": "Retirer de la page d'accueil",
+    "open": "Ouvrir",
+    "error": "Une erreur est survenue, merci de réessayer",
+    "addSuccess": "L'application a été ajoutée à la page d'accueil",
+    "removeSuccess": "L'application a été retirée de la page d'accueil"
   }
 }

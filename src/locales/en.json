@@ -75,7 +75,6 @@
   "app_page": {
     "back": "Back to the list",
     "install": "Install",
-    "favorite": "Add to home page",
     "uninstall": "Uninstall",
     "update": "Update",
     "konnector": {
@@ -331,5 +330,13 @@
       "flagshipApp": "Take your personnal cloud with you: install Cozy on all your devices!",
       "pass": "Your passwords vault in your pocket at all time: download Cozy Pass on your mobile"
     }
+  },
+  "HeaderShortcutActions": {
+    "add": "Add to home page",
+    "remove": "Remove from home page",
+    "open": "Open",
+    "error": "An error occurred, please try again",
+    "addSuccess": "The application has been added to the home page",
+    "removeSuccess": "The application has been removed from the home page"
   }
 }
