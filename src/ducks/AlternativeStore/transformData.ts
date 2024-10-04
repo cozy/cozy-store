@@ -59,7 +59,7 @@ export const transformData = (
       return {
         ...file,
         name: file.name.replace('.url', ''),
-        long_description: file.metadata.target?.description,
+        long_description: file.metadata.description,
         installed: !isStorePath,
         categories: [category],
         slug: file.id, // This is much easier than refactoring the whole app
