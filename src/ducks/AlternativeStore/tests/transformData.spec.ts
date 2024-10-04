@@ -13,7 +13,7 @@ describe('transformData', () => {
             category: 'perso'
           },
           externalDataSource: {
-            source: 'Developer A'
+            creator: 'Developer A'
           }
         },
         path: '/Settings/Home/Barfoo/I-Paf.url',
@@ -27,7 +27,7 @@ describe('transformData', () => {
             category: 'foobaz'
           },
           externalDataSource: {
-            source: 'Developer B'
+            creator: 'Developer B'
           }
         },
         path: '/Settings/Home/Foobaz/Gestion des dossiers publidoc.url',
@@ -41,7 +41,7 @@ describe('transformData', () => {
             category: 'quxbaz'
           },
           externalDataSource: {
-            source: 'Developer C'
+            creator: 'Developer C'
           }
         },
         path: '/Settings/Home/Barfoo/M@gistère.url',
@@ -58,7 +58,7 @@ describe('transformData', () => {
             category: 'perso'
           },
           externalDataSource: {
-            source: 'Developer A'
+            creator: 'Developer A'
           }
         },
         path: '/Settings/Home/Barfoo/I-Paf.url',
@@ -77,7 +77,7 @@ describe('transformData', () => {
             category: 'foobaz'
           },
           externalDataSource: {
-            source: 'Developer B'
+            creator: 'Developer B'
           }
         },
         path: '/Settings/Home/Foobaz/Gestion des dossiers publidoc.url',
@@ -96,7 +96,7 @@ describe('transformData', () => {
             category: 'quxbaz'
           },
           externalDataSource: {
-            source: 'Developer C'
+            creator: 'Developer C'
           }
         },
         path: '/Settings/Home/Barfoo/M@gistère.url',
@@ -123,7 +123,7 @@ describe('transformData', () => {
             category: 'foobaz'
           },
           externalDataSource: {
-            source: 'Developer D'
+            creator: 'Developer D'
           }
         },
         path: '/Settings/Home/Applications Foobar/Store Foobar/quxbaz.url',
@@ -137,7 +137,7 @@ describe('transformData', () => {
             category: 'other'
           },
           externalDataSource: {
-            source: 'Developer E'
+            creator: 'Developer E'
           }
         },
         path: '/Settings/Home/Applications Foobar/Store Foobar/OtherFile.url',
@@ -154,7 +154,7 @@ describe('transformData', () => {
             category: 'foobaz'
           },
           externalDataSource: {
-            source: 'Developer D'
+            creator: 'Developer D'
           }
         },
         path: '/Settings/Home/Applications Foobar/Store Foobar/quxbaz.url',
@@ -173,7 +173,7 @@ describe('transformData', () => {
             category: 'other'
           },
           externalDataSource: {
-            source: 'Developer E'
+            creator: 'Developer E'
           }
         },
         path: '/Settings/Home/Applications Foobar/Store Foobar/OtherFile.url',
@@ -197,7 +197,7 @@ describe('transformData', () => {
         metadata: {
           description: 'Description for NoCategory',
           externalDataSource: {
-            source: 'Developer F'
+            creator: 'Developer F'
           }
         },
         path: '/Settings/Home/Foobaz/NoCategory.url',
@@ -211,7 +211,7 @@ describe('transformData', () => {
             category: undefined
           },
           externalDataSource: {
-            source: 'Developer G'
+            creator: 'Developer G'
           }
         },
         path:
@@ -226,7 +226,7 @@ describe('transformData', () => {
         metadata: {
           description: 'Description for NoCategory',
           externalDataSource: {
-            source: 'Developer F'
+            creator: 'Developer F'
           }
         },
         path: '/Settings/Home/Foobaz/NoCategory.url',
@@ -245,7 +245,7 @@ describe('transformData', () => {
             category: undefined
           },
           externalDataSource: {
-            source: 'Developer G'
+            creator: 'Developer G'
           }
         },
         path:
@@ -273,7 +273,7 @@ describe('transformData', () => {
             category: 'unknown'
           },
           externalDataSource: {
-            source: 'Developer H'
+            creator: 'Developer H'
           }
         },
         path: '/ultra/bogus/path',
@@ -297,7 +297,7 @@ describe('transformData', () => {
             category: 'foobaz'
           },
           externalDataSource: {
-            source: 'Developer I'
+            creator: 'Developer I'
           }
         },
         path: '/Settings/Home/Applications Foobar/Store Foobar/quxbaz.url',
@@ -308,7 +308,7 @@ describe('transformData', () => {
         metadata: {
           description: 'Description for NoType',
           externalDataSource: {
-            source: 'Developer J'
+            creator: 'Developer J'
           }
         },
         path: '/Settings/Home/Foobaz/NoType.url',
@@ -322,7 +322,7 @@ describe('transformData', () => {
             category: 'unknown'
           },
           externalDataSource: {
-            source: 'Developer K'
+            creator: 'Developer K'
           }
         },
         path: '/Settings/Home/Applications Foobar/Store Foobar/Unknown.url',
@@ -339,7 +339,7 @@ describe('transformData', () => {
             category: 'foobaz'
           },
           externalDataSource: {
-            source: 'Developer I'
+            creator: 'Developer I'
           }
         },
         path: '/Settings/Home/Applications Foobar/Store Foobar/quxbaz.url',
@@ -355,7 +355,7 @@ describe('transformData', () => {
         metadata: {
           description: 'Description for NoType',
           externalDataSource: {
-            source: 'Developer J'
+            creator: 'Developer J'
           }
         },
         path: '/Settings/Home/Foobaz/NoType.url',
@@ -374,7 +374,7 @@ describe('transformData', () => {
             category: 'unknown'
           },
           externalDataSource: {
-            source: 'Developer K'
+            creator: 'Developer K'
           }
         },
         path: '/Settings/Home/Applications Foobar/Store Foobar/Unknown.url',

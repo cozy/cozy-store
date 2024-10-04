@@ -64,7 +64,7 @@ export const transformData = (
         categories: [category],
         slug: file.id, // This is much easier than refactoring the whole app
         developer: {
-          name: file.metadata.externalDataSource?.source
+          name: file.metadata.externalDataSource?.creator
         }
       }
     })
