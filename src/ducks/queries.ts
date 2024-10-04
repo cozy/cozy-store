@@ -58,3 +58,32 @@ export const buildFileByIdQuery: QueryBuilder<string> = fileId => ({
     singleDocData: true
   }
 })
+
+export const buildFileByPathsQuery: QueryBuilder<string[]> = paths => ({
+  definition: () =>
+    Q('io.cozy.files').where({
+      path: {
+        $in: paths ?? []
+      }
+    }),
+  options: {
+    as: `io.cozy.files/path/${(paths ?? []).join('/')}`,
+    fetchPolicy,
+    enabled: !!paths
+  }
+})
+
+export const buildFilesByDirIdsQuery: QueryBuilder<string[]> = dirIds => ({
+  definition: () =>
+    Q('io.cozy.files').where({
+      class: 'shortcut',
+      dir_id: {
+        $in: dirIds ?? []
+      }
+    }),
+  options: {
+    as: `io.cozy.files/dirId/${(dirIds ?? []).join('/')}`,
+    fetchPolicy,
+    enabled: !!dirIds
+  }
+})
