@@ -8,9 +8,9 @@ describe('transformData', () => {
       {
         id: '01904ab1-f1fd-7243-b39b-37fe73b5579a',
         metadata: {
+          description: 'Description for I-Paf',
           target: {
-            category: 'perso',
-            description: 'Description for I-Paf'
+            category: 'perso'
           },
           externalDataSource: {
             source: 'Developer A'
@@ -22,9 +22,9 @@ describe('transformData', () => {
       {
         id: '01904ab2-20a9-7243-9972-df18c9c671d3',
         metadata: {
+          description: 'Description for Gestion des dossiers publidoc',
           target: {
-            category: 'foobaz',
-            description: 'Description for Gestion des dossiers publidoc'
+            category: 'foobaz'
           },
           externalDataSource: {
             source: 'Developer B'
@@ -36,9 +36,9 @@ describe('transformData', () => {
       {
         id: '01904ab2-2633-7243-9774-dc81fb0bc46a',
         metadata: {
+          description: 'Description for M@gistère',
           target: {
-            category: 'quxbaz',
-            description: 'Description for M@gistère'
+            category: 'quxbaz'
           },
           externalDataSource: {
             source: 'Developer C'
@@ -53,9 +53,9 @@ describe('transformData', () => {
       {
         id: '01904ab1-f1fd-7243-b39b-37fe73b5579a',
         metadata: {
+          description: 'Description for I-Paf',
           target: {
-            category: 'perso',
-            description: 'Description for I-Paf'
+            category: 'perso'
           },
           externalDataSource: {
             source: 'Developer A'
@@ -72,9 +72,9 @@ describe('transformData', () => {
       {
         id: '01904ab2-20a9-7243-9972-df18c9c671d3',
         metadata: {
+          description: 'Description for Gestion des dossiers publidoc',
           target: {
-            category: 'foobaz',
-            description: 'Description for Gestion des dossiers publidoc'
+            category: 'foobaz'
           },
           externalDataSource: {
             source: 'Developer B'
@@ -91,9 +91,9 @@ describe('transformData', () => {
       {
         id: '01904ab2-2633-7243-9774-dc81fb0bc46a',
         metadata: {
+          description: 'Description for M@gistère',
           target: {
-            category: 'quxbaz',
-            description: 'Description for M@gistère'
+            category: 'quxbaz'
           },
           externalDataSource: {
             source: 'Developer C'
@@ -118,9 +118,9 @@ describe('transformData', () => {
       {
         id: '01908039-3b2c-7852-b4bd-1d768199c89c',
         metadata: {
+          description: 'Description for quxbaz',
           target: {
-            category: 'foobaz',
-            description: 'Description for quxbaz'
+            category: 'foobaz'
           },
           externalDataSource: {
             source: 'Developer D'
@@ -132,9 +132,9 @@ describe('transformData', () => {
       {
         id: '01908039-3b2c-7852-b4bd-1d768199c89d',
         metadata: {
+          description: 'Description for OtherFile',
           target: {
-            category: 'other',
-            description: 'Description for OtherFile'
+            category: 'other'
           },
           externalDataSource: {
             source: 'Developer E'
@@ -149,9 +149,9 @@ describe('transformData', () => {
       {
         id: '01908039-3b2c-7852-b4bd-1d768199c89c',
         metadata: {
+          description: 'Description for quxbaz',
           target: {
-            category: 'foobaz',
-            description: 'Description for quxbaz'
+            category: 'foobaz'
           },
           externalDataSource: {
             source: 'Developer D'
@@ -168,9 +168,9 @@ describe('transformData', () => {
       {
         id: '01908039-3b2c-7852-b4bd-1d768199c89d',
         metadata: {
+          description: 'Description for OtherFile',
           target: {
-            category: 'other',
-            description: 'Description for OtherFile'
+            category: 'other'
           },
           externalDataSource: {
             source: 'Developer E'
@@ -195,9 +195,7 @@ describe('transformData', () => {
       {
         id: '01908039-3b2c-7852-b4bd-1d768199c890',
         metadata: {
-          target: {
-            description: 'Description for NoCategory'
-          },
+          description: 'Description for NoCategory',
           externalDataSource: {
             source: 'Developer F'
           }
@@ -208,9 +206,9 @@ describe('transformData', () => {
       {
         id: '01908039-3b2c-7852-b4bd-1d768199c891',
         metadata: {
+          description: 'Description for UndefinedCategory',
           target: {
-            category: undefined,
-            description: 'Description for UndefinedCategory'
+            category: undefined
           },
           externalDataSource: {
             source: 'Developer G'
@@ -226,9 +224,7 @@ describe('transformData', () => {
       {
         id: '01908039-3b2c-7852-b4bd-1d768199c890',
         metadata: {
-          target: {
-            description: 'Description for NoCategory'
-          },
+          description: 'Description for NoCategory',
           externalDataSource: {
             source: 'Developer F'
           }
@@ -244,9 +240,9 @@ describe('transformData', () => {
       {
         id: '01908039-3b2c-7852-b4bd-1d768199c891',
         metadata: {
+          description: 'Description for UndefinedCategory',
           target: {
-            category: undefined,
-            description: 'Description for UndefinedCategory'
+            category: undefined
           },
           externalDataSource: {
             source: 'Developer G'
@@ -272,9 +268,9 @@ describe('transformData', () => {
       {
         id: '01908039-3b2c-7852-b4bd-1d768199c892',
         metadata: {
+          description: 'Description for Unknown',
           target: {
-            category: 'unknown',
-            description: 'Description for Unknown'
+            category: 'unknown'
           },
           externalDataSource: {
             source: 'Developer H'
@@ -296,9 +292,9 @@ describe('transformData', () => {
       {
         id: '01908039-3b2c-7852-b4bd-1d768199c89c',
         metadata: {
+          description: 'Description for quxbaz',
           target: {
-            category: 'foobaz',
-            description: 'Description for quxbaz'
+            category: 'foobaz'
           },
           externalDataSource: {
             source: 'Developer I'
@@ -310,9 +306,7 @@ describe('transformData', () => {
       {
         id: '01908039-3b2c-7852-b4bd-1d768199c890',
         metadata: {
-          target: {
-            description: 'Description for NoType'
-          },
+          description: 'Description for NoType',
           externalDataSource: {
             source: 'Developer J'
           }
@@ -323,9 +317,9 @@ describe('transformData', () => {
       {
         id: '01908039-3b2c-7852-b4bd-1d768199c892',
         metadata: {
+          description: 'Description for Unknown',
           target: {
-            category: 'unknown',
-            description: 'Description for Unknown'
+            category: 'unknown'
           },
           externalDataSource: {
             source: 'Developer K'
@@ -340,9 +334,9 @@ describe('transformData', () => {
       {
         id: '01908039-3b2c-7852-b4bd-1d768199c89c',
         metadata: {
+          description: 'Description for quxbaz',
           target: {
-            category: 'foobaz',
-            description: 'Description for quxbaz'
+            category: 'foobaz'
           },
           externalDataSource: {
             source: 'Developer I'
@@ -359,9 +353,7 @@ describe('transformData', () => {
       {
         id: '01908039-3b2c-7852-b4bd-1d768199c890',
         metadata: {
-          target: {
-            description: 'Description for NoType'
-          },
+          description: 'Description for NoType',
           externalDataSource: {
             source: 'Developer J'
           }
@@ -377,9 +369,9 @@ describe('transformData', () => {
       {
         id: '01908039-3b2c-7852-b4bd-1d768199c892',
         metadata: {
+          description: 'Description for Unknown',
           target: {
-            category: 'unknown',
-            description: 'Description for Unknown'
+            category: 'unknown'
           },
           externalDataSource: {
             source: 'Developer K'
