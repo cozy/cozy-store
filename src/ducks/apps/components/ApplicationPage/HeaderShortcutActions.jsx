@@ -71,37 +71,35 @@ const HeaderShortcutActions = ({ app }) => {
 
   const url = shortcutInfos?.data?.attributes?.url || ''
 
-  if (app.installed) {
-    return (
-      <>
-        <Button
-          href={url}
-          label={t('HeaderShortcutActions.open')}
-          className="c-btn"
-          disabled={isBusy}
-        />
+  return (
+    <>
+      <Button
+        href={url}
+        label={t('HeaderShortcutActions.open')}
+        className="c-btn"
+        disabled={isBusy}
+      />
+      {app.installed ? (
         <Button
           variant="secondary"
           fullWidth={isMobile}
           className={isMobile ? 'u-mt-1' : null}
           onClick={handleRemove}
-          // disabled={isUninstallDisabled}
           label={t('HeaderShortcutActions.remove')}
           busy={isBusy}
         />
-      </>
-    )
-  }
-
-  return (
-    <Button
-      fullWidth={isMobile}
-      // disabled={isInstallDisabled}
-      onClick={handleAdd}
-      startIcon={<Icon icon={cozySmileIcon} />}
-      label={t('HeaderShortcutActions.add')}
-      busy={isBusy}
-    />
+      ) : (
+        <Button
+          variant="secondary"
+          fullWidth={isMobile}
+          className={isMobile ? 'u-mt-1' : null}
+          onClick={handleAdd}
+          startIcon={<Icon icon={cozySmileIcon} />}
+          label={t('HeaderShortcutActions.add')}
+          busy={isBusy}
+        />
+      )}
+    </>
   )
 }
 
