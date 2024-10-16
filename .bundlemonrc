@@ -1,0 +1,27 @@
+{
+    "baseDir": "./build",
+    "files": [
+        {
+            "path": "app/store.<hash>.js"
+        },
+        {
+            "path": "app-store.<hash>.min.css"
+        },
+        {
+            "path": "vendors-store.<hash>.min.css"
+        },
+        {
+            "path": "intent-store.<hash>.min.css"
+        },
+        {
+            "path": "intent/store.<hash>.js"
+        },
+        {
+            "path": "services/installSuggestion/store.js"
+        },
+        {
+            "path": "vendors/store.<hash>.js"
+        }
+    ],
+    "reportOutput": ["github"]
+}
