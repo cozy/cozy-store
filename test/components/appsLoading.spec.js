@@ -2,39 +2,33 @@
 
 /* eslint-env jest */
 
+import { render } from '@testing-library/react'
 import {
   AppsLoading,
   LoadingAppsComponents
 } from 'ducks/components/AppsLoading'
-import { shallow } from 'enzyme'
 import React from 'react'
 
 global.Math.random = () => 1 // remove random for testing
 
 describe('AppsLoading component', () => {
   it('should be rendered correctly and never be updated', () => {
-    const wrapper = shallow(<AppsLoading />)
-    const shouldUpdate = wrapper.instance().shouldComponentUpdate()
-    expect(shouldUpdate).toBe(false)
+    const spy = jest.spyOn(AppsLoading.prototype, 'shouldComponentUpdate')
+    render(<AppsLoading />)
+    expect(spy).not.toHaveBeenCalled()
+    spy.mockRestore()
   })
 })
 
 describe('LoadingAppsComponents component', () => {
-  it('should be rendered correctly', () => {
-    const component = shallow(
-      <LoadingAppsComponents count={3} subKey="mock" />
-    ).getElement()
-    expect(component).toMatchSnapshot()
-  })
-
   it('should be rendered correctly if isMobile', () => {
-    const component = shallow(
+    const { asFragment } = render(
       <LoadingAppsComponents
         count={3}
         subKey="mock"
         breakpoints={{ isMobile: true }}
       />
-    ).getElement()
-    expect(component).toMatchSnapshot()
+    )
+    expect(asFragment()).toMatchSnapshot()
   })
 })

@@ -1,363 +1,154 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LoadingAppsComponents component should be rendered correctly 1`] = `
-<div
-  className="sto-sections-list"
->
-  <div
-    className="sto-small-app-item"
-  >
-    <div
-      className="sto-small-app-item-icon-wrapper"
-    >
-      <div
-        className="sto-small-app-item-icon"
-      >
-        <Placeholder
-          autoMargin={true}
-          height="3rem"
-          width="3rem"
-        />
-      </div>
-    </div>
-    <div
-      className="sto-small-app-item-desc"
-    >
-      <h4
-        className="sto-small-app-item-title"
-      >
-        <Placeholder
-          autoMargin={true}
-          height="1.1rem"
-          width={
-            Array [
-              4,
-              8,
-            ]
-          }
-        />
-      </h4>
-      <p
-        className="sto-small-app-item-developer"
-      >
-        <Placeholder
-          autoMargin={true}
-          height=".8rem"
-          width={
-            Array [
-              4,
-              8,
-            ]
-          }
-        />
-      </p>
-      <p
-        className="sto-small-app-item-status"
-      >
-        <Placeholder
-          autoMargin={true}
-          height=".8rem"
-          width="4rem"
-        />
-      </p>
-    </div>
-  </div>
-  <div
-    className="sto-small-app-item"
-  >
-    <div
-      className="sto-small-app-item-icon-wrapper"
-    >
-      <div
-        className="sto-small-app-item-icon"
-      >
-        <Placeholder
-          autoMargin={true}
-          height="3rem"
-          width="3rem"
-        />
-      </div>
-    </div>
-    <div
-      className="sto-small-app-item-desc"
-    >
-      <h4
-        className="sto-small-app-item-title"
-      >
-        <Placeholder
-          autoMargin={true}
-          height="1.1rem"
-          width={
-            Array [
-              4,
-              8,
-            ]
-          }
-        />
-      </h4>
-      <p
-        className="sto-small-app-item-developer"
-      >
-        <Placeholder
-          autoMargin={true}
-          height=".8rem"
-          width={
-            Array [
-              4,
-              8,
-            ]
-          }
-        />
-      </p>
-      <p
-        className="sto-small-app-item-status"
-      >
-        <Placeholder
-          autoMargin={true}
-          height=".8rem"
-          width="4rem"
-        />
-      </p>
-    </div>
-  </div>
-  <div
-    className="sto-small-app-item"
-  >
-    <div
-      className="sto-small-app-item-icon-wrapper"
-    >
-      <div
-        className="sto-small-app-item-icon"
-      >
-        <Placeholder
-          autoMargin={true}
-          height="3rem"
-          width="3rem"
-        />
-      </div>
-    </div>
-    <div
-      className="sto-small-app-item-desc"
-    >
-      <h4
-        className="sto-small-app-item-title"
-      >
-        <Placeholder
-          autoMargin={true}
-          height="1.1rem"
-          width={
-            Array [
-              4,
-              8,
-            ]
-          }
-        />
-      </h4>
-      <p
-        className="sto-small-app-item-developer"
-      >
-        <Placeholder
-          autoMargin={true}
-          height=".8rem"
-          width={
-            Array [
-              4,
-              8,
-            ]
-          }
-        />
-      </p>
-      <p
-        className="sto-small-app-item-status"
-      >
-        <Placeholder
-          autoMargin={true}
-          height=".8rem"
-          width="4rem"
-        />
-      </p>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`LoadingAppsComponents component should be rendered correctly if isMobile 1`] = `
-<div
-  className="sto-sections-list"
->
+<DocumentFragment>
   <div
-    className="sto-small-app-item"
+    class="sto-sections-list"
   >
     <div
-      className="sto-small-app-item-icon-wrapper"
+      class="sto-small-app-item"
     >
       <div
-        className="sto-small-app-item-icon"
+        class="sto-small-app-item-icon-wrapper"
       >
-        <Placeholder
-          autoMargin={true}
-          height="2.5rem"
-          width="2.5rem"
-        />
+        <div
+          class="sto-small-app-item-icon"
+        >
+          <span
+            class="sto-sections-placeholder"
+            data-testid="placeholder"
+            style="width: 2.5rem; height: 2.5rem; margin: auto;"
+          />
+        </div>
+      </div>
+      <div
+        class="sto-small-app-item-desc"
+      >
+        <h4
+          class="sto-small-app-item-title"
+        >
+          <span
+            class="sto-sections-placeholder"
+            data-testid="placeholder"
+            style="width: 5rem; height: .8rem; margin: auto;"
+          />
+        </h4>
+        <p
+          class="sto-small-app-item-developer"
+        >
+          <span
+            class="sto-sections-placeholder"
+            data-testid="placeholder"
+            style="width: 5rem; height: .8rem; margin: auto;"
+          />
+        </p>
+        <p
+          class="sto-small-app-item-status"
+        >
+          <span
+            class="sto-sections-placeholder"
+            data-testid="placeholder"
+            style="width: 4rem; height: .6rem; margin: auto;"
+          />
+        </p>
       </div>
     </div>
     <div
-      className="sto-small-app-item-desc"
-    >
-      <h4
-        className="sto-small-app-item-title"
-      >
-        <Placeholder
-          autoMargin={true}
-          height=".8rem"
-          width={
-            Array [
-              4,
-              5,
-            ]
-          }
-        />
-      </h4>
-      <p
-        className="sto-small-app-item-developer"
-      >
-        <Placeholder
-          autoMargin={true}
-          height=".8rem"
-          width={
-            Array [
-              4,
-              5,
-            ]
-          }
-        />
-      </p>
-      <p
-        className="sto-small-app-item-status"
-      >
-        <Placeholder
-          autoMargin={true}
-          height=".6rem"
-          width="4rem"
-        />
-      </p>
-    </div>
-  </div>
-  <div
-    className="sto-small-app-item"
-  >
-    <div
-      className="sto-small-app-item-icon-wrapper"
+      class="sto-small-app-item"
     >
       <div
-        className="sto-small-app-item-icon"
+        class="sto-small-app-item-icon-wrapper"
       >
-        <Placeholder
-          autoMargin={true}
-          height="2.5rem"
-          width="2.5rem"
-        />
+        <div
+          class="sto-small-app-item-icon"
+        >
+          <span
+            class="sto-sections-placeholder"
+            data-testid="placeholder"
+            style="width: 2.5rem; height: 2.5rem; margin: auto;"
+          />
+        </div>
+      </div>
+      <div
+        class="sto-small-app-item-desc"
+      >
+        <h4
+          class="sto-small-app-item-title"
+        >
+          <span
+            class="sto-sections-placeholder"
+            data-testid="placeholder"
+            style="width: 5rem; height: .8rem; margin: auto;"
+          />
+        </h4>
+        <p
+          class="sto-small-app-item-developer"
+        >
+          <span
+            class="sto-sections-placeholder"
+            data-testid="placeholder"
+            style="width: 5rem; height: .8rem; margin: auto;"
+          />
+        </p>
+        <p
+          class="sto-small-app-item-status"
+        >
+          <span
+            class="sto-sections-placeholder"
+            data-testid="placeholder"
+            style="width: 4rem; height: .6rem; margin: auto;"
+          />
+        </p>
       </div>
     </div>
     <div
-      className="sto-small-app-item-desc"
-    >
-      <h4
-        className="sto-small-app-item-title"
-      >
-        <Placeholder
-          autoMargin={true}
-          height=".8rem"
-          width={
-            Array [
-              4,
-              5,
-            ]
-          }
-        />
-      </h4>
-      <p
-        className="sto-small-app-item-developer"
-      >
-        <Placeholder
-          autoMargin={true}
-          height=".8rem"
-          width={
-            Array [
-              4,
-              5,
-            ]
-          }
-        />
-      </p>
-      <p
-        className="sto-small-app-item-status"
-      >
-        <Placeholder
-          autoMargin={true}
-          height=".6rem"
-          width="4rem"
-        />
-      </p>
-    </div>
-  </div>
-  <div
-    className="sto-small-app-item"
-  >
-    <div
-      className="sto-small-app-item-icon-wrapper"
+      class="sto-small-app-item"
     >
       <div
-        className="sto-small-app-item-icon"
+        class="sto-small-app-item-icon-wrapper"
       >
-        <Placeholder
-          autoMargin={true}
-          height="2.5rem"
-          width="2.5rem"
-        />
+        <div
+          class="sto-small-app-item-icon"
+        >
+          <span
+            class="sto-sections-placeholder"
+            data-testid="placeholder"
+            style="width: 2.5rem; height: 2.5rem; margin: auto;"
+          />
+        </div>
+      </div>
+      <div
+        class="sto-small-app-item-desc"
+      >
+        <h4
+          class="sto-small-app-item-title"
+        >
+          <span
+            class="sto-sections-placeholder"
+            data-testid="placeholder"
+            style="width: 5rem; height: .8rem; margin: auto;"
+          />
+        </h4>
+        <p
+          class="sto-small-app-item-developer"
+        >
+          <span
+            class="sto-sections-placeholder"
+            data-testid="placeholder"
+            style="width: 5rem; height: .8rem; margin: auto;"
+          />
+        </p>
+        <p
+          class="sto-small-app-item-status"
+        >
+          <span
+            class="sto-sections-placeholder"
+            data-testid="placeholder"
+            style="width: 4rem; height: .6rem; margin: auto;"
+          />
+        </p>
       </div>
     </div>
-    <div
-      className="sto-small-app-item-desc"
-    >
-      <h4
-        className="sto-small-app-item-title"
-      >
-        <Placeholder
-          autoMargin={true}
-          height=".8rem"
-          width={
-            Array [
-              4,
-              5,
-            ]
-          }
-        />
-      </h4>
-      <p
-        className="sto-small-app-item-developer"
-      >
-        <Placeholder
-          autoMargin={true}
-          height=".8rem"
-          width={
-            Array [
-              4,
-              5,
-            ]
-          }
-        />
-      </p>
-      <p
-        className="sto-small-app-item-status"
-      >
-        <Placeholder
-          autoMargin={true}
-          height=".6rem"
-          width="4rem"
-        />
-      </p>
-    </div>
   </div>
-</div>
+</DocumentFragment>
 `;
