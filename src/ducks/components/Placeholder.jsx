@@ -11,6 +11,7 @@ export const Placeholder = ({ width, height, autoMargin, className }) => {
   if (autoMargin) style.margin = 'auto'
   return (
     <span
+      data-testid="placeholder"
       className={
         'sto-sections-placeholder' + (className ? ' ' + className : '')
       }
