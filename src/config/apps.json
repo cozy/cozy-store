@@ -1,4 +1,4 @@
 {
   "notRemovableApps": ["drive"],
-  "notDisplayedApps": ["collect", "home", "settings", "store"]
+  "notDisplayedApps": ["collect", "home", "settings", "store", "dataproxy"]
 }
