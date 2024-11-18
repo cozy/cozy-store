@@ -1,0 +1,107 @@
+{
+  "name": "Store",
+  "name_prefix": "Cozy",
+  "slug": "store",
+  "type": "webapp",
+  "icon": "icon-store.svg",
+  "editor": "Cozy",
+  "description": "The apps store for Cozy V3",
+  "categories": [
+    "cozy"
+  ],
+  "version": "1.18.0",
+  "licence": "AGPL-3.0",
+  "source": "https://github.com/cozy/cozy-store.git@build",
+  "developer": {
+    "name": "Cozy Cloud",
+    "url": "https://cozy.io"
+  },
+  "locales": {},
+  "intents": [
+    {
+      "action": "REDIRECT",
+      "type": [
+        "io.cozy.apps"
+      ],
+      "href": "/#/redirect",
+      "data": [
+        "category",
+        "doctype",
+        "slug",
+        "tag",
+        "type",
+        "pendingUpdate",
+        "step"
+      ]
+    },
+    {
+      "action": "INSTALL",
+      "data": [
+        "slug",
+        "category",
+        "qualificationLabels",
+        "pageToDisplay",
+        "terminateIfInstalled"
+      ],
+      "href": "/intents",
+      "type": [
+        "io.cozy.apps"
+      ]
+    }
+  ],
+  "routes": {
+    "/": {
+      "folder": "/",
+      "index": "index.html",
+      "public": false
+    },
+    "/intents": {
+      "folder": "/intents",
+      "index": "index.html",
+      "public": false
+    }
+  },
+  "permissions": {
+    "terms": {
+      "description": "Required to save accepted applications terms",
+      "type": "io.cozy.terms",
+      "verbs": [
+        "ALL"
+      ]
+    },
+    "apps": {
+      "description": "Required to manage applications",
+      "type": "io.cozy.apps",
+      "verbs": [
+        "ALL"
+      ]
+    },
+    "konnectors": {
+      "description": "Required to manage konnectors",
+      "type": "io.cozy.konnectors",
+      "verbs": [
+        "ALL"
+      ]
+    },
+    "settings": {
+      "description": "Required by the push banners and the cozy-bar to display Claudy and know which applications are coming soon",
+      "type": "io.cozy.settings"
+    },
+    "oAuthClients": {
+      "description": "Required by the push banners",
+      "type": "io.cozy.oauth.clients",
+      "verbs": [
+        "GET"
+      ]
+    },
+    "files": {
+      "description": "Required to access folders",
+      "type": "io.cozy.files",
+      "verbs": [
+        "GET",
+        "PATCH",
+        "POST"
+      ]
+    }
+  }
+}
