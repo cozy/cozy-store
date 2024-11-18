@@ -7,6 +7,7 @@ import { NotUninstallableAppException } from 'lib/exceptions'
 import flatten from 'lodash/flatten'
 
 import { isFlagshipApp } from 'cozy-device-helper'
+import flag from 'cozy-flags'
 import CozyRealtime from 'cozy-realtime'
 
 import {
@@ -56,8 +57,13 @@ const getDataset = () => {
   return dataset
 }
 
-const shouldAppBeDisplayed = appAttributes =>
-  !config.notDisplayedApps.includes(appAttributes.slug)
+const shouldAppBeDisplayed = appAttributes => {
+  const excludedAppsByFlag = flag('apps.hidden') || []
+  return (
+    !config.notDisplayedApps.includes(appAttributes.slug) &&
+    !excludedAppsByFlag.includes(appAttributes.slug)
+  )
+}
 
 /* Only for the icon fetching */
 export const getAppIconProps = () => ({
