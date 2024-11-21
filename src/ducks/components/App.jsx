@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 
 import { BarComponent } from 'cozy-bar'
 import { withClient } from 'cozy-client'
-import CozyDevTools from 'cozy-client/dist/devtools'
+import CozyDevTools from 'cozy-devtools'
 import flag from 'cozy-flags'
 import IconSprite from 'cozy-ui/transpiled/react/Icon/Sprite'
 import { Layout, Main } from 'cozy-ui/transpiled/react/Layout'
