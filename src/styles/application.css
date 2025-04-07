@@ -63,23 +63,6 @@
   visibility: visible;
 }
 
-main > [role=main].sto-discover,
-main > [role=main].sto-myapps {
-  height: 100vh;
-  overflow: hidden;
-}
-
-@media (max-width: 64rem) {
-  main > [role=main].sto-discover,
-  main > [role=main].sto-myapps {
-    height: 100%;
-  }
-}
-
-.sto-list-container {
-  overflow-y: auto;
-}
-
 .sto-modal-page {
   position: absolute;
   top: 0;

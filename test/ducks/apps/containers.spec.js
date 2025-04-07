@@ -21,21 +21,23 @@ describe('Apps Containers (connected components):', () => {
 
   it('MyApplications should be rendered correctly at initial store', () => {
     const store = mockStore(initialState)
-    const { container } = render(
+    const { getByRole } = render(
       <AppLike>
         <MyApplications store={store} />
       </AppLike>
     )
-    expect(container.querySelector('.sto-myapps')).toBeInTheDocument()
+
+    expect(getByRole('main')).toBeInTheDocument()
   })
 
   it('Discover should be rendered correctly at initial store', () => {
     const store = mockStore(initialState)
-    const { container } = render(
+    const { getByRole } = render(
       <AppLike>
         <Discover store={store} />
       </AppLike>
     )
-    expect(container.querySelector('.sto-discover')).toBeInTheDocument()
+
+    expect(getByRole('main')).toBeInTheDocument()
   })
 })

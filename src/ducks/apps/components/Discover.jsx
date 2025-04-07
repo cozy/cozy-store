@@ -10,6 +10,7 @@ import { useMatch, useSearchParams } from 'react-router-dom'
 
 import { BarCenter } from 'cozy-bar'
 import { Content } from 'cozy-ui/transpiled/react/Layout'
+import Typography from 'cozy-ui/transpiled/react/Typography'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
 
@@ -41,13 +42,19 @@ export class Discover extends Component {
     } = this.props
 
     const { isMobile } = breakpoints
-    const title = <h2 className="sto-view-title">{t('discover.title')}</h2>
+
     return (
-      <Content className="sto-discover">
+      <Content>
         {isExact && isFetching && <AppsLoading />}
-        <div className="sto-list-container">
-          {isMobile && !intentData && <BarCenter>{title}</BarCenter>}
-          <div className="sto-discover-sections">
+        <div>
+          {isMobile && !intentData && (
+            <BarCenter>
+              <Typography component="h2" variant="h4">
+                {t('discover.title')}
+              </Typography>
+            </BarCenter>
+          )}
+          <div>
             {!isFetching && (
               <Sections
                 apps={apps}
