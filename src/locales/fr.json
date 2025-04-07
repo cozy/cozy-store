@@ -121,10 +121,6 @@
       }
     }
   },
-  "app_vote": {
-    "line1": "Vous ne trouvez pas ce que vous cherchiez ?",
-    "line2": "Dites-le nous !"
-  },
   "app_item": {
     "by": "Par",
     "installed": "Installée",
