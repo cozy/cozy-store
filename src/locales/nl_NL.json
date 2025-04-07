@@ -125,11 +125,6 @@
     }
   },
 
-  "app_vote": {
-    "line1": "Niet gevonden wat je zocht?",
-    "line2": "Laat het ons weten!"
-  },
-
   "app_item": {
     "by": "Door",
     "installed": "Geïnstalleerd",

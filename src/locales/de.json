@@ -117,11 +117,6 @@
     "konnectors": "Services"
   },
 
-  "app_vote": {
-    "line1": "Sie können nicht finden, was Sie suchen?",
-    "line2": "Lass es uns wissen!"
-  },
-
   "app_item": {
     "by": "Von",
     "installed": "Installiert",

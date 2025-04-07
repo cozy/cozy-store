@@ -11,7 +11,6 @@
 @import '~styles/sections.css';
 @import '~styles/dropdownFilter.css';
 @import '~styles/loading.css';
-@import '~styles/appVote.css';
 
 .blurry {
     opacity: .7;

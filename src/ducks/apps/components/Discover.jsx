@@ -1,7 +1,6 @@
 import { useAlternativeStore } from 'ducks/AlternativeStore/useAlternativeStore'
 import ApplicationRouting from 'ducks/apps/components/ApplicationRouting'
 import Sections from 'ducks/apps/components/QuerystringSections'
-import AppVote from 'ducks/components/AppVote'
 import AppsLoading from 'ducks/components/AppsLoading'
 import { useNavigateNoUpdates, withRouterUtils } from 'lib/RouterUtils'
 import PropTypes from 'prop-types'
@@ -65,7 +64,6 @@ export class Discover extends Component {
               />
             )}
           </div>
-          {!isFetching && !intentData && <AppVote />}
         </div>
 
         <ApplicationRouting
