@@ -1,4 +1,3 @@
-import cozySmileIcon from 'assets/icons/icon-cozy-smile.svg'
 import { APP_TYPE, openApp } from 'ducks/apps'
 import {
   hasPendingUpdate,
@@ -12,6 +11,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { useClient } from 'cozy-client'
 import { isFlagshipApp } from 'cozy-device-helper'
 import { useWebviewIntent } from 'cozy-intent'
+import CloudIcon from 'cozy-ui/transpiled/react/Icons/Cloud'
 import Button from 'cozy-ui/transpiled/react/deprecated/Button'
 import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
@@ -71,7 +71,7 @@ const HeaderActions = ({ app, intentData, parent, isInstalling }) => {
           disabled={isInstallDisabled}
           onClick={isInstallDisabled ? e => e.preventDefault() : null}
           aria-busy={isCurrentAppInstalling}
-          icon={cozySmileIcon}
+          icon={CloudIcon}
           label={
             hasPendingUpdate(app) ? t('app_page.update') : t('app_page.install')
           }
