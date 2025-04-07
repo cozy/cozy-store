@@ -1,4 +1,3 @@
-import cozySmileIcon from 'assets/icons/icon-cozy-smile.svg'
 import { buildFileFromPathQuery } from 'ducks/queries'
 import React, { useState } from 'react'
 
@@ -7,6 +6,7 @@ import { move } from 'cozy-client/dist/models/file'
 import flag from 'cozy-flags'
 import Button from 'cozy-ui/transpiled/react/Buttons'
 import Icon from 'cozy-ui/transpiled/react/Icon'
+import CloudIcon from 'cozy-ui/transpiled/react/Icons/Cloud'
 import { useAlert } from 'cozy-ui/transpiled/react/providers/Alert'
 import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
@@ -94,7 +94,7 @@ const HeaderShortcutActions = ({ app }) => {
           fullWidth={isMobile}
           className={isMobile ? 'u-mt-1' : null}
           onClick={handleAdd}
-          startIcon={<Icon icon={cozySmileIcon} />}
+          startIcon={<Icon icon={CloudIcon} />}
           label={t('HeaderShortcutActions.add')}
           busy={isBusy}
         />

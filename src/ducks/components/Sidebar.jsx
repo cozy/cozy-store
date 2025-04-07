@@ -1,11 +1,11 @@
-import discoverIcon from 'assets/icons/icon-compass.svg'
-import myAppsIcon from 'assets/icons/icon-cozy-smile.svg'
 import { enabledPages } from 'config'
 import { SidebarCategories } from 'ducks/apps/Containers'
 import isNavigationEnabled from 'lib/isNavigationEnabled'
 import React, { Fragment } from 'react'
 import { NavLink as RouterLink, useLocation } from 'react-router-dom'
 
+import CloudIcon from 'cozy-ui/transpiled/react/Icons/Cloud'
+import CompassIcon from 'cozy-ui/transpiled/react/Icons/Compass'
 import Nav, {
   NavLink,
   NavItem,
@@ -18,11 +18,11 @@ import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
 
 const configMap = {
   discover: {
-    icon: discoverIcon,
+    icon: CompassIcon,
     labelKey: 'nav.discover'
   },
   myapps: {
-    icon: myAppsIcon,
+    icon: CloudIcon,
     labelKey: 'nav.myapps'
   }
 }
