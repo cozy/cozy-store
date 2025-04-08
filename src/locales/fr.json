@@ -317,12 +317,13 @@
     "label": "Rechercher :",
     "placeholder": "\"CAF\", \"énergie\", \"factures\""
   },
-  "pushBanners": {
-    "download": "Télécharger",
-    "no-thanks": "Non merci !",
-    "text": {
-      "flagshipApp": "Emportez votre cloud personnel avec vous : installez notre app Cozy !",
-      "pass": "Vos mots de passe en sécurité dans votre poche : téléchargez Cozy Pass sur votre mobile"
+  "pushBanner": {
+    "link": "Publier l'extension",
+    "line-one": "Étendez votre expérience Twake Workplace avec des extensions développées par la communauté.",
+    "line-two": "Publiez votre extension et rendez-la disponible pour tout le monde.",
+    "tooltip": {
+      "title": "Développement communautaire",
+      "text": "Twake Workplace n'est pas responsable des risques associés à l'utilisation d'extensions développées par les utilisateurs."
     }
   },
   "HeaderShortcutActions": {

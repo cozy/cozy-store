@@ -319,12 +319,13 @@
     "label": "Search:",
     "placeholder": "\"CAF\", \"telecom\", \"bills\""
   },
-  "pushBanners": {
-    "download": "Download",
-    "no-thanks": "No thanks!",
-    "text": {
-      "flagshipApp": "Take your personnal cloud with you: install Cozy on all your devices!",
-      "pass": "Your passwords vault in your pocket at all time: download Cozy Pass on your mobile"
+  "pushBanner": {
+    "link": "Publish the extension",
+    "line-one": "Expand your Twake Workplace experience with extensions developed by the community.",
+    "line-two": "Publish your extension and make it available to everyone.",
+    "tooltip": {
+      "title": "Community development",
+      "text": "Twake Workplace is not responsible for the risks associated with the use of extensions developed by the users."
     }
   },
   "HeaderShortcutActions": {

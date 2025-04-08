@@ -312,12 +312,13 @@
     "placeholder": "\"CAF\", \"telecom\", \"bills\""
   },
 
-  "pushBanners": {
-    "download": "Herunterladen",
-    "no-thanks": "Nein danke!",
-    "text": {
-      "flagshipApp": "Nehmen Sie Ihre persönliche Cloud mit: Installieren Sie unsere Cozy-App!",
-      "pass": "Ihre Passwörter sicher in Ihrer Tasche: Laden Sie Cozy Pass auf Ihr Handy herunter"
+  "pushBanner": {
+    "link": "Veröffentlichen Sie die Erweiterung",
+    "line-one": "Erweitern Sie Ihr Twake-Arbeitsplatzerlebnis mit von der Community entwickelten Erweiterungen.",
+    "line-two": "Veröffentlichen Sie Ihre Erweiterung und machen Sie sie für alle verfügbar.",
+    "tooltip": {
+      "title": "Community-Entwicklung",
+      "text": "Twake Workplace ist nicht verantwortlich für die Risiken, die mit der Nutzung von von Benutzern entwickelten Erweiterungen verbunden sind."
     }
   }
 }

@@ -322,12 +322,13 @@
     "placeholder": "\"NS, \"telecom\", \"rekeningen\""
   },
 
-  "pushBanners": {
-    "download": "Downloaden",
-    "no-thanks": "Nee, bedankt!",
-    "text": {
-      "flagshipApp": "Neem je persoonlijke cloud overal mee naartoe: installeer Cozy op al je apparaten!",
-      "pass": "Je wachtwoorden altijd bij de hand? Download Cozy Pass op je telefoon."
+  "pushBanner": {
+    "link": "Publiceer de extensie",
+    "line-one": "Breid je Twake Workplace-ervaring uit met extensies die door de community zijn ontwikkeld.",
+    "line-two": "Publiceer je extensie en maak deze voor iedereen beschikbaar.",
+    "tooltip": {
+      "title": "Community-ontwikkeling",
+      "text": "Twake Workplace is niet verantwoordelijk voor de risico's die gepaard gaan met het gebruik van door gebruikers ontwikkelde extensies."
     }
   }
 }
