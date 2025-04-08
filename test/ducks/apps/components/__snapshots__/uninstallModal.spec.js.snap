@@ -26,6 +26,7 @@ exports[`UninstallModal component should be rendered correctly (app uninstallabl
     >
       <Buttons
         className="u-flex-grow-1 u-mh-half"
+        height="default"
         label="Cancel"
         onClick={[MockFunction]}
         variant="secondary"
@@ -34,6 +35,7 @@ exports[`UninstallModal component should be rendered correctly (app uninstallabl
         className="u-flex-grow-1 u-mh-half"
         color="error"
         disabled={false}
+        height="default"
         label="Uninstall"
         onClick={[Function]}
         startIcon={
@@ -80,6 +82,7 @@ exports[`UninstallModal component should handle correctly error from props 1`] =
     >
       <Buttons
         className="u-flex-grow-1 u-mh-half"
+        height="default"
         label="Cancel"
         onClick={[MockFunction]}
         variant="secondary"
@@ -88,6 +91,7 @@ exports[`UninstallModal component should handle correctly error from props 1`] =
         className="u-flex-grow-1 u-mh-half"
         color="error"
         disabled={false}
+        height="default"
         label="Uninstall"
         onClick={[Function]}
         startIcon={
@@ -142,6 +146,7 @@ exports[`UninstallModal component should handle correctly linked app error 1`] =
     >
       <Buttons
         className="u-flex-grow-1 u-mh-half"
+        height="default"
         label="Cancel"
         onClick={[MockFunction]}
         variant="secondary"
@@ -150,6 +155,7 @@ exports[`UninstallModal component should handle correctly linked app error 1`] =
         className="u-flex-grow-1 u-mh-half"
         color="error"
         disabled={true}
+        height="default"
         label="Uninstall"
         onClick={[Function]}
         startIcon={

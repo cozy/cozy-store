@@ -67,7 +67,7 @@ exports[`ApplicationPage details component should be rendered correctly provided
       </div>
       <div>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text customColor-primary sto-app-permissions-button MuiButton-textPrimary MuiButton-disableElevation"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text customColor-primary customSize-default sto-app-permissions-button MuiButton-textPrimary MuiButton-disableElevation"
           tabindex="0"
           type="button"
         >
@@ -266,7 +266,7 @@ exports[`ApplicationPage details component should be rendered correctly with pro
       </div>
       <div>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text customColor-primary sto-app-permissions-button MuiButton-textPrimary MuiButton-disableElevation"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text customColor-primary customSize-default sto-app-permissions-button MuiButton-textPrimary MuiButton-disableElevation"
           tabindex="0"
           type="button"
         >
@@ -371,7 +371,7 @@ exports[`ApplicationPage details component should be rendered correctly with pro
       </div>
       <div>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text customColor-primary sto-app-permissions-button MuiButton-textPrimary MuiButton-disableElevation"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text customColor-primary customSize-default sto-app-permissions-button MuiButton-textPrimary MuiButton-disableElevation"
           tabindex="0"
           type="button"
         >
@@ -476,7 +476,7 @@ exports[`ApplicationPage details component should be rendered correctly with pro
       </div>
       <div>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text customColor-primary sto-app-permissions-button MuiButton-textPrimary MuiButton-disableElevation"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text customColor-primary customSize-default sto-app-permissions-button MuiButton-textPrimary MuiButton-disableElevation"
           tabindex="0"
           type="button"
         >
@@ -729,7 +729,7 @@ exports[`ApplicationPage details component should handle channel switching if wi
       </div>
       <div>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text customColor-primary sto-app-permissions-button MuiButton-textPrimary MuiButton-disableElevation"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text customColor-primary customSize-default sto-app-permissions-button MuiButton-textPrimary MuiButton-disableElevation"
           tabindex="0"
           type="button"
         >
@@ -955,7 +955,7 @@ exports[`ApplicationPage details component should not suggest Dev channel switch
       </div>
       <div>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text customColor-primary sto-app-permissions-button MuiButton-textPrimary MuiButton-disableElevation"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text customColor-primary customSize-default sto-app-permissions-button MuiButton-textPrimary MuiButton-disableElevation"
           tabindex="0"
           type="button"
         >
@@ -1154,7 +1154,7 @@ exports[`ApplicationPage details component should not suggest channel switching 
       </div>
       <div>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text customColor-primary sto-app-permissions-button MuiButton-textPrimary MuiButton-disableElevation"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text customColor-primary customSize-default sto-app-permissions-button MuiButton-textPrimary MuiButton-disableElevation"
           tabindex="0"
           type="button"
         >
@@ -1353,7 +1353,7 @@ exports[`ApplicationPage details component should not suggest channel switching 
       </div>
       <div>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text customColor-primary sto-app-permissions-button MuiButton-textPrimary MuiButton-disableElevation"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text customColor-primary customSize-default sto-app-permissions-button MuiButton-textPrimary MuiButton-disableElevation"
           tabindex="0"
           type="button"
         >
@@ -1552,7 +1552,7 @@ exports[`ApplicationPage details component should not suggest channel switching 
       </div>
       <div>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text customColor-primary sto-app-permissions-button MuiButton-textPrimary MuiButton-disableElevation"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text customColor-primary customSize-default sto-app-permissions-button MuiButton-textPrimary MuiButton-disableElevation"
           tabindex="0"
           type="button"
         >
