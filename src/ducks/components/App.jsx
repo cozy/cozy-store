@@ -1,6 +1,6 @@
 import { initApp, restoreAppIfSaved } from 'ducks/apps'
 import { AppRouter } from 'ducks/components/AppRouter'
-import PushBannersLoader from 'ducks/components/PushBanners'
+import PushBanner from 'ducks/components/PushBanner'
 import Sidebar from 'ducks/components/Sidebar'
 import compose from 'lodash/flowRight'
 import React, { Component } from 'react'
@@ -31,7 +31,7 @@ export class App extends Component {
           <Alerter />
           <Sidebar />
           <Main>
-            {!flag('cozy.pushbanners.hide') && <PushBannersLoader />}
+            {!flag('cozy.pushbanners.hide') && <PushBanner />}
             <AppRouter />
           </Main>
           <IconSprite />

@@ -286,12 +286,13 @@
     }
   },
 
-  "pushBanners": {
-    "download": "Pobierz",
-    "no-thanks": "Nie, dziękuję!",
-    "text": {
-      "flagshipApp": "Zabierz swoją osobistą chmurę ze sobą: zainstaluj naszą aplikację Cozy!",
-      "pass": "Bezpieczne hasła w kieszeni: pobierz Cozy Pass na swój telefon komórkowy"
+  "pushBanner": {
+    "link": "Opublikuj rozszerzenie",
+    "line-one": "Rozszerz swoje doświadczenie w Twake Workplace za pomocą rozszerzeń opracowanych przez społeczność.",
+    "line-two": "Opublikuj swoje rozszerzenie i udostępnij je wszystkim.",
+    "tooltip": {
+      "title": "Rozwój społecznościowy",
+      "text": "Twake Workplace nie ponosi odpowiedzialności za ryzyka związane z użytkowaniem rozszerzeń opracowanych przez użytkowników."
     }
   }
 }

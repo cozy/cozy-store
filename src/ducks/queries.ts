@@ -10,24 +10,6 @@ type QueryBuilder<T = void> = (params?: T) => QueryConfig
 
 const fetchPolicy = CozyClient.fetchPolicies.olderThan(30 * 1000) // 30s
 
-export const buildOauthClientsQuery: QueryBuilder = () => ({
-  definition: Q('io.cozy.oauth.clients'),
-  options: {
-    as: 'io.cozy.oauth.clients',
-    fetchPolicy
-  }
-})
-
-export const buildDisplaySettingsQuery: QueryBuilder = () => ({
-  definition: Q('io.cozy.settings')
-    .where({ _id: 'io.cozy.settings.display' })
-    .indexFields(['_id']),
-  options: {
-    as: 'io.cozy.settings.display',
-    fetchPolicy
-  }
-})
-
 export const buildShortcutsQuery: QueryBuilder = () => ({
   definition: Q('io.cozy.files')
     .where({
