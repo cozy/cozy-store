@@ -1,12 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MyApplications component should be rendered correctly if apps uninstalled 1`] = `
-<Content
-  className="sto-myapps"
->
-  <div
-    className="sto-list-container"
-  >
+<Content>
+  <div>
     <QuerystringSections
       apps={
         Array [
@@ -306,12 +302,8 @@ exports[`MyApplications component should be rendered correctly if apps uninstall
 `;
 
 exports[`MyApplications component should be rendered correctly with apps and URL search params 1`] = `
-<Content
-  className="sto-myapps"
->
-  <div
-    className="sto-list-container"
-  >
+<Content>
+  <div>
     <QuerystringSections
       apps={
         Array [
@@ -611,12 +603,8 @@ exports[`MyApplications component should be rendered correctly with apps and URL
 `;
 
 exports[`MyApplications component should display error from props correctly 1`] = `
-<Content
-  className="sto-myapps"
->
-  <div
-    className="sto-list-container"
-  >
+<Content>
+  <div>
     <QuerystringSections
       apps={Array []}
       error={[Error: This is a test error]}
@@ -634,12 +622,8 @@ exports[`MyApplications component should display error from props correctly 1`] 
 `;
 
 exports[`MyApplications component should render correctly a spinner if apps is fetching 1`] = `
-<Content
-  className="sto-myapps"
->
-  <div
-    className="sto-list-container"
-  />
+<Content>
+  <div />
   <ApplicationRoutingWrapper
     actionError={null}
     installedApps={Array []}
@@ -650,18 +634,15 @@ exports[`MyApplications component should render correctly a spinner if apps is f
 `;
 
 exports[`MyApplications component should use BarCenter from cozy-bar in mobile view only 1`] = `
-<Content
-  className="sto-myapps"
->
-  <div
-    className="sto-list-container"
-  >
+<Content>
+  <div>
     <BarCenter>
-      <h2
-        className="sto-view-title"
+      <ForwardRef
+        component="h2"
+        variant="h4"
       >
         Installed
-      </h2>
+      </ForwardRef>
     </BarCenter>
     <QuerystringSections
       apps={

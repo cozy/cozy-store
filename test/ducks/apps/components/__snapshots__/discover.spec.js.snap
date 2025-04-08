@@ -1,15 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Discover component should be rendered correctly with apps 1`] = `
-<Content
-  className="sto-discover"
->
-  <div
-    className="sto-list-container"
-  >
-    <div
-      className="sto-discover-sections"
-    >
+<Content>
+  <div>
+    <div>
       <QuerystringSections
         apps={
           Array [
@@ -188,7 +182,6 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
         parent="discover"
       />
     </div>
-    <withI18n(AppVote) />
   </div>
   <ApplicationRoutingWrapper
     actionError={null}
@@ -371,15 +364,9 @@ exports[`Discover component should be rendered correctly with apps 1`] = `
 `;
 
 exports[`Discover component should be rendered correctly with apps and URL search params 1`] = `
-<Content
-  className="sto-discover"
->
-  <div
-    className="sto-list-container"
-  >
-    <div
-      className="sto-discover-sections"
-    >
+<Content>
+  <div>
+    <div>
       <QuerystringSections
         apps={
           Array [
@@ -558,7 +545,6 @@ exports[`Discover component should be rendered correctly with apps and URL searc
         parent="discover"
       />
     </div>
-    <withI18n(AppVote) />
   </div>
   <ApplicationRoutingWrapper
     actionError={null}
@@ -741,15 +727,9 @@ exports[`Discover component should be rendered correctly with apps and URL searc
 `;
 
 exports[`Discover component should display error from props correctly 1`] = `
-<Content
-  className="sto-discover"
->
-  <div
-    className="sto-list-container"
-  >
-    <div
-      className="sto-discover-sections"
-    >
+<Content>
+  <div>
+    <div>
       <QuerystringSections
         apps={Array []}
         error={[Error: This is a test error]}
@@ -757,7 +737,6 @@ exports[`Discover component should display error from props correctly 1`] = `
         parent="discover"
       />
     </div>
-    <withI18n(AppVote) />
   </div>
   <ApplicationRoutingWrapper
     actionError={null}
@@ -769,15 +748,9 @@ exports[`Discover component should display error from props correctly 1`] = `
 `;
 
 exports[`Discover component should render correctly a spinner if apps is fetching 1`] = `
-<Content
-  className="sto-discover"
->
-  <div
-    className="sto-list-container"
-  >
-    <div
-      className="sto-discover-sections"
-    />
+<Content>
+  <div>
+    <div />
   </div>
   <ApplicationRoutingWrapper
     actionError={null}
@@ -789,22 +762,17 @@ exports[`Discover component should render correctly a spinner if apps is fetchin
 `;
 
 exports[`Discover component should use BarCenter from cozy-bar in mobile view only 1`] = `
-<Content
-  className="sto-discover"
->
-  <div
-    className="sto-list-container"
-  >
+<Content>
+  <div>
     <BarCenter>
-      <h2
-        className="sto-view-title"
+      <ForwardRef
+        component="h2"
+        variant="h4"
       >
         Applications
-      </h2>
+      </ForwardRef>
     </BarCenter>
-    <div
-      className="sto-discover-sections"
-    >
+    <div>
       <QuerystringSections
         apps={
           Array [
@@ -983,7 +951,6 @@ exports[`Discover component should use BarCenter from cozy-bar in mobile view on
         parent="discover"
       />
     </div>
-    <withI18n(AppVote) />
   </div>
   <ApplicationRoutingWrapper
     actionError={null}
