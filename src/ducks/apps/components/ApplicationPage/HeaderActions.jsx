@@ -11,8 +11,9 @@ import { Link, useLocation } from 'react-router-dom'
 import { useClient } from 'cozy-client'
 import { isFlagshipApp } from 'cozy-device-helper'
 import { useWebviewIntent } from 'cozy-intent'
+import Button from 'cozy-ui/transpiled/react/Buttons'
+import Icon from 'cozy-ui/transpiled/react/Icon'
 import CloudIcon from 'cozy-ui/transpiled/react/Icons/Cloud'
-import Button from 'cozy-ui/transpiled/react/deprecated/Button'
 import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
@@ -64,29 +65,28 @@ const HeaderActions = ({ app, intentData, parent, isInstalling }) => {
         )
       ) : (
         <Button
-          tag={Link}
+          component={Link}
           to={`/${parent}/${app.slug}/install${search}`}
-          theme="primary"
-          extension={isMobile ? 'full' : null}
+          fullWidth={isMobile ? true : false}
           disabled={isInstallDisabled}
-          onClick={isInstallDisabled ? e => e.preventDefault() : null}
-          aria-busy={isCurrentAppInstalling}
-          icon={CloudIcon}
+          startIcon={<Icon icon={CloudIcon} />}
           label={
             hasPendingUpdate(app) ? t('app_page.update') : t('app_page.install')
           }
+          aria-busy={isCurrentAppInstalling}
+          onClick={isInstallDisabled ? e => e.preventDefault() : null}
         />
       )}
       {app.installed && (
         <Button
-          tag={Link}
-          to={`/${parent}/${app.slug}/uninstall${search}`}
-          theme="secondary"
-          extension={isMobile ? 'full' : null}
           className={isMobile ? 'u-mt-1' : null}
-          onClick={isUninstallDisabled ? e => e.preventDefault() : null}
+          component={Link}
+          to={`/${parent}/${app.slug}/uninstall${search}`}
+          variant="secondary"
+          fullWidth={isMobile ? true : false}
           disabled={isUninstallDisabled}
           label={t('app_page.uninstall')}
+          onClick={isUninstallDisabled ? e => e.preventDefault() : null}
         />
       )}
     </>

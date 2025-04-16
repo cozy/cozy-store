@@ -19,20 +19,26 @@ exports[`ApplicationPage component should be rendered correctly with app infos f
     <div
       className="sto-app"
     >
-      <DefaultButton
-        className="sto-app-back"
-        icon={[Function]}
-        label="Back to the list"
-        onClick={[Function]}
-        subtle={true}
-        tag={
+      <Buttons
+        className="sto-app-back u-mt-half"
+        component={
           Object {
             "$$typeof": Symbol(react.forward_ref),
             "displayName": "Link",
             "render": [Function],
           }
         }
+        height="default"
+        label="Back to the list"
+        onClick={[Function]}
+        startIcon={
+          <Icon
+            icon={[Function]}
+            spin={false}
+          />
+        }
         to="//myapps"
+        variant="text"
       />
       <Connect(Header)
         app={
@@ -311,20 +317,26 @@ exports[`ApplicationPage component should be rendered correctly with app with sc
     <div
       className="sto-app"
     >
-      <DefaultButton
-        className="sto-app-back"
-        icon={[Function]}
-        label="Back to the list"
-        onClick={[Function]}
-        subtle={true}
-        tag={
+      <Buttons
+        className="sto-app-back u-mt-half"
+        component={
           Object {
             "$$typeof": Symbol(react.forward_ref),
             "displayName": "Link",
             "render": [Function],
           }
         }
+        height="default"
+        label="Back to the list"
+        onClick={[Function]}
+        startIcon={
+          <Icon
+            icon={[Function]}
+            spin={false}
+          />
+        }
         to="//myapps"
+        variant="text"
       />
       <Connect(Header)
         app={
@@ -615,20 +627,26 @@ exports[`ApplicationPage component should be rendered correctly with konnector i
     <div
       className="sto-app"
     >
-      <DefaultButton
-        className="sto-app-back"
-        icon={[Function]}
-        label="Back to the list"
-        onClick={[Function]}
-        subtle={true}
-        tag={
+      <Buttons
+        className="sto-app-back u-mt-half"
+        component={
           Object {
             "$$typeof": Symbol(react.forward_ref),
             "displayName": "Link",
             "render": [Function],
           }
         }
+        height="default"
+        label="Back to the list"
+        onClick={[Function]}
+        startIcon={
+          <Icon
+            icon={[Function]}
+            spin={false}
+          />
+        }
         to="//myapps"
+        variant="text"
       />
       <Connect(Header)
         app={
@@ -861,20 +879,26 @@ exports[`ApplicationPage component should be rendered correctly with provided in
     <div
       className="sto-app"
     >
-      <DefaultButton
-        className="sto-app-back"
-        icon={[Function]}
-        label="Back to the list"
-        onClick={[Function]}
-        subtle={true}
-        tag={
+      <Buttons
+        className="sto-app-back u-mt-half"
+        component={
           Object {
             "$$typeof": Symbol(react.forward_ref),
             "displayName": "Link",
             "render": [Function],
           }
         }
+        height="default"
+        label="Back to the list"
+        onClick={[Function]}
+        startIcon={
+          <Icon
+            icon={[Function]}
+            spin={false}
+          />
+        }
         to="//myapps"
+        variant="text"
       />
       <Connect(Header)
         app={
@@ -1153,20 +1177,26 @@ exports[`ApplicationPage component should be rendered correctly with provided in
     <div
       className="sto-app"
     >
-      <DefaultButton
-        className="sto-app-back"
-        icon={[Function]}
-        label="Back to the list"
-        onClick={[Function]}
-        subtle={true}
-        tag={
+      <Buttons
+        className="sto-app-back u-mt-half"
+        component={
           Object {
             "$$typeof": Symbol(react.forward_ref),
             "displayName": "Link",
             "render": [Function],
           }
         }
+        height="default"
+        label="Back to the list"
+        onClick={[Function]}
+        startIcon={
+          <Icon
+            icon={[Function]}
+            spin={false}
+          />
+        }
         to="//myapps"
+        variant="text"
       />
       <Connect(Header)
         app={
@@ -1399,20 +1429,26 @@ exports[`ApplicationPage component should be rendered correctly without app desc
     <div
       className="sto-app"
     >
-      <DefaultButton
-        className="sto-app-back"
-        icon={[Function]}
-        label="Back to the list"
-        onClick={[Function]}
-        subtle={true}
-        tag={
+      <Buttons
+        className="sto-app-back u-mt-half"
+        component={
           Object {
             "$$typeof": Symbol(react.forward_ref),
             "displayName": "Link",
             "render": [Function],
           }
         }
+        height="default"
+        label="Back to the list"
+        onClick={[Function]}
+        startIcon={
+          <Icon
+            icon={[Function]}
+            spin={false}
+          />
+        }
         to="//myapps"
+        variant="text"
       />
       <Connect(Header)
         app={
@@ -1643,20 +1679,26 @@ exports[`ApplicationPage component should put search content on back button URL 
     <div
       className="sto-app"
     >
-      <DefaultButton
-        className="sto-app-back"
-        icon={[Function]}
-        label="Back to the list"
-        onClick={[Function]}
-        subtle={true}
-        tag={
+      <Buttons
+        className="sto-app-back u-mt-half"
+        component={
           Object {
             "$$typeof": Symbol(react.forward_ref),
             "displayName": "Link",
             "render": [Function],
           }
         }
+        height="default"
+        label="Back to the list"
+        onClick={[Function]}
+        startIcon={
+          <Icon
+            icon={[Function]}
+            spin={false}
+          />
+        }
         to="//myappstype=konnector&category=isp"
+        variant="text"
       />
       <Connect(Header)
         app={
@@ -2067,20 +2109,26 @@ Gestionnaire de photos pour Cozy v3 :tada:",
     <div
       className="sto-app"
     >
-      <DefaultButton
-        className="sto-app-back"
-        icon={[Function]}
-        label="Back to the list"
-        onClick={[Function]}
-        subtle={true}
-        tag={
+      <Buttons
+        className="sto-app-back u-mt-half"
+        component={
           Object {
             "$$typeof": Symbol(react.forward_ref),
             "displayName": "Link",
             "render": [Function],
           }
         }
+        height="default"
+        label="Back to the list"
+        onClick={[Function]}
+        startIcon={
+          <Icon
+            icon={[Function]}
+            spin={false}
+          />
+        }
         to="//myapps"
+        variant="text"
       />
       <Connect(Header)
         app={
@@ -2483,20 +2531,26 @@ Gestionnaire de photos pour Cozy v3 :tada:",
     <div
       className="sto-app"
     >
-      <DefaultButton
-        className="sto-app-back"
-        icon={[Function]}
-        label="Back to the list"
-        onClick={[Function]}
-        subtle={true}
-        tag={
+      <Buttons
+        className="sto-app-back u-mt-half"
+        component={
           Object {
             "$$typeof": Symbol(react.forward_ref),
             "displayName": "Link",
             "render": [Function],
           }
         }
+        height="default"
+        label="Back to the list"
+        onClick={[Function]}
+        startIcon={
+          <Icon
+            icon={[Function]}
+            spin={false}
+          />
+        }
         to="//myapps"
+        variant="text"
       />
       <Connect(Header)
         app={
