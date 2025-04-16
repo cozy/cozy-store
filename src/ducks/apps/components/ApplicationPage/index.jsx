@@ -16,8 +16,9 @@ import { Link, useMatch, useParams } from 'react-router-dom'
 
 import { BarCenter } from 'cozy-bar'
 import AppIcon from 'cozy-ui/transpiled/react/AppIcon'
+import Button from 'cozy-ui/transpiled/react/Buttons'
+import Icon from 'cozy-ui/transpiled/react/Icon'
 import Left from 'cozy-ui/transpiled/react/Icons/Left'
-import Button from 'cozy-ui/transpiled/react/deprecated/Button'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
 
@@ -157,13 +158,13 @@ export class ApplicationPage extends Component {
           <div className="sto-app" style={intentData ? intentStyle : undefined}>
             {!intentData?.data?.slug && (
               <Button
-                icon={Left}
-                tag={Link}
+                className="sto-app-back u-mt-half"
+                variant="text"
+                component={Link}
                 to={`/${parent}${search}`}
-                className="sto-app-back"
+                startIcon={<Icon icon={Left} />}
                 label={t('app_page.back')}
                 onClick={this.unmountTrap}
-                subtle
               />
             )}
             <Header

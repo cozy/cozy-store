@@ -132,7 +132,7 @@ describe('ApplicationPage header component', () => {
     const mockOpenApp = jest.fn()
     const mockWebviewService = jest.fn()
 
-    const { getByRole } = render(
+    const { getByText } = render(
       <AppLike mockOpenApp={mockOpenApp} webviewService={mockWebviewService}>
         <Header
           t={tMock}
@@ -143,7 +143,7 @@ describe('ApplicationPage header component', () => {
         />
       </AppLike>
     )
-    const button = getByRole('button')
+    const button = getByText('Open')
     fireEvent.click(button)
 
     expect(mockOpenApp).toBeCalledTimes(1)
@@ -155,7 +155,7 @@ describe('ApplicationPage header component', () => {
     const connectorProps = Object.assign({}, mockKonnector.manifest)
     connectorProps.installed = true
 
-    const { queryByRole } = render(
+    const { getByText } = render(
       <AppLike>
         <Header
           t={tMock}
@@ -168,7 +168,7 @@ describe('ApplicationPage header component', () => {
       </AppLike>
     )
 
-    const button = queryByRole('button')
+    const button = getByText('Open')
     fireEvent.click(button)
 
     expect(mockIntentCall).toHaveBeenCalled()
@@ -185,7 +185,7 @@ describe('ApplicationPage header component', () => {
     const connectorProps = Object.assign({}, mockKonnector.manifest)
     connectorProps.installed = true
 
-    const { queryByRole } = render(
+    const { getByText } = render(
       <AppLike>
         <Header
           t={tMock}
@@ -198,7 +198,7 @@ describe('ApplicationPage header component', () => {
       </AppLike>
     )
 
-    const button = queryByRole('button')
+    const button = getByText('Open')
     fireEvent.click(button)
 
     expect(mockIntentCall).not.toHaveBeenCalled()
@@ -210,7 +210,7 @@ describe('ApplicationPage header component', () => {
   it('should disable the install button if maintenance', () => {
     const appProps = Object.assign({}, mockApp.manifest)
     appProps.maintenance = {}
-    const { getByRole } = render(
+    const { getByText } = render(
       <AppLike>
         <Header
           t={tMock}
@@ -221,7 +221,7 @@ describe('ApplicationPage header component', () => {
         />
       </AppLike>
     )
-    const installButton = getByRole('link', { name: 'Install' })
+    const installButton = getByText('Install')
     const isPrevented = fireEvent.click(installButton)
 
     expect(isPrevented).toBe(false)
@@ -232,7 +232,7 @@ describe('ApplicationPage header component', () => {
     appProps.installed = true
     appProps.icon = '<svg></svg>'
     appProps.uninstallable = false
-    const { getByRole } = render(
+    const { getByText } = render(
       <AppLike>
         <Header
           t={tMock}
@@ -244,7 +244,7 @@ describe('ApplicationPage header component', () => {
       </AppLike>
     )
 
-    const uninstallButton = getByRole('link', { name: 'Uninstall' })
+    const uninstallButton = getByText('Uninstall')
     const isPrevented = fireEvent.click(uninstallButton)
 
     expect(isPrevented).toBe(false)
@@ -253,7 +253,7 @@ describe('ApplicationPage header component', () => {
   it('should disable the uninstall button an app is installing (updating)', () => {
     const appProps = Object.assign({}, mockApp.manifest)
     appProps.installed = true
-    const { getByRole } = render(
+    const { getByText } = render(
       <AppLike>
         <Header
           t={tMock}
@@ -266,7 +266,7 @@ describe('ApplicationPage header component', () => {
       </AppLike>
     )
 
-    const uninstallButton = getByRole('link', { name: 'Uninstall' })
+    const uninstallButton = getByText('Uninstall')
     const isPrevented = fireEvent.click(uninstallButton)
 
     expect(isPrevented).toBe(false)
