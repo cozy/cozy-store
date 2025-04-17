@@ -20,6 +20,7 @@ import {
 import 'styles'
 
 import 'cozy-bar/dist/stylesheet.css'
+import 'cozy-search/dist/stylesheet.css'
 import CozyClient from 'cozy-client'
 import flag from 'cozy-flags'
 import { RealtimePlugin } from 'cozy-realtime'
