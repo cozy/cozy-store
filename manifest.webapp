@@ -98,6 +98,11 @@
       "description": "Required to access folders",
       "type": "io.cozy.files",
       "verbs": ["GET", "PATCH", "POST"]
+    },
+    "contacts": {
+      "description": "Required bye cozy-bar to show avatars",
+      "type": "io.cozy.contacts",
+      "verbs": ["GET"]
     }
   }
 }
