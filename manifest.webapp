@@ -1,11 +1,11 @@
 {
   "name": "Store",
-  "name_prefix": "Cozy",
+  "name_prefix": "Twake",
   "slug": "store",
   "type": "webapp",
   "icon": "icon.svg",
   "editor": "Cozy",
-  "description": "The apps store for Cozy V3",
+  "description": "The apps store for Twake",
   "categories": [
     "cozy"
   ],
@@ -13,8 +13,8 @@
   "licence": "AGPL-3.0",
   "source": "https://github.com/cozy/cozy-store.git@build",
   "developer": {
-    "name": "Cozy Cloud",
-    "url": "https://cozy.io"
+    "name": "Twake Workplace",
+    "url": "https://twake.app"
   },
   "locales": {},
   "intents": [
