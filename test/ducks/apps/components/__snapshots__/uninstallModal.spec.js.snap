@@ -18,7 +18,7 @@ exports[`UninstallModal component should be rendered correctly (app uninstallabl
   >
     <ModalContent>
       <ReactMarkdownWrapper
-        source="This application is bound to be removed from your Cozy cozytest.mock.cc. Are you sure to __remove this application definitively__?"
+        source="This application is bound to be removed from your Twake cozytest.mock.cc. Are you sure to __remove this application definitively__?"
       />
     </ModalContent>
     <ModalFooter
@@ -69,7 +69,7 @@ exports[`UninstallModal component should handle correctly error from props 1`] =
   >
     <ModalContent>
       <ReactMarkdownWrapper
-        source="This application is bound to be removed from your Cozy cozytest.mock.cc. Are you sure to __remove this application definitively__?"
+        source="This application is bound to be removed from your Twake cozytest.mock.cc. Are you sure to __remove this application definitively__?"
       />
       <p
         className="u-error"
@@ -125,7 +125,7 @@ exports[`UninstallModal component should handle correctly linked app error 1`] =
   >
     <ModalContent>
       <ReactMarkdownWrapper
-        source="This application is bound to be removed from your Cozy cozytest.mock.cc. Are you sure to __remove this application definitively__?"
+        source="This application is bound to be removed from your Twake cozytest.mock.cc. Are you sure to __remove this application definitively__?"
       />
       <p
         className="u-error"

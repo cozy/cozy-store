@@ -1,7 +1,7 @@
 {
   "discover": {
     "title": "Apps",
-    "get_started": "Aan de slag met Cozy"
+    "get_started": "Aan de slag met Twake"
   },
   "intent": {
     "install": {
@@ -40,7 +40,7 @@
   "app_modal": {
     "uninstall": {
       "title": "App verwijderen",
-      "description": "Deze app wordt verwijderd uit je Cozy %{cozyName}. Weet je zeker dat je __deze app wilt verwijderen__?",
+      "description": "Deze app wordt verwijderd uit je Twake %{cozyName}. Weet je zeker dat je __deze app wilt verwijderen__?",
       "cancel": "Annuleren",
       "uninstall": "Verwijderen",
       "message": {
@@ -58,7 +58,7 @@
       "install": "Installeren",
       "update": "Bijwerken",
       "terms": "Ik heb de [aan deze app verbonden Algemene Voorwaarden](%{url}) gelezen en ga akkoord",
-      "termsWithPartnership": "Ik ga akkoord met [de algemene voorwaarden van %{partnerName} ](%{url}) en het synchroniseren van mijn gegevens naar Cozy Cloud.",
+      "termsWithPartnership": "Ik ga akkoord met [de algemene voorwaarden van %{partnerName} ](%{url}) en het synchroniseren van mijn gegevens naar Twake Workplace.",
       "message": {
         "version_error": "Er is een fout opgetreden tijdens het ophalen van de appinformatie. Reden: %{message}",
         "install_error": "Er is een fout opgetreden tijdens het installeren van de app. Reden: %{message}"
@@ -303,17 +303,17 @@
   },
 
   "permissions": {
-    "linxo": "Toon je bankrekeningen in je Cozy, met dank aan de beveiligde verbinding met je bank via onze partner Linxo ([linxo.com](https://linxo.com))",
-    "banking": "Toon je bankrekeningen in je Cozy, met dank aan de beveiligde verbinding met je bank via onze partner %{name} ([%{domain}](https://%{domain}))",
+    "linxo": "Toon je bankrekeningen in je Twake, met dank aan de beveiligde verbinding met je bank via onze partner Linxo ([linxo.com](https://linxo.com))",
+    "banking": "Toon je bankrekeningen in je Twake, met dank aan de beveiligde verbinding met je bank via onze partner %{name} ([%{domain}](https://%{domain}))",
     "reason": "**Reden:**",
     "developer_default": "De ontwikkelaar van deze app",
     "description": {
       "internal": {
         "konnector": "Je staat op het punt om een Connector te installeren die je persoonlijke cloud met deze dienst verbindt om het herstel van je gegevens te vereenvoudigen. De connector heeft toegang tot de volgende gegevens, maar zal deze nooit delen:",
-        "webapp": "Deze app stuurt geen gegevens naar %{name} (de ontwikkelaar), maar slaat ze lokaal op in je Cozy:"
+        "webapp": "Deze app stuurt geen gegevens naar %{name} (de ontwikkelaar), maar slaat ze lokaal op in je Twake:"
       },
-      "external": "%name kan je Cozy-gegevens uitlezen en gebruiken voor de volgende doeleinden:",
-      "nothing": "%{appName} vereist geen gegevenstoegang om te werken op je Cozy."
+      "external": "%name kan je Twake-gegevens uitlezen en gebruiken voor de volgende doeleinden:",
+      "nothing": "%{appName} vereist geen gegevenstoegang om te werken op je Twake."
     }
   },
 
