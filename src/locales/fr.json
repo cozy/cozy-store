@@ -1,7 +1,7 @@
 {
   "discover": {
     "title": "Applications",
-    "get_started": "Commencer avec Cozy"
+    "get_started": "Commencer avec Twake"
   },
   "intent": {
     "install": {
@@ -39,7 +39,7 @@
   "app_modal": {
     "uninstall": {
       "title": "Désinstaller l'application",
-      "description": "En désinstallant cette application, elle sera supprimée définitivement de votre instance Cozy %{cozyName}.  Voulez-vous vraiment la supprimer?",
+      "description": "En désinstallant cette application, elle sera supprimée définitivement de votre instance Twake %{cozyName}.  Voulez-vous vraiment la supprimer?",
       "cancel": "Annuler",
       "uninstall": "Désinstaller",
       "message": {
@@ -57,10 +57,10 @@
       "install": "Installer",
       "update": "Mettre à jour",
       "terms": "J'ai lu et j'accepte [les CGU liées à cette application](%{url})",
-      "termsWithPartnership": "Je valide [les Conditions Générales de %{partnerName}](%{url}) et j'accepte la transmission de mes données à son partenaire Cozy Cloud.",
+      "termsWithPartnership": "Je valide [les Conditions Générales de %{partnerName}](%{url}) et j'accepte la transmission de mes données à son partenaire Twake Workplace.",
       "message": {
         "version_error": "Une erreur s'est produite lors de la récupération des informations de cette application. Raison : %{message}",
-        "install_error": "Une erreur s'est produite lors de l'installation de cette application sur votre Cozy. Raison : %{message}"
+        "install_error": "Une erreur s'est produite lors de l'installation de cette application sur votre Twake. Raison : %{message}"
       },
       "alert": {
         "install_error": "Une erreur s'est produite lors de l'installation de l'application %{name}. Raison : %{message}",
@@ -300,17 +300,17 @@
     }
   },
   "permissions": {
-    "linxo": "Afficher vos comptes bancaires dans votre Cozy, grâce à la connexion sécurisée à votre banque par notre partenaire Linxo ([linxo.com](https://linxo.com))",
-    "banking": "Afficher vos comptes bancaires dans votre Cozy, grâce à la connexion sécurisée à votre banque par notre partenaire %{name} ([%{domain}](https://%{domain}))",
+    "linxo": "Afficher vos comptes bancaires dans votre Twake, grâce à la connexion sécurisée à votre banque par notre partenaire Linxo ([linxo.com](https://linxo.com))",
+    "banking": "Afficher vos comptes bancaires dans votre Twake, grâce à la connexion sécurisée à votre banque par notre partenaire %{name} ([%{domain}](https://%{domain}))",
     "reason": "**Motif : **",
     "developer_default": "Le•a développeur•se de cette application",
     "description": {
       "internal": {
         "konnector": "Vous allez installer un Connecteur entre votre Cloud Personnel et ce service pour faciliter la récupération de vos données. Il va pour cela accéder aux données personnelles suivantes mais ne les transmettra jamais à qui que ce soit :",
-        "webapp": "Cette application ne transmettra aucune de ces données à son éditeur %{name}, elle les utilisera localement dans votre Cozy sans jamais les transmettre à qui que ce soit :"
+        "webapp": "Cette application ne transmettra aucune de ces données à son éditeur %{name}, elle les utilisera localement dans votre Twake sans jamais les transmettre à qui que ce soit :"
       },
-      "external": "%{name} pourra utiliser et extraire de votre Cozy ces données uniquement pour les motifs suivants :",
-      "nothing": "%{appName} ne requiert aucun accès à vos données pour fonctionner correctement sur votre Cozy."
+      "external": "%{name} pourra utiliser et extraire de votre Twake ces données uniquement pour les motifs suivants :",
+      "nothing": "%{appName} ne requiert aucun accès à vos données pour fonctionner correctement sur votre Twake."
     }
   },
   "discover-search-field": {

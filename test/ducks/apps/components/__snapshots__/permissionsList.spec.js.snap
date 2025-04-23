@@ -13,14 +13,14 @@ exports[`PermissionsList component should be rendered correctly when is a bank w
       spin={false}
     />
     <p>
-      The developer of this application could use and extract these data from your Cozy only for the following purposes:
+      The developer of this application could use and extract these data from your Twake only for the following purposes:
     </p>
   </div>
   <ul
     className="sto-perm-list"
   >
     <Permission
-      description="Display your banking accounts in your Cozy, thanks to the secured connection to your bank by our partner Budget Insight ([budget-insight.com](https://budget-insight.com))"
+      description="Display your banking accounts in your Twake, thanks to the secured connection to your bank by our partner Budget Insight ([budget-insight.com](https://budget-insight.com))"
       label="Login details"
       t={[Function]}
       type="io.cozy.accounts"
@@ -695,7 +695,7 @@ exports[`PermissionsList component should be rendered correctly with permissions
       spin={false}
     />
     <p>
-      This app will not transmit any data to its developer Cozy, it will use it only locally in your Cozy without transmission to anyone:
+      This app will not transmit any data to its developer Cozy, it will use it only locally in your Twake without transmission to anyone:
     </p>
   </div>
   <ul
@@ -1328,7 +1328,7 @@ exports[`PermissionsList component should be rendered correctly with webapp perm
       spin={false}
     />
     <p>
-      Cozy Cloud could use and extract these data from your Cozy only for the following purposes:
+      Cozy Cloud could use and extract these data from your Twake only for the following purposes:
     </p>
   </div>
   <ul
@@ -1482,7 +1482,7 @@ exports[`PermissionsList component should be rendered correctly with webapp perm
       spin={false}
     />
     <p>
-      This app will not transmit any data to its developer Cozy Cloud, it will use it only locally in your Cozy without transmission to anyone:
+      This app will not transmit any data to its developer Cozy Cloud, it will use it only locally in your Twake without transmission to anyone:
     </p>
   </div>
   <ul
@@ -2599,6 +2599,6 @@ exports[`PermissionsList component should be rendered correctly with webapp perm
 
 exports[`PermissionsList component should be rendered correctly without permissions 1`] = `
 <ReactMarkdownWrapper
-  source="Mock doesn't require any data access to work correctly on your Cozy."
+  source="Mock doesn't require any data access to work correctly on your Twake."
 />
 `;
