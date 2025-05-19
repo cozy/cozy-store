@@ -1,4 +1,4 @@
-import { TERMS_DOCTYPE } from 'lib/schema'
+import { TERMS_DOCTYPE } from '@/lib/schema'
 
 async function save(client, terms) {
   const { id, ...termsAttributes } = terms

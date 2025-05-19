@@ -5,9 +5,9 @@ import {
   initAppIntent,
   getRegistryApps,
   initApp
-} from 'ducks/apps'
-import InstallAppIntentContent from 'ducks/components/intents/InstallAppIntentContent'
-import { isPermissionsPageToDisplay } from 'ducks/components/intents/helpers'
+} from '@/ducks/apps'
+import InstallAppIntentContent from '@/ducks/components/intents/InstallAppIntentContent'
+import { isPermissionsPageToDisplay } from '@/ducks/components/intents/helpers'
 import compose from 'lodash/flowRight'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'

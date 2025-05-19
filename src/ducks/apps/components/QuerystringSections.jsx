@@ -1,5 +1,5 @@
-import { useNavigateNoUpdates, useLocationNoUpdates } from 'lib/RouterUtils'
-import isNavigationEnabled from 'lib/isNavigationEnabled'
+import { useNavigateNoUpdates, useLocationNoUpdates } from '@/lib/RouterUtils'
+import isNavigationEnabled from '@/lib/isNavigationEnabled'
 import omit from 'lodash/omit'
 import PropTypes from 'prop-types'
 import React from 'react'

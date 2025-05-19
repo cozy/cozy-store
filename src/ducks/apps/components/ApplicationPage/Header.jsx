@@ -1,5 +1,5 @@
-import { isShortcutFile } from 'ducks/AlternativeStore/helpers'
-import { getAppIconProps } from 'ducks/apps'
+import { isShortcutFile } from '@/ducks/AlternativeStore/helpers'
+import { getAppIconProps } from '@/ducks/apps'
 import React from 'react'
 import { connect } from 'react-redux'
 

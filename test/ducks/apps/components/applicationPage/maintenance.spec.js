@@ -2,7 +2,7 @@
 
 /* eslint-env jest */
 
-import { Maintenance } from 'ducks/apps/components/ApplicationPage/Maintenance'
+import { Maintenance } from '@/ducks/apps/components/ApplicationPage/Maintenance'
 import { shallow } from 'enzyme'
 import React from 'react'
 

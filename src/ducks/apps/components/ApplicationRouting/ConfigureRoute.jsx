@@ -1,4 +1,4 @@
-import ConfigureModal from 'ducks/apps/components/ConfigureModal'
+import ConfigureModal from '@/ducks/apps/components/ConfigureModal'
 import React from 'react'
 import { useParams } from 'react-router-dom'
 

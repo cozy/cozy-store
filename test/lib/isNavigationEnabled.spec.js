@@ -2,7 +2,7 @@
 
 /* eslint-env jest */
 
-import isNavigationEnabled from 'lib/isNavigationEnabled'
+import isNavigationEnabled from '@/lib/isNavigationEnabled'
 
 describe('isNavigationEnabled library', () => {
   it('should return true if no flag `nav` provided', () => {

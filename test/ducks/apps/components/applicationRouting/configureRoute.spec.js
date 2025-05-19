@@ -2,7 +2,7 @@
 
 /* eslint-env jest */
 
-import { ConfigureRoute } from 'ducks/apps/components/ApplicationRouting/ConfigureRoute'
+import { ConfigureRoute } from '@/ducks/apps/components/ApplicationRouting/ConfigureRoute'
 import { shallow } from 'enzyme'
 import React from 'react'
 import { useParams } from 'react-router-dom'

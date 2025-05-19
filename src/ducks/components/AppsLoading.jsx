@@ -1,4 +1,4 @@
-import Placeholder from 'ducks/components/Placeholder'
+import Placeholder from '@/ducks/components/Placeholder'
 import React, { Component } from 'react'
 
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'

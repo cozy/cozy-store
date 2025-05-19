@@ -1,6 +1,6 @@
-import DiscoverComponent from 'ducks/apps/components/Discover'
-import MyApplicationsComponent from 'ducks/apps/components/MyApplications'
-import SidebarCategoriesComponent from 'ducks/apps/components/SidebarCategories'
+import DiscoverComponent from '@/ducks/apps/components/Discover'
+import MyApplicationsComponent from '@/ducks/apps/components/MyApplications'
+import SidebarCategoriesComponent from '@/ducks/apps/components/SidebarCategories'
 import { connect } from 'react-redux'
 
 import { translate } from 'cozy-ui/transpiled/react/providers/I18n'

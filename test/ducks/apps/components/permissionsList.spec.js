@@ -2,7 +2,7 @@
 
 /* eslint-env jest */
 
-import { PermissionsList } from 'ducks/apps/components/PermissionsList'
+import { PermissionsList } from '@/ducks/apps/components/PermissionsList'
 import { shallow } from 'enzyme'
 import React from 'react'
 

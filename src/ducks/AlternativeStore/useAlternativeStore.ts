@@ -1,10 +1,10 @@
-import { generateI18nConfig } from 'ducks/AlternativeStore/helpers'
-import { transformData } from 'ducks/AlternativeStore/transformData'
+import { generateI18nConfig } from '@/ducks/AlternativeStore/helpers'
+import { transformData } from '@/ducks/AlternativeStore/transformData'
 import {
   AlternativeShortcut,
   AlternativeStoreConfig
-} from 'ducks/AlternativeStore/types'
-import { buildFileByPathsQuery, buildFilesByDirIdsQuery } from 'ducks/queries'
+} from '@/ducks/AlternativeStore/types'
+import { buildFileByPathsQuery, buildFilesByDirIdsQuery } from '@/ducks/queries'
 import { useMemo } from 'react'
 
 import { useQueryAll } from 'cozy-client'

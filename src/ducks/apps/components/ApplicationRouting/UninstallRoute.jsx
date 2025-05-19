@@ -1,4 +1,4 @@
-import UninstallModal from 'ducks/apps/components/UninstallModal'
+import UninstallModal from '@/ducks/apps/components/UninstallModal'
 import React from 'react'
 import { useParams } from 'react-router-dom'
 

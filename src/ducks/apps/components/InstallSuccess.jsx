@@ -1,4 +1,4 @@
-import { getAppIconProps } from 'ducks/apps'
+import { getAppIconProps } from '@/ducks/apps'
 import React, { PureComponent } from 'react'
 
 import AppIcon from 'cozy-ui/transpiled/react/AppIcon'

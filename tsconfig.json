@@ -6,10 +6,8 @@
   "noEmit": true,
   "compilerOptions": {
     "paths": {
-      "ducks/*": ["./src/ducks/*"],
-      "lib/*": ["./src/lib/*"],
-      "config/*": ["./src/config/*"],
-      "styles/*": ["./src/styles/*"]
+      "@/*": ["./src/*"],
+      "@/test/*": ["./test/*"]
     }
-  }
+  },
 }

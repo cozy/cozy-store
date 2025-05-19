@@ -1,15 +1,15 @@
-import { getAppIconProps } from 'ducks/apps'
-import Details from 'ducks/apps/components/ApplicationPage/Details'
-import Gallery from 'ducks/apps/components/ApplicationPage/Gallery'
-import Header from 'ducks/apps/components/ApplicationPage/Header'
-import ApplicationPageLoading from 'ducks/components/ApplicationPageLoading'
+import { getAppIconProps } from '@/ducks/apps'
+import Details from '@/ducks/apps/components/ApplicationPage/Details'
+import Gallery from '@/ducks/apps/components/ApplicationPage/Gallery'
+import Header from '@/ducks/apps/components/ApplicationPage/Header'
+import ApplicationPageLoading from '@/ducks/components/ApplicationPageLoading'
 import FocusTrap from 'focus-trap-react'
-import { useLocationNoUpdates } from 'lib/RouterUtils'
-import { getTranslatedManifestProperty } from 'lib/helpers'
+import { useLocationNoUpdates } from '@/lib/RouterUtils'
+import { getTranslatedManifestProperty } from '@/lib/helpers'
 import {
   preventBackgroundScroll,
   unpreventBackgroundScroll
-} from 'lib/scrollHelpers.js'
+} from '@/lib/scrollHelpers.js'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { Link, useMatch, useParams } from 'react-router-dom'

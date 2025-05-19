@@ -1,10 +1,10 @@
-import localAccessIcon from 'assets/icons/icon-cloud-in-cozy.svg'
-import externalIcon from 'assets/icons/icon-cloud-out-cozy.svg'
-import LINXO_CONNECTORS from 'config/linxo.json'
-import PERMISSIONS_ICONS from 'config/permissionsIcons.json'
-import REMOTE_DOCTYPES from 'config/remote-doctypes.json'
-import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
-import { getTranslatedManifestProperty } from 'lib/helpers'
+import localAccessIcon from '@/assets/icons/icon-cloud-in-cozy.svg'
+import externalIcon from '@/assets/icons/icon-cloud-out-cozy.svg'
+import LINXO_CONNECTORS from '@/config/linxo.json'
+import PERMISSIONS_ICONS from '@/config/permissionsIcons.json'
+import REMOTE_DOCTYPES from '@/config/remote-doctypes.json'
+import ReactMarkdownWrapper from '@/ducks/components/ReactMarkdownWrapper'
+import { getTranslatedManifestProperty } from '@/lib/helpers'
 import React from 'react'
 
 import Icon from 'cozy-ui/transpiled/react/Icon'
@@ -12,7 +12,7 @@ import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
 
 export const Permission = ({ description, label, type, t }) => {
   const permIconName = PERMISSIONS_ICONS[type] || 'fallback'
-  const permIcon = require(`assets/icons/permissions/${permIconName}.svg`)
+  const permIcon = require(`@/assets/icons/permissions/${permIconName}.svg`)
     .default
   return (
     <li className="sto-perm-list-item">

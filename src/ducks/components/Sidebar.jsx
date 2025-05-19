@@ -1,6 +1,6 @@
-import { enabledPages } from 'config'
-import { SidebarCategories } from 'ducks/apps/Containers'
-import isNavigationEnabled from 'lib/isNavigationEnabled'
+import config from '@/config/index.json'
+import { SidebarCategories } from '@/ducks/apps/Containers'
+import isNavigationEnabled from '@/lib/isNavigationEnabled'
 import React, { Fragment } from 'react'
 import { NavLink as RouterLink, useLocation } from 'react-router-dom'
 
@@ -30,13 +30,13 @@ const configMap = {
 export const StoreSidebar = React.memo(({ t, breakpoints = {} }) => {
   const location = useLocation()
   const { isMobile, isTablet } = breakpoints
-  if (enabledPages.length === 1 && (isMobile || isTablet)) return null
+  if (config.enabledPages.length === 1 && (isMobile || isTablet)) return null
   if (!isNavigationEnabled(location.search)) return null
 
   return (
     <Sidebar>
       <Nav>
-        {enabledPages.map(name => {
+        {config.enabledPages.map(name => {
           if (configMap[name]) {
             return (
               <Fragment key={name}>

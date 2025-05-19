@@ -2,7 +2,7 @@ import '@testing-library/jest-dom'
 import { render } from '@testing-library/react'
 import ReactMarkdownWrapper, {
   reactMarkdownRendererOptions
-} from 'ducks/components/ReactMarkdownWrapper'
+} from '@/ducks/components/ReactMarkdownWrapper'
 import React from 'react'
 
 describe('ReactMarkdownWrapper component', () => {

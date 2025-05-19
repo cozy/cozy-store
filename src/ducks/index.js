@@ -1,4 +1,4 @@
-import { appsReducers } from 'ducks/apps'
+import { appsReducers } from '@/ducks/apps'
 import { combineReducers } from 'redux'
 
 import { barReducers } from 'cozy-bar'

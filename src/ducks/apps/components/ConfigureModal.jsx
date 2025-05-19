@@ -1,5 +1,5 @@
-import { getAppBySlug } from 'ducks/apps'
-import { APP_TYPE } from 'ducks/apps'
+import { getAppBySlug } from '@/ducks/apps'
+import { APP_TYPE } from '@/ducks/apps'
 import compose from 'lodash/flowRight'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'

@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom'
 import { render } from '@testing-library/react'
-import InstallAppIntentContent from 'ducks/components/intents/InstallAppIntentContent'
+import InstallAppIntentContent from '@/ducks/components/intents/InstallAppIntentContent'
 import React from 'react'
 
 import CozyClient, { CozyProvider } from 'cozy-client'

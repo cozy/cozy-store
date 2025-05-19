@@ -1,4 +1,4 @@
-import { useAlternativeStore } from 'ducks/AlternativeStore/useAlternativeStore'
+import { useAlternativeStore } from '@/ducks/AlternativeStore/useAlternativeStore'
 import React from 'react'
 import { NavLink as RouterLink, useLocation } from 'react-router-dom'
 

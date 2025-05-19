@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom'
 import { render } from '@testing-library/react'
-import { IntentRedirect } from 'ducks/components/intents/IntentRedirect'
+import { IntentRedirect } from '@/ducks/components/intents/IntentRedirect'
 import React from 'react'
 import { MemoryRouter, Route, Routes, Navigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'

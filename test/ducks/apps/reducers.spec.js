@@ -31,7 +31,7 @@ import {
   fetchError,
   _consolidateApps,
   _sortAlphabetically
-} from 'ducks/apps/reducers'
+} from '@/ducks/apps/reducers'
 import _get from 'lodash/get'
 
 import mockApps from './_mockApps'
