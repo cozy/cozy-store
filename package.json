@@ -10,9 +10,10 @@
     "lint:js": "eslint '{src,test}/**/*.{ts,tsx,js,jsx}'",
     "lint:styles": "stylint src/styles --config ./.stylintrc",
     "prebuild": "yarn lint",
-    "build": "cozy-scripts build --barV7 false",
-    "watch": "cozy-scripts watch --barV7 false",
-    "start": "cozy-scripts start --barV7 false",
+    "build": "rsbuild build",
+    "watch": "rsbuild build --watch --mode development",
+    "start": "rsbuild dev",
+    "analyze": "RSDOCTOR=true yarn build",
     "cozyPublish": "cozy-app-publish --token $REGISTRY_TOKEN --prepublish downcloud --postpublish mattermost",
     "test": "cs test --verbose --coverage",
     "stack:docker": "docker run --rm -it -p 8080:8080 -v \"$(pwd)/build\":/data/cozy-app/app cozy/cozy-app-dev"
