@@ -3,7 +3,7 @@
   "name_prefix": "Twake",
   "slug": "store",
   "type": "webapp",
-  "icon": "icon.svg",
+  "icon": "assets/icon.svg",
   "editor": "Cozy",
   "description": "The apps store for Twake",
   "categories": [
