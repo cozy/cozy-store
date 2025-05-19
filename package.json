@@ -15,7 +15,7 @@
     "start": "rsbuild dev",
     "analyze": "RSDOCTOR=true yarn build",
     "cozyPublish": "cozy-app-publish --token $REGISTRY_TOKEN --prepublish downcloud --postpublish mattermost",
-    "test": "cs test --verbose --coverage",
+    "test": "env NODE_ENV='test' jest",
     "stack:docker": "docker run --rm -it -p 8080:8080 -v \"$(pwd)/build\":/data/cozy-app/app cozy/cozy-app-dev"
   },
   "repository": {
@@ -37,7 +37,7 @@
     "@typescript-eslint/parser": "5.54.0",
     "babel-preset-cozy-app": "^2.1.0",
     "bundlemon": "3.1.0",
-    "cozy-scripts": "^8.4.0",
+    "cozy-app-publish": "^0.41.0",
     "cozy-tsconfig": "^1.2.0",
     "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "1.15.6",
