@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
 import { render } from '@testing-library/react'
-import storeConfig from 'config'
-import { AppInstallation } from 'ducks/apps/components/AppInstallation'
+import storeConfig from '@/config/index.json'
+import { AppInstallation } from '@/ducks/apps/components/AppInstallation'
 import React from 'react'
 
 import flags from 'cozy-flags'

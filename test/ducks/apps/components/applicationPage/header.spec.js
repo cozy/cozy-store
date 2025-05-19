@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
 import { render, fireEvent } from '@testing-library/react'
-import { openApp } from 'ducks/apps'
-import { Header } from 'ducks/apps/components/ApplicationPage/Header'
+import { openApp } from '@/ducks/apps'
+import { Header } from '@/ducks/apps/components/ApplicationPage/Header'
 import React from 'react'
 import { MemoryRouter, useLocation } from 'react-router-dom'
 

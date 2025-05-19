@@ -1,6 +1,6 @@
 'use strict'
 
-import { MyApplications } from 'ducks/apps/components/MyApplications'
+import { MyApplications } from '@/ducks/apps/components/MyApplications'
 import { shallow } from 'enzyme'
 import React from 'react'
 

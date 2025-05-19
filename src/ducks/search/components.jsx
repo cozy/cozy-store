@@ -1,5 +1,5 @@
-import StoreAppItem from 'ducks/apps/components/StoreAppItem'
-import { dumpMatches } from 'ducks/search/utils'
+import StoreAppItem from '@/ducks/apps/components/StoreAppItem'
+import { dumpMatches } from '@/ducks/search/utils'
 import sortBy from 'lodash/sortBy'
 import PropTypes from 'prop-types'
 import React, { useCallback, useMemo } from 'react'

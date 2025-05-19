@@ -1,5 +1,5 @@
-import maintenanceIllu from 'assets/illustrations/maintenance.svg'
-import ReactMarkdownWrapper from 'ducks/components/ReactMarkdownWrapper'
+import maintenanceIllu from '@/assets/illustrations/maintenance.svg'
+import ReactMarkdownWrapper from '@/ducks/components/ReactMarkdownWrapper'
 import React from 'react'
 
 import { translate } from 'cozy-ui/transpiled/react/providers/I18n'

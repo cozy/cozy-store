@@ -2,7 +2,7 @@
 
 /* eslint-env jest */
 
-import { Partnership } from 'ducks/apps/components/Partnership'
+import { Partnership } from '@/ducks/apps/components/Partnership'
 import { shallow } from 'enzyme'
 import React from 'react'
 

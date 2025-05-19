@@ -2,8 +2,8 @@
 
 /* eslint-env jest */
 
-import AppInstallation from 'ducks/apps/components/AppInstallation'
-import { InstallModal } from 'ducks/apps/components/InstallModal'
+import AppInstallation from '@/ducks/apps/components/AppInstallation'
+import { InstallModal } from '@/ducks/apps/components/InstallModal'
 import { shallow } from 'enzyme'
 import React from 'react'
 import sinon from 'sinon'

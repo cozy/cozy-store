@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom'
 import { render } from '@testing-library/react'
-import { MyApplications, Discover } from 'ducks/apps/Containers'
+import { MyApplications, Discover } from '@/ducks/apps/Containers'
 import React from 'react'
 import configureStore from 'redux-mock-store'
 

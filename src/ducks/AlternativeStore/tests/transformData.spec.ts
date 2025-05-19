@@ -1,6 +1,6 @@
-import AlternativeStoreConfig from 'ducks/AlternativeStore/fixtures/flag.json'
-import { transformData } from 'ducks/AlternativeStore/transformData'
-import { AlternativeShortcut } from 'ducks/AlternativeStore/types'
+import AlternativeStoreConfig from '@/ducks/AlternativeStore/fixtures/flag.json'
+import { transformData } from '@/ducks/AlternativeStore/transformData'
+import { AlternativeShortcut } from '@/ducks/AlternativeStore/types'
 
 describe('transformData', () => {
   test('categorizes files correctly based on metadata category and path', () => {

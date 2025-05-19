@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom'
 import { render } from '@testing-library/react'
-import { StoreSidebar as StoreSidebarOriginal } from 'ducks/components/Sidebar'
+import { StoreSidebar as StoreSidebarOriginal } from '@/ducks/components/Sidebar'
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 

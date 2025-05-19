@@ -2,7 +2,7 @@
 
 /* eslint-env jest */
 
-import { UninstallModal } from 'ducks/apps/components/UninstallModal'
+import { UninstallModal } from '@/ducks/apps/components/UninstallModal'
 import { shallow } from 'enzyme'
 import React from 'react'
 import sinon from 'sinon'

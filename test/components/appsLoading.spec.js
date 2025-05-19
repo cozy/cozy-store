@@ -6,7 +6,7 @@ import { render } from '@testing-library/react'
 import {
   AppsLoading,
   LoadingAppsComponents
-} from 'ducks/components/AppsLoading'
+} from '@/ducks/components/AppsLoading'
 import React from 'react'
 
 global.Math.random = () => 1 // remove random for testing

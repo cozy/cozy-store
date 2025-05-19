@@ -1,4 +1,4 @@
-import App from 'ducks/components/App'
+import App from '@/ducks/components/App'
 import React from 'react'
 import { Provider } from 'react-redux'
 import { HashRouter } from 'react-router-dom'
@@ -15,7 +15,7 @@ const Root = ({ client, lang = 'en', store }) => {
   if (!client) return null
   return (
     <WebviewIntentProvider>
-      <I18n lang={lang} dictRequire={lang => require(`locales/${lang}`)}>
+      <I18n lang={lang} dictRequire={lang => require(`@/locales/${lang}`)}>
         <Provider store={store}>
           <CozyProvider client={client}>
             <DataProxyProvider>

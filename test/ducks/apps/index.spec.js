@@ -12,8 +12,8 @@ import {
   _getRegistryAssetsLinks,
   _sanitizeCategories,
   _sanitizeManifest
-} from 'ducks/apps'
-import { appsReducers } from 'ducks/apps/reducers'
+} from '@/ducks/apps'
+import { appsReducers } from '@/ducks/apps/reducers'
 import { combineReducers } from 'redux'
 import configureStore from 'redux-mock-store'
 import thunk from 'redux-thunk'

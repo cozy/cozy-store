@@ -1,4 +1,4 @@
-import Placeholder from 'ducks/components/Placeholder'
+import Placeholder from '@/ducks/components/Placeholder'
 import React, { Component } from 'react'
 
 export class ApplicationPageLoading extends Component {

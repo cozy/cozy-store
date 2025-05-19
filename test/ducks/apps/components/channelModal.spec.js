@@ -2,8 +2,8 @@
 
 /* eslint-env jest */
 
-import AppInstallation from 'ducks/apps/components/AppInstallation'
-import { ChannelModal } from 'ducks/apps/components/ChannelModal'
+import AppInstallation from '@/ducks/apps/components/AppInstallation'
+import { ChannelModal } from '@/ducks/apps/components/ChannelModal'
 import { shallow } from 'enzyme'
 import React from 'react'
 import sinon from 'sinon'
