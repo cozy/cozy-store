@@ -1,4 +1,4 @@
-import { Discover } from 'ducks/apps/Containers'
+import { Discover } from '@/ducks/apps/Containers'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'

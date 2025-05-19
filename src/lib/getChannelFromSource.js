@@ -1,4 +1,4 @@
-import { REGISTRY_CHANNELS } from 'ducks/apps'
+import { REGISTRY_CHANNELS } from '@/ducks/apps'
 
 const VALID_CHANNELS = Object.values(REGISTRY_CHANNELS)
 

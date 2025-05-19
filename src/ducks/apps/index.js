@@ -1,9 +1,9 @@
 /* eslint-env browser */
 
-import storeConfig from 'config'
-import config from 'config/apps'
-import AUTHORIZED_CATEGORIES from 'config/categories'
-import { NotUninstallableAppException } from 'lib/exceptions'
+import storeConfig from '@/config/index.json'
+import config from '@/config/apps.json'
+import AUTHORIZED_CATEGORIES from '@/config/categories.json'
+import { NotUninstallableAppException } from '@/lib/exceptions'
 import flatten from 'lodash/flatten'
 
 import { isFlagshipApp } from 'cozy-device-helper'
@@ -40,8 +40,8 @@ import termUtils from './terms'
 export { APP_STATE }
 export { APP_TYPE }
 export { REGISTRY_CHANNELS }
-export * from 'ducks/apps/selectors'
-export { appsReducers } from 'ducks/apps/reducers'
+export * from '@/ducks/apps/selectors'
+export { appsReducers } from '@/ducks/apps/reducers'
 
 const APPS_DOCTYPE = 'io.cozy.apps'
 const KONNECTORS_DOCTYPE = 'io.cozy.konnectors'

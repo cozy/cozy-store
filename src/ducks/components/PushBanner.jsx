@@ -1,4 +1,4 @@
-import GithubIcon from 'assets/icons/icon-github.svg'
+import GithubIcon from '@/assets/icons/icon-github.svg'
 import React, { useState } from 'react'
 
 import Banner from 'cozy-ui/transpiled/react/Banner'

@@ -1,10 +1,10 @@
-import { APP_TYPE, openApp } from 'ducks/apps'
+import { APP_TYPE, openApp } from '@/ducks/apps'
 import {
   hasPendingUpdate,
   isUnderMaintenance,
   isInstalledAndNothingToReport
-} from 'ducks/apps/appStatus'
-import AsyncButton from 'ducks/components/AsyncButton'
+} from '@/ducks/apps/appStatus'
+import AsyncButton from '@/ducks/components/AsyncButton'
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 

@@ -1,4 +1,4 @@
-import { SearchField, SearchResults } from 'ducks/search/components'
+import { SearchField, SearchResults } from '@/ducks/search/components'
 import Fuse from 'fuse.js'
 import PropTypes from 'prop-types'
 import React, { useState, useEffect, useMemo, useRef } from 'react'

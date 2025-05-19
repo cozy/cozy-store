@@ -1,4 +1,4 @@
-import { isPermissionsPageToDisplay } from 'ducks/components/intents/helpers'
+import { isPermissionsPageToDisplay } from '@/ducks/components/intents/helpers'
 
 describe('isPermissionsPageToDisplay', () => {
   it.each`

@@ -2,7 +2,7 @@
 
 /* eslint-env jest */
 
-import { ConfigureModal } from 'ducks/apps/components/ConfigureModal'
+import { ConfigureModal } from '@/ducks/apps/components/ConfigureModal'
 import { shallow } from 'enzyme'
 import React from 'react'
 

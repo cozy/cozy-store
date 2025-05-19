@@ -1,3 +1,3 @@
-import { AppInstallation } from 'ducks/apps/components/AppInstallation'
+import { AppInstallation } from '@/ducks/apps/components/AppInstallation'
 
 export default AppInstallation

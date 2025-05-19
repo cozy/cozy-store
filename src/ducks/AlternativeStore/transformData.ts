@@ -1,7 +1,7 @@
 import {
   AlternativeShortcut,
   AlternativeStoreConfig
-} from 'ducks/AlternativeStore/types'
+} from '@/ducks/AlternativeStore/types'
 
 import { IOCozyFile } from 'cozy-client/types/types'
 

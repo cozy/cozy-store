@@ -3,8 +3,8 @@
 /* eslint-env jest */
 
 import { render, fireEvent } from '@testing-library/react'
-import { getContext } from 'ducks/apps'
-import { Details } from 'ducks/apps/components/ApplicationPage/Details'
+import { getContext } from '@/ducks/apps'
+import { Details } from '@/ducks/apps/components/ApplicationPage/Details'
 import React from 'react'
 import { MemoryRouter } from 'react-router-dom'
 

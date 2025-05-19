@@ -1,6 +1,6 @@
 'use strict'
 
-import { getCurrentStatusLabel } from 'ducks/apps/appStatus'
+import { getCurrentStatusLabel } from '@/ducks/apps/appStatus'
 
 describe('getCurrentStatusLabel()', () => {
   it('should return "update" if pending update', () => {

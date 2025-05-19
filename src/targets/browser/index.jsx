@@ -7,8 +7,8 @@ import 'cozy-ui/transpiled/react/stylesheet.css'
 
 import { captureConsoleIntegration } from '@sentry/integrations'
 import * as Sentry from '@sentry/react'
-import schema from 'lib/schema'
-import { configureStore } from 'lib/store'
+import schema from '@/lib/schema'
+import { configureStore } from '@/lib/store'
 import React from 'react'
 import { render } from 'react-dom'
 import {
@@ -47,7 +47,7 @@ const init = () => {
   const lang = data.locale
 
   const store = configureStore({ client })
-  const Root = require('ducks/components/Root').default
+  const Root = require('@/ducks/components/Root').default
 
   Sentry.init({
     dsn: 'https://facf9d254f2513714c781ff0d416c7cf@errors.cozycloud.cc/76',

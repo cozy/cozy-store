@@ -1,4 +1,4 @@
-import { buildFileFromPathQuery } from 'ducks/queries'
+import { buildFileFromPathQuery } from '@/ducks/queries'
 import React, { useState } from 'react'
 
 import { useClient, useFetchShortcut } from 'cozy-client'

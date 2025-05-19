@@ -2,7 +2,7 @@
 
 /* eslint-env jest */
 
-import { Gallery } from 'ducks/apps/components/ApplicationPage/Gallery'
+import { Gallery } from '@/ducks/apps/components/ApplicationPage/Gallery'
 import { shallow } from 'enzyme'
 import React from 'react'
 

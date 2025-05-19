@@ -2,7 +2,7 @@
 
 /* eslint-env jest */
 
-import { ApplicationPage } from 'ducks/apps/components/ApplicationPage'
+import { ApplicationPage } from '@/ducks/apps/components/ApplicationPage'
 import { shallow } from 'enzyme'
 import React from 'react'
 

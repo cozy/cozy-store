@@ -1,8 +1,8 @@
-import { useAlternativeStore } from 'ducks/AlternativeStore/useAlternativeStore'
-import ApplicationRouting from 'ducks/apps/components/ApplicationRouting'
-import Sections from 'ducks/apps/components/QuerystringSections'
-import AppsLoading from 'ducks/components/AppsLoading'
-import { useNavigateNoUpdates, withRouterUtils } from 'lib/RouterUtils'
+import { useAlternativeStore } from '@/ducks/AlternativeStore/useAlternativeStore'
+import ApplicationRouting from '@/ducks/apps/components/ApplicationRouting'
+import Sections from '@/ducks/apps/components/QuerystringSections'
+import AppsLoading from '@/ducks/components/AppsLoading'
+import { useNavigateNoUpdates, withRouterUtils } from '@/lib/RouterUtils'
 import React, { Component } from 'react'
 import { useMatch, useSearchParams } from 'react-router-dom'
 

@@ -2,7 +2,7 @@
 
 /* eslint-env jest */
 
-import { UninstallRoute } from 'ducks/apps/components/ApplicationRouting/UninstallRoute'
+import { UninstallRoute } from '@/ducks/apps/components/ApplicationRouting/UninstallRoute'
 import { shallow } from 'enzyme'
 import React from 'react'
 import { useParams } from 'react-router-dom'

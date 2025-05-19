@@ -2,8 +2,8 @@
 
 /* eslint-env jest */
 
-import { REGISTRY_CHANNELS } from 'ducks/apps'
-import getChannelFromSource from 'lib/getChannelFromSource'
+import { REGISTRY_CHANNELS } from '@/ducks/apps'
+import getChannelFromSource from '@/lib/getChannelFromSource'
 
 describe('getChannelFromSource library', () => {
   it('should find all registry channels correctly', () => {
