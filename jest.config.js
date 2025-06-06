@@ -10,6 +10,7 @@ module.exports = {
     '.styl$': 'identity-obj-proxy',
     '\\.(css|less)$': 'identity-obj-proxy',
     '^cozy-client$': 'cozy-client/dist/index',
+    'test/(.*)$': '<rootDir>/test/$1',
     '^@/(.*)$': '<rootDir>/src/$1'
   },
   transformIgnorePatterns: ['node_modules/(?!cozy-ui)'],
@@ -19,5 +20,6 @@ module.exports = {
     __SENTRY_TOKEN__: 'token',
     cozy: {}
   },
-  snapshotSerializers: ['enzyme-to-json/serializer']
+  snapshotSerializers: ['enzyme-to-json/serializer'],
+  testEnvironment: 'jsdom'
 }
