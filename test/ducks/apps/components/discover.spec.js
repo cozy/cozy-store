@@ -1,6 +1,6 @@
 'use strict'
 
-import mockApps from '@/ducks/apps/_mockApps'
+import mockApps from '@/test/ducks/apps/_mockApps'
 import { Discover } from '@/ducks/apps/components/Discover'
 import { shallow } from 'enzyme'
 import { tMock } from 'jestLib/I18n'

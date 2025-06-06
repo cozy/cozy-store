@@ -3,7 +3,7 @@
 /* eslint-env jest */
 
 import { render, fireEvent, act } from '@testing-library/react'
-import mockApps from '@/ducks/apps/_mockApps'
+import mockApps from '@/test/ducks/apps/_mockApps'
 import Sections from '@/ducks/apps/components/Sections/Sections'
 import React from 'react'
 import { useLocation } from 'react-router-dom'
