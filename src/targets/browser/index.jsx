@@ -17,7 +17,7 @@ import {
   createRoutesFromChildren,
   matchRoutes
 } from 'react-router-dom'
-import 'styles'
+import '@/styles/index.css'
 
 import 'cozy-bar/dist/stylesheet.css'
 import 'cozy-search/dist/stylesheet.css'

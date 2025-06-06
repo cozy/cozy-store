@@ -1,16 +1,16 @@
 @import '~cozy-ui/dist/cozy-ui.min.css';
 
-@import '~styles/application.css';
-@import '~styles/sidebar.css';
-@import '~styles/empty.css';
-@import '~styles/install.css';
-@import '~styles/intents.css';
-@import '~styles/uninstall.css';
-@import '~styles/permissions.css';
-@import '~styles/partnership.css';
-@import '~styles/sections.css';
-@import '~styles/dropdownFilter.css';
-@import '~styles/loading.css';
+@import '@/styles/application.css';
+@import '@/styles/sidebar.css';
+@import '@/styles/empty.css';
+@import '@/styles/install.css';
+@import '@/styles/intents.css';
+@import '@/styles/uninstall.css';
+@import '@/styles/permissions.css';
+@import '@/styles/partnership.css';
+@import '@/styles/sections.css';
+@import '@/styles/dropdownFilter.css';
+@import '@/styles/loading.css';
 
 .blurry {
     opacity: .7;
