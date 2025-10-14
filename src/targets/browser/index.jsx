@@ -38,7 +38,8 @@ const init = () => {
     uri: `${protocol}//${data.domain}`,
     schema,
     token: data.token,
-    store: false
+    useCustomStore: true,
+    autoHydrate: true
   })
 
   client.registerPlugin(RealtimePlugin)

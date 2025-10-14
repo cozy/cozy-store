@@ -27,7 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
     uri: `${protocol}//${appData.domain}`,
     schema,
     token: appData.token,
-    store: false
+    useCustomStore: true,
+    autoHydrate: true
   })
   client.registerPlugin(RealtimePlugin)
   client.registerPlugin(flag.plugin)

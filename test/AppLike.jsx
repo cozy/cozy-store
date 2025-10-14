@@ -3,6 +3,7 @@ import { Provider } from 'react-redux'
 import { HashRouter } from 'react-router-dom'
 
 import { CozyProvider, createMockClient } from 'cozy-client'
+import { Layout } from 'cozy-ui/transpiled/react/Layout'
 import { BreakpointsProvider } from 'cozy-ui/transpiled/react/providers/Breakpoints'
 import I18n from 'cozy-ui/transpiled/react/providers/I18n'
 
@@ -19,7 +20,9 @@ const AppLike = ({ children, store, client }) => {
       <CozyProvider client={client || mockClient}>
         <I18n dictRequire={() => enLocale} lang="en">
           <BreakpointsProvider>
-            <HashRouter>{children}</HashRouter>
+            <HashRouter>
+              <Layout>{children}</Layout>
+            </HashRouter>
           </BreakpointsProvider>
         </I18n>
       </CozyProvider>
