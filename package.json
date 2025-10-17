@@ -68,7 +68,7 @@
     "@sentry/react": "^8.5.0",
     "cozy-bar": "^25.0.0",
     "cozy-client": "^60.14.0",
-    "cozy-dataproxy-lib": "4.6.1",
+    "cozy-dataproxy-lib": "4.11.0",
     "cozy-device-helper": "^3.8.0",
     "cozy-devtools": "^1.4.1",
     "cozy-doctypes": "^1.98.1",
