@@ -277,7 +277,8 @@
         "sharings": "Delen",
         "tags": "Labels",
         "timeseries.geojson": "Reizen",
-        "triggers": "Bezig met inplannen van taken..."
+        "triggers": "Bezig met inplannen van taken...",
+        "drive.settings": "Drive-instellingen"
       }
     },
     "fr": {

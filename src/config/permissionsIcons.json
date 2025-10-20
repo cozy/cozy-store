@@ -74,5 +74,6 @@
   "org.fing.mesinfos.energybreakdown": "energybreakdown",
   "org.fing.mesinfos.home": "home",
   "org.fing.mesinfos.insuranceclaim": "sinister",
-  "org.fing.mesinfos.paymentterms": "files-pen"
+  "org.fing.mesinfos.paymentterms": "files-pen",
+  "io.cozy.drive.settings": "settings"
 }

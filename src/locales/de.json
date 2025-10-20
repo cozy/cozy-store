@@ -267,7 +267,8 @@
         "sharings": "Teilen",
         "tags": "Tags",
         "timeseries.geojson": "Reisen",
-        "triggers": "Scheduling jobs"
+        "triggers": "Scheduling jobs",
+        "drive.settings": "Drive-Einstellungen"
       }
     },
     "fr": {
