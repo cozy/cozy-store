@@ -1,4 +1,3 @@
-import { SearchField, SearchResults } from '@/ducks/search/components'
 import Fuse from 'fuse.js'
 import PropTypes from 'prop-types'
 import React, { useState, useEffect, useMemo, useRef } from 'react'
@@ -9,6 +8,8 @@ import * as filterUtils from 'cozy-ui/transpiled/react/AppSections/search'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
 import Filters from './components/Filters'
+
+import { SearchField, SearchResults } from '@/ducks/search/components'
 
 /**
  * Shows a list of apps grouped by categories.

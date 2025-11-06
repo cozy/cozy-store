@@ -1,12 +1,13 @@
 'use strict'
 
-import mockApps from '@/test/ducks/apps/_mockApps'
-import { Discover } from '@/ducks/apps/components/Discover'
 import { shallow } from 'enzyme'
 import { tMock } from 'jestLib/I18n'
 import React from 'react'
 
 import { BarCenter } from 'cozy-bar'
+
+import { Discover } from '@/ducks/apps/components/Discover'
+import mockApps from '@/test/ducks/apps/_mockApps'
 
 const mockError = new Error('This is a test error')
 

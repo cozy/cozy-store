@@ -1,5 +1,3 @@
-import { getAppBySlug, uninstallApp } from '@/ducks/apps'
-import ReactMarkdownWrapper from '@/ducks/components/ReactMarkdownWrapper'
 import compose from 'lodash/flowRight'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
@@ -17,6 +15,9 @@ import Modal, {
   ModalFooter
 } from 'cozy-ui/transpiled/react/deprecated/Modal'
 import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
+
+import { getAppBySlug, uninstallApp } from '@/ducks/apps'
+import ReactMarkdownWrapper from '@/ducks/components/ReactMarkdownWrapper'
 
 export class UninstallModal extends Component {
   constructor(props) {

@@ -1,10 +1,3 @@
-import { APP_TYPE, openApp } from '@/ducks/apps'
-import {
-  hasPendingUpdate,
-  isUnderMaintenance,
-  isInstalledAndNothingToReport
-} from '@/ducks/apps/appStatus'
-import AsyncButton from '@/ducks/components/AsyncButton'
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
@@ -18,6 +11,14 @@ import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
 import { handleIntent } from './helpers'
+
+import { APP_TYPE, openApp } from '@/ducks/apps'
+import {
+  hasPendingUpdate,
+  isUnderMaintenance,
+  isInstalledAndNothingToReport
+} from '@/ducks/apps/appStatus'
+import AsyncButton from '@/ducks/components/AsyncButton'
 
 const HeaderActions = ({ app, intentData, parent, isInstalling }) => {
   const client = useClient()

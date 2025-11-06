@@ -7,8 +7,6 @@ import 'cozy-ui/transpiled/react/stylesheet.css'
 
 import { captureConsoleIntegration } from '@sentry/integrations'
 import * as Sentry from '@sentry/react'
-import schema from '@/lib/schema'
-import { configureStore } from '@/lib/store'
 import React from 'react'
 import { render } from 'react-dom'
 import {
@@ -17,15 +15,18 @@ import {
   createRoutesFromChildren,
   matchRoutes
 } from 'react-router-dom'
-import '@/styles/index.css'
 
 import 'cozy-bar/dist/stylesheet.css'
-import 'cozy-search/dist/stylesheet.css'
 import CozyClient from 'cozy-client'
 import flag from 'cozy-flags'
 import { RealtimePlugin } from 'cozy-realtime'
+import 'cozy-search/dist/stylesheet.css'
 
 import manifest from '../../../manifest.webapp'
+
+import schema from '@/lib/schema'
+import { configureStore } from '@/lib/store'
+import '@/styles/index.css'
 
 window.flag = flag
 

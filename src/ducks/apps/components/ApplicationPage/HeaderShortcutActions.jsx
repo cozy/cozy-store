@@ -1,4 +1,3 @@
-import { buildFileFromPathQuery } from '@/ducks/queries'
 import React, { useState } from 'react'
 
 import { useClient, useFetchShortcut } from 'cozy-client'
@@ -10,6 +9,8 @@ import CloudIcon from 'cozy-ui/transpiled/react/Icons/Cloud'
 import { useAlert } from 'cozy-ui/transpiled/react/providers/Alert'
 import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
+
+import { buildFileFromPathQuery } from '@/ducks/queries'
 
 const HeaderShortcutActions = ({ app }) => {
   const { isMobile } = useBreakpoints()

@@ -1,4 +1,3 @@
-import App from '@/ducks/components/App'
 import React from 'react'
 import { Provider } from 'react-redux'
 import { HashRouter } from 'react-router-dom'
@@ -10,6 +9,8 @@ import { WebviewIntentProvider } from 'cozy-intent'
 import AlertProvider from 'cozy-ui/transpiled/react/providers/Alert'
 import CozyTheme from 'cozy-ui/transpiled/react/providers/CozyTheme'
 import { I18n } from 'cozy-ui/transpiled/react/providers/I18n'
+
+import App from '@/ducks/components/App'
 
 const Root = ({ client, lang = 'en', store }) => {
   if (!client) return null

@@ -1,7 +1,8 @@
-import { Discover } from '@/ducks/apps/Containers'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
+
+import { Discover } from '@/ducks/apps/Containers'
 
 const OpenAppsIntentRoutes = ({ intentData, onTerminate }) => {
   return (

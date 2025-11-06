@@ -1,10 +1,11 @@
+import PropTypes from 'prop-types'
+import React from 'react'
+import { HashRouter } from 'react-router-dom'
+
 import AppInstallation from '@/ducks/apps/components/AppInstallation'
 import InstallSuccess from '@/ducks/apps/components/InstallSuccess'
 import OpenAppsIntentRoutes from '@/ducks/components/intents/OpenAppsIntentRoutes'
 import { isPermissionsPageToDisplay } from '@/ducks/components/intents/helpers'
-import PropTypes from 'prop-types'
-import React from 'react'
-import { HashRouter } from 'react-router-dom'
 
 const InstallAppIntentContent = ({
   data,

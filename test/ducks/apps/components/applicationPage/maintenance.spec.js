@@ -2,7 +2,6 @@
 
 /* eslint-env jest */
 
-import { Maintenance } from '@/ducks/apps/components/ApplicationPage/Maintenance'
 import { shallow } from 'enzyme'
 import React from 'react'
 
@@ -10,6 +9,8 @@ import { extend as extendI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
 import { tMock } from '../../../../jestLib/I18n'
 import mockKonnector from '../../_mockPKonnectorTrinlaneRegistryVersion'
+
+import { Maintenance } from '@/ducks/apps/components/ApplicationPage/Maintenance'
 const konnectorManifest = mockKonnector.manifest
 
 konnectorManifest.locales.en.maintenance = {

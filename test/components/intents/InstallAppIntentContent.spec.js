@@ -1,12 +1,13 @@
 import '@testing-library/jest-dom'
 import { render } from '@testing-library/react'
-import InstallAppIntentContent from '@/ducks/components/intents/InstallAppIntentContent'
 import React from 'react'
 
 import CozyClient, { CozyProvider } from 'cozy-client'
 import I18n from 'cozy-ui/transpiled/react/providers/I18n'
 
 import enLocale from '../../../src/locales/en.json'
+
+import InstallAppIntentContent from '@/ducks/components/intents/InstallAppIntentContent'
 
 jest.mock('ducks/components/intents/OpenAppsIntentRoutes', () => () => (
   <div data-testid="OpenAppsIntentRoutes" />

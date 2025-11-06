@@ -3,11 +3,12 @@
 /* eslint-env jest */
 
 import { render } from '@testing-library/react'
+import React from 'react'
+
 import {
   AppsLoading,
   LoadingAppsComponents
 } from '@/ducks/components/AppsLoading'
-import React from 'react'
 
 global.Math.random = () => 1 // remove random for testing
 

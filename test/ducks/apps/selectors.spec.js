@@ -2,13 +2,13 @@
 
 /* eslint-env jest */
 
+import mockApps from './_mockApps'
+
 import {
   getAppBySlug,
   getInstalledApps,
   getRegistryApps
 } from '@/ducks/apps/selectors'
-
-import mockApps from './_mockApps'
 
 const mockInstalledApps = mockApps.filter(a => a.installed)
 const mockRegistryApps = mockApps.filter(a => a.isInRegistry)

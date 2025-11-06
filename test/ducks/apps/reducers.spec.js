@@ -3,6 +3,11 @@
 
 /* eslint-env jest */
 
+import _get from 'lodash/get'
+
+import mockApps from './_mockApps'
+import mockApp from './_mockPhotosRegistryVersion'
+
 import {
   LOADING_APP,
   LOADING_APP_INTENT,
@@ -32,10 +37,6 @@ import {
   _consolidateApps,
   _sortAlphabetically
 } from '@/ducks/apps/reducers'
-import _get from 'lodash/get'
-
-import mockApps from './_mockApps'
-import mockApp from './_mockPhotosRegistryVersion'
 
 const mockError = new Error('This is a test error')
 

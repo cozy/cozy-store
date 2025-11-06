@@ -1,7 +1,5 @@
 import '@testing-library/jest-dom'
 import { render, fireEvent } from '@testing-library/react'
-import { openApp } from '@/ducks/apps'
-import { Header } from '@/ducks/apps/components/ApplicationPage/Header'
 import React from 'react'
 import { MemoryRouter, useLocation } from 'react-router-dom'
 
@@ -15,6 +13,9 @@ import enLocale from '../../../../../src/locales/en.json'
 import { tMock } from '../../../../jestLib/I18n'
 import mockKonnector from '../../_mockPKonnectorTrinlaneRegistryVersion'
 import mockApp from '../../_mockPhotosRegistryVersion'
+
+import { openApp } from '@/ducks/apps'
+import { Header } from '@/ducks/apps/components/ApplicationPage/Header'
 
 delete window.location
 window.location = { assign: jest.fn() }

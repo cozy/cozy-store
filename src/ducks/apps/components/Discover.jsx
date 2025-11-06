@@ -1,8 +1,3 @@
-import { useAlternativeStore } from '@/ducks/AlternativeStore/useAlternativeStore'
-import ApplicationRouting from '@/ducks/apps/components/ApplicationRouting'
-import Sections from '@/ducks/apps/components/QuerystringSections'
-import AppsLoading from '@/ducks/components/AppsLoading'
-import { useNavigateNoUpdates, withRouterUtils } from '@/lib/RouterUtils'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { useMatch, useSearchParams } from 'react-router-dom'
@@ -12,6 +7,12 @@ import { Content } from 'cozy-ui/transpiled/react/Layout'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
+
+import { useAlternativeStore } from '@/ducks/AlternativeStore/useAlternativeStore'
+import ApplicationRouting from '@/ducks/apps/components/ApplicationRouting'
+import Sections from '@/ducks/apps/components/QuerystringSections'
+import AppsLoading from '@/ducks/components/AppsLoading'
+import { useNavigateNoUpdates, withRouterUtils } from '@/lib/RouterUtils'
 
 export class Discover extends Component {
   constructor(props) {

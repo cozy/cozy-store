@@ -1,6 +1,7 @@
-import UninstallModal from '@/ducks/apps/components/UninstallModal'
 import React from 'react'
 import { useParams } from 'react-router-dom'
+
+import UninstallModal from '@/ducks/apps/components/UninstallModal'
 
 export const UninstallRoute = ({ getApp, isFetching, parent, redirectTo }) => {
   const params = useParams()

@@ -1,5 +1,3 @@
-import { isShortcutFile } from '@/ducks/AlternativeStore/helpers'
-import { getAppIconProps } from '@/ducks/apps'
 import React from 'react'
 import { connect } from 'react-redux'
 
@@ -7,6 +5,9 @@ import AppIcon from 'cozy-ui/transpiled/react/AppIcon'
 
 import { HeaderActions } from './HeaderActions'
 import { HeaderShortcutActions } from './HeaderShortcutActions'
+
+import { isShortcutFile } from '@/ducks/AlternativeStore/helpers'
+import { getAppIconProps } from '@/ducks/apps'
 
 export const Header = ({
   app,
