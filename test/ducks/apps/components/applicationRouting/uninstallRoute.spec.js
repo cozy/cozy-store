@@ -2,12 +2,13 @@
 
 /* eslint-env jest */
 
-import { UninstallRoute } from '@/ducks/apps/components/ApplicationRouting/UninstallRoute'
 import { shallow } from 'enzyme'
 import React from 'react'
 import { useParams } from 'react-router-dom'
 
 import mockApps from '../../_mockApps'
+
+import { UninstallRoute } from '@/ducks/apps/components/ApplicationRouting/UninstallRoute'
 
 const getAppMock = params => mockApps.find(a => a.slug === params.appSlug)
 

@@ -1,10 +1,11 @@
 import * as Sentry from '@sentry/react'
-import { Discover, MyApplications } from '@/ducks/apps/Containers'
-import IntentRedirect from '@/ducks/components/intents/IntentRedirect'
 import React from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 
 import { BarRoutes } from 'cozy-bar'
+
+import { Discover, MyApplications } from '@/ducks/apps/Containers'
+import IntentRedirect from '@/ducks/components/intents/IntentRedirect'
 const SentryRoutes = Sentry.withSentryReactRouterV6Routing(Routes)
 
 export const AppRouter = () => {

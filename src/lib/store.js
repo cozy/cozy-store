@@ -1,10 +1,11 @@
 import * as Sentry from '@sentry/react'
-import { createRootReducer } from '@/ducks/index'
 import { createStore, applyMiddleware, compose } from 'redux'
 import { createLogger } from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
 
 import flag from 'cozy-flags'
+
+import { createRootReducer } from '@/ducks/index'
 
 const configureStore = ({ client, setStoreToClient = true }) => {
   const loggerMiddleware = createLogger()

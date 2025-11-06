@@ -2,7 +2,6 @@
 
 /* eslint-env jest */
 
-import { UninstallModal } from '@/ducks/apps/components/UninstallModal'
 import { shallow } from 'enzyme'
 import React from 'react'
 import sinon from 'sinon'
@@ -10,6 +9,8 @@ import sinonStubPromise from 'sinon-stub-promise'
 
 import { tMock } from '../../../jestLib/I18n'
 import mockApps from '../_mockApps'
+
+import { UninstallModal } from '@/ducks/apps/components/UninstallModal'
 
 /* SinonJS is used here to stub Promise in order to be synchronous.
 In this way, (p)React will call setState synchronously. It will allow

@@ -1,9 +1,5 @@
 /* eslint-env browser */
 
-import storeConfig from '@/config/index.json'
-import config from '@/config/apps.json'
-import AUTHORIZED_CATEGORIES from '@/config/categories.json'
-import { NotUninstallableAppException } from '@/lib/exceptions'
 import flatten from 'lodash/flatten'
 
 import { isFlagshipApp } from 'cozy-device-helper'
@@ -36,6 +32,11 @@ import {
   SAVE_APP
 } from './reducers'
 import termUtils from './terms'
+
+import config from '@/config/apps.json'
+import AUTHORIZED_CATEGORIES from '@/config/categories.json'
+import storeConfig from '@/config/index.json'
+import { NotUninstallableAppException } from '@/lib/exceptions'
 
 export { APP_STATE }
 export { APP_TYPE }

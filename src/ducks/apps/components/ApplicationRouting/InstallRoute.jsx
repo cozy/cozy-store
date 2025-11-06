@@ -1,8 +1,9 @@
-import { redirectToConfigure } from '@/ducks/apps/components/ApplicationRouting/helpers'
-import InstallModal from '@/ducks/apps/components/InstallModal'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { useParams } from 'react-router-dom'
+
+import { redirectToConfigure } from '@/ducks/apps/components/ApplicationRouting/helpers'
+import InstallModal from '@/ducks/apps/components/InstallModal'
 
 export const InstallRoute = ({
   getApp,

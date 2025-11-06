@@ -1,9 +1,9 @@
+import { IOCozyFile } from 'cozy-client/types/types'
+
 import {
   AlternativeShortcut,
   AlternativeStoreConfig
 } from '@/ducks/AlternativeStore/types'
-
-import { IOCozyFile } from 'cozy-client/types/types'
 
 export const transformData = (
   data: IOCozyFile[],

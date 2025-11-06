@@ -1,3 +1,13 @@
+import compose from 'lodash/flowRight'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
+import { withClient } from 'cozy-client'
+import IntentHeader from 'cozy-ui/transpiled/react/IntentHeader'
+import Spinner from 'cozy-ui/transpiled/react/Spinner'
+import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
+
 import {
   APP_TYPE,
   getAppBySlug,
@@ -8,15 +18,6 @@ import {
 } from '@/ducks/apps'
 import InstallAppIntentContent from '@/ducks/components/intents/InstallAppIntentContent'
 import { isPermissionsPageToDisplay } from '@/ducks/components/intents/helpers'
-import compose from 'lodash/flowRight'
-import PropTypes from 'prop-types'
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-
-import { withClient } from 'cozy-client'
-import IntentHeader from 'cozy-ui/transpiled/react/IntentHeader'
-import Spinner from 'cozy-ui/transpiled/react/Spinner'
-import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
 
 const errorKeys = {
   alreadyInstalledError: 'intent.install.error.installed',

@@ -1,6 +1,7 @@
-import ConfigureModal from '@/ducks/apps/components/ConfigureModal'
 import React from 'react'
 import { useParams } from 'react-router-dom'
+
+import ConfigureModal from '@/ducks/apps/components/ConfigureModal'
 
 export const ConfigureRoute = ({ getApp, isFetching, parent, redirectTo }) => {
   const params = useParams()

@@ -1,7 +1,3 @@
-import { initApp, restoreAppIfSaved } from '@/ducks/apps'
-import { AppRouter } from '@/ducks/components/AppRouter'
-import PushBanner from '@/ducks/components/PushBanner'
-import Sidebar from '@/ducks/components/Sidebar'
 import compose from 'lodash/flowRight'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
@@ -15,6 +11,11 @@ import { Layout, Main } from 'cozy-ui/transpiled/react/Layout'
 import Alerter from 'cozy-ui/transpiled/react/deprecated/Alerter'
 import { BreakpointsProvider } from 'cozy-ui/transpiled/react/providers/Breakpoints'
 import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
+
+import { initApp, restoreAppIfSaved } from '@/ducks/apps'
+import { AppRouter } from '@/ducks/components/AppRouter'
+import PushBanner from '@/ducks/components/PushBanner'
+import Sidebar from '@/ducks/components/Sidebar'
 
 export class App extends Component {
   constructor(props) {

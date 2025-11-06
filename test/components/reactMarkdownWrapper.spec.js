@@ -1,9 +1,10 @@
 import '@testing-library/jest-dom'
 import { render } from '@testing-library/react'
+import React from 'react'
+
 import ReactMarkdownWrapper, {
   reactMarkdownRendererOptions
 } from '@/ducks/components/ReactMarkdownWrapper'
-import React from 'react'
 
 describe('ReactMarkdownWrapper component', () => {
   it('should be rendered correctly', () => {

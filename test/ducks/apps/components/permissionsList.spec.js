@@ -2,7 +2,6 @@
 
 /* eslint-env jest */
 
-import { PermissionsList } from '@/ducks/apps/components/PermissionsList'
 import { shallow } from 'enzyme'
 import React from 'react'
 
@@ -11,6 +10,8 @@ import mockBankKonnectorWithExternalDoctype from '../_mockBankKonnectorWithExter
 import mockKonnectorVersion from '../_mockPKonnectorTrinlaneRegistryVersion'
 import mockAppVersion from '../_mockPhotosRegistryVersion'
 import { webapp } from '../_mockWebappRegistryVersion'
+
+import { PermissionsList } from '@/ducks/apps/components/PermissionsList'
 
 describe('PermissionsList component', () => {
   beforeAll(() => {

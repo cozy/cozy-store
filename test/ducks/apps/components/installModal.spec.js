@@ -2,8 +2,6 @@
 
 /* eslint-env jest */
 
-import AppInstallation from '@/ducks/apps/components/AppInstallation'
-import { InstallModal } from '@/ducks/apps/components/InstallModal'
 import { shallow } from 'enzyme'
 import React from 'react'
 import sinon from 'sinon'
@@ -11,6 +9,9 @@ import sinonStubPromise from 'sinon-stub-promise'
 
 import mockApps from '../_mockApps'
 import mockAppVersion from '../_mockPhotosRegistryVersion'
+
+import AppInstallation from '@/ducks/apps/components/AppInstallation'
+import { InstallModal } from '@/ducks/apps/components/InstallModal'
 
 /* SinonJS is used here to stub Promise in order to be synchronous.
 In this way, (p)React will call setState synchronously. It will allow

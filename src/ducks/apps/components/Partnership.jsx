@@ -1,8 +1,9 @@
-import ReactMarkdownWrapper from '@/ducks/components/ReactMarkdownWrapper'
-import { getTranslatedManifestProperty } from '@/lib/helpers'
 import React, { Component } from 'react'
 
 import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
+
+import ReactMarkdownWrapper from '@/ducks/components/ReactMarkdownWrapper'
+import { getTranslatedManifestProperty } from '@/lib/helpers'
 
 export class Partnership extends Component {
   constructor(props) {

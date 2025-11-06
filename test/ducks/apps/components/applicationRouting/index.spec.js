@@ -2,12 +2,13 @@
 
 /* eslint-env jest */
 
-import { ApplicationRouting } from '@/ducks/apps/components/ApplicationRouting'
 import { shallow } from 'enzyme'
 import React from 'react'
 import { Route } from 'react-router-dom'
 
 import mockApps from '../../_mockApps'
+
+import { ApplicationRouting } from '@/ducks/apps/components/ApplicationRouting'
 
 // const mockRegistyApps = mockApps.filter(app => app.isInRegistry).filter(app =>
 // (Array.isArray(app.versions.stable) && !!app.versions.stable.length))

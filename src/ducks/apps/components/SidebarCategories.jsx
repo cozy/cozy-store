@@ -1,10 +1,11 @@
-import { useAlternativeStore } from '@/ducks/AlternativeStore/useAlternativeStore'
 import React from 'react'
 import { NavLink as RouterLink, useLocation } from 'react-router-dom'
 
 import { categoryUtils } from 'cozy-ui/transpiled/react/AppSections'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
+
+import { useAlternativeStore } from '@/ducks/AlternativeStore/useAlternativeStore'
 
 const getActiveChecker = (cat, location) => {
   const urlSearchParams = new URLSearchParams(location.search)

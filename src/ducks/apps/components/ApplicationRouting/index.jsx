@@ -1,9 +1,3 @@
-import ApplicationPage from '@/ducks/apps/components/ApplicationPage'
-import ChannelRoute from '@/ducks/apps/components/ApplicationRouting/ChannelRoute'
-import ConfigureRoute from '@/ducks/apps/components/ApplicationRouting/ConfigureRoute'
-import InstallRoute from '@/ducks/apps/components/ApplicationRouting/InstallRoute'
-import PermissionsRoute from '@/ducks/apps/components/ApplicationRouting/PermissionsRoute'
-import UninstallRoute from '@/ducks/apps/components/ApplicationRouting/UninstallRoute'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import {
@@ -13,6 +7,13 @@ import {
   useLocation,
   useNavigate
 } from 'react-router-dom'
+
+import ApplicationPage from '@/ducks/apps/components/ApplicationPage'
+import ChannelRoute from '@/ducks/apps/components/ApplicationRouting/ChannelRoute'
+import ConfigureRoute from '@/ducks/apps/components/ApplicationRouting/ConfigureRoute'
+import InstallRoute from '@/ducks/apps/components/ApplicationRouting/InstallRoute'
+import PermissionsRoute from '@/ducks/apps/components/ApplicationRouting/PermissionsRoute'
+import UninstallRoute from '@/ducks/apps/components/ApplicationRouting/UninstallRoute'
 
 const OutletWrapper = ({ Component }) => (
   <>

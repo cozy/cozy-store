@@ -1,11 +1,4 @@
-import storeConfig from '@/config/index.json'
-import { APP_TYPE, getAppBySlug, installAppFromRegistry } from '@/ducks/apps'
-import { hasPendingUpdate, isUnderMaintenance } from '@/ducks/apps/appStatus'
-import Partnership from '@/ducks/apps/components/Partnership'
-import PermissionsList from '@/ducks/apps/components/PermissionsList'
-import ReactMarkdownWrapper from '@/ducks/components/ReactMarkdownWrapper'
 import FocusTrap from 'focus-trap-react'
-import { getTranslatedManifestProperty } from '@/lib/helpers'
 import compose from 'lodash/flowRight'
 import get from 'lodash/get'
 import pickBy from 'lodash/pickBy'
@@ -25,6 +18,14 @@ import {
   ModalFooter
 } from 'cozy-ui/transpiled/react/deprecated/Modal'
 import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
+
+import storeConfig from '@/config/index.json'
+import { APP_TYPE, getAppBySlug, installAppFromRegistry } from '@/ducks/apps'
+import { hasPendingUpdate, isUnderMaintenance } from '@/ducks/apps/appStatus'
+import Partnership from '@/ducks/apps/components/Partnership'
+import PermissionsList from '@/ducks/apps/components/PermissionsList'
+import ReactMarkdownWrapper from '@/ducks/components/ReactMarkdownWrapper'
+import { getTranslatedManifestProperty } from '@/lib/helpers'
 
 const shouldSkipPermissions = app =>
   flags('skip-low-permissions') &&

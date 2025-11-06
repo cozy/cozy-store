@@ -3,8 +3,6 @@
 /* eslint-env jest */
 
 import { render, fireEvent, act } from '@testing-library/react'
-import mockApps from '@/test/ducks/apps/_mockApps'
-import Sections from '@/ducks/apps/components/Sections/Sections'
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 
@@ -13,6 +11,9 @@ import { BreakpointsProvider } from 'cozy-ui/transpiled/react/providers/Breakpoi
 import I18n from 'cozy-ui/transpiled/react/providers/I18n'
 
 import enLocale from '../../../../locales/en.json'
+
+import Sections from '@/ducks/apps/components/Sections/Sections'
+import mockApps from '@/test/ducks/apps/_mockApps'
 
 jest.mock('lodash/debounce', () => jest.fn(fn => fn))
 jest.mock('react-router-dom', () => ({

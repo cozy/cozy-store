@@ -1,4 +1,3 @@
-import GithubIcon from '@/assets/icons/icon-github.svg'
 import React, { useState } from 'react'
 
 import Banner from 'cozy-ui/transpiled/react/Banner'
@@ -11,6 +10,8 @@ import Tooltip from 'cozy-ui/transpiled/react/Tooltip'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import { useBreakpoints } from 'cozy-ui/transpiled/react/providers/Breakpoints'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
+
+import GithubIcon from '@/assets/icons/icon-github.svg'
 
 const PushBanner = () => {
   const [showTooltip, setShowTooltip] = useState(false)

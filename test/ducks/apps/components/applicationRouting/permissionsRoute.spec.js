@@ -2,12 +2,13 @@
 
 /* eslint-env jest */
 
-import { PermissionsRoute } from '@/ducks/apps/components/ApplicationRouting/PermissionsRoute'
 import { shallow } from 'enzyme'
 import React from 'react'
 import { useParams } from 'react-router-dom'
 
 import mockApps from '../../_mockApps'
+
+import { PermissionsRoute } from '@/ducks/apps/components/ApplicationRouting/PermissionsRoute'
 
 const getAppMock = params => mockApps.find(a => a.slug === params.appSlug)
 

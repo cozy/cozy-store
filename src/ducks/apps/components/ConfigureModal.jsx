@@ -1,5 +1,3 @@
-import { getAppBySlug } from '@/ducks/apps'
-import { APP_TYPE } from '@/ducks/apps'
 import compose from 'lodash/flowRight'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
@@ -9,6 +7,9 @@ import { withClient } from 'cozy-client'
 import Intents from 'cozy-interapp'
 import IntentModal from 'cozy-ui/transpiled/react/deprecated/IntentModal'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
+
+import { APP_TYPE } from '@/ducks/apps'
+import { getAppBySlug } from '@/ducks/apps'
 
 export class ConfigureModal extends Component {
   constructor(props) {

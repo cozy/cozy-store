@@ -2,11 +2,12 @@
 
 /* eslint-env jest */
 
-import { ConfigureModal } from '@/ducks/apps/components/ConfigureModal'
 import { shallow } from 'enzyme'
 import React from 'react'
 
 import CozyClient from 'cozy-client'
+
+import { ConfigureModal } from '@/ducks/apps/components/ConfigureModal'
 
 describe('ConfigureModal component', () => {
   const konnector = {

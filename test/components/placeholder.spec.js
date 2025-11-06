@@ -3,8 +3,9 @@
 /* eslint-env jest */
 
 import { render } from '@testing-library/react'
-import Placeholder from '@/ducks/components/Placeholder'
 import React from 'react'
+
+import Placeholder from '@/ducks/components/Placeholder'
 
 global.Math.random = () => 1 // remove random for testing
 
