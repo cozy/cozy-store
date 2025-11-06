@@ -1,24 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ConfigureModal component renders 1`] = `
-<IntentModal
-  action="CREATE"
-  closable={true}
-  create={[Function]}
-  dismissAction={[MockFunction]}
-  doctype="io.cozy.accounts"
-  height="41rem"
-  into="body"
-  mobileFullscreen={true}
-  onComplete={[MockFunction]}
-  options={
+<Dialog
+  classes={
     Object {
-      "slug": "trinlane",
+      "paper": "u-h-100",
     }
   }
-  overflowHidden={true}
-  primaryType="regular"
-  secondaryType="secondary"
-  size="small"
-/>
+  disableEnforceFocus={true}
+  fullWidth={true}
+  maxWidth="md"
+  onClose={[Function]}
+  open={true}
+>
+  <CloseButton
+    onClick={[Function]}
+  />
+  <withClient(IntentIframe)
+    action="CREATE"
+    create={[Function]}
+    doctype="io.cozy.accounts"
+    onCancel={[MockFunction]}
+    onTerminate={[MockFunction]}
+    options={
+      Object {
+        "slug": "trinlane",
+      }
+    }
+  />
+</Dialog>
 `;

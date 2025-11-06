@@ -4732,10 +4732,10 @@ cozy-app-publish@^0.41.0:
     tar "^6.1.11"
     verror "^1.10.1"
 
-cozy-bar@^25.0.0:
-  version "25.0.0"
-  resolved "https://registry.yarnpkg.com/cozy-bar/-/cozy-bar-25.0.0.tgz#89745078307bd90171a83b4081d16f908726ec10"
-  integrity sha512-DWfRHD8TcN7uInPG7EEu2kGg7FW/UoTKwKJMvLLlCmeYI6KW5CbyWVqp4pzh1S5QKu90QGRIQ9CK1oH9sB/1eg==
+cozy-bar@^27.0.0:
+  version "27.0.0"
+  resolved "https://registry.yarnpkg.com/cozy-bar/-/cozy-bar-27.0.0.tgz#7b163965ce11b2c12ff8ac1b2806fb0007e8734f"
+  integrity sha512-e7GZlXDc4dtjZ7GbYUZY2RulsXB/sGfsbEIX9Z4XARynvYoihx3pMBioZuncS4khK1sFQSxhOgxrl9/ejAt2Fg==
   dependencies:
     lodash.set "^4.3.2"
     lodash.unionwith "4.6.0"
@@ -4891,10 +4891,10 @@ cozy-realtime@^5.8.0:
   dependencies:
     "@cozy/minilog" "^1.0.0"
 
-cozy-search@^0.11.1:
-  version "0.11.1"
-  resolved "https://registry.yarnpkg.com/cozy-search/-/cozy-search-0.11.1.tgz#46cc401b31234ba7ff37b16c3628620dc6e2f31c"
-  integrity sha512-nNOLHEthmpiHlEnphwUP1fFky74qzNl9U4HNj85QtWli09oPeppVyHc3BBrxQVEVyFbXGFGpdlRIH+1Tp9UKmw==
+cozy-search@^0.13.3:
+  version "0.13.3"
+  resolved "https://registry.yarnpkg.com/cozy-search/-/cozy-search-0.13.3.tgz#a121046fd03c5abcb25185fe899480f8381af44d"
+  integrity sha512-wQloD9ilcOI12CRoTtJbxir97JI8lgxFXn9cFx9HYBumnRip5wtIuIyd9DUDECqQcx3ZYpAv7jag7ab8EogdbQ==
   dependencies:
     classnames "^2.5.1"
     lodash "^4.17.21"
@@ -4916,10 +4916,26 @@ cozy-tsconfig@^1.2.0:
   resolved "https://registry.yarnpkg.com/cozy-tsconfig/-/cozy-tsconfig-1.2.0.tgz#17e61f960f139fae4d26cbac2254b9ab632b269e"
   integrity sha512-TRHnY9goF3FzVlUbP7BcHxuN2XAA4AmppT4fHHZmTKaSwYTByVR1Al+riFMDbce94kJZ1wzl9WNLWQuqzGZ6Cw==
 
-cozy-ui@^130.7.2:
-  version "130.7.2"
-  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-130.7.2.tgz#77cb222ea377c2236d993334fd109d14c4216d55"
-  integrity sha512-b6oqpTLxDBbOLndGilMZzSWpaE6CRVTfOKu61FNhFOnI222oQ2sQXePsRv6+plpJPuCw1X2Uvj0GaydUtpU0dA==
+cozy-ui-plus@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/cozy-ui-plus/-/cozy-ui-plus-2.1.1.tgz#08ac73a61108cbaac9e9fe959774570e37397928"
+  integrity sha512-rU3B29Q1r89KcgeUWofNDwKJ8KODBoE18cgyYgJ+1NAWVoplObGiGtkXuAxTIgeF38bOtsHiGTUBPvRCPYo/dg==
+  dependencies:
+    classnames "^2.5.1"
+    cozy-interapp "^0.5.4"
+    filesize "8.0.7"
+    final-form "4.20.9"
+    final-form-arrays "3.1.0"
+    lodash "^4.17.21"
+    mime-types "2.1.35"
+    react-final-form "6.5.9"
+    react-final-form-arrays "3.1.4"
+    rooks "7.14.1"
+
+cozy-ui@^133.0.1:
+  version "133.0.1"
+  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-133.0.1.tgz#be9005ae984679689f9f5f206f878a01dcea2dd8"
+  integrity sha512-nOogchQjS4vQvngUM7TwDgSkcjbM/q3uFHmt4YDVUs3m283M1dBKx/pwqeNQw9o0b0NPUzxZGIvkOz6QiLeOxw==
   dependencies:
     "@babel/runtime" "^7.3.4"
     "@date-io/date-fns" "1"
@@ -4929,22 +4945,15 @@ cozy-ui@^130.7.2:
     "@popperjs/core" "^2.4.4"
     chart.js "3.7.1"
     classnames "^2.2.5"
-    cozy-interapp "^0.5.4"
     date-fns "2.30.0"
-    filesize "8.0.7"
-    final-form "4.20.9"
-    final-form-arrays "3.1.0"
     hammerjs "^2.0.8"
     intersection-observer "0.11.0"
-    mime-types "2.1.35"
     mui-bottom-sheet "https://github.com/cozy/mui-bottom-sheet.git#v1.0.9"
     node-polyglot "^2.5.0"
     normalize.css "^8.0.0"
     patch-package "^8.0.0"
     pdf-lib "1.17.1"
     react-chartjs-2 "4.1.0"
-    react-final-form "6.5.9"
-    react-final-form-arrays "3.1.4"
     react-markdown "^4.0.8"
     react-popper "^2.2.3"
     react-remove-scroll "^2.4.0"
@@ -9378,9 +9387,9 @@ ms@^2.1.3:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
   integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
 
-"mui-bottom-sheet@https://github.com/cozy/mui-bottom-sheet.git#v1.0.9":
+"mui-bottom-sheet@git+https://github.com/cozy/mui-bottom-sheet.git#v1.0.9":
   version "1.0.8"
-  resolved "https://github.com/cozy/mui-bottom-sheet.git#3dc4c2a245ab39079bc2f73546bccf80847be14c"
+  resolved "git+https://github.com/cozy/mui-bottom-sheet.git#3dc4c2a245ab39079bc2f73546bccf80847be14c"
   dependencies:
     "@juggle/resize-observer" "^3.1.3"
     jest-environment-jsdom-sixteen "^1.0.3"

@@ -1,10 +1,11 @@
 /* eslint-disable import/order */
 import 'cozy-ui/dist/cozy-ui.utils.min.css'
 import 'cozy-ui/transpiled/react/stylesheet.css'
+import 'cozy-ui-plus/dist/stylesheet.css'
 import '@/styles/index.css'
 
 import { BreakpointsProvider } from 'cozy-ui/transpiled/react/providers/Breakpoints'
-import CozyTheme from 'cozy-ui/transpiled/react/providers/CozyTheme'
+import CozyTheme from 'cozy-ui-plus/dist/providers/CozyTheme'
 import InstallAppIntent from '@/ducks/components/intents/InstallAppIntent'
 import IntentHandler from '@/ducks/components/intents/IntentHandler'
 import schema from '@/lib/schema'

@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import AppIcon from 'cozy-ui/transpiled/react/AppIcon'
+import AppIcon from 'cozy-ui-plus/dist/AppIcon'
 
 import { HeaderActions } from './HeaderActions'
 import { HeaderShortcutActions } from './HeaderShortcutActions'

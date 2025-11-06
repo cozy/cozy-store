@@ -5,8 +5,10 @@ import { connect } from 'react-redux'
 
 import { withClient } from 'cozy-client'
 import Intents from 'cozy-interapp'
-import IntentModal from 'cozy-ui/transpiled/react/deprecated/IntentModal'
+import { DialogCloseButton } from 'cozy-ui/transpiled/react/CozyDialogs'
+import Dialog from 'cozy-ui/transpiled/react/Dialog'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
+import IntentIframe from 'cozy-ui-plus/dist/Intent/IntentIframe'
 
 import { APP_TYPE } from '@/ducks/apps'
 import { getAppBySlug } from '@/ducks/apps'
@@ -15,6 +17,7 @@ export class ConfigureModal extends Component {
   constructor(props) {
     super(props)
     const { app, onNotInstalled, onWebApp } = this.props
+    this.state = { modalOpened: true }
 
     if (!app.installed) {
       onNotInstalled()
@@ -30,23 +33,36 @@ export class ConfigureModal extends Component {
     this.intents = new Intents({ client })
   }
 
+  onClose = () => {
+    this.setState({
+      modalOpened: false
+    })
+  }
+
   render() {
     const { app, dismissAction, onSuccess, breakpoints = {} } = this.props
+    const { modalOpened } = this.state
     const { isMobile } = breakpoints
+
     return (
-      <IntentModal
-        create={this.intents.create.bind(this.intents)}
-        action="CREATE"
-        doctype="io.cozy.accounts"
-        options={{ slug: app.slug }}
-        dismissAction={dismissAction}
-        onComplete={onSuccess}
-        mobileFullscreen
-        overflowHidden
-        size="small"
-        {...(!isMobile ? { height: '41rem' } : {})}
-        into="body"
-      />
+      <Dialog
+        open={modalOpened}
+        classes={{ paper: 'u-h-100' }}
+        fullScreen={isMobile}
+        fullWidth
+        maxWidth="md"
+        onClose={this.onClose}
+      >
+        <DialogCloseButton onClick={this.onClose} />
+        <IntentIframe
+          create={this.intents.create.bind(this.intents)}
+          action="CREATE"
+          doctype="io.cozy.accounts"
+          options={{ slug: app.slug }}
+          onCancel={dismissAction}
+          onTerminate={onSuccess}
+        />
+      </Dialog>
     )
   }
 }

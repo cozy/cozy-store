@@ -4,6 +4,8 @@
 import 'cozy-ui/dist/cozy-ui.utils.min.css'
 // eslint-disable-next-line import/order
 import 'cozy-ui/transpiled/react/stylesheet.css'
+// eslint-disable-next-line import/order
+import 'cozy-ui-plus/dist/stylesheet.css'
 
 import { captureConsoleIntegration } from '@sentry/integrations'
 import * as Sentry from '@sentry/react'
