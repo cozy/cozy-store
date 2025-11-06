@@ -4,12 +4,12 @@ import React, { Component } from 'react'
 import { Link, useMatch, useParams } from 'react-router-dom'
 
 import { BarCenter } from 'cozy-bar'
-import AppIcon from 'cozy-ui/transpiled/react/AppIcon'
 import Button from 'cozy-ui/transpiled/react/Buttons'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import Left from 'cozy-ui/transpiled/react/Icons/Left'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
 import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
+import AppIcon from 'cozy-ui-plus/dist/AppIcon'
 
 import { getAppIconProps } from '@/ducks/apps'
 import Details from '@/ducks/apps/components/ApplicationPage/Details'
