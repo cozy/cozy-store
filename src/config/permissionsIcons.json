@@ -75,5 +75,6 @@
   "org.fing.mesinfos.home": "home",
   "org.fing.mesinfos.insuranceclaim": "sinister",
   "org.fing.mesinfos.paymentterms": "files-pen",
-  "io.cozy.drive.settings": "settings"
+  "io.cozy.drive.settings": "settings",
+  "io.cozy.ai.chat.assistants": "assistant"
 }

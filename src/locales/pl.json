@@ -247,7 +247,8 @@
         "tags": "Tags",
         "timeseries.geojson": "Trips",
         "triggers": "Scheduling jobs",
-        "drive.settings": "Ustawienia Drive"
+        "drive.settings": "Ustawienia Drive",
+        "ai.chat.assistants": "Asystent AI"
       }
     },
     "fr": {

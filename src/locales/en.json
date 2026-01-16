@@ -278,7 +278,8 @@
         "timeseries.geojson": "Trips",
         "timeseries.grades": "Grades",
         "triggers": "Scheduling jobs",
-        "drive.settings": "Drive settings"
+        "drive.settings": "Drive settings",
+        "ai.chat.assistants": "AI Assistant"
       }
     },
     "fr": {

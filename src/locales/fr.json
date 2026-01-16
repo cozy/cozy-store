@@ -276,20 +276,8 @@
         "timeseries.geojson": "Déplacements",
         "timeseries.grades": "Notes",
         "triggers": "Planification de tâches à exécuter dans le futur",
-        "drive.settings": "Paramètres de Drive"
-      }
-    },
-    "fr": {
-      "maif": {
-        "events": "Évènements (Maif)",
-        "maifuser": {
-          "contrat": "Contrat (Maif)",
-          "home": "Maison (Maif)",
-          "family": "Foyer (Maif)",
-          "paymentterms": "Paiement (Maif)",
-          "sinistre": "Sinistre (Maif)",
-          "societaire": "Sociétaire (Maif)"
-        }
+        "drive.settings": "Paramètres de Drive",
+        "ai.chat.assistants": "Assistant IA"
       }
     },
     "org": {

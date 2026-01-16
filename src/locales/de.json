@@ -268,7 +268,8 @@
         "tags": "Tags",
         "timeseries.geojson": "Reisen",
         "triggers": "Scheduling jobs",
-        "drive.settings": "Drive-Einstellungen"
+        "drive.settings": "Drive-Einstellungen",
+        "ai.chat.assistants": "KI-Assistent"
       }
     },
     "fr": {
