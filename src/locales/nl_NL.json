@@ -278,7 +278,8 @@
         "tags": "Labels",
         "timeseries.geojson": "Reizen",
         "triggers": "Bezig met inplannen van taken...",
-        "drive.settings": "Drive-instellingen"
+        "drive.settings": "Drive-instellingen",
+        "ai.chat.assistants": "AI-assistent"
       }
     },
     "fr": {
