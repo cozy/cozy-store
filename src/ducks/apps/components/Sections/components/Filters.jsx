@@ -1,4 +1,5 @@
 import React, { useState, useRef, forwardRef } from 'react'
+import { useI18n } from 'twake-i18n'
 
 import { BarRight } from 'cozy-bar'
 import ActionsMenu from 'cozy-ui/transpiled/react/ActionsMenu'
@@ -12,7 +13,6 @@ import ListItemIcon from 'cozy-ui/transpiled/react/ListItemIcon'
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 import Radio from 'cozy-ui/transpiled/react/Radios'
 import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
-import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
 const Filters = ({ filter, onFilterChange }) => {
   const anchorRef = useRef(null)

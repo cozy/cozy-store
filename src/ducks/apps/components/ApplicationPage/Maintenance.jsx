@@ -1,6 +1,5 @@
 import React from 'react'
-
-import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
+import { translate } from 'twake-i18n'
 
 import maintenanceIllu from '@/assets/illustrations/maintenance.svg'
 import ReactMarkdownWrapper from '@/ducks/components/ReactMarkdownWrapper'

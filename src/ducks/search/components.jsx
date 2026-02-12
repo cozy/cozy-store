@@ -1,6 +1,7 @@
 import sortBy from 'lodash/sortBy'
 import PropTypes from 'prop-types'
 import React, { useCallback, useMemo } from 'react'
+import { useI18n } from 'twake-i18n'
 
 import flag from 'cozy-flags'
 import Icon from 'cozy-ui/transpiled/react/Icon'
@@ -9,7 +10,6 @@ import InputGroup from 'cozy-ui/transpiled/react/InputGroup'
 import Label from 'cozy-ui/transpiled/react/Label'
 import Input from 'cozy-ui/transpiled/react/legacy/Input'
 import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
-import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
 import StoreAppItem from '@/ducks/apps/components/StoreAppItem'
 import { dumpMatches } from '@/ducks/search/utils'

@@ -5,10 +5,10 @@
 import { render, fireEvent, act } from '@testing-library/react'
 import React from 'react'
 import { useLocation } from 'react-router-dom'
+import I18n from 'twake-i18n'
 
 import CozyClient, { CozyProvider } from 'cozy-client'
 import { BreakpointsProvider } from 'cozy-ui/transpiled/react/providers/Breakpoints'
-import I18n from 'cozy-ui/transpiled/react/providers/I18n'
 
 import enLocale from '../../../../locales/en.json'
 

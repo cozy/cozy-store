@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useI18n } from 'twake-i18n'
 
 import { useClient, useFetchShortcut } from 'cozy-client'
 import { move } from 'cozy-client/dist/models/file'
@@ -8,7 +9,6 @@ import Icon from 'cozy-ui/transpiled/react/Icon'
 import CloudIcon from 'cozy-ui/transpiled/react/Icons/Cloud'
 import { useAlert } from 'cozy-ui/transpiled/react/providers/Alert'
 import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
-import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
 import { buildFileFromPathQuery } from '@/ducks/queries'
 

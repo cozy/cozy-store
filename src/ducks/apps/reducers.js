@@ -1,8 +1,7 @@
 'use strict'
 
 import { combineReducers } from 'redux'
-
-import { extend as extendI18n } from 'cozy-ui/transpiled/react/providers/I18n'
+import { extend as extendI18n } from 'twake-i18n'
 
 // initial loading
 export const LOADING_APP = 'LOADING_APP'

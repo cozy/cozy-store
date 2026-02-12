@@ -2,10 +2,10 @@ import compose from 'lodash/flowRight'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { translate } from 'twake-i18n'
 
 import { withClient } from 'cozy-client'
 import Modal from 'cozy-ui/transpiled/react/deprecated/Modal'
-import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
 
 import { fetchLatestApp, getAppBySlug, restoreAppIfSaved } from '@/ducks/apps'
 import AppInstallation from '@/ducks/apps/components/AppInstallation'

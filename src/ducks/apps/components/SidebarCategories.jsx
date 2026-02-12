@@ -1,8 +1,8 @@
 import React from 'react'
 import { NavLink as RouterLink, useLocation } from 'react-router-dom'
+import { translate } from 'twake-i18n'
 
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
-import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
 import { categoryUtils } from 'cozy-ui-plus/dist/AppSections'
 
 import { useAlternativeStore } from '@/ducks/AlternativeStore/useAlternativeStore'

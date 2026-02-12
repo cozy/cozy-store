@@ -1,9 +1,9 @@
 import '@testing-library/jest-dom'
 import { render } from '@testing-library/react'
 import React from 'react'
+import I18n from 'twake-i18n'
 
 import CozyClient, { CozyProvider } from 'cozy-client'
-import I18n from 'cozy-ui/transpiled/react/providers/I18n'
 
 import enLocale from '../../../src/locales/en.json'
 

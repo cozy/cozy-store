@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useI18n } from 'twake-i18n'
 
 import Banner from 'cozy-ui/transpiled/react/Banner'
 import Button from 'cozy-ui/transpiled/react/Buttons'
@@ -9,7 +10,6 @@ import OpenwithIcon from 'cozy-ui/transpiled/react/Icons/Openwith'
 import Tooltip from 'cozy-ui/transpiled/react/Tooltip'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import { useBreakpoints } from 'cozy-ui/transpiled/react/providers/Breakpoints'
-import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
 import GithubIcon from '@/assets/icons/icon-github.svg'
 

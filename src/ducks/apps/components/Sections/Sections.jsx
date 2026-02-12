@@ -2,9 +2,9 @@ import Fuse from 'fuse.js'
 import PropTypes from 'prop-types'
 import React, { useState, useEffect, useMemo, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
+import { useI18n } from 'twake-i18n'
 
 import flag from 'cozy-flags'
-import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 import AppSections from 'cozy-ui-plus/dist/AppSections'
 import * as filterUtils from 'cozy-ui-plus/dist/AppSections/search'
 

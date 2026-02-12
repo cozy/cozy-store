@@ -1,11 +1,11 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { HashRouter } from 'react-router-dom'
+import I18n from 'twake-i18n'
 
 import { CozyProvider, createMockClient } from 'cozy-client'
 import { Layout } from 'cozy-ui/transpiled/react/Layout'
 import { BreakpointsProvider } from 'cozy-ui/transpiled/react/providers/Breakpoints'
-import I18n from 'cozy-ui/transpiled/react/providers/I18n'
 
 import enLocale from '../src/locales/en.json'
 
