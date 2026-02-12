@@ -1,6 +1,5 @@
 import { tMock } from 'jestLib/I18n'
-
-import { extend as extendI18n } from 'cozy-ui/transpiled/react/providers/I18n'
+import { extend as extendI18n } from 'twake-i18n'
 
 import { getTranslatedManifestProperty } from './helpers'
 

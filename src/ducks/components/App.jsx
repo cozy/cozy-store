@@ -1,6 +1,7 @@
 import compose from 'lodash/flowRight'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { translate } from 'twake-i18n'
 
 import { BarComponent } from 'cozy-bar'
 import { withClient } from 'cozy-client'
@@ -10,7 +11,6 @@ import IconSprite from 'cozy-ui/transpiled/react/Icon/Sprite'
 import { Layout, Main } from 'cozy-ui/transpiled/react/Layout'
 import Alerter from 'cozy-ui/transpiled/react/deprecated/Alerter'
 import { BreakpointsProvider } from 'cozy-ui/transpiled/react/providers/Breakpoints'
-import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
 
 import { initApp, restoreAppIfSaved } from '@/ducks/apps'
 import { AppRouter } from '@/ducks/components/AppRouter'

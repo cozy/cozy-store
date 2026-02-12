@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { useI18n } from 'twake-i18n'
 
 import { useClient } from 'cozy-client'
 import { isFlagshipApp } from 'cozy-device-helper'
@@ -8,7 +9,6 @@ import Button from 'cozy-ui/transpiled/react/Buttons'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import CloudIcon from 'cozy-ui/transpiled/react/Icons/Cloud'
 import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
-import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
 import { handleIntent } from './helpers'
 

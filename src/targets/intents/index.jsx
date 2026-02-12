@@ -17,7 +17,7 @@ import { Provider } from 'react-redux'
 import CozyClient, { CozyProvider, RealTimeQueries } from 'cozy-client'
 import flag from 'cozy-flags'
 import { RealtimePlugin } from 'cozy-realtime'
-import I18n from 'cozy-ui/transpiled/react/I18n'
+import I18n from 'twake-i18n'
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.querySelector('[role=application]')

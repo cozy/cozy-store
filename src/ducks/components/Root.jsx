@@ -1,13 +1,13 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { HashRouter } from 'react-router-dom'
+import { I18n } from 'twake-i18n'
 
 import { BarProvider } from 'cozy-bar'
 import { CozyProvider, RealTimeQueries } from 'cozy-client'
 import { DataProxyProvider } from 'cozy-dataproxy-lib'
 import { WebviewIntentProvider } from 'cozy-intent'
 import AlertProvider from 'cozy-ui/transpiled/react/providers/Alert'
-import { I18n } from 'cozy-ui/transpiled/react/providers/I18n'
 import CozyTheme from 'cozy-ui-plus/dist/providers/CozyTheme'
 
 import App from '@/ducks/components/App'

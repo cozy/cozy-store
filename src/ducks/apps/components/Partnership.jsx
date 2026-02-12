@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-
-import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
+import { translate } from 'twake-i18n'
 
 import ReactMarkdownWrapper from '@/ducks/components/ReactMarkdownWrapper'
 import { getTranslatedManifestProperty } from '@/lib/helpers'

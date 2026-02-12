@@ -5,6 +5,7 @@ import pickBy from 'lodash/pickBy'
 import React, { Component } from 'react'
 import { PropTypes } from 'react-proptypes'
 import { connect } from 'react-redux'
+import { translate } from 'twake-i18n'
 
 import { withClient } from 'cozy-client'
 import flags from 'cozy-flags'
@@ -17,7 +18,6 @@ import {
   ModalHeader,
   ModalFooter
 } from 'cozy-ui/transpiled/react/deprecated/Modal'
-import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
 
 import storeConfig from '@/config/index.json'
 import { APP_TYPE, getAppBySlug, installAppFromRegistry } from '@/ducks/apps'

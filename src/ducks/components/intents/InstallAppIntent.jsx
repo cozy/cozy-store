@@ -2,11 +2,11 @@ import compose from 'lodash/flowRight'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { translate } from 'twake-i18n'
 
 import { withClient } from 'cozy-client'
 import IntentHeader from 'cozy-ui/transpiled/react/IntentHeader'
 import Spinner from 'cozy-ui/transpiled/react/Spinner'
-import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
 
 import {
   APP_TYPE,

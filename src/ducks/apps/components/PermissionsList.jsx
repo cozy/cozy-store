@@ -1,7 +1,7 @@
 import React from 'react'
+import { translate } from 'twake-i18n'
 
 import Icon from 'cozy-ui/transpiled/react/Icon'
-import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
 
 import localAccessIcon from '@/assets/icons/icon-cloud-in-cozy.svg'
 import externalIcon from '@/assets/icons/icon-cloud-out-cozy.svg'

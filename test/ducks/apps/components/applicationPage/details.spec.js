@@ -5,9 +5,9 @@
 import { render, fireEvent } from '@testing-library/react'
 import React from 'react'
 import { MemoryRouter } from 'react-router-dom'
+import I18n from 'twake-i18n'
 
 import CozyClient, { CozyProvider } from 'cozy-client'
-import I18n from 'cozy-ui/transpiled/react/providers/I18n'
 
 import enLocale from '../../../../../src/locales/en.json'
 import mockKonnector from '../../_mockPKonnectorTrinlaneRegistryVersion'

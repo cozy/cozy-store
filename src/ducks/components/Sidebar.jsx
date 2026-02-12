@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import { NavLink as RouterLink, useLocation } from 'react-router-dom'
+import { translate } from 'twake-i18n'
 
 import CloudIcon from 'cozy-ui/transpiled/react/Icons/Cloud'
 import CompassIcon from 'cozy-ui/transpiled/react/Icons/Compass'
@@ -11,7 +12,6 @@ import Nav, {
 } from 'cozy-ui/transpiled/react/Nav'
 import Sidebar from 'cozy-ui/transpiled/react/Sidebar'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
-import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
 
 import config from '@/config/index.json'
 import { SidebarCategories } from '@/ducks/apps/Containers'

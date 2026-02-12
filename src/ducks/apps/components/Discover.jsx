@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { useMatch, useSearchParams } from 'react-router-dom'
+import { translate } from 'twake-i18n'
 
 import { BarCenter } from 'cozy-bar'
 import { Content } from 'cozy-ui/transpiled/react/Layout'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import withBreakpoints from 'cozy-ui/transpiled/react/helpers/withBreakpoints'
-import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
 
 import { useAlternativeStore } from '@/ducks/AlternativeStore/useAlternativeStore'
 import ApplicationRouting from '@/ducks/apps/components/ApplicationRouting'

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { useI18n } from 'twake-i18n'
 
 import Button from 'cozy-ui/transpiled/react/Buttons'
 import Icon from 'cozy-ui/transpiled/react/Icon'
@@ -8,7 +9,6 @@ import IntentHeader from 'cozy-ui/transpiled/react/IntentHeader'
 import Portal from 'cozy-ui/transpiled/react/Portal'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import Modal, { ModalContent } from 'cozy-ui/transpiled/react/deprecated/Modal'
-import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
 import PermissionsList from '@/ducks/apps/components/PermissionsList'
 

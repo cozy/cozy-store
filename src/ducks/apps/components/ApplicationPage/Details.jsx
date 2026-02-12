@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { useI18n } from 'twake-i18n'
 
 import { useClient } from 'cozy-client'
 import Button from 'cozy-ui/transpiled/react/Buttons'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import Toggle from 'cozy-ui/transpiled/react/Toggle'
-import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
 import androidIcon from '@/assets/icons/platforms/icon-android.svg'
 import iosIcon from '@/assets/icons/platforms/icon-ios.svg'

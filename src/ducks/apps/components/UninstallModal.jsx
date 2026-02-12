@@ -2,6 +2,7 @@ import compose from 'lodash/flowRight'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { translate } from 'twake-i18n'
 
 import { withClient } from 'cozy-client'
 import Intents from 'cozy-interapp'
@@ -14,7 +15,6 @@ import Modal, {
   ModalDescription,
   ModalFooter
 } from 'cozy-ui/transpiled/react/deprecated/Modal'
-import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
 
 import { getAppBySlug, uninstallApp } from '@/ducks/apps'
 import ReactMarkdownWrapper from '@/ducks/components/ReactMarkdownWrapper'

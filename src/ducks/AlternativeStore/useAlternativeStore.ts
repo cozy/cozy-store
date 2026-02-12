@@ -1,9 +1,9 @@
 import { useMemo } from 'react'
+import { useExtendI18n } from 'twake-i18n'
 
 import { useQueryAll } from 'cozy-client'
 import { IOCozyFile } from 'cozy-client/types/types'
 import flag from 'cozy-flags'
-import { useExtendI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
 import { generateI18nConfig } from '@/ducks/AlternativeStore/helpers'
 import { transformData } from '@/ducks/AlternativeStore/transformData'

@@ -1,6 +1,5 @@
 import { connect } from 'react-redux'
-
-import { translate } from 'cozy-ui/transpiled/react/providers/I18n'
+import { translate } from 'twake-i18n'
 
 import { getInstalledApps, getRegistryApps } from './index'
 
